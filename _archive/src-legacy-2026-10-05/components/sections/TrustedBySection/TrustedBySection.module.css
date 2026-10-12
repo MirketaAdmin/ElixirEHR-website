@@ -1,0 +1,11 @@
+.section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background: var(--color-surface-container-lowest);
+}
+
+.heading {
+  text-align: center;
+  color: var(--color-primary-dark);
+  margin-bottom: 12px;
+}

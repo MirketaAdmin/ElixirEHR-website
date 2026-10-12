@@ -1,0 +1,10 @@
+/* Frame-specific overrides for shared sections on the Treatment Center Solutions page. */
+
+/* Hero paragraph is Roboto 18/28; the primary button label is 16px. */
+.hero {
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-description-width: 640px;
+  --page-hero-content-offset: 0;
+  --page-hero-primary-size: 16px;
+}

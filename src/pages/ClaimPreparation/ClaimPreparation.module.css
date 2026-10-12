@@ -1,0 +1,50 @@
+/* Frame-specific overrides for shared sections on the Claim Preparation page. */
+
+/* Hero: four-line title, so the content (not the image) sets the height; 54px padding,
+   Roboto 18/28 paragraph, both CTAs 58px tall with 16px labels. */
+.hero {
+  --page-hero-padding: 53.5px;
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-primary-height: 58px;
+  --page-hero-primary-size: 16px;
+}
+
+.hero p + div > a:first-child {
+  letter-spacing: 0.04em;
+}
+
+/* The frame tracks the long current crumb slightly wider than the shared 1px. */
+.hero nav li:last-child {
+  letter-spacing: 1.16px;
+}
+
+/* CTA band: tight H2 tracking, two 66px buttons (secondary outlined in white). */
+.ctaBand {
+  padding: 80px 0 81px;
+}
+
+.ctaBand h2 {
+  max-width: 700px;
+  line-height: 60px;
+  letter-spacing: -3px;
+}
+
+.ctaBand h2 + p:last-child {
+  max-width: 790px;
+  margin-top: 32px;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.ctaButton,
+.ctaSecondary {
+  height: 66px;
+  margin-top: 47px;
+}
+
+.ctaSecondary {
+  padding-inline: 41px;
+  border-color: var(--color-white);
+  color: var(--color-white);
+  font-weight: 700;
+}

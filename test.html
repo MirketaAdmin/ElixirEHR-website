@@ -1,0 +1,2096 @@
+<?php
+/* Template Name: AI-Readiness */
+get_header();
+?>
+
+<!-- Google Fonts: DM Sans + Nunito Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&amp;family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&amp;display=swap" rel="stylesheet"/>
+<!-- Structured Data: Service -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Enterprise AI Readiness Assessment",
+    "provider": {
+      "@type": "Organization",
+      "name": "Mirketa Inc.",
+      "url": "https://mirketa.com",
+      "description": "Global digital transformation and technology services company"
+    },
+    "description": "A comprehensive assessment service that evaluates enterprise AI readiness across 6 dimensions: Business Alignment, Data Readiness, Technology Landscape, Process & Operations, Talent & Culture, and Governance & Risk Management.",
+    "serviceType": "AI Consulting",
+    "areaServed": "Worldwide",
+    "offers": {
+      "@type": "Offer",
+      "description": "AI Readiness Assessment including maturity benchmark, gap analysis, use case identification, implementation roadmap, and ROI forecast"
+    }
+  }
+  </script>
+<!-- Structured Data: FAQ -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an Enterprise AI Readiness Assessment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An Enterprise AI Readiness Assessment is a structured evaluation of an organization's ability to successfully adopt and scale AI. It examines strategy, data quality, technology infrastructure, business processes, talent capabilities, and governance frameworks to identify gaps and build a prioritized AI roadmap."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does Mirketa's AI Readiness Assessment take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mirketa's AI Readiness Assessment typically takes 3–6 weeks depending on the size and complexity of the organization. It includes stakeholder interviews, current state analysis, use case workshops, and roadmap development."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What do we receive at the end of the assessment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You receive an AI Readiness Score and Maturity Benchmark, a detailed Gap Analysis, industry-relevant AI use cases ranked by feasibility and impact, a step-by-step Implementation Roadmap, ROI forecast, and recommendations for tools, platforms, and governance frameworks."
+        }
+      }
+    ]
+  }
+  </script>
+ 
+<style>
+
+/* Google Fonts (ALWAYS keep at top) */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── Reset & Base (scoped to template) ─────────────────────── */
+.mirketa-ai-page *, .mirketa-ai-page *::before, .mirketa-ai-page *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Root Variables ─────────────────────────────────────── */
+:root {
+  --white: #ffffff;
+  --text-dark: #0f172a;
+  --text-mid: #475569;
+}
+
+/* ─── Base ──────────────────────────────────────────────── */
+.mirketa-ai-page {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+  background: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased; /* smoother fonts */
+}
+
+/* ─── Headings ──────────────────────────────────────────── */
+.mirketa-ai-page h1, .mirketa-ai-page h2, .mirketa-ai-page h3, .mirketa-ai-page h4, .mirketa-ai-page h5, .mirketa-ai-page h6 {
+  font-family: 'IBM Plex Serif', serif;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* Responsive Heading Sizes */
+.mirketa-ai-page h1 { font-size: clamp(2rem, 4.5vw, 3.4rem); }
+.mirketa-ai-page h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+.mirketa-ai-page h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
+.mirketa-ai-page h4 { font-size: 1.05rem; }
+.mirketa-ai-page h5 { font-size: 0.95rem; }
+.mirketa-ai-page h6 { font-size: 0.85rem; }
+
+/* ─── Text ──────────────────────────────────────────────── */
+.mirketa-ai-page p {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--text-mid);
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+/* ─── Media ─────────────────────────────────────────────── */
+.mirketa-ai-page img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ─── Links ─────────────────────────────────────────────── */
+.mirketa-ai-page a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+/* ─── Buttons ───────────────────────────────────────────── */
+.mirketa-ai-page button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+    /* ─── Brand Colors ─────────────────────────────────────────────────────── */
+    /* Deep Teal: #0B3D52 | Bright Teal: #00BFA6 | Lime: #00E676 | Amber: #F4A261 | Navy: #0D1F2D | Off-white: #F8FAFB */
+
+    /* ─── Layout ───────────────────────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    @media (min-width: 640px) { .container { padding: 0 1.5rem; } }
+    @media (min-width: 1024px) { .container { padding: 0 2rem; } }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    @media (max-width: 1023px) {
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 767px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .grid-2-mobile { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ─── Buttons ──────────────────────────────────────────────────────────── */
+    /* Base Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: 'IBM Plex Sans', sans-serif; /* unified font */
+  font-weight: 600;
+}
+
+/* Primary (Gradient Button) */
+/* Base Button */
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* Primary (CTA style) */
+.btn-primary {
+  background: linear-gradient(135deg, #21AD66, #1D8F58);
+  color: #ffffff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1D4056, #163244);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Outline (CTA style) */
+.btn-secondary,
+.btn-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.btn-secondary:hover,
+.btn-outline:hover {
+  background: #ffffff;
+  color: #071e2d;
+  transform: translateY(-2px);
+}
+
+    /* ─── Section Labels ───────────────────────────────────────────────────── */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .label-teal { background: rgba(0,191,166,0.12); border: 1px solid rgba(0,191,166,0.3); color: #00BFA6; }
+    .label-navy { background: rgba(11,61,82,0.08); border: 1px solid rgba(11,61,82,0.2); color: #0B3D52; }
+    .label-amber { background: rgba(244,162,97,0.12); border: 1px solid rgba(244,162,97,0.3); color: #d97706; }
+    .label-red { background: rgba(220,38,38,0.08); border: 1px solid rgba(220,38,38,0.2); color: #dc2626; }
+    .label-lime { background: rgba(0,230,118,0.12); border: 1px solid rgba(0,230,118,0.3); color: #00E676; }
+
+    /* ─── Cards ────────────────────────────────────────────────────────────── */
+    .card {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e2eef2;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+    .pillar-card {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e2eef2;
+      border-top: 4px solid #00BFA6;
+      transition: all 0.3s ease;
+    }
+    .pillar-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,191,166,0.15); border-top-color: #0B3D52; }
+    .challenge-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .challenge-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+
+    /* ─── Risk Badges ──────────────────────────────────────────────────────── */
+    .risk-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: 'DM Sans', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .risk-high { background: rgba(239,68,68,0.1); color: #dc2626; }
+    .risk-medium { background: rgba(244,162,97,0.15); color: #d97706; }
+    .risk-low { background: rgba(0,230,118,0.1); color: #059669; }
+
+    /* ─── Fade-up animation ────────────────────────────────────────────────── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── Navigation ───────────────────────────────────────────────────────── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(11,61,82,0.85);
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(11,61,82,0.97);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo-icon {
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #00BFA6, #00E676);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900; font-size: 14px; color: #0D1F2D;
+      flex-shrink: 0;
+    }
+    .nav-logo-text { font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 16px; color: white; line-height: 1; }
+    .nav-logo-sub { font-family: 'Nunito Sans', sans-serif; font-size: 9px; color: #00BFA6; letter-spacing: 0.15em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-link {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 14px; font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      background: none; border: none;
+      transition: color 0.2s;
+      cursor: pointer;
+      padding: 4px 0;
+    }
+    .nav-link:hover { color: #00BFA6; }
+    .nav-mobile-btn { display: none; background: none; border: none; padding: 8px; }
+    .nav-mobile-menu { display: none; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.1); }
+    .nav-mobile-menu.open { display: block; }
+    .nav-mobile-link {
+      display: block; width: 100%;
+      text-align: left; padding: 10px 8px;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 15px; color: rgba(255,255,255,0.85);
+      background: none; border: none;
+      cursor: pointer; transition: color 0.2s;
+    }
+    .nav-mobile-link:hover { color: #00BFA6; }
+    @media (max-width: 767px) {
+      .nav-links { display: none; }
+      .nav-mobile-btn { display: block; }
+    }
+
+    /* ─── Hero ─────────────────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background-image: url('https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1600&q=80');
+      background-size: cover;
+      background-position: center top;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(13,31,45,0.93) 0%, rgba(11,61,82,0.78) 50%, rgba(13,31,45,0.86) 100%);
+    }
+    .hero-accent-line {
+      position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      background: linear-gradient(180deg, transparent, #00BFA6, transparent);
+    }
+    .hero-content { position: relative; z-index: 2; padding: 7rem 0 5rem; max-width: 700px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 16px; border-radius: 20px;
+      background: rgba(0,191,166,0.15); border: 1px solid rgba(0,191,166,0.4);
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #00E676;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+    }
+    .hero-badge-text {
+      font-family: 'IBM Plex Serif', serif !important;
+      font-size: 13px; font-weight: 600;
+      color: #00BFA6; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .hero-h1 {
+     font-family: 'IBM Plex Serif', serif !important;
+      font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      line-height: 1.1;
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+    .hero-h1 span { display: block; color: #00BFA6; }
+    .hero-sub {
+      font-family: 'IBM Plex Serif', serif !important;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.7;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 2rem;
+      max-width: 580px;
+    }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 2.5rem; }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 2.5rem; }
+    .hero-stat-val {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 800; font-size: 1.5rem; color: #00BFA6;
+    }
+    .hero-stat-label {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 12px; color: rgba(255,255,255,0.6); letter-spacing: 0.04em;
+    }
+    .scroll-indicator {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .scroll-text {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 11px; color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .scroll-mouse {
+      width: 20px; height: 32px;
+      border-radius: 10px; border: 1px solid rgba(255,255,255,0.2);
+      display: flex; align-items: flex-start; justify-content: center; padding: 4px;
+    }
+    .scroll-dot {
+      width: 4px; height: 8px; border-radius: 2px; background: #00BFA6;
+      animation: scrollAnim 1.5s infinite;
+    }
+    @keyframes scrollAnim {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(12px); opacity: 0; }
+    }
+
+    /* ─── Stats Bar ────────────────────────────────────────────────────────── */
+    #stats-bar { background: #0D1F2D; padding: 2.5rem 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    @media (max-width: 767px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    .stat-num {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900; font-size: 2.5rem; color: #00BFA6; line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 6px; line-height: 1.4;
+    }
+    .stat-source {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 11px; color: rgba(0,191,166,0.6); margin-top: 4px;
+    }
+
+    /* ─── Section Headings ─────────────────────────────────────────────────── */
+    .section-heading {
+      font-family: 'IBM Plex Serif', serif !important;
+      font-weight: 800;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-family: 'IBM Plex Serif', serif !important;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .section-center { text-align: center; margin-bottom: 3.5rem; }
+
+    /* ─── Challenges Section ───────────────────────────────────────────────── */
+    #challenges { background: #F8FAFB; padding: 6rem 0; }
+    .challenge-img-wrap { position: relative; height: 180px; overflow: hidden; }
+    .challenge-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .challenge-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(13,31,45,0.6) 100%);
+    }
+    .challenge-img-badge { position: absolute; top: 12px; right: 12px; }
+    .challenge-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+    .challenge-icon { font-size: 2rem; margin-bottom: 8px; display: block; }
+    .challenge-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700; font-size: 1.1rem; color: #0B3D52; margin-bottom: 10px;
+    }
+    .challenge-desc {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 14px; color: #4a6572; line-height: 1.65; margin-bottom: 14px; flex: 1;
+    }
+    .challenge-pain {
+      display: flex; align-items: flex-start; gap: 8px;
+      padding: 12px; border-radius: 8px;
+      background: #f0f7f9; border-left: 3px solid #00BFA6;
+    }
+    .challenge-pain-text {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 12px; color: #5a7a85; font-style: italic;
+    }
+
+    /* ─── Maturity Model ───────────────────────────────────────────────────── */
+    #maturity { background: #0D1F2D; padding: 6rem 0; }
+    .maturity-card {
+      border-radius: 12px; padding: 1.5rem;
+      display: flex; flex-direction: column; height: 100%;
+    }
+    .maturity-level-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .maturity-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 800; font-size: 1.2rem; color: white; margin-bottom: 14px;
+    }
+    .maturity-traits { list-style: none; flex: 1; margin-bottom: 1.25rem; }
+    .maturity-trait {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .maturity-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+    .maturity-action {
+      padding: 12px; border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 12px; font-style: italic;
+    }
+
+    /* ─── Framework ────────────────────────────────────────────────────────── */
+
+.pillar-icon{
+    width:64px;
+    height:64px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.pillar-icon img{
+    width:32px;
+    height:32px;
+    object-fit:contain;
+    display:block;
+}
+    #framework { background: #F8FAFB; padding: 6rem 0; }
+    .pillar-card-inner { padding: 1.5rem; display: flex; flex-direction: column; height: 100%; }
+    .pillar-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+    .pillar-icon {
+      width: 40px; height: 40px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .pillar-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700; font-size: 1rem; color: #0D1F2D; line-height: 1.2;
+    }
+    .pillar-subtitle { font-family: 'Nunito Sans', sans-serif; font-size: 12px; font-weight: 600; }
+    .pillar-desc {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 13.5px; color: #4a6572; line-height: 1.65; margin-bottom: 14px; flex: 1;
+    }
+    .pillar-items { list-style: none; }
+    .pillar-item {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 13px; color: #5a7a85; margin-bottom: 6px;
+    }
+    .check-icon { flex-shrink: 0; margin-top: 2px; }
+
+    /* ─── Use Case Readiness ───────────────────────────────────────────────── */
+    #use-cases { background: #0B3D52; padding: 6rem 0; }
+    .tier-card {
+      border-radius: 12px; padding: 1.5rem;
+      display: flex; flex-direction: column; height: 100%;
+    }
+    .tier-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;
+    }
+    .tier-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700; font-size: 1rem; color: white; margin-bottom: 4px;
+    }
+    .tier-desc {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 13.5px; color: rgba(255,255,255,0.7); line-height: 1.65; margin-bottom: 14px;
+    }
+    .tier-examples { list-style: none; flex: 1; margin-bottom: 1.25rem; }
+    .tier-example {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 13px; color: rgba(255,255,255,0.75); margin-bottom: 8px;
+    }
+    .tier-readiness {
+      padding: 12px; border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 12px; font-style: italic;
+    }
+
+    /* ─── Risk Assessment ──────────────────────────────────────────────────── */
+    #risk { background: #F8FAFB; padding: 6rem 0; }
+    .risk-cat-header {
+      padding: 20px; border-bottom-width: 2px; border-bottom-style: solid;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .risk-cat-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700; font-size: 1rem; color: #0D1F2D;
+    }
+    .risk-item {
+      padding: 16px; border-radius: 8px;
+      background: #f8fafb; border: 1px solid #e8f0f3; margin-bottom: 12px;
+    }
+    .risk-item-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+    .risk-item-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600; font-size: 13px; color: #0D1F2D; line-height: 1.4;
+    }
+    .risk-mitigation { display: flex; align-items: flex-start; gap: 8px; }
+    .risk-mitigation-text {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 12px; color: #5a7a85; line-height: 1.5;
+    }
+
+    /* ─── Process ──────────────────────────────────────────────────────────── */
+    #process { background: #0D1F2D; padding: 6rem 0; }
+    .process-step-card {
+      border-radius: 12px; padding: 1.5rem;
+      display: flex; gap: 1.25rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(0,191,166,0.15);
+      transition: all 0.3s ease;
+      margin-bottom: 1rem;
+    }
+    .process-step-card:hover {
+      background: rgba(0,191,166,0.06);
+      border-color: rgba(0,191,166,0.35);
+    }
+    .process-step-num {
+      width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+      background: linear-gradient(135deg, #00BFA6, #0B3D52);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900; font-size: 14px; color: white;
+    }
+    .process-step-dur {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 11px; color: #00BFA6; font-weight: 600;
+      white-space: nowrap; margin-top: 4px; text-align: center;
+    }
+    .process-step-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700; font-size: 1.05rem; color: white; margin-bottom: 8px;
+    }
+    .process-step-desc {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.65; margin-bottom: 10px;
+    }
+    .process-deliverable { display: flex; align-items: center; gap: 8px; }
+    .process-deliverable-text {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 12px; color: #00E676;
+    }
+
+    /* ─── Deliverables ─────────────────────────────────────────────────────── */
+    #deliverables { background: #F8FAFB; padding: 6rem 0; }
+    .deliverable-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 16px; background: white; border-radius: 12px;
+      border: 1px solid #e2eef2; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .deliverable-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .deliverable-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700; font-size: 13px; color: #0B3D52; margin-bottom: 4px; line-height: 1.3;
+    }
+    .deliverable-desc {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 12px; color: #5a7a85; line-height: 1.5;
+    }
+    .deliverables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 640px) { .deliverables-grid { grid-template-columns: 1fr; } }
+
+    /* ─── Why Mirketa ──────────────────────────────────────────────────────── */
+    #why-mirketa { background: #0B3D52; padding: 6rem 0; }
+    .why-card {
+      border-radius: 12px; padding: 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease; height: 100%;
+    }
+    .why-card:hover { background: rgba(0,191,166,0.08); border-color: rgba(0,191,166,0.3); }
+    .why-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(0,191,166,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 1rem;
+    }
+    .why-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700; font-size: 1rem; color: white; margin-bottom: 10px;
+    }
+    .why-desc {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.65;
+    }
+
+    /* ─── Contact Form ─────────────────────────────────────────────────────── */
+    #contact { background: #F8FAFB; padding: 6rem 0; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    @media (max-width: 1023px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 800; font-size: clamp(1.8rem, 3vw, 2.6rem); color: #0D1F2D; line-height: 1.2; margin-bottom: 1rem;
+    }
+    .contact-sub {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 1.05rem; color: #4a6572; line-height: 1.7; margin-bottom: 2rem;
+    }
+    .contact-point { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+    .contact-point-text { font-family: 'Nunito Sans', sans-serif; font-size: 15px; color: #4a6572; }
+    .contact-office {
+      padding: 20px; border-radius: 12px; background: #0B3D52; margin-top: 2rem;
+    }
+    .contact-office-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700; font-size: 1rem; color: white; margin-bottom: 4px;
+    }
+    .contact-office-addr {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 13px; color: rgba(255,255,255,0.65);
+    }
+    .contact-office-tagline {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 13px; color: #00BFA6; margin-top: 4px;
+    }
+    .form-card { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 8px 40px rgba(0,0,0,0.1); border: 1px solid #e2eef2; }
+    .form-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 800; font-size: 1.4rem; color: #0D1F2D; margin-bottom: 6px;
+    }
+    .form-sub {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 14px; color: #5a7a85; margin-bottom: 1.5rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 1rem; }
+    .form-label {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px; font-weight: 600; color: #0B3D52; margin-bottom: 6px;
+    }
+    .form-input, .form-textarea, .form-select {
+      width: 100%; padding: 10px 14px;
+      border-radius: 8px; border: 1.5px solid #d1e4ea;
+      font-family: 'Nunito Sans', sans-serif; font-size: 14px;
+      outline: none; transition: border-color 0.2s;
+      background: white; color: #0D1F2D;
+    }
+    .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: #00BFA6; }
+    .form-textarea { resize: vertical; }
+    .form-privacy {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 11px; color: #8a9ea6; text-align: center; margin-top: 12px;
+    }
+    .form-success { text-align: center; padding: 2rem 0; }
+    .form-success-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(0,230,118,0.15);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    .form-success-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 800; font-size: 1.4rem; color: #0D1F2D; margin-bottom: 8px;
+    }
+    .form-success-text {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 15px; color: #4a6572; line-height: 1.6;
+    }
+
+    /* ─── FAQ ──────────────────────────────────────────────────────────────── */
+    #faq { background: #0D1F2D; padding: 6rem 0; }
+    .faq-item {
+      border-radius: 12px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.3s ease; margin-bottom: 12px;
+    }
+    .faq-item.open { background: rgba(0,191,166,0.08); border-color: rgba(0,191,166,0.3); }
+    .faq-btn {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 20px; text-align: left;
+      background: none; border: none; cursor: pointer;
+    }
+    .faq-question {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600; font-size: 15px; color: white; line-height: 1.4; padding-right: 16px;
+    }
+    .faq-icon {
+      width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(0,191,166,0.15);
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .faq-item.open .faq-icon { background: rgba(0,191,166,0.3); transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+    }
+    .faq-answer.open { max-height: 300px; }
+    .faq-answer-inner {
+      padding: 0 20px 20px;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7;
+      border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px;
+    }
+
+    /* ─── Footer ───────────────────────────────────────────────────────────── */
+    .mirketa-ai-page #footer { background: #0D1F2D; padding: 3rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.08); }
+    .mirketa-ai-page .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .mirketa-ai-page .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .mirketa-ai-page .footer-link {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 13px; color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+    }
+    .mirketa-ai-page .footer-link:hover { color: #00BFA6; }
+    .mirketa-ai-page .footer-copy {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 13px; color: rgba(255,255,255,0.4);
+    }
+
+    /* ─── Utilities ────────────────────────────────────────────────────────── */
+    .text-center { text-align: center; }
+    .mt-4 { margin-top: 1rem; }
+    .mt-6 { margin-top: 1.5rem; }
+    .mt-8 { margin-top: 2rem; }
+    .mt-10 { margin-top: 2.5rem; }
+    .mt-12 { margin-top: 3rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .mb-8 { margin-bottom: 2rem; }
+    .mb-10 { margin-bottom: 2.5rem; }
+    .mb-12 { margin-bottom: 3rem; }
+    .mb-14 { margin-bottom: 3.5rem; }
+    .flex { display: flex; }
+    .flex-wrap { flex-wrap: wrap; }
+    .items-center { align-items: center; }
+    .gap-4 { gap: 1rem; }
+    .gap-6 { gap: 1.5rem; }
+    .w-full { width: 100%; }
+    .justify-center { justify-content: center; }
+    .rounded-xl { border-radius: 12px; }
+    .rounded-2xl { border-radius: 16px; }
+    .overflow-hidden { overflow: hidden; }
+    .shadow-xl { box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+    .shadow-2xl { box-shadow: 0 25px 80px rgba(0,0,0,0.3); }
+    .max-w-3xl { max-width: 48rem; margin-left: auto; margin-right: auto; }
+    .max-w-2xl { max-width: 42rem; margin-left: auto; margin-right: auto; }
+    .dark-text { color: #0D1F2D; }
+    .light-text { color: rgba(255,255,255,0.65); }
+    .teal-text { color: #00BFA6; }
+    .white-text { color: white; }
+  
+/* ─── High-specificity overrides: prevent theme CSS from bleeding in ─────── */
+
+/* Hero heading */
+.mirketa-ai-page .hero-h1 {
+  font-family: 'IBM Plex Serif', serif !important;
+  font-weight: 900 !important;
+  font-size: clamp(2.2rem, 5vw, 3.6rem) !important;
+  line-height: 1.1 !important;
+  color: #ffffff !important;
+  margin-bottom: 1.5rem !important;
+}
+.mirketa-ai-page .hero-h1 span {
+  display: block !important;
+  color: #00BFA6 !important;
+}
+
+/* Hero subheading */
+.mirketa-ai-page .hero-sub {
+  font-family: 'IBM Plex Serif', serif !important;
+  color: rgba(255,255,255,0.82) !important;
+  font-size: clamp(1rem, 2vw, 1.2rem) !important;
+  line-height: 1.7 !important;
+}
+
+/* Hero badge text */
+.mirketa-ai-page .hero-badge-text {
+  color: #00BFA6 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+/* Hero stat values */
+.mirketa-ai-page .hero-stat-val {
+  color: #00BFA6 !important;
+  font-weight: 800 !important;
+  font-size: 1.5rem !important;
+}
+.mirketa-ai-page .hero-stat-label {
+  color: rgba(255,255,255,0.6) !important;
+  font-size: 12px !important;
+}
+
+/* Primary button */
+.mirketa-ai-page .btn-primary {
+  background: linear-gradient(135deg, #21AD66, #1D8F58) !important;
+  color: #ffffff !important;
+  border: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 14px 28px !important;
+  font-size: 15px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  font-family: 'IBM Plex Sans', sans-serif !important;
+  font-weight: 600 !important;
+}
+.mirketa-ai-page .btn-primary:hover {
+  background: linear-gradient(135deg, #1D4056, #163244) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25) !important;
+  color: #ffffff !important;
+}
+
+/* Secondary / outline button */
+.mirketa-ai-page .btn-secondary,
+.mirketa-ai-page .btn-outline {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 14px 28px !important;
+  font-size: 15px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  font-family: 'IBM Plex Sans', sans-serif !important;
+  font-weight: 600 !important;
+}
+.mirketa-ai-page .btn-secondary:hover,
+.mirketa-ai-page .btn-outline:hover {
+  background: #ffffff !important;
+  color: #071e2d !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Section headings */
+.mirketa-ai-page .section-heading {
+  font-family: 'IBM Plex Serif', serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem) !important;
+  line-height: 1.2 !important;
+  margin-bottom: 1rem !important;
+}
+.mirketa-ai-page .section-sub {
+  font-family: 'IBM Plex Serif', serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
+}
+
+/* Dark/light/teal/white text utilities */
+.mirketa-ai-page .dark-text  { color: #0D1F2D !important; }
+.mirketa-ai-page .light-text { color: rgba(255,255,255,0.65) !important; }
+.mirketa-ai-page .teal-text  { color: #00BFA6 !important; }
+.mirketa-ai-page .white-text { color: #ffffff !important; }
+
+/* Stat numbers */
+.mirketa-ai-page .stat-num { color: #00BFA6 !important; font-weight: 900 !important; font-size: 2.5rem !important; }
+.mirketa-ai-page .stat-label { color: rgba(255,255,255,0.7) !important; }
+.mirketa-ai-page .stat-source { color: rgba(0,191,166,0.6) !important; }
+</style>
+<div class="mirketa-ai-page">
+<!-- ─── Hero ───────────────────────────────────────────────────────────── -->
+<section id="hero">
+<div class="hero-overlay"></div>
+<div class="hero-accent-line"></div>
+<div class="container">
+<div class="hero-content fade-up">
+<div class="hero-badge">
+<div class="hero-badge-dot"></div>
+<span class="hero-badge-text">Enterprise AI Readiness Assessment</span>
+</div>
+<h1 class="hero-h1">
+          Is Your Institution or
+          <span>Organization Truely Ready for AI? </span>
+</h1>
+<p class="hero-sub">
+          Mirketa's AI Readiness Assessment shows you exactly where your data, systems, and team stand with a clear action plan, sized for mid-market budgets.
+          We assess what you have, not what a generic framework assumes.
+        </p>
+<div class="hero-ctas">
+
+  
+<button class="btn-primary"
+  onclick="document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });">
+  Get Your Free Assessment
+</button>
+
+<button class="btn-secondary" onclick="window.location.href='https://mirketa.com/ai-velocity-engines/'">
+  Explore the Framework
+</button>
+
+</div>
+<div class="hero-stats">
+<div>
+<div class="hero-stat-val">150+</div>
+<div class="hero-stat-label">Enterprises Assessed</div>
+</div>
+<div>
+<div class="hero-stat-val">12+</div>
+<div class="hero-stat-label">Industries Served</div>
+</div>
+<div>
+<div class="hero-stat-val">4 Weeks</div>
+<div class="hero-stat-label">Avg. Time to Roadmap</div>
+</div>
+<div>
+<div class="hero-stat-val">98%</div>
+<div class="hero-stat-label">Client Satisfaction</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<!-- ─── Stats Bar ───────────────────────────────────────────────────────── -->
+<section id="stats-bar">
+<div class="container">
+<div class="stats-grid">
+<div class="text-center fade-up">
+<div class="stat-num" data-count="95" data-suffix="%">0%</div>
+<div class="stat-label">of enterprise AI pilots fail to scale</div>
+<div class="stat-source">MIT Sloan, 2025</div>
+</div>
+<div class="text-center fade-up" style="transition-delay:0.1s">
+<div class="stat-num" data-count="70" data-suffix="%">0%</div>
+<div class="stat-label">cite poor data quality as the #1 barrier</div>
+<div class="stat-source">Gartner, 2025</div>
+</div>
+<div class="text-center fade-up" style="transition-delay:0.2s">
+<div class="stat-num" data-count="3" data-suffix="x">0x</div>
+<div class="stat-label">more likely to succeed with a readiness assessment</div>
+<div class="stat-source">McKinsey, 2024</div>
+</div>
+<div class="text-center fade-up" style="transition-delay:0.3s">
+<div class="stat-num" data-count="40" data-suffix="%">0%</div>
+<div class="stat-label">of AI budgets are wasted on wrong use cases</div>
+<div class="stat-source">IDC, 2025</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ─── Enterprise Challenges ──────────────────────────────────────────── -->
+<section id="challenges">
+<div class="container">
+<div class="section-center fade-up">
+<span class="section-label label-amber">The Enterprise AI Problem</span>
+<h2 class="section-heading dark-text">Why Enterprises Struggle to Get AI Right</h2>
+<p class="section-sub" style="color:#4a6572;">The barriers to successful AI adoption are well-documented yet most organizations still encounter them. Understanding these challenges is the first step to overcoming them.</p>
+</div>
+<div class="grid-3">
+<!-- Card 1 -->
+<div class="challenge-card fade-up">
+<div class="challenge-img-wrap">
+<img alt="Enterprise AI strategy challenge — where to start" loading="lazy" src="https://mirketa.com/wp-content/uploads/2026/06/mirketa_hero_5-scaled-1.webp"/>
+<div class="challenge-img-overlay"></div>
+<div class="challenge-img-badge"><span class="risk-badge risk-high">HIGH RISK</span></div>
+</div>
+<div class="challenge-body">
+<!-- <span class="challenge-icon">🧭</span> -->
+<h3 class="challenge-title">Where Do We Even Start?</h3>
+<p class="challenge-desc">With hundreds of AI tools, frameworks, and vendors competing for attention, enterprise leaders struggle to identify which AI investments align with their specific business goals and which are just hype.</p>
+<div class="challenge-pain">
+<svg fill="none" height="14" stroke="#d97706" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
+<span class="challenge-pain-text">No clear AI strategy or prioritized roadmap</span>
+</div>
+</div>
+</div>
+
+<!-- Card 2 -->
+<div class="challenge-card fade-up">
+<div class="challenge-img-wrap">
+<img alt="Enterprise AI strategy challenge — where to start" loading="lazy" src="https://mirketa.com/wp-content/uploads/2026/06/designer-working-on-cloud-service-app-2026-01-08-05-49-11-utc-1-scaled-1.webp"/>
+<div class="challenge-img-overlay"></div>
+<div class="challenge-img-badge"><span class="risk-badge risk-high">HIGH RISK</span></div>
+</div>
+<div class="challenge-body">
+<!-- <span class="challenge-icon">🗄️</span> -->
+<h3 class="challenge-title">Fragmented Data, Broken Pipelines</h3>
+<p class="challenge-desc">AI is only as powerful as the data feeding it. Most enterprises operate with siloed data across CRM, ERP, and legacy systems making it nearly impossible to build reliable AI models without first fixing the data foundation.</p>
+<div class="challenge-pain">
+<svg fill="none" height="14" stroke="#d97706" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
+<span class="challenge-pain-text">Poor data quality, accessibility, and governance</span>
+</div>
+</div>
+</div>
+
+<!-- Card 3 -->
+ <div class="challenge-card fade-up">
+<div class="challenge-img-wrap">
+<img alt="Enterprise AI strategy challenge — where to start" loading="lazy" src="https://mirketa.com/wp-content/uploads/2026/06/trust_calibration_1200x900-1.webp"/>
+<div class="challenge-img-overlay"></div>
+<div class="challenge-img-badge"><span class="risk-badge risk-high">HIGH RISK</span></div>
+</div>
+<div class="challenge-body">
+<!-- <span class="challenge-icon">🎯</span> -->
+<h3 class="challenge-title">Which Use Cases Are Actually Ready?</h3>
+<p class="challenge-desc">Not every AI use case is equally feasible or valuable. Enterprises often invest in complex AI projects when simpler automation could deliver faster ROI or pursue low-impact use cases while missing transformational opportunities.</p>
+<div class="challenge-pain">
+<svg fill="none" height="14" stroke="#d97706" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
+<span class="challenge-pain-text">No framework to evaluate use case feasibility vs. impact</span>
+</div>
+</div>
+</div>
+
+<!-- Card 4 -->
+ <div class="challenge-card fade-up">
+<div class="challenge-img-wrap">
+<img alt="Enterprise AI strategy challenge — where to start" loading="lazy" src="https://mirketa.com/wp-content/uploads/2026/06/mirketa_hero_v5.webp"/>
+<div class="challenge-img-overlay"></div>
+<div class="challenge-img-badge"><span class="risk-badge risk-high">HIGH RISK</span></div>
+</div>
+<div class="challenge-body">
+<!-- <span class="challenge-icon">⚠️</span> -->
+<h3 class="challenge-title">Rollout Risks Nobody Talks About</h3>
+<p class="challenge-desc">al success means nothing if adoption fails at the human level.</p>
+<div class="challenge-pain">
+<svg fill="none" height="14" stroke="#d97706" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
+<span class="challenge-pain-text">Underestimated change management and compliance risks</span>
+</div>
+</div>
+</div>
+
+<!-- Card 5 -->
+ <div class="challenge-card fade-up">
+<div class="challenge-img-wrap">
+<img alt="Enterprise AI strategy challenge — where to start" loading="lazy" src="https://mirketa.com/wp-content/uploads/2026/06/enterprise_ai_dark_banner_hires-scaled-1.webp"/>
+<div class="challenge-img-overlay"></div>
+<div class="challenge-img-badge"><span class="risk-badge risk-high">MEDIUM RISK</span></div>
+</div>
+<div class="challenge-body">
+<!-- <span class="challenge-icon">⚠️</span> -->
+<h3 class="challenge-title">The Talent and Culture Gap</h3>
+<p class="challenge-desc">Building AI capabilities requires more than hiring data scientists. It demands a culture of experimentation, cross-functional AI literacy, and leadership that champions data-driven decision-making at every level.</p>
+<div class="challenge-pain">
+<svg fill="none" height="14" stroke="#d97706" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
+<span class="challenge-pain-text">Skill gaps, cultural resistance, and lack of AI champions</span>
+</div>
+</div>
+</div>
+
+<!-- Card 5 -->
+ <div class="challenge-card fade-up">
+<div class="challenge-img-wrap">
+<img alt="Enterprise AI strategy challenge — where to start" loading="lazy" src="https://mirketa.com/wp-content/uploads/2026/06/mirketa_hero_3-scaled-1.webp"/>
+<div class="challenge-img-overlay"></div>
+<div class="challenge-img-badge"><span class="risk-badge risk-high">MEDIUM RISK</span></div>
+</div>
+<div class="challenge-body">
+<!-- <span class="challenge-icon">⚠️</span> -->
+<h3 class="challenge-title">Governance Without a Framework</h3>
+<p class="challenge-desc">Deploying AI without clear governance exposes enterprises to regulatory penalties, reputational damage, and ethical blind spots. Most organizations lack the policies, audit trails, and accountability structures AI demands.</p>
+<div class="challenge-pain">
+<svg fill="none" height="14" stroke="#d97706" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
+<span class="challenge-pain-text">No ethical AI policy, compliance framework, or audit process</span>
+</div>
+</div>
+</div>
+
+</section>
+<!-- ─── AI Maturity Model ───────────────────────────────────────────────── -->
+<section id="maturity">
+<div class="container">
+<div class="section-center fade-up">
+<span class="section-label label-teal">AI Maturity Model</span>
+<h2 class="section-heading white-text">Where Does Your Organization Stand?</h2>
+<p class="section-sub light-text">Every enterprise sits somewhere on the AI maturity spectrum. Understanding your current level is the foundation of a successful AI strategy.</p>
+</div>
+<div class="grid-4 fade-up" style="transition-delay:0.1s">
+<!-- Level 1 -->
+<div class="maturity-card" style="background:rgba(100,116,139,0.15);border:1px solid rgba(100,116,139,0.4);border-top:3px solid #64748b;">
+<span class="maturity-level-label" style="color:#94a3b8;">Level 1</span>
+<h3 class="maturity-name">AI Unaware</h3>
+<ul class="maturity-traits">
+<li class="maturity-trait"><div class="maturity-dot" style="background:#94a3b8;"></div>No formal AI strategy</li>
+<li class="maturity-trait"><div class="maturity-dot" style="background:#94a3b8;"></div>Manual, legacy processes</li>
+<li class="maturity-trait"><div class="maturity-dot" style="background:#94a3b8;"></div>Siloed, inconsistent data</li>
+<li class="maturity-trait"><div class="maturity-dot" style="background:#94a3b8;"></div>No AI skills or champions</li>
+</ul>
+<div class="maturity-action" style="border-left:3px solid #94a3b8;color:#94a3b8;">Start with an AI Readiness Assessment</div>
+</div>
+<!-- Level 2 -->
+<div class="maturity-card" style="background:rgba(0,191,166,0.1);border:1px solid rgba(0,191,166,0.4);border-top:3px solid #00BFA6;">
+<span class="maturity-level-label" style="color:#00BFA6;">Level 2</span>
+<h3 class="maturity-name">AI Exploring</h3>
+<ul class="maturity-traits">
+<li class="maturity-trait"><div class="maturity-dot" style="background:#00BFA6;"></div>Isolated AI pilots underway</li>
+<li class="maturity-trait"><div class="maturity-dot" style="background:#00BFA6;"></div>Basic data collection in place</li>
+<li class="maturity-trait"><div class="maturity-dot" style="background:#00BFA6;"></div>Some AI awareness in leadership</li>
+<li class="maturity-trait"><div class="maturity-dot" style="background:#00BFA6;"></div>Ad-hoc experimentation</li>
+</ul>
+<div class="maturity-action" style="border-left:3px solid #00BFA6;color:#00BFA6;">Formalize strategy and identify priority use cases</div>
+</div>
+<!-- Level 3 -->
+<div class="maturity-card" style="background:rgba(11,61,82,0.3);border:1px solid rgba(11,61,82,0.6);border-top:3px solid #0B3D52;">
+<span class="maturity-level-label" style="color:#7ab8cc;">Level 3</span>
+<h3 class="maturity-name">AI Scaling</h3>
+<ul class="maturity-traits">
+<li class="maturity-trait"><div class="maturity-dot" style="background:#7ab8cc;"></div>Integrated AI strategy across functions</li>
+<li class="maturity-trait"><div class="maturity-dot" style="background:#7ab8cc;"></div>Standardized data governance</li>
+<li class="maturity-trait"><div class="maturity-dot" style="background:#7ab8cc;"></div>AI models in production with measurable ROI</li>
+<li class="maturity-trait"><div class="maturity-dot" style="background:#7ab8cc;"></div>Growing AI talent and culture</li>
+</ul>
+<div class="maturity-action" style="border-left:3px solid #7ab8cc;color:#7ab8cc;">Scale governance, expand use cases, build AI CoE</div>
+</div>
+<!-- Level 4 -->
+<div class="maturity-card" style="background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.4);border-top:3px solid #00E676;">
+<span class="maturity-level-label" style="color:#00E676;">Level 4</span>
+<h3 class="maturity-name">AI Leading</h3>
+<ul class="maturity-traits">
+<li class="maturity-trait"><div class="maturity-dot" style="background:#00E676;"></div>AI-driven innovation and competitive advantage</li>
+<li class="maturity-trait"><div class="maturity-dot" style="background:#00E676;"></div>Continuous learning and model improvement</li>
+<li class="maturity-trait"><div class="maturity-dot" style="background:#00E676;"></div>Ethical AI framework fully embedded</li>
+<li class="maturity-trait"><div class="maturity-dot" style="background:#00E676;"></div>Industry benchmark for AI adoption</li>
+</ul>
+<div class="maturity-action" style="border-left:3px solid #00E676;color:#00E676;">Sustain leadership and explore frontier AI capabilities</div>
+</div>
+</div>
+<div class="text-center mt-10 fade-up">
+<p style="font-family:'Nunito Sans',sans-serif;font-size:1rem;color:rgba(255,255,255,0.6);margin-bottom:1.5rem;">Mirketa's assessment precisely identifies your current maturity level and defines the fastest path to the next.</p>
+<button 
+  type="button"
+  class="btn-primary" 
+  onclick="document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth', block: 'start' });">
+  Find Your Maturity Level
+  <svg fill="none" height="16" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="16">
+    <path d="M5 12h14M12 5l7 7-7 7"></path>
+  </svg>
+</button>
+</div>
+</div>
+</section>
+
+<!-- ─── Assessment Framework ────────────────────────────────────────────── -->
+<section id="framework">
+<div class="container">
+<div class="section-center fade-up">
+<span class="section-label label-navy">The Assessment Framework</span>
+<h2 class="section-heading dark-text">Mirketa's 6-Dimension AI Readiness Framework</h2>
+<p class="section-sub" style="color:#4a6572;">A holistic, enterprise-grade assessment that evaluates every dimension of your AI readiness not just technology, but strategy, data, people, and governance.</p>
+</div>
+<div class="fade-up mb-12" style="transition-delay:0.1s">
+<div class="rounded-2xl overflow-hidden shadow-xl" style="border:1px solid #e2eef2;">
+<img alt="Mirketa Enterprise AI Readiness Assessment Framework — 6 dimensions" loading="lazy" src="https://mirketa.com/wp-content/uploads/2026/06/framework-diagram-1-scaled-1.webp" style="width:100%;object-fit:cover;object-position:center;"/>
+</div>
+</div>
+<div class="grid-3">
+<!-- Pillar 1 -->
+<div class="pillar-card fade-up" style="border-top-color:#00BFA6;">
+<div class="pillar-card-inner">
+<div class="pillar-header">
+<div class="pillar-icon" style="background:rgba(0,191,166,0.15);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/06/Group-9-1.svg" alt="Business Alignment">
+</div>
+<div>
+<div class="pillar-title">Business Alignment</div>
+<div class="pillar-subtitle" style="color:#00BFA6;">Strategy &amp; Vision</div>
+</div>
+</div>
+<p class="pillar-desc">We evaluate how clearly AI connects to your strategic objectives, the depth of executive sponsorship, and whether your organization has a coherent AI vision that drives prioritization decisions.</p>
+<ul class="pillar-items">
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>AI strategy clarity and roadmap</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Executive buy-in and C-suite alignment</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Business-driven use case prioritization</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>KPIs and success metrics definition</li>
+</ul>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="pillar-card fade-up" style="border-top-color:#0B3D52;transition-delay:0.08s">
+<div class="pillar-card-inner">
+<div class="pillar-header">
+<div class="pillar-icon" style="background:rgba(11,61,82,0.1);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/06/Group-10.svg" alt="Data Readiness">
+</div>
+<div>
+<div class="pillar-title">Data Readiness</div>
+<div class="pillar-subtitle" style="color:#0B3D52;">Foundation &amp; Quality</div>
+</div>
+</div>
+<p class="pillar-desc">AI models are only as reliable as the data they learn from. We assess your data quality, accessibility, governance practices, and integration across enterprise systems.</p>
+<ul class="pillar-items">
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#0B3D52" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Data quality, completeness, and consistency</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#0B3D52" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Integration across CRM, ERP, EHR systems</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#0B3D52" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Data governance and privacy compliance</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#0B3D52" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Master data management maturity</li>
+</ul>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="pillar-card fade-up" style="border-top-color:#00BFA6;transition-delay:0.16s">
+<div class="pillar-card-inner">
+<div class="pillar-header">
+<div class="pillar-icon" style="background:rgba(0,191,166,0.15);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/06/Group-11.svg" alt="Technology Landscape">
+</div>
+<div>
+<div class="pillar-title">Technology Landscape</div>
+<div class="pillar-subtitle" style="color:#00BFA6;">Infrastructure &amp; Stack</div>
+</div>
+</div>
+<p class="pillar-desc">We examine whether your existing technology infrastructure can support AI at scale from cloud readiness to API architecture and compatibility with modern AI/ML platforms.</p>
+<ul class="pillar-items">
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Cloud readiness (AWS, Azure, GCP, Salesforce)</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Legacy system modernization status</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>API architecture and integration capability</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>AI/ML tooling and platform compatibility</li>
+</ul>
+</div>
+</div>
+<!-- Pillar 4 -->
+<div class="pillar-card fade-up" style="border-top-color:#0B3D52;transition-delay:0.24s">
+<div class="pillar-card-inner">
+<div class="pillar-header">
+<div class="pillar-icon" style="background:rgba(0,191,166,0.15);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/06/Group-12.svg" alt="Technology Landscape">
+</div>
+<div>
+<div class="pillar-title">Process &amp; Operations</div>
+<div class="pillar-subtitle" style="color:#0B3D52;">Efficiency &amp; Automation</div>
+</div>
+</div>
+<p class="pillar-desc">AI delivers the greatest value in well-defined, repeatable processes. We identify automation opportunities, assess process maturity, and evaluate organizational readiness for AI-driven change.</p>
+<ul class="pillar-items">
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#0B3D52" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Workflow efficiency and automation potential</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#0B3D52" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Process documentation and standardization</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#0B3D52" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Scalability of core business operations</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#0B3D52" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Change management readiness</li>
+</ul>
+</div>
+</div>
+<!-- Pillar 5 -->
+<div class="pillar-card fade-up" style="border-top-color:#00BFA6;transition-delay:0.32s">
+<div class="pillar-card-inner">
+<div class="pillar-header">
+<div class="pillar-icon" style="background:rgba(0,191,166,0.15);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/06/Group-13.svg" alt="Talent & Culture">
+</div>
+<div>
+<div class="pillar-title">Talent &amp; Culture</div>
+<div class="pillar-subtitle" style="color:#00BFA6;">People &amp; Capability</div>
+</div>
+</div>
+<p class="pillar-desc">Technology alone cannot drive transformation people do. We assess AI/ML skill availability, leadership commitment to innovation, and the cultural readiness to embrace AI-driven ways of working.</p>
+<ul class="pillar-items">
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>AI/ML skill availability and gaps</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Culture of data-driven decision-making</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Training, reskilling, and upskilling plans</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>AI champions and center of excellence</li>
+</ul>
+</div>
+</div>
+<!-- Pillar 6 -->
+<div class="pillar-card fade-up" style="border-top-color:#0B3D52;transition-delay:0.4s">
+<div class="pillar-card-inner">
+<div class="pillar-header">
+<div class="pillar-icon" style="background:rgba(11,61,82,0.1);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/06/Group-14.svg " alt="Governance & Risk">
+</div>
+<div>
+<div class="pillar-title">Governance &amp; Risk</div>
+<div class="pillar-subtitle" style="color:#0B3D52;">Compliance &amp; Ethics</div>
+</div>
+</div>
+<p class="pillar-desc">Responsible AI adoption requires clear governance structures, ethical guidelines, and proactive risk management. We evaluate your readiness to deploy AI in a compliant, transparent, and accountable manner.</p>
+<ul class="pillar-items">
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#0B3D52" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Ethical AI policies and decision transparency</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#0B3D52" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Regulatory compliance (GDPR, HIPAA, SOC2)</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#0B3D52" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Risk identification and mitigation strategies</li>
+<li class="pillar-item"><svg class="check-icon" fill="none" height="14" stroke="#0B3D52" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>AI audit trails and accountability frameworks</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ─── Use Case Readiness ──────────────────────────────────────────────── -->
+<section id="use-cases">
+<div class="container">
+<div class="section-center fade-up">
+<span class="section-label label-teal">Use Case Readiness</span>
+<h2 class="section-heading white-text">Not All AI Use Cases Are Created Equal</h2>
+<p class="section-sub light-text">Mirketa's assessment maps your specific use cases against a feasibility-impact matrix to identify which to pursue now, which to plan for, and which to defer.</p>
+</div>
+<div class="grid-3">
+<!-- Tier 1 -->
+<div class="tier-card fade-up" style="background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.3);border-top:3px solid #00E676;">
+<div class="tier-label" style="color:#00E676;">Tier 1 — Quick Wins</div>
+<div class="tier-subtitle">Deploy in 0–3 Months</div>
+<p class="tier-desc">High feasibility, moderate impact. These use cases can be deployed quickly with existing data and infrastructure, delivering early wins that build organizational confidence in AI.</p>
+<ul class="tier-examples">
+<li class="tier-example"><svg fill="none" height="14" stroke="#00E676" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>AI-powered customer service chatbots</li>
+<li class="tier-example"><svg fill="none" height="14" stroke="#00E676" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Document processing and data extraction</li>
+<li class="tier-example"><svg fill="none" height="14" stroke="#00E676" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Email classification and routing automation</li>
+<li class="tier-example"><svg fill="none" height="14" stroke="#00E676" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Predictive maintenance for known equipment</li>
+<li class="tier-example"><svg fill="none" height="14" stroke="#00E676" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>AI-assisted report generation and summarization</li>
+</ul>
+<div class="tier-readiness" style="border-left:3px solid #00E676;color:#00E676;">Deployable with current data and infrastructure</div>
+</div>
+<!-- Tier 2 -->
+<div class="tier-card fade-up" style="background:rgba(0,191,166,0.1);border:1px solid rgba(0,191,166,0.3);border-top:3px solid #00BFA6;transition-delay:0.1s">
+<div class="tier-label" style="color:#00BFA6;">Tier 2 Strategic Initiatives</div>
+<div class="tier-subtitle">Deploy in 3–9 Months</div>
+<p class="tier-desc">High impact, moderate complexity. These use cases require some data preparation and integration work but deliver significant competitive advantage and operational efficiency.</p>
+<ul class="tier-examples">
+<li class="tier-example"><svg fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Intelligent demand forecasting and supply chain optimization</li>
+<li class="tier-example"><svg fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Personalized customer experience at scale</li>
+<li class="tier-example"><svg fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>AI-driven fraud detection and risk scoring</li>
+<li class="tier-example"><svg fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Generative AI for content and knowledge management</li>
+<li class="tier-example"><svg fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Predictive customer churn and retention models</li>
+</ul>
+<div class="tier-readiness" style="border-left:3px solid #00BFA6;color:#00BFA6;">Requires data integration and model training</div>
+</div>
+<!-- Tier 3 -->
+<div class="tier-card fade-up" style="background:rgba(244,162,97,0.1);border:1px solid rgba(244,162,97,0.3);border-top:3px solid #F4A261;transition-delay:0.2s">
+<div class="tier-label" style="color:#F4A261;">Tier 3 Future Horizon</div>
+<div class="tier-subtitle">Deploy in 9–18 Months</div>
+<p class="tier-desc">High impact, lower current feasibility. These transformational use cases require significant data infrastructure investment, talent development, or regulatory navigation before deployment.</p>
+<ul class="tier-examples">
+<li class="tier-example"><svg fill="none" height="14" stroke="#F4A261" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Autonomous AI agents for complex decision-making</li>
+<li class="tier-example"><svg fill="none" height="14" stroke="#F4A261" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Real-time AI-driven pricing optimization</li>
+<li class="tier-example"><svg fill="none" height="14" stroke="#F4A261" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Computer vision for quality control and inspection</li>
+<li class="tier-example"><svg fill="none" height="14" stroke="#F4A261" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>AI-powered drug discovery or clinical trial optimization</li>
+<li class="tier-example"><svg fill="none" height="14" stroke="#F4A261" stroke-width="2.5" style="flex-shrink:0;margin-top:3px" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Fully autonomous workflow orchestration</li>
+</ul>
+<div class="tier-readiness" style="border-left:3px solid #F4A261;color:#F4A261;">Requires foundational investment and governance</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ─── Risk Assessment ─────────────────────────────────────────────────── -->
+<section id="risk">
+<div class="container">
+<div class="section-center fade-up">
+<span class="section-label label-red">Risk &amp; Adoption Assessment</span>
+<h2 class="section-heading dark-text">AI Rollout Risks You Cannot Afford to Ignore</h2>
+<p class="section-sub" style="color:#4a6572;">Mirketa's assessment identifies and scores your specific risk exposure across three critical dimensions, then provides concrete mitigation strategies for each.</p>
+</div>
+<div class="fade-up mb-10" style="transition-delay:0.1s">
+<div class="rounded-xl overflow-hidden shadow-xl" style="border:1px solid #e2eef2;">
+<img 
+  alt="Enterprise AI governance and risk management framework" 
+  loading="lazy" 
+  src="https://mirketa.com/wp-content/uploads/2026/06/close-up-of-businessman-hand-pointing-at-glowing-a-2026-01-11-08-32-14-utc-scaled-1.webp" 
+  style="width:100%;  "
+/>
+</div>
+</div>
+<div class="grid-3">
+<!-- Technical Risks -->
+<div class="card fade-up overflow-hidden" style="height: 450px;">
+<div class="risk-cat-header" style="background:rgba(220,38,38,0.05);border-bottom-color:rgba(220,38,38,0.2);">
+
+<h3 class="risk-cat-title">Technical Risks</h3>
+</div>
+<div style="padding:20px;">
+<div class="risk-item">
+<div class="risk-item-header">
+<span class="risk-item-title">Data quality degradation over time</span>
+<span class="risk-badge risk-high">HIGH</span>
+</div>
+<div class="risk-mitigation">
+<svg fill="none" height="13" stroke="#00BFA6" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+<span class="risk-mitigation-text">Continuous data monitoring and quality scoring pipelines</span>
+</div>
+</div>
+<div class="risk-item">
+<div class="risk-item-header">
+<span class="risk-item-title">Model drift and performance decay</span>
+<span class="risk-badge risk-high">HIGH</span>
+</div>
+<div class="risk-mitigation">
+<svg fill="none" height="13" stroke="#00BFA6" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+<span class="risk-mitigation-text">Automated model monitoring with retraining triggers</span>
+</div>
+</div>
+<div class="risk-item" style="margin-bottom:0">
+<div class="risk-item-header">
+<span class="risk-item-title">Integration failures with legacy systems</span>
+<span class="risk-badge risk-medium">MEDIUM</span>
+</div>
+<div class="risk-mitigation">
+<svg fill="none" height="13" stroke="#00BFA6" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+<span class="risk-mitigation-text">API-first architecture and phased integration approach</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Organizational Risks -->
+<div class="card fade-up overflow-hidden" style="transition-delay:0.1s; height: 450px;">
+<div class="risk-cat-header" style="background:rgba(217,119,6,0.05);border-bottom-color:rgba(217,119,6,0.2);">
+
+<h3 class="risk-cat-title">Organizational Risks</h3>
+</div>
+<div style="padding:20px;">
+<div class="risk-item">
+<div class="risk-item-header">
+<span class="risk-item-title">Employee resistance to AI adoption</span>
+<span class="risk-badge risk-high">HIGH</span>
+</div>
+<div class="risk-mitigation">
+<svg fill="none" height="13" stroke="#00BFA6" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+<span class="risk-mitigation-text">Change management program with AI literacy training</span>
+</div>
+</div>
+<div class="risk-item">
+<div class="risk-item-header">
+<span class="risk-item-title">Loss of key AI talent mid-project</span>
+<span class="risk-badge risk-medium">MEDIUM</span>
+</div>
+<div class="risk-mitigation">
+<svg fill="none" height="13" stroke="#00BFA6" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+<span class="risk-mitigation-text">Knowledge documentation and cross-training protocols</span>
+</div>
+</div>
+<div class="risk-item" style="margin-bottom:0">
+<div class="risk-item-header">
+<span class="risk-item-title">Misalignment between IT and business teams</span>
+<span class="risk-badge risk-medium">MEDIUM</span>
+</div>
+<div class="risk-mitigation">
+<svg fill="none" height="13" stroke="#00BFA6" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+<span class="risk-mitigation-text">Joint AI governance committee with clear RACI</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Compliance Risks -->
+<div class="card fade-up overflow-hidden" style="transition-delay:0.2s; height: 450px;">
+<div class="risk-cat-header" style="background:rgba(124,58,237,0.05);border-bottom-color:rgba(124,58,237,0.2);">
+
+<h3 class="risk-cat-title">Compliance &amp; Ethical Risks</h3>
+</div>
+<div style="padding:20px;">
+<div class="risk-item">
+<div class="risk-item-header">
+<span class="risk-item-title">Regulatory non-compliance (GDPR, HIPAA, CCPA)</span>
+<span class="risk-badge risk-high">HIGH</span>
+</div>
+<div class="risk-mitigation">
+<svg fill="none" height="13" stroke="#00BFA6" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+<span class="risk-mitigation-text">Privacy-by-design architecture and compliance audit framework</span>
+</div>
+</div>
+<div class="risk-item">
+<div class="risk-item-header">
+<span class="risk-item-title">Algorithmic bias in decision-making models</span>
+<span class="risk-badge risk-high">HIGH</span>
+</div>
+<div class="risk-mitigation">
+<svg fill="none" height="13" stroke="#00BFA6" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+<span class="risk-mitigation-text">Bias testing, diverse training data, and fairness metrics</span>
+</div>
+</div>
+<div class="risk-item" style="margin-bottom:0">
+<div class="risk-item-header">
+<span class="risk-item-title">Lack of AI decision transparency</span>
+<span class="risk-badge risk-medium">MEDIUM</span>
+</div>
+<div class="risk-mitigation">
+<svg fill="none" height="13" stroke="#00BFA6" stroke-width="2.5" style="flex-shrink:0;margin-top:2px" viewbox="0 0 24 24" width="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+<span class="risk-mitigation-text">Explainable AI (XAI) requirements and audit trails</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ─── Assessment Process ──────────────────────────────────────────────── -->
+<section id="process">
+<div class="container">
+<div class="section-center fade-up">
+<span class="section-label label-teal">Our Proven Process</span>
+<h2 class="section-heading white-text">How Mirketa's Assessment Works</h2>
+<p class="section-sub light-text">A structured, 4-week engagement designed to deliver clarity, confidence, and a concrete path forward without disrupting your operations.</p>
+</div>
+<div class="fade-up mb-12" style="transition-delay:0.1s">
+<div class="rounded-xl overflow-hidden shadow-2xl" style="border:1px solid rgba(0,191,166,0.2);">
+<!-- <img alt="Mirketa AI Readiness Assessment 5-step process flow" loading="lazy" src="https://mirketa.com/wp-content/uploads/2026/06/assessment-process-scaled-1.webp" style="width:100%; max-height:400px;"/> -->
+</div>
+</div>
+<div>
+<div class="process-step-card fade-up">
+<div>
+<div class="process-step-num">01</div>
+<div class="process-step-dur">Week 1</div>
+</div>
+<div>
+<h3 class="process-step-title">Discovery &amp; Stakeholder Alignment</h3>
+<p class="process-step-desc">We begin with structured interviews across C-suite, IT, operations, and business unit leaders to understand your strategic goals, current AI initiatives, and organizational context.</p>
+<div class="process-deliverable">
+<svg fill="none" height="14" stroke="#00E676" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+<span class="process-deliverable-text">Stakeholder input report, goal alignment document</span>
+</div>
+</div>
+</div>
+<div class="process-step-card fade-up" style="transition-delay:0.08s">
+<div>
+<div class="process-step-num">02</div>
+<div class="process-step-dur">Week 1–2</div>
+</div>
+<div>
+<h3 class="process-step-title">Current State Analysis</h3>
+<p class="process-step-desc">A deep-dive evaluation of your existing data infrastructure, technology stack, business processes, and talent capabilities against our 6-dimension readiness framework.</p>
+<div class="process-deliverable">
+<svg fill="none" height="14" stroke="#00E676" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+<span class="process-deliverable-text">Current state scorecard across all 6 dimensions</span>
+</div>
+</div>
+</div>
+<div class="process-step-card fade-up" style="transition-delay:0.16s">
+<div>
+<div class="process-step-num">03</div>
+<div class="process-step-dur">Week 2–3</div>
+</div>
+<div>
+<h3 class="process-step-title">AI Opportunity Mapping</h3>
+<p class="process-step-desc">Collaborative workshops to identify and catalog AI use cases specific to your industry and business functions, mapped against your current readiness level.</p>
+<div class="process-deliverable">
+<svg fill="none" height="14" stroke="#00E676" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+<span class="process-deliverable-text">AI use case inventory with initial feasibility scores</span>
+</div>
+</div>
+</div>
+<div class="process-step-card fade-up" style="transition-delay:0.24s">
+<div>
+<div class="process-step-num">04</div>
+<div class="process-step-dur">Week 3</div>
+</div>
+<div>
+<h3 class="process-step-title">Feasibility &amp; Risk Scoring</h3>
+<p class="process-step-desc">Each identified use case is scored on a proprietary impact-vs-effort matrix, with risk assessment covering technical, organizational, and compliance dimensions.</p>
+<div class="process-deliverable">
+<svg fill="none" height="14" stroke="#00E676" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+<span class="process-deliverable-text">Prioritized use case matrix, risk register</span>
+</div>
+</div>
+</div>
+<div class="process-step-card fade-up" style="transition-delay:0.32s">
+<div>
+<div class="process-step-num">05</div>
+<div class="process-step-dur">Week 4</div>
+</div>
+<div>
+<h3 class="process-step-title">Roadmap &amp; Business Case</h3>
+<p class="process-step-desc">We synthesize all findings into a phased implementation roadmap with projected ROI, resource requirements, governance recommendations, and a 90-day quick-start plan to begin your AI journey immediately.</p>
+<div class="process-deliverable">
+<svg fill="none" height="14" stroke="#00E676" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+<span class="process-deliverable-text">Full AI Readiness Report, implementation roadmap, ROI model</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ─── Deliverables ────────────────────────────────────────────────────── -->
+
+<section id="deliverables">
+<div class="container">
+<div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
+<div class="fade-up">
+<span class="section-label label-teal">What You Receive</span>
+<h2 style="font-family:'DM Sans',sans-serif;font-weight:800;font-size:clamp(1.8rem,3vw,2.6rem);color:#0D1F2D;line-height:1.2;margin-bottom:1rem;">Tangible Deliverables That Drive Action</h2>
+<p style="font-family:'Nunito Sans',sans-serif;font-size:1.05rem;color:#4a6572;line-height:1.7;margin-bottom:2rem;">Mirketa's AI Readiness Assessment doesn't end with a slide deck. You receive a comprehensive package of actionable intelligence that your leadership team can act on immediately.</p>
+<div class="deliverables-grid">
+<div class="deliverable-item">
+<div class="pillar-icon" style="background:rgba(0,191,166,0.15);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/05/Group-7.svg" alt="Technology Landscape">
+</div>
+<div>
+<div class="deliverable-title">AI Readiness Score &amp; Maturity Benchmark</div>
+<div class="deliverable-desc">A quantified score across all 6 dimensions with industry benchmarking, showing exactly where you stand relative to peers.</div>
+</div>
+</div>
+<div class="deliverable-item">
+<div class="pillar-icon" style="background:rgba(0,191,166,0.15);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/05/Group-5-1.svg" alt="Technology Landscape">
+</div>
+<div>
+<div class="deliverable-title">Detailed Gap Analysis</div>
+<div class="deliverable-desc">A dimension-by-dimension breakdown of gaps between your current state and the capabilities required for successful AI adoption.</div>
+</div>
+</div>
+<div class="deliverable-item">
+<div class="pillar-icon" style="background:rgba(0,191,166,0.15);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/05/Group-6-1.svg" alt="Technology Landscape">
+</div>
+<div>
+<div class="deliverable-title">Industry-Relevant AI Use Cases</div>
+<div class="deliverable-desc">A curated, prioritized list of AI use cases specific to your industry and business functions, scored by feasibility and business impact.</div>
+</div>
+</div>
+<div class="deliverable-item">
+<div class="pillar-icon" style="background:rgba(0,191,166,0.15);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/06/Group-3-1.svg" alt="Technology Landscape">
+</div>
+<div>
+<div class="deliverable-title">Phased Implementation Roadmap</div>
+<div class="deliverable-desc">A 12–18 month roadmap with clear milestones, resource requirements, technology recommendations, and a 90-day quick-start plan.</div>
+</div>
+</div>
+<div class="deliverable-item">
+<div class="pillar-icon" style="background:rgba(0,191,166,0.15);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/06/Group-5-1.svg" alt="Technology Landscape">
+</div>
+<div>
+<div class="deliverable-title">ROI Forecast &amp; Business Impact Model</div>
+<div class="deliverable-desc">Financial projections for prioritized AI use cases, including cost savings, revenue impact, and time-to-value estimates.</div>
+</div>
+</div>
+<div class="deliverable-item">
+<div class="pillar-icon" style="background:rgba(0,191,166,0.15);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/06/Group-4-2.svg" alt="Technology Landscape">
+</div>
+<div>
+<div class="deliverable-title">Governance &amp; Risk Framework</div>
+<div class="deliverable-desc">Recommendations for AI governance structures, ethical AI policies, compliance requirements, and risk mitigation strategies.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fade-up" style="transition-delay:0.2s">
+<div class="rounded-2xl overflow-hidden shadow-2xl">
+<img alt="Mirketa consultants presenting AI readiness assessment results to enterprise client" loading="lazy" src="https://mirketa.com/wp-content/uploads/2026/06/photo-1552664730-d307ca884978.webp" style="width:100%;display:block;"/>
+<div style="padding:24px;background:#0B3D52;">
+<p style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.1rem;color:white;margin-bottom:8px;">Ready to see what your AI readiness score looks like?</p>
+<p style="font-family:'Nunito Sans',sans-serif;font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:16px;">Schedule a no-obligation discovery call with our AI strategy team.</p>
+<button class="btn-primary w-full justify-center" 
+  onclick="document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });">
+  Schedule Discovery Call
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ─── Why Mirketa ─────────────────────────────────────────────────────── -->
+<section id="why-mirketa">
+<div class="container">
+<div class="section-center fade-up">
+<span class="section-label label-lime">Why Mirketa</span>
+<h2 class="section-heading white-text">The Mirketa Difference</h2>
+<p class="section-sub light-text">We don't just assess we guide your enterprise through every step of the AI transformation journey with proven frameworks and hands-on expertise.</p>
+</div>
+<div class="grid-3">
+<div class="why-card fade-up">
+<!-- <div class="why-icon">🏆</div> -->
+<h3 class="why-title">Deep Enterprise AI Expertise</h3>
+<p class="why-desc">Over a decade of experience delivering AI and digital transformation projects for Fortune 500 companies across healthcare, financial services, manufacturing, and retail.</p>
+</div>
+<div class="why-card fade-up" style="transition-delay:0.08s">
+<!-- <div class="why-icon">☁️</div> -->
+<h3 class="why-title">Salesforce &amp; Cloud Ecosystem Specialists</h3>
+<p class="why-desc">Certified expertise across Salesforce Einstein AI, AWS, Azure, and Google Cloud ensuring your AI roadmap aligns with your existing technology investments.</p>
+</div>
+<div class="why-card fade-up" style="transition-delay:0.16s">
+<!-- <div class="why-icon">🎯</div> -->
+<h3 class="why-title">Industry-Specific AI Accelerators</h3>
+<p class="why-desc">Pre-built AI frameworks, use case libraries, and implementation accelerators tailored to your industry, reducing time-to-value by up to 40%.</p>
+</div>
+<div class="why-card fade-up" style="transition-delay:0.24s">
+<!-- <div class="why-icon">📈</div> -->
+<h3 class="why-title">Outcome-Focused, Not Tool-Focused</h3>
+<p class="why-desc">We measure success by business outcomes — cost reduction, revenue growth, and operational efficiency not by the number of AI models deployed.</p>
+</div>
+<div class="why-card fade-up" style="transition-delay:0.32s">
+<!-- <div class="why-icon">🔄</div> -->
+<h3 class="why-title">End-to-End Partnership</h3>
+<p class="why-desc">From initial assessment through implementation, change management, and ongoing optimization, Mirketa is your long-term AI transformation partner.</p>
+</div>
+<div class="why-card fade-up" style="transition-delay:0.4s">
+<!-- <div class="why-icon">🌍</div> -->
+<h3 class="why-title">Global Delivery, Local Understanding</h3>
+<p class="why-desc">With teams across the US and India, we combine global delivery scale with deep understanding of regional regulatory and business contexts.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ─── Contact Form ─────────────────────────────────────────────────────── -->
+<section id="contact">
+<div class="container">
+<div class="contact-grid">
+<div class="fade-up">
+<span class="section-label label-navy">Get Started</span>
+<h2 class="contact-heading">Start Your AI Journey with Confidence</h2>
+<p class="contact-sub">Don't let uncertainty delay your AI transformation. Schedule a no-obligation discovery call with Mirketa's AI strategy team to discuss your goals and learn how our assessment can accelerate your path to AI success.</p>
+<div>
+<div class="contact-point"><div class="pillar-icon" style="background:rgba(0,191,166,0.15);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/06/Group-15.svg" alt="Technology Landscape">
+</div><span class="contact-point-text">30-minute discovery call-no commitment required</span></div>
+<div class="contact-point"><div class="pillar-icon" style="background:rgba(0,191,166,0.15);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/06/Group-1-7.svg" alt="Technology Landscape">
+</div><span class="contact-point-text">Tailored to your industry and business objectives</span></div>
+<div class="contact-point"><div class="pillar-icon" style="background:rgba(0,191,166,0.15);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/06/Group-2-7.svg" alt="Technology Landscape">
+</div><span class="contact-point-text">Receive a preliminary readiness overview within 48 hours</span></div>
+<div class="contact-point"><div class="pillar-icon" style="background:rgba(0,191,166,0.15);">
+    <img src="https://mirketa.com/wp-content/uploads/2026/06/Group-3-6.svg" alt="Technology Landscape">
+</div><span class="contact-point-text">All information shared is strictly confidential</span></div>
+</div>
+
+</div>
+<div class="fade-up" style="transition-delay:0.2s">
+<div class="form-card" id="formCard">
+<div id="formContent">
+<h3 class="form-title" id="contact-form">Schedule Your AI Readiness Assessment</h3>
+<p class="form-sub">Fill in your details and our team will reach out within one business day.</p>
+
+<div class="form-container">
+  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dd0000000hivg" method="POST">
+
+    <input type="hidden" name="captcha_settings" value='{"keyname":"Mirketa_Latest_reCAPTCHA","fallback":"true","orgId":"00Dd0000000hivg","ts":""}'>
+    <input type="hidden" name="oid" value="00Dd0000000hivg">
+    <input type="hidden" name="retURL" value="https://mirketa.com/thank-you/">
+
+    <!-- First Row -->
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="first_name">First Name</label>
+        <input class="form-input" id="first_name" maxlength="40" name="first_name" type="text" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="last_name">Last Name</label>
+        <input class="form-input" id="last_name" maxlength="80" name="last_name" type="text">
+      </div>
+    </div>
+
+    <!-- Second Row -->
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="mobile">Mobile</label>
+        <input class="form-input" id="mobile" maxlength="40" name="mobile" type="text" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="company">Company</label>
+        <input class="form-input" id="company" maxlength="40" name="company" type="text" required>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group-full">
+      <label class="form-label" for="email">Email</label>
+      <input class="form-input" id="email" maxlength="80" name="email" type="email" required>
+    </div>
+
+    <!-- Description -->
+    <div class="form-group-full">
+      <label class="form-label" for="description">Description</label>
+      <textarea class="form-textarea" name="description" id="description" required></textarea>
+    </div>
+
+    <!-- Hidden Lead Source -->
+    <input type="hidden" id="00N0W000008z5D6" name="00N0W000008z5D6" />
+
+    <!-- reCAPTCHA -->
+    <div class="g-recaptcha" data-sitekey="6LepUL0mAAAAADb01WwX9NRdsVjg8VDkgYa0PT8j"></div>
+
+    <!-- Button -->
+    <button type="submit" class="btn-primary w-full justify-center" style="font-size:16px;padding:15px;">
+      Submit
+      <svg fill="none" height="18" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="18">
+        <path d="M5 12h14M12 5l7 7-7 7"></path>
+      </svg>
+    </button>
+
+  </form>
+</div>
+</div>
+<div class="form-success" id="formSuccess" style="display:none;">
+<div class="form-success-icon">
+<svg fill="none" height="32" stroke="#00E676" stroke-width="2.5" viewbox="0 0 24 24" width="32"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</div>
+<h3 class="form-success-title">Thank You!</h3>
+<p class="form-success-text">Our AI strategy team will reach out to you within one business day to schedule your discovery call.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ─── FAQ ─────────────────────────────────────────────────────────────── -->
+<section id="faq">
+<div class="container">
+<div class="section-center fade-up">
+<h2 class="section-heading white-text">Frequently Asked Questions</h2>
+<p class="section-sub light-text">Everything you need to know about Mirketa's Enterprise AI Readiness Assessment.</p>
+</div>
+<div class="max-w-3xl fade-up" style="transition-delay:0.1s">
+<div class="faq-item" id="faq-0">
+<button class="faq-btn" onclick="toggleFaq(0)">
+<span class="faq-question">What is an Enterprise AI Readiness Assessment?</span>
+<div class="faq-icon"><svg fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg></div>
+</button>
+<div class="faq-answer" id="faq-answer-0">
+<div class="faq-answer-inner">An Enterprise AI Readiness Assessment is a structured evaluation of your organization's ability to successfully adopt and scale AI. It examines your strategy, data quality, technology infrastructure, business processes, talent capabilities, and governance frameworks to identify gaps and build a prioritized AI roadmap.</div>
+</div>
+</div>
+<div class="faq-item" id="faq-1">
+<button class="faq-btn" onclick="toggleFaq(1)">
+<span class="faq-question">How long does Mirketa's assessment take?</span>
+<div class="faq-icon"><svg fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg></div>
+</button>
+<div class="faq-answer" id="faq-answer-1">
+<div class="faq-answer-inner">Mirketa's AI Readiness Assessment typically takes 3–4 weeks for mid-sized enterprises and up to 6 weeks for large, complex organizations. The engagement is designed to be minimally disruptive to your operations while delivering maximum insight.</div>
+</div>
+</div>
+<div class="faq-item" id="faq-2">
+<button class="faq-btn" onclick="toggleFaq(2)">
+<span class="faq-question">Which industries does Mirketa specialize in?</span>
+<div class="faq-icon"><svg fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg></div>
+</button>
+<div class="faq-answer" id="faq-answer-2">
+<div class="faq-answer-inner">Mirketa has deep expertise across healthcare, financial services, manufacturing, retail, technology, and professional services. Our industry-specific AI use case libraries and accelerators ensure the assessment is highly relevant to your business context.</div>
+</div>
+</div>
+<div class="faq-item" id="faq-3">
+<button class="faq-btn" onclick="toggleFaq(3)">
+<span class="faq-question">What do we receive at the end of the assessment?</span>
+<div class="faq-icon"><svg fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg></div>
+</button>
+<div class="faq-answer" id="faq-answer-3">
+<div class="faq-answer-inner">You receive a comprehensive AI Readiness Report including your maturity score and benchmark, a detailed gap analysis, prioritized AI use cases, a phased implementation roadmap, ROI forecasts, and governance recommendations all tailored to your organization.</div>
+</div>
+</div>
+<div class="faq-item" id="faq-4">
+<button class="faq-btn" onclick="toggleFaq(4)">
+<span class="faq-question">How is Mirketa's assessment different from a generic AI audit?</span>
+<div class="faq-icon"><svg fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg></div>
+</button>
+<div class="faq-answer" id="faq-answer-4">
+<div class="faq-answer-inner">Unlike generic audits, Mirketa's assessment is grounded in hands-on enterprise implementation experience. We evaluate readiness through the lens of what it actually takes to deploy AI successfully not just theoretical frameworks. Our assessors have built and deployed AI solutions across hundreds of enterprise environments.</div>
+</div>
+</div>
+<div class="faq-item" id="faq-5">
+<button class="faq-btn" onclick="toggleFaq(5)">
+<span class="faq-question">Can Mirketa help with implementation after the assessment?</span>
+<div class="faq-icon"><svg fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg></div>
+</button>
+<div class="faq-answer" id="faq-answer-5">
+<div class="faq-answer-inner">Absolutely. Mirketa offers end-to-end AI transformation services  from assessment and strategy through implementation, change management, and ongoing optimization. Many clients choose to engage Mirketa as their long-term AI transformation partner following the initial assessment.</div>
+</div>
+</div>
+<div class="faq-item" id="faq-6">
+<button class="faq-btn" onclick="toggleFaq(6)">
+<span class="faq-question">Is the assessment suitable for organizations with no existing AI initiatives?</span>
+<div class="faq-icon"><svg fill="none" height="14" stroke="#00BFA6" stroke-width="2.5" viewbox="0 0 24 24" width="14"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg></div>
+</button>
+<div class="faq-answer" id="faq-answer-6">
+<div class="faq-answer-inner">Yes  in fact, organizations at the earliest stages of their AI journey benefit most from the assessment. It provides a clear starting point, prevents costly mistakes, and ensures your first AI investments are the right ones. We work with organizations at every maturity level, from AI-unaware to AI-scaling.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ─── JavaScript ───────────────────────────────────────────────────────── -->
+<script>
+    // ── Scroll utility ──────────────────────────────────────────────────────
+    function scrollTo(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        const offset = 72;
+        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+      // Close mobile menu
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+
+    // ── Navbar scroll behavior ──────────────────────────────────────────────
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+
+    // ── Mobile menu toggle ──────────────────────────────────────────────────
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    // ── Intersection Observer for fade-up animations ────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ── Animated counters ───────────────────────────────────────────────────
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.count);
+          const suffix = el.dataset.suffix || '';
+          let start = 0;
+          const duration = 1800;
+          const step = target / (duration / 16);
+          const timer = setInterval(() => {
+            start += step;
+            if (start >= target) {
+              el.textContent = target + suffix;
+              clearInterval(timer);
+            } else {
+              el.textContent = Math.floor(start) + suffix;
+            }
+          }, 16);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+    // ── FAQ accordion ───────────────────────────────────────────────────────
+    function toggleFaq(index) {
+      const item = document.getElementById('faq-' + index);
+      const answer = document.getElementById('faq-answer-' + index);
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.classList.add('open');
+      }
+    }
+
+    // ── Contact form submission ─────────────────────────────────────────────
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }
+  </script>
+  
+
+  
+</div><!-- /.mirketa-ai-page -->
+
+<?php get_footer(); ?>

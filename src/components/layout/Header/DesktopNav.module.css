@@ -1,0 +1,52 @@
+.list {
+  display: flex;
+  gap: 20px;
+}
+
+/* Mega panels anchor to the header bar (full content width); dropdowns anchor to their item. */
+.item {
+  display: flex;
+}
+
+.dropdownItem {
+  position: relative;
+}
+
+/* Same type and colours as the original nav links (Roboto 16, white 90%, lime when active). */
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 48px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-white-90);
+  white-space: nowrap;
+}
+
+.trigger:hover,
+.trigger[aria-expanded='true'] {
+  color: var(--color-white);
+}
+
+.active,
+.active:hover {
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+.chevron {
+  flex: none;
+  transition: transform 150ms ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
+}

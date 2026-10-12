@@ -1,0 +1,84 @@
+.section {
+  padding: 80px 0;
+}
+
+/* 12px eyebrow (the shared heading's is 14px). */
+.heading {
+  --eyebrow-heading-gap: 8px;
+}
+
+.heading p {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.heading h2 {
+  letter-spacing: -0.01em;
+}
+
+.description {
+  margin-top: 8px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 33px;
+  margin-top: 40px;
+}
+
+.card {
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgb(31 24 35 / 0.06);
+}
+
+/* Short text mark ("SF", "360°", "$") on a 40px Deep Purple tile. */
+.mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-white);
+}
+
+.title {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.text {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

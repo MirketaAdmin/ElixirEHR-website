@@ -1,0 +1,61 @@
+/* Frame-specific overrides for shared sections on the Success Stories page. */
+
+/* Same hero as Press Releases: title lines 75px apart, 504×384 framed photo (frame baked in). */
+.hero {
+  --page-hero-description-gap: 23px;
+}
+
+.hero h1 {
+  line-height: 73px;
+}
+
+.heroMedia {
+  margin-block: 46px;
+}
+
+.heroImage {
+  display: block;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 0.25);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .heroMedia {
+    max-width: 504px;
+    margin-block: 0;
+  }
+
+  .heroImage {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* The frame tracks the current crumb slightly wider than the shared 1px. */
+.hero nav li:last-child {
+  letter-spacing: 1.2px;
+}
+
+/* CTA band: tight H2 tracking and one 66px button. */
+.ctaBand {
+  padding: 81px 0 80px;
+}
+
+.ctaBand h2 {
+  max-width: 700px;
+  line-height: 59px;
+  letter-spacing: -3px;
+}
+
+.ctaBand h2 + p:last-child {
+  max-width: 1120px;
+  margin-top: 32px;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.ctaButton {
+  height: 66px;
+  margin-top: 47px;
+  padding-inline: 39px;
+}

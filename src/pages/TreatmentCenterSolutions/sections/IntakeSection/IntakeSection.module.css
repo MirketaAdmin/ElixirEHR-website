@@ -1,0 +1,108 @@
+/* White band framed by 1px border lines, as in the frame. */
+.section {
+  padding: 80px 0;
+  border-block: 1px solid var(--color-border);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 560px) minmax(0, 559px);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 10px 25px rgb(0 0 0 / 0.08);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Text for the frosted card baked into the photo (card spans x 32–527, y 268–405 of the image). */
+.highlight {
+  position: absolute;
+  top: 294px;
+  left: 57px;
+  right: 50px;
+}
+
+.highlightTitle {
+  display: flex;
+  font-family: var(--font-display);
+  align-items: center;
+  gap: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  color: var(--color-surface-dark);
+}
+
+.highlightIcon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.highlightText {
+  margin-top: 9px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 60px;
+}
+
+.titleLine {
+  display: block;
+}
+
+.body {
+  max-width: 545px;
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 29px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 48px;
+  }
+
+  .media {
+    max-width: 560px;
+  }
+}
+
+/* The card text no longer fits on the scaled photo; it drops below the image instead. */
+@media (max-width: 767px) {
+  .highlight {
+    position: static;
+    padding: 20px;
+    background: #f1f0f2;
+  }
+
+  .highlightTitle {
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}

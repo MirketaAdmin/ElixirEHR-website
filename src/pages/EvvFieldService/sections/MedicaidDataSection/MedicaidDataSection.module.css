@@ -1,0 +1,100 @@
+.section {
+  padding: 80px 0;
+}
+
+/* 12px eyebrow and a 32/40 semibold title in this section. */
+.heading p {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.heading h2 {
+  max-width: 1000px;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: 0;
+}
+
+.description {
+  margin-top: 8px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.frame {
+  margin-top: 32px;
+  overflow-x: auto;
+  border-radius: 16px;
+  background: var(--color-white);
+  box-shadow: 0 2px 8px rgb(31 24 35 / 0.12);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: 16px 24px;
+  font-size: 16px;
+  line-height: 24px;
+  vertical-align: middle;
+}
+
+.table thead th {
+  height: 55px;
+  padding-block: 0;
+  background: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  color: var(--color-white);
+}
+
+.table thead th:first-child {
+  width: 384px;
+}
+
+.table tbody tr:last-child > * {
+  padding-bottom: 15px;
+}
+
+.table tbody tr + tr {
+  border-top: 1px solid #f3e9f5;
+}
+
+.table tbody th {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 48px 0 64px;
+  }
+
+  .heading h2 {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .table {
+    min-width: 640px;
+  }
+
+  .table thead th:first-child {
+    width: 40%;
+  }
+}

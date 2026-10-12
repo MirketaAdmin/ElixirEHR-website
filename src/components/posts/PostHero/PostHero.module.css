@@ -1,0 +1,83 @@
+/* Starts on the header's last row, like the other inner-page heroes (PageHero). */
+.hero {
+  margin-top: -1px;
+  padding-block: 69px 70px;
+  background: var(--color-surface-dark);
+}
+
+/* Same breadcrumb style as PageHero. */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.7);
+}
+
+.separator {
+  display: flex;
+  margin-left: 2px;
+}
+
+.current {
+  font-weight: 700;
+  /* The frame tracks the bold crumb slightly wider than the 1px of the others. */
+  letter-spacing: 1.17px;
+  color: var(--color-secondary);
+}
+
+.trail {
+  margin-top: 22px;
+}
+
+.title {
+  max-width: 800px;
+  margin-top: 24px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 55px;
+  color: var(--color-white);
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 31px;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 16px 0 15px;
+  border: 1px solid rgb(255 255 255 / 0.2);
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.1);
+  font-family: var(--font-label);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-white);
+}
+
+.pillIcon {
+  flex: none;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .hero {
+    padding-block: 40px 48px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}

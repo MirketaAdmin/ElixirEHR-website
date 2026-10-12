@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-inline: var(--margin-desktop);
+}
+
+@media (max-width: 1023px) {
+  .container {
+    padding-inline: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding-inline: var(--margin-mobile);
+  }
+}

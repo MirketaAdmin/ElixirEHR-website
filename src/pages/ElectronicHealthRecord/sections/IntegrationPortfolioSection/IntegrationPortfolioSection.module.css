@@ -1,0 +1,31 @@
+.section {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  color: var(--color-surface-dark);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px 64px;
+  margin-top: 47px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #625d65;
+}

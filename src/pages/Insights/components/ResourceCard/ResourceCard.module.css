@@ -1,0 +1,147 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgb(31 24 35 / 0.06);
+}
+
+.media {
+  position: relative;
+  flex: none;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 224px;
+  object-fit: cover;
+}
+
+.wide .image {
+  height: 360px;
+}
+
+/* Featured: 372px photo beside the text. */
+.horizontal {
+  display: grid;
+  grid-template-columns: 372px minmax(0, 1fr);
+}
+
+.horizontal .image {
+  height: 100%;
+}
+
+.tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-tertiary);
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 33px 32px 30px;
+}
+
+/* The frame's featured text box is ~300px wide. */
+.horizontal .body {
+  padding-right: 39px;
+}
+
+.title + .link {
+  margin-top: 17px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.meta li {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.title {
+  margin-top: 15px;
+  font-family: var(--font-title-alt);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0.2px;
+  color: var(--color-heading);
+}
+
+.excerpt {
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 17px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-secondary);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 48px;
+  margin-top: 16px;
+  margin-bottom: 2px;
+  padding: 0 31px 0 28px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-white);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .horizontal {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .horizontal .image,
+  .wide .image {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .body {
+    padding: 24px 20px;
+  }
+
+  .title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}

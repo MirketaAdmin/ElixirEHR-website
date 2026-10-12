@@ -1,0 +1,123 @@
+.section {
+  padding: 80px 0 79px;
+}
+
+.description {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+/* Cards keep their own height (the four-line title runs taller); the Ask box sits at the foot. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-height: 316px;
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgb(31 24 35 / 0.06);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.text {
+  margin: 8px 0 16px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.ask {
+  margin-top: auto;
+  padding: 8px;
+  border-radius: 4px;
+  background: var(--color-surface);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* The frame's hard line breaks only make sense in the five-column desktop layout. */
+@media (min-width: 1200px) {
+  .ask {
+    white-space: pre-line;
+  }
+}
+
+.askLabel {
+  font-weight: 500;
+  color: var(--color-heading);
+}
+
+/* Deep Purple at 10% over the surface. */
+.callout {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+  padding: 25px 24px 23px;
+  border-radius: 12px;
+  background: rgb(73 50 102 / 0.1);
+}
+
+.calloutIcon {
+  flex-shrink: 0;
+}
+
+.calloutText {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--color-surface-dark);
+}
+
+.source {
+  margin-top: 17px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    min-height: 0;
+  }
+
+  .callout {
+    align-items: flex-start;
+  }
+
+  .calloutText {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}

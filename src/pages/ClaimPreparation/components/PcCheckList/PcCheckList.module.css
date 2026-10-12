@@ -1,0 +1,27 @@
+/* Sections tune spacing/type through these variables. */
+.list {
+  display: grid;
+  gap: var(--pc-list-gap, 8px);
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--pc-list-icon-gap, 8px);
+  font-size: var(--pc-list-size, 16px);
+  line-height: var(--pc-list-leading, 24px);
+  color: var(--pc-list-color, var(--color-body));
+}
+
+.icon {
+  display: flex;
+  flex: none;
+  justify-content: center;
+  width: var(--pc-list-icon-box, 19px);
+  margin-top: var(--pc-list-icon-offset, 2px);
+}
+
+.lead {
+  font-weight: 700;
+  color: var(--pc-list-lead-color, var(--color-heading));
+}

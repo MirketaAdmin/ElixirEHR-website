@@ -1,0 +1,39 @@
+.section {
+  padding: 76px 0 80px;
+}
+
+/* Text 576px + 543 × 369 card, top-aligned in this frame. */
+.split {
+  --pc-text-width: 576px;
+
+  align-items: start;
+}
+
+.split > :last-child {
+  margin-top: 4px;
+}
+
+/* This frame's heading and paragraph use a deeper purple and a warmer grey. */
+.title {
+  margin-top: 5px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.025em;
+  color: #1c0339;
+}
+
+.description {
+  margin-top: 8px;
+  font-size: 18px;
+  line-height: 28px;
+  color: #4a454e;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}

@@ -1,0 +1,76 @@
+.section {
+  padding: 81px 0 80px;
+}
+
+.intro {
+  max-width: 770px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.025em;
+}
+
+.description {
+  margin-top: 8px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+/* Row 1: text 552px + 560 × 369 card; row 2 (reversed): 560 × 388 card + text 560px. */
+.row {
+  --pc-text-width: 552px;
+
+  margin-top: 120px;
+}
+
+.row:last-child {
+  --pc-text-width: 560px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: #f1e4f4;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--color-surface-dark);
+}
+
+.typeTitle {
+  margin-top: 16px;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  color: var(--color-surface-dark);
+}
+
+.list {
+  --pc-list-color: var(--color-heading);
+
+  margin-top: 16px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .typeTitle {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .row {
+    margin-top: 72px;
+  }
+}

@@ -1,0 +1,42 @@
+.section {
+  padding: 101px 0 100px;
+}
+
+.split {
+  --pc-text-width: 560px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.025em;
+}
+
+.description {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+/* Lead-ins are body-coloured in this frame. */
+.list {
+  --pc-list-lead-color: var(--color-body);
+  --pc-list-icon-box: 17px;
+  --pc-list-icon-gap: 8px;
+  --pc-list-icon-offset: 3px;
+
+  margin-top: 15px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}

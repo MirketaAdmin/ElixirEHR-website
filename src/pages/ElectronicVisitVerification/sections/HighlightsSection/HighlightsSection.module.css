@@ -1,0 +1,55 @@
+/* Brand gradient on the frame's near-vertical diagonal (Deep Purple top-left → #710066). */
+.section {
+  display: flex;
+  align-items: center;
+  min-height: 172px;
+  padding-top: 2px;
+  background: linear-gradient(175deg, var(--color-primary), #710066);
+}
+
+.section > div {
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  gap: 32px;
+  padding-left: 8px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--color-tertiary);
+}
+
+.text {
+  max-width: 245px;
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-white);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .section {
+    padding-block: 40px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding-left: 0;
+  }
+}

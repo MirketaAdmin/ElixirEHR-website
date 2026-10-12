@@ -1,0 +1,61 @@
+.section {
+  padding: 80px 0 79px;
+}
+
+/* Four 270px cards; each is as tall as its copy (they are not equalised in the frame). */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  margin-top: 65px;
+}
+
+.step {
+  padding: 24px;
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgb(31 24 35 / 0.06);
+}
+
+.number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-white);
+}
+
+.title {
+  margin-top: 17px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+/* The frame's copy contains a hard line break (card 1). */
+.text {
+  margin-top: 15px;
+  line-height: 26px;
+  white-space: pre-line;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,75 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+  border-radius: var(--radius-xl);
+}
+
+.quoteMark {
+  font-family: var(--font-display);
+  font-size: 64px;
+  line-height: 1;
+  color: var(--color-secondary);
+}
+
+.quote {
+  margin-top: -24px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-secondary);
+}
+
+.dark {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.dark .name {
+  color: var(--color-on-primary);
+}
+
+.dark .role {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.light {
+  background: var(--color-surface-container);
+  color: var(--color-on-surface);
+}
+
+.light .quoteMark {
+  color: var(--color-primary);
+}
+
+.light .name {
+  color: var(--color-on-surface);
+}
+
+.light .role {
+  color: var(--color-on-surface-variant);
+}
+
+.light .link {
+  color: var(--color-primary);
+}

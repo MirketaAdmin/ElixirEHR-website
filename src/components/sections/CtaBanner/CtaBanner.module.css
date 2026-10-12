@@ -1,0 +1,36 @@
+.section {
+  padding: 78px 0 80px;
+}
+
+.heading > p:last-child {
+  margin-top: 22px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line {
+  display: block;
+}
+
+.actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.cta {
+  margin-top: 16px;
+  font-weight: 700;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

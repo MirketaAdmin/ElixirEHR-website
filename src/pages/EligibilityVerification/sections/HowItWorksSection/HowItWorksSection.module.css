@@ -1,0 +1,93 @@
+.section {
+  padding: 86px 0 80px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 55px;
+  color: var(--color-surface-dark);
+}
+
+.titleLine {
+  display: block;
+}
+
+.description {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  width: 100%;
+  margin-top: 40px;
+  text-align: left;
+}
+
+.step {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.07);
+}
+
+.number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-white);
+}
+
+.stepTitle {
+  margin-top: 24px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-surface-dark);
+}
+
+.stepText {
+  /* Descriptions run to within 8px of the card's right edge in the frame. */
+  margin-top: 8px;
+  margin-right: -16px;
+  font-size: 14px;
+  line-height: 23px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

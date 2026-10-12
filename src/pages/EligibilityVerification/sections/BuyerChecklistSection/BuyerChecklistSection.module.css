@@ -1,0 +1,90 @@
+.section {
+  padding: 85px 0 81px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  color: var(--color-surface-dark);
+}
+
+.titleLine {
+  display: block;
+}
+
+.description {
+  max-width: 770px;
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 25px 24px;
+  width: 100%;
+  margin-top: 51px;
+  text-align: left;
+}
+
+/* Descriptions keep the frame's line breaks and may run into the card's right inset. */
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 23px 0 23.5px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.07);
+}
+
+.icon {
+  flex: none;
+  margin-top: 4px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-surface-dark);
+}
+
+.cardText {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 23px;
+  white-space: pre;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .card {
+    padding-right: 24px;
+  }
+
+  .cardText {
+    white-space: normal;
+  }
+}

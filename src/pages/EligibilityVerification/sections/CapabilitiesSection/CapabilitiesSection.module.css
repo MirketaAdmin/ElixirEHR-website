@@ -1,0 +1,121 @@
+.section {
+  padding: 85px 0 79px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 55px;
+  color: var(--color-surface-dark);
+}
+
+.titleLine {
+  display: block;
+}
+
+.description {
+  max-width: 770px;
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 33px;
+  width: 100%;
+  margin-top: 40px;
+  text-align: left;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.07);
+}
+
+/* Row heights follow the frame (336px and 288px), taller than the cards' content. */
+.card:nth-child(-n + 3) {
+  min-height: 336px;
+}
+
+.card:nth-child(n + 4) {
+  min-height: 288px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: #f1e4f4;
+}
+
+.cardTitle {
+  margin-top: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-surface-dark);
+}
+
+.cardText {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 23px;
+  white-space: pre-line;
+}
+
+.tag {
+  margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cardText {
+    white-space: normal;
+  }
+
+  .card:nth-child(n) {
+    min-height: 0;
+  }
+}

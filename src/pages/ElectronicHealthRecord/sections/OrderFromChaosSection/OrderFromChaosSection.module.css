@@ -1,0 +1,97 @@
+.section {
+  padding: 76px 0 80px;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.025em;
+  color: var(--color-heading);
+}
+
+.description {
+  margin-top: 22px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 66px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 12px;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border: 1px solid var(--color-white);
+  border-radius: 12px;
+  background: #f5f4f6;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.14);
+}
+
+.itemTitle {
+  margin-top: 32px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-surface-dark);
+}
+
+.itemDescription {
+  /* The frame's paragraphs sit ~3.5px left of the column centre. */
+  position: relative;
+  left: -3px;
+  margin-top: 17px;
+  margin-bottom: 31px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-body);
+}
+
+.bar {
+  width: 48px;
+  height: 6px;
+  margin-top: auto;
+  border-radius: 3px;
+  background: var(--color-secondary);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 48px;
+  }
+}
+
+@media (max-width: 599px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}

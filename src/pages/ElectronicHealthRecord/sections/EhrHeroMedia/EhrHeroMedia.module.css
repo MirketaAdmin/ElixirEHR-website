@@ -1,0 +1,76 @@
+/* 504×476 box (same as the other inner-page heroes); the image overflows below for the card shadow. */
+.media {
+  position: relative;
+  width: 504px;
+  height: 476px;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: none;
+}
+
+.insight {
+  position: absolute;
+  top: 395px;
+  left: 73px;
+  width: 180px;
+}
+
+.label {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #4a454e;
+}
+
+.text {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 29px;
+  color: var(--color-heading);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .media {
+    width: 100%;
+    max-width: 504px;
+    height: auto;
+    aspect-ratio: 504 / 528;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Keep the card text on the scaled card: frame px values expressed as a share of the 504px width. */
+  .media {
+    container-type: inline-size;
+  }
+
+  .insight {
+    top: 78.37cqw;
+    left: 14.48cqw;
+    width: 35.71cqw;
+  }
+
+  .label {
+    font-size: 2.38cqw;
+    line-height: 3.17cqw;
+  }
+
+  .text {
+    margin-top: 0.4cqw;
+    font-size: 4.37cqw;
+    line-height: 5.75cqw;
+  }
+}

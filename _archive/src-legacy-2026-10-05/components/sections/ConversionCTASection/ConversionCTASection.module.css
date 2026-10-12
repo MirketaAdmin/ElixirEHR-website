@@ -1,0 +1,74 @@
+.section {
+  padding-block: var(--section-gap);
+  background: var(--color-surface);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gutter);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 48px;
+  border-radius: var(--radius-xl);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+}
+
+.dark {
+  background: var(--color-primary-dark);
+  color: var(--color-on-primary);
+}
+
+.dark .icon {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-secondary);
+}
+
+.dark .description {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.light {
+  background: var(--color-surface-container-low);
+  color: var(--color-on-surface);
+}
+
+.light .icon {
+  background: var(--color-surface-container-highest);
+  color: var(--color-primary);
+}
+
+.light .description {
+  color: var(--color-on-surface-variant);
+}
+
+.cta {
+  margin-top: 8px;
+}
+
+@media (max-width: 1023px) {
+  .section {
+    padding-block: var(--section-gap-mobile);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 32px;
+  }
+}

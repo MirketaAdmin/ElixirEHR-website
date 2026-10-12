@@ -1,0 +1,96 @@
+.inner {
+  display: grid;
+  grid-template-columns: 452px 552px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mediaRight {
+  grid-template-columns: 552px 452px;
+}
+
+.mediaRight .media {
+  order: 2;
+}
+
+/* The exported image includes the tilted backdrop, which overhangs the 452px photo by 26px. */
+.media img {
+  width: 504px;
+  max-width: none;
+  height: 455px;
+  margin-left: -26px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
+}
+
+.paragraph {
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-body);
+}
+
+/* Per-band vertical padding measured from the frame. */
+.patient-management {
+  padding-block: 58px;
+}
+
+.healthcare-notes {
+  padding-block: 80px;
+}
+
+.e-prescription {
+  padding-block: 80px;
+}
+
+/* Where the image sets the band height, the frame's text block sits 1px above centre. */
+.patient-management .content,
+.lab-ordering .content {
+  position: relative;
+  top: -1px;
+}
+
+.lab-ordering {
+  padding-block: 53px 52px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .inner,
+  .mediaRight {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
+  }
+
+  .mediaRight .media {
+    order: 0;
+  }
+
+  .media {
+    max-width: 504px;
+  }
+
+  .media img {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+  }
+
+  .section {
+    padding-block: 64px;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}

@@ -1,0 +1,47 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 640px;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.eyebrow {
+  color: var(--color-secondary);
+}
+
+.light .title {
+  color: var(--color-on-surface);
+}
+
+.light .description {
+  color: var(--color-on-surface-variant);
+}
+
+.dark .eyebrow {
+  color: var(--color-secondary);
+}
+
+.dark .title {
+  color: var(--color-on-primary);
+}
+
+.dark .description {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+@media (max-width: 1023px) {
+  .heading {
+    max-width: 100%;
+  }
+}

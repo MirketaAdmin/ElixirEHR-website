@@ -1,0 +1,83 @@
+/* 536×476 block (same box as the other inner-page heroes): 504×384 framed photo on the right,
+   stat card overlapping its lower-left corner. */
+.media {
+  position: relative;
+  width: 536px;
+  height: 476px;
+}
+
+.image {
+  position: absolute;
+  top: 46px;
+  right: 0;
+  border-radius: var(--radius-xl);
+}
+
+.stat {
+  position: absolute;
+  top: 314px;
+  left: 0;
+  width: 204px;
+  height: 148px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 12px 24px rgb(0 0 0 / 0.2);
+}
+
+.statHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  white-space: nowrap;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.statIcon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #c4f351;
+}
+
+.statValue {
+  margin-top: 8px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  color: var(--color-surface-dark);
+}
+
+.statCaption {
+  font-size: 12px;
+  line-height: 16px;
+  color: #8b868f;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .media {
+    width: 100%;
+    max-width: 536px;
+    height: auto;
+    margin-top: 0;
+    padding: 0 0 48px 32px;
+  }
+
+  .image {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+
+  .stat {
+    top: auto;
+    bottom: 0;
+  }
+}

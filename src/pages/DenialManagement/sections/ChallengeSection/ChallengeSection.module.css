@@ -1,0 +1,250 @@
+.section {
+  padding: 112px 0 119px;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 544px;
+  align-items: start;
+  gap: 48px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 24px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-error-container);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--color-on-error-container);
+}
+
+.title {
+  margin-top: 20px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.01em;
+}
+
+.paragraph {
+  margin-top: 17px;
+  font-size: 18px;
+  line-height: 29.25px;
+}
+
+.title + .paragraph {
+  margin-top: 21px;
+}
+
+.cta {
+  gap: 10px;
+  height: 40px;
+  margin-top: 27px;
+  padding-inline: 19px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Stats: two cards inside a hairline frame (square corners, as drawn in the frame), then the
+   rework-cost card and the source footnote. */
+.pair {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 262px);
+  justify-content: space-between;
+}
+
+.pair::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-border);
+  pointer-events: none;
+}
+
+.stat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 210px;
+  padding: 25px 24px 24px;
+  border: 1px solid #e9e5e8;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.statTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.value {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 70px;
+  letter-spacing: -0.02em;
+}
+
+.error {
+  color: var(--color-error);
+}
+
+.success {
+  color: var(--color-secondary);
+}
+
+.statIcon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-top: 14px;
+  border-radius: 50%;
+}
+
+.statIcon.error {
+  background: #fae9e7;
+}
+
+.statIcon.success {
+  background: #e2f3b2;
+}
+
+.statText {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.cost {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 194px;
+  margin-top: 20px;
+  padding: 0 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.costIcon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+}
+
+.costValue {
+  flex: none;
+  padding-top: 2px;
+  width: 124px;
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 47px;
+  letter-spacing: -0.02em;
+  color: var(--color-heading);
+}
+
+.costLabel {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: var(--color-body);
+}
+
+.costText {
+  margin-left: 9px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.footnote {
+  margin-top: 21px;
+  padding-left: 4px;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 20px;
+  letter-spacing: 0.12px;
+  color: #6e6a71;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
+  }
+
+  .stats {
+    max-width: 544px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .pair {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .pair::before {
+    display: none;
+  }
+
+  .stat {
+    height: auto;
+    min-height: 180px;
+    gap: 24px;
+  }
+
+  .cost {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 24px;
+  }
+
+  .costText {
+    margin-left: 0;
+  }
+}

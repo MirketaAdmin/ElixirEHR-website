@@ -1,0 +1,378 @@
+/* Lead row: 760px featured e-book beside a 368px column (live webinar, featured video). */
+.lead {
+  display: grid;
+  grid-template-columns: minmax(0, 760fr) minmax(0, 368fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.side {
+  display: grid;
+  gap: 26px;
+}
+
+.featured,
+.live {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+}
+
+.featuredMedia,
+.cardMedia {
+  position: relative;
+}
+
+.featuredImage {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.featuredTag,
+.cardTag {
+  position: absolute;
+  top: 17px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-tertiary);
+  font-family: var(--font-label);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.featuredTag {
+  font-size: 14px;
+  line-height: 26px;
+  letter-spacing: 0.1em;
+}
+
+.featuredBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px 32px 33px;
+}
+
+.featuredTitle {
+  max-width: 560px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.featuredText {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-label);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-secondary);
+}
+
+.featuredText + .link {
+  margin-top: 16px;
+}
+
+.featuredMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-top: 18px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-body);
+}
+
+.featuredMeta li,
+.cardMeta li,
+.liveDate {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Live webinar */
+.live {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 24px 20px;
+}
+
+.liveTag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.liveTag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentcolor;
+}
+
+.liveTitle {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--color-surface-dark);
+}
+
+.liveText {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.liveFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+  margin-top: 33px;
+  padding-top: 16px;
+  border-top: 1px solid #f0edf1;
+}
+
+.liveWhen {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.liveDate {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-heading);
+}
+
+.liveTime {
+  display: block;
+}
+
+.liveLink {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Featured video: photo under a Deep Purple gradient. */
+.video {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 277px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--color-surface-dark);
+}
+
+.video::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgb(73 50 102 / 0.3), rgb(50 27 79 / 0.85));
+}
+
+.videoImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoPlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.3);
+  color: var(--color-white);
+  transform: translate(-50%, -50%);
+}
+
+.videoBody {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 21px 20px;
+}
+
+.videoTag {
+  padding: 0 8px;
+  border-radius: var(--radius-xs);
+  background: rgb(255 255 255 / 0.2);
+  font-family: var(--font-label);
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.videoTitle {
+  margin-top: 11px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--color-white);
+}
+
+/* Mixed feed */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 18px;
+}
+
+.grid > li {
+  display: flex;
+}
+
+.card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #f0edf1;
+  border-radius: var(--radius-xl);
+  background: var(--color-white);
+}
+
+.cardImage {
+  display: block;
+  width: 100%;
+  height: 256px;
+  object-fit: cover;
+}
+
+.cardTag {
+  top: 16px;
+  font-size: 12px;
+  line-height: 26px;
+  letter-spacing: 0.15em;
+}
+
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 24px 26px;
+}
+
+.cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--color-body);
+}
+
+.cardTitle {
+  margin-top: 17px;
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  color: var(--color-surface-dark);
+}
+
+.cardBody .link {
+  margin-top: auto;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: 41px;
+}
+
+.moreButton {
+  height: 43px;
+  padding-inline: 24px;
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .lead {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .side {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .featuredImage {
+    height: 220px;
+  }
+
+  .featuredBody {
+    padding: 24px 20px;
+  }
+
+  .featuredTitle {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .side,
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

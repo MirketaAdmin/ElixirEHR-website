@@ -1,0 +1,92 @@
+.section {
+  padding: 80px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 536px minmax(0, 1fr);
+  align-items: start;
+  gap: 81px;
+}
+
+.eyebrow {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.title {
+  margin-top: 4px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.line {
+  display: block;
+}
+
+.description {
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 11.5px;
+  margin-top: 30px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.points li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.points img {
+  flex-shrink: 0;
+  margin-left: -2px;
+}
+
+/* 1px rule above the trust line. */
+.trusted {
+  margin-top: 68px;
+  padding-top: 25px;
+  border-top: 1px solid #d1cad3;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.trusted span {
+  display: block;
+  max-width: 340px;
+}
+
+.form {
+  padding-block: 48px 46px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .title {
+    font-size: 26px;
+    line-height: 34px;
+  }
+}

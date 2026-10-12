@@ -1,0 +1,267 @@
+.section {
+  padding: 62px 0 85px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.heading {
+  --eyebrow-heading-gap: 2px;
+}
+
+.heading h2 {
+  letter-spacing: 0;
+}
+
+.description {
+  margin-top: 11px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 33px;
+}
+
+.prev,
+.next {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.prev {
+  border: 1px solid #7b757f;
+  color: var(--color-heading);
+}
+
+.next {
+  background: var(--color-surface-dark);
+  color: var(--color-white);
+}
+
+/* Featured story: 576px photo beside a Surface Variant (dark) panel. */
+.featured {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 40px;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  background: var(--color-surface-dark);
+}
+
+.featuredImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featuredBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 64px;
+  color: var(--color-white);
+}
+
+.tag {
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.featuredTitle {
+  margin-top: 24px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  color: var(--color-white);
+}
+
+.quote {
+  margin: 24px 0 0;
+  padding-left: 24px;
+  border-left: 4px solid var(--color-tertiary);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 32.5px;
+  color: rgb(255 255 255 / 0.9);
+}
+
+.attribution {
+  margin-top: 19px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.featuredCta {
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+  margin-top: 30px;
+  padding-inline: 32px;
+  border-radius: var(--radius-pill);
+  background: var(--color-tertiary);
+  letter-spacing: 0.01em;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+/* Story cards: 362px, bordered, photo on top, "Read more" pinned to the foot. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px 33px;
+  margin-top: 40px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+}
+
+.media {
+  position: relative;
+}
+
+.media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.badge {
+  position: absolute;
+  top: 16px;
+  right: 17px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-tertiary);
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px 32px 32px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  color: var(--color-surface-dark);
+}
+
+.text {
+  margin: 16px 0 24px;
+  font-size: 14px;
+  line-height: 23px;
+}
+
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .featured {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .featuredImage {
+    aspect-ratio: 576 / 400;
+  }
+
+  .featuredBody {
+    padding: 40px 32px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 56px 0 64px;
+  }
+
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .controls {
+    margin-bottom: 0;
+  }
+
+  .featuredBody {
+    padding: 32px 20px;
+  }
+
+  .featuredTitle {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .quote {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .body {
+    padding: 24px 20px;
+  }
+}

@@ -1,0 +1,319 @@
+.section {
+  padding: 101px 0 101px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Bento grid: 3 columns, fixed row heights from the Figma frame. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: 378px 304px 384px;
+  gap: 32px;
+  width: 100%;
+  margin-top: 48px;
+}
+
+.card {
+  display: flex;
+  gap: 32px;
+  padding: 33px 32px 32px;
+  border: 1px solid #eeebf0;
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+}
+
+.card1,
+.card4 {
+  grid-column: span 2;
+}
+
+.card1 {
+  padding: 40px;
+}
+
+.card4 {
+  padding-top: 35px;
+}
+
+.card5 {
+  padding-top: 33px;
+}
+
+.card6,
+.card7 {
+  padding-top: 34px;
+}
+
+.card2 {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+}
+
+.card3 {
+  border-color: var(--color-surface);
+  background: var(--color-surface);
+}
+
+.card5 {
+  border-color: var(--color-tertiary);
+  background: var(--color-tertiary);
+}
+
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.image {
+  flex: none;
+  border-radius: var(--radius-md);
+}
+
+.label {
+  font-family: var(--font-label);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-secondary);
+}
+
+.cardTitle {
+  margin-top: 21px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-primary);
+}
+
+.card4 .cardBody {
+  justify-content: center;
+}
+
+.card4 .cardTitle {
+  margin-top: 13px;
+}
+
+.card4 .description {
+  margin-top: 16px;
+}
+
+.card1 .cardBody {
+  padding-top: 2px;
+}
+
+.card1 .points {
+  margin-top: 25px;
+}
+
+.description,
+.points {
+  margin-top: 17px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.card2 .cardTitle {
+  color: var(--color-white);
+}
+
+.card2 .description {
+  color: rgb(255 255 255 / 0.8);
+}
+
+.card5 .label,
+.card5 .cardTitle,
+.card5 .description {
+  color: var(--color-heading);
+}
+
+/* Reason #1 checklist */
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.point {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 320px;
+}
+
+.check {
+  flex: none;
+  margin: -1px 0 0 -1px;
+}
+
+/* Reason #2 dictation status */
+.status {
+  margin-top: auto;
+  padding: 15px 16px 18px;
+  border: 1px solid var(--color-white-10);
+  border-radius: var(--radius-sm);
+  background: rgb(255 255 255 / 0.01);
+}
+
+.statusRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-secondary);
+}
+
+.waveform {
+  margin-top: 12px;
+}
+
+/* Reason #3 avatars */
+.avatars {
+  margin-top: auto;
+}
+
+/* Reason #4 tool tiles */
+.tools {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.tool {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+}
+
+.toolLime {
+  background: #edf0e6;
+}
+
+.toolPurple {
+  background: #ebe8ed;
+}
+
+/* Reason #5 denial risk box */
+.risk {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  padding: 23px 24px 26px;
+  border-radius: var(--radius-xs);
+  background: #a4870b;
+}
+
+.riskLabel {
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(255 255 255 / 0.7);
+}
+
+.riskValue {
+  margin-top: 2px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  color: var(--color-white);
+}
+
+/* Reason #6 metric */
+.metric {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto 0 -2px;
+}
+
+.metricValue {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 44px;
+  color: var(--color-secondary);
+}
+
+.metricLabel {
+  display: flex;
+  flex-direction: column;
+  min-width: 107px;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--color-body);
+}
+
+/* Reason #7 progress (bar proportions from the Figma frame: 241px / 8px gap / 48px). */
+.progress {
+  margin-top: auto;
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: 241fr 48fr;
+  gap: 8px;
+  height: 8px;
+}
+
+.barFill,
+.barRest {
+  border-radius: var(--radius-pill);
+}
+
+.barFill {
+  background: var(--color-primary);
+}
+
+.barRest {
+  background: var(--color-border);
+}
+
+.progressRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-primary);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+  }
+
+  .card1,
+  .card4 {
+    grid-column: auto;
+  }
+
+  .card {
+    flex-wrap: wrap;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 330px;
+    height: auto;
+  }
+
+  .metric,
+  .progress,
+  .risk,
+  .status,
+  .avatars {
+    margin-top: 24px;
+  }
+}

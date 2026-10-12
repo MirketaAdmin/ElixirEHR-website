@@ -1,0 +1,29 @@
+/* Size is set by the consuming section (the frame uses 544, 552 and 500px wide cards). */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 6px;
+  border-radius: var(--radius-lg);
+  background: #faf8fc;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-title-alt);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  color: #4d328c;
+}
+
+.text {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #656685;
+}

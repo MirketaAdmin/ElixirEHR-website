@@ -1,0 +1,37 @@
+.placeholder {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--color-surface-container-high),
+    var(--color-surface-container-high) 10px,
+    var(--color-surface-container) 10px,
+    var(--color-surface-container) 20px
+  );
+  border: 1px dashed var(--color-outline-variant);
+  color: var(--color-on-surface-variant);
+}
+
+.label {
+  max-width: 80%;
+}
+
+.radius-sm {
+  border-radius: var(--radius-sm);
+}
+
+.radius-md {
+  border-radius: var(--radius-md);
+}
+
+.radius-lg {
+  border-radius: var(--radius-lg);
+}
+
+.radius-full {
+  border-radius: var(--radius-full);
+}

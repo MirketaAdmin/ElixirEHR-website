@@ -1,0 +1,66 @@
+/*
+  Design tokens — single source of truth for the Figma design.
+  Values come from DESIGN-SYSTEM.md (Figma "Elixir AI Design System" sheet + measured Home frame).
+  Tokens marked "confirm" are raster estimates pending Figma Inspect.
+*/
+
+:root {
+  /* ── Brand colours (Design System sheet) ─────────────────────────── */
+  --color-primary: #493266; /* Deep Purple */
+  --color-secondary: #95c11f; /* Lime Green */
+  --color-tertiary: #f2c60f; /* Yellow */
+  --color-surface: #f6f3f2; /* Rose White — Surface Container High / BG */
+  --color-surface-dark: #321b4f; /* Surface Variant (dark) */
+  --color-surface-light: #ecdeee; /* Surface Variant (light) */
+  --color-border: #ccc4cf; /* Stroke or Border */
+  --color-heading: #1f1823; /* Headings */
+  --color-body: #444444; /* Body or Para */
+  --color-error: #ba1a1a;
+  --color-white: #ffffff;
+  --gradient-brand: linear-gradient(90deg, #493266 0%, #710066 100%);
+
+  /* ── Derived colours (measured on the Home frame) ───────────────── */
+  --color-hero-base: #2e0152;
+  --color-secondary-tint: #eaf3d2; /* "EHR and more with AI" pill */
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-white-90: rgb(255 255 255 / 0.9); /* header nav text */
+  --color-white-60: rgb(255 255 255 / 0.6); /* footer links & tagline */
+  --color-white-40: rgb(255 255 255 / 0.4); /* footer bottom bar text */
+  --color-white-10: rgb(255 255 255 / 0.1);
+  --color-white-07: rgb(255 255 255 / 0.07); /* footer divider */
+  --color-white-05: rgb(255 255 255 / 0.05); /* footer social circles */
+
+  /* ── Font families ──────────────────────────────────────────────── */
+  --font-display: 'Montserrat', system-ui, sans-serif;
+  --font-body: 'Roboto', system-ui, sans-serif;
+  --font-label: 'Inter', system-ui, sans-serif;
+  /* Card/feature titles on the Home frame use Plus Jakarta Sans (identified from the export). */
+  --font-title-alt: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* ── Layout ─────────────────────────────────────────────────────── */
+  --container-width: 1152px;
+  --container-padding: 64px;
+  --header-height: 79px;
+
+  /* Section vertical padding (measured) */
+  --section-padding-lg: 100px;
+  --section-padding-md: 80px;
+
+  /* ── Radius ─────────────────────────────────────────────────────── */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-pill: 9999px;
+
+  /* ── Shadows (confirm in Figma Inspect) ─────────────────────────── */
+  --shadow-soft: 0 8px 32px rgb(73 50 102 / 0.08);
+  --shadow-media: 0 24px 64px rgb(31 24 35 / 0.12);
+  --shadow-subtle: 0 8px 24px rgb(0 0 0 / 0.15);
+
+  /* ── Motion ─────────────────────────────────────────────────────── */
+  --transition-fast: 150ms ease;
+}

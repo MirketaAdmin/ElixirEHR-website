@@ -1,0 +1,125 @@
+.section {
+  padding: 82px 0 80px;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 630px) minmax(0, 500px);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 39px;
+}
+
+.titleLine {
+  display: block;
+}
+
+.body {
+  max-width: 630px;
+  margin-top: 16px;
+  line-height: 26px;
+}
+
+/* 580px keeps the frame's wraps; pre-line keeps its hard line breaks. */
+.points {
+  width: min(580px, 100%);
+  margin-top: 23px;
+  white-space: pre-line;
+}
+
+.media {
+  height: 300px;
+}
+
+.teamsTitle {
+  margin-top: 42px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: center;
+  color: var(--color-surface-dark);
+}
+
+.teamsText {
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.teams {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 19px 20px;
+  margin-top: 21px;
+}
+
+.team {
+  padding: 20px 20px 21px;
+  border-top: 2px solid var(--color-secondary);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.teamTitle {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--color-surface-dark);
+}
+
+.teamText {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 19.5px;
+  white-space: pre-line;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 48px;
+  }
+
+  .points {
+    width: auto;
+  }
+
+  .media {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .teams {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .points,
+  .teamText {
+    white-space: normal;
+  }
+
+  .teams {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

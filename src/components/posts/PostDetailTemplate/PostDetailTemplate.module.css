@@ -1,0 +1,51 @@
+/* 757px article + 32px gap + 363px sidebar inside the 1152px container. */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 363px;
+  align-items: start;
+  gap: 32px;
+  padding-block: 81px 80px;
+}
+
+.main {
+  min-width: 0;
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  margin-bottom: 48px;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 0.25);
+}
+
+.about {
+  margin-top: 25px;
+}
+
+.aboutTitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.aboutText {
+  margin-top: 24px;
+}
+
+.main > :last-child {
+  margin-top: 64px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 64px;
+    padding-block: 56px;
+  }
+
+  .heroImage {
+    margin-bottom: 32px;
+  }
+}

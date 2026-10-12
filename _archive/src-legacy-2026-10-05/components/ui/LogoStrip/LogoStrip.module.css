@@ -1,0 +1,34 @@
+.strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 63.55px;
+  width: 100%;
+  max-width: 1152px;
+  margin-inline: auto;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding-inline: 16px;
+  color: var(--color-outline);
+  border: 1px dashed var(--color-outline-variant);
+  border-radius: var(--radius-sm);
+  opacity: 0.8;
+}
+
+.logoImage {
+  height: 84px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 767px) {
+  .strip {
+    gap: 24px;
+  }
+}

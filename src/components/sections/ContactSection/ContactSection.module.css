@@ -1,0 +1,105 @@
+.section {
+  padding: 100px 0;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  column-gap: 80px;
+}
+
+/* Left column */
+.eyebrow {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.title {
+  margin-top: 3px;
+}
+
+.description {
+  margin-top: 22px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.channels {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 49px;
+}
+
+.channel {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+}
+
+.tile {
+  flex: none;
+  padding: 15px 0 0 15px;
+  border-radius: var(--radius-md);
+  background: #f1e4f4;
+}
+
+.channel p {
+  margin-top: -1px;
+}
+
+.channelLabel,
+.channelValue {
+  display: block;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.channelLabel {
+  color: var(--color-body);
+}
+
+.channelValue {
+  margin-top: 4px;
+  font-weight: 500;
+  color: var(--color-heading);
+}
+
+.trustedLabel {
+  margin-top: 15px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 1.2px;
+  color: var(--color-body);
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+  height: 82px;
+  margin-top: 24px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 64px;
+  }
+
+  .logos {
+    flex-wrap: wrap;
+    gap: 24px 45px;
+    height: auto;
+  }
+}

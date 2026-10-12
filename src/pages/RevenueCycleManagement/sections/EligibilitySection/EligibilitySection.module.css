@@ -1,0 +1,178 @@
+.section {
+  padding: 79px 0 78px;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 680px) minmax(0, 452px);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  margin-top: 26px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+}
+
+.body {
+  max-width: 652px;
+  margin-top: 21px;
+  line-height: 26px;
+}
+
+.emphasis {
+  color: var(--color-heading);
+}
+
+.points {
+  --check-size: 16px;
+  --check-leading: 24px;
+  --check-gap: 12px;
+
+  margin-top: 23px;
+  max-width: 690px;
+}
+
+.note {
+  max-width: 660px;
+  margin-top: 24px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 21px;
+}
+
+/* "Insurance Details" product preview card. */
+.card {
+  padding: 24px 24px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 12px 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--color-surface-dark);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  height: 21px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 208px minmax(0, 1fr);
+  gap: 12px 0;
+  margin: 17px 0 0;
+}
+
+.field {
+  margin: 0;
+}
+
+.fieldLabel {
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #625d65;
+}
+
+.fieldValue {
+  margin: 3px 0 0;
+  font-family: var(--font-label);
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--color-heading);
+}
+
+.lead {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.mono,
+.mono-lead {
+  font-family: 'Courier New', ui-monospace, monospace;
+}
+
+.mono {
+  font-size: 11px;
+}
+
+.mono-lead {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.strong {
+  font-weight: 700;
+}
+
+.cardAction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 36px;
+  margin-top: 23px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-dark);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 48px;
+  }
+
+  .card {
+    max-width: 452px;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}

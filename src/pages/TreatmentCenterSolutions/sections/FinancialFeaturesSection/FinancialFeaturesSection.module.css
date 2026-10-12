@@ -1,0 +1,41 @@
+.section {
+  padding: 80px 0 88px;
+}
+
+.title {
+  max-width: 960px;
+  margin-inline: auto;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 60px;
+  text-align: center;
+}
+
+.accent {
+  color: var(--color-primary);
+}
+
+/* Four 296px columns (1184px) centred on the 1152px container, as in the frame. */
+.grid {
+  --feature-columns: 4;
+  --feature-column-width: 296px;
+  --feature-label-width: 276px;
+  --feature-row-gap: 56px;
+
+  margin-inline: -16px;
+  margin-top: 40px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .grid {
+    margin-inline: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}

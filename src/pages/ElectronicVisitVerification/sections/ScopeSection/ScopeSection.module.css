@@ -1,0 +1,113 @@
+.section {
+  padding: 80px 0;
+}
+
+.intro {
+  max-width: 768px;
+}
+
+.description {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+/* Square top (the header band runs to the edge), rounded foot. */
+.frame {
+  margin-top: 32px;
+  overflow-x: auto;
+  border-radius: 0 0 12px 12px;
+  background: var(--color-white);
+  box-shadow: 0 2px 8px rgb(31 24 35 / 0.08);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+}
+
+.colArea {
+  width: 382px;
+}
+
+.colFederal {
+  width: 346px;
+}
+
+.table th,
+.table td {
+  padding: 16px;
+  vertical-align: middle;
+}
+
+.table thead th {
+  height: 52px;
+  padding-block: 0;
+  background: var(--color-surface);
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.table tbody tr + tr {
+  border-top: 1px solid var(--color-border);
+}
+
+.table tbody th {
+  padding-block: 17px 15px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--color-heading);
+}
+
+.table td {
+  padding-block: 15px 17px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.federal {
+  color: var(--color-heading);
+}
+
+.note {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .colArea,
+  .colFederal {
+    width: 33%;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .table {
+    min-width: 720px;
+  }
+
+  .table tbody th {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}

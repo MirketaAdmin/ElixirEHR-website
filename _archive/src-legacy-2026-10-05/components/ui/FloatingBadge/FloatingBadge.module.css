@@ -1,0 +1,46 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-ambient-md);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(12px);
+  color: var(--color-on-primary);
+}
+
+.glass .subtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.solid {
+  background: var(--color-primary-dark);
+  color: var(--color-on-primary);
+}
+
+.solid .title {
+  color: var(--color-on-primary);
+}
+
+.solid .subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}

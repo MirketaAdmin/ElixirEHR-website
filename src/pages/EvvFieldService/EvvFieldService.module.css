@@ -1,0 +1,54 @@
+/* Frame-specific overrides for shared sections on the EVV for Salesforce Field Service page. */
+
+/* Hero: four-line 18/28 paragraph (580px wide), 58px CTAs with 16px labels. */
+.hero {
+  --page-hero-padding: 61.5px;
+  --page-hero-description-width: 580px;
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-primary-height: 58px;
+  --page-hero-primary-size: 16px;
+}
+
+.hero p + div > a + a {
+  letter-spacing: 0.1px;
+}
+
+/* The frame tracks the current crumb slightly wider than the shared 1px. */
+.hero nav li:last-child {
+  letter-spacing: 1.2px;
+}
+
+/* CTA band: one-line H2 with tight tracking, a wide two-line description and two 66px buttons
+   (secondary outlined in white). */
+.ctaBand {
+  padding: 80px 0;
+}
+
+.ctaBand h2 {
+  line-height: 60px;
+  letter-spacing: -3px;
+}
+
+.ctaBand h2 + p:last-child {
+  max-width: 1120px;
+  margin-top: 32px;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.ctaButton,
+.ctaSecondary {
+  height: 66px;
+  margin-top: 47px;
+}
+
+.ctaButton {
+  padding-inline: 40px;
+}
+
+.ctaSecondary {
+  padding-inline: 40px;
+  border-color: var(--color-white);
+  color: var(--color-white);
+  font-weight: 700;
+}

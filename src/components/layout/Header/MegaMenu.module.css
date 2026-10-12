@@ -1,0 +1,113 @@
+/* White panel under the purple bar: design-system radius, shadow and type (DESIGN-SYSTEM.md). */
+.panel {
+  position: absolute;
+  top: calc(100% - 1px);
+  z-index: 1;
+  padding: 32px;
+  border: 1px solid var(--color-surface-light);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: var(--shadow-media);
+  animation: panel-in 160ms ease-out;
+}
+
+/* Full content width, aligned with the page container. */
+.mega {
+  right: var(--container-padding);
+  left: var(--container-padding);
+}
+
+.dropdown {
+  left: -16px;
+  min-width: 248px;
+  padding: 16px;
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
+  }
+}
+
+/* Level 2 groups flow into balanced columns. */
+.groups {
+  columns: 4 200px;
+  column-gap: 32px;
+}
+
+.group {
+  break-inside: avoid;
+  padding-bottom: 24px;
+}
+
+.groupTitle {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 6px;
+}
+
+.dropdown > .list {
+  margin-top: 0;
+}
+
+/* Level 4 sits under a thin rule so the hierarchy reads at a glance. */
+.deepList {
+  margin: 2px 0 4px 2px;
+  padding-left: 12px;
+  border-left: 1px solid var(--color-border);
+}
+
+.link {
+  display: inline-block;
+  padding-block: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-body);
+}
+
+.dropdown .link {
+  display: block;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+a.groupTitle:hover,
+a.link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.dropdown a.link:hover {
+  background: var(--color-surface);
+  text-decoration: none;
+}
+
+.active {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* Items whose page is not built yet: listed for the structure, not interactive. */
+.pending {
+  cursor: default;
+}

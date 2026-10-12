@@ -1,0 +1,105 @@
+.section {
+  padding: 96px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 560px;
+  align-items: center;
+  gap: 36px;
+}
+
+/* 12px eyebrow and a 32/40 medium title in this section. */
+.heading {
+  --eyebrow-heading-gap: 11px;
+}
+
+.heading p {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.heading h2 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: 0.3px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.card {
+  padding: 23px 24px 24px;
+  border-radius: 16px;
+  background: var(--color-surface);
+  box-shadow: 0 4px 12px rgb(31 24 35 / 0.1);
+}
+
+.cardTitle {
+  padding-left: 3px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.statuses {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px 12px;
+  margin-top: 17px;
+}
+
+.status {
+  min-height: 79px;
+  padding: 18px 16px 14px;
+  border-radius: 12px;
+  background: var(--color-white);
+}
+
+.statusTitle {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-heading);
+}
+
+.statusText {
+  margin-top: 7px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .heading h2 {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .statuses {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

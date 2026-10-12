@@ -1,0 +1,113 @@
+.section {
+  padding: 102px 0 101px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+/* This frame's H2 has no negative tracking (562px measured vs 553px at −0.01em). */
+.title {
+  margin-top: 10px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.categories {
+  display: flex;
+  gap: 16px;
+  margin-top: 66px;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  height: 49px;
+  padding: 0 32.5px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  color: var(--color-body);
+}
+
+.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  width: 100%;
+  margin-top: 48px;
+}
+
+.card {
+  padding: 32px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-white);
+}
+
+.icon {
+  margin: -1px 0 0 -1px;
+}
+
+.cardTitle {
+  margin-top: 24px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--color-primary);
+}
+
+.cardDescription {
+  max-width: 198px;
+  min-height: 130px; /* the Figma text box reserves five lines */
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-body);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .categories {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cardDescription {
+    max-width: none;
+  }
+}

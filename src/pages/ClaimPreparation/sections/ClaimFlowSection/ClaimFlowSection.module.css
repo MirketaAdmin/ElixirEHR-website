@@ -1,0 +1,133 @@
+.section {
+  padding: 88px 0 80px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.025em;
+  color: var(--color-white);
+}
+
+.description {
+  margin-top: 4px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-surface-light);
+}
+
+/* 3 × 2 stage cards (363px, 32px gaps); cards in a row share its height. */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.stage {
+  padding: 24px;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+}
+
+.stageTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 28px;
+}
+
+.number {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-tertiary);
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.lime {
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.white {
+  background: var(--color-white);
+  color: var(--color-primary);
+}
+
+.stageTitle {
+  margin-top: 9px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--color-white);
+}
+
+.stageText {
+  margin-top: 7px;
+  line-height: 24px;
+  color: var(--color-surface-light);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 56px;
+  padding: 25px 24px 23px;
+  border-radius: var(--radius-lg);
+  background: var(--color-primary);
+}
+
+.value {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 52px;
+  color: var(--color-tertiary);
+}
+
+.label {
+  margin-top: 12px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.statText {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-surface-light);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .stages {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .stages,
+  .stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

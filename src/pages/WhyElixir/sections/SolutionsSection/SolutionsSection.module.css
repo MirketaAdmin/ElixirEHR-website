@@ -1,0 +1,61 @@
+/* Top padding absorbs the shared capabilities band being 1px taller than in this frame. */
+.section {
+  padding: 100px 0 101px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 62px;
+}
+
+.card {
+  padding: 39px 40px 40px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background: #f7eafa;
+}
+
+.title {
+  margin-top: 32px;
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-primary);
+}
+
+.description {
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-body);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 32px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--color-secondary);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

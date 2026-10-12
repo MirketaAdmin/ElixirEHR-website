@@ -1,0 +1,164 @@
+.section {
+  padding: 80px 0 79px;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 596px) minmax(0, 506px);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  margin-top: 19px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 61px;
+}
+
+.titleLine {
+  display: block;
+}
+
+.body {
+  margin-top: 14px;
+  line-height: 26px;
+}
+
+.subtitle {
+  margin-top: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-surface-dark);
+}
+
+.detail {
+  margin-top: 16px;
+  line-height: 26px;
+}
+
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  line-height: 24px;
+}
+
+.benefit::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+}
+
+.image {
+  height: auto;
+  margin-bottom: 4px;
+}
+
+/* Transactions table */
+.tableWrap {
+  margin-top: 49px;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  height: 49px;
+  padding: 0 24px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.table thead th {
+  height: 48px;
+  background: var(--color-surface-dark);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-surface);
+}
+
+.table thead th:nth-child(1) {
+  width: 194px;
+}
+
+.table thead th:nth-child(2) {
+  width: 501px;
+}
+
+/* Body text sits 2px below the row's centre in the frame. */
+.table tbody > tr > * {
+  padding-top: 4px;
+}
+
+.table tbody tr + tr {
+  border-top: 1px solid var(--color-border);
+}
+
+.table tbody tr:first-child {
+  border-top: 0;
+}
+
+.table tbody tr:first-child > * {
+  height: 47px;
+}
+
+.code {
+  font-family: 'Courier New', ui-monospace, monospace;
+  font-weight: 700;
+  color: var(--color-surface-dark);
+}
+
+.purpose {
+  color: var(--color-heading);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .intro {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 48px;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 504px;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}

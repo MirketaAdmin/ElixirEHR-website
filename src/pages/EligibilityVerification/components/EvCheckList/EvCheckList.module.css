@@ -1,0 +1,28 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ev-check-gap, 16px);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--ev-check-size, 16px);
+  line-height: 24px;
+  color: var(--color-surface-dark);
+}
+
+.display .item {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.body .item {
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.icon {
+  flex: none;
+}

@@ -1,0 +1,62 @@
+.section {
+  padding: 80px 0 82px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  --dm-heading-width: 760px;
+  --dm-description-width: 780px;
+}
+
+.heading p:last-child {
+  margin-top: 13px;
+  line-height: 29px;
+}
+
+/* Pills wrap inside 900px, giving the frame's rows of 2, 3 and 3. */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 15px;
+  max-width: 900px;
+  margin-top: 42px;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 42px;
+  padding: 0 21px 0 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.6px;
+  color: var(--color-primary);
+}
+
+.highlighted {
+  border-color: var(--color-secondary);
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .pill {
+    height: auto;
+    min-height: 42px;
+    padding-block: 10px;
+    text-align: left;
+  }
+}

@@ -1,0 +1,174 @@
+.section {
+  padding: 100px 0;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 544px) minmax(0, 544px);
+  justify-content: space-between;
+  align-items: start;
+}
+
+/* Shared form card; this frame has a white fill and looser field spacing. */
+.form {
+  --contact-form-background: var(--color-white);
+  --contact-form-row-gap: 24px;
+  --contact-form-label-gap: 8px;
+  --contact-form-submit-gap: 47px;
+
+  padding-top: 49px;
+}
+
+.intro {
+  margin-bottom: 39px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.description {
+  margin-top: 12px;
+  line-height: 26px;
+}
+
+/* Dashboard photo in a white frame, with the lime "AI insight" card overhanging it. */
+.media {
+  position: relative;
+}
+
+.frame {
+  padding: 8px;
+  border-radius: 28px;
+  background: var(--color-white);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25), 0 12px 40px rgb(0 0 0 / 0.05);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.insight {
+  position: absolute;
+  top: 209px;
+  right: -39px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 217px;
+  min-height: 125px;
+  padding: 23px 16px 16px 23px;
+  border-radius: var(--radius-lg);
+  background: var(--color-secondary);
+  box-shadow: 0 22px 40px -8px rgb(0 0 0 / 0.2), 0 0 40px rgb(149 193 31 / 0.15);
+}
+
+.sparkle {
+  flex: none;
+}
+
+.insightLabel,
+.insightText {
+  display: block;
+  color: #526d00;
+}
+
+.insightLabel {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.insightText {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.whyTitle {
+  margin-top: 64px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 47px;
+}
+
+.reasonTitle {
+  margin-top: 13px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.reasonText {
+  margin-top: 13px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.trustedLabel {
+  margin-top: 46px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 1.2px;
+  color: var(--color-body);
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 82px;
+  margin-top: 24px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 64px;
+  }
+
+  .panel {
+    max-width: 544px;
+  }
+
+  .insight {
+    right: 0;
+  }
+
+  .logos {
+    flex-wrap: wrap;
+    gap: 24px 45px;
+    height: auto;
+  }
+}
+
+/* The exported photo has the card's corner baked in; the live card stays over it at every size. */
+@media (max-width: 767px) {
+  .insight {
+    top: auto;
+    bottom: 0;
+    width: min(217px, 70%);
+  }
+
+  .reasons {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

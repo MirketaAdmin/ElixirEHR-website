@@ -1,0 +1,117 @@
+.section {
+  padding: 78px 0 80px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+}
+
+.description {
+  margin-top: 9px;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 52px;
+}
+
+.separation,
+.connected {
+  min-height: 296px;
+  padding: 33px 32px 32px;
+  border-radius: var(--radius-lg);
+}
+
+.separation {
+  /* The longest bullet runs into the right inset in the frame (one line, to x 614). */
+  min-height: 300px;
+  margin-top: -3px;
+  padding-top: 36px;
+  padding-right: 8px;
+  background: #f1e4f4;
+}
+
+.connected {
+  background: var(--color-white);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.separation .cardTitle {
+  color: var(--color-error);
+}
+
+.connected .cardTitle {
+  color: var(--color-secondary);
+}
+
+.costs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.cost {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.cost::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-error);
+}
+
+.connectedText {
+  margin-top: 21px;
+  font-size: 14px;
+  line-height: 22.75px;
+}
+
+.conclusion {
+  margin-top: 14px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--color-surface-dark);
+}
+
+.conclusionLink {
+  color: var(--color-secondary);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}

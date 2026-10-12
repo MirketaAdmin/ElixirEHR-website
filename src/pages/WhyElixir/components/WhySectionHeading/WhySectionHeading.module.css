@@ -1,0 +1,28 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 1.6px;
+  color: var(--color-secondary);
+}
+
+.title {
+  margin-top: 14px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}

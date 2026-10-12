@@ -1,0 +1,53 @@
+.card {
+  padding: 32px 24px 32px 23px;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-white);
+}
+
+.text {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.input {
+  height: 40px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-heading);
+}
+
+.input::placeholder {
+  color: var(--color-body);
+  opacity: 1;
+}
+
+.submit {
+  height: 44px;
+  border-radius: var(--radius-xs);
+  background: var(--color-tertiary);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-heading);
+}

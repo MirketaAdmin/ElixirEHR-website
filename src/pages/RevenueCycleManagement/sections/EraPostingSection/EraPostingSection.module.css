@@ -1,0 +1,107 @@
+.section {
+  padding: 81px 0 80px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 50px;
+}
+
+.titleLine {
+  display: block;
+}
+
+.description {
+  max-width: 770px;
+  margin-top: 11px;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.figure {
+  margin-top: 36px;
+}
+
+.image {
+  height: auto;
+}
+
+.caption {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin-top: 37px;
+  text-align: left;
+}
+
+.step {
+  padding: 24px 24px 34px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+}
+
+.stepTitle {
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-surface-dark);
+}
+
+.stepText {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .figure {
+    max-width: 682px;
+  }
+
+  .image {
+    width: 100%;
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

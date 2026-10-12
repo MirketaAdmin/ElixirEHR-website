@@ -1,0 +1,33 @@
+.breadcrumb {
+  margin-bottom: 16px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  text-transform: uppercase;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.link:hover {
+  color: var(--color-on-primary);
+}
+
+.current {
+  color: var(--color-secondary);
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.4);
+}

@@ -1,0 +1,39 @@
+/* Frame-specific overrides for shared sections on the Eligibility Verification page. */
+
+/* Hero paragraph is Roboto 18/28; the primary button is 58px tall with a 16px label. */
+.hero {
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-description-width: 570px;
+  --page-hero-content-offset: -1px;
+  --page-hero-primary-height: 58px;
+  --page-hero-primary-size: 16px;
+  --page-hero-padding: 61.5px;
+}
+
+/* CTA band: tight H2 tracking, one-line description, two 66px buttons (secondary outlined in white). */
+.ctaBand {
+  padding: 80px 0 81px;
+}
+
+.ctaBand h2 {
+  letter-spacing: -3px;
+}
+
+.ctaBand h2 + p:last-child {
+  margin-top: 31px;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.ctaButton,
+.ctaSecondary {
+  height: 66px;
+  margin-top: 48px;
+}
+
+.ctaSecondary {
+  padding-inline: 41px;
+  border-color: var(--color-white);
+  color: var(--color-white);
+  font-weight: 700;
+}

@@ -1,0 +1,59 @@
+.marquee {
+  container-type: inline-size;
+  overflow: hidden;
+  /* Soft fade at both ends so items glide in and out instead of being cut. */
+  mask-image: linear-gradient(to right, transparent, black 64px, black calc(100% - 64px), transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  animation: marquee var(--marquee-duration, 40s) linear infinite;
+}
+
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+/* Each copy is at least as wide as the viewport so the strip never shows a gap. */
+.group {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-around;
+  gap: var(--marquee-gap, 64px);
+  min-width: 100cqw;
+  padding-right: var(--marquee-gap, 64px);
+}
+
+.group > li {
+  flex: none;
+}
+
+@keyframes marquee {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    mask-image: none;
+  }
+
+  .track {
+    width: auto;
+    animation: none;
+  }
+
+  .group {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .copy {
+    display: none;
+  }
+}

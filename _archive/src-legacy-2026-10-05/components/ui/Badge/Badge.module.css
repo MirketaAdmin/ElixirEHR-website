@@ -1,0 +1,27 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.secondary {
+  background: rgba(149, 193, 31, 0.2);
+  color: #4d6700;
+}
+
+.tertiary {
+  background: var(--color-tertiary);
+  color: var(--color-on-tertiary);
+}
+
+.inverse {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-on-primary);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}

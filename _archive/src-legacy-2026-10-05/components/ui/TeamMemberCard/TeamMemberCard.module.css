@@ -1,0 +1,15 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.name {
+  color: var(--color-on-surface);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.role {
+  color: var(--color-on-surface-variant);
+}

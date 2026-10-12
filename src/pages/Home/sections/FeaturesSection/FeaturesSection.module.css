@@ -1,0 +1,189 @@
+.section {
+  overflow: hidden; /* the baked-in shadow reaches the viewport edge */
+  padding: 100px 0;
+}
+
+.inner {
+  position: relative;
+}
+
+.eyebrow {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-secondary);
+}
+
+.title {
+  margin-top: 8px;
+  line-height: 56px;
+}
+
+.title span {
+  display: block;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+/* Each feature is a tab: the whole block is clickable. */
+.item {
+  position: relative;
+  display: block;
+  padding-left: 26px;
+  text-align: left;
+}
+
+/* 2px indicator bar, 80px tall, aligned to the top of each item. */
+.item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 80px;
+  background: #e6dfe5;
+}
+
+.active::before {
+  background: var(--color-secondary);
+}
+
+/* While a feature is active its bar fills from a lime tint to solid lime, timing the rotation. */
+.active:not(.paused)::before {
+  background: rgb(149 193 31 / 0.3);
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 2px;
+  height: 80px;
+  background: var(--color-secondary);
+  transform-origin: top;
+  animation: progress var(--rotation, 6s) linear both;
+}
+
+.paused .progress {
+  animation: none;
+}
+
+@keyframes progress {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.itemTitle {
+  display: block;
+  font-family: var(--font-title-alt);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  color: #afadac;
+  transition: color 0.3s ease;
+}
+
+.itemDescription {
+  display: block;
+  max-width: 366px;
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #afadac;
+  transition: color 0.3s ease;
+}
+
+.active .itemTitle {
+  color: var(--color-primary);
+}
+
+.active .itemDescription {
+  color: var(--color-body);
+}
+
+/* Screenshot stage: 810×530 export (shadow baked in); slides cross-fade with a slight lift. */
+.media {
+  position: absolute;
+  top: 67px;
+  right: 0;
+  width: 810px;
+  height: 530px;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  pointer-events: none;
+}
+
+.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  pointer-events: auto;
+}
+
+.image {
+  display: block;
+  max-width: none;
+}
+
+/* Sits exactly on the 665×370 screenshot area of the 810×530 exports. */
+.placeholder {
+  position: absolute;
+  top: 7.547%;
+  left: 9.877%;
+  width: 82.1%;
+  height: 69.811%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide {
+    transform: none;
+    transition: opacity 0.2s linear;
+  }
+
+  .progress {
+    animation: none;
+  }
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .media {
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 810 / 530;
+    margin-top: 48px;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .placeholder p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}

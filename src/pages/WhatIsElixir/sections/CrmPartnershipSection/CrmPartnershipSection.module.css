@@ -1,0 +1,100 @@
+.section {
+  padding: 101px 0 102px;
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.05em; /* 193px measured; the frame varies eyebrow tracking per section */
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+/* This frame's H2 has no negative tracking. */
+.title {
+  margin-top: 10px;
+  letter-spacing: 0;
+}
+
+.description {
+  margin-top: 9px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 64px;
+}
+
+.card {
+  padding: 32px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 2px 8px rgb(31 24 35 / 0.04);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tile {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
+  background: var(--color-primary);
+}
+
+.cardTitle {
+  position: relative;
+  top: 2px;
+  max-width: 200px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--color-primary);
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 23px;
+}
+
+.point {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  max-width: 296px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+/* Bullet text wraps at 271px in the Figma frame (14px icon + 11px gap). */
+.point {
+  padding-right: calc(296px - 25px - 271px);
+}
+
+.check {
+  flex: none;
+  margin-top: 2px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

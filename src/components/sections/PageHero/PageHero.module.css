@@ -1,0 +1,179 @@
+/* Inner-page frames start the hero on the header's last row (Home has a 1px hero stroke there). */
+.hero {
+  margin-top: -1px;
+  background: var(--color-surface-dark);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  padding-block: var(--page-hero-padding, 70px);
+}
+
+.content {
+  position: relative;
+  top: var(--page-hero-content-offset, -1px);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.7);
+}
+
+.separator {
+  display: flex;
+  margin-left: 2px;
+}
+
+.current {
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.title {
+  margin-top: 22px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 72px;
+  letter-spacing: 0.01em;
+  color: var(--color-white);
+}
+
+.titleLine {
+  display: block;
+}
+
+.accent {
+  color: var(--color-tertiary);
+}
+
+.description {
+  /* 552px reproduces the About Us and What Is Elixir line breaks; pages may override. */
+  max-width: var(--page-hero-description-width, 552px);
+  margin-top: var(--page-hero-description-gap, 25px);
+  font-size: var(--page-hero-description-size, 16px);
+  line-height: var(--page-hero-description-leading, 24px);
+  color: var(--color-white);
+}
+
+.description + .description {
+  margin-top: var(--page-hero-paragraph-gap, 24px);
+}
+
+.actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.primary {
+  gap: 4px;
+  height: var(--page-hero-primary-height, 53px);
+  padding: 0 27px 0 31px;
+  font-family: var(--font-label);
+  font-size: var(--page-hero-primary-size, 14px);
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+}
+
+.secondary {
+  font-weight: 400;
+}
+
+.media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+
+.image {
+  display: block;
+}
+
+/* Lime status badge, clipped by the card's left edge as in the Figma frame. */
+.badge {
+  position: absolute;
+  top: 357px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 191px;
+  height: 83px;
+  padding: 0 0 2px 8px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: var(--color-secondary);
+}
+
+.badgeIcon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #6e8d1b;
+}
+
+.badgeTitle {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--color-surface-dark);
+}
+
+.badgeSubtitle {
+  display: block;
+  margin-top: 3px;
+  font-size: 8px;
+  line-height: 10px;
+  text-transform: uppercase;
+  color: var(--color-surface-dark);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 48px;
+  }
+
+  .media {
+    width: 100%;
+    max-width: 476px;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    top: auto;
+    bottom: 36px;
+  }
+}

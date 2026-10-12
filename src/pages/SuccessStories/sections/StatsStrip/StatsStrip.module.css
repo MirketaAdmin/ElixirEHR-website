@@ -1,0 +1,53 @@
+.section {
+  padding: 42px 0 48px;
+  background: var(--color-surface);
+}
+
+/* Four 300px columns centred on the page (wider than the 1152px container). */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 300px));
+  justify-content: center;
+  margin: 0;
+}
+
+/* Value above label visually; the label stays first in the markup (dt before dd). */
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  text-align: center;
+}
+
+.value {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 60px;
+  color: var(--color-primary);
+}
+
+.label {
+  margin-top: -2px;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 32px;
+    padding-inline: 20px;
+  }
+}
+
+@media (max-width: 479px) {
+  .value {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}

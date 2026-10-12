@@ -1,0 +1,128 @@
+.section {
+  padding: 99px 0 100px;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  column-gap: 64px;
+}
+
+.media {
+  position: relative;
+  margin: 0;
+}
+
+/* Photo card with the soft lime glow and drop shadow from the Figma frame (confirm values in Inspect). */
+.image {
+  display: block;
+  box-sizing: content-box;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow:
+    0 0 60px rgb(149 193 31 / 0.18),
+    0 25px 40px -10px rgb(31 24 35 / 0.25);
+}
+
+.badge {
+  position: absolute;
+  right: -24px;
+  bottom: -24px;
+  display: flex;
+  flex-direction: column;
+  width: 168px;
+  height: 96px;
+  padding: 27px 20px 0 24px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-dark);
+  box-shadow: 0 10px 20px rgb(31 24 35 / 0.15);
+}
+
+.badgeTitle {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #c4f351;
+}
+
+.badgeSubtitle {
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: rgb(255 255 255 / 0.7);
+}
+
+.eyebrow {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.title {
+  margin-top: 4px;
+}
+
+.paragraph {
+  max-width: 528px;
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-body);
+}
+
+.title + .paragraph {
+  margin-top: 30px;
+}
+
+.founder {
+  color: var(--color-surface-dark);
+}
+
+.quote {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.quoteBar {
+  flex: none;
+  width: 47px;
+  height: 4px;
+  background: #4d6700;
+}
+
+.quote p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  color: var(--color-surface-dark);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 72px;
+  }
+
+  .media {
+    max-width: 544px;
+  }
+
+  .image {
+    width: calc(100% - 2px);
+    height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .badge {
+    right: 0;
+  }
+}

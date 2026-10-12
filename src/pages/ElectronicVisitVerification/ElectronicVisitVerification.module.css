@@ -1,0 +1,81 @@
+/* Frame-specific overrides for shared sections on the EVV page. */
+
+/* Hero: five-line paragraph (570px wide), so the content sets the height; 58px CTAs with
+   16px labels. */
+.hero {
+  --page-hero-padding: 47.5px;
+  --page-hero-description-width: 570px;
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-primary-height: 58px;
+  --page-hero-primary-size: 16px;
+}
+
+.hero p + div > a:first-child {
+  letter-spacing: 0.04em;
+}
+
+/* The frame tracks the current crumb slightly wider than the shared 1px. */
+.hero nav li:last-child {
+  letter-spacing: 1.2px;
+}
+
+/* CTA band: Inter caps eyebrow, tight H2 tracking, two 66px buttons (secondary outlined in white)
+   and a row of yellow text links to the EVV topic pages. */
+.ctaBand {
+  padding: 80px 0 79px;
+}
+
+.ctaBand div > p:first-child {
+  margin-bottom: 32px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+}
+
+.ctaBand h2 {
+  max-width: 820px;
+  line-height: 60px;
+  letter-spacing: -3px;
+}
+
+.ctaBand h2 + p:last-child {
+  max-width: 960px;
+  margin-top: 32px;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.ctaButton,
+.ctaSecondary {
+  height: 66px;
+  margin-top: 48px;
+}
+
+.ctaButton {
+  padding-inline: 39px;
+}
+
+.ctaSecondary {
+  padding-inline: 40px;
+  border-color: var(--color-white);
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.ctaLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 8px;
+  margin-top: 33px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-tertiary);
+}
+
+.ctaLinks a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

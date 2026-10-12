@@ -1,0 +1,128 @@
+.section {
+  padding: 85px 0 79px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 55px;
+  color: var(--color-surface-dark);
+}
+
+.titleLine {
+  display: block;
+}
+
+.description {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 47px;
+}
+
+.card {
+  padding: 32px 32px 29px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+}
+
+.tag {
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.standard .icon {
+  background: #eedbff;
+}
+
+.standard .tag {
+  background: var(--color-secondary);
+}
+
+.custom .icon {
+  background: var(--color-secondary);
+}
+
+.custom .tag {
+  background: var(--color-primary);
+}
+
+.cardTitle {
+  margin-top: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-surface-dark);
+}
+
+.cardText {
+  margin-top: 11px;
+  line-height: 26px;
+}
+
+.example {
+  margin-top: 16px;
+  padding: 12px 12px 13px;
+  border-radius: var(--radius-xs);
+  background: #f7eafa;
+  line-height: 16px;
+}
+
+.example code {
+  font-family: 'Courier New', ui-monospace, monospace;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-body);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .cardTop {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .example {
+    overflow-wrap: anywhere;
+  }
+}

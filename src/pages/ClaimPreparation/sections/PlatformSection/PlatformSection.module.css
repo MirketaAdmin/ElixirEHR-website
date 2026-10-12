@@ -1,0 +1,32 @@
+.section {
+  padding: 101px 0 100px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.025em;
+}
+
+.description {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.list {
+  margin-top: 20px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}

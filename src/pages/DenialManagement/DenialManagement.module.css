@@ -1,0 +1,20 @@
+/* Frame-specific overrides for shared sections on the Denial Management page. */
+
+/* Hero: paragraph Roboto 18/28; 54px CTA with 16px label and a leading calendar icon. */
+.hero {
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-content-offset: 0px;
+  --page-hero-primary-height: 54px;
+  --page-hero-primary-size: 16px;
+}
+
+.hero p + div {
+  margin-top: 39px;
+}
+
+.hero p + div > a {
+  gap: 16px;
+  padding: 0 31px;
+  letter-spacing: 0.04em;
+}

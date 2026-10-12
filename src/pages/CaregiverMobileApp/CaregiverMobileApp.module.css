@@ -1,0 +1,55 @@
+/* Frame-specific overrides for shared sections on the Caregiver Mobile App page. */
+
+/* Hero: two 18/28 paragraphs (570px wide), 58px CTAs with 16px labels. */
+.hero {
+  --page-hero-padding: 33.5px;
+  --page-hero-description-width: 570px;
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-paragraph-gap: 28px;
+  --page-hero-primary-height: 58px;
+  --page-hero-primary-size: 16px;
+}
+
+.hero p + div > a:first-child {
+  letter-spacing: 0.04em;
+}
+
+/* The frame tracks the current crumb slightly wider than the shared 1px. */
+.hero nav li:last-child {
+  letter-spacing: 1.2px;
+}
+
+/* CTA band: tight H2 tracking, two 66px buttons (secondary outlined in white). */
+.ctaBand {
+  padding: 80px 0;
+}
+
+.ctaBand h2 {
+  max-width: 700px;
+  line-height: 60px;
+  letter-spacing: -3px;
+}
+
+.ctaBand h2 + p:last-child {
+  max-width: 790px;
+  margin-top: 32px;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.ctaButton,
+.ctaSecondary {
+  height: 66px;
+  margin-top: 47px;
+}
+
+.ctaButton {
+  padding-inline: 39px;
+}
+
+.ctaSecondary {
+  padding-inline: 40px;
+  border-color: var(--color-white);
+  color: var(--color-white);
+  font-weight: 700;
+}

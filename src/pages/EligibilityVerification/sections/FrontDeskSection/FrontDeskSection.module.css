@@ -1,0 +1,77 @@
+.section {
+  padding: 80px 0 80px;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 461px) minmax(0, 659px);
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* This frame's placeholder is a 461px square with smaller copy set near the top. */
+.media {
+  height: 461px;
+  justify-content: flex-start;
+  padding: 80px 13px 0 0;
+}
+
+.media p:first-child {
+  font-size: 13.5px;
+  line-height: 17px;
+  letter-spacing: 0.6px;
+}
+
+.media p:last-child {
+  margin-top: 12px;
+  font-size: 13.5px;
+  line-height: 21.5px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 55px;
+  color: var(--color-surface-dark);
+}
+
+.body {
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.body + .body {
+  margin-top: 16px;
+}
+
+.emphasis {
+  color: var(--color-heading);
+}
+
+.points {
+  --ev-check-size: 16px;
+
+  margin-top: 34px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 48px;
+  }
+
+  .media {
+    order: 1;
+    width: 100%;
+    max-width: 461px;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}

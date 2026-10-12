@@ -1,0 +1,145 @@
+.section {
+  padding: 80px 0 78px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  margin-top: 14px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+  color: var(--color-white);
+}
+
+.description {
+  max-width: 765px;
+  margin-top: 9px;
+  line-height: 26px;
+  color: var(--color-border);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  width: 100%;
+  margin-top: 48px;
+  text-align: left;
+}
+
+.card {
+  padding: 26px 24px 24px;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  background: #422b5f;
+}
+
+/* Card heights follow the frame (they are not content heights). */
+.card:nth-child(1) {
+  height: 267px;
+}
+
+.card:nth-child(2) {
+  height: 287px;
+}
+
+.card:nth-child(3) {
+  height: 307px;
+}
+
+.card:nth-child(4),
+.card:nth-child(6) {
+  height: 291px;
+}
+
+.card:nth-child(5) {
+  height: 271px;
+}
+
+.lime {
+  --card-accent: var(--color-secondary);
+}
+
+.yellow {
+  --card-accent: var(--color-tertiary);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  white-space: pre-line;
+  color: var(--card-accent);
+}
+
+.tag {
+  flex: none;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--color-surface-dark);
+  font-family: 'Courier New', ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  white-space: pre-line;
+  text-transform: uppercase;
+  color: var(--card-accent);
+}
+
+.tagOverflow {
+  width: 81px;
+  margin-right: -22px;
+}
+
+.cardText {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: pre-line;
+  color: var(--color-border);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tagOverflow {
+    margin-right: 0;
+  }
+
+  .card:nth-child(n) {
+    height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cardTitle,
+  .cardText {
+    white-space: normal;
+  }
+}

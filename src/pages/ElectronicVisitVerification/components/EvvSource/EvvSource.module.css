@@ -1,0 +1,11 @@
+.source {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-body);
+}
+
+.link {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: var(--color-heading);
+}

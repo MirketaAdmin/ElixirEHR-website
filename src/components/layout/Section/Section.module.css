@@ -1,0 +1,29 @@
+.section {
+  position: relative;
+}
+
+/* Tones */
+.white {
+  background: var(--color-white);
+}
+
+.surface {
+  background: var(--color-surface);
+}
+
+.dark {
+  background: var(--color-surface-dark);
+}
+
+.primary {
+  background: var(--color-primary);
+}
+
+/* Spacing */
+.lg {
+  padding-block: var(--section-padding-lg);
+}
+
+.md {
+  padding-block: var(--section-padding-md);
+}

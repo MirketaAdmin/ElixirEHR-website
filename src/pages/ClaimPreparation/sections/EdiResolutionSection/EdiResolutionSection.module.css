@@ -1,0 +1,60 @@
+.section {
+  padding: 81px 0 80px;
+}
+
+.split {
+  --pc-text-width: 560px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.025em;
+}
+
+.description {
+  max-width: 548px;
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+/* Inline EDI segment, as drawn: monospace on a lavender chip. Its own taller line-height makes
+   its line 3px taller than the others, as in the frame. */
+.code {
+  padding: 2px 4px;
+  border-radius: 4px;
+  background: #f1e4f4;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 29px;
+  color: var(--color-surface-dark);
+}
+
+/* Each item has its own icon; the whole item is bold in this frame. */
+.list {
+  --pc-list-color: var(--color-heading);
+  --pc-list-icon-box: auto;
+  --pc-list-icon-gap: 8px;
+  --pc-list-icon-offset: 2px;
+
+  margin-top: 16px;
+  font-weight: 700;
+}
+
+.list li {
+  font-weight: 700;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}

@@ -1,0 +1,104 @@
+.featured {
+  padding: 20px;
+  border-radius: var(--radius-2xl);
+  background: var(--color-surface);
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 627px minmax(0, 1fr);
+  align-items: center;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 48px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 15.5px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.date {
+  font-size: 16px;
+  line-height: 24px;
+  color: #7b757f;
+}
+
+.title {
+  margin-top: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-surface-dark);
+}
+
+.excerpt {
+  margin-top: 24px;
+  line-height: 26px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 56px;
+  margin-top: 32px;
+  padding: 0 24px 0 32px;
+  border-radius: var(--radius-pill);
+  background: var(--color-tertiary);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .body {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .featured {
+    padding: 12px;
+  }
+
+  .body {
+    padding: 24px;
+  }
+}

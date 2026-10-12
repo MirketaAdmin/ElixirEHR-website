@@ -1,0 +1,25 @@
+.section {
+  background: var(--color-primary-dark);
+  padding-block: 80px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.title {
+  color: var(--color-on-primary);
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 560px;
+}
+
+.cta {
+  margin-top: 8px;
+}

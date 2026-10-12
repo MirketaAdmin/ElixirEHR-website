@@ -1,0 +1,33 @@
+.section {
+  padding: 61px 0 64px;
+  background: var(--color-white);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: center;
+  color: var(--color-primary);
+}
+
+/* Same 114px strip as before; the logos now scroll slowly in a seamless loop (Marquee). */
+.logos {
+  height: 114px;
+  margin-top: 15px;
+}
+
+.logos ul {
+  height: 100%;
+}
+
+/* Static wrapping row (no scrolling) for visitors who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .logos {
+    height: auto;
+  }
+
+  .logos ul {
+    gap: 32px;
+  }
+}

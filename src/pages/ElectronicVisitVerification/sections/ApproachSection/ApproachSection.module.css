@@ -1,0 +1,78 @@
+/* Frame's deepest purple (also used for text on the Claim Preparation page). */
+.section {
+  padding: 80px 0;
+  background: #1c0339;
+}
+
+.intro {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.description {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  color: var(--color-surface-light);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.card {
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--color-primary);
+}
+
+.iconBox {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--color-surface-dark);
+}
+
+.title {
+  margin-top: 17px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--color-white);
+}
+
+.text {
+  margin-top: 7px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-surface-light);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

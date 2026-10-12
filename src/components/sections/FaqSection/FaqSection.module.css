@@ -1,0 +1,125 @@
+.section {
+  padding: 79px 0 80px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+}
+
+.description {
+  margin-top: 5px;
+  line-height: 24px;
+}
+
+/* Two independent 568px stacks with a 16px gutter (a taller card only pushes its own column). */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 16px;
+  width: 100%;
+  margin-top: 56px;
+  text-align: left;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item {
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+}
+
+.heading {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-primary);
+}
+
+/* The whole row is the control: 64px for one line, 88px for two (text sits 2px low, as in the frame). */
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 22px 14px 18px 20px;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-weight: inherit;
+  text-align: left;
+}
+
+/* chevronRight turned to point down (12×7 glyph in the frame); up when open. */
+.chevron {
+  flex: none;
+  margin-top: -2px;
+  color: var(--color-primary);
+  transform: rotate(90deg);
+}
+
+.open .chevron {
+  transform: rotate(-90deg);
+}
+
+/* Height animates via grid rows; closed answers are hidden from assistive tech and tab order. */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows 200ms ease,
+    visibility 0s linear 200ms;
+}
+
+.open .panel {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition:
+    grid-template-rows 200ms ease,
+    visibility 0s;
+}
+
+.panelInner {
+  overflow: hidden;
+}
+
+.answer {
+  padding: 4px 20px 20px;
+  line-height: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .open .panel {
+    transition: none;
+  }
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}

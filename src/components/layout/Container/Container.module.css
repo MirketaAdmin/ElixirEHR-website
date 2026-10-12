@@ -1,0 +1,13 @@
+.container {
+  width: 100%;
+  max-width: calc(var(--container-width) + 2 * var(--container-padding));
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .container {
+    padding-inline: 20px;
+  }
+}

@@ -1,0 +1,95 @@
+.section {
+  padding-block: var(--section-gap);
+  background: var(--color-surface-container-low);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: var(--gutter);
+  align-items: start;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.eyebrow {
+  color: var(--color-secondary);
+}
+
+.title {
+  color: var(--color-on-surface);
+}
+
+.paragraph {
+  color: var(--color-on-surface-variant);
+  max-width: 440px;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.infoLink {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.infoIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: rgba(149, 193, 31, 0.16);
+  color: var(--color-secondary);
+}
+
+.infoLabel {
+  display: block;
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+}
+
+.infoValue {
+  display: block;
+  color: var(--color-on-surface);
+  font-weight: 500;
+}
+
+.trustedLabel {
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  margin-top: 24px;
+}
+
+.formWrap {
+  width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .section {
+    padding-block: var(--section-gap-mobile);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}

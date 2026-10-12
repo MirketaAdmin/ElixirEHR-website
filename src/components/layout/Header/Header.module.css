@@ -1,0 +1,81 @@
+/* Sticky in normal flow: it keeps its 79px slot, so page content never slides underneath. */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-primary);
+  transition: box-shadow 200ms ease;
+}
+
+.scrolled {
+  box-shadow: var(--shadow-subtle);
+}
+
+/* Inner-page heroes (PageHero, PostHero — marked data-header-overlap) start on the header's last
+   row, as in the frames. At the top of the page that row stays transparent so the hero shows
+   through exactly as before the header became sticky; once scrolling starts it is painted. */
+:global(body:has([data-header-overlap])) .header:not(.scrolled) {
+  background: linear-gradient(var(--color-primary) calc(var(--header-height) - 1px), transparent 0);
+}
+
+.bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding-bottom: 1px; /* Figma centres the row 1px above the bar's midpoint */
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+}
+
+.search {
+  display: flex;
+  color: var(--color-white);
+}
+
+.cta {
+  padding-inline: 24px;
+}
+
+.menuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -8px;
+  color: var(--color-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header {
+    transition: none;
+  }
+}
+
+/* Below 1200px the six mega-menu items no longer fit beside the logo and actions: hamburger. */
+@media (max-width: 1199px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .actions {
+    gap: 16px;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+}
+
+/* Phones: the demo CTA moves into the menu panel to keep the bar on one row. */
+@media (max-width: 479px) {
+  .cta {
+    display: none;
+  }
+}

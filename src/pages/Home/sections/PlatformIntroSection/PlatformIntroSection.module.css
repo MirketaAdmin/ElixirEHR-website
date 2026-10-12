@@ -1,0 +1,168 @@
+.section {
+  padding: 71px 0 100px;
+}
+
+.inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Purple wordmark over the faint "ELIXIR" watermark (offset 5px left of the container edge). */
+.brand {
+  position: relative;
+  padding-top: 40px;
+}
+
+.watermark {
+  position: absolute;
+  top: 0;
+  left: -5px;
+  max-width: none;
+}
+
+.brand img:last-child {
+  position: relative;
+}
+
+.badge {
+  margin-top: 39px;
+  padding: 8px 17px 9px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary-tint);
+  font-size: 16px;
+  line-height: 24px;
+  color: #3c4d00;
+}
+
+.description {
+  max-width: 500px;
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 29.4px;
+  color: var(--color-body);
+}
+
+.cta {
+  margin-top: 31px;
+  gap: 4px;
+  padding-left: 31px;
+  padding-right: 27px;
+  font-weight: 400;
+}
+
+.cards {
+  display: flex;
+  gap: 24px;
+  margin-top: 114px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 260px;
+  height: 262px;
+  padding: 32px 32px 42px;
+  border-radius: var(--radius-lg);
+}
+
+/* Gentle float on the two cards, half a cycle apart so they drift against each other. */
+.card {
+  animation: float 7s ease-in-out infinite;
+}
+
+.dark {
+  animation-delay: -3.5s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
+}
+
+.light {
+  border: 1px solid #eae5e9;
+  background: var(--color-surface);
+}
+
+.dark {
+  margin-top: 48px;
+  padding-bottom: 38px;
+  background: var(--color-primary);
+}
+
+.cardTitle {
+  margin-top: 16px;
+  font-family: var(--font-title-alt);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  color: var(--color-heading);
+}
+
+.cardDescription {
+  margin-top: 17px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-body);
+}
+
+.dark .cardTitle {
+  color: var(--color-white);
+}
+
+.dark .cardDescription {
+  color: rgb(255 255 255 / 0.7);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .inner {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .cards {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    overflow: hidden;
+  }
+
+  .cards {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .card {
+    width: 100%;
+    height: auto;
+    min-height: 262px;
+  }
+
+  .dark {
+    margin-top: 0;
+  }
+}

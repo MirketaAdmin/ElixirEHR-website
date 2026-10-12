@@ -1,0 +1,154 @@
+.section {
+  padding: 49px 0 79px;
+}
+
+.denials {
+  display: grid;
+  grid-template-columns: minmax(0, 588px) minmax(0, 552px);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.badge {
+  color: var(--color-surface-dark);
+}
+
+.title {
+  margin-top: 27px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 50px;
+}
+
+.titleLine {
+  display: block;
+}
+
+.body {
+  max-width: 545px;
+  margin-top: 25px;
+  font-size: 18px;
+  line-height: 29px;
+}
+
+.points {
+  margin-top: 25px;
+}
+
+.media {
+  height: 300px;
+}
+
+.divider {
+  height: 1px;
+  margin: 33px 0 0;
+  border: 0;
+  background: var(--color-surface-light);
+}
+
+.appealsTitle {
+  margin-top: 31px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.appealsText {
+  margin-top: 8px;
+  line-height: 26px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.step {
+  padding: 23px 24px 42px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+/* Card heights in the frame are 227 / 247 / 207: the longest card has a shorter bottom inset. */
+.step:nth-child(2) {
+  padding-bottom: 22px;
+}
+
+.number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-white);
+}
+
+.stepTitle {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-surface-dark);
+}
+
+.stepText {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.line {
+  display: block;
+}
+
+.footnote {
+  margin-top: 33px;
+  font-size: 12.8px;
+  line-height: 16px;
+  color: #7b757f;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .section {
+    padding-top: 80px;
+  }
+
+  .denials {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 48px;
+  }
+
+  .media {
+    width: 100%;
+    max-width: 552px;
+  }
+
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .title,
+  .appealsTitle {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}

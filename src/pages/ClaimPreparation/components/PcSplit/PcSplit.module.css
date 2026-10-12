@@ -1,0 +1,33 @@
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, var(--pc-text-width, 552px)) var(--pc-frame-width);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reverse {
+  grid-template-columns: var(--pc-frame-width) minmax(0, var(--pc-text-width, 552px));
+}
+
+.reverse .text {
+  order: 2;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .split,
+  .reverse {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
+  }
+
+  .reverse .text {
+    order: 0;
+  }
+}
