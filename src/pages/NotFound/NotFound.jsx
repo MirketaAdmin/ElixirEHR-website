@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import Section from '../../components/layout/Section/Section';
 import Button from '../../components/ui/Button/Button';
-import CareNetwork from '../../components/motion/CareNetwork';
 import styles from './NotFound.module.css';
 
 /**
@@ -17,7 +16,6 @@ function NotFound() {
       <title>Page not available | Elixir</title>
       <meta name="robots" content="noindex" />
       <Section tone="dark" spacing="none" className={styles.section} containerClassName={styles.inner} data-hero>
-        <CareNetwork density={0.8} />
         <p className={styles.code}>Page not available</p>
         <h1 className={styles.title}>This page isn’t available yet</h1>
         <p className={styles.text}>

@@ -4,7 +4,6 @@ import Container from '../../layout/Container/Container';
 import Button from '../../ui/Button/Button';
 import Icon from '../../ui/Icon/Icon';
 import sparkleIcon from '../../../assets/icons/sparkle-white.png';
-import CareNetwork from '../../motion/CareNetwork';
 import styles from './PageHero.module.css';
 
 /**
@@ -53,7 +52,6 @@ function PageHero({
 }) {
   return (
     <section className={cn(styles.hero, className)} data-header-overlap data-hero>
-      <CareNetwork />
       <Container className={styles.inner}>
         <div className={styles.content}>
           <nav aria-label="Breadcrumb">

@@ -275,7 +275,7 @@
   }
 }
 
-/* Entrance (same sequence as the inner-page heroes) and a slow float on the insight card. */
+/* Entrance (same sequence as the inner-page heroes); the hero background itself is static. */
 @media (prefers-reduced-motion: no-preference) {
   .line,
   .description,
@@ -299,9 +299,6 @@
     animation: home-media 1100ms var(--ease-out) 200ms both;
   }
 
-  .insight {
-    animation: home-float 7s ease-in-out 1.3s infinite;
-  }
 }
 
 @keyframes home-rise {
@@ -318,11 +315,6 @@
   }
 }
 
-@keyframes home-float {
-  50% {
-    transform: translate3d(0, -6px, 0);
-  }
-}
 
 /* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
 @media (max-width: 1199px) {

@@ -9,7 +9,6 @@ import Icon from '../../../../components/ui/Icon/Icon';
 import laptopImage from '../../../../assets/home/hero/elixir-ehr-dashboard-laptop.png';
 import sparkleIcon from '../../../../assets/icons/sparkle-dark.png';
 import sparkleLimeIcon from '../../../../assets/icons/sparkle-lime.png';
-import CareNetwork from '../../../../components/motion/CareNetwork';
 import styles from './HeroSection.module.css';
 
 // Seconds each slide stays before the next one fades in.
@@ -137,7 +136,6 @@ function HeroSection() {
       onFocus={() => setHovered(true)}
       onBlur={(event) => !event.currentTarget.contains(event.relatedTarget) && setHovered(false)}
     >
-      <CareNetwork />
       <Container className={styles.track} {...swipe}>
         {SLIDES.map(({ id, label, Component }, slideIndex) => {
           const active = slideIndex === index;

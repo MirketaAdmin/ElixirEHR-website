@@ -6,6 +6,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  gap: 32px;
 }
 
 .eyebrow {
@@ -22,29 +23,73 @@
   display: block;
 }
 
+/* Controls: segmented autoplay progress, then previous (outlined) and next (filled). */
 .controls {
   display: flex;
-  gap: 16px;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress {
+  display: flex;
+  gap: 6px;
+  margin-right: 12px;
+}
+
+.segment {
+  display: block;
+  position: relative;
+  width: 36px;
+  height: 4px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: rgb(73 50 102 / 0.14);
+  cursor: pointer;
+}
+
+.done {
+  background: var(--color-primary);
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  background: var(--color-primary);
+  transform-origin: left center;
+  animation: segment-fill var(--interval, 7s) linear both;
+}
+
+.segment[data-paused] .fill {
+  animation-play-state: paused;
+}
+
+@keyframes segment-fill {
+  from {
+    transform: scaleX(0);
+  }
 }
 
 .control {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border: 1px solid var(--color-border);
   border-radius: 50%;
   background: var(--color-white);
   color: var(--color-heading);
-}
-
-.control {
   transition:
     transform var(--duration-base) var(--ease-standard),
     background-color var(--duration-base) var(--ease-standard),
     border-color var(--duration-base) var(--ease-standard),
     color var(--duration-base) var(--ease-standard);
+}
+
+.controlNext {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-white);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -59,7 +104,9 @@
   transform: scale(0.94);
 }
 
-.control:focus-visible {
+.control:focus-visible,
+.segment:focus-visible,
+.more:focus-visible {
   outline: 2px solid var(--color-secondary);
   outline-offset: 3px;
 }
@@ -69,12 +116,12 @@
   opacity: 0.4;
 }
 
-/* Carousel: a sliding row of cards, `--per-view` visible, moved one card per step. */
+/* Carousel: a sliding row of equal cards, `--per-view` visible, moved one card per step. */
 .viewport {
   overflow: hidden;
   /* Horizontal touch drags go to the carousel's swipe; vertical ones still scroll the page. */
   touch-action: pan-y;
-  margin-top: 64px;
+  margin-top: 56px;
 }
 
 .list {
@@ -86,122 +133,245 @@
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Every card is the same fixed size; long quotes are trimmed (see `.quote`). */
 .card {
   flex: 0 0 calc((100% - var(--gap) * (var(--per-view, 2) - 1)) / var(--per-view, 2));
-  display: flex;
-  flex-direction: column;
-  min-height: 385px;
-  padding: 48px;
-  border-radius: var(--radius-xl);
+  height: 440px;
+  border: 1px solid #e6e1e8;
+  border-radius: 24px;
   background: var(--color-surface);
 }
 
-/* Every other card is Deep Purple with light text. */
-.featured {
+.dark {
+  border-color: var(--color-primary);
   background: var(--color-primary);
 }
 
-/* In place of a photo: a quotation-mark tile (mask from the Figma export). */
-.quoteTile {
-  position: relative;
-  flex: none;
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-md);
-  background: var(--color-surface-light);
+.figure {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 40px 40px 32px;
 }
 
-.quoteTile::after {
-  content: '';
-  position: absolute;
-  inset: 16px 13px 17px;
+.top {
+  display: flex;
+  min-height: 30px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Quotation mark (mask from the Figma export). */
+.mark {
+  flex: none;
+  width: 34px;
+  height: 24px;
   background: var(--color-primary);
   mask: url('../../../../assets/icons/quote-mark.png') no-repeat center / contain;
 }
 
-.featured .quoteTile {
-  background: rgb(149 193 31 / 0.16);
-}
-
-.featured .quoteTile::after {
+.dark .mark {
   background: var(--color-secondary);
 }
 
-.body {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  margin: 24px 0 0;
+.org {
+  overflow: hidden;
+  max-width: 70%;
+  padding: 6px 14px;
+  border: 1px solid #e0dae2;
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-primary);
+}
+
+.dark .org {
+  border-color: rgb(255 255 255 / 0.16);
+  background: rgb(255 255 255 / 0.08);
+  color: var(--color-secondary);
 }
 
 .quote {
+  display: -webkit-box;
+  margin: 28px 0 0;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  font-family: var(--font-body);
   font-size: 18px;
-  font-style: italic;
-  line-height: 28px;
-  color: #1c1b1b;
+  line-height: 30px;
+  color: var(--color-heading);
 }
 
-.attribution {
+.dark .quote {
+  color: var(--color-white);
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  margin-top: 14px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-primary);
+}
+
+.more svg {
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.more:hover svg {
+  transform: translate3d(3px, 0, 0);
+}
+
+.dark .more {
+  color: var(--color-secondary);
+}
+
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
   margin-top: auto;
-  padding-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgb(73 50 102 / 0.14);
 }
 
-.attribution::before {
-  content: '';
+.dark .footer {
+  border-color: rgb(255 255 255 / 0.16);
+}
+
+.name,
+.role {
   display: block;
-  margin-bottom: 20px;
-  border-top: 1px solid rgb(73 50 102 / 0.15);
 }
 
 .name {
-  font-family: var(--font-title-alt);
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 28px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
   color: var(--color-primary);
 }
 
 .role {
-  margin-top: 4px;
+  margin-top: 2px;
   font-size: 14px;
   line-height: 20px;
   color: var(--color-body);
 }
 
-.link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin: 16px 0 0 -2px;
-  font-size: 16px;
-  line-height: 24px;
-  color: var(--color-primary);
-}
-
-.featured .name,
-.featured .quote {
+.dark .name {
   color: var(--color-white);
 }
 
-.featured .role {
+.dark .role {
   color: rgb(255 255 255 / 0.7);
 }
 
-.featured .attribution::before {
-  border-color: rgb(255 255 255 / 0.15);
+.count {
+  flex: none;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  color: var(--color-primary);
 }
 
-.featured .link {
+.count span {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(73 50 102 / 0.45);
+}
+
+.dark .count {
   color: var(--color-secondary);
 }
 
-/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+.dark .count span {
+  color: rgb(255 255 255 / 0.5);
+}
+
+/* Full quote dialog (for trimmed testimonials). */
+.dialog {
+  width: min(680px, calc(100vw - 32px));
+  max-height: calc(100vh - 64px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: var(--color-white);
+  box-shadow: var(--shadow-media);
+}
+
+.dialog::backdrop {
+  background: rgb(31 24 35 / 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.dialog[open] {
+  animation: dialog-in var(--duration-base) var(--ease-out);
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0) scale(0.98);
+  }
+}
+
+.dialogBody {
+  position: relative;
+  margin: 0;
+  padding: 48px;
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  padding: 8px;
+  border-radius: 50%;
+  color: var(--color-body);
+}
+
+.close:hover {
+  background: var(--color-surface);
+}
+
+.dialogQuote {
+  margin: 24px 0 28px;
+  font-size: 18px;
+  line-height: 30px;
+  color: var(--color-heading);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .list {
     transition: none;
   }
+
+  .fill {
+    animation: none;
+  }
 }
 
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
 @media (max-width: 767px) {
   .header {
     flex-direction: column;
@@ -209,12 +379,29 @@
     gap: 24px;
   }
 
+  .viewport {
+    margin-top: 40px;
+  }
+
   .card {
-    min-height: 0;
-    padding: 32px;
+    height: 480px;
+  }
+
+  .figure {
+    padding: 28px 24px 24px;
   }
 
   .quote {
+    -webkit-line-clamp: 9;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .dialogBody {
+    padding: 40px 24px 28px;
+  }
+
+  .dialogQuote {
     font-size: 16px;
     line-height: 26px;
   }
