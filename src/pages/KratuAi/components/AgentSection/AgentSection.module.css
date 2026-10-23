@@ -1,0 +1,142 @@
+.section {
+  padding: 81px 0 80px;
+}
+
+/* Two 548px columns, 56px apart, vertically centred. */
+.layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 56px;
+}
+
+.reverse .mock {
+  order: -1;
+}
+
+.intro {
+  --kr-title-gap: 17px;
+}
+
+.paragraph {
+  margin-top: 14px;
+  font-size: 15.5px;
+  line-height: 26.7px;
+}
+
+.intro + .paragraph {
+  margin-top: 18px;
+}
+
+/* Quote with a 4px coloured leading edge. */
+.quote {
+  margin-top: 23px;
+  padding: 14px 22px 15px;
+  border-left: 4px solid var(--edge);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: #f6f5f7;
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 23px;
+  color: var(--color-primary);
+}
+
+.surface .quote {
+  background: #ede8ec;
+}
+
+.lime {
+  --edge: var(--color-secondary);
+}
+
+.purple {
+  --edge: var(--color-primary);
+}
+
+.teal {
+  --edge: #2b6179;
+}
+
+.yellow {
+  --edge: var(--color-tertiary);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 14px;
+  margin-top: 27px;
+}
+
+.features li {
+  padding: 17px 18px 15px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.surface .features li {
+  background: var(--color-white);
+}
+
+.featureTitle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 22px;
+  color: var(--color-heading);
+}
+
+.featureTitle::before {
+  content: '';
+  flex: none;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+}
+
+.featureText {
+  margin-top: 7px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  height: 52px;
+  margin-top: 25px;
+  padding: 0 32px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--color-white);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .reverse .mock {
+    order: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .features {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

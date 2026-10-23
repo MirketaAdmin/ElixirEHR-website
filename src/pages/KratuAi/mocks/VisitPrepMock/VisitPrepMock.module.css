@@ -1,0 +1,63 @@
+.messages {
+  display: grid;
+  gap: 13px;
+}
+
+.message {
+  max-width: 408px;
+  padding: 11px 16px;
+  border-radius: 14px;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.agent {
+  border: 1px solid #e6e0e6;
+  background: #f8f6f6;
+  color: var(--color-heading);
+}
+
+.patient {
+  justify-self: end;
+  padding-block: 12px;
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.agenda {
+  margin-top: 14px;
+  padding: 19px 14px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #fcfbfb;
+}
+
+.agendaTitle {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+  color: var(--color-primary);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px 8px;
+  margin-top: 11px;
+}
+
+.tags li {
+  display: flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-light);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--color-primary);
+}

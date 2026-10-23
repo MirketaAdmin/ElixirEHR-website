@@ -1,0 +1,129 @@
+.section {
+  padding: 81px 0 80px;
+  background: #fdfbfd;
+}
+
+.intro {
+  --intro-title-gap: 12px;
+  --intro-description-gap: 17px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 64px;
+}
+
+/* White card with a 6px top bar inside its border: lime (what it does) or grey (what it does not). */
+.card {
+  position: relative;
+  padding: 27px 28px 29px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 4px 10px rgb(31 24 35 / 0.04);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 6px;
+}
+
+.does {
+  border: 2px solid #d5e6a5;
+}
+
+.does::before {
+  background: #89b419;
+}
+
+.doesNot {
+  border: 1px solid var(--color-border);
+}
+
+.doesNot::before {
+  background: #b7b0c4;
+}
+
+/* Caps pill with a leading dot: green on the "does" cards, grey on the "does not" cards. */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 1.65px;
+  text-transform: uppercase;
+}
+
+.tag::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentcolor;
+}
+
+.does .tag {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.does .tag::before {
+  background: #10b981;
+}
+
+.doesNot .tag {
+  background: #e9e5ec;
+  color: var(--color-body);
+}
+
+.doesNot .tag::before {
+  background: #948e9f;
+}
+
+.title {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--color-heading);
+}
+
+.text {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 23px;
+}
+
+/* The frame's third card wraps its text slightly narrower than the others. */
+.grid li:nth-child(3) .text {
+  max-width: 300px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,239 @@
+.section {
+  padding: 79px 0 80px;
+}
+
+.intro {
+  --kr-title-width: 640px;
+  --kr-description-width: 780px;
+  --kr-title-gap: 8px;
+  --kr-description-gap: 7px;
+}
+
+.intro > p:first-child {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: #4d6700;
+}
+
+.intro h2 {
+  font-size: 36px;
+  line-height: 40px;
+  letter-spacing: -0.02em;
+}
+
+.intro > p:last-child {
+  font-size: 16px;
+  line-height: 24px;
+  color: #6b6570;
+}
+
+/* ---- Dictation mock-up ---- */
+.mock {
+  margin-top: 64px;
+  padding: 40px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  background: var(--color-surface);
+  box-shadow: 0 10px 24px rgb(31 24 35 / 0.12);
+}
+
+.stream {
+  padding: 25px 24px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-dark);
+  box-shadow: 0 6px 14px rgb(31 24 35 / 0.18);
+}
+
+.streamHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mic {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #c4f351;
+}
+
+.streamCopy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.streamTitle {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--color-white);
+}
+
+.streamMeta {
+  font-size: 12px;
+  line-height: 16px;
+  color: #c9bdd3;
+}
+
+.badge {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: 24px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary-tint);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  color: #4d6700;
+}
+
+.quote {
+  margin-top: 16px;
+  padding: 16px 16px 17px 17px;
+  border-left: 4px solid #c4f351;
+  border-radius: var(--radius-md);
+  background: #473261;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 20px;
+  color: #ebe3f1;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px 21px;
+  margin-top: 32px;
+}
+
+.field {
+  padding: 20px 20px 20px;
+  border: 1px solid #d6cfd7;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 2px 4px rgb(31 24 35 / 0.06);
+}
+
+.fieldLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.fieldValue {
+  display: flex;
+  align-items: center;
+  min-height: 39px;
+  margin-top: 9px;
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--color-heading);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #d6d0d8;
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #7b757f;
+}
+
+.action {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  box-shadow: 0 6px 14px rgb(149 193 31 / 0.35);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--color-white);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .intro h2 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .mock {
+    margin-top: 40px;
+    padding: 20px;
+  }
+
+  .streamHead {
+    flex-wrap: wrap;
+  }
+
+  /* The title takes the row beside the mic; the badge wraps under it. */
+  .streamCopy {
+    flex-basis: calc(100% - 52px);
+  }
+
+  .badge {
+    margin-left: 52px;
+  }
+
+  .fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .action {
+    height: auto;
+    min-height: 48px;
+    padding: 12px 20px;
+  }
+}

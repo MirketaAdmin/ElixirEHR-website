@@ -1,0 +1,66 @@
+/* Deep Purple → magenta diagonal (same gradient as the "After discharge" band). */
+.strip {
+  padding: 49px 32px 47px;
+  background: linear-gradient(to bottom right, var(--color-primary), #710066);
+}
+
+/* 1216px row (32px side margins, wider than the 1152px container), four 287px cards. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1216px;
+  margin-inline: auto;
+}
+
+.card {
+  min-height: 162px;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: rgb(255 255 255 / 0.1);
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-xs);
+  background: var(--color-secondary);
+}
+
+.title {
+  margin-top: 13px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-white);
+}
+
+.accent {
+  color: var(--color-secondary);
+}
+
+.text {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 23px;
+  color: rgb(255 255 255 / 0.9);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .strip {
+    padding: 40px 16px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

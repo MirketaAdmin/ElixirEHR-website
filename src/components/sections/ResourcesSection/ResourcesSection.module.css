@@ -1,0 +1,171 @@
+.section {
+  padding: 100px 0 101px;
+}
+
+.heading > p:first-child {
+  margin-bottom: 14px;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 38px;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  padding: 0 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-body);
+}
+
+.category {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 64px;
+}
+
+/* Cards of the newly selected category fade up, one after another. */
+.grid > .card {
+  animation: card-in 0.45s ease both;
+}
+
+.grid > .card:nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.grid > .card:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid > .card {
+    animation: none;
+  }
+}
+
+.card {
+  overflow: hidden;
+  border: 1px solid #ede8ee;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+}
+
+.media {
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 224px;
+  object-fit: cover;
+}
+
+.tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-tertiary);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+/* Referral Program frame: Deep Purple tags with white text. */
+.purpleTags .tag {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.body {
+  padding: 32px 32px 29px;
+}
+
+.meta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-body);
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.metaItem img {
+  margin-left: -1px;
+}
+
+.title {
+  margin-top: 15px;
+  font-family: var(--font-title-alt);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+  color: var(--color-primary);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 17px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-secondary);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .categories {
+    flex-wrap: wrap;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

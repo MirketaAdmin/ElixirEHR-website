@@ -1,0 +1,84 @@
+.section {
+  padding: 84px 0 79px;
+}
+
+.heading {
+  --epa-title-size: 36px;
+  --epa-title-leading: 55px;
+  --epa-title-width: 900px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 337px;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: #f1e4f4;
+}
+
+.title {
+  margin-top: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-surface-dark);
+}
+
+.text {
+  margin-top: 11px;
+  font-size: 14px;
+  line-height: 23px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  height: 26px;
+  margin-top: 10px;
+  padding: 0 11px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+}

@@ -1,0 +1,46 @@
+.section {
+  padding: 81px 0 80px;
+}
+
+.intro {
+  --roi-title-width: 1152px;
+  --roi-description-width: 800px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 32px;
+  margin-top: 57px;
+}
+
+.card[class] {
+  padding: 34px 36px 43px 32px;
+}
+
+.card ul {
+  gap: 9px;
+}
+
+.card li {
+  font-size: 14.5px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .card[class] {
+    padding: 28px 20px 28px 22px;
+  }
+}

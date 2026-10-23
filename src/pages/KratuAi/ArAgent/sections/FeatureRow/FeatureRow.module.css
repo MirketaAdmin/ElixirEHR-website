@@ -1,0 +1,185 @@
+.section {
+  padding: var(--pad-top) 0 var(--pad-bottom);
+}
+
+.light {
+  background: #fbf9f8;
+}
+
+/* Copy (400px) and the mock-up frame, centred on each other. */
+.row {
+  display: grid;
+  grid-template-columns: 400px var(--media-width);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mediaFirst .row {
+  grid-template-columns: var(--media-width) 400px;
+  justify-content: start;
+  column-gap: 48px;
+}
+
+.mediaFirst .media {
+  order: -1;
+}
+
+.media img {
+  display: block;
+  max-width: none;
+  margin: 0 calc(var(--inset-right) * -1) calc(var(--inset-bottom) * -1) calc(var(--inset-left) * -1);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-light);
+  font-family: var(--font-label);
+  font-size: 12.5px;
+  line-height: 16px;
+  color: var(--color-surface-dark);
+}
+
+.title {
+  margin-top: 16px;
+  font-size: 32.5px;
+  font-weight: 500;
+  line-height: 40px;
+  color: var(--color-heading);
+}
+
+.subtitle {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-surface-dark);
+}
+
+.text {
+  margin-top: 16px;
+  font-family: var(--font-label);
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 24px;
+  font-family: var(--font-label);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-heading);
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend li::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+
+.lime {
+  --dot: #c4f351;
+}
+
+.gold {
+  --dot: #cda700;
+}
+
+.red {
+  --dot: var(--color-error);
+}
+
+/* The frame's box runs 52px past the copy column. */
+.advantage {
+  width: 452px;
+  max-width: 100%;
+  margin-top: 26px;
+  padding: 20px 80px 20px 16px;
+  border-radius: 40px;
+  background: var(--color-surface);
+}
+
+.advantageLabel {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.advantageText {
+  margin-top: 5px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 330px;
+  margin-top: 24px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-heading);
+}
+
+.note img {
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .row,
+  .mediaFirst .row {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 40px;
+  }
+
+  .mediaFirst .media {
+    order: 0;
+  }
+
+  /* Once stacked, the mock-up scales to the column (its shadow margins scale away). */
+  .media {
+    max-width: var(--media-width);
+  }
+
+  .media img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}

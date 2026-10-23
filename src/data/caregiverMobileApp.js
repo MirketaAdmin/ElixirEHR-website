@@ -32,8 +32,9 @@ export const cmaHero = {
   },
 };
 
-// Only the Step 1 panel is in the frame; steps 2–6 have no panel content yet, so their tabs are
-// shown as drawn but are not selectable (see DESIGN-SYSTEM.md open questions).
+// Only the Step 1 panel is in the frame. Steps 2–6 carry interim panels written only from what this
+// page already says (FAQ, offline and submission sections), without step durations; replace them
+// when the final copy is supplied (see DESIGN-SYSTEM.md open questions).
 export const cmaTour = {
   eyebrow: 'Explore the visit journey',
   title: 'A four-minute field caregiver tour',
@@ -55,11 +56,76 @@ export const cmaTour = {
         ],
       },
     },
-    { label: 'Step 2. Arrival' },
-    { label: 'Step 3. Documentation' },
-    { label: 'Step 4. Escalation' },
-    { label: 'Step 5. Departure' },
-    { label: 'Step 6. Completion' },
+    {
+      label: 'Step 2. Arrival',
+      panel: {
+        kicker: 'Step 02',
+        tag: 'On Arrival',
+        title: 'Check in for the visit',
+        text: 'Check in against the scheduled visit. Check-in works offline, using the visit details downloaded before leaving.',
+        items: [
+          { title: 'Check-in', text: 'Recorded against the scheduled visit', icon: iconVisitInformation },
+          { title: 'Works offline', text: 'Uses the downloaded visit details', icon: iconOfflinePreparation },
+          { title: 'Saved on device', text: 'Stored securely until it syncs', icon: iconFreshness },
+        ],
+      },
+    },
+    {
+      label: 'Step 3. Documentation',
+      panel: {
+        kicker: 'Step 03',
+        tag: 'During the Visit',
+        title: 'Record care at the point of care',
+        text: 'Complete downloaded care tasks, record notes and collect signatures or attestations on the device, connected or not.',
+        items: [
+          { title: 'Care tasks', text: 'From the downloaded care plan', icon: iconVisitInformation },
+          { title: 'Visit notes', text: 'Recorded while the visit happens', icon: iconOfflinePreparation },
+          { title: 'Signatures', text: 'Signatures or attestations collected securely', icon: iconFreshness },
+        ],
+      },
+    },
+    {
+      label: 'Step 4. Escalation',
+      panel: {
+        kicker: 'Step 04',
+        tag: 'If Something Changes',
+        title: 'Flag what needs a supervisor',
+        text: 'When a visit conflicts with an updated schedule, the original caregiver record and the update are both kept for supervisor review.',
+        items: [
+          { title: 'Needs attention', text: 'Shows whether the caregiver must act', icon: iconSyncAttention },
+          { title: 'Original record kept', text: 'Preserved alongside the update', icon: iconVisitInformation },
+          { title: 'Review history', text: 'Corrections retain the history', icon: iconFreshness },
+        ],
+      },
+    },
+    {
+      label: 'Step 5. Departure',
+      panel: {
+        kicker: 'Step 05',
+        tag: 'Before Leaving',
+        title: 'Check out and submit',
+        text: 'Check out at the end of the visit. Queued records upload automatically when a connection returns, keeping the original visit timestamps.',
+        items: [
+          { title: 'Check-out', text: 'Captured online or offline', icon: iconVisitInformation },
+          { title: 'Pending sync', text: 'Queued until a connection returns', icon: iconOfflinePreparation },
+          { title: 'Original timestamps', text: 'Preserved through the upload', icon: iconFreshness },
+        ],
+      },
+    },
+    {
+      label: 'Step 6. Completion',
+      panel: {
+        kicker: 'Step 06',
+        tag: 'After Submission',
+        title: 'Follow the visit to acceptance',
+        text: 'Submission, synchronization and internal verification are separate milestones. Billing follows the required verification and acceptance checks.',
+        items: [
+          { title: 'Synchronized', text: 'Server receipt confirmed', icon: iconOfflinePreparation },
+          { title: 'Internally verified', text: 'Rules and schedules match', icon: iconVisitInformation },
+          { title: 'Aggregator accepted', text: 'Where the state or payer requires it', icon: iconInfoLime },
+        ],
+      },
+    },
   ],
 };
 

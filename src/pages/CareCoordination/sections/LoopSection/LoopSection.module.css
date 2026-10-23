@@ -1,0 +1,338 @@
+/* A lavender hairline opens the band, as drawn. */
+.section {
+  padding: 80px 0 79px;
+  border-top: 1px solid #a194ae;
+  background: #f9f7f6;
+  scroll-margin-top: 78px;
+}
+
+.intro {
+  --bh-title-size: 36px;
+  --bh-title-leading: 44px;
+  --bh-title-tracking: -0.02em;
+  --bh-title-gap: 3px;
+  --bh-description-width: 780px;
+  --bh-description-gap: 17px;
+}
+
+.intro > p:first-child {
+  letter-spacing: 0.05em;
+}
+
+.intro > p:last-child {
+  line-height: 29px;
+}
+
+/* White chart panel. */
+.chart {
+  margin: 48px 0 0;
+  padding: 50px 49px 48px;
+  border: 1px solid #e3dfe4;
+  border-radius: var(--radius-2xl);
+  background: var(--color-white);
+  box-shadow: 0 2px 4px rgb(31 24 35 / 0.06);
+}
+
+.chartHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid #f1eff1;
+}
+
+.chartTitle {
+  display: block;
+  font-family: var(--font-title-alt);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
+}
+
+.chartSubtitle {
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-body);
+}
+
+.benchmark {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border: 1px solid #d9cade;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-light);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-surface-dark);
+}
+
+.rows {
+  display: grid;
+  gap: 25px;
+  margin-top: 33px;
+}
+
+.row {
+  padding: 17px 20px 19px;
+  border: 1px solid #ebe8ea;
+  border-radius: var(--radius-xl);
+  background: #faf8f7;
+}
+
+.rowHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 884px;
+  min-height: 32px;
+}
+
+/* The dot carries a pale ring. */
+.rowLabel {
+  position: relative;
+  padding-left: 22px;
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  color: var(--color-heading);
+}
+
+.rowLabel::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: -2px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #d7d0da;
+  border-radius: 50%;
+  background: var(--dot);
+}
+
+.rowValue {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.rowValue strong {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--color-surface-dark);
+}
+
+.share {
+  padding: 1px 8px;
+  border-radius: var(--radius-pill);
+  background: #e6e2e6;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  color: var(--color-surface-dark);
+}
+
+.track {
+  display: block;
+  margin-top: 11px;
+  padding: 4px 3px 5px;
+  border-radius: var(--radius-pill);
+  background: #e9e6e6;
+  box-shadow: inset 0 1px 2px rgb(31 24 35 / 0.12);
+}
+
+.fill {
+  display: block;
+  height: 24px;
+  border-radius: var(--radius-pill);
+  background: var(--dot);
+}
+
+.dark {
+  --dot: var(--color-primary);
+}
+
+.mid {
+  --dot: #6c5389;
+}
+
+.critical {
+  --dot: var(--color-error);
+
+  padding-block: 21px;
+  border: 2px solid #e39f9f;
+  background: #fff8f7;
+}
+
+.critical .track {
+  margin-top: 15px;
+}
+
+.critical .rowLabel::before {
+  border-color: #fff8f7;
+}
+
+.critical .rowValue strong {
+  font-size: 26px;
+  color: var(--color-error);
+}
+
+.gap {
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-error);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 29px;
+  padding: 16px;
+  border: 1px solid #ebe7ea;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  font-size: 14px;
+  line-height: 23px;
+  color: var(--color-body);
+}
+
+.note img {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.note span {
+  max-width: 860px;
+}
+
+/* Evidence paragraphs on the left, the red disclaimer on the right. */
+.lower {
+  display: grid;
+  grid-template-columns: 658px minmax(0, 1fr);
+  align-items: start;
+  gap: 34px;
+  margin-top: 49px;
+}
+
+.paragraphs {
+  display: grid;
+  gap: 16px;
+}
+
+.paragraphs p {
+  padding: 15px 92px 17px 17px;
+  border: 1px solid #ebe8ec;
+  border-radius: var(--radius-xl);
+  background: var(--color-white);
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-body);
+}
+
+.disclaimer {
+  padding: 32px 33px 31px 25px;
+  border: 1px solid #e19999;
+  border-left: 10px solid var(--color-error);
+  border-radius: var(--radius-xl);
+  background: #fbeeed;
+}
+
+.disclaimerTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-error);
+}
+
+.disclaimerText {
+  max-width: 340px;
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 23px;
+  color: #1b1c1b;
+}
+
+.statement {
+  margin-top: 15px;
+  padding: 12px 12px 12px 13px;
+  border: 1px solid #f0cfcf;
+  border-radius: var(--radius-lg);
+  background: #fefcfc;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 23px;
+  color: var(--color-heading);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .lower {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rowHead {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .chart {
+    margin-top: 32px;
+    padding: 24px 16px;
+    border-radius: var(--radius-xl);
+  }
+
+  .chartHead,
+  .rowHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .row {
+    padding: 16px;
+  }
+
+  .lower {
+    margin-top: 32px;
+  }
+
+  .paragraphs p {
+    padding: 16px;
+  }
+
+  .disclaimer {
+    padding: 24px 20px;
+  }
+}

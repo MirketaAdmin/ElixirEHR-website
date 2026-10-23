@@ -1,0 +1,118 @@
+/* The frame's hairlines above and below the band are reproduced as borders. */
+.section {
+  padding: 79px 0 80px;
+  border-top: 1px solid #988da7;
+  border-bottom: 1px solid #9487a0;
+}
+
+.intro {
+  --ra-title-width: 900px;
+  --ra-title-gap: 14px;
+  --ra-description-gap: 17px;
+}
+
+.intro > p:last-child {
+  color: #d7cde3;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 63px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px 28px 29px;
+  border: 1px solid #5e4c75;
+  border-radius: var(--radius-lg);
+  background: #422d5d;
+}
+
+.lime {
+  --tile: #534b51;
+  --tile-border: #65703f;
+  --label: var(--color-secondary);
+}
+
+.blue {
+  --tile: #574f78;
+  --tile-border: #6f7697;
+  --label: #add9e9;
+}
+
+.yellow {
+  --tile: #694f50;
+  --tile-border: #90713c;
+  --label: var(--color-tertiary);
+}
+
+.grey {
+  --tile: #5d4975;
+  --tile-border: #7b6c8e;
+  --label: #c9bfd8;
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--tile-border);
+  border-radius: 10px;
+  background: var(--tile);
+}
+
+.title {
+  margin-top: 21px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-white);
+}
+
+.text {
+  margin-top: 8px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  line-height: 23.5px;
+  color: #d9d1e4;
+}
+
+.text {
+  margin-bottom: 24px;
+}
+
+.label {
+  align-self: stretch;
+  margin-top: auto;
+  padding-top: 13px;
+  border-top: 1px solid #5e4c75;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--label);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,138 @@
+.section {
+  padding: 80px 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 48px;
+  margin-top: 49px;
+}
+
+.schedule {
+  padding: 24px;
+  background: var(--color-surface);
+}
+
+.scheduleTitle {
+  max-width: 430px;
+  font-family: var(--font-title-alt);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
+}
+
+.table {
+  width: 100%;
+  margin-top: 16px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table th,
+.table td {
+  height: 38px;
+  padding: 0 16px 0 0;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table th:first-child {
+  width: 193px;
+  padding-left: 40px;
+}
+
+.table thead tr {
+  background: #efeceb;
+}
+
+.table thead th,
+.table tbody th {
+  font-family: var(--font-label);
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.table tbody th {
+  font-weight: 500;
+}
+
+.table tbody tr + tr {
+  border-top: 1px solid #eae7e7;
+}
+
+.table tbody th,
+.table tbody td {
+  padding-top: 2px;
+}
+
+.table tbody td {
+  color: var(--color-body);
+}
+
+.note {
+  max-width: 430px;
+  margin-top: 18px;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+.items {
+  display: grid;
+  gap: 16px;
+}
+
+.item {
+  padding: 16px;
+  background: var(--color-surface);
+}
+
+.itemTitle {
+  font-family: var(--font-label);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.itemText {
+  max-width: 453px;
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .itemText {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .schedule {
+    padding: 20px;
+  }
+
+  .table th:first-child {
+    width: 40%;
+    padding-left: 12px;
+  }
+}

@@ -1,0 +1,23 @@
+.section {
+  padding: 81px 0 80px;
+}
+
+/* The frame breaks the title before "Payment". */
+.intro {
+  --bh-title-width: 740px;
+}
+
+.grid {
+  margin-top: 63px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    margin-top: 40px;
+  }
+}

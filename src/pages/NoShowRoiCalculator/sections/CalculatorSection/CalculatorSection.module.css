@@ -1,0 +1,350 @@
+.section {
+  padding: 83px 0 81px;
+}
+
+/* White card (40px top band) holding the 604px parameters pane and the dark results panel, which
+   runs flush to the card's right and bottom edges. */
+.card {
+  display: grid;
+  grid-template-columns: 604px minmax(0, 1fr);
+  margin-top: 16px;
+  padding-top: 40px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 32px;
+  background: var(--color-white);
+  box-shadow: 0 24px 48px rgb(31 24 35 / 0.08);
+}
+
+/* Parameters */
+.form {
+  padding: 44px 44px 48px;
+}
+
+.formTitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-primary);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 19px;
+  margin-top: 27px;
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.label {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  color: var(--color-heading);
+}
+
+.control,
+.total {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  margin-top: 10px;
+  padding: 0 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-surface);
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--color-heading);
+}
+
+/* The page shows plain number fields (no spinners). */
+.control {
+  appearance: textfield;
+}
+
+.control::-webkit-inner-spin-button,
+.control::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.total {
+  background: #efeaf2;
+  font-weight: 700;
+  color: #6c6274;
+}
+
+.help {
+  margin-top: 5px;
+  font-size: 11.5px;
+  line-height: 17px;
+  color: #6b6579;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 31px;
+}
+
+.recalculate,
+.reset {
+  height: 50px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.recalculate {
+  flex: 1;
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.reset {
+  padding: 0 21px;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  color: var(--color-primary);
+}
+
+.disclaimer {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #eee9f0;
+  font-size: 11.5px;
+  line-height: 18.5px;
+  color: #7b7584;
+}
+
+.disclaimer strong {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+/* Results */
+.summary {
+  padding: 47px 44px 59px;
+  border-radius: 0 0 31px;
+  background: var(--color-surface-dark);
+  color: var(--color-white);
+}
+
+.summaryTitle {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+  color: var(--color-white);
+}
+
+.roiCard {
+  margin-top: 24px;
+  padding: 25px 24px 26px;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: var(--radius-lg);
+  background: rgb(255 255 255 / 0.05);
+}
+
+.roiLabel,
+.metricLabel {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.roiLabel {
+  color: var(--color-secondary);
+}
+
+.roiValue {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 58px;
+  color: var(--color-white);
+}
+
+.roiCaption {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #c9bfd8;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 21px;
+  margin-top: 28px;
+}
+
+.metric {
+  padding: 17px 18px 21px;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: var(--radius-lg);
+  background: rgb(255 255 255 / 0.03);
+}
+
+.metricLabel {
+  color: #b5abc1;
+}
+
+.metricValue {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 30px;
+  color: var(--color-secondary);
+}
+
+.rows {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+}
+
+.rows > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13.5px;
+  line-height: 31px;
+}
+
+.rows dt {
+  color: #d9d1e4;
+}
+
+.rows dd {
+  font-family: var(--font-label);
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.table {
+  width: 100%;
+  margin-top: 23px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: center;
+}
+
+.table + .table {
+  margin-top: 19px;
+}
+
+.table caption {
+  margin-bottom: 11px;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.table th,
+.table td {
+  border: 1px solid rgb(255 255 255 / 0.14);
+}
+
+.table th:last-child,
+.table td:last-child {
+  width: 151px;
+}
+
+.table th {
+  height: 33px;
+  background: rgb(255 255 255 / 0.1);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.table td {
+  height: 40px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ece7ee;
+}
+
+.table td:last-child {
+  background: rgb(149 193 31 / 0.12);
+  font-family: var(--font-label);
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .card {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 0;
+  }
+
+  .summary {
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .card {
+    border-radius: var(--radius-xl);
+  }
+
+  .form,
+  .summary {
+    padding: 28px 20px;
+  }
+
+  .fields,
+  .metrics {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .reset {
+    min-height: 50px;
+  }
+
+  .roiValue {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .table th:last-child,
+  .table td:last-child {
+    width: auto;
+  }
+
+  .table th,
+  .table td {
+    font-size: 12px;
+  }
+}

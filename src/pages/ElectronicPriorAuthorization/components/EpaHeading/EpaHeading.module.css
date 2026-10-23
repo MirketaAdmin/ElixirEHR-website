@@ -1,0 +1,46 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  max-width: var(--epa-title-width, 900px);
+  font-size: var(--epa-title-size, 40px);
+  font-weight: 700;
+  line-height: var(--epa-title-leading, 48px);
+  color: var(--color-surface-dark);
+}
+
+.dark .title {
+  color: var(--color-white);
+}
+
+.ink .title {
+  color: var(--color-heading);
+}
+
+.description {
+  max-width: var(--epa-description-width, 760px);
+  margin-top: var(--epa-description-gap, 16px);
+  font-size: var(--epa-description-size, 18px);
+  line-height: var(--epa-description-leading, 28px);
+}
+
+.dark .description {
+  color: rgb(255 255 255 / 0.7);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}

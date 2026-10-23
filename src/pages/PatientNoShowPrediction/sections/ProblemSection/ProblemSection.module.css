@@ -1,0 +1,161 @@
+.section {
+  padding: 80px 0 81px;
+}
+
+/* The frame sets this section 4px wider on each side than the 1152px column (60px side padding):
+   a 446px left column (from x 60) and a 650px right column (to x 1220). */
+.section .layout {
+  display: grid;
+  grid-template-columns: minmax(0, 446fr) minmax(0, 650fr);
+  gap: 64px;
+}
+
+@media (min-width: 1280px) {
+  .section .layout {
+    padding-inline: 60px;
+  }
+}
+
+.intro {
+  --intro-title-gap: 20px;
+}
+
+.quote {
+  margin: 20px 0 0;
+  padding: 25px 8px 24px 24px;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  background: #fcfafd;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  color: var(--color-heading);
+}
+
+/* Dark benchmark card with a soft lime glow in its lower right corner. */
+.stat {
+  position: relative;
+  margin-top: 19px;
+  padding: 24px 24px 24px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at 92% 100%, rgb(149 193 31 / 0.3), transparent 32%), var(--color-heading);
+  box-shadow: 0 12px 24px rgb(31 24 35 / 0.18);
+  color: rgb(255 255 255 / 0.7);
+}
+
+.statLabel {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.statValue {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 4px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(255 255 255 / 0.12);
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 48px;
+  color: var(--color-white);
+}
+
+.statCaption {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgb(255 255 255 / 0.7);
+}
+
+.statDetails {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 17px;
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.statDetails strong {
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.dot {
+  color: rgb(255 255 255 / 0.4);
+}
+
+.accent {
+  color: var(--color-secondary);
+}
+
+.right {
+  padding-top: 8px;
+}
+
+.paragraph {
+  font-size: 18px;
+  line-height: 28px;
+  white-space: pre-line;
+}
+
+.paragraph + .paragraph {
+  margin-top: 24px;
+}
+
+/* The "18.8%" figure: lime-tint chip, bold. */
+.highlight {
+  padding: 1px 6px;
+  border-radius: var(--radius-xs);
+  background: var(--color-secondary-tint);
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.source {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #d6d0d9;
+  font-size: 12px;
+  line-height: 18px;
+  color: #6b6470;
+}
+
+.sourceLink {
+  text-decoration: underline;
+  color: var(--color-surface-dark);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .section .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .paragraph {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .paragraph {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}

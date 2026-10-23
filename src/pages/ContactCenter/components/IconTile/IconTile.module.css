@@ -1,0 +1,28 @@
+.tile {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-md);
+}
+
+.lime {
+  background: #eef5dd;
+}
+
+.purple {
+  background: var(--color-surface-light);
+}
+
+.yellow {
+  background: #fcf4cf;
+}
+
+.dark {
+  background: var(--color-surface-dark);
+}
+
+.red {
+  background: #fbecec;
+}

@@ -1,0 +1,101 @@
+.card {
+  padding-bottom: 42px;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tab {
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #6b6579;
+}
+
+.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.levels {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.level {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 18px;
+  border: 1px solid;
+  border-radius: 12px;
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.lime {
+  border-color: #d6e2bb;
+  background: #e9f3d4;
+}
+
+.blue {
+  border-color: #c6e3ef;
+  background: #e4f2f8;
+}
+
+.lavender {
+  border-color: #ddd2e8;
+  background: #eee8f5;
+}
+
+.yellow {
+  border-color: #f2e5ad;
+  background: #fdf6d8;
+}
+
+.stone {
+  border-color: #d9d6cc;
+  background: #e8e6dd;
+}
+
+.switch {
+  padding: 2px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  color: var(--color-heading);
+}
+
+.off {
+  background: #d9d1e4;
+  color: #6b6579;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .indent {
+    margin-left: 0 !important;
+  }
+}

@@ -1,0 +1,263 @@
+.section {
+  padding: 79px 0 80px;
+}
+
+/* The 630px chart mock-up beside a 466px copy column, vertically centred. */
+.layout {
+  display: grid;
+  grid-template-columns: 630px minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
+}
+
+/* The frame sits the copy column 9px above centre. */
+.layout > div:last-child {
+  margin-bottom: 18px;
+}
+
+.mock {
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 0.35);
+  border-radius: var(--radius-xl);
+  background: #fdfcfc;
+  box-shadow: 0 24px 48px rgb(10 2 20 / 0.35);
+}
+
+.mockHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 57px;
+  padding: 0 20px 0 21px;
+  background: #25123d;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #beb8c5;
+}
+
+.location::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-border);
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 31px;
+  padding: 0 14px 0 15px;
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  color: var(--color-primary);
+}
+
+.mockBody {
+  padding: 25px 25px 25px;
+}
+
+.patient {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ebe6ec;
+}
+
+.patientName {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 26px;
+  color: var(--color-heading);
+}
+
+.patientMeta {
+  margin-top: 5px;
+  font-size: 12.5px;
+  line-height: 18px;
+  color: #76707c;
+}
+
+.status {
+  display: flex;
+  flex: none;
+  align-items: center;
+  height: 26px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: #eaf3d2;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #3c5708;
+}
+
+.prioritiesTitle {
+  margin-top: 22px;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #76707c;
+}
+
+.priorities {
+  display: grid;
+  gap: 11px;
+  margin-top: 13px;
+}
+
+.priorities li {
+  min-height: 97px;
+  padding: 14px 18px 14px 18px;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--edge);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+}
+
+.confirmed {
+  --edge: var(--color-secondary);
+  --status: var(--color-secondary);
+}
+
+.added {
+  --edge: var(--color-tertiary);
+  --status: var(--color-surface-dark);
+}
+
+.priorityHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--color-primary);
+}
+
+.priorityStatus {
+  flex: none;
+  color: var(--status);
+}
+
+.priorityText {
+  margin-top: 4px;
+  font-size: 13.5px;
+  line-height: 21px;
+  color: var(--color-body);
+}
+
+.intro {
+  --kr-title-width: 440px;
+  --kr-title-gap: 14px;
+  --kr-description-gap: 19px;
+}
+
+.intro > p:first-child {
+  letter-spacing: 0.12em;
+}
+
+.intro h2 {
+  font-size: 38px;
+  line-height: 46px;
+}
+
+.intro > p:last-child {
+  font-size: 16.5px;
+  line-height: 28px;
+  color: var(--color-surface-light);
+}
+
+.points {
+  display: grid;
+  gap: 20px;
+  margin-top: 23px;
+}
+
+.points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.check {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgb(149 193 31 / 0.12);
+}
+
+.pointTitle {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-white);
+}
+
+.pointText {
+  margin-top: 7px;
+  font-size: 14px;
+  line-height: 23px;
+  color: var(--color-surface-light);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .layout > div:last-child {
+    margin-bottom: 0;
+  }
+
+  .mock {
+    max-width: 630px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .mockHeader,
+  .patient,
+  .priorityHead {
+    flex-wrap: wrap;
+  }
+
+  .mockHeader {
+    height: auto;
+    padding-block: 12px;
+    row-gap: 8px;
+  }
+
+  .mockBody {
+    padding: 16px;
+  }
+}

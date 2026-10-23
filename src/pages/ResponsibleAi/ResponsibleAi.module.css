@@ -1,0 +1,143 @@
+/* Frame-specific overrides for shared sections on the Responsible AI page. */
+
+/* Hero: the KratuAI hero set-up (four-line 53.5/54.5 title, a yellow summary line, 18/28 description, 56px Roboto-medium CTAs; no arrow on the
+   primary). */
+.hero {
+  --page-hero-padding: 71px;
+  --page-hero-description-width: 580px;
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-primary-height: 56px;
+  --page-hero-primary-size: 16px;
+  --page-hero-content-offset: 0px;
+  --page-hero-description-gap: 22px;
+  --page-hero-paragraph-gap: 25px;
+}
+
+/* The second description paragraph is the frame's yellow summary line. */
+.hero h1 ~ p ~ p {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-tertiary);
+}
+
+.hero h1 {
+  margin-top: 18px;
+  font-size: 53.5px;
+  line-height: 54.5px;
+  letter-spacing: -0.02em;
+}
+
+.hero p + div {
+  margin-top: 36px;
+}
+
+.hero p + div > a {
+  height: 56px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.hero p + div > a:first-child {
+  padding: 0 31px;
+  box-shadow: 0 4px 18px rgb(149 193 31 / 0.35);
+}
+
+.hero p + div > a:last-child {
+  padding: 0 28px;
+  border-color: rgb(255 255 255 / 0.3);
+  background: rgb(255 255 255 / 0.07);
+}
+
+/* CTA band: light-blue caps eyebrow, a one-line 50px title, one 56px lime button and the related
+   links. The frame's hairline above the band is reproduced as a border. */
+.ctaBand {
+  padding: 81px 0 80px;
+  border-top: 1px solid #c5bdc9;
+}
+
+.ctaBand div > p:first-child {
+  margin-bottom: 21px;
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.2em;
+  color: #add9e9;
+}
+
+.ctaBand h2 {
+  max-width: none;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.01em;
+}
+
+.ctaBand h2 + p:last-child {
+  max-width: 740px;
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 28px;
+  color: #ddd5e6;
+}
+
+.ctaBand .ctaButton {
+  height: 56px;
+  margin-top: 35px;
+  padding-inline: 40px;
+  box-shadow: 0 6px 18px rgb(149 193 31 / 0.35);
+  font-family: var(--font-label);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ctaLinks {
+  margin-top: 32px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #ddd5e6;
+}
+
+.ctaLink {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--color-white);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .hero {
+    overflow-x: clip;
+  }
+}
+
+@media (max-width: 767px) {
+  /* The desktop title outranks PageHero's mobile size; restore it. */
+  .hero h1 {
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  .ctaBand h2 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}
+
+@media (max-width: 479px) {
+  /* Long CTA labels wrap instead of running past a narrow viewport. */
+  .hero p + div > a {
+    height: auto;
+    min-height: 56px;
+    padding-block: 12px;
+    white-space: normal;
+    text-align: center;
+  }
+}

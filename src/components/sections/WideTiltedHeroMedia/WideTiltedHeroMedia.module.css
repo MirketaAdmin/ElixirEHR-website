@@ -1,0 +1,30 @@
+/* 521×460 card box; the image (backdrop + shadow) starts 31px left and 24px above it. */
+.media {
+  position: relative;
+  width: 521px;
+  height: 460px;
+}
+
+.image {
+  position: absolute;
+  top: -24px;
+  left: -31px;
+  max-width: none;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .media {
+    width: 100%;
+    max-width: 521px;
+    height: auto;
+    aspect-ratio: 521 / 460;
+  }
+
+  .image {
+    top: -5.22%;
+    left: -5.95%;
+    width: 111.9%;
+    height: auto;
+  }
+}

@@ -1,0 +1,91 @@
+.section {
+  padding: 81px 0 84px;
+  scroll-margin-top: 80px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 35px 32px;
+  margin-top: 64px;
+}
+
+/* White card on an 8px yellow left edge, clipped by the card's corners. */
+.card {
+  position: relative;
+  overflow: hidden;
+  min-height: 196px;
+  padding: 33px 32px 32px;
+  border: 1px solid #ebe7ec;
+  border-radius: 48px;
+  background: var(--color-white);
+  box-shadow: 0 1px 2px rgb(31 24 35 / 0.04);
+}
+
+.card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 8px;
+  background: #eec204;
+  content: '';
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.label {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #725c00;
+}
+
+.title {
+  margin-top: 3px;
+  font-family: var(--font-title-alt);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
+}
+
+.text {
+  max-width: 430px;
+  margin-top: 3px;
+  font-size: 16px;
+  line-height: 26.5px;
+  color: var(--color-body);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .text {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .card {
+    min-height: 0;
+    padding: 24px 20px 24px 28px;
+    border-radius: var(--radius-2xl);
+  }
+}

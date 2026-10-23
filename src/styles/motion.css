@@ -1,0 +1,113 @@
+/*
+ * Site-wide motion and interaction layer.
+ *
+ * Every page shares these rules, so a component behaves the same wherever it appears.
+ * Timings and distances come from the motion tokens in tokens.css.
+ *
+ * - Scroll reveals: components/motion/MotionController tags blocks with [data-reveal] and
+ *   sets [data-revealed] once each one enters the viewport. Content is hidden only while
+ *   html.motion-ready is set, so it stays visible if JavaScript fails or the reader prefers
+ *   reduced motion.
+ * - Cards: the controller tags card-like grid and list items with [data-card]; they get one
+ *   shared hover lift.
+ * - Inline links, focus rings and the reduced-motion fallback live here too.
+ */
+
+/* ── Scroll reveal ─────────────────────────────────────────────────── */
+.motion-ready [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-distance), 0);
+  transition:
+    opacity var(--duration-reveal) var(--ease-out),
+    transform var(--duration-reveal) var(--ease-out);
+  transition-delay: calc(var(--reveal-order, 0) * var(--reveal-stagger));
+}
+
+/* Elements that already carry a transform (tilted media, rotated cards) only fade. */
+.motion-ready [data-reveal='fade'] {
+  transform: none;
+}
+
+.motion-ready [data-reveal][data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Cards: one hover treatment for every card-like grid item ─────── */
+@media (hover: hover) and (pointer: fine) {
+  [data-card] {
+    transition:
+      transform var(--duration-base) var(--ease-standard),
+      box-shadow var(--duration-base) var(--ease-standard),
+      border-color var(--duration-base) var(--ease-standard);
+  }
+
+  [data-card]:hover {
+    transform: translate3d(0, var(--hover-lift), 0);
+    box-shadow: var(--shadow-hover);
+  }
+
+  /* While a card is still revealing, its reveal transition wins; the lift starts afterwards. */
+  .motion-ready [data-card][data-reveal]:not([data-revealed]):hover {
+    transform: translate3d(0, var(--reveal-distance), 0);
+  }
+}
+
+/* Keyboard users get the same emphasis when focus lands inside a card. */
+[data-card]:focus-within {
+  box-shadow: var(--shadow-hover);
+}
+
+/* ── Inline text links: an underline that draws in ───────────────── */
+main p a:not([class]),
+main p a[data-inline-link] {
+  background-image: linear-gradient(currentcolor, currentcolor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size var(--duration-base) var(--ease-standard);
+}
+
+main p a:not([class]):hover,
+main p a:not([class]):focus-visible {
+  background-size: 100% 1px;
+}
+
+/* ── Interactive images inside cards: a gentle zoom within the card ── */
+@media (hover: hover) and (pointer: fine) {
+  [data-card] [data-zoom] {
+    transition: transform 600ms var(--ease-out);
+  }
+
+  [data-card]:hover [data-zoom] {
+    transform: scale(1.04);
+  }
+}
+
+/* ── Focus ──────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 3px;
+  transition: outline-offset var(--duration-fast) var(--ease-standard);
+}
+
+/* In-page anchors land below the sticky header. */
+[id] {
+  scroll-margin-top: calc(var(--header-height) + 16px);
+}
+
+/* ── Reduced motion: no movement anywhere ────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-card]:hover {
+    transform: none;
+  }
+}

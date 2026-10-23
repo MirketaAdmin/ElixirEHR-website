@@ -21,6 +21,13 @@
   height: 100%;
 }
 
+/* Each logo keeps its own balanced size from data/home.js; never stretched or squashed. */
+.logos img {
+  display: block;
+  max-width: none;
+  object-fit: contain;
+}
+
 /* Static wrapping row (no scrolling) for visitors who prefer reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   .logos {

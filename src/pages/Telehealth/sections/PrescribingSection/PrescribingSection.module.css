@@ -1,0 +1,54 @@
+.section {
+  padding: 79px 0 76px;
+}
+
+.section > div > div {
+  --th-title-width: 370px;
+}
+
+.section > div > div > div:last-child {
+  gap: 15px;
+}
+
+.card {
+  padding: 31px 32px 34px;
+  border: 1px solid #d6d0d9;
+  border-radius: var(--radius-2xl);
+  background: var(--color-white);
+}
+
+.label {
+  font-family: Consolas, 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: var(--color-surface-dark);
+}
+
+.red {
+  color: var(--color-error);
+}
+
+.green {
+  color: #4d6700;
+}
+
+.text {
+  max-width: 540px;
+  margin-top: 5px;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-body);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+}

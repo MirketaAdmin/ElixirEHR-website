@@ -1,0 +1,69 @@
+.section {
+  padding: 81px 0 78px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 516px minmax(0, 600px);
+  gap: 33px;
+}
+
+/* The study column starts 1px above the eyebrow, as drawn. */
+.layout > div:last-child {
+  margin-top: -1px;
+}
+
+.intro {
+  --roi-title-gap: 14px;
+}
+
+.intro h2 {
+  font-size: 38px;
+  line-height: 47px;
+}
+
+.lead {
+  margin-top: 24px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  color: var(--color-primary);
+}
+
+.paragraph {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.paragraph + .paragraph {
+  margin-top: 17px;
+}
+
+.source {
+  margin-top: 25px;
+  padding-top: 17px;
+  border-top: 1px solid #dfdae1;
+  font-size: 13px;
+  line-height: 21px;
+  color: #7b7584;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .intro h2 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}

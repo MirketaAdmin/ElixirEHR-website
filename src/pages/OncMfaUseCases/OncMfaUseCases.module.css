@@ -1,0 +1,296 @@
+/* Frame-specific overrides for shared sections on the ONC MFA Use Cases page. */
+
+/* Hero: the KratuAI hero set-up (four-line 53.5/54 title, 18/28 description, 56px Roboto-medium CTAs;
+   no arrow on the primary). */
+.hero {
+  --page-hero-padding: 70px;
+  --page-hero-description-width: 574px;
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-primary-height: 56px;
+  --page-hero-primary-size: 16px;
+  --page-hero-content-offset: 0px;
+  --page-hero-description-gap: 24px;
+  --page-hero-paragraph-gap: 25px;
+}
+
+.hero h1 {
+  margin-top: 18px;
+  font-size: 53.5px;
+  line-height: 54px;
+  letter-spacing: -0.02em;
+}
+
+/* The frame's description is a soft off-white rather than pure white. */
+.hero h1 ~ p {
+  color: #eae8ed;
+}
+
+.hero p + div {
+  margin-top: 36px;
+}
+
+.hero p + div > a {
+  height: 56px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.hero p + div > a:first-child {
+  padding: 0 31px;
+  box-shadow: 0 4px 18px rgb(149 193 31 / 0.35);
+}
+
+.hero p + div > a:last-child {
+  padding: 0 30px;
+  border-color: rgb(255 255 255 / 0.3);
+  background: rgb(255 255 255 / 0.07);
+}
+
+/* Use cases: five columns of centred cards, two rows. */
+.cases {
+  padding: 80px 0 80px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 17px 17px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 163px;
+  padding: 20px 14px;
+  border: 1px solid #e0dce2;
+  border-radius: 16px;
+  background: var(--color-white);
+  box-shadow: 0 4px 12px rgb(31 24 35 / 0.06);
+  text-align: center;
+}
+
+.tile {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #eff6de;
+}
+
+.cardTitle {
+  max-width: 192px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-heading);
+}
+
+/* Assessment: copy, points and trust row beside the shared contact form. */
+.assessment {
+  padding: 80px 0 80px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 542px;
+  align-items: start;
+  gap: 88px;
+}
+
+.eyebrow {
+  margin-top: 2px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.title {
+  max-width: 400px;
+  margin-top: 26px;
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 50px;
+  letter-spacing: -0.01em;
+  color: var(--color-primary);
+}
+
+.description {
+  max-width: 520px;
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 26px;
+  white-space: pre-line;
+  color: var(--color-body);
+}
+
+.points {
+  display: grid;
+  gap: 19px;
+  margin-top: 33px;
+}
+
+.points li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 21px;
+  color: var(--color-body);
+}
+
+.check {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 21px;
+  border-radius: 50%;
+  background: #e3e9c8;
+}
+
+.trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  max-width: 560px;
+  margin-top: 25px;
+  padding-top: 32px;
+  border-top: 1px solid #d7d0d8;
+}
+
+.trust li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-label);
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--color-body);
+}
+
+/* The shared form, set to this frame: white card, 42px fields, lime submit without an arrow. */
+.form {
+  --contact-form-label-gap: 3px;
+  --contact-form-row-gap: 16px;
+  --contact-form-submit-gap: 24px;
+
+  padding: 40px 40px 40px;
+  border: 1px solid #efecef;
+  border-radius: 24px;
+  background: var(--color-white);
+  box-shadow: 0 16px 32px rgb(31 24 35 / 0.07);
+}
+
+.formTitle {
+  margin-bottom: 24px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-primary);
+}
+
+.form label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-heading);
+}
+
+.form input,
+.form textarea {
+  height: 43px;
+  border-color: #ccc4cf;
+  background: var(--color-surface);
+}
+
+.form textarea {
+  height: 83px;
+}
+
+.form button[type='submit'] {
+  height: 50px;
+  background: var(--color-secondary);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.form button[type='submit'] svg {
+  display: none;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .hero {
+    overflow-x: clip;
+  }
+}
+
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
+  }
+
+  .description {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 767px) {
+  /* The desktop title outranks PageHero's mobile size; restore it. */
+  .hero h1 {
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  .cases,
+  .assessment {
+    padding: 64px 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .form {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 479px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

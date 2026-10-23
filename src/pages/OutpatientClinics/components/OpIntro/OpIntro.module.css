@@ -1,0 +1,33 @@
+.intro {
+  --bh-title-size: 48px;
+  --bh-title-leading: 56px;
+  --bh-title-tracking: -0.02em;
+  --bh-title-gap: 7px;
+  --bh-title-width: 1040px;
+  --bh-description-width: 770px;
+  --bh-description-gap: 4px;
+}
+
+.lime > p:first-child {
+  color: var(--color-secondary);
+}
+
+.yellow > p:first-child {
+  color: var(--color-tertiary);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .intro {
+    --bh-title-size: 32px;
+    --bh-title-leading: 40px;
+  }
+}
+
+/* Long single words ("Interoperability:") need a smaller title on the narrowest phones. */
+@media (max-width: 479px) {
+  .intro {
+    --bh-title-size: 28px;
+    --bh-title-leading: 36px;
+  }
+}

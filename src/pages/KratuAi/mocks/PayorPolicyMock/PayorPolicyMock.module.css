@@ -1,0 +1,98 @@
+.body[class] {
+  padding-bottom: 45px;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #fdfefa;
+}
+
+.score {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #2b6179;
+  color: var(--color-white);
+}
+
+.scoreValue {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.scoreLabel {
+  font-family: var(--font-label);
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 11px;
+  text-transform: uppercase;
+}
+
+.summaryTitle {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  color: var(--color-primary);
+}
+
+.summaryText {
+  margin-top: 3px;
+  font-size: 13px;
+  line-height: 18px;
+  color: #6b6579;
+}
+
+.checks {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.check {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--color-heading);
+}
+
+.mark {
+  flex: none;
+  width: 11px;
+  font-weight: 700;
+}
+
+.pass .mark {
+  color: var(--color-secondary);
+}
+
+.warn .mark {
+  align-self: center;
+  color: var(--color-tertiary);
+}
+
+.resolution {
+  margin-top: 31px;
+  padding-left: 12px;
+  font-size: 12.5px;
+  line-height: 19px;
+  color: var(--color-heading);
+}
+
+.resolution strong {
+  font-weight: 700;
+  color: var(--color-primary);
+}

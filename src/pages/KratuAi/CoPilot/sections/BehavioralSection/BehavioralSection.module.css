@@ -1,0 +1,45 @@
+.section {
+  padding: 78px 0 103px;
+}
+
+.intro {
+  --kr-title-width: 900px;
+  --kr-title-gap: 12px;
+}
+
+.intro > p:first-child {
+  font-size: 14px;
+  letter-spacing: 0.15em;
+}
+
+.intro h2 {
+  font-size: 48px;
+  line-height: 60px;
+}
+
+.copy {
+  display: grid;
+  gap: 15px;
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 23px;
+}
+
+.note {
+  margin-top: 25px;
+  font-size: 11px;
+  line-height: 16px;
+  color: #8a8490;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0 48px;
+  }
+
+  .intro h2 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}

@@ -1,0 +1,189 @@
+.section {
+  padding: 80px 0 81px;
+}
+
+.intro {
+  --cc-title-width: 720px;
+  --cc-description-width: 830px;
+}
+
+.intro h2 {
+  line-height: 52px;
+}
+
+.intro > p:last-child {
+  color: #ddcee1;
+}
+
+/* Illustrative census board (static example data). */
+.board {
+  margin-top: 46px;
+  padding: 39px 36px 35px;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 32px;
+  background: linear-gradient(135deg, #240f3e, #2f164e);
+  box-shadow: 0 24px 48px rgb(10 2 20 / 0.35);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid rgb(255 255 255 / 0.06);
+}
+
+.boardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: var(--color-white);
+}
+
+.subtitle {
+  margin-top: 7px;
+  font-size: 13px;
+  line-height: 18px;
+  color: #beb8c7;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 35px;
+  padding: 0 14px;
+  border: 1px solid rgb(255 255 255 / 0.16);
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.1);
+  font-family: var(--font-label);
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(255 255 255 / 0.9);
+}
+
+.legend li::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+
+.legend .available {
+  --dot: var(--color-secondary);
+}
+
+.legend .hold {
+  --dot: var(--color-tertiary);
+}
+
+.legend .occupied {
+  --dot: #a59bb0;
+}
+
+.beds {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.bed {
+  min-height: 117px;
+  padding: 18px 18px 16px;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 14px;
+  background: rgb(255 255 255 / 0.07);
+}
+
+.bedHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.bedId {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--color-white);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  height: 23px;
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+
+.status.available {
+  background: rgb(149 193 31 / 0.25);
+  color: var(--color-secondary);
+}
+
+.status.hold {
+  background: rgb(242 198 15 / 0.25);
+  color: #f7d547;
+}
+
+.status.occupied {
+  background: rgb(255 255 255 / 0.15);
+  color: var(--color-border);
+}
+
+.unit {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-surface-light);
+}
+
+.note {
+  margin-top: 7px;
+  font-size: 12.5px;
+  line-height: 18px;
+  color: #afa6b9;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .beds {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .board {
+    padding: 24px 20px;
+    border-radius: var(--radius-xl);
+  }
+
+  .beds {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -50,7 +50,24 @@
   cursor: default;
 }
 
-.selected {
+.tab {
+  cursor: pointer;
+  transition:
+    background-color var(--duration-base) var(--ease-standard),
+    color var(--duration-base) var(--ease-standard);
+}
+
+.tab:hover {
+  background: var(--color-surface-light);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+.selected,
+.selected:hover {
   background: var(--color-primary);
   color: var(--color-white);
 }
@@ -78,6 +95,20 @@
   padding: 32px;
   border-radius: 16px;
   background: var(--color-surface);
+}
+
+/* A new step's panel fades up. */
+@media (prefers-reduced-motion: no-preference) {
+  .panel {
+    animation: tour-panel-in 0.4s var(--ease-out) both;
+  }
+}
+
+@keyframes tour-panel-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
 }
 
 .panelHead {

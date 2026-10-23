@@ -1,0 +1,71 @@
+.section {
+  padding: 77px 0 81px;
+}
+
+.heading {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  text-align: center;
+  color: var(--color-heading);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px;
+  margin-top: 60px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 96px Deep Purple circle; the glyph is a 32px crop from the frame. */
+.circle {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.title {
+  margin-top: 32px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-surface-dark);
+}
+
+.text {
+  max-width: 344px;
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 480px;
+    margin-inline: auto;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}

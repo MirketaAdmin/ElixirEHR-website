@@ -62,5 +62,15 @@
   --shadow-subtle: 0 8px 24px rgb(0 0 0 / 0.15);
 
   /* ── Motion ─────────────────────────────────────────────────────── */
+  /* One motion vocabulary for the whole site (styles/motion.css and components read these). */
   --transition-fast: 150ms ease;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* entrances and reveals */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* hovers and state changes */
+  --duration-fast: 160ms;
+  --duration-base: 240ms;
+  --duration-reveal: 700ms;
+  --reveal-distance: 24px;
+  --reveal-stagger: 70ms;
+  --hover-lift: -4px;
+  --shadow-hover: 0 18px 40px -12px rgb(50 27 79 / 0.22);
 }

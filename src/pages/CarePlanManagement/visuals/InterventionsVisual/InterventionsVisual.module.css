@@ -1,0 +1,63 @@
+.list {
+  display: grid;
+  gap: 12px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 67px;
+  padding: 0 16px;
+  border: 1px solid #ece7f0;
+  border-radius: 12px;
+  background: #faf9fb;
+}
+
+.tag {
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+.title {
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  color: var(--color-heading);
+}
+
+.owner {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-left: auto;
+  border-radius: 50%;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.purple {
+  background: var(--color-primary);
+}
+
+.ink {
+  background: var(--color-heading);
+}
+
+.lime {
+  background: var(--color-secondary);
+  color: var(--color-heading);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .indent {
+    margin-left: 0 !important;
+  }
+}

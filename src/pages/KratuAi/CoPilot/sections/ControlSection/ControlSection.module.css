@@ -1,0 +1,203 @@
+.section {
+  padding: 80px 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 48px;
+}
+
+/* The copy column starts 4px below the mock-up's top edge, as in the frame. */
+.layout > div:first-child {
+  padding-top: 4px;
+}
+
+.intro {
+  --kr-title-width: 552px;
+  --kr-description-width: 552px;
+  --kr-title-gap: 23px;
+  --kr-description-gap: 24px;
+}
+
+.intro > p:first-child {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: #4d6700;
+}
+
+.intro h2 {
+  font-size: 36px;
+  line-height: 40px;
+  letter-spacing: -0.02em;
+}
+
+.intro > p:last-child {
+  font-size: 16px;
+  line-height: 24px;
+  color: #6b6570;
+}
+
+.items {
+  display: grid;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 17px 6px 16px 16px;
+  border: 1px solid #e1dbe0;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.item img {
+  flex-shrink: 0;
+  width: 20px;
+  object-fit: contain;
+  object-position: left top;
+}
+
+.itemTitle {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--color-heading);
+}
+
+.itemText {
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+/* ---- Mental Status Exam template mock-up ---- */
+.template {
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface-dark);
+  box-shadow: 0 24px 48px rgb(31 24 35 / 0.25);
+}
+
+.templateHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 1px 0 16px;
+  border-bottom: 1px solid #422c5c;
+}
+
+.templateTitle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--color-white);
+}
+
+.templateTitle::before {
+  content: '';
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #c4f351;
+}
+
+.badge {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: 24px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: #473261;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #ede9ef;
+}
+
+.blocks {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 14px 15px 13px;
+  border: 1px solid #463160;
+  border-radius: var(--radius-md);
+  background: #3c2658;
+}
+
+.blockTitle {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+  color: #c4f351;
+}
+
+.blockText {
+  font-size: 12px;
+  line-height: 16px;
+  color: #d8d4de;
+}
+
+.templateFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 15px;
+  border-top: 1px solid #422c5c;
+  font-size: 12px;
+  line-height: 20px;
+  color: #ada4b9;
+}
+
+.templateFooter strong {
+  font-family: var(--font-label);
+  color: #c4f351;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .intro h2 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .template {
+    padding: 20px;
+  }
+
+  .templateHead,
+  .templateFooter {
+    flex-wrap: wrap;
+  }
+}

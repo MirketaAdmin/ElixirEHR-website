@@ -1,0 +1,123 @@
+.section {
+  padding: 85px 0 78px;
+}
+
+.intro {
+  --bh-title-width: 780px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 48px;
+}
+
+.card {
+  padding: 16px 16px 15px;
+  background: #3a2456;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  color: var(--color-white);
+}
+
+.title img {
+  flex-shrink: 0;
+}
+
+.text {
+  max-width: 291px;
+  margin-top: 0;
+  padding-left: 25px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #b89cd8;
+}
+
+.promo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 31px;
+  padding: 24px 24px 25px;
+  background: #3c2658;
+}
+
+.promo img {
+  flex-shrink: 0;
+}
+
+.promoCopy {
+  flex: 1;
+}
+
+.promoTitle {
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  color: var(--color-white);
+}
+
+.promoText {
+  font-size: 14px;
+  line-height: 20px;
+  color: #b89cd8;
+}
+
+.promoLink {
+  flex-shrink: 0;
+  padding: 8px 24px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 21px;
+  color: var(--color-heading);
+}
+
+.promoLink:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .promo {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 32px;
+  }
+
+  .promo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .promoLink {
+    flex-shrink: 1;
+    white-space: normal;
+  }
+}

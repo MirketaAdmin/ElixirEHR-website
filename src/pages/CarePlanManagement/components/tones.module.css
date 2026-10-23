@@ -1,0 +1,57 @@
+/* Level tags: the word on a tinted ground ("Goal", "Objective", …). */
+.tag {
+  padding: 0 1px;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.tagLime {
+  background: #e9f3d4;
+  color: #4f6a10;
+}
+
+.tagBlue {
+  background: #e4f2f8;
+  color: #2f6f86;
+}
+
+.tagLavender {
+  background: #eee8f5;
+  color: #493266;
+}
+
+.tagDark {
+  background: var(--color-heading);
+  color: var(--color-white);
+}
+
+/* Status pills. */
+.pill {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.pillLime {
+  background: #e9f3d4;
+  color: #4f6a10;
+}
+
+.pillBlue {
+  background: #e4f2f8;
+  color: #2f6f86;
+}
+
+.pillYellow {
+  background: #fdf0c4;
+  color: #6f5a00;
+}
+
+.pillLavender {
+  background: #eee8f5;
+  color: #493266;
+}

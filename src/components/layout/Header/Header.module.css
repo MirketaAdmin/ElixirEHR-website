@@ -35,7 +35,15 @@
 
 .search {
   display: flex;
+  margin: -8px;
+  padding: 8px;
+  border-radius: 50%;
   color: var(--color-white);
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.search:hover {
+  background: var(--color-white-10);
 }
 
 .cta {

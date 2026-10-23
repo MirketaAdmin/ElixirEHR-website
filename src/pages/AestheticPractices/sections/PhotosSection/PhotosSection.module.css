@@ -1,0 +1,228 @@
+.section {
+  padding: 80px 0 79px;
+}
+
+.intro {
+  --bh-title-width: 760px;
+  --bh-description-width: 760px;
+}
+
+.section .intro > h2 + p {
+  color: #d6d1dc;
+}
+
+/* The enforcement case: the figure left of a hairline, the story right. */
+.case {
+  display: grid;
+  grid-template-columns: 337px minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
+  margin-top: 64px;
+  padding: 35px 32px;
+  border-radius: var(--radius-2xl);
+  background: #3c2658;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
+}
+
+.figure {
+  padding-right: 32px;
+  border-right: 1px solid rgb(255 255 255 / 0.1);
+}
+
+.figureLabel {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-error);
+}
+
+.figureValue {
+  margin-top: 4px;
+  font-family: var(--font-display);
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 64px;
+  letter-spacing: -0.02em;
+  color: var(--color-error);
+}
+
+.caseTitle {
+  max-width: 520px;
+  font-family: var(--font-title-alt);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+}
+
+.caseText {
+  max-width: 590px;
+  margin-top: 6px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #eceaef;
+}
+
+.kicker {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--color-secondary);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 560px;
+  align-items: start;
+  gap: 96px;
+  margin-top: 56px;
+}
+
+.points {
+  display: grid;
+  gap: 32px;
+}
+
+.pointTitle {
+  max-width: 420px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-secondary);
+}
+
+.pointText {
+  max-width: 500px;
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #d6d1dc;
+}
+
+.checklist {
+  padding: 32px;
+  border-radius: var(--radius-2xl);
+  background: #3c2758;
+}
+
+.checkLabel {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.checkTitle {
+  max-width: 440px;
+  margin-top: 5px;
+  font-family: var(--font-title-alt);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+}
+
+.checkList {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.checkList li {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.06);
+  font-size: 14px;
+  line-height: 22px;
+  color: #ecdeee;
+}
+
+.checkList li span:last-child {
+  max-width: 400px;
+}
+
+.checkNumber {
+  flex-shrink: 0;
+  font-family: var(--font-label);
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.checkNote {
+  max-width: 390px;
+  margin-top: 16px;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 22px;
+  color: #ecdeee;
+}
+
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 64px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: #3c2758;
+  font-size: 16px;
+  line-height: 24px;
+  color: #eceaef;
+}
+
+.note img {
+  flex-shrink: 0;
+}
+
+.note span {
+  max-width: 880px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .case,
+  .columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .figure {
+    padding-right: 0;
+    padding-bottom: 24px;
+    border-right: 0;
+    border-bottom: 1px solid rgb(255 255 255 / 0.1);
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .case,
+  .columns,
+  .note {
+    margin-top: 40px;
+  }
+
+  .case,
+  .checklist {
+    padding: 24px 20px;
+  }
+
+  .figureValue {
+    font-size: 44px;
+    line-height: 52px;
+  }
+}

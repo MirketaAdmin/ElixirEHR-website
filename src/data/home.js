@@ -7,6 +7,14 @@ import graniteRecoveryLogo from '../assets/home/trusted-by/granite-recovery-cent
 import withinLogo from '../assets/home/trusted-by/within-logo.png';
 import alterHealthLogo from '../assets/home/trusted-by/alter-health-group-logo.png';
 import caremoreLogo from '../assets/home/trusted-by/caremore-medical-supply-logo.png';
+import cannabisCardOrlandoLogo from '../assets/home/trusted-by/cannabis-card-orlando.png';
+import communityWellnessLogo from '../assets/home/trusted-by/community-wellness-ventures.png';
+import trueNorthLogo from '../assets/home/trusted-by/truenorth-health-center.png';
+import oncoHostLogo from '../assets/home/trusted-by/oncohost.png';
+import upwardHealthLogo from '../assets/home/trusted-by/upward-health.png';
+import floridaElderCareLogo from '../assets/home/trusted-by/florida-elder-care.png';
+import yoloCountyLogo from '../assets/home/trusted-by/yolo-county-office-of-education.png';
+import withinNewLogo from '../assets/home/trusted-by/within.png';
 import secureDataIcon from '../assets/home/platform-intro/secure-data-icon.png';
 import seamlessIntegrationIcon from '../assets/home/platform-intro/seamless-integration-icon.png';
 import clinicalNotesAudioIcon from '../assets/home/kratu-intelligence/clinical-notes-audio-icon.png';
@@ -20,8 +28,8 @@ import doctorTimeIcon from '../assets/home/challenges/doctor-time-ehr-icon.png';
 import dataBreachCostIcon from '../assets/home/challenges/data-breach-cost-icon.png';
 import payerDenialsIcon from '../assets/home/challenges/payer-denials-icon.png';
 import patientViewDashboard from '../assets/home/features/patient-view-dashboard.png';
-import drJenJhonePhoto from '../assets/home/testimonials/dr-jen-jhone.png';
-import marcusSterlingPhoto from '../assets/home/testimonials/marcus-sterling.png';
+import carePlanScreen from '../assets/home/features/care-plan.png';
+import medicationsScreen from '../assets/home/features/medications-prescriptions.png';
 import winterReleaseCover from '../assets/home/resources/elixir-winter-26-release-cover.png';
 import clinicalOutcomesWebinarCover from '../assets/home/resources/ai-clinical-outcomes-webinar-cover.png';
 import revenueCycleWhitepaperCover from '../assets/home/resources/revenue-cycle-whitepaper-cover.png';
@@ -30,6 +38,7 @@ import linkPlayIcon from '../assets/icons/link-play.png';
 import linkDownloadIcon from '../assets/icons/link-download.png';
 import exploreSolutionIcon from '../assets/home/cta/explore-solution-icon.png';
 import personalizedDemoIcon from '../assets/home/cta/personalized-demo-icon.png';
+import kratuWorkspaceImage from '../assets/home/hero/kratu-ai-workspace.png';
 
 
 
@@ -47,60 +56,90 @@ export const hero = {
   },
 };
 
+// Second hero slide (Figma "Meet Kratu AI" banner). The hero rotates between `hero` and this slide.
+// `media` is the frame's composed product mock-up (Kratu workspace with its four agent cards).
+export const kratuHeroSlide = {
+  badge: 'Kratu AI - Powered by Elixir',
+  // Each line as broken in the frame; `accent` words are lime.
+  titleLines: [
+    [{ text: 'From Insight' }],
+    [{ text: 'to ' }, { text: 'Action.', accent: true }],
+    [{ text: 'Meet Kratu ' }, { text: 'AI', accent: true }],
+  ],
+  description:
+    "Kratu is Elixir's AI intelligence layer - built into every workflow to capture clinical notes, generate billing logic, score claims, and manage denials automatically.",
+  secondaryCta: { label: 'See Kratu in Action', to: '/kratu-ai' },
+  primaryCta: { label: 'Book a 20-min Demo', to: '/request-demo' },
+  media: {
+    src: kratuWorkspaceImage,
+    alt: 'Kratu AI inside Elixir EHR: a patient visit summary with vital trends, surrounded by cards for Patient Visit Prep, Clinical Notes from Audio, the A/R Resolution Agent and an AI insight reporting 18 denials auto-resolved this week',
+    width: 643,
+    height: 566,
+  },
+};
+
 export const trustedBy = {
-  title: 'Trusted by more than 1,200 Clinics Worldwide',
+  title: 'Trusted by Healthcare Providers Worldwide',
   // Seconds for one full loop of the logo strip (larger = slower).
   marqueeDuration: 45,
-  // Order and names as shown in the Figma logo strip.
+  // The supplied client logos, trimmed of empty margins and exported at 2x. Each one's display size
+  // (width × height) gives every logo about the same visual weight — wide wordmarks shorter, square
+  // marks taller — within a 190 × 72 box, so none looks oversized or squashed.
   logos: [
-    { name: 'Cannabis Card Orlando', src: cannabisCardLogo, width: 99, height: 99 },
-    { name: 'Genomic Life', src: genomicLifeLogo, width: 99, height: 99 },
-    { name: 'Bridges of Hope', src: bridgesOfHopeLogo, width: 178, height: 60 },
-    { name: 'Granite Recovery Centers', src: graniteRecoveryLogo, width: 97, height: 97 },
-    { name: 'within', src: withinLogo, width: 99, height: 99 },
-    { name: 'Alter Health Group', src: alterHealthLogo, width: 89, height: 89 },
-    { name: 'caremore Medical Supply', src: caremoreLogo, width: 114, height: 114 },
+    { name: 'Cannabis Card Orlando', src: cannabisCardOrlandoLogo, width: 88, height: 72 },
+    { name: 'Community Wellness Ventures', src: communityWellnessLogo, width: 177, height: 51 },
+    { name: 'TrueNorth Health Center', src: trueNorthLogo, width: 190, height: 45 },
+    { name: 'OncoHost', src: oncoHostLogo, width: 190, height: 34 },
+    { name: 'Upward Health', src: upwardHealthLogo, width: 190, height: 31 },
+    { name: 'Florida Elder Care', src: floridaElderCareLogo, width: 74, height: 72 },
+    { name: 'Yolo County Office of Education', src: yoloCountyLogo, width: 148, height: 61 },
+    { name: 'within', src: withinNewLogo, width: 124, height: 38 },
   ],
 };
+
+// The earlier client logos, still shown on the Contact Us page (data/contact.js picks them by name).
+export const previousClientLogos = [
+  { name: 'Cannabis Card Orlando', src: cannabisCardLogo, width: 99, height: 99 },
+  { name: 'Genomic Life', src: genomicLifeLogo, width: 99, height: 99 },
+  { name: 'Bridges of Hope', src: bridgesOfHopeLogo, width: 178, height: 60 },
+  { name: 'Granite Recovery Centers', src: graniteRecoveryLogo, width: 97, height: 97 },
+  { name: 'within', src: withinLogo, width: 99, height: 99 },
+  { name: 'Alter Health Group', src: alterHealthLogo, width: 89, height: 89 },
+  { name: 'caremore Medical Supply', src: caremoreLogo, width: 114, height: 114 },
+];
 
 export const kratuIntelligence = {
   badge: 'Kratu AI - Powered by Elixir',
   titleLines: ["Intelligence that doesn't", 'just think - it acts.'],
   description: 'From the moment a patient walks in to the moment a claim is paid, Kratu handles it.',
-  // Left column (01–03) then right column (04–06). Title line breaks follow Figma.
+  // Left column (first three) then right column (last three). Title line breaks follow Figma.
   features: [
     {
-      number: '01',
       titleLines: ['Clinical Notes', 'from Audio'],
       description: 'Listens to visits and creates structured notes in real time.',
       icon: clinicalNotesAudioIcon,
     },
     {
-      number: '02',
       titleLines: ['Payer Policy →', 'Billing Rules'],
       description: 'Transforms payer policies into actionable billing logic.',
       icon: payerPolicyBillingIcon,
     },
     {
-      number: '03',
       titleLines: ['Claim Scoring', 'Before Submission'],
       description: 'Flags denial risk and suggests corrections before claims go out.',
       icon: claimScoringIcon,
     },
     {
-      number: '04',
       titleLines: ['Denial Management'],
       description: 'Categorizes denials, supports appeals, and tracks resolution.',
       icon: denialManagementIcon,
     },
     {
-      number: '05',
       titleLines: ['Scheduling, Referrals', '& Orders'],
       description: 'Creates next-step actions directly from clinical context.',
       icon: schedulingReferralsIcon,
     },
     {
-      number: '06',
       titleLines: ['Chart Summaries', '& Q&A'],
       description: 'Summarizes patient history and answers questions instantly.',
       icon: chartSummariesIcon,
@@ -174,8 +213,8 @@ export const features = {
   titleLines: ['Elixir', 'Capabilities'],
   // Seconds each feature stays active before the section moves on to the next one.
   rotationSeconds: 6,
-  // Each feature shows its own screenshot (810×530 export, drop shadow baked in). Only Patient
-  // View's was supplied; the others show the generic image placeholder until theirs exist.
+  // Each feature shows its own screenshot (810×530 export of the 665×370 card; drop shadow baked in).
+  // Titles, copy and the Care Plan and Medications screenshots follow the Figma "Elixir Capabilities" frames.
   items: [
     {
       title: 'Patient View',
@@ -184,16 +223,22 @@ export const features = {
       image: { src: patientViewDashboard, alt: 'Elixir patient record dashboard' },
     },
     {
-      title: 'Inventory Management',
+      title: 'Care Plan',
       description:
-        'Intelligent stock tracking and automated reordering for medical supplies based on patient volume trends.',
-      image: null,
+        'Elixir’s Assessments help the care team in being planned and organized, hence avoiding any possible confusion.',
+      image: {
+        src: carePlanScreen,
+        alt: 'Elixir care plan for a patient, with problems such as neck and upper back pain, linked goals and care plan dates',
+      },
     },
     {
-      title: 'Telehealth Integration',
+      title: 'Medications & Prescriptions',
       description:
-        'Full-featured video consultations that sync notes directly back to the patient record in real-time.',
-      image: null,
+        'With Elixir every nurse gets a personal secretary like experience to remind them of events, medication and much more at the right time.',
+      image: {
+        src: medicationsScreen,
+        alt: 'Elixir Medications dialog listing PRN medications with frequency, dosage, reason and route columns',
+      },
     },
   ],
 };
@@ -204,34 +249,32 @@ export const testimonials = {
   linkLabel: 'Hear Story',
   // Seconds between automatic slides (one card per step).
   autoplaySeconds: 7,
-  // `featured` renders the purple card variant (first card in the Figma frame). `to` (the
-  // "Hear Story" link) and `photo` are optional.
+  // Customer quotes as supplied (spacing before punctuation tidied); the card adds the quotation
+  // marks. Cards alternate Deep Purple and Rose White by position. `role` (the organization) and
+  // `to` (a "Hear Story" link) are optional; no photos are used.
   items: [
     {
-      name: 'Dr. Jen Jhone',
-      role: 'Clinical Director, Metro Health',
+      name: 'Dr. Manoj Battarai',
+      role: 'Palm Beach Elderly Care',
       quote:
-        '"Elixir\'s AI summarization has saved our clinicians over 10 hours a week on documentation alone. It\'s the most intuitive EHR we\'ve ever used."',
-      photo: drJenJhonePhoto,
-      to: '/resources/case-studies',
-      featured: true,
+        'Elixir has transformed how we manage our daily operations. Having the contact center, EHR, billing, and patient portal fully integrated on Salesforce makes everything seamless. The interface is intuitive, and it has significantly improved our workflow and patient care. Highly recommended!',
     },
     {
-      name: 'Marcus Sterling',
-      role: 'Health Systems Administrator',
+      name: 'Ghazaleh Nazari',
+      role: 'Genomic Life',
       quote:
-        '"The ROI was immediate. Predicting claim rejections before submission cut our administrative overhead by nearly 30% in the first quarter."',
-      photo: marcusSterlingPhoto,
-      to: '/resources/case-studies',
+        'Elixir EHR has allowed our organization to have a custom EHR that meets our navigation process. Elixir is scalable, configurable and very robust. We have been one of the first adopter of Elixir and have witnessed how this app has grown over the years by adding new functionalities while staying configurable and following Salesforce platform best approaches. As a tech lead and architect who has implemented Elixir and works very closely with their team, I highly recommend this app. Not only they have a robust product but also an excellent customer success team who works very closely with clients and always ready to take the next challenge.',
     },
-    // DEMO testimonial (placeholder copy, no photo) added to exercise the carousel — replace it
-    // with a real, approved customer quote before launch. Without `photo`, initials are shown.
     {
-      name: 'Sarah Mitchell',
-      role: 'Practice Administrator',
+      name: 'Yanique Lockhart-Walker',
+      role: 'Community Wellness Ventures',
       quote:
-        '"Having scheduling, documentation and billing in one place means our front desk and clinicians finally work from the same record."',
-      demo: true,
+        'Elixir has allowed our company to customize our EHR to meet the needs of our agency needs and requirements of our governing body. The customer service is very responsive and supportive. I highly recommend this app to other organizations.',
+    },
+    {
+      name: 'Central Florida Treatment Center',
+      quote:
+        'What an innovative tool, we have been demanding this for some time now. The ability to keep patient information and medical information in the same platform streamlines our processes which in return allows us to focus on client care. Mirketa is changing the game in the industry, all for the better.',
     },
   ],
 };

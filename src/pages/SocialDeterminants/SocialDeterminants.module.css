@@ -1,0 +1,1018 @@
+/* Frame-specific styles for the Social Determinants of Health page. */
+
+/* Hero: the Telehealth / Care Management set-up (53.5/54 title — five lines here — 18/28 description,
+   56px CTAs). */
+.hero {
+  --page-hero-padding: 70px;
+  --page-hero-description-width: 568px;
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-primary-height: 56px;
+  --page-hero-primary-size: 16px;
+  --page-hero-content-offset: 0px;
+  --page-hero-description-gap: 24px;
+  --page-hero-paragraph-gap: 25px;
+}
+
+.hero h1 {
+  margin-top: 18px;
+  font-size: 53.5px;
+  line-height: 54px;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 ~ p {
+  color: #eae8ed;
+}
+
+.hero p + div {
+  margin-top: 36px;
+}
+
+.hero p + div > a {
+  height: 56px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.hero p + div > a:first-child {
+  padding: 0 31px;
+  box-shadow: 0 4px 18px rgb(149 193 31 / 0.35);
+}
+
+.hero p + div > a:last-child {
+  padding: 0 29px;
+  border-color: rgb(255 255 255 / 0.3);
+  background: rgb(255 255 255 / 0.07);
+}
+
+/* Section opener shared by the content sections. */
+.intro {
+  max-width: 770px;
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.title {
+  max-width: 770px;
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 60px;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
+}
+
+.description {
+  max-width: 772px;
+  margin-top: 17px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 29.4px;
+  color: var(--color-body);
+}
+
+.introDark .title {
+  color: var(--color-white);
+}
+
+.introDark .description {
+  color: #b89cd8;
+}
+
+.bodyText {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-body);
+}
+
+.bodyText + .bodyText {
+  margin-top: 16px;
+}
+
+/* Pillars: four dark rounded cards on the primary band. */
+.pillarsBand {
+  padding: 40px 0;
+  background: var(--color-primary);
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.pillar {
+  min-height: 229px;
+  padding: 26px 16px 15px;
+  border: 1px solid #3c2758;
+  border-radius: 40px;
+  background: var(--color-surface-dark);
+}
+
+.pillarIcon {
+  display: block;
+  margin-left: 9px;
+}
+
+.pillarTitle {
+  max-width: 210px;
+  margin-top: 20px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-white);
+}
+
+.pillarText {
+  max-width: 204px;
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 23px;
+  color: #b89cd8;
+}
+
+/* The product: nine outlined cards with a lime top edge. */
+.product {
+  padding: 84px 0 80px;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.productCard {
+  padding: 24px 24px 24px;
+  border: 1px solid var(--color-secondary);
+  border-top-width: 4px;
+  border-radius: 16px;
+  background: #fcf9f8;
+}
+
+.productIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-surface-light);
+}
+
+.productTitle {
+  max-width: 270px;
+  margin-top: 15px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--color-heading);
+}
+
+.productText {
+  max-width: 275px;
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-body);
+}
+
+/* Coverage: the domains table, then copy beside the instruments callout. */
+.domains {
+  padding: 84px 0 80px;
+}
+
+.tableCard {
+  margin-top: 32px;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-white);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+}
+
+.caption {
+  padding: 16px 160px 17px 16px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-light);
+  text-align: left;
+  font-family: var(--font-label);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-surface-dark);
+}
+
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  width: 245px;
+  padding-left: 80px;
+  padding-right: 16px;
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 165px;
+  padding-right: 16px;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 143px;
+  padding-right: 16px;
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  padding-right: 80px;
+}
+
+.table thead th {
+  height: 65px;
+  border-bottom: 1px solid var(--color-border);
+  background: #f0edec;
+  vertical-align: middle;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-heading);
+}
+
+/* The frame wraps "Federal classification" and "Prevalence, SMI+" onto two lines. */
+.table thead th:nth-child(2) {
+  padding-right: 55px;
+}
+
+.table thead th:nth-child(3) {
+  padding-right: 45px;
+}
+
+.table tbody tr {
+  border-top: 2px solid #e5e1e7;
+}
+
+.table tbody tr:first-child {
+  border-top: 0;
+}
+
+.table tbody th,
+.table tbody td {
+  padding-top: 13px;
+  padding-bottom: 14px;
+  vertical-align: middle;
+}
+
+.table tbody th {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.table tbody td:nth-child(4) {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+.prevalence {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-heading);
+}
+
+.prevalence span {
+  color: #aba8ad;
+}
+
+.tier {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-light);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-surface-dark);
+}
+
+.tierSupplemental {
+  background: #ffe081;
+  color: var(--color-heading);
+}
+
+.highlight {
+  background: #f9fded;
+}
+
+.highlight .prevalence {
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 584px) 461px;
+  justify-content: space-between;
+  align-items: start;
+  gap: 48px;
+  margin-top: 32px;
+}
+
+.callout {
+  padding: 24px 24px 24px;
+  border: 1px solid var(--color-border);
+  border-left-width: 4px;
+  border-radius: 16px;
+  background: var(--color-white);
+}
+
+.calloutPink {
+  border-color: #ebbbbb;
+}
+
+.calloutTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 330px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-heading);
+}
+
+.calloutList {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.calloutList li {
+  position: relative;
+  max-width: 352px;
+  padding-left: 13px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 23px;
+  color: var(--color-body);
+}
+
+.calloutList li::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 1px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+}
+
+/* The policy picture: three dark cards and the rule note. */
+.policy {
+  padding: 84px 0 80px;
+}
+
+.policyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 29px;
+}
+
+.policyCard {
+  padding: 28px 24px 24px;
+  border: 1px solid #503c68;
+  border-radius: 16px;
+  background: #3c2758;
+}
+
+.policyLabel {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.policyTitle {
+  max-width: 280px;
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-white);
+}
+
+.policyList {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.policyList li {
+  position: relative;
+  max-width: 270px;
+  padding-left: 19px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 23px;
+  color: #b89cd8;
+}
+
+.policyList li::before {
+  position: absolute;
+  left: 0;
+}
+
+/* The frame's markers: small outlined glyph boxes (red, lime) and a tan arrow. */
+.removed li::before,
+.survived li::before {
+  content: '';
+  top: 7px;
+  width: 4px;
+  height: 9px;
+  border: 1px solid;
+  border-radius: 1px;
+}
+
+.removed li::before {
+  border-color: #8c1d2b;
+}
+
+.survived li::before {
+  top: 2px;
+  border-color: #a8d636;
+}
+
+.arrow li::before {
+  content: '→';
+  top: -2px;
+  font-size: 12px;
+  color: #c9b07a;
+}
+
+.policyNote {
+  margin-top: 32px;
+  padding-top: 20px;
+  padding-right: 128px;
+  border-top: 1px solid #473261;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 21px;
+  color: #b69bd7;
+}
+
+/* The money: the title and lead beside three run-in paragraphs and the code note. */
+.money {
+  padding: 80px 0 80px;
+}
+
+.moneyLayout {
+  display: grid;
+  grid-template-columns: 445px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.moneyIntro .title {
+  max-width: 400px;
+}
+
+.moneyLead {
+  max-width: 400px;
+  margin-top: 25px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-surface-dark);
+}
+
+.moneyText {
+  max-width: 592px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  color: var(--color-body);
+}
+
+.moneyText strong {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.moneyText + .moneyText {
+  margin-top: 16px;
+}
+
+.moneyNote {
+  margin-top: 16px;
+  padding-top: 13px;
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 22px;
+  color: #7b757f;
+}
+
+.moneyNote {
+  padding-right: 64px;
+}
+
+/* The gap that matters: two scenario cards, then copy beside the claims panel. */
+.gap {
+  padding: 84px 0 79px;
+}
+
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.scenario {
+  padding: 27px 24px 24px;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-white);
+}
+
+.scenarioLabel {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-surface-dark);
+}
+
+.withdrawn .scenarioLabel {
+  color: var(--color-error);
+}
+
+.scenarioTitle {
+  margin-top: 5px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--color-heading);
+}
+
+.bar {
+  margin-top: 19px;
+}
+
+.barOutcome {
+  margin-top: 16px;
+}
+
+.barLabel {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-heading);
+}
+
+.barValue {
+  font-weight: 700;
+  color: var(--color-surface-dark);
+}
+
+.barOutcome .barValue {
+  color: var(--color-secondary);
+}
+
+.withdrawn .barOutcome .barValue {
+  color: var(--color-error);
+}
+
+.barTrack {
+  display: block;
+  height: 12px;
+  margin-top: 8px;
+  border-radius: var(--radius-pill);
+  background: #f0edec;
+  overflow: hidden;
+}
+
+.barFill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-surface-dark);
+}
+
+.barOutcome .barFill {
+  background: #a8d636;
+}
+
+.withdrawn .barOutcome .barFill {
+  background: var(--color-error);
+}
+
+.claimsList {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.claimTitle,
+.claimText {
+  max-width: 355px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 23px;
+}
+
+.claimTitle {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.claimText {
+  margin-top: 3px;
+  color: var(--color-body);
+}
+
+/* Documentation: four Z-code rows with a status pill, then the guidance note. */
+.zcodes {
+  padding: 84px 0 79px;
+}
+
+.zrows {
+  display: grid;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.zrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 22px 24px 24px;
+  border: 2px solid #e5e1e7;
+  border-radius: 40px;
+  background: #fcf9f8;
+}
+
+.zTitle {
+  max-width: 860px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-heading);
+}
+
+.zText {
+  max-width: 840px;
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+/* The frame's first row runs wider than the other three. */
+.zrow:first-child .zText {
+  max-width: 880px;
+}
+
+.zBadge {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: 33px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.red {
+  background: var(--color-error-container);
+  color: var(--color-on-error-container);
+}
+
+.yellow {
+  background: #ffe081;
+  color: var(--color-heading);
+}
+
+.lime {
+  background: #c4f351;
+  color: #526d00;
+}
+
+.zNote {
+  max-width: 970px;
+  margin-top: 32px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 22px;
+  color: #7b757f;
+}
+
+/* CTA band: the Care Management band set-up with a two-line title. */
+.ctaBand {
+  padding: 79px 0 79px;
+}
+
+.ctaBand div > p:first-child {
+  display: inline-flex;
+  align-items: center;
+  height: 29px;
+  margin-bottom: 23px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  background: #3c2658;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+  color: var(--color-secondary);
+}
+
+.ctaBand h2 {
+  max-width: 700px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 54px;
+  letter-spacing: -0.02em;
+}
+
+.ctaBand h2 + p:last-child {
+  max-width: 690px;
+  margin-top: 26px;
+  font-size: 18px;
+  line-height: 28px;
+  color: #e0dbdf;
+}
+
+.ctaBand .ctaButton,
+.ctaBand .ctaSecondary {
+  height: 56px;
+  margin-top: 32px;
+  font-family: var(--font-label);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ctaBand .ctaButton {
+  padding-inline: 48px;
+}
+
+.ctaBand .ctaSecondary {
+  padding-inline: 48px;
+  border: 2px solid #513d68;
+  background: transparent;
+  color: var(--color-white);
+}
+
+.ctaBand div:has(> .ctaButton) {
+  gap: 16px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .hero {
+    overflow-x: clip;
+  }
+
+  .table th:nth-child(1),
+  .table td:nth-child(1) {
+    width: 190px;
+    padding-left: 24px;
+  }
+
+  .table th:nth-child(4),
+  .table td:nth-child(4) {
+    padding-right: 24px;
+  }
+
+  .caption {
+    padding-right: 24px;
+  }
+
+  .split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  }
+
+  .moneyLayout {
+    grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 1023px) {
+  .pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .productGrid,
+  .policyGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .split,
+  .moneyLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .table th:nth-child(1),
+  .table td:nth-child(1) {
+    width: 150px;
+    padding-left: 20px;
+  }
+
+  .table th:nth-child(2),
+  .table td:nth-child(2) {
+    width: 130px;
+  }
+
+  .table th:nth-child(3),
+  .table td:nth-child(3) {
+    width: 110px;
+  }
+
+  .pillar {
+    min-height: 0;
+  }
+
+  .policyNote {
+    padding-right: 0;
+  }
+
+  .pillarTitle,
+  .pillarText,
+  .productTitle,
+  .productText,
+  .policyTitle,
+  .policyList li,
+  .calloutList li,
+  .claimTitle,
+  .claimText,
+  .moneyIntro .title,
+  .moneyLead {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  /* The desktop title outranks PageHero's mobile size; restore it. */
+  .hero h1 {
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  .product,
+  .domains,
+  .policy,
+  .money,
+  .gap,
+  .zcodes,
+  .ctaBand {
+    padding: 64px 0;
+  }
+
+  .title,
+  .ctaBand h2 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .productGrid,
+  .policyGrid,
+  .scenarios {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pillar,
+  .zrow {
+    border-radius: 24px;
+  }
+
+  /* The table becomes one block per domain, each value under its column name. */
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .table,
+  .table caption,
+  .table tbody,
+  .table tr,
+  .table tbody th,
+  .table tbody td {
+    display: block;
+    width: 100% !important;
+  }
+
+  .caption {
+    padding: 16px 20px;
+  }
+
+  .table tbody tr {
+    padding: 16px 20px;
+  }
+
+  .table tbody th,
+  .table tbody td {
+    padding: 0 !important;
+  }
+
+  .table tbody td {
+    margin-top: 8px;
+  }
+
+  .table tbody td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 4px;
+    font-family: var(--font-label);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-surface-dark);
+  }
+
+  .zrow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .moneyNote {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .pillars {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Long CTA labels wrap instead of running past a narrow viewport. */
+  .hero p + div > a,
+  .ctaBand .ctaButton,
+  .ctaBand .ctaSecondary {
+    height: auto;
+    min-height: 56px;
+    padding: 12px 24px;
+    white-space: normal;
+    text-align: center;
+  }
+}

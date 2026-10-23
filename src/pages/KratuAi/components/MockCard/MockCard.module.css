@@ -1,0 +1,90 @@
+.card {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: 0 20px 40px rgb(31 24 35 / 0.08);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 52px;
+  padding: 0 20px 0 21px;
+}
+
+.purple {
+  background: var(--color-surface-dark);
+}
+
+.teal {
+  background: #203f4f;
+}
+
+.bronze {
+  background: #3c3210;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-label);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-white);
+}
+
+.badge {
+  display: flex;
+  flex: none;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.badge-lime {
+  background: #e9f3d4;
+  color: #55700f;
+}
+
+.badge-lavender {
+  background: var(--color-surface-light);
+  color: var(--color-primary);
+}
+
+.badge-sky {
+  background: #e1f0f7;
+  color: #2b6179;
+}
+
+.badge-yellow {
+  background: var(--color-tertiary);
+  color: var(--color-heading);
+}
+
+.body {
+  padding: 24px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .header {
+    flex-wrap: wrap;
+    height: auto;
+    padding-block: 12px;
+    row-gap: 8px;
+  }
+
+  .body {
+    padding: 16px;
+  }
+}

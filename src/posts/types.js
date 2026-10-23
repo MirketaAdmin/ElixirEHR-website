@@ -57,6 +57,14 @@ export const postTypes = {
     shareLabel: 'Share this survey',
     schemaType: 'Article',
   },
+  illustration: {
+    path: 'illustration',
+    label: 'Illustration',
+    plural: 'Illustrations',
+    listingPath: '/insights/illustrations',
+    shareLabel: 'Share this illustration',
+    schemaType: 'Article',
+  },
   video: {
     path: 'video',
     label: 'Video',

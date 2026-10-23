@@ -1,4 +1,5 @@
-// "Kratu AI - Full Capabilities" content, shared by Home and What Is Elixir (identical in both Figma frames).
+// "Our AI Solutions — Kratu AI - Full Capabilities" content, shared by Home, What Is Elixir, Why Elixir and EHR
+// (identical in their Figma frames). A page with its own copy passes `content` to AiCapabilitiesSection.
 
 import kratuClinicalAssistantIcon from '../assets/home/ai-capabilities/kratu-clinical-assistant-icon.png';
 import clinicalNotesSummarizationIcon from '../assets/home/ai-capabilities/clinical-notes-summarization-icon.png';

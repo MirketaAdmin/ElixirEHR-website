@@ -1,0 +1,65 @@
+/* Primary-purple band under the hero. */
+.band {
+  padding: 32px 0;
+  background: var(--color-primary);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.card {
+  min-height: 172px;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-dark);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon {
+  display: flex;
+  flex-shrink: 0;
+  width: 21px;
+}
+
+.title {
+  max-width: 170px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-white);
+}
+
+.text {
+  max-width: var(--text-width, none);
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #b89cd8;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}

@@ -54,6 +54,9 @@ export const videoCategories = [
   'Patient Engagement',
 ];
 
+// Illustrations sidebar: the same five categories as the Webinars frame.
+export const illustrationCategories = webinarCategories;
+
 export const insightsPages = {
   all: { title: 'Latest Insights', documentTitle: 'Resources' },
   blog: { title: 'Blogs for Clinical Excellence', documentTitle: 'Blog', categoriesTitle: 'Blogs Categories', allLabel: 'All Blogs' },
@@ -66,6 +69,7 @@ export const insightsPages = {
     categoriesTitle: 'Categories',
     onDemandTitle: 'Recent On-Demand Webinars',
   },
+  illustrations: { title: 'Illustrations', documentTitle: 'Illustrations', categoriesTitle: 'Categories' },
   videos: { title: 'Videos', documentTitle: 'Videos', categoriesTitle: 'Categories', allLabel: 'All' },
 };
 

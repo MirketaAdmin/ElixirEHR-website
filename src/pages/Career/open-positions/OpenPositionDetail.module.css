@@ -1,0 +1,285 @@
+/* Hero: starts on the header's last row, like the other inner-page heroes. */
+.hero {
+  margin-top: -1px;
+  padding-block: 68px 70px;
+  background: var(--color-surface-dark);
+}
+
+/* Same breadcrumb style as PageHero / PostHero. */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.7);
+}
+
+.separator {
+  display: flex;
+  margin-left: 2px;
+}
+
+.current {
+  font-weight: 700;
+  letter-spacing: 1.17px;
+  color: var(--color-secondary);
+}
+
+.title {
+  margin-top: 32px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: 0.01em;
+  color: var(--color-white);
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 17px 0 16px;
+  border: 1px solid rgb(255 255 255 / 0.2);
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.1);
+  font-family: var(--font-label);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-white);
+}
+
+/* Body: 704px content column and the 400px facts card. */
+.body {
+  padding: 81px 0 80px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 704fr) minmax(0, 400fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.block {
+  margin-top: 49px;
+}
+
+.blockTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-heading);
+}
+
+.blockIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-surface);
+}
+
+/* The frame's hard line breaks are kept (white-space: pre-line). */
+.about {
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 26px;
+  white-space: pre-line;
+}
+
+.checklist {
+  display: grid;
+  gap: 16px;
+  margin-top: 23px;
+}
+
+.checklist li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  white-space: pre-line;
+}
+
+.checklist img {
+  margin-top: 3px;
+}
+
+.requirements {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 23px;
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+}
+
+.requirements li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* The frame's text boxes are slightly narrower than the 272px column. */
+.requirements p {
+  max-width: 266px;
+  white-space: pre-line;
+}
+
+.number {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-tertiary);
+  font-family: var(--font-label);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-heading);
+}
+
+/* Facts card */
+.aside {
+  padding: 32px 32px 33px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-white);
+}
+
+.apply {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--color-white);
+}
+
+.factsTitle {
+  margin-top: 33px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.facts {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding-block: 24px 32px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.fact {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.fact dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+  color: var(--color-heading);
+}
+
+.share {
+  padding-top: 32px;
+  text-align: center;
+}
+
+.shareLabel {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.shareButtons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.shareButton {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-white);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+/* The frame's hard breaks only fit the 704px desktop column. */
+@media (max-width: 1199px) {
+  .about,
+  .checklist li,
+  .requirements p {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .aside {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding-block: 40px 48px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .body {
+    padding: 56px 0 64px;
+  }
+
+
+  .requirements {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 24px;
+  }
+}

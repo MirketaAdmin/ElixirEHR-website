@@ -1,0 +1,118 @@
+.section {
+  padding: 82px 0 79px;
+}
+
+.intro {
+  --kr-description-width: 760px;
+  --kr-title-gap: 14px;
+  --kr-description-gap: 15px;
+}
+
+.intro > p:first-child {
+  letter-spacing: 0.13em;
+}
+
+.intro h2 {
+  font-size: 40px;
+  line-height: 49px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 54px;
+}
+
+/* A 1px coloured border with a 4px top edge (lime: does; red: never does). */
+.card {
+  min-height: 380px;
+  padding: 40px 40px 40px 42px;
+  border: 1px solid var(--edge);
+  border-top-width: 4px;
+  border-radius: var(--radius-xl);
+  background: var(--color-white);
+  box-shadow: 0 8px 24px rgb(31 24 35 / 0.05);
+}
+
+.does {
+  --edge: var(--color-secondary);
+  --circle: #eaf3d2;
+  --mark: '✓';
+  --mark-color: #4d6700;
+}
+
+.never {
+  --edge: var(--color-error);
+  --circle: #ffdad6;
+  --mark: '✕';
+  --mark-color: var(--color-error);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-heading);
+}
+
+.circle {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--circle);
+}
+
+.items {
+  display: grid;
+  gap: 15px;
+  margin-top: 26px;
+}
+
+.items li {
+  display: flex;
+  gap: 14px;
+  font-size: 15px;
+  line-height: 23px;
+}
+
+.items li::before {
+  content: var(--mark);
+  flex: none;
+  width: 14px;
+  font-weight: 700;
+  color: var(--mark-color);
+}
+
+.items strong {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .card {
+    padding: 28px 20px;
+  }
+}

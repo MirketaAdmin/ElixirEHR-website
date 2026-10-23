@@ -1,0 +1,29 @@
+.section {
+  padding: 80px 0 77px;
+}
+
+.section .intro {
+  --bh-title-width: 680px;
+  --bh-description-width: 672px;
+  --bh-description-gap: 12px;
+}
+
+.grid {
+  margin-top: 55px;
+  --ae-title-gap: 9px;
+  --ae-text-gap: 8px;
+  --ae-card-bottom: 42px;
+  --ae-title-width: 262px;
+  --ae-text-width: 264px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    margin-top: 40px;
+  }
+}

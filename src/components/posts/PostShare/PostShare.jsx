@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import shareIcon from '../../../assets/icons/post-share.png';
 import linkIcon from '../../../assets/icons/post-link.png';
+import { useShareActions } from './useShareActions';
 import styles from './PostShare.module.css';
 
 /**
@@ -8,28 +8,7 @@ import styles from './PostShare.module.css';
  * back to copying the link; the link button copies the page URL. Results are announced politely.
  */
 function PostShare({ label, title }) {
-  const [status, setStatus] = useState('');
-
-  async function copyLink() {
-    try {
-      await navigator.clipboard.writeText(window.location.href);
-      setStatus('Link copied to clipboard.');
-    } catch {
-      setStatus('Could not copy the link.');
-    }
-  }
-
-  async function share() {
-    if (!navigator.share) {
-      copyLink();
-      return;
-    }
-    try {
-      await navigator.share({ title, url: window.location.href });
-    } catch {
-      // Closing the share sheet rejects the promise; nothing to report.
-    }
-  }
+  const { status, share, copyLink } = useShareActions(title);
 
   return (
     <div className={styles.share}>

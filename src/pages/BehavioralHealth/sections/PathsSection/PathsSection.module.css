@@ -1,0 +1,138 @@
+.section {
+  padding: 80px 0;
+  scroll-margin-top: 78px;
+}
+
+.intro {
+  --bh-title-width: 740px;
+  --bh-title-gap: 4px;
+  --bh-description-width: 780px;
+  --bh-description-gap: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  margin-top: 64px;
+}
+
+/* Surface cards on an 8px coloured top edge. */
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 32px 32px;
+  border-top: 8px solid var(--edge);
+  background: var(--color-surface);
+}
+
+.purple {
+  --edge: var(--color-surface-dark);
+  --label: var(--color-surface-dark);
+}
+
+.green {
+  --edge: #4d6700;
+  --label: #4d6700;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.label {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--label);
+}
+
+.title {
+  max-width: 400px;
+  margin-top: 16px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+  color: var(--color-heading);
+}
+
+.description {
+  max-width: 420px;
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.list {
+  display: grid;
+  gap: 16px;
+  max-width: 420px;
+  margin-top: 31px;
+  margin-bottom: 33px;
+}
+
+.list li {
+  position: relative;
+  padding-left: 25px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.list img {
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: auto;
+  align-self: flex-start;
+  font-family: var(--font-label);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--color-surface-dark);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .description,
+  .list {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    margin-top: 40px;
+  }
+
+  .card {
+    padding: 28px 20px;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}

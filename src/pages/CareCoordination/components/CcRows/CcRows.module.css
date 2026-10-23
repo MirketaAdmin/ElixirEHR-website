@@ -1,0 +1,76 @@
+.list {
+  display: grid;
+  gap: 16px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  align-items: start;
+  padding: 25px 24px 25px;
+  border-radius: var(--radius-xl);
+  background: var(--color-white);
+  box-shadow: 0 1px 2px rgb(31 24 35 / 0.08);
+}
+
+.chip {
+  justify-self: start;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lime .chip {
+  background: #e7fab9;
+  color: #151f00;
+}
+
+.red .chip {
+  background: var(--color-error-container);
+  color: var(--color-error);
+}
+
+.yellow .chip {
+  background: #ffe081;
+  color: #564500;
+}
+
+.grey .chip {
+  background: #ece9e8;
+  color: #4a454e;
+}
+
+.title {
+  font-family: var(--font-title-alt);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
+}
+
+.red .title {
+  color: var(--color-error);
+}
+
+.text {
+  max-width: 816px;
+  margin-top: 3px;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-body);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 20px;
+  }
+}

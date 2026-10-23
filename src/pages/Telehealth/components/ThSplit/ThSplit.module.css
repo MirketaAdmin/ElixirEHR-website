@@ -1,0 +1,133 @@
+.layout {
+  display: grid;
+  grid-template-columns: 442px minmax(0, 1fr);
+  align-items: start;
+  gap: 64px;
+}
+
+.eyebrow {
+  display: flex;
+  padding-top: 5px;
+  align-items: center;
+  gap: 9px;
+  font-family: Consolas, 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-surface-dark);
+}
+
+.eyebrow::before {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentcolor;
+  content: '';
+}
+
+.red {
+  color: var(--color-error);
+}
+
+.title {
+  max-width: var(--th-title-width, none);
+  margin-top: var(--th-title-gap, 12px);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.02em;
+  color: var(--color-heading);
+}
+
+.description {
+  max-width: var(--th-description-width, 430px);
+  margin-top: var(--th-description-gap, 17px);
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-body);
+}
+
+.note {
+  margin-top: 33px;
+  padding: 25px 24px 26px;
+  border: 1px solid #d7cfd7;
+  border-radius: var(--radius-2xl);
+  background: var(--color-surface);
+}
+
+.greenNote {
+  border-color: #c2cda3;
+  background: #f4f9e9;
+}
+
+.redNote {
+  border-color: #e9a7a1;
+  background: #f9ecea;
+}
+
+.noteLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Consolas, 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-surface-dark);
+}
+
+.greenNote .noteLabel {
+  color: #4d6700;
+}
+
+.redNote .noteLabel {
+  color: var(--color-error);
+}
+
+.noteText {
+  max-width: 372px;
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+.main {
+  display: grid;
+  gap: 16px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .description,
+  .noteText {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .note {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 479px) {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}

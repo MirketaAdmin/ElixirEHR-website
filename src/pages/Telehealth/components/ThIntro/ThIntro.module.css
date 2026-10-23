@@ -1,0 +1,114 @@
+.intro {
+  padding-bottom: var(--th-rule-gap, 23px);
+  border-bottom: 1px solid #e3dee2;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--th-description-width, 520px);
+  align-items: end;
+  column-gap: 32px;
+}
+
+.eyebrow {
+  display: flex;
+  padding-top: 3px;
+  align-items: center;
+  gap: 9px;
+  font-family: Consolas, 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-surface-dark);
+}
+
+.eyebrow::before {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentcolor;
+  content: '';
+}
+
+.lime {
+  color: var(--color-secondary);
+}
+
+.red {
+  color: var(--color-error);
+}
+
+.title {
+  max-width: var(--th-title-width, 640px);
+  margin-top: var(--th-title-gap, 13px);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.02em;
+  color: var(--color-heading);
+}
+
+.description {
+  max-width: var(--th-description-width, 520px);
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-body);
+}
+
+.stacked .description {
+  max-width: var(--th-description-width, 840px);
+  margin-top: var(--th-description-gap, 8px);
+}
+
+.split .description {
+  margin-bottom: var(--th-description-drop, 0px);
+}
+
+.dark {
+  border-bottom-color: rgb(255 255 255 / 0.1);
+}
+
+.dark .eyebrow {
+  color: var(--color-secondary);
+}
+
+.dark .title {
+  color: var(--color-white);
+}
+
+.dark .description {
+  color: #b89cd8;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 16px;
+  }
+
+  .split .description {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .description {
+    font-size: 17px;
+    line-height: 27px;
+  }
+}
+
+@media (max-width: 479px) {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}

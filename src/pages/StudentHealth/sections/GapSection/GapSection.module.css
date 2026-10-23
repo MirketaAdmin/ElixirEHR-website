@@ -1,0 +1,186 @@
+.section {
+  padding: 80px 0 77px;
+  scroll-margin-top: 80px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 452px minmax(0, 1fr);
+  align-items: start;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+.funnel {
+  margin: 0;
+  padding: 31px 32px 34px;
+  border-radius: var(--radius-2xl);
+  background: var(--color-surface);
+  box-shadow: 0 4px 12px rgb(31 24 35 / 0.06);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.funnelTitle {
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  color: var(--color-heading);
+}
+
+.chip {
+  padding: 1px 8px;
+  border-radius: var(--radius-pill);
+  background: #eae7e7;
+  font-family: var(--font-label);
+  font-size: 12px;
+  line-height: 18px;
+  color: #4a454e;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px;
+  margin-top: 28px;
+}
+
+.value {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  color: var(--color-surface-dark);
+}
+
+.stats > div + div .value {
+  color: #4d6700;
+}
+
+.statText {
+  max-width: 160px;
+  margin: 2px 0 0;
+  font-size: 14px;
+  line-height: 19.5px;
+  color: var(--color-body);
+}
+
+.legend {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 32px;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.active {
+  max-width: 120px;
+  font-family: var(--font-label);
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.pending {
+  max-width: 200px;
+  color: #7b757f;
+}
+
+.bar {
+  height: 12px;
+  margin-top: 3px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: #dfdbdb;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: var(--color-secondary);
+}
+
+.funnelNote {
+  max-width: 330px;
+  margin-top: 76px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+.text {
+  max-width: 580px;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-body);
+}
+
+.text + .text {
+  margin-top: 16px;
+}
+
+.caveat {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 24px;
+  background: #f0edec;
+  box-shadow: 0 1px 2px rgb(31 24 35 / 0.06);
+}
+
+.caveat img {
+  flex-shrink: 0;
+}
+
+.caveatTitle {
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  color: var(--color-heading);
+}
+
+.caveatText {
+  max-width: 490px;
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .funnelNote {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .layout {
+    margin-top: 40px;
+  }
+
+  .funnel {
+    padding: 24px 20px;
+  }
+
+  .caveat {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,132 @@
+/* The frame's hairline below the band is reproduced as a border. */
+.section {
+  padding: 87px 0 81px;
+  border-bottom: 1px solid #625178;
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* Lime caps eyebrow led by a short lime bar. */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-label);
+  font-size: 13px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #c4f351;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 4px;
+  height: 14px;
+  border-radius: 1px;
+  background: #c4f351;
+}
+
+.heading {
+  margin-top: 3px;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  color: var(--color-white);
+}
+
+.description {
+  flex: 0 0 448px;
+  margin-top: 11px;
+  font-family: var(--font-label);
+  font-size: 16px;
+  line-height: 24px;
+  color: #b89cd8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px 24px;
+  margin-top: 51px;
+}
+
+.card {
+  padding: 24px 50px 25px 24px;
+  border-radius: 40px;
+  background: #422b5f;
+}
+
+.top {
+  margin-right: -26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.top img {
+  margin-left: 3px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  background: #3a2357;
+  font-family: var(--font-label);
+  font-size: 11px;
+  line-height: 14px;
+  color: #e9d5ff;
+}
+
+.title {
+  margin-top: 19px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--color-white);
+}
+
+.text {
+  margin-top: 2px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  line-height: 23px;
+  color: #b89cd8;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .head {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .description {
+    flex-basis: auto;
+    margin-top: 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

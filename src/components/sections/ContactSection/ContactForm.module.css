@@ -11,7 +11,7 @@
 .fields {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--contact-form-row-gap, 19px) 24px;
+  gap: var(--contact-form-row-gap, 19px) var(--contact-form-column-gap, 24px);
 }
 
 .wide {
@@ -83,6 +83,127 @@
 
 .consent a {
   text-decoration: underline;
+}
+
+/* Interaction: focus ring on fields, invalid fields flagged after the reader has interacted. */
+.control {
+  transition:
+    border-color var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard),
+    background-color var(--duration-base) var(--ease-standard);
+}
+
+.control:hover {
+  border-color: #a99fb0;
+}
+
+.control:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(149 193 31 / 0.35);
+  background-color: var(--color-white);
+}
+
+.control:user-invalid {
+  border-color: var(--color-error);
+}
+
+.control:user-invalid:focus {
+  box-shadow: 0 0 0 3px rgb(186 26 26 / 0.2);
+}
+
+.submit {
+  transition:
+    transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard),
+    filter var(--duration-base) var(--ease-standard);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .submit:hover:not(:disabled) {
+    transform: translate3d(0, -2px, 0);
+    filter: brightness(0.96);
+  }
+
+  .submit:hover:not(:disabled) svg {
+    transform: translate3d(3px, 0, 0);
+  }
+}
+
+.submit svg {
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.submit:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.submit:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+/* Outcome message under the button: empty (and collapsed) until there is something to say. */
+.status:empty {
+  display: none;
+}
+
+.status {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  line-height: 20px;
+  animation: status-in var(--duration-base) var(--ease-out);
+}
+
+.sending {
+  background: var(--color-surface);
+  color: var(--color-body);
+}
+
+.sent {
+  background: var(--color-secondary-tint);
+  color: #3d5200;
+}
+
+.error,
+.captcha,
+.unavailable {
+  background: var(--color-error-container);
+  color: var(--color-on-error-container);
+}
+
+/* Salesforce's reCAPTCHA (a fixed 304 × 78 widget) sits where the frame's spacing above Submit
+   was; Submit follows it closely. Height is reserved so the card does not jump while it loads. */
+.recaptcha {
+  min-height: 78px;
+  margin-top: var(--contact-form-submit-gap, 43px);
+}
+
+.recaptcha + .submit {
+  margin-top: 24px;
+}
+
+@media (max-width: 400px) {
+  .recaptcha {
+    /* The widget cannot be narrower than 304px; shrink it to fit 320px phones. */
+    margin-bottom: -12px;
+    transform: scale(0.85);
+    transform-origin: left top;
+  }
+}
+
+.status a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@keyframes status-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -4px, 0);
+  }
 }
 
 /* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */

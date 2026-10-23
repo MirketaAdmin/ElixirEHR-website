@@ -1,0 +1,140 @@
+.section {
+  padding: 85px 0 77px;
+  background: #fcf9f8;
+  scroll-margin-top: 78px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 452px minmax(0, 1fr);
+  align-items: start;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+.split {
+  padding: 32px;
+  background: #fdf0ee;
+}
+
+.splitTitle {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 300px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-heading);
+}
+
+.splitTitle img {
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.lead {
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+.symptoms {
+  display: grid;
+  gap: 16px;
+  margin-top: 23px;
+}
+
+.symptoms li {
+  position: relative;
+  padding: 16px 70px 16px 42px;
+  background: var(--color-white);
+  font-size: 14px;
+  line-height: 23px;
+  color: var(--color-body);
+}
+
+.symptoms img {
+  position: absolute;
+  top: 19px;
+  left: 16px;
+}
+
+.right {
+  display: grid;
+  gap: 24px;
+}
+
+.copy {
+  display: grid;
+  gap: 17px;
+  padding: 31px 32px 32px;
+  background: var(--color-white);
+  box-shadow: 0 1px 2px rgb(31 24 35 / 0.06);
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-body);
+}
+
+.copy p {
+  max-width: 510px;
+}
+
+.lines {
+  padding: 32px;
+  background: #f0edec;
+}
+
+.linesTitle {
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  max-width: 480px;
+  margin-top: 16px;
+}
+
+.chips li {
+  padding: 4px 18px;
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-surface-dark);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .split,
+  .copy,
+  .lines {
+    padding: 24px 20px;
+  }
+
+  .symptoms li {
+    padding-right: 16px;
+  }
+}

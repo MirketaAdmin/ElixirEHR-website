@@ -1,0 +1,114 @@
+/* Frame-specific overrides for shared sections on the Patient No-Show Prediction page. */
+
+/* Hero: the EVV / Patient Portal hero set-up (18/28 description, 58px CTAs, 16px labels) with a
+   65px title pitch. */
+.hero {
+  --page-hero-padding: 70px;
+  --page-hero-description-width: 640px;
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-primary-height: 58px;
+  --page-hero-primary-size: 16px;
+  --page-hero-content-offset: 0px;
+}
+
+.hero h1 {
+  font-size: 44px;
+  line-height: 65px;
+  letter-spacing: 0;
+}
+
+.hero p + div > a:first-child {
+  letter-spacing: 0.04em;
+}
+
+/* The frame tracks the current crumb slightly wider than the shared 1px. */
+.hero nav li:last-child {
+  letter-spacing: 1.2px;
+}
+
+/* CTA band: the EVV band's set-up (Inter caps eyebrow, tight H2 tracking, two 66px buttons with the
+   secondary outlined in white), plus a "Related:" row of links. */
+.ctaBand {
+  padding: 80px 0 80px;
+}
+
+.ctaBand div > p:first-child {
+  margin-bottom: 32px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+}
+
+.ctaBand h2 {
+  max-width: 820px;
+  line-height: 60px;
+  letter-spacing: -3px;
+}
+
+.ctaBand h2 + p:last-child {
+  max-width: 1080px;
+  margin-top: 32px;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.ctaButton,
+.ctaSecondary {
+  height: 66px;
+  margin-top: 48px;
+}
+
+.ctaButton {
+  padding-inline: 39px;
+}
+
+.ctaSecondary {
+  padding-inline: 40px;
+  border-color: var(--color-white);
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.ctaLinks {
+  margin-top: 39px;
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(255 255 255 / 0.6);
+}
+
+.ctaLinks a,
+.ctaLinks span:not([aria-hidden]) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: var(--color-white);
+}
+
+/* Responsive fallback (no mobile Figma frame). */
+@media (max-width: 767px) {
+  /* The 44px desktop title outranks PageHero's mobile size; restore it. */
+  .hero h1 {
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  /* The desktop band's 60px pitch and -3px tracking crowd a phone-sized heading. */
+  .ctaBand h2 {
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+}
+
+@media (max-width: 479px) {
+  /* The two long CTA labels wrap instead of running past a 320px viewport. */
+  .hero p + div > *,
+  .ctaButton,
+  .ctaSecondary {
+    height: auto;
+    min-height: 58px;
+    padding-block: 12px;
+    white-space: normal;
+    text-align: center;
+  }
+}

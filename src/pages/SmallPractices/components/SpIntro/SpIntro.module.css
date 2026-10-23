@@ -1,0 +1,60 @@
+.intro {
+  --bh-title-size: 48px;
+  --bh-title-leading: 56px;
+  --bh-title-tracking: -0.02em;
+  --bh-title-gap: 8px;
+  --bh-title-width: 766px;
+  --bh-description-width: 770px;
+  --bh-description-gap: 9px;
+}
+
+.intro > p:first-child {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  height: 24px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-light);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--color-surface-dark);
+}
+
+.intro > h2 + p {
+  line-height: 29px;
+}
+
+.strong > h2 + p {
+  font-weight: 600;
+  color: var(--color-surface-dark);
+}
+
+/* Dark bands: lime pill, white title, lavender description. */
+.dark > p:first-child {
+  background: var(--color-secondary);
+  color: #2c1647;
+}
+
+.dark > h2 + p {
+  color: var(--color-surface-light);
+}
+
+.dark.strong > h2 + p {
+  color: var(--color-surface-light);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .intro {
+    --bh-title-size: 32px;
+    --bh-title-leading: 40px;
+  }
+}
+
+@media (max-width: 479px) {
+  .intro {
+    --bh-title-size: 28px;
+    --bh-title-leading: 36px;
+  }
+}

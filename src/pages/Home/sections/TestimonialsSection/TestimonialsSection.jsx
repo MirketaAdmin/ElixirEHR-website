@@ -4,20 +4,15 @@ import { testimonials } from '../../../../data/home';
 import { cn } from '../../../../utils/cn';
 import { useAutoRotate } from '../../../../hooks/useAutoRotate';
 import { useMediaQuery } from '../../../../hooks/useMediaQuery';
+import { useSwipe } from '../../../../hooks/useSwipe';
 import Section from '../../../../components/layout/Section/Section';
 import Icon from '../../../../components/ui/Icon/Icon';
 import styles from './TestimonialsSection.module.css';
 
-function initials(name) {
-  return name
-    .split(' ')
-    .map((part) => part[0])
-    .slice(0, 2)
-    .join('');
-}
-
 /**
- * Testimonial carousel: two cards per view on desktop, one below 1200px. It moves one card per
+ * Testimonial carousel: two cards per view on desktop, one below 1200px. Cards alternate Deep
+ * Purple and Rose White; each opens with a quotation-mark tile (no photos) and ends with the
+ * customer's name and organization. It moves one card per
  * step — by the arrows or automatically every `testimonials.autoplaySeconds` (paused while the
  * pointer or focus is inside) — and wraps from the last position to the first. With no more
  * cards than fit in one view, the arrows are disabled and nothing moves.
@@ -28,6 +23,7 @@ function TestimonialsSection() {
   const positions = Math.max(items.length - perView + 1, 1);
   const [paused, setPaused] = useState(false);
   const [index, select] = useAutoRotate(positions, { interval: testimonials.autoplaySeconds * 1000, paused });
+  const swipe = useSwipe({ onPrev: () => select(index - 1), onNext: () => select(index + 1) });
 
   return (
     <Section
@@ -71,7 +67,7 @@ function TestimonialsSection() {
         </div>
       </div>
 
-      <div className={styles.viewport}>
+      <div className={styles.viewport} aria-roledescription="carousel" aria-label="Testimonials" {...(positions > 1 ? swipe : {})}>
         <ul
           id="testimonial-track"
           className={styles.list}
@@ -83,24 +79,17 @@ function TestimonialsSection() {
             return (
               <li
                 key={item.name}
-                className={cn(styles.card, item.featured && styles.featured)}
+                className={cn(styles.card, itemIndex % 2 === 0 && styles.featured)}
                 aria-hidden={!inView}
                 inert={!inView}
               >
-                <span className={styles.quoteMark} aria-hidden="true" />
-                {item.photo ? (
-                  <img src={item.photo} alt={item.name} width="124" height="124" className={styles.photo} />
-                ) : (
-                  <span className={cn(styles.photo, styles.monogram)} aria-hidden="true">
-                    {initials(item.name)}
-                  </span>
-                )}
+                <span className={styles.quoteTile} aria-hidden="true" />
                 <figure className={styles.body}>
-                  <figcaption>
+                  <blockquote className={styles.quote}>“{item.quote}”</blockquote>
+                  <figcaption className={styles.attribution}>
                     <p className={styles.name}>{item.name}</p>
-                    <p className={styles.role}>{item.role}</p>
+                    {item.role && <p className={styles.role}>{item.role}</p>}
                   </figcaption>
-                  <blockquote className={styles.quote}>{item.quote}</blockquote>
                   {item.to && (
                     <Link to={item.to} className={styles.link}>
                       <Icon name="playCircle" />

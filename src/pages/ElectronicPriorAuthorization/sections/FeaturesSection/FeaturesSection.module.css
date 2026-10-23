@@ -1,0 +1,115 @@
+.section {
+  padding: 0 0 93px;
+}
+
+/* Copy and media share the row's height and are centred on each other, as in the frame. */
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 40px;
+}
+
+/* The frame spaces the rows unevenly; each gap is reproduced. */
+.row:nth-child(2) {
+  margin-top: 103px;
+}
+
+.row:nth-child(3) {
+  margin-top: 85px;
+}
+
+.row:nth-child(4) {
+  margin-top: 51px;
+}
+
+.row:nth-child(5) {
+  margin-top: 73px;
+}
+
+.row:nth-child(6) {
+  margin-top: 89px;
+}
+
+.row:nth-child(7) {
+  margin-top: 87px;
+}
+
+.mediaFirst .media {
+  order: -1;
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.title {
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  color: var(--color-heading);
+}
+
+.text {
+  margin-top: 14px;
+  font-family: var(--font-label);
+  font-size: 13px;
+  line-height: 20px;
+  color: #4b5563;
+}
+
+.points {
+  display: grid;
+  gap: 8px;
+  margin-top: 24px;
+  font-family: var(--font-label);
+  font-size: 12px;
+  line-height: 20px;
+  color: #374151;
+}
+
+.points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.points img {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .row:nth-child(n + 2) {
+    margin-top: 64px;
+  }
+
+  /* Copy first on every row once stacked. */
+  .mediaFirst .media {
+    order: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-bottom: 64px;
+  }
+
+  .title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+}

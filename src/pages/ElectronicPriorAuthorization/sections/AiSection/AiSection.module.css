@@ -1,0 +1,112 @@
+/* The frame's hairlines above and below the band are reproduced as borders. */
+.section {
+  padding: 79px 0 80px;
+  border-top: 1px solid #a498b2;
+  border-bottom: 1px solid #cbc3cf;
+}
+
+.heading {
+  --epa-title-size: 47px;
+  --epa-title-leading: 56px;
+  --epa-title-width: none;
+  --epa-description-width: none;
+  --epa-description-size: 16px;
+  --epa-description-leading: 24px;
+  --epa-description-gap: 24px;
+}
+
+.heading p {
+  color: #ada4b9;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 42px 32px 30px;
+  border: 1px solid #4f3c69;
+  border-radius: var(--radius-lg);
+  background: #3c2658;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--color-white);
+}
+
+.items {
+  margin-top: 15px;
+  padding-left: 9px;
+  font-size: 14px;
+  line-height: 23px;
+  color: #9e93ac;
+}
+
+.items li {
+  position: relative;
+  padding-left: 12px;
+}
+
+.items li::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentcolor;
+}
+
+.outcome {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  margin-top: 14px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  background: #594771;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-tertiary);
+}
+
+.footnote {
+  margin-top: 40px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #ada4b9;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    padding: 28px 24px;
+  }
+}

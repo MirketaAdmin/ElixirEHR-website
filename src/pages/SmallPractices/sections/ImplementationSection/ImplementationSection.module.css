@@ -1,0 +1,181 @@
+.section {
+  padding: 81px 0 79px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 64px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  min-height: 307px;
+  padding: 24px;
+  border: 1px solid #ebe7ec;
+  border-radius: 48px;
+  background: var(--color-surface);
+  box-shadow: 0 1px 2px rgb(31 24 35 / 0.04);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.when {
+  font-family: 'Courier New', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #7b757f;
+}
+
+.title {
+  max-width: 180px;
+  margin-top: 9px;
+  font-family: var(--font-title-alt);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
+}
+
+.text {
+  max-width: 186px;
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 23px;
+  color: var(--color-body);
+}
+
+.bar {
+  height: 6px;
+  margin-top: auto;
+  border-radius: var(--radius-pill);
+  background: #4d6700;
+}
+
+/* "Questions worth asking": a tinted panel on a 4px lime left edge. */
+.panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 64px;
+  padding: 33px 32px 32px;
+  border: 1px solid #e6e2e7;
+  border-left: 4px solid var(--color-secondary);
+  border-radius: 48px;
+  background: #f0edec;
+  box-shadow: 0 4px 6px rgb(31 24 35 / 0.08);
+}
+
+.disc {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-surface-dark);
+}
+
+.panelTitle {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--color-heading);
+}
+
+.items {
+  display: grid;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.items li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.items li::before {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: #4d6700;
+  content: '';
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .title,
+  .text {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .step {
+    min-height: 0;
+    border-radius: var(--radius-2xl);
+  }
+
+  .text {
+    margin-bottom: 24px;
+  }
+
+  .panel {
+    flex-direction: column;
+    margin-top: 40px;
+    padding: 24px 20px;
+    border-radius: var(--radius-2xl);
+  }
+
+  .panelTitle {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}

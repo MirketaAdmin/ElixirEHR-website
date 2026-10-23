@@ -1,0 +1,264 @@
+.section {
+  padding: 80px 0 80px;
+}
+
+.intro {
+  --th-title-width: 1040px;
+  --th-description-width: 860px;
+}
+
+.panel {
+  margin-top: 48px;
+  overflow: hidden;
+  border: 1px solid #d6d0d9;
+  border-radius: var(--radius-2xl);
+  background: var(--color-white);
+}
+
+.bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 16px;
+  padding: 8px 36px 8px 32px;
+  background: var(--color-surface);
+  font-family: Consolas, 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-body);
+}
+
+.bar p {
+  max-width: 900px;
+}
+
+.report {
+  flex-shrink: 0;
+  white-space: pre-line;
+  font-weight: 700;
+  color: var(--color-surface-dark);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table th,
+.table td {
+  padding: 0 16px 0 0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table th:first-child {
+  width: 438px;
+  padding-left: 36px;
+}
+
+.table thead th:nth-child(2) {
+  width: 244px;
+}
+
+.table thead th:nth-child(3) {
+  width: 320px;
+}
+
+.table thead tr {
+  height: 50px;
+  background: #f0edec;
+  border-top: 1px solid #e3dee2;
+}
+
+.table thead th {
+  font-family: Consolas, 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.table tbody tr {
+  height: 57px;
+  border-top: 1px solid #ebe7ec;
+}
+
+.table tbody th {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  color: var(--color-heading);
+}
+
+.table tbody td {
+  font-family: Consolas, 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-body);
+}
+
+.yes,
+.partly,
+.notYet {
+  display: inline-block;
+  padding: 1px 9px;
+  border: 1px solid;
+  border-radius: var(--radius-pill);
+  font-family: Consolas, 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.yes {
+  border-color: #6f8f19;
+  background: var(--color-secondary);
+  color: var(--color-heading);
+}
+
+.partly {
+  border-color: #b49a2a;
+  background: #ffe081;
+  color: var(--color-heading);
+}
+
+.notYet {
+  border-color: #f4a5a0;
+  background: var(--color-error-container);
+  color: var(--color-error);
+}
+
+.notice {
+  margin-top: 48px;
+  padding: 30px 36px 32px 32px;
+  border-left: 4px solid var(--color-error);
+  border-radius: var(--radius-2xl);
+  background: #fff6f5;
+}
+
+.noticeLabel {
+  font-family: Consolas, 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-error);
+}
+
+.noticeTitle {
+  margin-top: 6px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-heading);
+}
+
+.noticeList {
+  display: grid;
+  gap: 16px;
+  margin-top: 14px;
+  padding-left: 20px;
+}
+
+.noticeList li {
+  max-width: 1010px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 48px;
+  padding: 25px 32px 24px 24px;
+  border: 1px solid #d6d0d9;
+  border-radius: var(--radius-2xl);
+  background: var(--color-surface);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.note img {
+  flex-shrink: 0;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .table th:first-child {
+    width: 34%;
+    padding-left: 20px;
+  }
+
+  .table thead th:nth-child(2),
+  .table thead th:nth-child(3) {
+    width: 24%;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .panel {
+    margin-top: 32px;
+  }
+
+  .bar {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  .report {
+    max-width: none;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table th,
+  .table td {
+    display: block;
+    width: auto;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tbody tr {
+    height: auto;
+    padding: 14px 16px;
+  }
+
+  .table tbody th,
+  .table tbody td {
+    width: auto;
+    padding: 2px 0;
+  }
+
+  .table th:first-child {
+    width: auto;
+    padding-left: 0;
+  }
+
+  .notice {
+    margin-top: 32px;
+    padding: 24px 20px;
+  }
+
+  .note {
+    margin-top: 32px;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,105 @@
+.section {
+  padding: 80px 0 80px;
+}
+
+.section .intro {
+  --bh-title-width: 660px;
+  --bh-description-width: 680px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 64px;
+}
+
+.card {
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 0 4px 16px rgb(31 24 35 / 0.05);
+}
+
+.label {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-surface-dark);
+}
+
+.title {
+  max-width: 270px;
+  margin-top: 9px;
+  font-family: var(--font-title-alt);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
+}
+
+.text {
+  max-width: var(--ae-text-width, 260px);
+  margin-top: 7px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 64px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: #f0edec;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.note img {
+  flex-shrink: 0;
+}
+
+.note span {
+  max-width: 930px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .title,
+  .text {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+
+  .note {
+    margin-top: 40px;
+    padding: 20px;
+  }
+}

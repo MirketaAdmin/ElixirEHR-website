@@ -1,0 +1,76 @@
+.section {
+  padding: 82px 0 78px;
+}
+
+.heading {
+  --eyebrow-heading-gap: 12px;
+}
+
+.heading h2 {
+  letter-spacing: 0;
+}
+
+.description {
+  max-width: 1130px;
+  margin: 12px auto 0;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.card {
+  padding: 32px 32px 34px;
+  border-radius: var(--radius-xl);
+  background: var(--color-white);
+}
+
+/* 56px lime tile; the glyph is a 32px crop from the frame. */
+.tile {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  background: var(--color-secondary);
+}
+
+.title {
+  margin-top: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-surface-dark);
+}
+
+.text {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 560px;
+    margin-inline: auto;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .card {
+    padding: 24px;
+  }
+}

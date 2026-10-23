@@ -1,0 +1,100 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--op-grid-gap, 22px 24px);
+}
+
+.card {
+  padding: var(--op-card-padding, 32px);
+}
+
+.light .card {
+  background: var(--color-surface);
+}
+
+.white .card {
+  background: var(--color-white);
+  box-shadow: 0 1px 2px rgb(31 24 35 / 0.06);
+}
+
+.dark .card {
+  background: #3a2456;
+}
+
+.tile {
+  display: block;
+  border-radius: 50%;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-surface-dark);
+}
+
+.dark .label {
+  color: var(--color-secondary);
+}
+
+.dark .label.yellow {
+  color: #ffe081;
+}
+
+.corner {
+  margin-left: auto;
+}
+
+.title {
+  max-width: var(--op-title-width, 260px);
+  margin-top: var(--op-title-gap, 14px);
+  font-family: var(--font-title-alt);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
+}
+
+.dark .title {
+  color: var(--color-white);
+}
+
+.text {
+  max-width: var(--op-text-width, 255px);
+  margin-top: var(--op-text-gap, 6px);
+  font-size: var(--op-text-size, 16px);
+  line-height: var(--op-text-leading, 24px);
+  color: var(--color-body);
+}
+
+.dark .text {
+  color: #b89cd8;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .title,
+  .text {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+}

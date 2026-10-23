@@ -1,0 +1,93 @@
+.section {
+  padding: 81px 0 80px;
+}
+
+.intro {
+  --roi-title-width: 1040px;
+}
+
+.rows {
+  display: grid;
+  gap: 15px;
+  margin-top: 57px;
+}
+
+/* A white row with a 4px coloured leading edge: the tag pill, then the play and its effect. */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  min-height: 105px;
+  padding: 24px 40px 24px 28px;
+  border: 1px solid #d8d1da;
+  border-left: 4px solid var(--edge);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 8px 20px rgb(31 24 35 / 0.05);
+}
+
+.tag {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 140px;
+  height: 29px;
+  border-radius: var(--radius-pill);
+  background: var(--tag-bg);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tag-text);
+}
+
+.red {
+  --edge: var(--color-error);
+  --tag-bg: #fbecec;
+  --tag-text: var(--color-error);
+}
+
+.yellow {
+  --edge: var(--color-tertiary);
+  --tag-bg: #fcf3d6;
+  --tag-text: #8a6d10;
+}
+
+.lime {
+  --edge: var(--color-secondary);
+  --tag-bg: #eaf3d2;
+  --tag-text: #4d6700;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.text {
+  margin-top: 8px;
+  font-size: 14.5px;
+  line-height: 24px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .rows {
+    margin-top: 40px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 24px 20px;
+  }
+}

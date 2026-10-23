@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import { useId, useState } from 'react';
 import { cmaTour } from '../../../../data/caregiverMobileApp';
 import Section from '../../../../components/layout/Section/Section';
 import EyebrowHeading from '../../../../components/ui/EyebrowHeading/EyebrowHeading';
@@ -6,14 +6,27 @@ import { cn } from '../../../../utils/cn';
 import styles from './TourSection.module.css';
 
 /**
- * "A four-minute field caregiver tour": step tabs and the selected step's panel. Only Step 1 has
- * panel content in the frame, so the other tabs render as drawn but are marked unavailable.
+ * "A four-minute field caregiver tour": step tabs switching the step panel. Arrow keys, Home and End
+ * move between tabs. Steps 2–6 carry interim panels (see data/caregiverMobileApp.js).
  */
 function TourSection() {
   const { eyebrow, title, description, note, steps } = cmaTour;
   const baseId = useId();
-  const selected = 0;
+  const [selected, setSelected] = useState(0);
   const { panel } = steps[selected];
+  const tabId = (index) => `${baseId}-tab-${index}`;
+
+  function handleKeyDown(event) {
+    const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[event.key];
+    let next;
+    if (step) next = (selected + step + steps.length) % steps.length;
+    else if (event.key === 'Home') next = 0;
+    else if (event.key === 'End') next = steps.length - 1;
+    else return;
+    event.preventDefault();
+    setSelected(next);
+    document.getElementById(tabId(next))?.focus();
+  }
 
   return (
     <Section id="caregiver-tour" spacing="none" className={styles.section} aria-labelledby="cma-tour">
@@ -29,11 +42,12 @@ function TourSection() {
               key={step.label}
               type="button"
               role="tab"
-              id={`${baseId}-tab-${index}`}
+              id={tabId(index)}
               aria-selected={isSelected}
-              aria-controls={isSelected ? `${baseId}-panel` : undefined}
-              aria-disabled={!step.panel || undefined}
+              aria-controls={`${baseId}-panel`}
               tabIndex={isSelected ? 0 : -1}
+              onClick={() => setSelected(index)}
+              onKeyDown={handleKeyDown}
               className={cn(styles.tab, isSelected && styles.selected)}
             >
               <span className={styles.number} aria-hidden="true">
@@ -45,7 +59,14 @@ function TourSection() {
         })}
       </div>
 
-      <div id={`${baseId}-panel`} role="tabpanel" aria-labelledby={`${baseId}-tab-${selected}`} className={styles.panel}>
+      {/* Keyed by step so the new panel fades in when the tab changes. */}
+      <div
+        key={selected}
+        id={`${baseId}-panel`}
+        role="tabpanel"
+        aria-labelledby={tabId(selected)}
+        className={styles.panel}
+      >
         <div className={styles.panelHead}>
           <p className={styles.kicker}>{panel.kicker}</p>
           <p className={styles.tag}>{panel.tag}</p>

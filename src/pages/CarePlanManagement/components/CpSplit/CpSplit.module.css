@@ -1,0 +1,91 @@
+.section {
+  padding: 80px 0 var(--cp-bottom, 80px);
+}
+
+.warm {
+  background: #f7f4f3;
+}
+
+.surface {
+  background: var(--color-surface);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 547px;
+  align-items: start;
+  gap: 48px;
+}
+
+.reverse {
+  grid-template-columns: 547px minmax(0, 1fr);
+  gap: 57px;
+}
+
+.reverse .copy {
+  order: 2;
+}
+
+.copy {
+  padding-top: var(--cp-copy-top, 0px);
+}
+
+.visual {
+  padding-top: var(--cp-visual-top, 0px);
+}
+
+.title {
+  max-width: 480px;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 43.5px;
+  letter-spacing: -0.01em;
+  color: var(--color-primary);
+}
+
+.text {
+  max-width: 485px;
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 27px;
+  color: var(--color-body);
+}
+
+.title + .text {
+  margin-top: 16px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .layout,
+  .reverse {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .reverse .copy {
+    order: 0;
+  }
+
+  .copy,
+  .visual {
+    padding-top: 0;
+  }
+
+  .title,
+  .text {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}

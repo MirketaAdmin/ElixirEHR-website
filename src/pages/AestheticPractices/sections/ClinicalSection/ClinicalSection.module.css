@@ -1,0 +1,20 @@
+.section {
+  padding: 80px 0 80px;
+}
+
+.grid {
+  margin-top: 64px;
+  --ae-title-width: 260px;
+  --ae-text-width: 260px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    margin-top: 40px;
+  }
+}

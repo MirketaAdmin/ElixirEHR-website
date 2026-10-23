@@ -1,0 +1,77 @@
+.section {
+  padding: 81px 0 81px;
+}
+
+.intro {
+  --intro-title-gap: 12px;
+  --intro-description-gap: 17px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px 24px;
+  margin-top: 65px;
+}
+
+/* Dark card (Surface Variant dark gradient) with a lime dot before the title. The frame gives the
+   second row 4px more bottom padding and a 26px row gap; reproduced. */
+.card {
+  padding: 29px 29px 25px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, #2b173f, #311a4e);
+  box-shadow: 0 6px 14px rgb(31 24 35 / 0.12);
+}
+
+.grid li:nth-child(n + 4) {
+  padding-bottom: 29px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--color-white);
+}
+
+.title::before {
+  content: '';
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+}
+
+.text {
+  margin-top: 13px;
+  font-size: 14px;
+  line-height: 23px;
+  white-space: pre-line;
+  color: #c6b7cd;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .text {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 40px;
+  }
+}

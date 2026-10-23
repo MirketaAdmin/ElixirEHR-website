@@ -1,0 +1,104 @@
+.body[class] {
+  padding: 24px 24px 24px;
+  background: var(--color-white);
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ede8ec;
+}
+
+.tabs li {
+  display: flex;
+  align-items: center;
+  height: 33px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-family: var(--font-label);
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #6b6579;
+}
+
+.tabs .active {
+  background: var(--color-primary);
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.note {
+  display: grid;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 17px 16px 22px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #fafafa;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.line {
+  margin-top: 3px;
+  font-size: 13px;
+  line-height: 21px;
+  color: var(--color-heading);
+}
+
+.line + .line {
+  margin-top: 0;
+}
+
+.insight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--color-secondary);
+  border-radius: var(--radius-md);
+  background: #eff6dd;
+  font-size: 13px;
+  line-height: 21px;
+  color: var(--color-heading);
+}
+
+.insight strong {
+  font-weight: 700;
+}
+
+.action {
+  display: flex;
+  flex: none;
+  align-items: center;
+  height: 21px;
+  padding: 0 11px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 14px;
+  color: var(--color-heading);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .insight {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

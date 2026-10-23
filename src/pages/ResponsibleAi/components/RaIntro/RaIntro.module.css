@@ -1,0 +1,90 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+/* Caps pill chip. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 14px;
+  border: 1px solid var(--chip-border);
+  border-radius: var(--radius-pill);
+  background: var(--chip-bg);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--chip-text);
+}
+
+.lavender {
+  --chip-bg: var(--color-surface-light);
+  --chip-border: #d9c5dd;
+  --chip-text: var(--color-surface-dark);
+}
+
+.teal {
+  --chip-bg: #e3eef1;
+  --chip-border: #bcd3da;
+  --chip-text: #2b6179;
+}
+
+.red {
+  --chip-bg: #fde8e7;
+  --chip-border: #f2b8b5;
+  --chip-text: var(--color-error);
+}
+
+.dark .chip {
+  --chip-bg: rgb(255 255 255 / 0.1);
+  --chip-border: rgb(255 255 255 / 0.2);
+  --chip-text: #b6d2ee;
+}
+
+.title {
+  max-width: var(--ra-title-width, 1152px);
+  margin-top: var(--ra-title-gap, 20px);
+  font-size: var(--ra-title-size, 48px);
+  font-weight: 700;
+  line-height: var(--ra-title-leading, 56px);
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
+}
+
+.dark .title {
+  color: var(--color-white);
+}
+
+.description {
+  max-width: var(--ra-description-width, 880px);
+  margin-top: var(--ra-description-gap, 20px);
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.dark .description {
+  color: #e0d8ea;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}

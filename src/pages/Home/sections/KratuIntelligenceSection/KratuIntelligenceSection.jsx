@@ -9,7 +9,6 @@ import styles from './KratuIntelligenceSection.module.css';
 function FeatureCard({ feature, side }) {
   return (
     <li className={cn(styles.row, styles[side])}>
-      <span className={styles.number}>{feature.number}</span>
       <div className={styles.card}>
         <img src={feature.icon} alt="" width="24" height="24" className={styles.icon} />
         <div className={styles.text}>
@@ -45,7 +44,7 @@ function KratuIntelligenceSection() {
       <div className={styles.diagram}>
         <ul className={styles.column}>
           {features.slice(0, 3).map((feature) => (
-            <FeatureCard key={feature.number} feature={feature} side="left" />
+            <FeatureCard key={feature.titleLines.join(' ')} feature={feature} side="left" />
           ))}
         </ul>
         <div className={styles.hub}>
@@ -53,7 +52,7 @@ function KratuIntelligenceSection() {
         </div>
         <ul className={styles.column}>
           {features.slice(3).map((feature) => (
-            <FeatureCard key={feature.number} feature={feature} side="right" />
+            <FeatureCard key={feature.titleLines.join(' ')} feature={feature} side="right" />
           ))}
         </ul>
         <span className={cn(styles.connector, styles.connectorLeft)} aria-hidden="true" />

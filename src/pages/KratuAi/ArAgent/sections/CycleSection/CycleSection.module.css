@@ -1,0 +1,180 @@
+.section {
+  padding: 82px 0 80px;
+  background: #f5f3f3;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-light);
+  font-family: var(--font-label);
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--color-surface-dark);
+}
+
+.heading {
+  max-width: 680px;
+  margin-top: 6px;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 39px;
+  color: var(--color-heading);
+}
+
+.description {
+  max-width: 680px;
+  margin-top: 5px;
+  font-family: var(--font-label);
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.phases {
+  display: grid;
+  gap: 49px;
+  margin-top: 47px;
+}
+
+/* White panel; the dot and step labels take the phase colour. */
+.phase {
+  padding: 32px;
+  border-radius: 48px;
+  background: var(--color-white);
+  box-shadow: 0 2px 6px rgb(31 24 35 / 0.04);
+}
+
+.lime {
+  --dot: #c4f351;
+  --label: #c4f351;
+}
+
+.gold {
+  --dot: #cda700;
+  --label: #725c00;
+}
+
+.red {
+  --dot: var(--color-error);
+  --label: var(--color-error);
+}
+
+.phaseHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.phaseTitle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.phaseTitle::before {
+  content: '';
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+
+.note {
+  font-family: var(--font-label);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(var(--steps), minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 47px;
+}
+
+.step {
+  padding: 15px 16px 16px;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+}
+
+.team {
+  --label: var(--color-surface-dark);
+
+  background: var(--color-surface-light);
+}
+
+.label {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: var(--label);
+}
+
+.title {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.text {
+  max-width: 200px;
+  margin-top: 1px;
+  font-family: var(--font-label);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .phaseHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .heading {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .phase {
+    padding: 24px 20px;
+  }
+
+  .phases {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 479px) {
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

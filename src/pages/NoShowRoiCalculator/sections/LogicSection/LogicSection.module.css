@@ -1,0 +1,58 @@
+.section {
+  padding: 79px 0 79px;
+}
+
+.intro {
+  --roi-title-gap: 16px;
+}
+
+/* The formulas, set in a monospaced face with the term in bold Deep Purple. */
+.formulas {
+  margin-top: 57px;
+  padding: 25px 32px 53px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-white);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12.75px;
+  line-height: 25.75px;
+}
+
+.formulas > div {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.5em;
+}
+
+.formulas dt {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.formulas dd {
+  color: var(--color-body);
+}
+
+.equals {
+  color: #8a8490;
+}
+
+.assumptions {
+  margin-top: 16px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .formulas {
+    margin-top: 40px;
+    padding: 24px 20px;
+  }
+
+  .formulas > div + div {
+    margin-top: 10px;
+  }
+}

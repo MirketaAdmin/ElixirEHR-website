@@ -27,8 +27,8 @@ const sources = {
   },
 };
 
-// The two EVV topic pages the frame links to are not built yet; these planned routes redirect to
-// Home until they exist (see DESIGN-SYSTEM.md open questions).
+// The two EVV topic pages the frame links to are not built; routes/aliases.js redirects these
+// planned URLs to the existing EVV and Caregiver Mobile App pages.
 const topicPages = {
   homeCare: { label: 'Home care and EVV', to: '/home-care-and-evv' },
   fieldCaregiver: { label: 'Field caregiver experience', to: '/field-caregiver-experience' },

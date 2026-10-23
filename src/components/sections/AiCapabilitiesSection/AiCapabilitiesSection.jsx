@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { aiCapabilities } from '../../../data/aiCapabilities';
-import { cn } from '../../../utils/cn';
 import Section from '../../layout/Section/Section';
 import SectionHeading from '../../ui/SectionHeading/SectionHeading';
 import BorderGlow from '../../ui/BorderGlow/BorderGlow';
@@ -8,7 +7,7 @@ import Icon from '../../ui/Icon/Icon';
 import sparkleIcon from '../../../assets/icons/sparkle-lime.png';
 import styles from './AiCapabilitiesSection.module.css';
 
-function CardContent({ item }) {
+function CardContent({ item, badge }) {
   return (
     <>
       <div className={styles.top}>
@@ -20,7 +19,7 @@ function CardContent({ item }) {
       <h3 className={styles.title}>{item.title}</h3>
       <p className={styles.badge}>
         <img src={sparkleIcon} alt="" width="17" height="17" />
-        {aiCapabilities.badge}
+        {badge}
       </p>
       <p className={styles.description}>{item.description}</p>
     </>
@@ -28,41 +27,38 @@ function CardContent({ item }) {
 }
 
 /**
- * "Kratu AI - Full Capabilities" (Home, What Is Elixir, Why Elixir, EHR).
- * `glow` (Home): every card the same size at each breakpoint, with the BorderGlow edge effect.
- * Without it the section renders exactly as in the other pages' frames.
+ * "Our AI Solutions — Kratu AI - Full Capabilities" (Home, What Is Elixir, Why Elixir, EHR).
+ * One template everywhere: the approved Home design (six equal cards per breakpoint, BorderGlow
+ * edge effect with a one-time sweep). Only the content may differ per page: pass `content`
+ * ({ eyebrow, title, description, badge, items }); it defaults to the shared Kratu content.
  */
-function AiCapabilitiesSection({ glow = false }) {
+function AiCapabilitiesSection({ content = aiCapabilities }) {
+  const { eyebrow, title, description, badge, items } = content;
+
   return (
-    <Section tone="dark" spacing="none" className={cn(styles.section, glow && styles.glow)}>
+    <Section tone="dark" spacing="none" className={styles.section}>
       <SectionHeading
-        eyebrow={aiCapabilities.eyebrow}
+        eyebrow={eyebrow}
         eyebrowCaps
-        title={aiCapabilities.title}
-        description={aiCapabilities.description}
+        title={title}
+        description={description}
         align="center"
         tone="dark"
         className={styles.heading}
       />
       <ul className={styles.grid}>
-        {aiCapabilities.items.map((item, index) => (
+        {items.map((item, index) => (
           <li key={item.title}>
-            {glow ? (
-              <BorderGlow
-                as={Link}
-                to={item.to}
-                className={styles.card}
-                innerClassName={styles.cardInner}
-                sweep
-                sweepDelay={index * 250}
-              >
-                <CardContent item={item} />
-              </BorderGlow>
-            ) : (
-              <Link to={item.to} className={styles.card}>
-                <CardContent item={item} />
-              </Link>
-            )}
+            <BorderGlow
+              as={Link}
+              to={item.to}
+              className={styles.card}
+              innerClassName={styles.cardInner}
+              sweep
+              sweepDelay={index * 250}
+            >
+              <CardContent item={item} badge={badge} />
+            </BorderGlow>
           </li>
         ))}
       </ul>

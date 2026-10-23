@@ -47,7 +47,10 @@
     animation: none;
   }
 
+  /* Fill the strip's width (rather than its own content width) so the row can wrap. */
   .group {
+    flex: 1 1 100%;
+    min-width: 0;
     flex-wrap: wrap;
     justify-content: center;
     padding-right: 0;

@@ -56,6 +56,32 @@
   font-size: 14px;
   line-height: 20px;
   color: var(--color-white-60);
+  background-image: linear-gradient(currentcolor, currentcolor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition:
+    color var(--duration-base) var(--ease-standard),
+    background-size var(--duration-base) var(--ease-standard);
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--color-white);
+  background-size: 100% 1px;
+}
+
+a.social {
+  transition:
+    background-color var(--duration-base) var(--ease-standard),
+    color var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+
+a.social:hover {
+  background: var(--color-secondary);
+  color: var(--color-heading);
+  transform: translate3d(0, -2px, 0);
 }
 
 .bottom {

@@ -1,0 +1,121 @@
+.body[class] {
+  padding-top: 21px;
+  background: var(--color-white);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: 0 10px;
+}
+
+.table thead th {
+  height: 37px;
+  border-bottom: 2px solid #e5e1e6;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b6579;
+}
+
+.table thead th:nth-child(1) {
+  width: 93px;
+}
+
+.table thead th:nth-child(2) {
+  width: 116px;
+}
+
+.table thead th:nth-child(3) {
+  width: 80px;
+}
+
+.table thead th:nth-child(4) {
+  width: 92px;
+}
+
+.table tbody th,
+.table tbody td {
+  height: 41px;
+  border-bottom: 1px solid #f0edee;
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--color-heading);
+}
+
+.table tbody th {
+  font-weight: 700;
+}
+
+.risk {
+  display: inline-flex;
+  align-items: center;
+  height: 19px;
+  padding: 0 7px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 14px;
+}
+
+.high {
+  background: #ffdad6;
+  color: var(--color-error);
+}
+
+.med {
+  background: #fcf3d6;
+  color: #8a6d10;
+}
+
+.appeal {
+  margin-top: 15px;
+  padding: 12px 14px 13px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.appealTitle {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.appealText {
+  margin-top: 4px;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #444;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .table thead th {
+    width: auto;
+    white-space: nowrap;
+  }
+
+  .table tbody th,
+  .table tbody td {
+    white-space: nowrap;
+  }
+}

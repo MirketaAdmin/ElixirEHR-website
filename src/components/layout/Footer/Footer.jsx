@@ -24,9 +24,22 @@ function Footer() {
             <ul className={styles.socials}>
               {socialLinks.map((social) => (
                 <li key={social.label}>
-                  <a href={social.href} className={styles.social} aria-label={social.label}>
-                    <Icon name={social.icon} size={20} />
-                  </a>
+                  {social.href ? (
+                    <a
+                      href={social.href}
+                      className={styles.social}
+                      aria-label={`${social.label} (opens in a new tab)`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <Icon name={social.icon} size={20} />
+                    </a>
+                  ) : (
+                    // No URL yet: shown as drawn, but not presented as a link.
+                    <span className={styles.social} role="img" aria-label={social.label}>
+                      <Icon name={social.icon} size={20} />
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>

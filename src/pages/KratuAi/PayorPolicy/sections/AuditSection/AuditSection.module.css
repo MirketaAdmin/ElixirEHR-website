@@ -1,0 +1,70 @@
+/* The frame's hairlines above and below the band are reproduced as borders. */
+.section {
+  padding: 82px 0 79px;
+  border-top: 1px solid #e6e3e9;
+  border-bottom: 1px solid #635177;
+}
+
+.intro {
+  --pp-title-width: 1152px;
+  --pp-title-gap: 18px;
+  --pp-description-width: 830px;
+  --pp-description-gap: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 59px;
+}
+
+.card {
+  padding: 30px 24px 30px;
+  border: 1px solid #604f77;
+  border-radius: var(--radius-lg);
+  background: #422d5d;
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  background: #534b51;
+}
+
+.title {
+  margin-top: 19px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-white);
+}
+
+.text {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 22.5px;
+  color: var(--color-surface-light);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

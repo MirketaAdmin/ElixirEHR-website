@@ -48,6 +48,55 @@
   color: var(--color-white);
 }
 
+.prev,
+.next {
+  transition:
+    transform var(--duration-base) var(--ease-standard),
+    background-color var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard),
+    color var(--duration-base) var(--ease-standard);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .prev:hover {
+    border-color: var(--color-surface-dark);
+    background: var(--color-surface-dark);
+    color: var(--color-white);
+  }
+
+  .next:hover {
+    background: var(--color-primary);
+  }
+}
+
+.prev:active,
+.next:active {
+  transform: scale(0.94);
+}
+
+.prev:focus-visible,
+.next:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+/* Horizontal touch drags go to the carousel's swipe; vertical ones still scroll the page. */
+.carousel {
+  touch-action: pan-y;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .featured {
+    animation: story-in 0.5s var(--ease-out) both;
+  }
+}
+
+@keyframes story-in {
+  from {
+    opacity: 0.2;
+  }
+}
+
 /* Featured story: 576px photo beside a Surface Variant (dark) panel. */
 .featured {
   display: grid;
@@ -63,6 +112,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Every slide keeps the frame's 666px height, whatever its photo's proportions. */
+@media (min-width: 1024px) {
+  .featured {
+    grid-template-rows: 666px;
+  }
 }
 
 .featuredBody {
@@ -114,6 +170,30 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-secondary);
+}
+
+/* A story card shown as a slide: its photo framed on a light panel, its summary in place of the quote. */
+.summaryMedia {
+  display: grid;
+  place-items: center;
+  padding: 40px;
+  background: var(--color-surface-light);
+}
+
+.summaryMedia img {
+  width: min(100%, 432px);
+  height: auto;
+  aspect-ratio: 360 / 224;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 40px -16px rgb(50 27 79 / 0.35);
+}
+
+.summary {
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 30px;
+  color: rgb(255 255 255 / 0.9);
 }
 
 .featuredCta {
@@ -214,6 +294,10 @@
 @media (max-width: 1023px) {
   .featured {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .summaryMedia {
+    padding: 24px;
   }
 
   .featuredImage {

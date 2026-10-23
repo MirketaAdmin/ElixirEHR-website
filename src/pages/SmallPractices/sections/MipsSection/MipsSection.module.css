@@ -1,0 +1,333 @@
+.section {
+  padding: 80px 0 78px;
+}
+
+.panel {
+  margin-top: 64px;
+  padding: 25px 24px 24px;
+  border: 1px solid #ebe7ec;
+  border-radius: 48px;
+  background: var(--color-surface);
+  box-shadow: 0 1px 2px rgb(31 24 35 / 0.04);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #ece8ea;
+}
+
+.caption {
+  font-family: var(--font-title-alt);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
+}
+
+.chip {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: #e2dde2;
+  font-family: 'Courier New', ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  color: var(--color-surface-dark);
+}
+
+.table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: separate;
+  border-spacing: 0 4px;
+  table-layout: fixed;
+}
+
+.table th,
+.table td {
+  padding: 0 16px 0 0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table th:first-child {
+  width: 410px;
+  padding-left: 80px;
+}
+
+.table thead th:nth-child(2) {
+  width: 394px;
+}
+
+.table thead tr {
+  height: 37px;
+  background: #eae7e7;
+}
+
+.table thead th {
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-heading);
+}
+
+.table tbody tr {
+  height: 54px;
+  background: var(--color-white);
+  box-shadow: 0 1px 2px rgb(31 24 35 / 0.04);
+}
+
+.table tbody th {
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-heading);
+}
+
+.threshold {
+  font-family: 'Courier New', ui-monospace, monospace;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--color-surface-dark);
+}
+
+.impact {
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-error);
+}
+
+.impact::before {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: currentcolor;
+  vertical-align: 1px;
+  content: '';
+}
+
+.tableSource {
+  margin-top: 23px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: right;
+  color: var(--color-body);
+}
+
+.tableSource a,
+.source {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-surface-dark);
+  text-decoration: underline;
+}
+
+.tableSource a:focus-visible {
+  outline: 2px solid var(--color-surface-dark);
+  outline-offset: 2px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 47px;
+}
+
+.relief,
+.myths {
+  padding: 32px;
+  border: 1px solid #b2bb91;
+  border-radius: 48px;
+  background: var(--color-surface);
+}
+
+.myths {
+  border-color: #de9c9c;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 400px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-heading);
+}
+
+.mark {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 33px;
+  margin-top: 8px;
+  border-radius: 13px;
+  background: var(--color-secondary);
+  font-size: 13px;
+  line-height: 1;
+  color: #3e4b0f;
+}
+
+.myths .mark {
+  background: var(--color-error);
+  color: var(--color-white);
+}
+
+.lead {
+  max-width: 420px;
+  margin-top: 17px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+.reliefList {
+  display: grid;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.reliefList li {
+  position: relative;
+  max-width: 425px;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 22.5px;
+  color: var(--color-body);
+}
+
+.reliefList li::before {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 14px;
+  height: 2px;
+  background: #4d6700;
+  content: '';
+}
+
+.reliefList strong {
+  font-weight: 600;
+  color: var(--color-body);
+}
+
+.mythList {
+  margin-top: 15px;
+}
+
+.mythList > div + div {
+  margin-top: 9px;
+  padding-top: 9px;
+  border-top: 1px solid #ebe7ec;
+}
+
+.mythList dt {
+  font-family: var(--font-label);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  color: var(--color-heading);
+}
+
+.mythList dd {
+  max-width: 430px;
+  margin: 2px 0 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+.source {
+  margin-top: 18px;
+  text-align: right;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .table th:first-child {
+    width: 40%;
+    padding-left: 16px;
+  }
+
+  .table thead th:nth-child(2) {
+    width: 32%;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .panel {
+    margin-top: 40px;
+    padding: 20px 16px;
+    border-radius: var(--radius-2xl);
+  }
+
+  .bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table th,
+  .table td {
+    display: block;
+    width: auto;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tbody tr {
+    height: auto;
+    margin-top: 8px;
+    padding: 12px 16px;
+  }
+
+  .table th:first-child,
+  .table tbody th,
+  .table tbody td {
+    width: auto;
+    padding: 2px 0;
+  }
+
+  .tableSource {
+    text-align: left;
+  }
+
+  .relief,
+  .myths {
+    padding: 24px 20px;
+    border-radius: var(--radius-2xl);
+  }
+}

@@ -1,0 +1,92 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.dark .eyebrow,
+.lime .eyebrow,
+.feature .eyebrow {
+  color: var(--color-secondary);
+}
+
+/* The agent sections' lavender pill. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-light);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.title {
+  max-width: var(--kr-title-width, 1152px);
+  margin-top: var(--kr-title-gap, 16px);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 54px;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
+}
+
+.dark .title {
+  color: var(--color-white);
+}
+
+.feature .title {
+  color: var(--color-surface-dark);
+}
+
+.agent .title {
+  font-size: 35px;
+  line-height: 43px;
+  color: var(--color-primary);
+}
+
+.description {
+  max-width: var(--kr-description-width, 760px);
+  margin-top: var(--kr-description-gap, 26px);
+  font-size: 17px;
+  line-height: 29px;
+}
+
+.dark .description {
+  color: #ddcee1;
+}
+
+.lime .description {
+  color: #76707c;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .title,
+  .agent .title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}

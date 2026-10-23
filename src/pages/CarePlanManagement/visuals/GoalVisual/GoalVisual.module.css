@@ -1,0 +1,76 @@
+.goal {
+  padding: 18px 22px 20px;
+  border: 1px solid #d6e2bb;
+  border-radius: 16px;
+  background: #e9f3d4;
+}
+
+.goalLabel {
+  font-size: 16px;
+  line-height: 22px;
+  color: #4f6a10;
+}
+
+.goalTitle {
+  margin-top: 12px;
+  font-family: var(--font-label);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  color: var(--color-heading);
+}
+
+.goalMeta {
+  margin-top: 4px;
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  color: #55700f;
+}
+
+.objectives {
+  margin: 23px 0 0 78px;
+  padding-left: 20px;
+  border-left: 3px solid #add9e9;
+}
+
+.objectives li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 0;
+}
+
+.objectives li + li {
+  border-top: 1px solid #efedf1;
+}
+
+.dash {
+  flex-shrink: 0;
+  width: 12px;
+  height: 2px;
+  background: #add9e9;
+}
+
+.objective {
+  flex: 1;
+  max-width: 270px;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--color-heading);
+}
+
+.due {
+  max-width: 80px;
+  margin-left: auto;
+  border-radius: 20px;
+  padding: 4px 10px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .indent {
+    margin-left: 0 !important;
+  }
+}

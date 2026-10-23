@@ -1,0 +1,75 @@
+/* White band under the hero; a hairline closes it, as drawn. */
+.band {
+  padding: 48px 0 49px;
+  border-bottom: 1px solid #d6d0d9;
+  background: var(--color-white);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card {
+  min-height: 191px;
+  padding: 24px 24px 22px;
+  border-left: 4px solid var(--edge);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.lime {
+  --edge: var(--color-secondary);
+  --tile: #eaf3d2;
+}
+
+.purple {
+  --edge: var(--color-surface-dark);
+  --tile: var(--color-surface-light);
+}
+
+.red {
+  --edge: var(--color-error);
+  --tile: #ffdad6;
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--tile);
+}
+
+.title {
+  margin-top: 14px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.text {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    min-height: 0;
+  }
+}

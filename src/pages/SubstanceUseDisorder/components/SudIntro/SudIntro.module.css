@@ -1,0 +1,47 @@
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-surface-dark);
+}
+
+.title {
+  max-width: var(--sud-title-width, 780px);
+  margin-top: var(--sud-title-gap, 4px);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+  letter-spacing: var(--sud-title-tracking, 0);
+  color: var(--color-heading);
+}
+
+.description {
+  max-width: var(--sud-description-width, 770px);
+  margin-top: var(--sud-description-gap, 7px);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.dark .eyebrow {
+  color: var(--color-secondary);
+}
+
+.dark .title {
+  color: var(--color-white);
+}
+
+.dark .description {
+  color: #e6e0e9;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}

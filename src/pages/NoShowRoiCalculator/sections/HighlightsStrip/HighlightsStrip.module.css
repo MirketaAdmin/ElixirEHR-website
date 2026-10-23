@@ -1,0 +1,66 @@
+/* A 185px Deep Purple band; four 288px columns with dividers inset 20px top and bottom. */
+.band {
+  padding: 20px 0;
+  background: var(--color-primary);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.item {
+  min-height: 145px;
+  padding: 28px 24px 0;
+  border-right: 1px solid rgb(255 255 255 / 0.1);
+}
+
+.item:last-child {
+  border-right: 0;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  color: var(--color-secondary);
+}
+
+.text {
+  margin-top: 4px;
+  font-size: 13.35px;
+  line-height: 21px;
+  color: var(--color-border);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .item {
+    padding-bottom: 24px;
+  }
+
+  .item:nth-child(2n) {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .item {
+    min-height: 0;
+    padding: 20px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgb(255 255 255 / 0.12);
+  }
+
+  .item:last-child {
+    border-bottom: 0;
+  }
+}

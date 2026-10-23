@@ -1,0 +1,170 @@
+.section {
+  padding: 78px 0 80px;
+}
+
+.intro {
+  --kr-title-width: 1040px;
+  --kr-description-width: 760px;
+  --kr-title-gap: 12px;
+  --kr-description-gap: 12px;
+}
+
+.intro > p:first-child {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+}
+
+.intro h2 {
+  font-size: 48px;
+  line-height: 60px;
+}
+
+.intro > p:last-child {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 64px;
+}
+
+/* Surface card with a 4px coloured top edge (purple: Kratu AI; lime: clinician action). */
+.card {
+  min-height: 200px;
+  padding: 27px 24px 22px;
+  border-top: 4px solid var(--edge);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.purple {
+  --edge: var(--color-surface-dark);
+  --tag-bg: var(--color-surface-light);
+  --tag-text: var(--color-surface-dark);
+}
+
+.lime {
+  --edge: var(--color-secondary);
+  --tag-bg: #e7efcf;
+  --tag-text: #3c5708;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.number {
+  font-family: var(--font-display);
+  font-size: 29px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-surface-dark);
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: var(--tag-bg);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: var(--tag-text);
+}
+
+.title {
+  margin-top: 19px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.text {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 32px;
+  margin-top: 65px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #7b757f;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend li::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--edge);
+}
+
+/* White frame with the (not yet supplied) photograph's 954 x 520 placeholder centred in it. */
+.frame {
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.2);
+}
+
+.placeholder {
+  width: 954px;
+  max-width: 100%;
+  aspect-ratio: 954 / 520;
+  background: #faf8fc;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .intro h2 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    min-height: 0;
+  }
+
+  .frame {
+    margin-top: 40px;
+  }
+}

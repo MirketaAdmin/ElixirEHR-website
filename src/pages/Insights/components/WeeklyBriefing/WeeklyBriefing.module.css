@@ -51,3 +51,27 @@
   line-height: 24px;
   color: var(--color-heading);
 }
+
+/* Outcome message under the form (empty and collapsed until there is something to say). */
+.status:empty {
+  display: none;
+}
+
+.status {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  line-height: 18px;
+  background: rgb(255 255 255 / 0.1);
+}
+
+.sent {
+  background: var(--color-secondary-tint);
+  color: #3d5200;
+}
+
+.error {
+  background: var(--color-error-container);
+  color: var(--color-on-error-container);
+}

@@ -1,0 +1,181 @@
+.section {
+  padding: 80px 0 79px;
+  scroll-margin-top: 78px;
+}
+
+/* Outlined white panel: caption bar, column headers, rows and the closing note. */
+.panel {
+  margin-top: 50px;
+  border: 1px solid #ebe7ec;
+  background: var(--color-white);
+  box-shadow: 0 2px 4px rgb(31 24 35 / 0.1);
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 55px;
+  padding: 0 24px;
+  border-bottom: 1px solid #e3dfe3;
+  background: #f2f1f1;
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  color: var(--color-heading);
+}
+
+.reference {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border: 1px solid #ebe7ec;
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-surface-dark);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table thead tr {
+  height: 53px;
+  border-bottom: 1px solid #e5e0e4;
+  background: var(--color-surface);
+}
+
+.table th,
+.table td {
+  padding: 16px 61px 16px 16px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table thead th {
+  padding: 0 61px 0 17px;
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  color: var(--color-heading);
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #eae7e7;
+}
+
+.table tbody th,
+.table tbody td:nth-child(2) {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--color-heading);
+}
+
+.table tbody td:last-child {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+.table tbody td.muted {
+  color: var(--color-body);
+}
+
+.chip {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 2px 6px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+
+.removed {
+  border-color: #f2b2ad;
+  background: var(--color-error-container);
+  color: var(--color-error);
+}
+
+.new {
+  background: var(--color-secondary);
+  color: #4d6700;
+}
+
+.note {
+  padding: 16px 160px 16px 17px;
+  background: var(--color-surface);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames): rows stack into label/value pairs. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .panel {
+    margin-top: 32px;
+  }
+
+  .caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table th,
+  .table td {
+    display: block;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tbody tr {
+    padding: 12px 16px;
+  }
+
+  .table tbody th,
+  .table tbody td {
+    padding: 4px 0;
+  }
+
+  .table tbody [data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--font-label);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6e6a71;
+  }
+
+  .note {
+    padding: 16px;
+  }
+}

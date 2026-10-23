@@ -1,0 +1,26 @@
+.section {
+  padding: 85px 0 83px;
+  background: #fcf9f8;
+}
+
+.intro {
+}
+
+.grid {
+  margin-top: 48px;
+  --op-grid-gap: 24px;
+  --op-title-gap: 7px;
+  --op-card-padding: 32px 32px 37px;
+  --op-text-width: 262px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    margin-top: 32px;
+  }
+}

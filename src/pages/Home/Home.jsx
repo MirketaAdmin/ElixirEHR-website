@@ -1,3 +1,4 @@
+import { resources } from '../../data/home';
 import HeroSection from './sections/HeroSection/HeroSection';
 import TrustedBySection from './sections/TrustedBySection/TrustedBySection';
 import KratuIntelligenceSection from './sections/KratuIntelligenceSection/KratuIntelligenceSection';
@@ -6,7 +7,7 @@ import AiCapabilitiesSection from '../../components/sections/AiCapabilitiesSecti
 import ChallengesSection from './sections/ChallengesSection/ChallengesSection';
 import FeaturesSection from './sections/FeaturesSection/FeaturesSection';
 import TestimonialsSection from './sections/TestimonialsSection/TestimonialsSection';
-import ResourcesSection from './sections/ResourcesSection/ResourcesSection';
+import ResourcesSection from '../../components/sections/ResourcesSection/ResourcesSection';
 import ConversionCtaSection from './sections/ConversionCtaSection/ConversionCtaSection';
 
 function Home() {
@@ -21,11 +22,11 @@ function Home() {
       <TrustedBySection />
       <KratuIntelligenceSection />
       <PlatformIntroSection />
-      <AiCapabilitiesSection glow />
+      <AiCapabilitiesSection />
       <ChallengesSection />
       <FeaturesSection />
       <TestimonialsSection />
-      <ResourcesSection />
+      <ResourcesSection {...resources} />
       <ConversionCtaSection />
     </>
   );

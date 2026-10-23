@@ -1,0 +1,97 @@
+.section {
+  padding: 79px 0 80px;
+}
+
+.intro {
+  --ra-title-gap: 14px;
+  --ra-description-width: 880px;
+  --ra-description-gap: 16px;
+}
+
+.intro > p:last-child {
+  font-size: 17px;
+  line-height: 27px;
+}
+
+/* Four cards inside a pale frame with a red-tinted edge. */
+.frame {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+  margin-top: 65px;
+  padding: 40px;
+  border: 2px solid #e9b6b5;
+  border-radius: var(--radius-xl);
+  background: #fcf9f8;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 24px 22px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #f8e8e8;
+}
+
+.title {
+  margin-top: 16px;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 23.5px;
+  color: var(--color-heading);
+}
+
+.text {
+  margin-top: 11px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  line-height: 23px;
+}
+
+.label {
+  align-self: stretch;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid #e6e1e7;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-error);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .frame {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .frame {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 479px) {
+  .frame {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

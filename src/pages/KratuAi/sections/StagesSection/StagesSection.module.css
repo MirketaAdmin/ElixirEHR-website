@@ -1,0 +1,149 @@
+.section {
+  padding: 81px 0 80px;
+}
+
+.intro {
+  --kr-description-gap: 19px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 21px;
+  margin-top: 50px;
+}
+
+/* A white stage card with a 44px coloured bar; the link sits on the card's bottom edge. */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  padding: 28px 24px 29px;
+  border: 1px solid #d8d1da;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+}
+
+.card::before {
+  content: '';
+  width: 44px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--bar);
+}
+
+.highlighted {
+  padding: 27px 23px 28px;
+  border: 2px solid var(--color-secondary);
+  box-shadow: 0 8px 24px rgb(149 193 31 / 0.18);
+}
+
+.lime {
+  --bar: var(--color-secondary);
+}
+
+.purple {
+  --bar: var(--color-primary);
+}
+
+.teal {
+  --bar: #2b6179;
+}
+
+.yellow {
+  --bar: var(--color-tertiary);
+}
+
+.stage {
+  margin-top: 19px;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6b6579;
+}
+
+.title {
+  margin-top: 11px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  color: var(--color-primary);
+}
+
+.text {
+  margin-top: 11px;
+  font-size: 14px;
+  line-height: 22.5px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 16px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--color-primary);
+}
+
+/* The rounded handoff note under the cards. */
+.handoff {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  min-height: 80px;
+  padding: 16px 30px 16px 32px;
+  border: 1px solid var(--color-border);
+  border-radius: 40px;
+  background: var(--color-white);
+  font-family: var(--font-display);
+  font-size: 14.6px;
+  font-weight: 600;
+  line-height: 23px;
+  color: var(--color-primary);
+}
+
+.check {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    min-height: 0;
+  }
+
+  .handoff {
+    align-items: flex-start;
+    padding: 20px 24px;
+    border-radius: var(--radius-xl);
+  }
+}

@@ -1,0 +1,134 @@
+/* Frame-specific overrides for shared sections on the Payor Policy Intelligence page. */
+
+/* Hero: the KratuAI hero set-up (five-line 53.5/54.5 title, 18/28 description, 56px Roboto-medium CTAs; no arrow on the
+   primary). */
+.hero {
+  --page-hero-padding: 69.5px;
+  --page-hero-description-width: 580px;
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-primary-height: 56px;
+  --page-hero-primary-size: 16px;
+  --page-hero-content-offset: 0px;
+  --page-hero-description-gap: 22px;
+}
+
+.hero h1 {
+  margin-top: 18px;
+  font-size: 53.5px;
+  line-height: 54.5px;
+  letter-spacing: -0.02em;
+}
+
+.hero p + div {
+  margin-top: 36px;
+}
+
+.hero p + div > a {
+  height: 56px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.hero p + div > a:first-child {
+  padding: 0 31px;
+  box-shadow: 0 4px 18px rgb(149 193 31 / 0.35);
+}
+
+.hero p + div > a:last-child {
+  padding: 0 28px;
+  border-color: rgb(255 255 255 / 0.3);
+  background: rgb(255 255 255 / 0.07);
+}
+
+/* CTA band: lime caps eyebrow, a two-line 46px title, one 60px yellow button and the related links.
+   The frame's hairline above the band is reproduced as a border. */
+.ctaBand {
+  padding: 92px 0 90px;
+  border-top: 1px solid #e6e3e9;
+}
+
+.ctaBand div > p:first-child {
+  margin-bottom: 21px;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.15em;
+}
+
+.ctaBand h2 {
+  max-width: none;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 51px;
+  letter-spacing: -0.01em;
+}
+
+.ctaBand h2 + p:last-child {
+  max-width: 720px;
+  margin-top: 22px;
+  font-size: 18px;
+  line-height: 30px;
+  color: #eae8ed;
+}
+
+.ctaBand .ctaButton {
+  height: 60px;
+  margin-top: 34px;
+  padding-inline: 37px;
+  background: var(--color-tertiary);
+  font-family: var(--font-label);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.ctaLinks {
+  margin-top: 37px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #ddd5e6;
+}
+
+.ctaLink {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--color-white);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .hero {
+    overflow-x: clip;
+  }
+}
+
+@media (max-width: 767px) {
+  /* The desktop title outranks PageHero's mobile size; restore it. */
+  .hero h1 {
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  .ctaBand h2 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}
+
+@media (max-width: 479px) {
+  /* Long CTA labels wrap instead of running past a narrow viewport. */
+  .hero p + div > a {
+    height: auto;
+    min-height: 56px;
+    padding-block: 12px;
+    white-space: normal;
+    text-align: center;
+  }
+}

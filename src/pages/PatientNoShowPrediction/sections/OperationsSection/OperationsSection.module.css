@@ -1,0 +1,151 @@
+.section {
+  padding: 82px 0 79px;
+  background: #fdfcfe;
+}
+
+.intro {
+  --intro-title-gap: 12px;
+  --intro-description-gap: 17px;
+}
+
+.bands {
+  display: grid;
+  gap: 16px;
+  margin-top: 64px;
+}
+
+/* Full-width card with a 4px coloured left edge; the pill sits beside the title. */
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  min-height: 123.5px;
+  padding: 24px 0 22px 24px;
+  border: 1px solid var(--color-border);
+  border-left-width: 4px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 4px 12px rgb(31 24 35 / 0.04);
+}
+
+.pill {
+  flex: none;
+  padding: 0 12px;
+  border: 1px solid;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lime {
+  border-left-color: var(--color-secondary);
+}
+
+.lime .pill {
+  border-color: #ddecb5;
+  background: #f2f8e1;
+  color: #526d00;
+}
+
+.yellow {
+  border-left-color: var(--color-tertiary);
+}
+
+.yellow .pill {
+  border-color: #faebab;
+  background: #fcf7dc;
+  color: #8a6d10;
+}
+
+.red {
+  border-left-color: #dc2626;
+}
+
+.red .pill {
+  border-color: #fed6d6;
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* The frame's descriptions wrap ~24px past the card's right edge; reproduced as drawn. */
+.body {
+  flex: 1;
+  min-width: 0;
+  margin-right: -24px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  color: var(--color-heading);
+}
+
+.text {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 23px;
+}
+
+.strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-surface-dark);
+}
+
+.link {
+  text-decoration: underline;
+  color: var(--color-surface-dark);
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 23px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #6b6470;
+}
+
+.note img {
+  flex: none;
+}
+
+.noteLink {
+  font-weight: 700;
+  text-decoration: underline;
+  color: var(--color-surface-dark);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1279px) {
+  .card {
+    padding-right: 24px;
+  }
+
+  .body {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .card {
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .bands {
+    margin-top: 40px;
+  }
+}

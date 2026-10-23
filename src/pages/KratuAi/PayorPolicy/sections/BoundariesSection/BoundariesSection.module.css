@@ -1,0 +1,93 @@
+.section {
+  padding: 82px 0 80px;
+}
+
+.intro {
+  --pp-title-gap: 18px;
+  --pp-description-gap: 16px;
+}
+
+.frame {
+  margin-top: 58px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 4px 12px rgb(31 24 35 / 0.06);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table thead th {
+  padding: 22px 26px 19px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-light);
+  font-family: var(--font-label);
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.table thead th:first-child {
+  width: 368px;
+}
+
+.table tbody th,
+.table td {
+  padding: 18px 26px 19px;
+  vertical-align: middle;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.table tbody tr + tr > * {
+  border-top: 1px solid #ece8e8;
+}
+
+.table tbody th {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  /* Each row stacks: the item over what happens instead. */
+  .table thead {
+    display: none;
+  }
+
+  .table tbody tr {
+    display: block;
+    padding: 16px 20px;
+  }
+
+  .table tbody tr + tr {
+    border-top: 1px solid #ece8e8;
+  }
+
+  .table tbody th,
+  .table td {
+    display: block;
+    padding: 0;
+  }
+
+  .table tbody tr + tr > * {
+    border-top: 0;
+  }
+
+  .table td {
+    margin-top: 6px;
+  }
+}

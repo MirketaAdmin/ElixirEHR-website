@@ -1,0 +1,67 @@
+.card {
+  position: relative;
+  padding: 32px;
+  border: 1px solid #d6cfd9;
+  border-radius: var(--radius-xl);
+  background: var(--color-white);
+  box-shadow: 0 4px 16px rgb(31 24 35 / 0.04);
+}
+
+.badge {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  height: 27px;
+  padding: 0 12px;
+  border: 1px solid #cbe191;
+  border-radius: var(--radius-pill);
+  background: #ebf2d6;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3c5708;
+}
+
+.title {
+  margin-top: 20px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: -0.01em;
+  white-space: pre-line;
+  color: var(--color-heading);
+}
+
+.text {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.link {
+  color: var(--color-primary);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .title {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    padding: 28px 24px;
+  }
+
+  .badge {
+    position: static;
+    width: fit-content;
+    margin-bottom: 16px;
+  }
+}

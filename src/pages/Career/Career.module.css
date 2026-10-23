@@ -1,0 +1,39 @@
+/* Frame-specific overrides for the shared hero on the Career page. */
+
+/* 504×384 framed photo (frame baked in), placed as on the Referral Program and Insights heroes. No CTAs. */
+.hero {
+  --page-hero-content-offset: 0px;
+  --page-hero-description-gap: 24px;
+}
+
+.hero h1 {
+  line-height: 72px;
+}
+
+.heroMedia {
+  margin-block: 46px;
+}
+
+.heroImage {
+  display: block;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 0.25);
+}
+
+/* The frame tracks the current crumb slightly wider than the shared 1px. */
+.hero nav li:last-child {
+  letter-spacing: 1.2px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .heroMedia {
+    max-width: 504px;
+    margin-block: 0;
+  }
+
+  .heroImage {
+    width: 100%;
+    height: auto;
+  }
+}

@@ -1,0 +1,233 @@
+.section {
+  padding: 80px 0;
+}
+
+.intro {
+  --bh-title-size: 36px;
+  --bh-title-leading: 44px;
+  --bh-title-tracking: -0.025em;
+  --bh-title-gap: 3px;
+  --bh-title-width: 760px;
+  --bh-description-width: 760px;
+  --bh-description-gap: 18px;
+}
+
+.intro > p:first-child {
+  letter-spacing: 0.05em;
+}
+
+.intro > p:last-child {
+  line-height: 29px;
+  color: #ecdeee;
+}
+
+.compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 52px;
+}
+
+.myths,
+.facts {
+  padding: 29px 32px 36px;
+  border-radius: var(--radius-xl);
+}
+
+/* Outdated guidance: dashed outline, muted text. */
+.myths {
+  border: 2px dashed #4b3960;
+  background: #361f53;
+}
+
+.facts {
+  background: #3a2356;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+}
+
+.panelTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-title-alt);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+  color: #e5e2e1;
+}
+
+.facts .panelTitle {
+  color: #fcf9f8;
+}
+
+.mythList,
+.factList {
+  display: grid;
+  gap: 16px;
+  margin-top: 15px;
+}
+
+.mythList {
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.mythList li,
+.factList li {
+  position: relative;
+  padding-left: 19px;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.mythList li {
+  max-width: 414px;
+  color: #b0a7b6;
+}
+
+.mythList li::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 11px;
+  height: 2px;
+  background: #7b757f;
+}
+
+.factList li {
+  max-width: 432px;
+  padding-left: 20px;
+  color: var(--color-surface-light);
+}
+
+.factList img {
+  position: absolute;
+  top: 4px;
+  left: 0;
+}
+
+.lower {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 461px;
+  align-items: start;
+  gap: 64px;
+  margin-top: 47px;
+}
+
+.copy {
+  display: grid;
+  gap: 16px;
+  max-width: 580px;
+  padding-top: 2px;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-surface-light);
+}
+
+.copyTitle {
+  font-family: var(--font-title-alt);
+  font-size: 22.5px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+}
+
+.copyTitle + p {
+  margin-top: -6px;
+}
+
+.copy p + .copyTitle {
+  margin-top: 10px;
+}
+
+.checklist {
+  padding: 32px 32px 31px;
+  border-radius: var(--radius-2xl);
+  background: #3c2658;
+}
+
+.checklistEyebrow {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.checklistTitle {
+  margin-top: 16px;
+  font-family: var(--font-title-alt);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+}
+
+.check {
+  margin-top: 16px;
+}
+
+.check + .check {
+  margin-top: 15px;
+}
+
+.check h4 {
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--color-white);
+}
+
+.check p {
+  max-width: 345px;
+  margin-top: 7px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #e5e2e1;
+}
+
+.checklistNote {
+  margin-top: 15px;
+  padding: 16px 70px 16px 16px;
+  border-radius: var(--radius-lg);
+  background: #341d51;
+  font-size: 14px;
+  line-height: 22px;
+  color: #e5e2e1;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .compare,
+  .lower {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .copy {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .compare {
+    margin-top: 32px;
+  }
+
+  .myths,
+  .facts,
+  .checklist {
+    padding: 24px 20px;
+  }
+}

@@ -1,0 +1,146 @@
+/* Frame-specific overrides for shared sections on the Contact Center page. */
+
+/* Hero: 60/68 title, 18/28 description at 576px, two 56px CTAs (no arrow; eye icon on the second). */
+.hero {
+  --page-hero-padding: 106.5px;
+  --page-hero-description-width: 576px;
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-primary-height: 56px;
+  --page-hero-primary-size: 16px;
+  --page-hero-content-offset: 0px;
+  --page-hero-description-gap: 23px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  line-height: 68px;
+  margin-top: 20px;
+  letter-spacing: -0.02em;
+}
+
+.hero p + div {
+  margin-top: 36px;
+}
+
+/* Hero CTAs: 16px Roboto medium without tracking; the primary carries a lime glow, the secondary a
+   fainter fill and border than the shared ghost button, with an 18px eye icon. */
+.hero p + div > a {
+  height: 56px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.hero p + div > a:first-child {
+  padding: 0 31px;
+  box-shadow: 0 4px 18px rgb(149 193 31 / 0.35);
+}
+
+.hero p + div > a:last-child {
+  gap: 8px;
+  padding: 0 28px;
+  border-color: rgb(255 255 255 / 0.3);
+  background: rgb(255 255 255 / 0.07);
+}
+
+.hero p + div > a:last-child svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* CTA band: the eyebrow drawn as this page's lime chip, a one-line 42px title, and two 58px CTAs
+   (lime with a glow; translucent secondary). */
+.ctaBand {
+  padding: 79px 0 79px;
+}
+
+.ctaBand div > p:first-child {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  margin-bottom: 14px;
+  padding: 0 13px;
+  border: 1px solid rgb(149 193 31 / 0.5);
+  border-radius: var(--radius-pill);
+  background: rgb(149 193 31 / 0.15);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.15em;
+}
+
+.ctaBand h2 {
+  font-size: 42px;
+  line-height: 52px;
+  letter-spacing: -0.01em;
+}
+
+.ctaBand h2 + p:last-child {
+  max-width: 720px;
+  margin-top: 17px;
+  font-size: 18px;
+  line-height: 28px;
+  color: rgb(255 255 255 / 0.9);
+}
+
+.ctaBand .ctaButton,
+.ctaBand .ctaSecondary {
+  height: 58px;
+  margin-top: 36px;
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.ctaBand div:has(> .ctaButton) {
+  gap: 16px;
+}
+
+.ctaButton {
+  padding-inline: 38px;
+  box-shadow: 0 8px 24px rgb(149 193 31 / 0.35);
+}
+
+.ctaSecondary {
+  padding-inline: 38px;
+  border-color: rgb(255 255 255 / 0.3);
+  background: rgb(255 255 255 / 0.07);
+  color: var(--color-white);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  /* The image's tilted backdrop may not widen the page. */
+  .hero {
+    overflow-x: clip;
+  }
+}
+
+@media (max-width: 767px) {
+  /* The 60px desktop title outranks PageHero's mobile size; restore it. */
+  .hero h1 {
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  .ctaBand h2 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}
+
+@media (max-width: 479px) {
+  /* The long CTA labels wrap instead of running past a narrow viewport. */
+  .hero p + div > a,
+  .ctaBand .ctaButton,
+  .ctaBand .ctaSecondary {
+    height: auto;
+    min-height: 56px;
+    padding-block: 12px;
+    white-space: normal;
+    text-align: center;
+  }
+}

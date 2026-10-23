@@ -1,0 +1,125 @@
+/* Heading block set up as the Referral Program "How it works?" heading (same frame positions). */
+.section {
+  padding: 82px 0 81px;
+}
+
+.heading {
+  --eyebrow-heading-gap: 12px;
+}
+
+.heading h2 {
+  letter-spacing: 0;
+}
+
+.description {
+  max-width: 1130px;
+  margin: 12px auto 0;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+/* Surface card with the frame's soft warm inner edge. */
+.card {
+  min-height: 100%;
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: inset 0 0 14px rgb(232 232 210 / 0.6);
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  background: #ece8ea;
+}
+
+.title {
+  margin-top: 22px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-surface-dark);
+}
+
+.text {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* "Transparency": spans the last two columns; 80px Surface Variant (dark) circle beside the text. */
+.highlight {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 31px 22px 33px 33px;
+  border-radius: var(--radius-xl);
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.circle {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-surface-dark);
+}
+
+.highlightTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--color-white);
+}
+
+.highlightText {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .highlight {
+    grid-column: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+}

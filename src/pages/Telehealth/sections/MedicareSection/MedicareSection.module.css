@@ -1,0 +1,170 @@
+.section {
+  padding: 80px 0 79px;
+  scroll-margin-top: 80px;
+}
+
+.intro {
+  --th-title-width: 940px;
+  --th-description-width: 850px;
+}
+
+.list {
+  display: grid;
+  gap: 14px;
+  margin-top: 64px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 144px minmax(0, 1fr);
+  align-items: center;
+  gap: 0;
+  min-height: 124px;
+  padding: 25px 64px 25px 24px;
+  border: 1px solid #d6d0d9;
+  border-radius: var(--radius-2xl);
+  background: var(--color-white);
+}
+
+.cliff {
+  border-left: 4px solid var(--color-error);
+  background: #fffaf9;
+}
+
+.when {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.chip {
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-family: Consolas, 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  color: var(--color-heading);
+}
+
+.status {
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #7b757f;
+}
+
+.active .chip,
+.permanent .chip {
+  background: var(--color-secondary);
+}
+
+.permanent .status {
+  font-family: Consolas, 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #4d6700;
+}
+
+.cliff .chip {
+  border: 1px solid #f4a5a0;
+  background: var(--color-error-container);
+  color: var(--color-error);
+}
+
+.cliff .status {
+  font-family: Consolas, 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-error);
+}
+
+.revision .chip {
+  background: #e5e2e1;
+}
+
+.title {
+  font-family: var(--font-label);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.text {
+  max-width: 900px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.link {
+  font-weight: 700;
+  color: var(--color-surface-dark);
+  text-decoration: underline;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-surface-dark);
+  outline-offset: 2px;
+}
+
+.sources {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 22px;
+  padding: 20px 13px 19px;
+  border: 1px solid #dcd5dc;
+  border-radius: 16px;
+  background: var(--color-surface);
+  font-family: Consolas, 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-body);
+}
+
+.sources span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ref {
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #7b757f;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .list {
+    margin-top: 40px;
+  }
+
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .when {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sources {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

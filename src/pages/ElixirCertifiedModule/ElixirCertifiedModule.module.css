@@ -1,0 +1,784 @@
+/* Frame-specific styles for the Elixir Certified Module page. */
+
+/* Hero: the same set-up as its sibling ONC MFA Use Cases (53.5/54 title, 18/28 off-white description). */
+.hero {
+  --page-hero-padding: 70px;
+  --page-hero-description-width: 574px;
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-content-offset: 0px;
+  --page-hero-description-gap: 24px;
+  --page-hero-paragraph-gap: 25px;
+}
+
+.hero h1 {
+  margin-top: 18px;
+  font-size: 53.5px;
+  line-height: 54px;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 ~ p {
+  color: #eae8ed;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Shared section heading: caps eyebrow (or pill), Montserrat title. */
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.title {
+  margin-top: 3px;
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 46px;
+  letter-spacing: -0.01em;
+  color: #241434;
+}
+
+.rule {
+  width: 64px;
+  height: 5px;
+  margin-top: 13px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+/* Certification details: certificate card beside the facts card, then two download cards. */
+.details {
+  padding: 82px 0 80px;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 461px minmax(0, 1fr);
+  align-items: start;
+  gap: 33px;
+  margin-top: 58px;
+}
+
+.certificate,
+.factsCard,
+.downloadCard {
+  border: 1px solid #e0dce2;
+  border-radius: 20px;
+  background: var(--color-white);
+  box-shadow: 0 8px 24px rgb(31 24 35 / 0.06);
+}
+
+.certificate {
+  padding: 32px 32px 35px;
+}
+
+.certificateImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 50px;
+  padding-top: 12px;
+  border-top: 1px solid #e0dce2;
+  font-family: var(--font-label);
+  font-size: 12px;
+  line-height: 20px;
+  color: #685875;
+}
+
+.factsCard {
+  padding: 18px 32px 32px;
+}
+
+.fact {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  align-items: start;
+  padding: 14px 0 15px;
+  border-bottom: 2px solid #f2eff3;
+}
+
+.fact:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.fact dt {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #685875;
+}
+
+.fact dd {
+  margin: 2px 0 0;
+  font-family: var(--font-label);
+  font-size: 17.5px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #241434;
+  overflow-wrap: anywhere;
+}
+
+.fact dd.code {
+  font-family: 'Courier New', ui-monospace, monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: -5px;
+}
+
+.chips li {
+  display: flex;
+  align-items: center;
+  height: 23px;
+  padding: 0 11px;
+  border: 1px solid #d9d3db;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.disclaimer {
+  margin-top: 40px;
+  padding: 16px 18px 16px 17px;
+  border-left: 3px solid var(--color-primary);
+  border-radius: 12px;
+  background: var(--color-surface);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: #685875;
+}
+
+.downloads {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.downloadCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 118px;
+  padding: 16px 24px;
+}
+
+.fileTile {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid;
+  border-radius: 12px;
+}
+
+.rose {
+  border-color: #ffe4e6;
+  background: #fff1f2;
+}
+
+.lavender {
+  border-color: #f3e8ff;
+  background: #faf5ff;
+}
+
+.downloadText {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.downloadTitle {
+  font-family: var(--font-label);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 25px;
+  color: #241434;
+}
+
+.downloadMeta {
+  margin-top: 1px;
+  font-family: var(--font-label);
+  font-size: 12.2px;
+  line-height: 20px;
+  color: #685875;
+}
+
+.metaCode {
+  font-family: 'Courier New', ui-monospace, monospace;
+  font-size: 13px;
+  color: #241434;
+}
+
+/* Both the text and the button shrink, so a long title squeezes the label onto two lines, as drawn. */
+.downloadCard .download {
+  flex: 0 1 auto;
+  margin-left: auto;
+  gap: 8px;
+  white-space: normal;
+  text-align: left;
+  min-height: 38px;
+  height: auto;
+  padding: 8px 20px;
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #241434;
+}
+
+/* Certified criteria: group buttons over the full criteria table. */
+.criteria {
+  padding: 81px 0 80px;
+}
+
+.criteriaTitle {
+  margin-top: 3px;
+}
+
+.lead {
+  margin-top: 4px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  line-height: 22px;
+  color: #685875;
+}
+
+.groups {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 11px;
+  margin-top: 40px;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  height: 43px;
+  padding: 0 27px;
+  border: 1px solid #ddd7de;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition:
+    background-color var(--duration-base) var(--ease-standard),
+    color var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard);
+}
+
+.group:hover {
+  border-color: var(--color-primary);
+}
+
+.groupActive {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  box-shadow:
+    0 0 0 1px var(--color-white),
+    0 0 0 3px var(--color-primary);
+  color: var(--color-white);
+}
+
+.tableWrap {
+  margin-top: 32px;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgb(31 24 35 / 0.06);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+}
+
+.table thead th {
+  height: 96px;
+  padding: 16px 24px;
+  background: var(--color-primary);
+  vertical-align: middle;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.table thead th:last-child {
+  padding-right: 12px;
+}
+
+.feesNote {
+  display: block;
+  margin-top: 5px;
+  font-size: 10.5px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: rgb(255 255 255 / 0.72);
+}
+
+.table tbody tr {
+  border-top: 1px solid #ebe7ed;
+  background: var(--color-white);
+}
+
+.table tbody tr:first-child {
+  border-top: 0;
+}
+
+.table tbody tr:nth-child(even) {
+  background: #fbfafa;
+}
+
+.table tbody th,
+.table tbody td {
+  padding: 15px 24px 17px;
+  vertical-align: top;
+  font-family: var(--font-label);
+  font-size: 14px;
+  line-height: 23px;
+}
+
+.table tbody th {
+  font-weight: 600;
+  line-height: 20px;
+  padding-top: 16px;
+  color: var(--color-primary);
+}
+
+/* The frame wraps capability names at ~264px of the column's 384. */
+.table tbody th {
+  padding-right: 96px;
+}
+
+.table tbody td {
+  color: #685875;
+}
+
+.table tbody td.fees {
+  padding-right: 6px;
+  font-weight: 500;
+}
+
+.fees p + p {
+  margin-top: 4px;
+}
+
+/* Assessment: copy, points and badges beside the shared contact form. */
+.assessment {
+  padding: 82px 0 80px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 544px) 543px;
+  justify-content: space-between;
+  align-items: start;
+  gap: 48px;
+}
+
+.copy {
+  margin-top: 14px;
+}
+
+.copy .pill {
+  height: 29px;
+  padding: 0 14px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.assessmentTitle {
+  max-width: 380px;
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 49.5px;
+  font-weight: 800;
+  line-height: 49px;
+  letter-spacing: -0.02em;
+  color: #241434;
+}
+
+.description {
+  max-width: 520px;
+  margin-top: 26px;
+  font-family: var(--font-label);
+  font-size: 18px;
+  line-height: 28px;
+  white-space: pre-line;
+  color: #685875;
+}
+
+.points {
+  display: grid;
+  gap: 17px;
+  margin-top: 35px;
+}
+
+.points li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-label);
+  font-size: 16px;
+  line-height: 24px;
+  color: #241434;
+}
+
+.points img {
+  flex-shrink: 0;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px 13px;
+  margin-top: 39px;
+  padding-top: 23px;
+  border-top: 2px solid #d7d0d8;
+}
+
+.badges li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 31px;
+  padding: 0 12px 0 13px;
+  border: 1px solid #d9d3db;
+  border-radius: 8px;
+  background: var(--color-white);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  color: #685875;
+}
+
+/* The shared form, set to this frame: white card and fields, placeholders, lime caps submit. */
+.form {
+  --contact-form-label-gap: 4px;
+  --contact-form-row-gap: 16px;
+  --contact-form-column-gap: 16px;
+  --contact-form-submit-gap: 30px;
+
+  padding: 37px 40px 39px;
+  border: 1px solid #efecef;
+  border-radius: 24px;
+  background: var(--color-white);
+  box-shadow: 0 16px 32px rgb(31 24 35 / 0.08);
+}
+
+.formTitle {
+  margin-bottom: 20px;
+  font-family: var(--font-display);
+  font-size: 24.3px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #241434;
+}
+
+.form label {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #241434;
+}
+
+.form input,
+.form textarea {
+  height: 43px;
+  padding: 0 15px;
+  border-color: #d9d3db;
+  border-radius: 10px;
+  background: var(--color-white);
+  font-family: var(--font-label);
+  font-size: 14px;
+}
+
+.form textarea {
+  height: 103px;
+  padding-top: 11px;
+  line-height: 20px;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: #9b93a3;
+}
+
+.form button[type='submit'] {
+  height: 52px;
+  background: var(--color-secondary);
+  box-shadow: 0 8px 18px rgb(149 193 31 / 0.3);
+  font-family: var(--font-label);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #241434;
+}
+
+.form button[type='submit'] svg {
+  display: none;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .hero {
+    overflow-x: clip;
+  }
+
+  .detailsGrid {
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .fact {
+    grid-template-columns: 170px minmax(0, 1fr);
+  }
+
+  .downloadCard {
+    flex-wrap: wrap;
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 480px);
+  }
+}
+
+@media (max-width: 1023px) {
+  .detailsGrid,
+  .downloads {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .certificate {
+    justify-self: center;
+    width: 100%;
+    max-width: 461px;
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
+  }
+
+  .copy {
+    margin-top: 0;
+  }
+
+  .assessmentTitle {
+    max-width: 620px;
+  }
+
+  .description {
+    white-space: normal;
+  }
+
+  .table tbody th {
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* The desktop title outranks PageHero's mobile size; restore it. */
+  .hero h1 {
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  .details,
+  .criteria,
+  .assessment {
+    padding: 64px 0;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .detailsGrid {
+    margin-top: 40px;
+  }
+
+  .certificate,
+  .factsCard {
+    padding: 20px;
+  }
+
+  .caption {
+    margin-top: 28px;
+  }
+
+  .fact {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+
+  /* Keeps the certificate number on one line on 320–430px phones. */
+  .fact dd.code {
+    font-size: 13.5px;
+  }
+
+  .downloadCard {
+    padding: 20px;
+  }
+
+  .downloadCard .download {
+    width: 100%;
+  }
+
+  .groups {
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .group {
+    height: auto;
+    min-height: 40px;
+    padding: 8px 18px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* The table becomes one block per criterion, each value under its column name. */
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table tbody th,
+  .table tbody td {
+    display: block;
+    width: 100%;
+  }
+
+  .table tbody tr {
+    padding: 16px 20px;
+  }
+
+  .table tbody th,
+  .table tbody td,
+  .table tbody td.fees {
+    padding: 0;
+  }
+
+  .table tbody td {
+    margin-top: 12px;
+  }
+
+  .table tbody td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 2px;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .assessmentTitle {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .points li {
+    align-items: flex-start;
+  }
+
+  .form {
+    padding: 24px 20px;
+  }
+
+  .formTitle {
+    font-size: 22px;
+    line-height: 30px;
+  }
+}

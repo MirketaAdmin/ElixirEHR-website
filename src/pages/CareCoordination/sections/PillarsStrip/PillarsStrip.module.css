@@ -1,0 +1,83 @@
+/* Primary-purple band under the hero. */
+.band {
+  padding: 81px 0 80px;
+  background: var(--color-primary);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card {
+  min-height: 302px;
+  padding: 23px 24px 22px;
+  border: 1px solid #483661;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface-dark);
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #4f464f;
+}
+
+.label {
+  margin-top: 17px;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.title {
+  max-width: 190px;
+  margin-top: 3px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  color: var(--color-white);
+}
+
+.text {
+  max-width: 184px;
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 23px;
+  color: #c1bac4;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card {
+    min-height: 0;
+  }
+
+  .title,
+  .text {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .band {
+    padding: 48px 0;
+  }
+
+  .list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}

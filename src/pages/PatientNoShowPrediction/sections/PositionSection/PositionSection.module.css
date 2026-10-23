@@ -1,0 +1,101 @@
+.section {
+  padding: 79px 0 80px;
+}
+
+/* 442px argument column, 64px gap, 646px column of cards. */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 442fr) minmax(0, 646fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.intro {
+  --intro-title-gap: 17px;
+  --intro-description-gap: 17px;
+}
+
+.intro p:last-child {
+  color: #d9cade;
+}
+
+.right {
+  display: grid;
+  gap: 23px;
+}
+
+/* Translucent card; the second one carries the frame's soft glow behind its dot. */
+.card {
+  position: relative;
+  padding: 25px 24px 25px;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: var(--radius-lg);
+  background: rgb(255 255 255 / 0.05);
+}
+
+.card:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 6px;
+  width: 110px;
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(255 255 255 / 0.18), transparent);
+}
+
+.cardTitle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--color-white);
+}
+
+.cardTitle::before {
+  content: '';
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+}
+
+.cardText {
+  position: relative;
+  margin-top: 7px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #c9b9d0;
+}
+
+.statement {
+  margin-top: 9px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  color: var(--color-white);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .statement {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}

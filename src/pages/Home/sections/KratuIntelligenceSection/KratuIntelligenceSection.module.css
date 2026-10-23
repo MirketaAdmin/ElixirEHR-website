@@ -64,26 +64,12 @@
 .row {
   display: flex;
   align-items: center;
-  gap: 16px;
+  /* Cards sit on the column's inner edge, where the connectors meet them. */
+  justify-content: flex-end;
 }
 
 .right {
   flex-direction: row-reverse;
-}
-
-.number {
-  display: flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 37px;
-  border-radius: 4px;
-  background: var(--color-secondary);
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--color-white);
 }
 
 .card {

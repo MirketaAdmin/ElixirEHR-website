@@ -1,0 +1,58 @@
+/* White band under the hero; a 2px seam closes it, as drawn. */
+.band {
+  padding: 40px 0 39px;
+  border-bottom: 2px solid #efebef;
+  background: var(--color-white);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.item {
+  min-height: 109px;
+  padding: 13px 16px 0 20px;
+  border-left: 3px solid var(--edge);
+}
+
+.purple {
+  --edge: var(--color-primary);
+}
+
+.lime {
+  --edge: var(--color-secondary);
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  color: var(--color-heading);
+}
+
+.text {
+  margin-top: 4px;
+  font-size: 13.5px;
+  line-height: 19px;
+  color: #76707c;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .item {
+    min-height: 0;
+    padding-bottom: 12px;
+  }
+}

@@ -9,14 +9,14 @@ export const footerColumns = [
     links: [
       { label: 'Electronic Health Records', to: '/electronic-health-record' },
       { label: 'Revenue Cycle Management', to: '/revenue-cycle-management' },
-      { label: 'Telehealth', to: '/solutions/telehealth' },
-      { label: 'Patient Engagement', to: '/solutions/patient-engagement' },
+      { label: 'Telehealth', to: '/more-specialties/telehealth' },
+      { label: 'Patient Engagement', to: '/patient-portal' },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { label: 'Case Studies', to: '/resources/case-studies' },
+      { label: 'Case Studies', to: '/success-stories' },
       { label: 'Support Center', to: '/resources/support-center' },
       { label: 'Documentation', to: '/resources/documentation' },
       { label: 'Developer API', to: '/resources/developer-api' },
@@ -26,8 +26,8 @@ export const footerColumns = [
     title: 'Company',
     links: [
       { label: 'About Us', to: '/about-us' },
-      { label: 'Careers', to: '/company/careers' },
-      { label: 'Contact', to: '/company/contact' },
+      { label: 'Careers', to: '/career' },
+      { label: 'Contact', to: '/contact-us' },
       { label: 'Partners', to: '/company/partners' },
     ],
   },
@@ -35,8 +35,9 @@ export const footerColumns = [
 
 // Profile URLs were not provided with the design — set them before launch.
 export const socialLinks = [
-  { label: 'YouTube', icon: 'youtube', href: '#' },
-  { label: 'LinkedIn', icon: 'linkedin', href: '#' },
+  // No profile URLs have been supplied yet: without an href the icons render unlinked (see Footer).
+  { label: 'YouTube', icon: 'youtube' },
+  { label: 'LinkedIn', icon: 'linkedin' },
 ];
 
 export const copyright =

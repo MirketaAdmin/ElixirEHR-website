@@ -7,6 +7,7 @@ import Button from '../../ui/Button/Button';
 import Icon from '../../ui/Icon/Icon';
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
+import SiteSearch from './SiteSearch';
 import styles from './Header.module.css';
 
 // Matches the header's CSS breakpoint: below it the mega menu gives way to the hamburger.
@@ -14,13 +15,28 @@ const DESKTOP_QUERY = '(min-width: 1200px)';
 
 /**
  * Global sticky header: logo (Home), primary navigation (mega menus on desktop, an accordion
- * behind the hamburger below 1200px), search and the "Request a Demo" CTA. Navigation content
+ * behind the hamburger below 1200px), site search (SiteSearch, also Ctrl/Cmd + K) and the
+ * "Request a Demo" CTA. Navigation content
  * lives in data/navigation.js.
  */
 function Header() {
   const mobileNavId = useId();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  // Ctrl/Cmd + K opens the site search from anywhere.
+  useEffect(() => {
+    const onKeyDown = (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault();
+        setMobileOpen(false);
+        setSearchOpen(true);
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, []);
 
   // A soft shadow once the page scrolls under the header.
   useEffect(() => {
@@ -62,7 +78,16 @@ function Header() {
         </div>
 
         <div className={styles.actions}>
-          <button type="button" className={styles.search} aria-label="Search">
+          <button
+            type="button"
+            className={styles.search}
+            aria-label="Search the site"
+            aria-haspopup="dialog"
+            onClick={() => {
+              setMobileOpen(false);
+              setSearchOpen(true);
+            }}
+          >
             <Icon name="search" />
           </button>
           <Button to={demoCta.to} size="md" className={styles.cta}>
@@ -82,6 +107,7 @@ function Header() {
       </Container>
 
       {mobileOpen && <MobileNav id={mobileNavId} onNavigate={closeMobile} />}
+      <SiteSearch open={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   );
 }

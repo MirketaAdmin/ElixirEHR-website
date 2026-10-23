@@ -1,10 +1,13 @@
 /* Inner-page frames start the hero on the header's last row (Home has a 1px hero stroke there). */
 .hero {
+  position: relative;
   margin-top: -1px;
   background: var(--color-surface-dark);
 }
 
 .inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
@@ -175,5 +178,51 @@
   .badge {
     top: auto;
     bottom: 36px;
+  }
+}
+
+/* ── Entrance: breadcrumb, title lines, description, actions, then the media ──────────
+   One sequence for every page hero (timings from the motion tokens). */
+@media (prefers-reduced-motion: no-preference) {
+  .breadcrumb,
+  .titleLine,
+  .description,
+  .actions,
+  .inner > :last-child {
+    animation: hero-rise 900ms var(--ease-out) both;
+  }
+
+  .titleLine:nth-child(1) { animation-delay: 80ms; }
+  .titleLine:nth-child(2) { animation-delay: 150ms; }
+  .titleLine:nth-child(3) { animation-delay: 220ms; }
+  .titleLine:nth-child(4) { animation-delay: 290ms; }
+  .titleLine:nth-child(5) { animation-delay: 360ms; }
+
+  .description {
+    animation-delay: 380ms;
+  }
+
+  .actions {
+    animation-delay: 480ms;
+  }
+
+  .inner > :last-child {
+    animation-name: hero-media;
+    animation-duration: 1100ms;
+    animation-delay: 200ms;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+}
+
+@keyframes hero-media {
+  from {
+    opacity: 0;
+    transform: translate3d(24px, 0, 0) scale(0.98);
   }
 }

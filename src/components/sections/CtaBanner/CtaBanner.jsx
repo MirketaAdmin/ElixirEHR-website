@@ -2,6 +2,7 @@ import { cn } from '../../../utils/cn';
 import Section from '../../layout/Section/Section';
 import SectionHeading from '../../ui/SectionHeading/SectionHeading';
 import Button from '../../ui/Button/Button';
+import CareNetwork from '../../motion/CareNetwork';
 import styles from './CtaBanner.module.css';
 
 /**
@@ -9,6 +10,8 @@ import styles from './CtaBanner.module.css';
  * `title` may be a string or an array of lines (Figma line breaks); `eyebrow`, `description` and
  * `secondaryCta` are optional, and `children` render under the buttons (e.g. a row of text links).
  * `ctaClassName` / `secondaryCtaClassName` let a page apply its frame's button styling.
+ * A `secondaryCta` with neither `to` nor `href` (destination not built yet) renders as drawn but
+ * is marked `aria-disabled`.
  */
 function CtaBanner({
   eyebrow,
@@ -31,6 +34,7 @@ function CtaBanner({
 
   return (
     <Section tone="dark" spacing="none" className={cn(styles.section, className)} containerClassName={styles.inner}>
+      <CareNetwork density={0.7} />
       <SectionHeading
         eyebrow={eyebrow}
         eyebrowCaps
@@ -48,6 +52,7 @@ function CtaBanner({
           <Button
             href={secondaryCta.href}
             to={secondaryCta.to}
+            aria-disabled={secondaryCta.to || secondaryCta.href ? undefined : 'true'}
             variant="outline"
             size="xxl"
             className={cn(styles.cta, secondaryCtaClassName)}

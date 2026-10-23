@@ -1,0 +1,148 @@
+.section {
+  padding: 78px 0 116px;
+}
+
+/* 442px "Honest limits" column, 65px gap, 645px "Connected" column. */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 442fr) minmax(0, 645fr);
+  gap: 65px;
+}
+
+.heading {
+  --eyebrow-heading-gap: 7px;
+}
+
+.heading p {
+  font-size: 13px;
+}
+
+.heading h2 {
+  font-size: 30px;
+  line-height: 36px;
+  color: var(--color-surface-dark);
+}
+
+.paragraph {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.heading + .paragraph {
+  margin-top: 23px;
+}
+
+.paragraph + .paragraph {
+  margin-top: 24px;
+}
+
+.note {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+}
+
+.noteText {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: pre-line;
+  color: var(--color-heading);
+}
+
+.noteLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 14px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-secondary);
+}
+
+/* 2×2 cards on fixed 156px rows, as in the frame: the taller right-hand cards (hard line breaks
+   in their copy) run into the next row, and the card below sits over them. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 156px;
+  gap: 17px 16px;
+  margin-top: 24px;
+}
+
+.grid li {
+  position: relative;
+}
+
+.card {
+  display: block;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgb(31 24 35 / 0.06);
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  border-radius: var(--radius-xs);
+  background: #f1e4f4;
+}
+
+.cardTitle {
+  margin-top: 9px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-surface-dark);
+}
+
+.cardText {
+  margin-top: 7px;
+  font-size: 14px;
+  line-height: 23px;
+  white-space: pre-line;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 56px;
+  }
+
+  /* Below desktop the cards size to their content (no overlap) and the hard breaks are dropped. */
+  .grid {
+    grid-auto-rows: auto;
+  }
+
+  .card {
+    height: 100%;
+  }
+
+  .noteText,
+  .cardText {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .heading h2 {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

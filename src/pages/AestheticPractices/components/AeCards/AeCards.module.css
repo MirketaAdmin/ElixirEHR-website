@@ -1,0 +1,93 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--ae-row-gap, 24px) 24px;
+}
+
+.card {
+  padding: 31px 32px var(--ae-card-bottom, 32px);
+  border-radius: var(--radius-lg);
+  background: var(--card-bg, var(--color-surface));
+  box-shadow: 0 4px 16px rgb(31 24 35 / 0.06);
+}
+
+.disc {
+  --card-bg: var(--color-white);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+.disc .icon {
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-surface-light);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.numbered .card {
+  padding-top: 32px;
+  --ae-title-gap: 9px;
+  --ae-text-gap: 7px;
+}
+
+.number {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #4d6700;
+}
+
+.title {
+  max-width: var(--ae-title-width, 270px);
+  margin-top: var(--ae-title-gap, 17px);
+  font-family: var(--font-title-alt);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
+}
+
+.text {
+  max-width: var(--ae-text-width, 264px);
+  margin-top: var(--ae-text-gap, 15px);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .title,
+  .text {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+}

@@ -1,0 +1,159 @@
+.section {
+  padding: 81px 0 79px;
+}
+
+.intro {
+  --kr-title-width: 760px;
+  --kr-description-width: 720px;
+  --kr-title-gap: 14px;
+  --kr-description-gap: 15px;
+}
+
+.intro > p:first-child {
+  letter-spacing: 0.13em;
+}
+
+.intro h2 {
+  font-size: 40px;
+  line-height: 49px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 55px;
+}
+
+.card {
+  overflow: hidden;
+  border: 1px solid #e6e0e6;
+  border-radius: var(--radius-xl);
+  background: var(--color-white);
+  box-shadow: 0 12px 28px rgb(31 24 35 / 0.06);
+}
+
+/* Gradient header: lighter Deep Purple for new patients, deep Surface Variant for returning. */
+.header {
+  position: relative;
+  min-height: 146px;
+  padding: 42px 36px 27px;
+}
+
+.new {
+  background: linear-gradient(135deg, #48316a, #5a3882);
+}
+
+.returning {
+  background: linear-gradient(135deg, #321b4f, #1f0c36);
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-white);
+}
+
+.subtitle {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(255 255 255 / 0.85);
+}
+
+.badge {
+  position: absolute;
+  top: 36px;
+  right: 36px;
+  display: flex;
+  align-items: center;
+  height: 25px;
+  padding: 0 11px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.steps {
+  display: grid;
+  gap: 18px;
+  padding: 36px 36px 39px;
+}
+
+.steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 15px;
+  line-height: 23px;
+}
+
+.steps strong {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.circle {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ddd6df;
+  border-radius: 50%;
+  background: var(--color-surface);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  margin-left: 8px;
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 14px;
+  vertical-align: 1px;
+}
+
+.bypassed {
+  background: #ffdad6;
+  color: var(--color-error);
+}
+
+.active {
+  background: #eaf3d2;
+  color: #4d6700;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .header,
+  .steps {
+    padding-inline: 20px;
+  }
+
+  .badge {
+    position: static;
+    display: inline-flex;
+    margin-top: 12px;
+  }
+}

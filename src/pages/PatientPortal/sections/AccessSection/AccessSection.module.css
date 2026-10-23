@@ -1,0 +1,229 @@
+.section {
+  padding: 78px 0 78px;
+}
+
+.heading {
+  --eyebrow-heading-gap: 6px;
+}
+
+.heading p {
+  font-size: 13px;
+}
+
+.heading h2 {
+  max-width: 1060px;
+  font-size: 36px;
+  line-height: 40px;
+}
+
+/* 452px argument column, 48px gap, 652px right column. */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 452fr) minmax(0, 652fr);
+  gap: 48px;
+  margin-top: 39px;
+}
+
+.paragraph {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.paragraph + .paragraph {
+  margin-top: 24px;
+}
+
+.callout {
+  margin-top: 25px;
+  padding: 16px 16px 15px;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  background: var(--color-surface);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-primary);
+}
+
+.engine {
+  margin-top: 25px;
+  padding: 20px 20px 19px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.engineTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: var(--color-surface-dark);
+}
+
+.engineRows {
+  display: grid;
+  gap: 11px;
+  margin-top: 11px;
+}
+
+.engineRows li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 41px;
+  padding: 0 10px;
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  font-family: var(--font-label);
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-heading);
+}
+
+.status {
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 19px;
+  color: var(--color-white);
+}
+
+.right {
+  display: grid;
+  align-content: start;
+  gap: 24px;
+  margin-top: 19px;
+}
+
+/* White card with a soft shadow around the relationship table. */
+.tableCard {
+  padding: 6px 6px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 1px 4px rgb(31 24 35 / 0.06);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table thead th {
+  height: 40px;
+  padding: 0 15px;
+  background: var(--color-surface);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.table thead th:first-child {
+  width: 170px;
+  box-sizing: border-box;
+}
+
+.table tbody th,
+.table tbody td {
+  padding: 16px 15px 12px;
+  border-bottom: 1px solid #d9d2db;
+  vertical-align: middle;
+}
+
+.table tbody tr:first-child th,
+.table tbody tr:first-child td {
+  padding-block: 15px 11px;
+}
+
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table tbody th {
+  font-family: var(--font-label);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-heading);
+}
+
+.table tbody td {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.note {
+  margin-top: 15px;
+  padding-left: 18px;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 18px;
+}
+
+/* Surface panel with a lime left edge. */
+.panel {
+  padding: 22px 8px 29px 24px;
+  border-left: 4px solid var(--color-secondary);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  background: var(--color-surface);
+}
+
+.panelTitle {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.checks {
+  display: grid;
+  gap: 12px;
+  margin-top: 13px;
+}
+
+.checks li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .heading h2 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .tableCard {
+    overflow-x: auto;
+  }
+
+  .table thead th:first-child {
+    width: 130px;
+  }
+}

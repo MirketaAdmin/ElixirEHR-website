@@ -7,6 +7,19 @@
   padding: 8px var(--container-padding) 32px;
   border-top: 1px solid var(--color-white-10);
   background: var(--color-white);
+  animation: mobile-panel-in var(--duration-base) var(--ease-out);
+}
+
+@keyframes mobile-panel-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+/* Opening a submenu eases its rows in. */
+.sublist:not([hidden]) {
+  animation: mobile-panel-in var(--duration-base) var(--ease-out);
 }
 
 .list {

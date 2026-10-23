@@ -1,5 +1,12 @@
 .section {
+  position: relative;
   padding: 78px 0 80px;
+}
+
+/* The care network sits under the band's content. */
+.inner > :not(canvas) {
+  position: relative;
+  z-index: 1;
 }
 
 .heading > p:last-child {

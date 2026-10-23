@@ -1,0 +1,43 @@
+.section {
+  padding: 80px 0;
+  background: #32194f;
+}
+
+.cards {
+  --part2-gap: 13px 16px;
+  --part2-padding: 25px 24px 26px;
+  --part2-text-gap: 5px;
+  --part2-title-width: 280px;
+  --part2-text-width: 280px;
+
+  margin-top: 49px;
+}
+
+.note {
+  margin-top: 45px;
+  padding: 16px;
+  background: #361e53;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-surface-light);
+}
+
+.note span {
+  display: block;
+  max-width: 1000px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .cards {
+    margin-top: 32px;
+  }
+
+  .note {
+    margin-top: 32px;
+  }
+}

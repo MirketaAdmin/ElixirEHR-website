@@ -1,0 +1,75 @@
+/* The frame's hairlines above and below the band are reproduced as borders. */
+.section {
+  padding: 81px 0 82px;
+  border-top: 1px solid #b2a9bd;
+  border-bottom: 1px solid #e6e3e9;
+}
+
+.heading {
+  --epa-title-size: 30px;
+  --epa-title-leading: 36px;
+  --epa-title-width: 520px;
+  --epa-description-size: 15px;
+  --epa-description-leading: 22px;
+  --epa-description-gap: 6px;
+}
+
+.heading p {
+  color: #e9d5ff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 46px;
+}
+
+/* The last two tiles each span two columns. */
+.item:nth-last-child(-n + 2) {
+  grid-column: span 2;
+}
+
+.item {
+  min-height: 73px;
+  padding: 15px 16px 16px;
+  border: 1px solid #491d73;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  color: #f3e8ff;
+}
+
+.item:nth-last-child(-n + 2) {
+  min-height: 52px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .item:nth-last-child(-n + 2) {
+    grid-column: auto;
+    min-height: 73px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .item,
+  .item:nth-last-child(-n + 2) {
+    min-height: 0;
+  }
+}

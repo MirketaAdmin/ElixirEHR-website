@@ -1,0 +1,68 @@
+.section {
+  padding: 80px 0;
+}
+
+.intro {
+  --bh-title-width: 740px;
+  --bh-title-tracking: -0.025em;
+  --bh-title-gap: 4px;
+  --bh-description-width: 770px;
+  --bh-description-gap: 5px;
+}
+
+.intro > p:last-child {
+  line-height: 29px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 64px;
+}
+
+.card {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.title {
+  max-width: 260px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-surface-dark);
+}
+
+.text {
+  max-width: 278px;
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4a454e;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .title,
+  .text {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+}

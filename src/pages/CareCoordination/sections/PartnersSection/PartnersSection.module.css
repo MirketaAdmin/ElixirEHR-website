@@ -1,0 +1,37 @@
+.section {
+  padding: 80px 0;
+  border-top: 1px solid #ebe7ea;
+}
+
+.intro {
+  --bh-title-size: 36px;
+  --bh-title-leading: 44px;
+  --bh-title-tracking: -0.025em;
+  --bh-title-gap: 3px;
+  --bh-title-width: 760px;
+  --bh-description-width: 780px;
+  --bh-description-gap: 18px;
+}
+
+.intro > p:first-child {
+  letter-spacing: 0.05em;
+}
+
+.intro > p:last-child {
+  line-height: 29px;
+}
+
+.rows {
+  margin-top: 47px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .rows {
+    margin-top: 32px;
+  }
+}

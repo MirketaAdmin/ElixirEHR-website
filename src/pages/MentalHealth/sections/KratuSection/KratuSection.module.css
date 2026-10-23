@@ -1,0 +1,119 @@
+.section {
+  padding: 80px 0;
+}
+
+.intro {
+  --bh-title-width: 780px;
+  --bh-title-gap: 4px;
+  --bh-description-width: 770px;
+  --bh-description-gap: 5px;
+}
+
+.intro > p:last-child {
+  line-height: 29px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 24px;
+  margin-top: 65px;
+}
+
+.card {
+  padding: 21px 24px 21px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgb(31 24 35 / 0.08);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-surface-dark);
+}
+
+.title img {
+  flex-shrink: 0;
+}
+
+.text {
+  max-width: 455px;
+  margin-top: 2px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4a454e;
+}
+
+/* Red-tinted panel: "What AI does not do here". */
+.limits {
+  margin-top: 71px;
+  padding: 30px 32px 34px;
+  border-radius: var(--radius-lg);
+  background: #f9ecea;
+}
+
+.limitsTitle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-error);
+}
+
+.limitsList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.limitsList li {
+  position: relative;
+  max-width: 310px;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #1b1c1b;
+}
+
+.limitsList img {
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .limitsList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid,
+  .limitsList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grid {
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .limits {
+    margin-top: 40px;
+    padding: 24px 20px;
+  }
+}

@@ -48,6 +48,8 @@
 }
 
 .inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 560px;
   align-items: center;
@@ -135,8 +137,203 @@
   text-transform: uppercase;
 }
 
+/* Slider: every slide sits in the same grid cell, so the band takes the tallest slide's height.
+   The active slide cross-fades in over 600ms; the others are hidden and inert. */
+.track {
+  position: relative;
+  z-index: 1;
+  display: grid;
+}
+
+.slide {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(16px, 0, 0);
+  transition:
+    opacity 600ms var(--ease-standard),
+    transform 600ms var(--ease-out),
+    visibility 0s linear 600ms;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity 600ms var(--ease-standard),
+    transform 600ms var(--ease-out),
+    visibility 0s;
+}
+
+/* Horizontal touch drags change slides; vertical ones still scroll the page. */
+.track {
+  touch-action: pan-y;
+}
+
+/* Slide 2 — "Meet Kratu AI" (Figma frame): copy beside the 643 × 566 workspace mock-up. */
+.kratu {
+  grid-template-columns: minmax(0, 1fr) 643px;
+  column-gap: 24px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 32px;
+  padding: 0 17px 0 16px;
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.15);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-white);
+}
+
+.kratuTitle {
+  margin-top: 31px;
+  line-height: 70.5px;
+}
+
+.kratuDescription {
+  max-width: 486px;
+}
+
+.kratuMedia {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Slide controls (not in the frame; added so visitors can choose or pause a slide). */
+.controls {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateX(-50%);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.4);
+  transition:
+    width var(--duration-base) var(--ease-standard),
+    background-color var(--duration-base) var(--ease-standard);
+}
+
+.dot:hover {
+  background: rgb(255 255 255 / 0.7);
+}
+
+.dotActive,
+.dotActive:hover {
+  width: 28px;
+  background: var(--color-secondary);
+}
+
+.pause {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-right: 4px;
+  border: 1px solid rgb(255 255 255 / 0.35);
+  border-radius: 50%;
+  color: var(--color-white);
+  transition: background-color var(--duration-base) var(--ease-standard);
+}
+
+.pause:hover {
+  background: rgb(255 255 255 / 0.12);
+}
+
+.pauseGlyph {
+  width: 8px;
+  height: 10px;
+  border-inline: 3px solid currentColor;
+}
+
+.dot:focus-visible,
+.pause:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .slide.active {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Entrance (same sequence as the inner-page heroes) and a slow float on the insight card. */
+@media (prefers-reduced-motion: no-preference) {
+  .line,
+  .description,
+  .actions {
+    animation: home-rise 900ms var(--ease-out) both;
+  }
+
+  .line:nth-child(2) { animation-delay: 80ms; }
+  .line:nth-child(3) { animation-delay: 160ms; }
+  .line:nth-child(4) { animation-delay: 240ms; }
+
+  .description {
+    animation-delay: 320ms;
+  }
+
+  .actions {
+    animation-delay: 420ms;
+  }
+
+  .media {
+    animation: home-media 1100ms var(--ease-out) 200ms both;
+  }
+
+  .insight {
+    animation: home-float 7s ease-in-out 1.3s infinite;
+  }
+}
+
+@keyframes home-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+}
+
+@keyframes home-media {
+  from {
+    opacity: 0;
+    transform: translate3d(24px, 0, 0) scale(0.98);
+  }
+}
+
+@keyframes home-float {
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
 /* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
 @media (max-width: 1199px) {
+  .kratu {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .kratuMedia {
+    max-width: 643px;
+  }
+
   .inner {
     grid-template-columns: minmax(0, 1fr);
     row-gap: 48px;
@@ -164,6 +361,14 @@
 }
 
 @media (max-width: 767px) {
+  .kratuTitle {
+    line-height: 40px;
+  }
+
+  .inner {
+    padding-bottom: 96px;
+  }
+
   .actions {
     flex-wrap: wrap;
   }

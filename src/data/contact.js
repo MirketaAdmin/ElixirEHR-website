@@ -3,7 +3,7 @@
 import mailIcon from '../assets/icons/contact-mail.png';
 import phoneIcon from '../assets/icons/contact-phone.png';
 import locationIcon from '../assets/icons/contact-location.png';
-import { trustedBy } from './home';
+import { previousClientLogos } from './home';
 
 // Logos shown under "Trusted by" in the Contact section (subset of the Home logo strip, at 72% scale).
 const contactLogoNames = [
@@ -46,7 +46,7 @@ export const contact = {
     },
   ],
   trustedLabel: 'TRUSTED BY MORE THAN 1,200 CLINICS WORLDWIDE',
-  logos: contactLogoNames.map((name) => trustedBy.logos.find((logo) => logo.name === name)),
+  logos: contactLogoNames.map((name) => previousClientLogos.find((logo) => logo.name === name)),
   form: {
     fields: [
       { name: 'firstName', label: 'First Name', placeholder: 'John', autoComplete: 'given-name', required: true },

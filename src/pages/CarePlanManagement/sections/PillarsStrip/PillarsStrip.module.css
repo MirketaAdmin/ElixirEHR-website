@@ -1,0 +1,70 @@
+.band {
+  padding: 40px 0;
+  background: var(--color-primary);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.list li {
+  min-height: 133px;
+  padding: 26px 20px 0;
+}
+
+.list li + li {
+  border-left: 1px solid #5c4776;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-secondary);
+}
+
+.text {
+  max-width: 200px;
+  margin-top: 5px;
+  font-size: 13px;
+  line-height: 19.5px;
+  color: #c9bfd8;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 16px;
+  }
+
+  .list li {
+    min-height: 0;
+    padding-bottom: 16px;
+  }
+
+  .list li:nth-child(3) {
+    border-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .list li + li {
+    border-top: 1px solid #5c4776;
+    border-left: 0;
+  }
+
+  .list li {
+    padding: 16px 0;
+  }
+
+  .text {
+    max-width: none;
+  }
+}

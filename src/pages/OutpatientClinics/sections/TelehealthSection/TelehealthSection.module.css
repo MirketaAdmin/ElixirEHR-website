@@ -1,0 +1,176 @@
+.section {
+  padding: 85px 0 80px;
+  background: #f0edec;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 47px;
+}
+
+/* White card on a 4px top edge in the card's tone. */
+.card {
+  padding: 32px 32px 34px;
+  border-top: 4px solid var(--edge);
+  background: var(--color-white);
+  box-shadow: 0 1px 2px rgb(31 24 35 / 0.06);
+}
+
+.lime {
+  --edge: var(--color-secondary);
+  --chip-bg: var(--color-secondary);
+  --chip-fg: #526d00;
+}
+
+.red {
+  --edge: var(--color-error);
+  --chip-bg: var(--color-error-container);
+  --chip-fg: #93000a;
+}
+
+.purple {
+  --edge: var(--color-surface-dark);
+  --chip-bg: #eedbff;
+  --chip-fg: #260e42;
+}
+
+.yellow {
+  --edge: #725c00;
+  --chip-bg: #ffe081;
+  --chip-fg: #231b00;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.chip {
+  max-width: 96px;
+  padding: 4px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--chip-bg);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--chip-fg);
+}
+
+.when {
+  max-width: var(--when-width, 90px);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  text-align: right;
+  color: var(--color-body);
+}
+
+.title {
+  margin-top: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-heading);
+}
+
+.text {
+  max-width: 172px;
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-body);
+}
+
+.means {
+  margin-top: 49px;
+  padding: 32px 32px 32px;
+  background: var(--color-white);
+  box-shadow: 0 1px 2px rgb(31 24 35 / 0.06);
+}
+
+.meansTitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-heading);
+}
+
+.lead {
+  max-width: 960px;
+  margin-top: 3px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 25px;
+}
+
+.items li {
+  display: flex;
+  gap: 8px;
+  min-height: 128px;
+  padding: 16px;
+  background: var(--color-surface);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.items img {
+  flex-shrink: 0;
+  margin-top: -1px;
+}
+
+.items span {
+  max-width: 400px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .text {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .cards,
+  .items {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .cards {
+    margin-top: 32px;
+  }
+
+  .card,
+  .means {
+    padding: 24px 20px;
+  }
+
+  .items li {
+    min-height: 0;
+  }
+}
