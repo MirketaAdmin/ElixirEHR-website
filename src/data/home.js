@@ -36,6 +36,8 @@ import revenueCycleWhitepaperCover from '../assets/home/resources/revenue-cycle-
 import linkArrowIcon from '../assets/icons/link-arrow.png';
 import linkPlayIcon from '../assets/icons/link-play.png';
 import linkDownloadIcon from '../assets/icons/link-download.png';
+import { getPostPath, getPosts } from '../posts';
+import { formatCardDate } from '../utils/formatDate';
 import exploreSolutionIcon from '../assets/home/cta/explore-solution-icon.png';
 import personalizedDemoIcon from '../assets/home/cta/personalized-demo-icon.png';
 import kratuWorkspaceImage from '../assets/home/hero/kratu-ai-workspace.png';
@@ -250,8 +252,7 @@ export const testimonials = {
   // Seconds between automatic slides (one card per step).
   autoplaySeconds: 7,
   // Customer quotes as supplied (spacing before punctuation tidied); the card adds the quotation
-  // marks. Cards alternate Deep Purple and Rose White by position. `role` (the organization) and
-  // `to` (a "Hear Story" link) are optional; no photos are used.
+  // marks. `role` (the organization) is optional; no photos, logos or ratings are used.
   items: [
     {
       name: 'Dr. Manoj Battarai',
@@ -279,7 +280,7 @@ export const testimonials = {
   ],
 };
 
-export const resources = {
+const resourcePlaceholders = {
   eyebrow: 'Knowledge Base',
   title: 'Resources must be read',
   // One tab per category; every category renders the same card. Blog holds the three cards from
@@ -296,7 +297,7 @@ export const resources = {
           author: 'Author Name',
           date: '04 April 2026',
           title: "Elixir Winter'26 Version 1.960 EHR and Patient Care",
-          link: { label: 'Read More', icon: linkArrowIcon, iconSize: [14, 11], to: '/resources/blog' },
+          link: { label: 'Read More', icon: linkArrowIcon, iconSize: [14, 11], to: '/blog' },
         },
         {
           tag: 'Webinar',
@@ -304,7 +305,7 @@ export const resources = {
           author: 'Author Name',
           date: '04 April 2026',
           title: 'How AI is Transforming Clinical Outcomes in 2026',
-          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/resources/webinars' },
+          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/insights/webinars' },
         },
         {
           tag: 'Release',
@@ -316,7 +317,7 @@ export const resources = {
             label: 'Read Whitepaper',
             icon: linkDownloadIcon,
             iconSize: [12, 13],
-            to: '/resources/whitepapers',
+            to: '/insights',
           },
         },
       ],
@@ -330,7 +331,7 @@ export const resources = {
           author: 'Elixir Team',
           date: '12 March 2026',
           title: 'A Practical Guide to Connected Revenue Cycle Workflows',
-          link: { label: 'Download E-Book', icon: linkDownloadIcon, iconSize: [12, 13], to: '/resources/e-books' },
+          link: { label: 'Download E-Book', icon: linkDownloadIcon, iconSize: [12, 13], to: '/insights/e-book' },
         },
         {
           tag: 'E-Book',
@@ -338,7 +339,7 @@ export const resources = {
           author: 'Elixir Team',
           date: '20 February 2026',
           title: 'Bringing AI into Everyday Clinical Documentation',
-          link: { label: 'Download E-Book', icon: linkDownloadIcon, iconSize: [12, 13], to: '/resources/e-books' },
+          link: { label: 'Download E-Book', icon: linkDownloadIcon, iconSize: [12, 13], to: '/insights/e-book' },
         },
         {
           tag: 'E-Book',
@@ -346,7 +347,7 @@ export const resources = {
           author: 'Elixir Team',
           date: '28 January 2026',
           title: 'Choosing an EHR Built on Salesforce: What to Look For',
-          link: { label: 'Download E-Book', icon: linkDownloadIcon, iconSize: [12, 13], to: '/resources/e-books' },
+          link: { label: 'Download E-Book', icon: linkDownloadIcon, iconSize: [12, 13], to: '/insights/e-book' },
         },
       ],
     },
@@ -359,7 +360,7 @@ export const resources = {
           author: 'Elixir Research',
           date: '18 March 2026',
           title: 'Benchmark Survey: Documentation Time in Behavioral Health',
-          link: { label: 'Read Survey', icon: linkArrowIcon, iconSize: [14, 11], to: '/resources/benchmark-surveys' },
+          link: { label: 'Read Survey', icon: linkArrowIcon, iconSize: [14, 11], to: '/insights/benchmark-surveys' },
         },
         {
           tag: 'Survey',
@@ -367,7 +368,7 @@ export const resources = {
           author: 'Elixir Research',
           date: '05 February 2026',
           title: 'Benchmark Survey: Claim Denial Management Practices',
-          link: { label: 'Read Survey', icon: linkArrowIcon, iconSize: [14, 11], to: '/resources/benchmark-surveys' },
+          link: { label: 'Read Survey', icon: linkArrowIcon, iconSize: [14, 11], to: '/insights/benchmark-surveys' },
         },
         {
           tag: 'Survey',
@@ -375,7 +376,7 @@ export const resources = {
           author: 'Elixir Research',
           date: '15 January 2026',
           title: 'Benchmark Survey: Patient Portal and Telehealth Adoption',
-          link: { label: 'Read Survey', icon: linkArrowIcon, iconSize: [14, 11], to: '/resources/benchmark-surveys' },
+          link: { label: 'Read Survey', icon: linkArrowIcon, iconSize: [14, 11], to: '/insights/benchmark-surveys' },
         },
       ],
     },
@@ -388,7 +389,7 @@ export const resources = {
           author: 'Product Team',
           date: '04 April 2026',
           title: "Elixir Winter'26 (Version 1.960) Release Notes",
-          link: { label: 'Read Release Notes', icon: linkArrowIcon, iconSize: [14, 11], to: '/resources/release-notes' },
+          link: { label: 'Read Release Notes', icon: linkArrowIcon, iconSize: [14, 11], to: '/insights/release-notes' },
         },
         {
           tag: 'Release',
@@ -396,7 +397,7 @@ export const resources = {
           author: 'Product Team',
           date: '10 January 2026',
           title: 'Release Notes: Eligibility and Claims Updates',
-          link: { label: 'Read Release Notes', icon: linkArrowIcon, iconSize: [14, 11], to: '/resources/release-notes' },
+          link: { label: 'Read Release Notes', icon: linkArrowIcon, iconSize: [14, 11], to: '/insights/release-notes' },
         },
         {
           tag: 'Release',
@@ -404,7 +405,7 @@ export const resources = {
           author: 'Product Team',
           date: '02 December 2025',
           title: 'Release Notes: Kratu AI Clinical Assistant Updates',
-          link: { label: 'Read Release Notes', icon: linkArrowIcon, iconSize: [14, 11], to: '/resources/release-notes' },
+          link: { label: 'Read Release Notes', icon: linkArrowIcon, iconSize: [14, 11], to: '/insights/release-notes' },
         },
       ],
     },
@@ -417,7 +418,7 @@ export const resources = {
           author: 'Speaker Name',
           date: '22 April 2026',
           title: 'How AI is Transforming Clinical Outcomes in 2026',
-          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/resources/webinars' },
+          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/insights/webinars' },
         },
         {
           tag: 'Webinar',
@@ -425,7 +426,7 @@ export const resources = {
           author: 'Speaker Name',
           date: '26 March 2026',
           title: 'Connecting Eligibility, Claims and ERA Posting',
-          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/resources/webinars' },
+          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/insights/webinars' },
         },
         {
           tag: 'Webinar',
@@ -433,11 +434,65 @@ export const resources = {
           author: 'Speaker Name',
           date: '19 February 2026',
           title: "What's New in Elixir Winter'26",
-          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/resources/webinars' },
+          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/insights/webinars' },
         },
       ],
     },
   ],
+};
+
+// Knowledge Base cards come from the published posts (src/posts/…), newest first, so a new post
+// appears here as soon as its file is added. Each tab shows up to six of the newest posts of its
+// own type (a carousel when there are more than fit on screen); tabs with fewer published posts
+// are topped up with the placeholder cards above. Demo posts (src/posts/*/_demo) are not used.
+const RESOURCE_CARDS_PER_TAB = 6;
+
+// How each post type looks on a card: its tag, link label/icon and the byline when a post has none.
+const resourceCardStyle = {
+  blog: { tag: 'Article', author: 'Elixir Team', link: { label: 'Read More', icon: linkArrowIcon, iconSize: [14, 11] } },
+  'release-note': { tag: 'Release', author: 'Product Team', link: { label: 'Read Release Notes', icon: linkArrowIcon, iconSize: [14, 11] } },
+  'e-book': { tag: 'E-Book', author: 'Elixir Team', link: { label: 'Read E-Book', icon: linkArrowIcon, iconSize: [14, 11] } },
+  'benchmark-survey': { tag: 'Survey', author: 'Elixir Research', link: { label: 'Read Survey', icon: linkArrowIcon, iconSize: [14, 11] } },
+  webinars: { tag: 'Webinar', author: 'Elixir Team', link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11] } },
+  video: { tag: 'Video', author: 'Elixir Team', link: { label: 'Watch Video', icon: linkPlayIcon, iconSize: [9, 11] } },
+  'press-release': { tag: 'Press', author: 'Elixir Team', link: { label: 'Read Press Release', icon: linkArrowIcon, iconSize: [14, 11] } },
+  'case-study': { tag: 'Case Study', author: 'Elixir Team', link: { label: 'Read Case Study', icon: linkArrowIcon, iconSize: [14, 11] } },
+};
+const fallbackCardStyle = { tag: 'Article', author: 'Elixir Team', link: { label: 'Read More', icon: linkArrowIcon, iconSize: [14, 11] } };
+
+function postToResourceCard(post) {
+  const style = resourceCardStyle[post.type] ?? fallbackCardStyle;
+  return {
+    tag: style.tag,
+    image: post.cardImage?.src ?? winterReleaseCover,
+    author: post.author ?? style.author,
+    date: formatCardDate(post.publishDate),
+    title: post.title,
+    link: { ...style.link, to: getPostPath(post) },
+  };
+}
+
+// Tab label → the post type it lists.
+const resourceTabTypes = {
+  Blog: 'blog',
+  'E-Book': 'e-book',
+  'Benchmark Survey': 'benchmark-survey',
+  'Release Notes': 'release-note',
+  Webinar: 'webinars',
+};
+
+const published = (posts) => posts.filter((post) => !post.demo);
+
+export const resources = {
+  ...resourcePlaceholders,
+  categories: resourcePlaceholders.categories.map((category) => {
+    const type = resourceTabTypes[category.label];
+    const posts = published(getPosts(type)).slice(0, RESOURCE_CARDS_PER_TAB);
+    const cards = posts.map(postToResourceCard);
+    const titles = new Set(cards.map((card) => card.title));
+    const fill = category.items.filter((item) => !titles.has(item.title));
+    return { ...category, items: [...cards, ...fill].slice(0, RESOURCE_CARDS_PER_TAB) };
+  }),
 };
 
 export const conversionCtas = [

@@ -1,88 +1,77 @@
 import { useId, useState } from 'react';
 import { cn } from '../../../utils/cn';
-import { mainNav, demoCta } from '../../../data/navigation';
+import { mainNav, demoCta, groupIcons } from '../../../data/navigation';
 import Button from '../../ui/Button/Button';
 import Icon from '../../ui/Icon/Icon';
 import NavItemLabel from './NavItemLabel';
 import styles from './MobileNav.module.css';
 
-/**
- * One accordion row (recursive, Levels 1–4). An item with children gets a toggle button
- * (aria-expanded / aria-controls); when the item also has a page, its label stays a link and the
- * chevron is a separate button.
- */
-function MobileNavItem({ item, depth, onNavigate }) {
-  const panelId = useId();
-  const [expanded, setExpanded] = useState(false);
-  const hasChildren = Boolean(item.children?.length);
-  const rowClass = cn(styles.row, styles[`level${depth}`]);
-
-  if (!hasChildren) {
-    return (
-      <li>
+/** A group's entries: plain links, and sections as a caps heading over their own pages. */
+function GroupEntries({ items, onNavigate, depth = 0 }) {
+  return items.map((item) =>
+    item.children ? (
+      <div key={item.label} className={cn(styles.section, depth > 0 && styles.nested)}>
         <NavItemLabel
           item={item}
-          className={cn(rowClass, styles.label)}
+          className={depth > 0 ? styles.link : styles.sectionHeading}
           activeClassName={styles.active}
+          pendingClassName={styles.pending}
           onNavigate={onNavigate}
         />
-      </li>
-    );
-  }
-
-  const chevron = (
-    <Icon name="expandMore" size={24} className={cn(styles.chevron, expanded && styles.chevronOpen)} />
-  );
-
-  return (
-    <li>
-      {item.to ? (
-        <div className={rowClass}>
-          <NavItemLabel item={item} className={styles.label} activeClassName={styles.active} onNavigate={onNavigate} />
-          <button
-            type="button"
-            className={styles.toggle}
-            aria-expanded={expanded}
-            aria-controls={panelId}
-            aria-label={`${item.label} submenu`}
-            onClick={() => setExpanded((value) => !value)}
-          >
-            {chevron}
-          </button>
-        </div>
-      ) : (
-        <button
-          type="button"
-          className={cn(rowClass, styles.rowButton)}
-          aria-expanded={expanded}
-          aria-controls={panelId}
-          onClick={() => setExpanded((value) => !value)}
-        >
-          <span className={styles.label}>{item.label}</span>
-          {chevron}
-        </button>
-      )}
-      <ul id={panelId} hidden={!expanded} className={styles.sublist}>
-        {item.children.map((child) => (
-          <MobileNavItem key={child.label} item={child} depth={depth + 1} onNavigate={onNavigate} />
-        ))}
-      </ul>
-    </li>
+        <GroupEntries items={item.children} onNavigate={onNavigate} depth={depth + 1} />
+      </div>
+    ) : (
+      <NavItemLabel
+        key={item.label}
+        item={item}
+        className={styles.link}
+        activeClassName={styles.active}
+        pendingClassName={styles.pending}
+        onNavigate={onNavigate}
+      />
+    ),
   );
 }
 
-/** Mobile/tablet navigation (< 1200px): an accordion panel under the sticky header bar. */
+/** One top-level group: a bordered card whose header toggles its entries. */
+function MobileGroup({ group, onNavigate }) {
+  const panelId = useId();
+  const [expanded, setExpanded] = useState(false);
+  const { icon, tone } = groupIcons[group.label] ?? {};
+  return (
+    <div className={styles.group} data-tone={tone}>
+      <button
+        type="button"
+        className={styles.groupButton}
+        aria-expanded={expanded}
+        aria-controls={panelId}
+        onClick={() => setExpanded((value) => !value)}
+      >
+        <span className={styles.groupLabel}>
+          {icon && <Icon name={icon} size={16} className={styles.groupIcon} />}
+          {group.label}
+        </span>
+        <Icon name="expandMore" size={18} className={cn(styles.chevron, expanded && styles.chevronOpen)} />
+      </button>
+      <div id={panelId} hidden={!expanded} className={styles.groupBody}>
+        <GroupEntries items={group.children} onNavigate={onNavigate} />
+      </div>
+    </div>
+  );
+}
+
+/** Mobile/tablet navigation (< 1200px): the reference's drawer under the sticky header bar (Home is the logo). */
 function MobileNav({ id, onNavigate }) {
   return (
     <nav id={id} aria-label="Primary" className={styles.panel}>
-      <ul className={styles.list}>
-        {mainNav.map((item) => (
-          <MobileNavItem key={item.label} item={item} depth={1} onNavigate={onNavigate} />
+      <div className={styles.stack}>
+        {mainNav.map((group) => (
+          <MobileGroup key={group.label} group={group} onNavigate={onNavigate} />
         ))}
-      </ul>
-      <Button to={demoCta.to} size="md" className={styles.cta} onClick={onNavigate}>
-        {demoCta.label}
-      </Button>
+        <Button to={demoCta.to} size="md" className={styles.cta} onClick={onNavigate}>
+          {demoCta.label}
+        </Button>
+      </div>
     </nav>
   );
 }

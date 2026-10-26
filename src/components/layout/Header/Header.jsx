@@ -10,6 +10,9 @@ import MobileNav from './MobileNav';
 import SiteSearch from './SiteSearch';
 import styles from './Header.module.css';
 
+// The search shortcut as the visitor's keyboard shows it.
+const IS_MAC = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform);
+
 // Matches the header's CSS breakpoint: below it the mega menu gives way to the hamburger.
 const DESKTOP_QUERY = '(min-width: 1200px)';
 
@@ -88,7 +91,9 @@ function Header() {
               setSearchOpen(true);
             }}
           >
-            <Icon name="search" />
+            <Icon name="search" size={18} />
+            <span className={styles.searchLabel}>Search menu...</span>
+            <kbd className={styles.kbd}>{IS_MAC ? '⌘K' : 'Ctrl K'}</kbd>
           </button>
           <Button to={demoCta.to} size="md" className={styles.cta}>
             {demoCta.label}
@@ -101,7 +106,7 @@ function Header() {
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             onClick={() => setMobileOpen((value) => !value)}
           >
-            <Icon name={mobileOpen ? 'close' : 'menu'} size={28} />
+            <Icon name={mobileOpen ? 'close' : 'menu'} size={24} />
           </button>
         </div>
       </Container>

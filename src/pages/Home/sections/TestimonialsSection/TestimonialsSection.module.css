@@ -1,150 +1,86 @@
+/*
+  Testimonial coverflow — the supplied reference layout in Elixir's palette: equal white cards in a
+  full-width row centred on the active card, which grows taller, takes a Deep Purple outline and
+  a deeper shadow. Light quotation marks open and close each quote; neighbours carry a pill
+  "Show More", the active card a text link and the "02 / 04" counter. Round Deep Purple arrows sit
+  on the neighbours' outer edges. Sizes measured from the reference at 1280px.
+*/
 .section {
   padding: 100px 0 99px;
-}
-
-.header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 32px;
-}
-
-.eyebrow {
-  font-size: 16px;
-  line-height: 24px;
-  color: var(--color-secondary);
-}
-
-.title {
-  margin-top: 16px;
+  background: var(--color-white);
 }
 
 .title span {
   display: block;
 }
 
-/* Controls: segmented autoplay progress, then previous (outlined) and next (filled). */
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+/* The row: as wide as the page (capped on very wide screens, with soft edges there). */
+.stage {
+  --w: 300px;
+  --gap: 24px;
+  --side-h: 320px;
+  --active-h: 412px;
 
-.progress {
-  display: flex;
-  gap: 6px;
-  margin-right: 12px;
-}
-
-.segment {
-  display: block;
   position: relative;
-  width: 36px;
-  height: 4px;
-  overflow: hidden;
-  border-radius: var(--radius-pill);
-  background: rgb(73 50 102 / 0.14);
-  cursor: pointer;
-}
-
-.done {
-  background: var(--color-primary);
-}
-
-.fill {
-  position: absolute;
-  inset: 0;
-  background: var(--color-primary);
-  transform-origin: left center;
-  animation: segment-fill var(--interval, 7s) linear both;
-}
-
-.segment[data-paused] .fill {
-  animation-play-state: paused;
-}
-
-@keyframes segment-fill {
-  from {
-    transform: scaleX(0);
-  }
-}
-
-.control {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border: 1px solid var(--color-border);
-  border-radius: 50%;
-  background: var(--color-white);
-  color: var(--color-heading);
-  transition:
-    transform var(--duration-base) var(--ease-standard),
-    background-color var(--duration-base) var(--ease-standard),
-    border-color var(--duration-base) var(--ease-standard),
-    color var(--duration-base) var(--ease-standard);
-}
-
-.controlNext {
-  border-color: var(--color-primary);
-  background: var(--color-primary);
-  color: var(--color-white);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .control:hover:not(:disabled) {
-    border-color: var(--color-surface-dark);
-    background: var(--color-surface-dark);
-    color: var(--color-white);
-  }
-}
-
-.control:active:not(:disabled) {
-  transform: scale(0.94);
-}
-
-.control:focus-visible,
-.segment:focus-visible,
-.more:focus-visible {
-  outline: 2px solid var(--color-secondary);
-  outline-offset: 3px;
-}
-
-.control:disabled {
-  cursor: default;
-  opacity: 0.4;
-}
-
-/* Carousel: a sliding row of equal cards, `--per-view` visible, moved one card per step. */
-.viewport {
+  max-width: 1440px;
+  height: calc(var(--active-h) + 64px);
+  margin: 32px auto 0;
   overflow: hidden;
   /* Horizontal touch drags go to the carousel's swipe; vertical ones still scroll the page. */
   touch-action: pan-y;
-  margin-top: 56px;
 }
 
-.list {
-  --gap: 32px;
-
-  display: flex;
-  gap: var(--gap);
-  transform: translate3d(calc(var(--index, 0) * (100% + var(--gap)) / var(--per-view, 2) * -1), 0, 0);
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+@media (min-width: 1441px) {
+  .stage {
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  }
 }
 
-/* Every card is the same fixed size; long quotes are trimmed (see `.quote`). */
+.track {
+  position: absolute;
+  inset: 0;
+}
+
 .card {
-  flex: 0 0 calc((100% - var(--gap) * (var(--per-view, 2) - 1)) / var(--per-view, 2));
-  height: 440px;
-  border: 1px solid #e6e1e8;
-  border-radius: 24px;
-  background: var(--color-surface);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--w);
+  height: var(--side-h);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-white);
+  box-shadow: 0 10px 30px rgb(31 24 35 / 0.08);
+  transform: translate3d(calc(-50% + var(--offset) * (var(--w) + var(--gap))), -50%, 0);
+  transition:
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
-.dark {
-  border-color: var(--color-primary);
-  background: var(--color-primary);
+/* Neighbours come to the centre when clicked. */
+.card:not(.active) {
+  cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:not(.active):hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 14px 34px rgb(50 27 79 / 0.14);
+  }
+}
+
+.active {
+  z-index: 1;
+  height: var(--active-h);
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 24px 48px -12px rgb(50 27 79 / 0.35);
+}
+
+/* The cards waiting off-screen for the next slide. */
+.parked {
+  opacity: 0;
 }
 
 .figure {
@@ -152,81 +88,77 @@
   flex-direction: column;
   height: 100%;
   margin: 0;
-  padding: 40px 40px 32px;
+  padding: 28px 24px 20px;
 }
 
-.top {
-  display: flex;
-  min-height: 30px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-/* Quotation mark (mask from the Figma export). */
-.mark {
+/* Light quotation marks (mask from the Figma export), opening top-left, closing bottom-right. */
+.openMark,
+.closeMark {
   flex: none;
-  width: 34px;
-  height: 24px;
-  background: var(--color-primary);
+  width: 40px;
+  height: 30px;
+  background: var(--color-surface-light);
   mask: url('../../../../assets/icons/quote-mark.png') no-repeat center / contain;
 }
 
-.dark .mark {
-  background: var(--color-secondary);
+.openMark {
+  transform: rotate(180deg);
 }
 
-.org {
-  overflow: hidden;
-  max-width: 70%;
-  padding: 6px 14px;
-  border: 1px solid #e0dae2;
-  border-radius: var(--radius-pill);
-  background: var(--color-white);
-  font-family: var(--font-label);
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 16px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: var(--color-primary);
+/* "Show More" (centred on neighbours, left on the active card) with the closing mark at the right. */
+.moreRow {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-height: 30px;
+  margin-top: auto;
+  padding-top: 12px;
 }
 
-.dark .org {
-  border-color: rgb(255 255 255 / 0.16);
-  background: rgb(255 255 255 / 0.08);
-  color: var(--color-secondary);
+.closeMark {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.active .moreRow {
+  justify-content: flex-start;
 }
 
 .quote {
   display: -webkit-box;
-  margin: 28px 0 0;
+  flex: none;
+  margin: 14px 0 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 5;
   font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 14px;
+  line-height: 22px;
   color: var(--color-heading);
 }
 
-.dark .quote {
-  color: var(--color-white);
+.active .quote {
+  -webkit-line-clamp: 7;
+  font-size: 15px;
+  line-height: 24px;
 }
 
+/* "Show More": a pill on the neighbours, a text link on the active card. */
 .more {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  align-self: flex-start;
-  margin-top: 14px;
+  align-self: flex-end;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
   font-family: var(--font-label);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
-  line-height: 20px;
-  color: var(--color-primary);
+  line-height: 16px;
+  color: var(--color-white);
+  transition: background-color var(--duration-base) var(--ease-standard);
 }
 
 .more svg {
@@ -237,73 +169,100 @@
   transform: translate3d(3px, 0, 0);
 }
 
-.dark .more {
-  color: var(--color-secondary);
+.more:hover {
+  background: var(--color-surface-dark);
+}
+
+.active .more {
+  padding: 0 0 4px;
+  background: none;
+  font-size: 13px;
+  color: var(--color-primary);
 }
 
 .footer {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 16px;
-  margin-top: auto;
-  padding-top: 20px;
+  flex-direction: column;
+  margin-top: 10px;
+  padding-top: 14px;
   border-top: 1px solid rgb(73 50 102 / 0.14);
 }
 
-.dark .footer {
-  border-color: rgb(255 255 255 / 0.16);
-}
-
-.name,
-.role {
-  display: block;
-}
-
 .name {
+  overflow-wrap: anywhere;
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  line-height: 26px;
-  color: var(--color-primary);
+  line-height: 22px;
+  color: var(--color-heading);
 }
 
 .role {
   margin-top: 2px;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 13px;
+  line-height: 18px;
   color: var(--color-body);
 }
 
-.dark .name {
-  color: var(--color-white);
-}
-
-.dark .role {
-  color: rgb(255 255 255 / 0.7);
-}
-
 .count {
-  flex: none;
+  align-self: flex-end;
+  margin-top: 10px;
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 26px;
+  line-height: 22px;
   color: var(--color-primary);
 }
 
 .count span {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: rgb(73 50 102 / 0.45);
 }
 
-.dark .count {
-  color: var(--color-secondary);
+/* Arrows on the neighbours' outer edges (kept inside the viewport on small screens). */
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 6px 16px rgb(50 27 79 / 0.3);
+  color: var(--color-white);
+  transform: translate3d(-50%, -50%, 0);
+  transition:
+    background-color var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
 }
 
-.dark .count span {
-  color: rgb(255 255 255 / 0.5);
+.prev {
+  left: max(24px, calc(50% - var(--w) * 1.5 - var(--gap)));
+}
+
+.next {
+  left: min(calc(100% - 24px), calc(50% + var(--w) * 1.5 + var(--gap)));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .arrow:hover {
+    background: var(--color-surface-dark);
+    transform: translate3d(-50%, -50%, 0) scale(1.08);
+  }
+}
+
+.arrow:active {
+  transform: translate3d(-50%, -50%, 0) scale(0.94);
+}
+
+.arrow:focus-visible,
+.more:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 3px;
 }
 
 /* Full quote dialog (for trimmed testimonials). */
@@ -355,46 +314,44 @@
 }
 
 .dialogQuote {
-  margin: 24px 0 28px;
+  margin: 20px 0 24px;
   font-size: 18px;
   line-height: 30px;
   color: var(--color-heading);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .list {
-    transition: none;
-  }
+.dialogBody .footer {
+  border-top: 1px solid rgb(73 50 102 / 0.14);
+}
 
-  .fill {
-    animation: none;
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .arrow {
+    transition: none;
   }
 }
 
-/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+/* Phones: one card with the neighbours peeking in at the edges. */
 @media (max-width: 767px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-  }
+  .stage {
+    --w: min(300px, calc(100vw - 104px));
+    --gap: 16px;
+    --side-h: 380px;
+    --active-h: 440px;
 
-  .viewport {
-    margin-top: 40px;
-  }
-
-  .card {
-    height: 480px;
+    margin-top: 24px;
   }
 
   .figure {
-    padding: 28px 24px 24px;
+    padding: 24px 20px 18px;
   }
 
   .quote {
-    -webkit-line-clamp: 9;
-    font-size: 16px;
-    line-height: 26px;
+    -webkit-line-clamp: 7;
+  }
+
+  .active .quote {
+    -webkit-line-clamp: 8;
   }
 
   .dialogBody {

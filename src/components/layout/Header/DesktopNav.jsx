@@ -1,7 +1,7 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { cn } from '../../../utils/cn';
-import { mainNav, navContainsPath } from '../../../data/navigation';
+import { mainNav, megaPanels, navContainsPath } from '../../../data/navigation';
 import Icon from '../../ui/Icon/Icon';
 import MegaMenu from './MegaMenu';
 import styles from './DesktopNav.module.css';
@@ -10,10 +10,11 @@ import styles from './DesktopNav.module.css';
 const CLOSE_DELAY = 150;
 
 /**
- * Desktop navigation (≥ 1200px). Each top-level item is a disclosure button: it opens its panel
- * on hover or click, stays open while the pointer moves into the panel, and closes on pointer
- * leave, Escape (focus returns to the trigger), an outside click, focus leaving, or following a
- * menu link.
+ * Desktop navigation (≥ 1200px), after the reference navbar: one trigger per mega panel (Home is
+ * the logo). A panel opens on hover, on click and when its trigger gets keyboard focus; it stays open
+ * while the pointer moves into it, and closes on pointer leave, Escape (focus returns to the
+ * trigger), an outside click, focus leaving, or following a menu link. All panels stay mounted
+ * so switching between triggers cross-fades them.
  */
 function DesktopNav() {
   const baseId = useId();
@@ -22,6 +23,8 @@ function DesktopNav() {
   const closeTimer = useRef(null);
   const navRef = useRef(null);
   const triggerRefs = useRef([]);
+  const skipFocusOpen = useRef(false);
+  const lastPointer = useRef(null);
 
   const cancelClose = () => clearTimeout(closeTimer.current);
   const open = (index) => {
@@ -45,7 +48,9 @@ function DesktopNav() {
     }
     function onKeyDown(event) {
       if (event.key === 'Escape') {
+        skipFocusOpen.current = true;
         triggerRefs.current[openIndex]?.focus();
+        skipFocusOpen.current = false;
         setOpenIndex(null);
       }
     }
@@ -62,14 +67,16 @@ function DesktopNav() {
   return (
     <nav ref={navRef} aria-label="Primary" className={styles.nav}>
       <ul className={styles.list}>
-        {mainNav.map((item, index) => {
+        {megaPanels.map((panel, index) => {
           const isOpen = openIndex === index;
           const triggerId = `${baseId}-trigger-${index}`;
           const panelId = `${baseId}-panel-${index}`;
+          const groups = mainNav.filter((group) => panel.groups.includes(group.label));
+          const active = groups.some((group) => navContainsPath(group, pathname));
           return (
             <li
-              key={item.label}
-              className={cn(styles.item, item.layout === 'dropdown' && styles.dropdownItem)}
+              key={panel.label}
+              className={styles.item}
               onPointerEnter={(event) => event.pointerType === 'mouse' && open(index)}
               onPointerLeave={(event) => event.pointerType === 'mouse' && scheduleClose()}
               onBlur={(event) => {
@@ -85,13 +92,26 @@ function DesktopNav() {
                 id={triggerId}
                 aria-expanded={isOpen}
                 aria-controls={panelId}
-                onClick={() => (isOpen ? close() : open(index))}
-                className={cn(styles.trigger, navContainsPath(item, pathname) && styles.active)}
+                onPointerDown={(event) => {
+                  lastPointer.current = event.pointerType;
+                }}
+                onClick={(event) => {
+                  // A mouse is already hovering the trigger, so its panel is open: as in the
+                  // reference, clicking keeps it open. Keyboard and touch toggle it.
+                  const mouse = event.detail > 0 && lastPointer.current === 'mouse';
+                  if (isOpen && !mouse) close();
+                  else open(index);
+                }}
+                onFocus={(event) => {
+                  // Like the reference's :focus-within: tabbing onto a trigger opens its panel.
+                  if (!skipFocusOpen.current && event.currentTarget.matches(':focus-visible')) open(index);
+                }}
+                className={cn(styles.trigger, active && styles.active)}
               >
-                {item.label}
-                <Icon name="expandMore" size={20} className={cn(styles.chevron, isOpen && styles.chevronOpen)} />
+                {panel.label}
+                <Icon name="expandMore" size={16} className={styles.chevron} />
               </button>
-              {isOpen && <MegaMenu item={item} id={panelId} labelledBy={triggerId} onNavigate={close} />}
+              <MegaMenu panel={panel} id={panelId} labelledBy={triggerId} open={isOpen} onNavigate={close} />
             </li>
           );
         })}

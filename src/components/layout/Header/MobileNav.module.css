@@ -1,12 +1,19 @@
-/* Fills the viewport under the sticky bar and scrolls on its own when the menu is long. */
+/*
+  Reference mobile drawer in Elixir's palette: a dark, blurred sheet under the bar with one
+  bordered accordion card per group (accent icon, caps section headings inside) and the
+  demo CTA. Fills the viewport and scrolls on its own when long.
+*/
 .panel {
+  --tone: var(--color-secondary);
   position: fixed;
   inset: var(--header-height) 0 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 8px var(--container-padding) 32px;
+  padding: 16px var(--container-padding) 96px;
   border-top: 1px solid var(--color-white-10);
-  background: var(--color-white);
+  background: rgb(46 1 82 / 0.98);
+  backdrop-filter: blur(24px);
+  font-family: var(--font-body);
   animation: mobile-panel-in var(--duration-base) var(--ease-out);
 }
 
@@ -17,101 +24,59 @@
   }
 }
 
-/* Opening a submenu eases its rows in. */
-.sublist:not([hidden]) {
-  animation: mobile-panel-in var(--duration-base) var(--ease-out);
+[data-tone='lime'] {
+  --tone: var(--color-secondary);
 }
 
-.list {
+[data-tone='yellow'] {
+  --tone: var(--color-tertiary);
+}
+
+[data-tone='lavender'] {
+  --tone: #c9b2e6;
+}
+
+.stack {
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 
-.list > li {
-  border-bottom: 1px solid var(--color-surface-light);
+.group {
+  overflow: hidden;
+  border: 1px solid var(--color-white-10);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.04);
 }
 
-.sublist {
-  padding-bottom: 8px;
-}
-
-/* 48px touch rows; deeper levels step in and get smaller, lighter type. */
-.row {
+.groupButton {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
   width: 100%;
   min-height: 48px;
-  text-align: left;
-}
-
-.rowButton {
+  padding: 12px;
   font: inherit;
-  color: inherit;
-}
-
-.label {
-  flex: 1;
-  padding-block: 12px;
-}
-
-.level1 {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 24px;
-  color: var(--color-heading);
-}
-
-.level2 {
-  padding-left: 12px;
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 24px;
-  color: var(--color-heading);
-}
-
-.level3 {
-  padding-left: 24px;
-  font-size: 15px;
-  line-height: 22px;
-  color: var(--color-body);
-}
-
-.level4 {
-  padding-left: 36px;
   font-size: 14px;
+  font-weight: 600;
   line-height: 20px;
-  color: var(--color-body);
+  text-align: left;
+  color: var(--color-white);
 }
 
-.level3 .label,
-.level4 .label,
-.level3.label,
-.level4.label {
-  padding-block: 10px;
-}
-
-.active {
-  color: var(--color-primary);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.toggle {
+.groupLabel {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  margin-right: -12px;
-  color: inherit;
+  gap: 8px;
+}
+
+.groupIcon {
+  color: var(--tone);
 }
 
 .chevron {
   flex: none;
+  color: var(--color-white-60);
   transition: transform 150ms ease;
 }
 
@@ -119,27 +84,90 @@
   transform: rotate(180deg);
 }
 
-/* Only on phones, where the bar's own CTA is hidden. */
-.cta {
-  display: none;
-  width: 100%;
-  margin-top: 24px;
+.groupBody {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 16px 12px;
+  border-top: 1px solid rgb(255 255 255 / 0.05);
 }
 
-/* Same side gutter as the page container. */
+.groupBody[hidden] {
+  display: none;
+}
+
+.groupBody:not([hidden]) {
+  animation: mobile-panel-in var(--duration-base) var(--ease-out);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+
+.nested {
+  padding-top: 0;
+  padding-left: 12px;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--tone);
+}
+
+/* 40px touch rows. */
+.link {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.active {
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+.pending {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.cta {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.groupButton:focus-visible,
+.link:focus-visible,
+.sectionHeading:focus-visible {
+  border-radius: 8px;
+  outline: 2px solid var(--color-secondary);
+  outline-offset: -2px;
+}
+
 @media (max-width: 767px) {
   .panel {
-    padding-inline: 20px;
-  }
-}
-
-@media (max-width: 479px) {
-  .cta {
-    display: flex;
+    padding-inline: 16px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .panel,
+  .groupBody:not([hidden]) {
+    animation: none;
+  }
+
   .chevron {
     transition: none;
   }

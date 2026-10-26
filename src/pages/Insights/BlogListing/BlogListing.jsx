@@ -5,15 +5,17 @@ import FeaturedListing from '../FeaturedListing/FeaturedListing';
 const page = insightsPages.blog;
 
 // The frame's categories are "Category Here" placeholders, so the list is the categories found
-// on the blog posts.
+// on the blog posts. A post's `category` is one name or a list of names.
+const categoriesOf = (post) => [post.category].flat().filter(Boolean);
+
 const filter = {
   title: page.categoriesTitle,
   variant: 'list',
   items: (posts) => [
     { value: null, label: page.allLabel },
-    ...[...new Set(posts.map((post) => post.category).filter(Boolean))].map((value) => ({ value, label: value })),
+    ...[...new Set(posts.flatMap(categoriesOf))].map((value) => ({ value, label: value })),
   ],
-  match: (post, category) => post.category === category,
+  match: (post, category) => categoriesOf(post).includes(category),
 };
 
 function meta(post) {

@@ -1,48 +1,64 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { testimonials } from '../../../../data/home';
 import { cn } from '../../../../utils/cn';
-import { useAutoRotate } from '../../../../hooks/useAutoRotate';
-import { useMediaQuery } from '../../../../hooks/useMediaQuery';
+import { usePrefersReducedMotion } from '../../../../hooks/useMediaQuery';
 import { useSwipe } from '../../../../hooks/useSwipe';
-import Section from '../../../../components/layout/Section/Section';
+import Container from '../../../../components/layout/Container/Container';
 import Icon from '../../../../components/ui/Icon/Icon';
 import styles from './TestimonialsSection.module.css';
 
 const pad = (value) => String(value).padStart(2, '0');
+const wrap = (value, count) => ((value % count) + count) % count;
+// Cards rendered on each side of the active one: two are visible (the outer one cut off by the
+// viewport edge), the third waits off-screen so a card never pops in during a slide.
+const SIDE = 3;
 
 /**
- * Testimonial carousel — "verified review" cards. Every card has the same fixed size: the
- * organization pill (when the customer is a person at an organization), the quote (trimmed to the card with a "Read full testimonial" button that
- * opens the whole quote in a dialog), and a footer with the name and position.
- * Cards alternate Deep Purple and Rose White.
+ * Testimonial coverflow (reference design): a full-width row of equal cards centred on the
+ * active one, which is taller, outlined in Deep Purple and lifted; its neighbours sit either side
+ * and the next ones are cut off by the viewport edges. The row loops endlessly in both
+ * directions. It moves by the round arrows on the neighbours' outer edges, by clicking a
+ * neighbour, by swiping, or automatically every `testimonials.autoplaySeconds` (paused while the
+ * pointer or focus is inside, while the dialog is open, and for reduced motion).
  *
- * Two cards per view on desktop, one below 1200px. The row moves one card per step, by the
- * arrows, by swiping, or automatically every `testimonials.autoplaySeconds` (paused while the
- * pointer or focus is inside, while the dialog is open, and for reduced motion), wrapping from the
- * last position to the first. The segmented bar beside the arrows shows the position and fills
- * over each interval.
+ * Long quotes are trimmed with "Show More", which opens the whole quote in a dialog.
  */
 function TestimonialsSection() {
   const { items, autoplaySeconds } = testimonials;
-  const perView = useMediaQuery('(min-width: 1200px)') ? 2 : 1;
-  const positions = Math.max(items.length - perView + 1, 1);
+  const count = items.length;
+  // Unbounded position, so the row can keep sliding the same way past the last testimonial.
+  const [position, setPosition] = useState(0);
   const [hovered, setHovered] = useState(false);
   const [openItem, setOpenItem] = useState(null);
-  const paused = hovered || openItem !== null;
-  const [index, select] = useAutoRotate(positions, { interval: autoplaySeconds * 1000, paused });
-  const swipe = useSwipe({ onPrev: () => select(index - 1), onNext: () => select(index + 1) });
+  const reducedMotion = usePrefersReducedMotion();
+  const active = wrap(position, count);
+  const running = !hovered && openItem === null && !reducedMotion && count > 1;
 
-  // Which quotes are cut off by the fixed card height (re-measured when the cards resize).
-  const quoteRefs = useRef([]);
-  const [clamped, setClamped] = useState([]);
+  const go = useCallback((next) => setPosition(next), []);
+  const swipe = useSwipe({ onPrev: () => go(position - 1), onNext: () => go(position + 1) });
+
+  // Autoplay; a manual move restarts the countdown (the effect re-runs on every new position).
   useEffect(() => {
-    const measure = () =>
-      setClamped(quoteRefs.current.map((el) => Boolean(el) && el.scrollHeight > el.clientHeight + 1));
-    measure();
-    const observer = new ResizeObserver(measure);
-    quoteRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, [perView]);
+    if (!running) return undefined;
+    const timer = setTimeout(() => setPosition((value) => value + 1), autoplaySeconds * 1000);
+    return () => clearTimeout(timer);
+  }, [running, position, autoplaySeconds]);
+
+  // Which quotes are cut off at their card's current size (the active card shows more lines).
+  const quoteRefs = useRef(new Map());
+  const [clamped, setClamped] = useState({});
+  const measure = useCallback(() => {
+    const next = {};
+    quoteRefs.current.forEach((el, key) => {
+      next[key] = el.scrollHeight > el.clientHeight + 1;
+    });
+    setClamped(next);
+  }, []);
+  useLayoutEffect(measure, [position, measure]);
+  useEffect(() => {
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, [measure]);
 
   const dialogRef = useRef(null);
   useEffect(() => {
@@ -52,109 +68,107 @@ function TestimonialsSection() {
     else if (!openItem && dialog.open) dialog.close();
   }, [openItem]);
 
+  const slots = [];
+  for (let virtual = position - SIDE; virtual <= position + SIDE; virtual += 1) slots.push(virtual);
+
   return (
-    <Section
-      spacing="none"
+    <section
       className={styles.section}
       onPointerEnter={(event) => event.pointerType === 'mouse' && setHovered(true)}
       onPointerLeave={() => setHovered(false)}
       onFocus={() => setHovered(true)}
       onBlur={(event) => !event.currentTarget.contains(event.relatedTarget) && setHovered(false)}
     >
-      <div className={styles.header}>
-        <div>
-          <p className={styles.eyebrow}>{testimonials.eyebrow}</p>
-          <h2 className={cn('text-headline-lg', styles.title)}>
-            {testimonials.titleLines.map((line) => (
-              <span key={line}>{line}</span>
-            ))}
-          </h2>
-        </div>
-        <div className={styles.controls}>
-          {positions > 1 && (
-            <ol className={styles.progress} aria-label="Testimonial positions">
-              {Array.from({ length: positions }, (_, position) => (
-                <li key={position}>
-                  <button
-                    type="button"
-                    className={cn(styles.segment, position < index && styles.done, position === index && styles.current)}
-                    style={{ '--interval': `${autoplaySeconds}s` }}
-                    data-paused={paused || undefined}
-                    onClick={() => select(position)}
-                    aria-label={`Show testimonial ${position + 1}`}
-                    aria-current={position === index ? 'true' : undefined}
-                  >
-                    {/* Keyed so the fill restarts with the timer: on a new position and when a pause ends. */}
-                    {position === index && <span key={`${index}-${paused}`} className={styles.fill} />}
-                  </button>
-                </li>
-              ))}
-            </ol>
-          )}
-          <button
-            type="button"
-            className={styles.control}
-            aria-label="Previous testimonial"
-            aria-controls="testimonial-track"
-            onClick={() => select(index - 1)}
-            disabled={positions < 2}
-          >
-            <Icon name="chevronLeft" />
-          </button>
-          <button
-            type="button"
-            className={cn(styles.control, styles.controlNext)}
-            aria-label="Next testimonial"
-            aria-controls="testimonial-track"
-            onClick={() => select(index + 1)}
-            disabled={positions < 2}
-          >
-            <Icon name="chevronRight" />
-          </button>
-        </div>
-      </div>
+      <Container>
+        <h2 className={cn('text-headline-lg', styles.title)}>
+          {testimonials.titleLines.map((line) => (
+            <span key={line}>{line}</span>
+          ))}
+        </h2>
+      </Container>
 
-      <div className={styles.viewport} aria-roledescription="carousel" aria-label="Testimonials" {...(positions > 1 ? swipe : {})}>
-        <ul
-          id="testimonial-track"
-          className={styles.list}
-          aria-live={paused ? 'polite' : 'off'}
-          style={{ '--index': index, '--per-view': perView }}
-        >
-          {items.map((item, itemIndex) => {
-            const inView = itemIndex >= index && itemIndex < index + perView;
+      <div
+        className={styles.stage}
+        aria-roledescription="carousel"
+        aria-label="Testimonials"
+        {...(count > 1 ? swipe : {})}
+      >
+        <ul className={styles.track} aria-live={hovered ? 'polite' : 'off'}>
+          {slots.map((virtual) => {
+            const offset = virtual - position;
+            const itemIndex = wrap(virtual, count);
+            const item = items[itemIndex];
+            const isActive = offset === 0;
+            const isNeighbour = Math.abs(offset) === 1;
+            const reachable = isActive || isNeighbour;
             return (
               <li
-                key={item.name}
-                className={cn(styles.card, itemIndex % 2 === 0 && styles.dark)}
-                aria-hidden={!inView}
-                inert={!inView}
+                key={virtual}
+                className={cn(styles.card, isActive && styles.active, Math.abs(offset) >= SIDE && styles.parked)}
+                style={{ '--offset': offset }}
+                aria-hidden={!reachable}
+                inert={!reachable}
+                aria-roledescription="slide"
+                aria-label={`${itemIndex + 1} of ${count}`}
+                aria-current={isActive ? 'true' : undefined}
+                onClick={(event) => {
+                  // A neighbour comes to the centre when clicked (its own button still opens the quote).
+                  if (isNeighbour && !event.target.closest('button')) go(virtual);
+                }}
               >
                 <figure className={styles.figure}>
-                  <div className={styles.top}>
-                    <span className={styles.mark} aria-hidden="true" />
-                    {item.role && <span className={styles.org}>{item.role}</span>}
-                  </div>
-                  <blockquote ref={(el) => (quoteRefs.current[itemIndex] = el)} className={styles.quote}>
+                  <span className={styles.openMark} aria-hidden="true" />
+                  <blockquote
+                    ref={(el) => (el ? quoteRefs.current.set(virtual, el) : quoteRefs.current.delete(virtual))}
+                    className={styles.quote}
+                  >
                     <p>“{item.quote}”</p>
                   </blockquote>
-                  {clamped[itemIndex] && (
-                    <button type="button" className={styles.more} onClick={() => setOpenItem(item)}>
-                      Read full testimonial
-                      <Icon name="arrowRight" size={16} />
-                    </button>
-                  )}
+                  <div className={styles.moreRow}>
+                    {clamped[virtual] && (
+                      <button type="button" className={styles.more} onClick={() => setOpenItem(item)}>
+                        Show More
+                        <Icon name="arrowRight" size={14} />
+                      </button>
+                    )}
+                    <span className={styles.closeMark} aria-hidden="true" />
+                  </div>
                   <figcaption className={styles.footer}>
                     <span className={styles.name}>{item.name}</span>
-                    <span className={styles.count} aria-hidden="true">
-                      {pad(itemIndex + 1)} <span>/ {pad(items.length)}</span>
-                    </span>
+                    {item.role && <span className={styles.role}>{item.role}</span>}
                   </figcaption>
+                  {isActive && (
+                    <span className={styles.count} aria-hidden="true">
+                      {pad(itemIndex + 1)}
+                      <span> / {pad(count)}</span>
+                    </span>
+                  )}
                 </figure>
               </li>
             );
           })}
         </ul>
+
+        {count > 1 && (
+          <>
+            <button
+              type="button"
+              className={cn(styles.arrow, styles.prev)}
+              aria-label="Previous testimonial"
+              onClick={() => go(position - 1)}
+            >
+              <Icon name="chevronLeft" size={22} />
+            </button>
+            <button
+              type="button"
+              className={cn(styles.arrow, styles.next)}
+              aria-label="Next testimonial"
+              onClick={() => go(position + 1)}
+            >
+              <Icon name="chevronRight" size={22} />
+            </button>
+          </>
+        )}
       </div>
 
       <dialog
@@ -169,22 +183,20 @@ function TestimonialsSection() {
             <button type="button" className={styles.close} onClick={() => setOpenItem(null)} aria-label="Close">
               <Icon name="close" size={22} />
             </button>
-            <span className={styles.mark} aria-hidden="true" />
+            <span className={styles.openMark} aria-hidden="true" />
             <blockquote className={styles.dialogQuote}>
               <p>“{openItem.quote}”</p>
             </blockquote>
             <figcaption className={styles.footer}>
-              <span>
-                <span id="testimonial-dialog-name" className={styles.name}>
-                  {openItem.name}
-                </span>
-                {openItem.role && <span className={styles.role}>{openItem.role}</span>}
+              <span id="testimonial-dialog-name" className={styles.name}>
+                {openItem.name}
               </span>
+              {openItem.role && <span className={styles.role}>{openItem.role}</span>}
             </figcaption>
           </figure>
         )}
       </dialog>
-    </Section>
+    </section>
   );
 }
 

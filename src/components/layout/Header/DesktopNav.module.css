@@ -1,33 +1,39 @@
+/* Reference navbar triggers: compact pills that tint on hover, chevrons that flip. */
 .list {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 4px;
 }
 
-/* Mega panels anchor to the header bar (full content width); dropdowns anchor to their item. */
+/* Static, so each mega panel (fixed) spans the full width under the header. */
 .item {
   display: flex;
 }
 
-.dropdownItem {
-  position: relative;
-}
-
-/* Same type and colours as the original nav links (Roboto 16, white 90%, lime when active). */
 .trigger {
   display: flex;
   align-items: center;
-  gap: 2px;
-  height: 48px;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
   color: var(--color-white-90);
   white-space: nowrap;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .trigger:hover,
 .trigger[aria-expanded='true'] {
+  background: var(--color-white-10);
   color: var(--color-white);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
 }
 
 .active,
@@ -38,14 +44,18 @@
 
 .chevron {
   flex: none;
-  transition: transform 150ms ease;
+  color: var(--color-white-60);
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms ease;
 }
 
-.chevronOpen {
+.trigger:hover .chevron,
+.trigger[aria-expanded='true'] .chevron {
+  color: currentColor;
   transform: rotate(180deg);
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .trigger,
   .chevron {
     transition: none;
   }

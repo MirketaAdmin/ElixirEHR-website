@@ -1,16 +1,23 @@
 import { useId, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '../../../utils/cn';
+import { useAutoRotate } from '../../../hooks/useAutoRotate';
+import { useMediaQuery } from '../../../hooks/useMediaQuery';
+import { useSwipe } from '../../../hooks/useSwipe';
 import Section from '../../layout/Section/Section';
+import Icon from '../../ui/Icon/Icon';
 import SectionHeading from '../../ui/SectionHeading/SectionHeading';
 import userIcon from '../../../assets/icons/meta-user.png';
 import calendarIcon from '../../../assets/icons/meta-calendar.png';
 import styles from './ResourcesSection.module.css';
 
+// Seconds between automatic slides: an unhurried pace, one card per step.
+const AUTOPLAY_SECONDS = 5;
+
 /** The one resource card, used by every category (only the data changes). */
-function ResourceCard({ item }) {
+function ResourceCard({ item, hidden }) {
   return (
-    <li className={styles.card}>
+    <li className={styles.card} aria-hidden={hidden || undefined} inert={hidden || undefined}>
       <div className={styles.media}>
         <img src={item.image} alt="" width="361" height="224" className={styles.image} />
         <span className={styles.tag}>{item.tag}</span>
@@ -37,8 +44,83 @@ function ResourceCard({ item }) {
 }
 
 /**
- * Knowledge Base (Home, Referral Program): category tabs (Blog first, as in the frames) switching
- * the card grid. Content comes in as props (`eyebrow`, `title`, `categories`; Home's is
+ * One category's cards: the designed row (three across on desktop, two on tablets, one on
+ * phones). When a category has more cards than fit, the row becomes a slow carousel moving one
+ * card per step — by the arrows, the dots, a swipe, or by itself every few seconds (paused while
+ * the pointer or focus is inside, and for reduced motion) — wrapping from the end to the start.
+ */
+function ResourceCarousel({ items, label }) {
+  const desktop = useMediaQuery('(min-width: 1200px)');
+  const tablet = useMediaQuery('(min-width: 768px)');
+  const perView = desktop ? 3 : tablet ? 2 : 1;
+  const positions = Math.max(items.length - perView + 1, 1);
+  const [paused, setPaused] = useState(false);
+  const [index, select] = useAutoRotate(positions, { interval: AUTOPLAY_SECONDS * 1000, paused });
+  const swipe = useSwipe({ onPrev: () => select(index - 1), onNext: () => select(index + 1) });
+  const sliding = positions > 1;
+
+  return (
+    <div
+      onPointerEnter={(event) => event.pointerType === 'mouse' && setPaused(true)}
+      onPointerLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={(event) => !event.currentTarget.contains(event.relatedTarget) && setPaused(false)}
+    >
+      <div
+        className={styles.viewport}
+        {...(sliding ? { 'aria-roledescription': 'carousel', 'aria-label': label, ...swipe } : {})}
+      >
+        <ul className={styles.grid} style={{ '--index': index, '--per-view': perView }}>
+          {items.map((item, itemIndex) => (
+            <ResourceCard
+              key={item.title}
+              item={item}
+              hidden={sliding && (itemIndex < index || itemIndex >= index + perView)}
+            />
+          ))}
+        </ul>
+      </div>
+
+      {sliding && (
+        <div className={styles.controls}>
+          <button
+            type="button"
+            className={styles.arrow}
+            aria-label="Previous resources"
+            onClick={() => select(index - 1)}
+          >
+            <Icon name="chevronLeft" size={22} />
+          </button>
+          <ol className={styles.dots} aria-label={`${label} positions`}>
+            {Array.from({ length: positions }, (_, position) => (
+              <li key={position}>
+                <button
+                  type="button"
+                  className={cn(styles.dot, position === index && styles.dotActive)}
+                  aria-label={`Show resources ${position + 1} to ${position + perView}`}
+                  aria-current={position === index ? 'true' : undefined}
+                  onClick={() => select(position)}
+                />
+              </li>
+            ))}
+          </ol>
+          <button
+            type="button"
+            className={cn(styles.arrow, styles.arrowNext)}
+            aria-label="Next resources"
+            onClick={() => select(index + 1)}
+          >
+            <Icon name="chevronRight" size={22} />
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/**
+ * Knowledge Base (Home, Referral Program, A/R Agent): category tabs (Blog first, as in the frames)
+ * switching the category's cards (see ResourceCarousel). Content comes in as props (`eyebrow`, `title`, `categories`; Home's is
  * `resources` in data/home.js). `tagTone`: 'yellow' (Home) or 'purple' (Referral Program) card tags.
  */
 function ResourcesSection({ eyebrow, title, categories, tagTone = 'yellow', className }) {
@@ -87,12 +169,8 @@ function ResourcesSection({ eyebrow, title, categories, tagTone = 'yellow', clas
       </div>
 
       <div id={`${baseId}-panel`} role="tabpanel" aria-labelledby={tabId(active)}>
-        {/* Keyed by category so the new cards fade in when the tab changes. */}
-        <ul key={active} className={styles.grid}>
-          {categories[active].items.map((item) => (
-            <ResourceCard key={item.title} item={item} />
-          ))}
-        </ul>
+        {/* Keyed by category so the new cards fade in, from the first, when the tab changes. */}
+        <ResourceCarousel key={active} items={categories[active].items} label={categories[active].label} />
       </div>
     </Section>
   );

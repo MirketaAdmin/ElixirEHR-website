@@ -30,20 +30,52 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 21px;
+  gap: 12px;
 }
 
+/* Reference search trigger: a bordered pill with the label and the shortcut. */
 .search {
   display: flex;
-  margin: -8px;
-  padding: 8px;
-  border-radius: 50%;
-  color: var(--color-white);
-  transition: background-color var(--duration-fast) var(--ease-standard);
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid rgb(255 255 255 / 0.15);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.08);
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-white-60);
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .search:hover {
   background: var(--color-white-10);
+  color: var(--color-white);
+}
+
+.kbd {
+  padding: 2px 6px;
+  border: 1px solid rgb(255 255 255 / 0.15);
+  border-radius: 4px;
+  background: rgb(0 0 0 / 0.2);
+  font-family: var(--font-body);
+  font-size: 10px;
+  line-height: 14px;
+  color: var(--color-white-60);
+}
+
+/* The label needs the room of the widest desktops; the shortcut shows from tablets up. */
+@media (max-width: 1439px) {
+  .searchLabel {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .kbd {
+    display: none;
+  }
 }
 
 .cta {
@@ -56,8 +88,14 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  margin-right: -8px;
+  border-radius: 12px;
+  background: var(--color-white-10);
   color: var(--color-white);
+  transition: background-color 150ms ease;
+}
+
+.menuButton:hover {
+  background: rgb(255 255 255 / 0.16);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -66,14 +104,10 @@
   }
 }
 
-/* Below 1200px the six mega-menu items no longer fit beside the logo and actions: hamburger. */
+/* Below 1200px the navigation items no longer fit beside the logo and actions: hamburger. */
 @media (max-width: 1199px) {
   .desktopNav {
     display: none;
-  }
-
-  .actions {
-    gap: 16px;
   }
 
   .menuButton {

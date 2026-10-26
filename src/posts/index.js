@@ -30,6 +30,11 @@ const allPosts = [
   ...Object.entries(demoModules).map(([file, data]) => toPost(file, data, true)),
 ].sort((a, b) => b.publishDate.localeCompare(a.publishDate));
 
+/** Every post of every type, newest first. */
+export function getAllPosts() {
+  return allPosts;
+}
+
 /** Posts of one type, newest first (by publish date, never file order). */
 export function getPosts(type) {
   return allPosts.filter((post) => post.type === type);

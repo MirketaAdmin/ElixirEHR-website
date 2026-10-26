@@ -1,113 +1,536 @@
-/* White panel under the purple bar: design-system radius, shadow and type (DESIGN-SYSTEM.md). */
+/*
+  Desktop mega panels — the supplied reference navbar's design in Elixir's palette: a full-width
+  dark panel under the header (deep brand purple, 98% opaque, blurred), content on a 12-column
+  grid with 1px column rules, caps headings in a brand accent, icon cards, chevron lists and
+  boxed rows. Sizes, spacing, radii and timings follow the reference's Tailwind classes; its
+  slate/teal/indigo/cyan become white tints, lime, lavender and yellow.
+*/
 .panel {
-  position: absolute;
-  top: calc(100% - 1px);
-  z-index: 1;
-  padding: 32px;
-  border: 1px solid var(--color-surface-light);
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-  background: var(--color-white);
-  box-shadow: var(--shadow-media);
-  animation: panel-in var(--duration-base) var(--ease-out);
+  --tone: var(--color-secondary);
+  position: fixed;
+  top: var(--header-height);
+  right: 0;
+  left: 0;
+  max-height: calc(100vh - var(--header-height));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-bottom: 1px solid var(--color-white-10);
+  background: rgb(50 27 79 / 0.98);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  backdrop-filter: blur(24px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Full content width, aligned with the page container. */
-.mega {
-  right: var(--container-padding);
-  left: var(--container-padding);
+.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-.dropdown {
-  left: -16px;
-  min-width: 248px;
-  padding: 16px;
+[data-tone='lime'] {
+  --tone: var(--color-secondary);
 }
 
-@keyframes panel-in {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
+[data-tone='yellow'] {
+  --tone: var(--color-tertiary);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .panel {
-    animation: none;
-  }
+[data-tone='lavender'] {
+  --tone: #c9b2e6;
 }
 
-/* Level 2 groups flow into balanced columns. */
-.groups {
-  columns: 4 200px;
-  column-gap: 32px;
+.inner {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 24px;
+  padding-block: 32px;
+  font-family: var(--font-body);
+  color: rgb(255 255 255 / 0.8);
 }
 
-.group {
-  break-inside: avoid;
-  padding-bottom: 24px;
+.column {
+  grid-column: span var(--span);
+  min-width: 0;
 }
 
-.groupTitle {
-  display: inline-block;
-  font-family: var(--font-display);
-  font-size: 16px;
+.divider {
+  padding-right: 24px;
+  border-right: 1px solid var(--color-white-10);
+}
+
+/* Headings */
+.headingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-label);
+  font-size: 12px;
   font-weight: 600;
-  line-height: 24px;
-  color: var(--color-heading);
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--tone);
+}
+
+.heading svg {
+  flex: none;
+}
+
+/* Section pages: the heading is the link to its page. */
+a.headingLink {
+  transition: opacity 150ms ease;
+}
+
+a.headingLink:hover {
+  opacity: 0.8;
+}
+
+/* The reference's AI columns: a 14px bold title instead of caps. */
+.titleHeading {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.note {
+  font-size: 10px;
+  line-height: 14px;
+  color: var(--color-white-60);
+}
+
+.intro {
+  margin: -4px 0 16px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-white-60);
+}
+
+.description {
+  display: block;
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--color-white-60);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Featured product cards: icon tile + title + description. */
+.featured {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.04);
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.iconTile {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--tone) 10%, transparent);
+  color: var(--tone);
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.featuredTitle {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-white);
+  transition: color 150ms ease;
+}
+
+.featured .description {
+  font-size: 12px;
+}
+
+a.featured:hover {
+  border-color: color-mix(in srgb, var(--tone) 40%, transparent);
+  background: color-mix(in srgb, var(--tone) 10%, transparent);
+}
+
+a.featured:hover .featuredTitle {
+  color: var(--tone);
+}
+
+a.featured:hover .iconTile {
+  background: var(--tone);
+  color: var(--color-surface-dark);
+}
+
+/* Section lists with chevron bullets that nudge right on hover. */
+.sections {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
 
 .list {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  margin-top: 6px;
+  gap: 8px;
 }
 
-.dropdown > .list {
-  margin-top: 0;
+.list li {
+  padding-left: calc(var(--depth, 0) * 14px);
 }
 
-/* Level 4 sits under a thin rule so the hierarchy reads at a glance. */
-.deepList {
-  margin: 2px 0 4px 2px;
-  padding-left: 12px;
-  border-left: 1px solid var(--color-border);
+.arrowLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.link {
-  display: inline-block;
-  padding-block: 4px;
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--color-body);
+.arrow {
+  flex: none;
+  color: rgb(255 255 255 / 0.3);
 }
 
-.dropdown .link {
-  display: block;
-  padding: 8px 16px;
-  border-radius: var(--radius-sm);
-  font-size: 16px;
-  line-height: 24px;
+a.arrowLink:hover {
+  color: var(--tone);
+  transform: translateX(4px);
 }
 
-a.groupTitle:hover,
-a.link:hover {
-  color: var(--color-primary);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+/* Plain links (Insights, Regulations, Library & Media, About). */
+.plainLink {
+  font-size: 12px;
+  line-height: 16px;
+  transition: color 150ms ease;
 }
 
-.dropdown a.link:hover {
-  background: var(--color-surface);
-  text-decoration: none;
+a.plainLink:hover {
+  color: var(--tone);
 }
 
-.active {
+/* AI banner */
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 20px;
+  border: 1px solid rgb(201 178 230 / 0.25);
+  border-radius: 16px;
+  background: linear-gradient(to bottom right, rgb(73 50 102 / 0.8), rgb(46 1 82 / 0.6));
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  border: 1px solid rgb(201 178 230 / 0.3);
+  border-radius: var(--radius-pill);
+  background: rgb(201 178 230 / 0.2);
+  font-family: var(--font-label);
+  font-size: 12px;
   font-weight: 600;
-  color: var(--color-primary);
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #c9b2e6;
 }
 
-/* Items whose page is not built yet: listed for the structure, not interactive. */
+.bannerTitle {
+  margin-bottom: 8px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-white);
+}
+
+.bannerText {
+  font-size: 12px;
+  line-height: 19.5px;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.bannerFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgb(201 178 230 / 0.2);
+  font-size: 11px;
+  line-height: 16px;
+  color: #c9b2e6;
+}
+
+.bannerLink {
+  flex: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+a.bannerLink:hover {
+  text-decoration: underline;
+}
+
+/* Boxed cards (Elixir Co-Pilot). */
+.card {
+  display: block;
+  padding: 12px;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.05);
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cardTitle {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--color-white);
+  transition: color 150ms ease;
+}
+
+a.card:hover {
+  border-color: color-mix(in srgb, var(--tone) 30%, transparent);
+  background: rgb(255 255 255 / 0.1);
+}
+
+a.card:hover .cardTitle {
+  color: var(--tone);
+}
+
+/* Rows: title + description; ghost (KratuAI), filled with an icon (Challenges, Support) or
+   plain (Care Programs). */
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.plainRows {
+  gap: 12px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rowTitle {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: rgb(255 255 255 / 0.9);
+  transition: color 150ms ease;
+}
+
+.rowIcon {
+  flex: none;
+  color: var(--tone);
+}
+
+a.row:hover {
+  border-color: rgb(255 255 255 / 0.15);
+  background: rgb(255 255 255 / 0.08);
+}
+
+.filledRow {
+  border: 0;
+  background: rgb(255 255 255 / 0.05);
+}
+
+a.filledRow:hover {
+  border: 0;
+  background: rgb(255 255 255 / 0.1);
+}
+
+.plainRow {
+  padding: 0;
+}
+
+a.plainRow:hover {
+  border-color: transparent;
+  background: none;
+}
+
+.plainRow .rowTitle {
+  color: var(--color-white);
+}
+
+a.plainRow:hover .rowTitle,
+.plainRow a.rowTitle:hover,
+a.inlineLink:hover {
+  color: var(--tone);
+}
+
+.inlineLink {
+  transition: color 150ms ease;
+}
+
+/* Contact & Demos card */
+.ctaCard {
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.05);
+}
+
+.ctaCard .description {
+  margin-bottom: 12px;
+}
+
+.ctaButton {
+  display: block;
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--color-secondary);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  color: var(--color-heading);
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a.ctaButton:hover {
+  filter: brightness(1.08);
+}
+
+/* Specialty tiles + the Care Management line under them. */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.tile {
+  padding: 8px;
+  border-radius: 4px;
+  background: rgb(255 255 255 / 0.04);
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(255 255 255 / 0.9);
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tile:last-child:nth-child(odd) {
+  grid-column: span 2;
+}
+
+a.tile:hover {
+  background: rgb(255 255 255 / 0.1);
+  color: var(--color-white);
+}
+
+.subSection {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgb(255 255 255 / 0.08);
+}
+
+.subSection .headingRow {
+  margin-bottom: 8px;
+}
+
+.inlineLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+/* Compliance cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.gridCard {
+  display: block;
+  padding: 12px;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: 8px;
+  background: rgb(255 255 255 / 0.03);
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gridCard .cardTitle {
+  margin-bottom: 2px;
+}
+
+a.gridCard:hover {
+  border-color: color-mix(in srgb, var(--tone) 30%, transparent);
+  background: rgb(255 255 255 / 0.08);
+}
+
+/* The page you are on. */
+.current,
+.current .featuredTitle,
+.current .cardTitle,
+.current .rowTitle {
+  color: var(--tone);
+}
+
+.current {
+  font-weight: 600;
+}
+
+/* Pages that are not built yet: shown, not linked. */
 .pending {
   cursor: default;
+  opacity: 0.55;
+}
+
+.panel a:focus-visible {
+  border-radius: 8px;
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .panel * {
+    transition: none !important;
+  }
+
+  a.arrowLink:hover {
+    transform: none;
+  }
 }

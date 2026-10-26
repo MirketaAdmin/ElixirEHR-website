@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react';
 
-/** True when the free-text query matches the resource's title, excerpt, category or author. */
+/** True when the free-text query matches the resource's title, excerpt, category (or categories) or author. */
 export function matchesQuery(post, query) {
   const needle = query.trim().toLowerCase();
   if (!needle) return true;
-  return [post.listingTitle, post.title, post.excerpt, post.category, post.author]
+  return [post.listingTitle, post.title, post.excerpt, ...[post.category].flat(), post.author]
     .filter(Boolean)
     .some((field) => field.toLowerCase().includes(needle));
 }
