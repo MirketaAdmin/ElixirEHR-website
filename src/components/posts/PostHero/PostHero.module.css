@@ -31,10 +31,6 @@
   color: var(--color-secondary);
 }
 
-.trail {
-  margin-top: 22px;
-}
-
 .title {
   max-width: 800px;
   margin-top: 24px;

@@ -2,7 +2,6 @@ import { cn } from '../../../utils/cn';
 import Section from '../../layout/Section/Section';
 import SectionHeading from '../../ui/SectionHeading/SectionHeading';
 import Button from '../../ui/Button/Button';
-import CareNetwork from '../../motion/CareNetwork';
 import styles from './CtaBanner.module.css';
 
 /**
@@ -34,7 +33,6 @@ function CtaBanner({
 
   return (
     <Section tone="dark" spacing="none" className={cn(styles.section, className)} containerClassName={styles.inner}>
-      <CareNetwork density={0.7} />
       <SectionHeading
         eyebrow={eyebrow}
         eyebrowCaps

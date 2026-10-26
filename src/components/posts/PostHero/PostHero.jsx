@@ -19,8 +19,9 @@ function TypeLink({ type }) {
 }
 
 /**
- * Post hero (Figma "Press Release" detail frame): the content-type trail, the full breadcrumb,
- * the H1 and the meta pills. Pills render only for the fields the post has.
+ * Post hero (Figma "Press Release" detail frame): the breadcrumb (Home › type › post), the H1
+ * and the meta pills. Pills render only for the fields the post has. (The frame's separate
+ * "Home › type" trail above it was dropped: it repeated the breadcrumb.)
  */
 function PostHero({ post, type }) {
   const date = post.event?.startDate?.slice(0, 10) ?? post.publishDate;
@@ -34,18 +35,7 @@ function PostHero({ post, type }) {
   return (
     <section className={styles.hero} data-header-overlap>
       <Container>
-        <nav aria-label="Content type">
-          <ol className={styles.breadcrumb}>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <Separator />
-            <li className={styles.current}>
-              <TypeLink type={type} />
-            </li>
-          </ol>
-        </nav>
-        <nav aria-label="Breadcrumb" className={styles.trail}>
+        <nav aria-label="Breadcrumb">
           <ol className={styles.breadcrumb}>
             <li>
               <Link to="/">Home</Link>
