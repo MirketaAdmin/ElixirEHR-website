@@ -3,7 +3,6 @@ import Section from '../../../../components/layout/Section/Section';
 import warningIcon from '../../../../assets/revenue-cycle-management/icon-active-resolution.png';
 import RcmBadge from '../../components/RcmBadge/RcmBadge';
 import CheckList from '../../components/CheckList/CheckList';
-import ImagePlaceholder from '../../../../components/ui/ImagePlaceholder/ImagePlaceholder';
 import styles from './DenialManagementSection.module.css';
 
 /** Denial management split plus the "Healthcare Appeals and Payer Follow-Up" steps (one band). */
@@ -27,7 +26,7 @@ function DenialManagementSection() {
           <p className={styles.body}>{body}</p>
           <CheckList items={points} className={styles.points} />
         </div>
-        <ImagePlaceholder className={styles.media} />
+        <img src={denialManagement.image.src} alt={denialManagement.image.alt} width="552" height="468" className={styles.media} />
       </div>
 
       <hr className={styles.divider} />

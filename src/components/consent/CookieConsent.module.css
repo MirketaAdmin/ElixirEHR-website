@@ -1,0 +1,348 @@
+/*
+  Cookie consent in the site's own language: a compact white card at the bottom-left (a bottom
+  sheet on phones) with a Deep Purple heading, the lime "Accept All" and Deep Purple "Reject
+  Non-Essential" pills side by side at equal size, and "Customize Preferences" as a text button.
+  The preferences dialog reuses the site's dialog look (rounded white panel, blurred backdrop).
+*/
+.banner {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 900;
+  padding-block: 20px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-white);
+  box-shadow: 0 -8px 30px rgb(31 24 35 / 0.1);
+  animation: banner-in var(--duration-base) var(--ease-out);
+}
+
+@keyframes banner-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.bannerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.bannerCopy {
+  min-width: 0;
+  max-width: 760px;
+}
+
+.bannerTitle {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.bannerText {
+  margin-top: 6px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+.link {
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.bannerActions {
+  display: flex;
+  flex: none;
+  gap: 10px;
+}
+
+/* Compact bar buttons: white outlined, and the lime "Accept All". */
+.barButton {
+  height: 44px;
+  padding: 0 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+  color: var(--color-heading);
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.barButton:hover {
+  border-color: var(--color-primary);
+  background: var(--color-surface);
+}
+
+.barAccept {
+  border-color: var(--color-secondary);
+  background: var(--color-secondary);
+  box-shadow: 0 6px 16px -6px rgb(149 193 31 / 0.7);
+  color: var(--color-white);
+}
+
+.barAccept:hover {
+  border-color: #84ad18;
+  background: #84ad18;
+}
+
+.barButton:focus-visible,
+.link:focus-visible,
+.close:focus-visible,
+.switch:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Preferences dialog */
+.dialog {
+  width: min(640px, calc(100vw - 32px));
+  max-height: calc(100vh - 48px);
+  margin: auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: var(--color-white);
+  box-shadow: var(--shadow-media);
+}
+
+.dialog::backdrop {
+  background: rgb(31 24 35 / 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.dialog[open] {
+  animation: dialog-in var(--duration-base) var(--ease-out);
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0) scale(0.98);
+  }
+}
+
+.dialogInner {
+  padding: 32px;
+}
+
+.dialogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.dialogTitle {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-heading);
+}
+
+.close {
+  display: flex;
+  margin-right: -8px;
+  padding: 8px;
+  border-radius: 50%;
+  color: var(--color-body);
+}
+
+.close:hover {
+  background: var(--color-surface);
+}
+
+.dialogIntro {
+  margin-top: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.category {
+  padding: 18px 20px;
+  border: 1px solid var(--color-surface-light);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.categoryHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.categoryTitle {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  color: var(--color-primary);
+}
+
+.categoryText {
+  margin-top: 6px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+.gpc {
+  font-weight: 500;
+  color: var(--color-heading);
+}
+
+.always {
+  flex: none;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary-tint);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--color-primary);
+}
+
+/* Toggle switch: grey track off, Deep Purple on. */
+.switch {
+  position: relative;
+  flex: none;
+  width: 46px;
+  height: 26px;
+  border-radius: var(--radius-pill);
+  background: var(--color-border);
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.switchOn {
+  background: var(--color-primary);
+}
+
+.switchOn .knob {
+  transform: translate3d(20px, 0, 0);
+}
+
+.switch:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.dialogActions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.dialogActions > * {
+  padding-inline: 12px;
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .banner {
+    padding-block: 16px;
+  }
+
+  .dialogInner {
+    padding: 24px 20px;
+  }
+
+  .dialogTitle {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .dialogActions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Tablets and phones: the buttons move under the notice and share the width. */
+@media (max-width: 1023px) {
+  .bannerInner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .bannerCopy {
+    max-width: none;
+  }
+
+  .bannerActions {
+    flex-wrap: wrap;
+  }
+
+  .barButton {
+    flex: 1 1 0;
+    padding-inline: 12px;
+  }
+}
+
+@media (max-width: 559px) {
+  .barButton {
+    flex-basis: calc(50% - 5px);
+  }
+
+  /* Reject and Accept side by side at equal size; Customize under them. */
+  .barButton:first-child {
+    order: 1;
+    flex-basis: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner,
+  .dialog[open] {
+    animation: none;
+  }
+
+  .switch,
+  .knob,
+  .barButton {
+    transition: none;
+  }
+}

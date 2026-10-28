@@ -1,5 +1,6 @@
 import { referralCtaBand, referralHero } from '../../data/referralProgram';
 import { resources } from '../../data/home';
+import { updatedContactLogos } from '../../data/contact';
 import PageHero from '../../components/sections/PageHero/PageHero';
 import ResourcesSection from '../../components/sections/ResourcesSection/ResourcesSection';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
@@ -26,10 +27,10 @@ function ReferralProgram() {
       />
       <ReferralSteps />
       <ReferralBenefits />
-      {/* The frame's Knowledge Base is Home's, with Deep Purple card tags. */}
-      <ResourcesSection {...resources} tagTone="purple" />
+      {/* The frame's Knowledge Base is Home's, with Deep Purple card tags and one row of three cards. */}
+      <ResourcesSection {...resources} tagTone="purple" limit={3} />
       <CtaBanner {...referralCtaBand} className={styles.ctaBand} ctaClassName={styles.ctaButton} />
-      <ContactSection />
+      <ContactSection logos={updatedContactLogos} logoGap={24} />
     </>
   );
 }

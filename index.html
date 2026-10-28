@@ -2,6 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!--
+      Google Consent Mode v2 defaults: every optional category denied until the visitor chooses,
+      then the saved choice re-applied before any other script runs. No Google tag is installed
+      yet; when one is added (GA4 or Tag Manager), put its snippet AFTER this block. Keep the key,
+      version and signal mapping in step with src/consent/consent.js.
+    -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        functionality_storage: 'denied',
+        personalization_storage: 'denied',
+        security_storage: 'granted',
+        wait_for_update: 500,
+      });
+      try {
+        var saved = JSON.parse(localStorage.getItem('elixir-cookie-consent'));
+        if (saved && saved.version === 1 && saved.categories) {
+          var c = saved.categories;
+          var marketing = c.marketing === true && navigator.globalPrivacyControl !== true;
+          var state = function (granted) {
+            return granted ? 'granted' : 'denied';
+          };
+          gtag('consent', 'update', {
+            analytics_storage: state(c.analytics === true),
+            ad_storage: state(marketing),
+            ad_user_data: state(marketing),
+            ad_personalization: state(marketing),
+            functionality_storage: state(c.functional === true),
+            personalization_storage: state(c.functional === true),
+          });
+        }
+      } catch (e) {}
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 

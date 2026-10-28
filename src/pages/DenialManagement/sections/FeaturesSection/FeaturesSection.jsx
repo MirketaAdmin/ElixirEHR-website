@@ -1,7 +1,6 @@
 import { dmFeatures } from '../../../../data/denialManagement';
 import { cn } from '../../../../utils/cn';
 import Section from '../../../../components/layout/Section/Section';
-import ImagePlaceholder from '../../../../components/ui/ImagePlaceholder/ImagePlaceholder';
 import checkIcon from '../../../../assets/denial-management/icon-check-circle.png';
 import DmSectionHeading from '../../components/DmSectionHeading/DmSectionHeading';
 import styles from './FeaturesSection.module.css';
@@ -28,10 +27,20 @@ function FeatureText({ feature, className }) {
   );
 }
 
-/**
- * Feature rows alternate text / image (the image column is the frame's "Generic image
- * placeholder": the screenshots have not been supplied). The last feature is full width.
- */
+/** A feature's product screenshot (a white card with its own padding, as exported from the frame). */
+function FeatureImage({ image, className }) {
+  return (
+    <img
+      src={image.src}
+      alt={image.alt}
+      width={image.width}
+      height={image.height}
+      className={cn(styles.screen, className)}
+    />
+  );
+}
+
+/** Feature rows alternate text / screenshot; the last feature is full width. */
 function FeaturesSection() {
   const rows = dmFeatures.items.slice(0, -1);
   const wide = dmFeatures.items.at(-1);
@@ -48,14 +57,12 @@ function FeaturesSection() {
         {rows.map((feature, index) => (
           <div key={feature.title} className={cn(styles.row, index % 2 === 1 && styles.reverse)}>
             <FeatureText feature={feature} />
-            <ImagePlaceholder className={styles.placeholder} />
+            <FeatureImage image={feature.image} />
           </div>
         ))}
         <div className={styles.wide}>
           <FeatureText feature={wide} className={styles.wideText} />
-          <div className={styles.wideCard}>
-            <ImagePlaceholder className={cn(styles.placeholder, styles.widePlaceholder)} />
-          </div>
+          <FeatureImage image={wide.image} className={styles.wideScreen} />
         </div>
       </div>
     </Section>

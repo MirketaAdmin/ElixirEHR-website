@@ -10,8 +10,10 @@
 }
 
 .media {
-  height: 300px;
-  margin-top: 36px;
+  margin-top: -17px;
+  display: block;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 
 .title {
@@ -54,6 +56,7 @@
     order: 1;
     width: 100%;
     max-width: 552px;
+    height: auto;
     margin-top: 0;
   }
 }

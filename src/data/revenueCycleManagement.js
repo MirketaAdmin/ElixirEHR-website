@@ -1,6 +1,10 @@
 // Revenue Cycle Management page content — copy reproduced exactly from the Figma "RCM" frame.
 
 import heroMedia from '../assets/revenue-cycle-management/hero-media.png';
+import unifiedPlatformImage from '../assets/revenue-cycle-management/unified-platform.png';
+import payerWorkflowImage from '../assets/revenue-cycle-management/payer-workflow.png';
+import denialManagementImage from '../assets/revenue-cycle-management/denial-management.png';
+import multiPayerImage from '../assets/revenue-cycle-management/multi-payer.png';
 import cms1500Form from '../assets/revenue-cycle-management/cms-1500-form.png';
 import ub04Form from '../assets/revenue-cycle-management/ub-04-form.png';
 import claimValidationErrors from '../assets/revenue-cycle-management/claim-validation-errors.png';
@@ -23,11 +27,12 @@ export const rcmHero = {
     'Unified, native clinical-financial synchronization delivering end-to-end adjudication transparency and automated payer reconciliation.',
   media: {
     src: heroMedia,
-    alt: 'Revenue cycle team reviewing a patient dashboard on a large screen',
+    alt: 'Physician and two colleagues reviewing revenue dashboards on a monitor',
   },
 };
 
 export const unifiedPlatform = {
+  image: { src: unifiedPlatformImage, alt: 'Revenue cycle team reviewing claim documents beside a dashboard' },
   badge: 'Unified RCM Platform',
   title: 'Connect Every Step of the Healthcare Revenue Cycle',
   lead:
@@ -117,6 +122,7 @@ export const eligibility = {
 };
 
 export const payerWorkflow = {
+  image: { src: payerWorkflowImage, alt: 'Billing specialist working at a monitor showing payer workflow dashboards' },
   badge: 'Rules Automation',
   // Line break follows the frame.
   titleLines: ['Payer Workflow', 'Management'],
@@ -264,6 +270,7 @@ export const eraPosting = {
 };
 
 export const denialManagement = {
+  image: { src: denialManagementImage, alt: 'Denial specialist reviewing a claim document beside a denial worklist' },
   badge: 'Active Resolution',
   // Line break follows the frame.
   titleLines: ['Healthcare Denial', 'Management'],
@@ -445,6 +452,7 @@ export const rcmWorkflows = {
 
 // "\n" marks the frame's hard line breaks.
 export const multiPayer = {
+  image: { src: multiPayerImage, alt: 'Revenue cycle staff reviewing a multi-payer dashboard together' },
   titleLines: ['Multi-Payer and Multi-NPI', 'Revenue Cycle Management'],
   body: 'Growth usually means more payers, more provider numbers and more service locations, and more ways for a claim to be built incorrectly. Elixir is structured so those variables are configuration rather than exceptions.',
   points: [

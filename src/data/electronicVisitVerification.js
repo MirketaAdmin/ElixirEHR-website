@@ -2,7 +2,7 @@
 // verbatim, including its British spellings ("programme", "organisation").
 
 // Same Figma "missing image" hero box as the Denial Management frame (pixel-identical export).
-import heroMediaPlaceholder from '../assets/denial-management/hero-media-placeholder.png';
+import heroMedia from '../assets/electronic-visit-verification/hero-media.png';
 import iconServiceType from '../assets/electronic-visit-verification/icon-element-service-type.png';
 import iconRecipient from '../assets/electronic-visit-verification/icon-element-recipient.png';
 import iconDate from '../assets/electronic-visit-verification/icon-element-date.png';
@@ -46,8 +46,8 @@ export const evvHero = {
   primaryCta: { label: 'Request a Demo', to: '/request-demo' },
   secondaryCta: { label: 'Explore EVV in Elixir', href: '#explore-evv' },
   media: {
-    src: heroMediaPlaceholder,
-    alt: 'Image placeholder',
+    src: heroMedia,
+    alt: 'Caregiver showing an older client a visit check-in on her phone at home',
   },
 };
 

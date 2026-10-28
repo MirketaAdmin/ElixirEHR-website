@@ -1,175 +1,128 @@
 .section {
-  padding: 80px 0 81px;
+  padding: 72px 0 90px;
 }
 
-.intro {
-  --cc-title-width: 720px;
-  --cc-description-width: 830px;
-}
-
-.intro h2 {
-  line-height: 52px;
-}
-
-.intro > p:last-child {
-  color: #ddcee1;
-}
-
-/* Illustrative census board (static example data). */
-.board {
-  margin-top: 46px;
-  padding: 39px 36px 35px;
-  border: 1px solid rgb(255 255 255 / 0.12);
-  border-radius: 32px;
-  background: linear-gradient(135deg, #240f3e, #2f164e);
-  box-shadow: 0 24px 48px rgb(10 2 20 / 0.35);
-}
-
-.head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding-bottom: 19px;
-  border-bottom: 1px solid rgb(255 255 255 / 0.06);
-}
-
-.boardTitle {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 26px;
-  color: var(--color-white);
-}
-
-.subtitle {
-  margin-top: 7px;
-  font-size: 13px;
-  line-height: 18px;
-  color: #beb8c7;
-}
-
-.legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.legend li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 35px;
-  padding: 0 14px;
-  border: 1px solid rgb(255 255 255 / 0.16);
-  border-radius: var(--radius-pill);
-  background: rgb(255 255 255 / 0.1);
-  font-family: var(--font-label);
-  font-size: 12px;
-  line-height: 16px;
-  color: rgb(255 255 255 / 0.9);
-}
-
-.legend li::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--dot);
-}
-
-.legend .available {
-  --dot: var(--color-secondary);
-}
-
-.legend .hold {
-  --dot: var(--color-tertiary);
-}
-
-.legend .occupied {
-  --dot: #a59bb0;
-}
-
-.beds {
+/* The exported photo is 584px wide and starts 24px left of the container (backdrop overflow). */
+.inner {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 24px;
+  grid-template-columns: 560px minmax(0, 1fr);
+  align-items: start;
+  column-gap: 48px;
 }
 
-.bed {
-  min-height: 117px;
-  padding: 18px 18px 16px;
-  border: 1px solid rgb(255 255 255 / 0.12);
-  border-radius: 14px;
-  background: rgb(255 255 255 / 0.07);
+.media {
+  position: relative;
+  margin: 0 0 0 -24px;
 }
 
-.bedHead {
+.image {
+  display: block;
+}
+
+/* White caption card over the photo's lower right (as in the frame; it covers the same card baked into the export). */
+.overlay {
+  position: absolute;
+  top: 324px;
+  left: 283px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  flex-direction: column;
+  gap: 10px;
+  width: 261px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
 }
 
-.bedId {
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 20px;
-  color: var(--color-white);
-}
-
-.status {
-  display: flex;
-  align-items: center;
-  height: 23px;
-  padding: 0 8px;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-label);
-  font-size: 10.5px;
-  font-weight: 700;
-  line-height: 14px;
-  text-transform: uppercase;
-}
-
-.status.available {
-  background: rgb(149 193 31 / 0.25);
-  color: var(--color-secondary);
-}
-
-.status.hold {
-  background: rgb(242 198 15 / 0.25);
-  color: #f7d547;
-}
-
-.status.occupied {
-  background: rgb(255 255 255 / 0.15);
-  color: var(--color-border);
-}
-
-.unit {
-  margin-top: 10px;
-  font-size: 13px;
+.overlayTitle {
+  font-family: var(--font-display);
+  font-size: 18px;
   font-weight: 500;
+  line-height: 24px;
+  color: var(--color-surface-dark);
+}
+
+.overlayText {
+  font-size: 13px;
   line-height: 20px;
-  color: var(--color-surface-light);
+  color: var(--color-body);
 }
 
-.note {
-  margin-top: 7px;
-  font-size: 12.5px;
-  line-height: 18px;
-  color: #afa6b9;
+.title {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  color: var(--color-heading);
 }
 
-/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+.title span {
+  display: block;
+}
+
+.description {
+  margin-top: 26px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-body);
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.item {
+  min-height: 208px;
+  padding: 24px;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+}
+
+.icon {
+  display: block;
+  border-radius: 50%;
+}
+
+.itemTitle {
+  margin-top: 24px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--color-surface-dark);
+}
+
+.itemText {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-body);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. The caption
+   card keeps its place over the scaled photo so it still covers the card in the export. */
 @media (max-width: 1199px) {
-  .head {
-    flex-direction: column;
-    align-items: flex-start;
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 48px;
   }
 
-  .beds {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .media {
+    width: min(584px, calc(100% + 24px));
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+  }
+
+  .overlay {
+    top: 63.5%;
+    left: 48.5%;
+    width: 44.7%;
+    padding: 16px;
   }
 }
 
@@ -178,12 +131,31 @@
     padding: 64px 0;
   }
 
-  .board {
-    padding: 24px 20px;
-    border-radius: var(--radius-xl);
+  .title {
+    font-size: 32px;
+    line-height: 40px;
   }
 
-  .beds {
+  .overlay {
+    gap: 4px;
+    padding: 10px 12px;
+  }
+
+  .overlayTitle {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .overlayText {
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  .items {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .item {
+    min-height: 0;
   }
 }

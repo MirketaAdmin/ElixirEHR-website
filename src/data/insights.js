@@ -2,6 +2,7 @@
 // from the Figma Insights frames. The resources themselves are posts in src/posts/<type>/.
 
 import heroCard from '../assets/insights/hero-card.png';
+import allResourcesHeroCard from '../assets/insights/all-resources-hero.png';
 
 export const insightsHero = {
   currentPage: 'Resources',
@@ -77,6 +78,11 @@ export const insightsPages = {
 // lead the page; every other resource follows in a mixed feed. Tags and link labels for Article,
 // Webinar and Release are the frame's; the other types reuse the labels of their own pages.
 export const allResources = {
+  // The All Resources hero reuses the Contact Us hero copy with its own photo (Insights frame).
+  heroImage: {
+    src: allResourcesHeroCard,
+    alt: 'Clinician reviewing a tablet beside dashboards on two monitors',
+  },
   liveLabel: 'Live Webinar',
   featuredVideoLabel: 'Featured Video',
   pdfLabel: 'PDF Available',

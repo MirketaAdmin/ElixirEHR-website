@@ -9,23 +9,11 @@
   align-items: center;
 }
 
-/* This frame's placeholder is a 461px square with smaller copy set near the top. */
+/* 461px square photo. */
 .media {
-  height: 461px;
-  justify-content: flex-start;
-  padding: 80px 13px 0 0;
-}
-
-.media p:first-child {
-  font-size: 13.5px;
-  line-height: 17px;
-  letter-spacing: 0.6px;
-}
-
-.media p:last-child {
-  margin-top: 12px;
-  font-size: 13.5px;
-  line-height: 21.5px;
+  display: block;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 
 .title {
@@ -66,6 +54,7 @@
     order: 1;
     width: 100%;
     max-width: 461px;
+    height: auto;
   }
 }
 

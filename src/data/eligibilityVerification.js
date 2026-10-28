@@ -1,6 +1,9 @@
 // Eligibility Verification page content — copy reproduced exactly from the Figma "Eligibility Verification" frame.
 
 import heroMedia from '../assets/eligibility-verification/hero-media.png';
+import frontDeskImage from '../assets/eligibility-verification/front-desk.png';
+import clearinghouseChecksImage from '../assets/eligibility-verification/clearinghouse-checks.png';
+import benefitsAuditImage from '../assets/eligibility-verification/benefits-audit.png';
 import oneClickIcon from '../assets/eligibility-verification/icon-one-click.png';
 import transactionsIcon from '../assets/eligibility-verification/icon-transactions.png';
 import everyCheckIcon from '../assets/eligibility-verification/icon-every-check.png';
@@ -32,11 +35,12 @@ export const evHero = {
   secondaryCta: { label: 'See how it works', href: '#how-it-works' },
   media: {
     src: heroMedia,
-    alt: 'Clinician showing a patient her insurance coverage on a tablet',
+    alt: 'Clinician showing an older patient coverage details on a tablet',
   },
 };
 
 export const frontDesk = {
+  image: { src: frontDeskImage, alt: 'Front desk staff member verifying coverage across two monitors' },
   title: 'Stop Claim Denials at the Front Desk With Automated Insurance Verification',
   paragraphs: [
     'Inactive coverage, the wrong payer on file, and missing benefit details are among the most common reasons claims get denied. Every one of them is cheaper to fix before the patient is seen than after the claim comes back.',
@@ -171,6 +175,7 @@ export const salesforceEhr = {
 };
 
 export const clearinghouseChecks = {
+  image: { src: clearinghouseChecksImage, alt: 'Billing staff reviewing eligibility responses on a monitor with a colleague' },
   titleLines: ['Clearinghouse-Integrated', 'Insurance Eligibility Checks'],
   body: [
     'Elixir is integrated with a ',
@@ -185,6 +190,7 @@ export const clearinghouseChecks = {
 };
 
 export const benefitsAudit = {
+  image: { src: benefitsAuditImage, alt: 'Staff member reviewing a benefits document beside a verification dashboard' },
   titleLines: ['Verification of Benefits', 'Results With a Complete', 'Audit Trail'],
   paragraphs: [
     "Every verification creates an eligibility result record on the insurance, capturing demographic details, plan and coverage dates, benefit plan information and co-insurance. The payer's full VOB response is attached as a PDF.",

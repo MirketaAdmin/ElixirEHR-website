@@ -1,8 +1,7 @@
 // Patient Portal page content — copy reproduced exactly from the Figma "Patient Portal" frame.
-// Icons are 1× crops of the frame export (no source files were supplied). The hero image is the
-// frame's grey placeholder (the same exported placeholder as the EVV and Denial Management heroes).
+// Icons and the hero image are 1× crops of the frame export (no source files were supplied).
 
-import heroMediaPlaceholder from '../assets/denial-management/hero-media-placeholder.png';
+import heroMedia from '../assets/patient-portal/hero-media.png';
 import efficiencyIcon from '../assets/patient-portal/badge-efficiency.png';
 import adoptionIcon from '../assets/patient-portal/strip-adoption.png';
 import oneRecordIcon from '../assets/patient-portal/strip-one-record.png';
@@ -47,7 +46,7 @@ export const patientPortalHero = {
   // CTA scrolls to this page's "What patients can do" section.
   primaryCta: { label: 'Request a Demo', to: '/request-demo' },
   secondaryCta: { label: 'See what patients can do', href: '#what-patients-can-do' },
-  media: { src: heroMediaPlaceholder, alt: 'Image placeholder' },
+  media: { src: heroMedia, alt: 'Smiling woman on her sofa using the Elixir patient portal on her phone' },
   // The frame's badge over the hero image; the figure is reproduced as drawn.
   badge: { label: 'Efficiency', text: 'Intake time reduced by 40%', icon: efficiencyIcon },
 };

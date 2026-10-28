@@ -1,11 +1,13 @@
 // Denial Management page content (Figma "Denial Management" frame). Copy is reproduced verbatim.
 
-import heroMediaPlaceholder from '../assets/denial-management/hero-media-placeholder.png';
+import heroMedia from '../assets/denial-management/hero-media.png';
+import predictionScreen from '../assets/denial-management/feature-prediction.png';
+import scrubbingScreen from '../assets/denial-management/feature-scrubbing.png';
+import rootCauseScreen from '../assets/denial-management/feature-root-cause.png';
+import patientInsightsScreen from '../assets/denial-management/feature-patient-insights.png';
 import calendarIcon from '../assets/denial-management/icon-calendar.png';
 import warningIcon from '../assets/denial-management/icon-warning.png';
-import xCircleIcon from '../assets/denial-management/icon-x-circle.png';
-import verifiedIcon from '../assets/denial-management/icon-verified.png';
-import moneyIcon from '../assets/denial-management/icon-money.png';
+import reworkCostIcon from '../assets/denial-management/icon-rework-cost.png';
 import claimPredictionIcon from '../assets/denial-management/icon-claim-prediction.png';
 import claimScrubbingIcon from '../assets/denial-management/icon-claim-scrubbing.png';
 import rootCauseIcon from '../assets/denial-management/icon-root-cause.png';
@@ -42,36 +44,44 @@ export const dmHero = {
   // The frame shows Figma's grey "missing image" box on the tilted backdrop: the hero photo has
   // not been supplied. Exported as shown (511×507, backdrop included) until it is.
   media: {
-    src: heroMediaPlaceholder,
-    alt: 'Image placeholder',
+    src: heroMedia,
+    alt: 'Billing specialist reviewing an Elixir denial management dashboard on a monitor',
   },
 };
 
 export const dmChallenge = {
   badge: { label: 'The Challenge', icon: warningIcon },
   title: 'Claim denials are quietly draining US practice revenue',
-  paragraphs: [
+  paragraph:
     'Most denials start with small, preventable errors: an invalid NPI, a taxonomy code in the wrong format, missing credentials, eligibility that was never re-verified, or a duplicate submission. Billing teams find out weeks later, then piece the story together across the EHR, the clearinghouse portal and a spreadsheet.',
+  // Set as an italic pull quote in the frame.
+  quote:
     'Elixir brings that work into one place. Because it runs natively on Salesforce and connects directly to your clearinghouse, it checks every claim before submission and explains every denial the moment the remittance arrives.',
-  ],
   // No destination in the frame; Revenue Cycle Management is the parent page for claims and denials.
   cta: { label: 'Learn More', to: '/revenue-cycle-management' },
   // Figures and footnote as in the frame; the footnote itself asks for cited sources (see
   // DESIGN-SYSTEM.md open questions).
   stats: [
-    { value: '65%', tone: 'error', icon: xCircleIcon, text: 'of denied claims are never resubmitted by providers.¹' },
     {
+      label: 'Unrecovered loss',
+      value: '65%',
+      tone: 'error',
+      icon: 'close',
+      text: 'of denied claims are never resubmitted by providers.¹',
+    },
+    {
+      label: 'Front-end opportunity',
       value: '90%',
       tone: 'success',
-      icon: verifiedIcon,
+      icon: 'check',
       text: 'of denials are considered preventable with the right front-end checks.¹',
     },
   ],
   cost: {
-    value: '$25–$118',
     label: 'Rework Cost per Occurrence',
+    value: '$25–$118',
     text: 'is the average cost to rework a single denied claim.¹',
-    icon: moneyIcon,
+    icon: reworkCostIcon,
   },
   footnote: '¹ Industry estimates. Replace with your preferred cited sources before publishing.',
 };
@@ -110,6 +120,7 @@ export const dmFeatures = {
     {
       icon: { src: claimPredictionIcon, width: 20, height: 20 },
       title: 'Claim denial prediction before submission',
+      image: { src: predictionScreen, alt: 'Claims list in Elixir with a High, Medium or Low denial risk score on each claim', width: 556, height: 440 },
       description:
         'See which claims are likely to be denied while there is still time to fix them. Elixir gives each claim a High, Medium or Low denial risk score right in your Salesforce list view, so your team works the riskiest claims first.',
       points: [
@@ -121,6 +132,7 @@ export const dmFeatures = {
     {
       icon: { src: claimScrubbingIcon, width: 21, height: 21 },
       title: 'AI claim scrubbing with rejection probability',
+      image: { src: scrubbingScreen, alt: 'AI Claim Recommendation panel showing rejection probability, issues identified and recommendations', width: 499, height: 671 },
       description:
         'Elixir reviews the full claim and every line item, then shows the rejection probability, the specific issues it found and how to fix each one. Staff see a clear list of corrections instead of a cryptic clearinghouse rejection.',
       points: [
@@ -132,6 +144,7 @@ export const dmFeatures = {
     {
       icon: { src: rootCauseIcon, width: 20, height: 19 },
       title: 'CARC and RARC root cause analysis',
+      image: { src: rootCauseScreen, alt: 'Denial Management panel classifying a CARC code as a coding error with ranked next steps', width: 556, height: 614 },
       description:
         'Stop guessing why a claim was denied. Elixir reads the CARC and RARC codes on each remittance, classifies the root cause, such as coding error, eligibility, authorization or duplicate, and gives a confidence score with prioritized next steps.',
       points: [
@@ -143,6 +156,7 @@ export const dmFeatures = {
     {
       icon: { src: patientInsightsIcon, width: 18, height: 22 },
       title: 'Patient-level insights and next best actions',
+      image: { src: patientInsightsScreen, alt: 'AI Patient Insights panel with a patient summary and ranked next best actions', width: 1152, height: 518 },
       description:
         "Denials rarely happen one at a time. Elixir looks across a patient's entire account to spot payer-level patterns, aging balances and eligibility gaps, then recommends the next best actions with the expected dollar outcome of each.",
     },

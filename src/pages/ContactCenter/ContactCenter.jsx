@@ -1,47 +1,31 @@
-import { ccCtaBand, ccFaq, ccHero } from '../../data/contactCenter';
+import { ccAiCapabilities, ccHero } from '../../data/contactCenter';
 import PageHero from '../../components/sections/PageHero/PageHero';
-import FaqSection from '../../components/sections/FaqSection/FaqSection';
-import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
-import WideTiltedHeroMedia from '../../components/sections/WideTiltedHeroMedia/WideTiltedHeroMedia';
-import HighlightsStrip from './sections/HighlightsStrip/HighlightsStrip';
-import AgentSection from './sections/AgentSection/AgentSection';
+import BadgeHeroMedia from '../../components/sections/BadgeHeroMedia/BadgeHeroMedia';
+import AiCapabilitiesSection from '../../components/sections/AiCapabilitiesSection/AiCapabilitiesSection';
 import IntakeSection from './sections/IntakeSection/IntakeSection';
-import OutreachSection from './sections/OutreachSection/OutreachSection';
-import ComplianceSection from './sections/ComplianceSection/ComplianceSection';
 import VerificationSection from './sections/VerificationSection/VerificationSection';
+import AssessmentsSection from './sections/AssessmentsSection/AssessmentsSection';
+import PaymentSection from './sections/PaymentSection/PaymentSection';
 import CensusSection from './sections/CensusSection/CensusSection';
-import ReferralSection from './sections/ReferralSection/ReferralSection';
-import BehavioralSection from './sections/BehavioralSection/BehavioralSection';
-import IntegrationsSection from './sections/IntegrationsSection/IntegrationsSection';
-import ConsultationSection from './sections/ConsultationSection/ConsultationSection';
 import styles from './ContactCenter.module.css';
 
 function ContactCenter() {
-  const { media, ...hero } = ccHero;
+  const { media, badge, ...hero } = ccHero;
 
   return (
     <>
       <title>Healthcare Contact Center | Elixir</title>
       <meta name="description" content={hero.description} />
-      <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
-      <HighlightsStrip />
-      <AgentSection />
+      <PageHero {...hero} className={styles.hero} media={<BadgeHeroMedia media={media} badge={badge} />} />
       <IntakeSection />
-      <OutreachSection />
-      <ComplianceSection />
       <VerificationSection />
+      <AssessmentsSection />
+      <PaymentSection />
       <CensusSection />
-      <ReferralSection />
-      <BehavioralSection />
-      <IntegrationsSection />
-      <FaqSection {...ccFaq} />
-      <ConsultationSection />
-      <CtaBanner
-        {...ccCtaBand}
-        className={styles.ctaBand}
-        ctaClassName={styles.ctaButton}
-        secondaryCtaClassName={styles.ctaSecondary}
-      />
+      {/* "Explore Features" in the hero scrolls here. */}
+      <div id="contact-center-ai-capabilities">
+        <AiCapabilitiesSection content={ccAiCapabilities} />
+      </div>
     </>
   );
 }

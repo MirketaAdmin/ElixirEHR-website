@@ -1,4 +1,5 @@
 import { aboutHero, nextStep } from '../../data/about';
+import { updatedContactLogos } from '../../data/contact';
 import PageHero from '../../components/sections/PageHero/PageHero';
 import OurStorySection from './sections/OurStorySection/OurStorySection';
 import MissionSection from './sections/MissionSection/MissionSection';
@@ -20,7 +21,7 @@ function AboutUs() {
       <TeamSection />
       {/* "Contact Us Now" scrolls to the contact form further down this page. */}
       <CtaBanner {...nextStep} />
-      <ContactSection />
+      <ContactSection logos={updatedContactLogos} logoGap={24} />
     </>
   );
 }

@@ -1,25 +1,19 @@
 import { cn } from '../../../../utils/cn';
-import ImagePlaceholder from '../../../../components/ui/ImagePlaceholder/ImagePlaceholder';
 import styles from './PcMediaFrame.module.css';
 
 /**
- * The frame's image cards: a rounded, shadowed card (`tone` surface or white) holding the
- * "Generic image placeholder" (552 × 300) scaled to the card width and centred vertically —
- * the screenshots have not been supplied. `width` × `height` are the desktop dimensions.
+ * The frame's image cards: a rounded, shadowed image (the card's own background and padding are
+ * part of the exported image). `width` × `height` are the desktop dimensions.
  */
-function PcMediaFrame({ width, height, tone = 'surface', className }) {
+function PcMediaFrame({ width, height, image, className }) {
   return (
-    <div
-      className={cn(styles.frame, styles[tone], className)}
-      style={{
-        '--frame-width': `${width}px`,
-        '--frame-height': `${height}px`,
-        '--frame-ratio': width / height,
-        '--ph-scale': width / 552,
-      }}
-    >
-      <ImagePlaceholder className={styles.placeholder} />
-    </div>
+    <img
+      src={image.src}
+      alt={image.alt}
+      width={width}
+      height={height}
+      className={cn(styles.frame, className)}
+    />
   );
 }
 

@@ -1,0 +1,99 @@
+/* Photo (on its baked lime backdrop) on the left, title and the two integrations on the right. */
+.section {
+  padding: 84px 0 70px;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 534px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 45px;
+}
+
+.image {
+  display: block;
+  margin-left: -36px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 60px;
+  color: var(--color-heading);
+}
+
+.title span {
+  display: block;
+}
+
+.intro {
+  margin-top: 31px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.intro strong {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 33px;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.icon {
+  flex: none;
+  border-radius: 50%;
+}
+
+.itemTitle {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--color-surface-dark);
+}
+
+.itemText {
+  margin-top: 2px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1199px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 48px;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 534px;
+    height: auto;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}

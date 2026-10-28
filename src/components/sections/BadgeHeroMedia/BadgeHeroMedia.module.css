@@ -1,0 +1,60 @@
+.wrap {
+  position: relative;
+}
+
+/* 287×97 white card, 32px left of the photo box (`--badge-left` per frame) and 386px below its top (394px from the wrapper, which includes the 8px margin). */
+.badge {
+  position: absolute;
+  top: 394px;
+  left: var(--badge-left, -32px);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 287px;
+  height: 97px;
+  padding: 0 24px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.2);
+}
+
+.icon {
+  flex: none;
+  display: flex;
+}
+
+.icon img {
+  border-radius: 50%;
+}
+
+.label {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-body);
+}
+
+.text {
+  display: block;
+  white-space: nowrap;
+  margin-top: 2px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-surface-dark);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. The badge keeps
+   its place over the scaled photo (386/460 of its height, 32/467 of its width to the left) so it
+   still covers the badge baked into the image. */
+@media (max-width: 1199px) {
+  .badge {
+    top: calc(8px + (100% - 16px) * 0.839);
+    left: var(--badge-left-scaled, -6.85%);
+  }
+}

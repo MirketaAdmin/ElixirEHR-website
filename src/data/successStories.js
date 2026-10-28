@@ -18,7 +18,7 @@ export const successStoriesHero = {
   primaryCta: { label: 'Explore Our Platform', to: '/platform' },
   image: {
     src: heroCard,
-    alt: 'Clinicians in white coats and scrubs joining hands in a circle, seen from above',
+    alt: 'Smiling clinicians in scrubs and white coats joining hands in a circle',
   },
 };
 

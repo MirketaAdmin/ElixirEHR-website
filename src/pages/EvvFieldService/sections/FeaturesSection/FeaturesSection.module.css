@@ -65,37 +65,7 @@
   color: #4a454e;
 }
 
-.media {
-  display: grid;
-  grid-template-columns: 560px minmax(0, 1fr);
-  align-items: center;
-  gap: 32px;
-  margin-top: 72px;
-}
-
-.placeholder {
-  height: 305px;
-  padding-top: 0;
-}
-
-/* The frame's placeholder copy is set ~3% larger than the shared card's. */
-.placeholder p:first-child {
-  letter-spacing: 1.05px;
-}
-
-.placeholder p + p {
-  margin-top: 11px;
-  font-size: 16.5px;
-  line-height: 26.5px;
-}
-
 /* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
-@media (max-width: 1199px) {
-  .media {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
 @media (max-width: 1023px) {
   .grid {
     grid-template-columns: minmax(0, 1fr);
@@ -116,10 +86,5 @@
   .description {
     font-size: 16px;
     line-height: 24px;
-  }
-
-  .placeholder {
-    height: auto;
-    padding: 48px 16px;
   }
 }

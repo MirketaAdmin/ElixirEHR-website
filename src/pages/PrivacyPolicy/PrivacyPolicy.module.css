@@ -1,0 +1,255 @@
+/* Hero: the post pages' dark band (PostHero) — breadcrumb and title. */
+.hero {
+  margin-top: -1px;
+  padding-block: 69px 70px;
+  background: var(--color-surface-dark);
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.7);
+}
+
+.separator {
+  display: flex;
+  margin-left: 2px;
+}
+
+.current {
+  font-weight: 700;
+  letter-spacing: 1.17px;
+  color: var(--color-secondary);
+}
+
+.title {
+  margin-top: 24px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 55px;
+  color: var(--color-white);
+}
+
+/* Reading layout: sticky section list beside a readable column. */
+.layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 760px);
+  justify-content: space-between;
+  gap: 64px;
+  padding-block: 80px 100px;
+}
+
+.toc {
+  position: sticky;
+  top: calc(var(--header-height) + 32px);
+  align-self: start;
+  max-height: calc(100vh - var(--header-height) - 64px);
+  overflow-y: auto;
+}
+
+.toc ol {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--color-border);
+}
+
+.toc a {
+  display: block;
+  margin-left: -1px;
+  padding: 8px 0 8px 18px;
+  border-left: 2px solid transparent;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-body);
+  transition:
+    color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard);
+}
+
+.toc a:hover {
+  border-left-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.toc a:focus-visible,
+.link:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--color-body);
+}
+
+.body p + p,
+.body p + .list,
+.body .list + p,
+.body .note + p {
+  margin-top: 16px;
+}
+
+.intro {
+  font-size: 18px;
+  line-height: 30px;
+  color: var(--color-heading);
+}
+
+.body strong {
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.link {
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: rgb(73 50 102 / 0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--duration-fast) var(--ease-standard);
+}
+
+.link:hover {
+  text-decoration-color: var(--color-primary);
+}
+
+/* Highlighted notices (scope note, sensitive information, chat consent). */
+.note {
+  margin-block: 24px;
+  padding: 24px 28px;
+  border: 1px solid var(--color-surface-light);
+  border-left: 4px solid var(--color-secondary);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.noteTitle {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 26px;
+  color: var(--color-primary);
+}
+
+.noteIcon {
+  flex: none;
+  margin-top: 3px;
+  color: var(--color-secondary);
+}
+
+.section {
+  margin-top: 56px;
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+.sectionTitle {
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-surface-light);
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-primary);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.list li {
+  position: relative;
+  padding-left: 24px;
+}
+
+.list li::before {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: 4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 24px 28px;
+  border: 1px solid var(--color-surface-light);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  font-style: normal;
+}
+
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding-block: 56px 72px;
+  }
+
+  /* The section list makes way for the text on narrower screens. */
+  .toc {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding-block: 40px 48px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .layout {
+    padding-block: 40px 56px;
+  }
+
+  .intro {
+    font-size: 17px;
+    line-height: 28px;
+  }
+
+  .note,
+  .address {
+    padding: 20px;
+  }
+
+  .section {
+    margin-top: 44px;
+  }
+
+  .sectionTitle {
+    font-size: 21px;
+    line-height: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toc a,
+  .link {
+    transition: none;
+  }
+}

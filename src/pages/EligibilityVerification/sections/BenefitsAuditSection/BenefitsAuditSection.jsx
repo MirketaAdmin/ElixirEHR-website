@@ -1,6 +1,5 @@
 import { benefitsAudit } from '../../../../data/eligibilityVerification';
 import Section from '../../../../components/layout/Section/Section';
-import ImagePlaceholder from '../../../../components/ui/ImagePlaceholder/ImagePlaceholder';
 import styles from './BenefitsAuditSection.module.css';
 
 function BenefitsAuditSection() {
@@ -22,7 +21,7 @@ function BenefitsAuditSection() {
           </p>
         ))}
       </div>
-      <ImagePlaceholder className={styles.media} />
+      <img src={benefitsAudit.image.src} alt={benefitsAudit.image.alt} width="552" height="398" className={styles.media} />
     </Section>
   );
 }

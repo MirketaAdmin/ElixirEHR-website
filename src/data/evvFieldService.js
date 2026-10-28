@@ -2,15 +2,13 @@
 // reproduced verbatim.
 
 // Same Figma "missing image" hero box as the Denial Management frame (pixel-identical export).
-import heroMediaPlaceholder from '../assets/denial-management/hero-media-placeholder.png';
+import heroMedia from '../assets/evv-field-service/hero-media.png';
 import iconCheckInOut from '../assets/evv-field-service/icon-feature-check-in-out.png';
 import iconGpsGeofencing from '../assets/evv-field-service/icon-feature-gps-geofencing.png';
 import iconOffline from '../assets/evv-field-service/icon-feature-offline.png';
 import iconSupervisorExceptions from '../assets/evv-field-service/icon-feature-supervisor-exceptions.png';
 import iconSignature from '../assets/evv-field-service/icon-feature-signature.png';
 import iconAudit from '../assets/evv-field-service/icon-feature-audit.png';
-import iconMobile from '../assets/evv-field-service/icon-mobile.png';
-import iconDesktop from '../assets/evv-field-service/icon-desktop.png';
 import iconCheckCircle from '../assets/evv-field-service/icon-check-circle.png';
 import iconExceptionMissed from '../assets/evv-field-service/icon-exception-missed.png';
 import iconExceptionLate from '../assets/evv-field-service/icon-exception-late.png';
@@ -33,8 +31,8 @@ export const fsHero = {
   primaryCta: { label: 'Request EVV Demo', to: '/request-demo' },
   secondaryCta: { label: 'Explore EVV Features', href: '#evv-features' },
   media: {
-    src: heroMediaPlaceholder,
-    alt: 'Image placeholder',
+    src: heroMedia,
+    alt: 'Caregiver checking a visit on her phone beside her car while a colleague greets a client at the door',
   },
 };
 
@@ -102,17 +100,6 @@ export const fsFeatures = {
       icon: iconAudit,
     },
   ],
-  // The frame shows an image placeholder and a "Suggested screenshot placement" note here; both are
-  // reproduced as drawn (see DESIGN-SYSTEM.md open questions).
-  screenshotNote: {
-    icon: { src: iconMobile, width: 28, height: 28 },
-    title: 'Suggested screenshot placement',
-    paragraphs: [
-      'Use a caregiver mobile screen here because this section talks about GPS, geofencing and offline visit verification.',
-      "Recommended screen ideas: Today's Schedule, Check-In screen, Check-Out screen or Client Signature screen.",
-      'Developer can replace this placeholder block with a PNG, JPG, embedded Figma frame or HTML-based product mockup.',
-    ],
-  },
 };
 
 export const fsComplement = {
@@ -153,15 +140,6 @@ export const fsConnected = {
   ],
   banner:
     'Field Service tells you where your caregiver should be. Elixir EVV verifies the visit. Elixir EHR records the care. Elixir RCM gets the visit ready to bill.',
-  screenshotNote: {
-    icon: { src: iconDesktop, width: 32, height: 28 },
-    title: 'Suggested screenshot placement',
-    paragraphs: [
-      'Use an operational screen here because this section discusses connected workflows.',
-      'Recommended screen ideas: Visit record, Authorization validation, Care Plan tasks, or Billing readiness view.',
-      'This is a good place to show how EVV sits inside the broader EHR and RCM experience.',
-    ],
-  },
 };
 
 export const fsExceptions = {
@@ -230,10 +208,11 @@ export const fsWhyNative = {
   ],
 };
 
-// Rendered exactly as the RCM FAQ (the site's one FAQ design); only the content is this page's.
 // The frame supplies no answer copy, so the items have no `answer` yet and render as static rows
 // (see DESIGN-SYSTEM.md open questions). Add `answer` to each item to make it expandable.
+// The first three questions fill the left column, the rest the right.
 export const fsFaq = {
+  eyebrow: 'Frequently asked questions',
   title: 'Salesforce EVV FAQs',
   items: [
     { question: 'Does Salesforce Field Service include Electronic Visit Verification?' },

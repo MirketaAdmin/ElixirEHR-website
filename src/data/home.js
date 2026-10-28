@@ -252,28 +252,36 @@ export const testimonials = {
   // Seconds between automatic slides (one card per step).
   autoplaySeconds: 7,
   // Customer quotes as supplied (spacing before punctuation tidied); the card adds the quotation
-  // marks. `role` (the organization) is optional; no photos, logos or ratings are used.
+  // marks. `role` (the organization) is optional. `rating` (out of 5) is the five stars shown in
+  // the supplied card design; `logo` reuses the organization's logo from the Trusted By strip
+  // where we have one.
   items: [
     {
       name: 'Dr. Manoj Battarai',
       role: 'Palm Beach Elderly Care',
+      rating: 5,
       quote:
         'Elixir has transformed how we manage our daily operations. Having the contact center, EHR, billing, and patient portal fully integrated on Salesforce makes everything seamless. The interface is intuitive, and it has significantly improved our workflow and patient care. Highly recommended!',
     },
     {
       name: 'Ghazaleh Nazari',
       role: 'Genomic Life',
+      rating: 5,
+      logo: genomicLifeLogo,
       quote:
         'Elixir EHR has allowed our organization to have a custom EHR that meets our navigation process. Elixir is scalable, configurable and very robust. We have been one of the first adopter of Elixir and have witnessed how this app has grown over the years by adding new functionalities while staying configurable and following Salesforce platform best approaches. As a tech lead and architect who has implemented Elixir and works very closely with their team, I highly recommend this app. Not only they have a robust product but also an excellent customer success team who works very closely with clients and always ready to take the next challenge.',
     },
     {
       name: 'Yanique Lockhart-Walker',
       role: 'Community Wellness Ventures',
+      rating: 5,
+      logo: communityWellnessLogo,
       quote:
         'Elixir has allowed our company to customize our EHR to meet the needs of our agency needs and requirements of our governing body. The customer service is very responsive and supportive. I highly recommend this app to other organizations.',
     },
     {
       name: 'Central Florida Treatment Center',
+      rating: 5,
       quote:
         'What an innovative tool, we have been demanding this for some time now. The ability to keep patient information and medical information in the same platform streamlines our processes which in return allows us to focus on client care. Mirketa is changing the game in the industry, all for the better.',
     },

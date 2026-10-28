@@ -1,10 +1,10 @@
-import { cmaCtaBand, cmaFaq, cmaHero } from '../../data/caregiverMobileApp';
+import { cmaCtaBand, cmaHero } from '../../data/caregiverMobileApp';
 import PageHero from '../../components/sections/PageHero/PageHero';
-import TiltedHeroMedia from '../../components/sections/TiltedHeroMedia/TiltedHeroMedia';
-import FaqSection from '../../components/sections/FaqSection/FaqSection';
+import WideTiltedHeroMedia from '../../components/sections/WideTiltedHeroMedia/WideTiltedHeroMedia';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import TourSection from './sections/TourSection/TourSection';
 import OfflineSection from './sections/OfflineSection/OfflineSection';
+import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import SubmissionSection from './sections/SubmissionSection/SubmissionSection';
 import styles from './CaregiverMobileApp.module.css';
 
@@ -15,10 +15,10 @@ function CaregiverMobileApp() {
     <>
       <title>Field Caregiver Experience with Salesforce EVV | Elixir</title>
       <meta name="description" content={cmaHero.description[0]} />
-      <PageHero {...hero} className={styles.hero} media={<TiltedHeroMedia {...media} />} />
+      <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <TourSection />
       <OfflineSection />
-      <FaqSection {...cmaFaq} />
+      <FaqCardsSection />
       <SubmissionSection />
       <CtaBanner
         {...cmaCtaBand}

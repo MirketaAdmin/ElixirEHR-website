@@ -7,10 +7,11 @@ import missionImage from '../assets/about/mission-facility.png';
 import rajeevKumarPhoto from '../assets/about/team/rajeev-kumar.png';
 import maureenKumarPhoto from '../assets/about/team/maureen-m-kumar.png';
 import ajayJalaliPhoto from '../assets/about/team/ajay-jalali.png';
-import mattFalknerPhoto from '../assets/about/team/matt-falkner.png';
-import clintCasselPhoto from '../assets/about/team/clint-cassel.png';
+import vikramMaindanPhoto from '../assets/about/team/vikram-s-maindan.png';
+import rahulPasrichaPhoto from '../assets/about/team/rahul-pasricha.png';
 import neetaKumariPhoto from '../assets/about/team/neeta-kumari.png';
 import meghnaGoelPhoto from '../assets/about/team/meghna-goel.png';
+import randyKPhoto from '../assets/about/team/randy-k.png';
 
 export const aboutHero = {
   currentPage: 'About Us',
@@ -61,25 +62,23 @@ export const mission = {
   ],
   image: {
     src: missionImage,
-    alt: 'Futuristic healthcare facility with Elixir analytics displays',
-    title: 'Empowering Facilities',
-    caption: 'Maximize reimbursements and operational health with every click.',
+    alt: 'Clinicians reviewing patient information together on a tablet',
   },
 };
 
 export const team = {
   eyebrow: 'OUR LEADERSHIP',
   title: 'Meet Our Core Team',
-  // Order as in the Figma frame. "Clint Cassel — IT Analyst" appears twice in the design.
+  // Order as in the Figma frame.
   members: [
     { name: 'Rajeev Kumar', role: 'CEO and CPO', photo: rajeevKumarPhoto },
     { name: 'Maureen M. Kumar', role: 'CFO', photo: maureenKumarPhoto },
     { name: 'Ajay Jalali', role: 'VP-Delivery & Operations', photo: ajayJalaliPhoto },
-    { name: 'Matt Falkner', role: 'Sales Director', photo: mattFalknerPhoto },
-    { name: 'Clint Cassel', role: 'IT Analyst', photo: clintCasselPhoto },
+    { name: 'Vikram S Maindan', role: 'Senior Product Leader', photo: vikramMaindanPhoto },
+    { name: 'Rahul Pasricha', role: 'Associate Director', photo: rahulPasrichaPhoto },
     { name: 'Neeta Kumari', role: 'Sr. Product Manager', photo: neetaKumariPhoto },
     { name: 'Meghna Goel', role: 'Sr. Tech Lead', photo: meghnaGoelPhoto },
-    { name: 'Clint Cassel', role: 'IT Analyst', photo: clintCasselPhoto },
+    { name: 'Randy K.', role: 'Senior Sales Manager', photo: randyKPhoto },
   ],
 };
 

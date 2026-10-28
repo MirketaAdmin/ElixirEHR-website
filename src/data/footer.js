@@ -33,14 +33,16 @@ export const footerColumns = [
   },
 ];
 
-// Profile URLs were not provided with the design — set them before launch.
 export const socialLinks = [
-  // No profile URLs have been supplied yet: without an href the icons render unlinked (see Footer).
+  // No YouTube URL has been supplied yet: without an href the icon renders unlinked (see Footer).
   { label: 'YouTube', icon: 'youtube' },
-  { label: 'LinkedIn', icon: 'linkedin' },
+  { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/showcase/elixir-emr-ehr-system/' },
 ];
 
 export const copyright =
   '© Copyright Elixir 2026. All Right Reserved. Designed and Developed by Mirketa';
 
 export const legalLinks = [{ label: 'Privacy Policy', to: '/privacy-policy' }];
+
+// Reopens the cookie preferences; named as in the Privacy Policy ("Cookie settings" link in the footer).
+export const cookieSettingsLabel = 'Cookie settings';

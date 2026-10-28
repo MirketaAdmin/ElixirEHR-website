@@ -122,8 +122,9 @@ function ResourceCarousel({ items, label }) {
  * Knowledge Base (Home, Referral Program, A/R Agent): category tabs (Blog first, as in the frames)
  * switching the category's cards (see ResourceCarousel). Content comes in as props (`eyebrow`, `title`, `categories`; Home's is
  * `resources` in data/home.js). `tagTone`: 'yellow' (Home) or 'purple' (Referral Program) card tags.
+ * `limit` caps the cards per category (Referral Program shows its frame's single row of three).
  */
-function ResourcesSection({ eyebrow, title, categories, tagTone = 'yellow', className }) {
+function ResourcesSection({ eyebrow, title, categories, tagTone = 'yellow', limit, className }) {
   const baseId = useId();
   const [active, setActive] = useState(0);
   const tabId = (index) => `${baseId}-tab-${index}`;
@@ -170,7 +171,11 @@ function ResourcesSection({ eyebrow, title, categories, tagTone = 'yellow', clas
 
       <div id={`${baseId}-panel`} role="tabpanel" aria-labelledby={tabId(active)}>
         {/* Keyed by category so the new cards fade in, from the first, when the tab changes. */}
-        <ResourceCarousel key={active} items={categories[active].items} label={categories[active].label} />
+        <ResourceCarousel
+          key={active}
+          items={categories[active].items.slice(0, limit)}
+          label={categories[active].label}
+        />
       </div>
     </Section>
   );

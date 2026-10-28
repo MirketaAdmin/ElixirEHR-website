@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { cn } from '../../../utils/cn';
 import { aiCapabilities } from '../../../data/aiCapabilities';
 import Section from '../../layout/Section/Section';
 import SectionHeading from '../../ui/SectionHeading/SectionHeading';
@@ -31,12 +32,14 @@ function CardContent({ item, badge }) {
  * One template everywhere: the approved Home design (six equal cards per breakpoint, BorderGlow
  * edge effect with a one-time sweep). Only the content may differ per page: pass `content`
  * ({ eyebrow, title, description, badge, items }); it defaults to the shared Kratu content.
+ * An item without `to` (no page yet) renders as a plain card. `className` lets a page apply its
+ * frame's layout (e.g. Billing's row of four).
  */
-function AiCapabilitiesSection({ content = aiCapabilities }) {
+function AiCapabilitiesSection({ content = aiCapabilities, className }) {
   const { eyebrow, title, description, badge, items } = content;
 
   return (
-    <Section tone="dark" spacing="none" className={styles.section}>
+    <Section tone="dark" spacing="none" className={cn(styles.section, className)}>
       <SectionHeading
         eyebrow={eyebrow}
         eyebrowCaps
@@ -50,7 +53,7 @@ function AiCapabilitiesSection({ content = aiCapabilities }) {
         {items.map((item, index) => (
           <li key={item.title}>
             <BorderGlow
-              as={Link}
+              as={item.to ? Link : 'div'}
               to={item.to}
               className={styles.card}
               innerClassName={styles.cardInner}

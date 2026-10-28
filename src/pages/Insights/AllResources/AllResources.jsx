@@ -177,7 +177,7 @@ function AllResources() {
     <InsightsShell
       documentTitle={page.documentTitle}
       title={page.title}
-      hero={<PageHero {...contactHero} currentPage="Resources" />}
+      hero={<PageHero {...contactHero} currentPage="Resources" image={allResources.heroImage} />}
     >
       {(ebook || webinar || video) && (
         <div className={styles.lead}>

@@ -11,7 +11,9 @@
 }
 
 .media {
-  height: 300px;
+  display: block;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 
 .content {
@@ -70,6 +72,7 @@
     order: 1;
     width: 100%;
     max-width: 552px;
+    height: auto;
   }
 }
 

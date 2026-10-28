@@ -1,10 +1,9 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { evvCtaBand, evvFaq, evvHero } from '../../data/electronicVisitVerification';
+import { evvCtaBand, evvHero } from '../../data/electronicVisitVerification';
 import PageHero from '../../components/sections/PageHero/PageHero';
 import TiltedHeroMedia from '../../components/sections/TiltedHeroMedia/TiltedHeroMedia';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
-import FaqSection from '../../components/sections/FaqSection/FaqSection';
 import HighlightsSection from './sections/HighlightsSection/HighlightsSection';
 import RequirementSection from './sections/RequirementSection/RequirementSection';
 import ElementsSection from './sections/ElementsSection/ElementsSection';
@@ -13,6 +12,7 @@ import ScopeSection from './sections/ScopeSection/ScopeSection';
 import BreakpointsSection from './sections/BreakpointsSection/BreakpointsSection';
 import ApproachSection from './sections/ApproachSection/ApproachSection';
 import ExploreSection from './sections/ExploreSection/ExploreSection';
+import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import styles from './ElectronicVisitVerification.module.css';
 
 function ElectronicVisitVerification() {
@@ -32,7 +32,7 @@ function ElectronicVisitVerification() {
       <BreakpointsSection />
       <ApproachSection />
       <ExploreSection />
-      <FaqSection {...evvFaq} />
+      <FaqCardsSection />
       <CtaBanner
         {...ctaBand}
         className={styles.ctaBand}

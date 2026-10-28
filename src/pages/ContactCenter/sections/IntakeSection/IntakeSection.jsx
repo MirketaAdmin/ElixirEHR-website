@@ -1,34 +1,39 @@
 import { ccIntake } from '../../../../data/contactCenter';
 import Section from '../../../../components/layout/Section/Section';
-import CcIntro from '../../components/CcIntro/CcIntro';
-import FeatureCard from '../../components/FeatureCard/FeatureCard';
 import styles from './IntakeSection.module.css';
 
-/** "One Patient Intake Workflow": the workflow feature card (with its checklist) and four cards. */
+/** "Simplified Patient Intake with Intelligent Automation": photo, copy, then three features. */
 function IntakeSection() {
-  const { chip, title, description, feature, cards } = ccIntake;
+  const { badge, titleLines, description, image, features } = ccIntake;
 
   return (
-    <Section tone="surface" spacing="none" className={styles.section} aria-labelledby="cc-intake-title">
-      <CcIntro id="cc-intake-title" chip={chip} title={title} description={description} className={styles.intro} />
-      <div className={styles.grid}>
-        <FeatureCard {...feature} className={styles.feature}>
-          <ol className={styles.steps}>
-            {feature.steps.map((step, index) => (
-              <li key={step.label} className={styles[step.state]}>
-                <span className={styles.stepMark} aria-hidden="true">
-                  {step.state === 'done' ? '✓' : index + 1}
-                </span>
-                <span className={styles.stepLabel}>{step.label}</span>
-                <span className={styles.stepStatus}>{step.status}</span>
-              </li>
+    <Section spacing="none" className={styles.section}>
+      <div className={styles.top}>
+        <img src={image.src} alt={image.alt} width="552" height="424" className={styles.image} />
+        <div>
+          <p className={styles.badge}>
+            <img src={badge.icon} alt="" width="20" height="20" />
+            {badge.label}
+          </p>
+          <h2 className={styles.title}>
+            {titleLines.map((line) => (
+              <span key={line}>{line}</span>
             ))}
-          </ol>
-        </FeatureCard>
-        {cards.map((card) => (
-          <FeatureCard key={card.title} {...card} />
-        ))}
+          </h2>
+          <p className={styles.description}>{description}</p>
+        </div>
       </div>
+      <ul className={styles.features}>
+        {features.map((feature) => (
+          <li key={feature.title} className={styles.feature}>
+            <img src={feature.icon} alt="" width="56" height="56" className={styles.icon} />
+            <div>
+              <h3 className={styles.featureTitle}>{feature.title}</h3>
+              <p className={styles.featureText}>{feature.text}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
     </Section>
   );
 }

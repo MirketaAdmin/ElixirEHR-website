@@ -99,6 +99,21 @@ a.social:hover {
   color: var(--color-white-40);
 }
 
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.legalButton {
+  font-family: inherit;
+}
+
+.legal a:hover,
+.legalButton:hover {
+  color: var(--color-white-60);
+}
+
 /* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
 @media (max-width: 1199px) {
   .top {

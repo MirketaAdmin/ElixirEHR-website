@@ -1,8 +1,9 @@
 /*
   Testimonial coverflow — the supplied reference layout in Elixir's palette: equal white cards in a
   full-width row centred on the active card, which grows taller, takes a Deep Purple outline and
-  a deeper shadow. Light quotation marks open and close each quote; neighbours carry a pill
-  "Show More", the active card a text link and the "02 / 04" counter. Round Deep Purple arrows sit
+  a deeper shadow. Each card opens with a light quotation mark and a five-star rating in a Deep
+  Purple pill, and ends with a closing mark, the name and the organization's logo in a soft pill;
+  neighbours carry a pill "Show More", the active card a text link and the "02 / 04" counter. Round Deep Purple arrows sit
   on the neighbours' outer edges. Sizes measured from the reference at 1280px.
 */
 .section {
@@ -18,8 +19,8 @@
 .stage {
   --w: 300px;
   --gap: 24px;
-  --side-h: 320px;
-  --active-h: 412px;
+  --side-h: 376px;
+  --active-h: 468px;
 
   position: relative;
   max-width: 1440px;
@@ -91,13 +92,52 @@
   padding: 28px 24px 20px;
 }
 
+/* Top row: the opening mark at the left, the rating centred. */
+.top {
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+}
+
+.top .openMark {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.dialogTop {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.rating {
+  display: inline-flex;
+  gap: 3px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  box-shadow: 0 4px 10px -4px rgb(50 27 79 / 0.5);
+}
+
+.starOn {
+  color: var(--color-tertiary);
+}
+
+.starOff {
+  color: rgb(255 255 255 / 0.3);
+}
+
 /* Light quotation marks (mask from the Figma export), opening top-left, closing bottom-right. */
 .openMark,
 .closeMark {
   flex: none;
-  width: 40px;
-  height: 30px;
-  background: var(--color-surface-light);
+  width: 46px;
+  height: 36px;
+  background: rgb(73 50 102 / 0.16);
   mask: url('../../../../assets/icons/quote-mark.png') no-repeat center / contain;
 }
 
@@ -128,7 +168,7 @@
 .quote {
   display: -webkit-box;
   flex: none;
-  margin: 14px 0 0;
+  margin: 16px 0 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
@@ -182,18 +222,44 @@
 
 .footer {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   margin-top: 10px;
   padding-top: 14px;
   border-top: 1px solid rgb(73 50 102 / 0.14);
 }
 
+.person {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* The organization's logo on a soft lavender pill. */
+.logo {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-light);
+}
+
+.logo img {
+  max-width: 64px;
+  max-height: 30px;
+  object-fit: contain;
+}
+
 .name {
   overflow-wrap: anywhere;
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
-  line-height: 22px;
+  line-height: 21px;
   color: var(--color-heading);
 }
 
@@ -336,8 +402,8 @@
   .stage {
     --w: min(300px, calc(100vw - 104px));
     --gap: 16px;
-    --side-h: 380px;
-    --active-h: 440px;
+    --side-h: 424px;
+    --active-h: 484px;
 
     margin-top: 24px;
   }

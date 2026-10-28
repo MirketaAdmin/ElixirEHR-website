@@ -21,7 +21,7 @@ export const referralHero = {
   secondaryCta: { label: 'Learn Benefits', href: '#referral-benefits' },
   image: {
     src: heroCard,
-    alt: 'Three colleagues in a meeting room reviewing an Elixir AI dashboard on a wall screen',
+    alt: 'Colleagues discussing an Elixir dashboard shown on a wall screen',
   },
 };
 

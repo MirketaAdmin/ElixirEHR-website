@@ -1,9 +1,9 @@
-// "Contact Us" section content, shared by About Us and What Is Elixir (identical in both Figma frames).
+// "Contact Us" section content, shared by About Us, What Is Elixir and Referral Program.
 
 import mailIcon from '../assets/icons/contact-mail.png';
 import phoneIcon from '../assets/icons/contact-phone.png';
 import locationIcon from '../assets/icons/contact-location.png';
-import { previousClientLogos } from './home';
+import { previousClientLogos, trustedBy } from './home';
 
 // Logos shown under "Trusted by" in the Contact section (subset of the Home logo strip, at 72% scale).
 const contactLogoNames = [
@@ -13,6 +13,21 @@ const contactLogoNames = [
   'Alter Health Group',
   'caremore Medical Supply',
 ];
+
+// The About Us and Referral Program Figma frames show a newer "Trusted by" row: five logos from the
+// Home strip, drawn smaller (display size in px, measured from the frame) and 24px apart.
+const aboutLogoSizes = [
+  ['within', 61, 19],
+  ['Community Wellness Ventures', 106, 31],
+  ['Upward Health', 92, 15],
+  ['OncoHost', 93, 17],
+  ['TrueNorth Health Center', 88, 21],
+];
+
+export const updatedContactLogos = aboutLogoSizes.map(([name, width, height]) => ({
+  ...trustedBy.logos.find((logo) => logo.name === name),
+  display: [width, height],
+}));
 
 export const contact = {
   eyebrow: 'GET IN TOUCH',

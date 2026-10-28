@@ -2,7 +2,7 @@
 // Copy is reproduced verbatim.
 
 // Same Figma "missing image" hero box as the Denial Management frame (pixel-identical export).
-import heroMediaPlaceholder from '../assets/denial-management/hero-media-placeholder.png';
+import heroMedia from '../assets/caregiver-mobile-app/hero-media.png';
 import iconVisitInformation from '../assets/caregiver-mobile-app/icon-tour-visit-information.png';
 import iconOfflinePreparation from '../assets/caregiver-mobile-app/icon-tour-offline-preparation.png';
 import iconFreshness from '../assets/caregiver-mobile-app/icon-tour-freshness.png';
@@ -27,8 +27,8 @@ export const cmaHero = {
   primaryCta: { label: 'Contact us', to: '/contact-us' },
   secondaryCta: { label: 'Explore the caregiver tour', href: '#caregiver-tour' },
   media: {
-    src: heroMediaPlaceholder,
-    alt: 'Image placeholder',
+    src: heroMedia,
+    alt: 'Caregiver checking in on her phone as an older client greets her at the door',
   },
 };
 

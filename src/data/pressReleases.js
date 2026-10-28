@@ -19,6 +19,6 @@ export const pressReleasesHero = {
   primaryCta: { label: 'Explore Our Platform', to: '/platform' },
   image: {
     src: pressHeroCard,
-    alt: 'Clinicians reviewing charts on a laptop and tablets around a table',
+    alt: 'Four clinicians reviewing data together on a laptop and a tablet',
   },
 };

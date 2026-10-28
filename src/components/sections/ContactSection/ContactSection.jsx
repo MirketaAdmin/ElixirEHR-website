@@ -4,7 +4,11 @@ import Section from '../../layout/Section/Section';
 import ContactForm from './ContactForm';
 import styles from './ContactSection.module.css';
 
-function ContactSection() {
+/**
+ * `logos` replaces the default "Trusted by" row; an item's `display` ([width, height]) sets its
+ * drawn size, otherwise it is drawn at 72% of its listed size. `logoGap` overrides the row's gap.
+ */
+function ContactSection({ logos = contact.logos, logoGap }) {
   return (
     <Section tone="surface" spacing="none" id="contact" className={styles.section} containerClassName={styles.inner}>
       <div>
@@ -30,15 +34,18 @@ function ContactSection() {
         </ul>
 
         <p className={styles.trustedLabel}>{contact.trustedLabel}</p>
-        <ul className={styles.logos}>
-          {contact.logos.map((logo) => (
+        <ul className={styles.logos} style={logoGap === undefined ? undefined : { gap: logoGap }}>
+          {logos.map((logo) => (
             <li key={logo.name}>
               <img
                 src={logo.src}
                 alt={logo.name}
                 width={logo.width}
                 height={logo.height}
-                style={{ width: logo.width * 0.72, height: logo.height * 0.72 }}
+                style={{
+                  width: logo.display?.[0] ?? logo.width * 0.72,
+                  height: logo.display?.[1] ?? logo.height * 0.72,
+                }}
               />
             </li>
           ))}

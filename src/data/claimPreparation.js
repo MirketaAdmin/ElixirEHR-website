@@ -2,7 +2,15 @@
 // Copy is reproduced verbatim.
 
 // Same Figma "missing image" hero box as the Denial Management frame (pixel-identical export).
-import heroMediaPlaceholder from '../assets/denial-management/hero-media-placeholder.png';
+import heroMedia from '../assets/claim-preparation/hero-media.png';
+import platformImage from '../assets/claim-preparation/platform.png';
+import cms1500Image from '../assets/claim-preparation/cms-1500.png';
+import ub04Image from '../assets/claim-preparation/ub-04.png';
+import scrubbingImage from '../assets/claim-preparation/scrubbing.png';
+import rejectionPredictionImage from '../assets/claim-preparation/rejection-prediction.png';
+import ediResolutionImage from '../assets/claim-preparation/edi-resolution.png';
+import eraPostingImage from '../assets/claim-preparation/era-posting.png';
+import hipaaImage from '../assets/claim-preparation/hipaa.png';
 import checkCircleIcon from '../assets/claim-preparation/icon-check-circle.png';
 import badgeCheckIcon from '../assets/claim-preparation/icon-badge-check.png';
 import checkCircleSmallIcon from '../assets/claim-preparation/icon-check-circle-small.png';
@@ -31,8 +39,8 @@ export const pcHero = {
   primaryCta: { label: 'Book a claim demo', to: '/request-demo' },
   secondaryCta: { label: 'See clearinghouse integrations', href: '#clearinghouse-connectivity' },
   media: {
-    src: heroMediaPlaceholder,
-    alt: 'Image placeholder',
+    src: heroMedia,
+    alt: 'Billing specialist reviewing a Claims Management dashboard in Elixir',
   },
 };
 
@@ -50,7 +58,7 @@ export const pcPlatform = {
     'Flows, approvals and Agentforce automation can act on billing data the day you turn them on',
     'One login, one permission model and one reporting layer across front office, clinical and revenue cycle teams',
   ],
-  frame: { width: 560, height: 469, tone: 'surface' },
+  frame: { width: 560, height: 546, image: { src: platformImage, alt: 'Billing specialist working across two monitors of revenue cycle dashboards' } },
 };
 
 export const pcClaimFlow = {
@@ -141,7 +149,7 @@ export const pcClaimTypes = {
           text: 'Anesthesia time units, global period tracking and automatic split-billing rules.',
         },
       ],
-      frame: { width: 560, height: 369, tone: 'surface' },
+      frame: { width: 560, height: 368, image: { src: cms1500Image, alt: 'CMS-1500 health insurance claim form screen in Elixir' } },
     },
     {
       badge: 'UB-04 / CMS-1450 • ANSI X12 837I',
@@ -168,7 +176,7 @@ export const pcClaimTypes = {
           text: 'Interim, late-charge, replacement and void claim handling with correct frequency codes.',
         },
       ],
-      frame: { width: 560, height: 388, tone: 'surface' },
+      frame: { width: 560, height: 387, image: { src: ub04Image, alt: 'UB-04 institutional claim form screen in Elixir' } },
     },
   ],
 };
@@ -195,7 +203,7 @@ export const pcScrubbing = {
       text: 'Hard stops prevent flawed transmission, while actionable alerts inform billers of opportunities for charge optimization.',
     },
   ],
-  frame: { width: 560, height: 525, tone: 'white' },
+  frame: { width: 560, height: 524, image: { src: scrubbingImage, alt: 'Claim validation errors listed beside each field on a claim record in Elixir' } },
 };
 
 export const pcRejectionPrediction = {
@@ -225,7 +233,7 @@ export const pcRejectionPrediction = {
       text: 'Corrected claims re-evaluate instantly within Salesforce so staff have confidence before final batching.',
     },
   ],
-  frame: { width: 560, height: 423, tone: 'surface' },
+  frame: { width: 422, height: 612, image: { src: rejectionPredictionImage, alt: 'AI Claim Recommendation panel with rejection probability, issues and recommendations' } },
 };
 
 export const pcEdiResolution = {
@@ -251,14 +259,14 @@ export const pcEdiResolution = {
       text: 'One-click claim resubmission: Automatically generates clean replacement 837 transactions and queues them for the next transmission cycle.',
     },
   ],
-  frame: { width: 560, height: 516, tone: 'surface' },
+  frame: { width: 560, height: 379, image: { src: ediResolutionImage, alt: 'Clearinghouse-rejected claim with each invalid field and its error shown on the claim' } },
 };
 
 export const pcEraPosting = {
   title: 'ERA payment posting that reconciles the 835 to the penny',
   description:
     'Manual remittance entry slows down cash flow and introduces human error. Elixir ingests 835 Electronic Remittance Advice files, automatically posting contractual adjustments, copays, coinsurance, and deductibles down to specific service line items.',
-  frame: { width: 543, height: 369, tone: 'white' },
+  frame: { width: 543, height: 370, image: { src: eraPostingImage, alt: 'ERA Payment Posting screen in Elixir with matched claims and posting actions' } },
 };
 
 export const pcClearinghouse = {
@@ -353,7 +361,7 @@ export const pcHipaa = {
       text: 'Hosted on HIPAA-compliant, HITRUST CSF certified Salesforce cloud infrastructure.',
     },
   ],
-  frame: { width: 560, height: 401, tone: 'white' },
+  frame: { width: 506, height: 685, image: { src: hipaaImage, alt: 'Clinician at Elixir revenue dashboards beneath HIPAA compliance safeguards' } },
 };
 
 export const pcOrganizations = {

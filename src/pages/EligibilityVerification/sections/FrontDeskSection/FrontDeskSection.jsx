@@ -1,6 +1,5 @@
 import { frontDesk } from '../../../../data/eligibilityVerification';
 import Section from '../../../../components/layout/Section/Section';
-import ImagePlaceholder from '../../../../components/ui/ImagePlaceholder/ImagePlaceholder';
 import RichText from '../../../../components/ui/RichText/RichText';
 import EvCheckList from '../../components/EvCheckList/EvCheckList';
 import styles from './FrontDeskSection.module.css';
@@ -10,7 +9,7 @@ function FrontDeskSection() {
 
   return (
     <Section tone="surface" spacing="none" className={styles.section} containerClassName={styles.inner}>
-      <ImagePlaceholder className={styles.media} />
+      <img src={frontDesk.image.src} alt={frontDesk.image.alt} width="461" height="461" className={styles.media} />
       <div className={styles.content}>
         <h2 className={styles.title}>{title}</h2>
         {paragraphs.map((paragraph, index) => (

@@ -13,6 +13,12 @@
 }
 
 
+/* The badge sits 16px left of the photo in this frame (32px on Billing and Contact Center). */
+.heroMedia {
+  --badge-left: -16px;
+  --badge-left-scaled: -3.43%;
+}
+
 .hero p + div > a:first-child {
   letter-spacing: 0.04em;
 }

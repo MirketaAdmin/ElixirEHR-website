@@ -27,10 +27,6 @@ function MissionSection() {
 
       <figure className={styles.media}>
         <img src={mission.image.src} alt={mission.image.alt} width="536" height="536" className={styles.image} />
-        <figcaption className={styles.caption}>
-          <span className={styles.captionTitle}>{mission.image.title}</span>
-          <span className={styles.captionText}>{mission.image.caption}</span>
-        </figcaption>
       </figure>
     </Section>
   );

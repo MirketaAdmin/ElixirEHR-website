@@ -1,0 +1,78 @@
+.section {
+  padding: 80px 0;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.03em;
+}
+
+/* Two columns of Rose White cards, 32px apart; each row starts level. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 32px;
+  margin-top: 33px;
+}
+
+.card {
+  padding: 24px 24px 28px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.question {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  color: var(--color-heading);
+  padding-right: 40px;
+}
+
+.icon {
+  flex: none;
+  margin-top: 1px;
+}
+
+.answer {
+  margin-top: 4px;
+  padding-left: 24px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .question {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .question {
+    padding-right: 0;
+  }
+
+  .answer {
+    padding-left: 0;
+  }
+}

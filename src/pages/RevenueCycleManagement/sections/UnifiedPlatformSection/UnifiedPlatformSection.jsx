@@ -3,7 +3,6 @@ import Section from '../../../../components/layout/Section/Section';
 import Button from '../../../../components/ui/Button/Button';
 import RcmBadge from '../../components/RcmBadge/RcmBadge';
 import RichText from '../../../../components/ui/RichText/RichText';
-import ImagePlaceholder from '../../../../components/ui/ImagePlaceholder/ImagePlaceholder';
 import styles from './UnifiedPlatformSection.module.css';
 
 function UnifiedPlatformSection() {
@@ -27,7 +26,7 @@ function UnifiedPlatformSection() {
           </Button>
         </div>
       </div>
-      <ImagePlaceholder className={styles.media} />
+      <img src={unifiedPlatform.image.src} alt={unifiedPlatform.image.alt} width="544" height="436" className={styles.media} />
     </Section>
   );
 }

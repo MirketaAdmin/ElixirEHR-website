@@ -1,13 +1,11 @@
 import { fsFeatures } from '../../../../data/evvFieldService';
 import Section from '../../../../components/layout/Section/Section';
 import EyebrowHeading from '../../../../components/ui/EyebrowHeading/EyebrowHeading';
-import ImagePlaceholder from '../../../../components/ui/ImagePlaceholder/ImagePlaceholder';
-import ScreenshotNote from '../../components/ScreenshotNote/ScreenshotNote';
 import styles from './FeaturesSection.module.css';
 
 /** "Native Salesforce EVV Software…" (target of the hero's "Explore EVV Features" CTA). */
 function FeaturesSection() {
-  const { eyebrow, title, description, items, screenshotNote } = fsFeatures;
+  const { eyebrow, title, description, items } = fsFeatures;
 
   return (
     <Section id="evv-features" spacing="none" className={styles.section} aria-labelledby="fs-features">
@@ -27,11 +25,6 @@ function FeaturesSection() {
           </li>
         ))}
       </ul>
-
-      <div className={styles.media}>
-        <ImagePlaceholder className={styles.placeholder} />
-        <ScreenshotNote {...screenshotNote} />
-      </div>
     </Section>
   );
 }

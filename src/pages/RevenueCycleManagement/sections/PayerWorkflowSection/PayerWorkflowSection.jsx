@@ -4,7 +4,6 @@ import rulesIcon from '../../../../assets/revenue-cycle-management/icon-rules-au
 import RcmBadge from '../../components/RcmBadge/RcmBadge';
 import RichText from '../../../../components/ui/RichText/RichText';
 import CheckList from '../../components/CheckList/CheckList';
-import ImagePlaceholder from '../../../../components/ui/ImagePlaceholder/ImagePlaceholder';
 import styles from './PayerWorkflowSection.module.css';
 
 function PayerWorkflowSection() {
@@ -18,7 +17,7 @@ function PayerWorkflowSection() {
       className={styles.section}
       containerClassName={styles.inner}
     >
-      <ImagePlaceholder className={styles.media} />
+      <img src={payerWorkflow.image.src} alt={payerWorkflow.image.alt} width="552" height="421" className={styles.media} />
       <div className={styles.content}>
         <RcmBadge tone="lavender" icon={rulesIcon} iconSize={[14, 13]}>
           {badge}

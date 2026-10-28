@@ -1,7 +1,6 @@
 import { multiPayer, revenueCycleTeams } from '../../../../data/revenueCycleManagement';
 import Section from '../../../../components/layout/Section/Section';
 import CheckList from '../../components/CheckList/CheckList';
-import ImagePlaceholder from '../../../../components/ui/ImagePlaceholder/ImagePlaceholder';
 import styles from './MultiPayerSection.module.css';
 
 /** Multi-payer / multi-NPI split plus the "Built for Revenue Cycle Teams" grid (one band). */
@@ -20,7 +19,7 @@ function MultiPayerSection() {
           <p className={styles.body}>{multiPayer.body}</p>
           <CheckList items={multiPayer.points} className={styles.points} />
         </div>
-        <ImagePlaceholder className={styles.media} />
+        <img src={multiPayer.image.src} alt={multiPayer.image.alt} width="500" height="420" className={styles.media} />
       </div>
 
       <h2 className={styles.teamsTitle}>{revenueCycleTeams.title}</h2>

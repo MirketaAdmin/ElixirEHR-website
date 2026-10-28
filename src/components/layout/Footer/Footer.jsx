@@ -5,7 +5,10 @@ import {
   socialLinks,
   copyright,
   legalLinks,
+  cookieSettingsLabel,
 } from '../../../data/footer';
+import { useCookieConsent } from '../../../consent/consentContext';
+import { cn } from '../../../utils/cn';
 import { demoCta } from '../../../data/navigation';
 import Container from '../Container/Container';
 import Logo from '../../ui/Logo/Logo';
@@ -14,6 +17,7 @@ import Icon from '../../ui/Icon/Icon';
 import styles from './Footer.module.css';
 
 function Footer() {
+  const consent = useCookieConsent();
   return (
     <footer className={styles.footer}>
       <Container>
@@ -63,11 +67,17 @@ function Footer() {
 
         <div className={styles.bottom}>
           <p className={styles.meta}>{copyright}</p>
-          {legalLinks.map((link) => (
-            <Link key={link.label} to={link.to} className={styles.meta}>
-              {link.label}
-            </Link>
-          ))}
+          <p className={styles.legal}>
+            {legalLinks.map((link) => (
+              <Link key={link.label} to={link.to} className={styles.meta}>
+                {link.label}
+              </Link>
+            ))}
+            {/* Reopens the cookie preferences (the "Cookie settings" link the Privacy Policy names). */}
+            <button type="button" className={cn(styles.meta, styles.legalButton)} onClick={consent?.openPreferences}>
+              {cookieSettingsLabel}
+            </button>
+          </p>
           <Button to={demoCta.to} size="sm">
             {demoCta.label}
           </Button>

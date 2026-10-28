@@ -1,0 +1,58 @@
+/* Frame-specific overrides for shared sections on the Billing page. */
+
+/* Hero: set up as the Patient Portal hero (72px title pitch, 18/28 description, 58px CTAs). */
+.hero {
+  --page-hero-padding: 70px;
+  --page-hero-description-width: 600px;
+  --page-hero-description-size: 18px;
+  --page-hero-description-leading: 28px;
+  --page-hero-primary-height: 58px;
+  --page-hero-primary-size: 16px;
+  --page-hero-content-offset: 0px;
+}
+
+/* AI capabilities: one row of four cards (the frame's tallest is 394px). */
+.ai ul {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: minmax(394px, 1fr);
+}
+
+@media (max-width: 1199px) {
+  .ai ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .ai ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* CTA band: single-line title (tight tracking, as the EHR band) and two 66px buttons. */
+.ctaBand {
+  padding: 80px 0;
+}
+
+.ctaBand h2 {
+  letter-spacing: -3px;
+}
+
+.ctaButton,
+.ctaSecondary {
+  height: 66px;
+  margin-top: 31px;
+  padding-inline: 39px;
+}
+
+/* "Call Us Today": white outline on the dark band. */
+.ctaBand .ctaSecondary {
+  border-color: rgb(255 255 255 / 0.8);
+  background: transparent;
+  color: var(--color-white);
+}
+
+.ctaBand div:has(> .ctaButton) {
+  gap: 24px;
+}

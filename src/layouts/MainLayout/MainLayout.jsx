@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../../components/layout/Header/Header';
 import Footer from '../../components/layout/Footer/Footer';
 import MotionController from '../../components/motion/MotionController';
+import CookieConsent from '../../components/consent/CookieConsent';
 
 function MainLayout() {
   const { pathname, hash } = useLocation();
@@ -23,14 +24,14 @@ function MainLayout() {
   }, [pathname, hash]);
 
   return (
-    <>
+    <CookieConsent>
       <Header />
       <main>
         <Outlet />
       </main>
       <Footer />
       <MotionController />
-    </>
+    </CookieConsent>
   );
 }
 

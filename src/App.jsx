@@ -9,6 +9,7 @@ import RevenueCycleManagement from './pages/RevenueCycleManagement/RevenueCycleM
 import EligibilityVerification from './pages/EligibilityVerification/EligibilityVerification';
 import TreatmentCenterSolutions from './pages/TreatmentCenterSolutions/TreatmentCenterSolutions';
 import ContactUs from './pages/ContactUs/ContactUs';
+import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import ElectronicPriorAuthorization from './pages/ElectronicPriorAuthorization/ElectronicPriorAuthorization';
 import DenialManagement from './pages/DenialManagement/DenialManagement';
 import ClaimPreparation from './pages/ClaimPreparation/ClaimPreparation';
@@ -19,6 +20,7 @@ import SuccessStories from './pages/SuccessStories/SuccessStories';
 import ReferralProgram from './pages/ReferralProgram/ReferralProgram';
 import Career from './pages/Career/Career';
 import PatientPortal from './pages/PatientPortal/PatientPortal';
+import Billing from './pages/Billing/Billing';
 import PatientNoShowPrediction from './pages/PatientNoShowPrediction/PatientNoShowPrediction';
 import ContactCenter from './pages/ContactCenter/ContactCenter';
 import NoShowRoiCalculator from './pages/NoShowRoiCalculator/NoShowRoiCalculator';
@@ -75,6 +77,7 @@ function App() {
           <Route path="eligibility-verification" element={<EligibilityVerification />} />
           <Route path="treatment-center-solutions" element={<TreatmentCenterSolutions />} />
           <Route path="contact-us" element={<ContactUs />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="denial-management" element={<DenialManagement />} />
           <Route path="professional-and-institutional-claim-preparation" element={<ClaimPreparation />} />
           <Route path="electronic-visit-verification" element={<ElectronicVisitVerification />} />
@@ -84,6 +87,7 @@ function App() {
           <Route path="referral-program" element={<ReferralProgram />} />
           <Route path="career" element={<Career />} />
           <Route path="patient-portal" element={<PatientPortal />} />
+          <Route path="billing" element={<Billing />} />
           <Route path="patient-no-show-prediction" element={<PatientNoShowPrediction />} />
           <Route path="contact-center" element={<ContactCenter />} />
           <Route path="no-show-roi-calculator" element={<NoShowRoiCalculator />} />

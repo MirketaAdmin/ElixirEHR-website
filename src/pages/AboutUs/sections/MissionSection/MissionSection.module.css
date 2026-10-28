@@ -66,7 +66,7 @@
   color: var(--color-body);
 }
 
-/* Square image card: 4px white frame, soft shadow, caption over the photo's dark gradient. */
+/* Square image card: 4px white frame and a soft shadow. */
 .media {
   position: relative;
   width: 544px;
@@ -81,29 +81,6 @@
 .image {
   display: block;
   border-radius: 20px;
-}
-
-.caption {
-  position: absolute;
-  right: 32px;
-  bottom: 32px;
-  left: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  color: var(--color-white);
-}
-
-.captionTitle {
-  font-family: var(--font-display);
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.captionText {
-  font-size: 16px;
-  line-height: 24px;
-  color: rgb(255 255 255 / 0.92);
 }
 
 /* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */

@@ -13,6 +13,37 @@ const wrap = (value, count) => ((value % count) + count) % count;
 // viewport edge), the third waits off-screen so a card never pops in during a slide.
 const SIDE = 3;
 
+/** Star rating in a Deep Purple pill (e.g. five yellow stars), read out as "Rated 5 out of 5". */
+function Rating({ value }) {
+  if (!value) return null;
+  return (
+    <span className={styles.rating} role="img" aria-label={`Rated ${value} out of 5`}>
+      {Array.from({ length: 5 }, (_, index) => (
+        <Icon key={index} name="star" size={16} className={index < value ? styles.starOn : styles.starOff} />
+      ))}
+    </span>
+  );
+}
+
+/** Name and organization, with the organization's logo in a pill on the right when we have it. */
+function Author({ item, nameId }) {
+  return (
+    <>
+      <span className={styles.person}>
+        <span id={nameId} className={styles.name}>
+          {item.name}
+        </span>
+        {item.role && <span className={styles.role}>{item.role}</span>}
+      </span>
+      {item.logo && (
+        <span className={styles.logo}>
+          <img src={item.logo} alt="" loading="lazy" />
+        </span>
+      )}
+    </>
+  );
+}
+
 /**
  * Testimonial coverflow (reference design): a full-width row of equal cards centred on the
  * active one, which is taller, outlined in Deep Purple and lifted; its neighbours sit either side
@@ -117,7 +148,10 @@ function TestimonialsSection() {
                 }}
               >
                 <figure className={styles.figure}>
-                  <span className={styles.openMark} aria-hidden="true" />
+                  <div className={styles.top}>
+                    <span className={styles.openMark} aria-hidden="true" />
+                    <Rating value={item.rating} />
+                  </div>
                   <blockquote
                     ref={(el) => (el ? quoteRefs.current.set(virtual, el) : quoteRefs.current.delete(virtual))}
                     className={styles.quote}
@@ -134,8 +168,7 @@ function TestimonialsSection() {
                     <span className={styles.closeMark} aria-hidden="true" />
                   </div>
                   <figcaption className={styles.footer}>
-                    <span className={styles.name}>{item.name}</span>
-                    {item.role && <span className={styles.role}>{item.role}</span>}
+                    <Author item={item} />
                   </figcaption>
                   {isActive && (
                     <span className={styles.count} aria-hidden="true">
@@ -183,15 +216,15 @@ function TestimonialsSection() {
             <button type="button" className={styles.close} onClick={() => setOpenItem(null)} aria-label="Close">
               <Icon name="close" size={22} />
             </button>
-            <span className={styles.openMark} aria-hidden="true" />
+            <div className={styles.dialogTop}>
+              <span className={styles.openMark} aria-hidden="true" />
+              <Rating value={openItem.rating} />
+            </div>
             <blockquote className={styles.dialogQuote}>
               <p>“{openItem.quote}”</p>
             </blockquote>
             <figcaption className={styles.footer}>
-              <span id="testimonial-dialog-name" className={styles.name}>
-                {openItem.name}
-              </span>
-              {openItem.role && <span className={styles.role}>{openItem.role}</span>}
+              <Author item={openItem} nameId="testimonial-dialog-name" />
             </figcaption>
           </figure>
         )}
