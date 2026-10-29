@@ -1,7 +1,6 @@
 import {
   sdCtaBand,
   sdDomains,
-  sdFaq,
   sdGap,
   sdHero,
   sdMoney,
@@ -14,9 +13,9 @@ import PageHero from '../../components/sections/PageHero/PageHero';
 import WideTiltedHeroMedia from '../../components/sections/WideTiltedHeroMedia/WideTiltedHeroMedia';
 import Section from '../../components/layout/Section/Section';
 import Container from '../../components/layout/Container/Container';
-import FaqSection from '../../components/sections/FaqSection/FaqSection';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import { cn } from '../../utils/cn';
+import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import styles from './SocialDeterminants.module.css';
 
 const Img = ({ icon, className }) => (
@@ -271,7 +270,7 @@ function SocialDeterminants() {
       <MoneySection />
       <GapSection />
       <ZCodesSection />
-      <FaqSection {...sdFaq} />
+      <FaqCardsSection />
       <CtaBanner
         {...sdCtaBand}
         className={styles.ctaBand}

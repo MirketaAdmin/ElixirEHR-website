@@ -1,0 +1,57 @@
+.band {
+  padding: 32px 0;
+  background: #f0edec;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card {
+  min-height: 270px;
+  padding: 24px 24px 26px;
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgb(31 24 35 / 0.06);
+}
+
+.title {
+  max-width: 200px;
+  margin-top: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-heading);
+}
+
+.text {
+  max-width: 190px;
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-body);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card {
+    min-height: 0;
+  }
+
+  .title,
+  .text {
+    max-width: none;
+  }
+}
+
+@media (max-width: 559px) {
+  .list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}

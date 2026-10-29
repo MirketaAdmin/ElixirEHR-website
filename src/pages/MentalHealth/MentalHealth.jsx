@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
-import { mhCtaBand, mhFaq, mhHero } from '../../data/mentalHealth';
+import { mhCtaBand, mhHero } from '../../data/mentalHealth';
 import PageHero from '../../components/sections/PageHero/PageHero';
 import WideTiltedHeroMedia from '../../components/sections/WideTiltedHeroMedia/WideTiltedHeroMedia';
-import FaqSection from '../../components/sections/FaqSection/FaqSection';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import arrowIcon from '../../assets/mental-health/icon-cta-arrow.png';
 import HighlightsStrip from './sections/HighlightsStrip/HighlightsStrip';
@@ -14,6 +13,7 @@ import TelehealthSection from './sections/TelehealthSection/TelehealthSection';
 import DocumentationSection from './sections/DocumentationSection/DocumentationSection';
 import RevenueSection from './sections/RevenueSection/RevenueSection';
 import KratuSection from './sections/KratuSection/KratuSection';
+import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import styles from './MentalHealth.module.css';
 
 /** Mental Health — an independent page (no parent route). */
@@ -35,7 +35,7 @@ function MentalHealth() {
       <DocumentationSection />
       <RevenueSection />
       <KratuSection />
-      <FaqSection {...mhFaq} />
+      <FaqCardsSection />
       <CtaBanner
         {...ctaBand}
         className={styles.ctaBand}

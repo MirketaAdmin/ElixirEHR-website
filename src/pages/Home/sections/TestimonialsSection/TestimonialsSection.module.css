@@ -1,8 +1,8 @@
 /*
   Testimonial coverflow — the supplied reference layout in Elixir's palette: equal white cards in a
   full-width row centred on the active card, which grows taller, takes a Deep Purple outline and
-  a deeper shadow. Each card opens with a light quotation mark and a five-star rating in a Deep
-  Purple pill, and ends with a closing mark, the name and the organization's logo in a soft pill;
+  a deeper shadow. Each card opens with a five-star rating in a Deep
+  Purple pill, and ends with the name and the organization's logo in a soft pill;
   neighbours carry a pill "Show More", the active card a text link and the "02 / 04" counter. Round Deep Purple arrows sit
   on the neighbours' outer edges. Sizes measured from the reference at 1280px.
 */
@@ -92,7 +92,7 @@
   padding: 28px 24px 20px;
 }
 
-/* Top row: the opening mark at the left, the rating centred. */
+/* Top row: the rating, centred. */
 .top {
   position: relative;
   display: flex;
@@ -102,11 +102,6 @@
   min-height: 36px;
 }
 
-.top .openMark {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 
 .dialogTop {
   display: flex;
@@ -131,20 +126,6 @@
   color: rgb(255 255 255 / 0.3);
 }
 
-/* Light quotation marks (mask from the Figma export), opening top-left, closing bottom-right. */
-.openMark,
-.closeMark {
-  flex: none;
-  width: 46px;
-  height: 36px;
-  background: rgb(73 50 102 / 0.16);
-  mask: url('../../../../assets/icons/quote-mark.png') no-repeat center / contain;
-}
-
-.openMark {
-  transform: rotate(180deg);
-}
-
 /* "Show More" (centred on neighbours, left on the active card) with the closing mark at the right. */
 .moreRow {
   position: relative;
@@ -153,12 +134,6 @@
   min-height: 30px;
   margin-top: auto;
   padding-top: 12px;
-}
-
-.closeMark {
-  position: absolute;
-  right: 0;
-  bottom: 0;
 }
 
 .active .moreRow {

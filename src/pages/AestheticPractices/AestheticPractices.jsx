@@ -1,7 +1,6 @@
-import { aeCtaBand, aeFaq, aeHero } from '../../data/aestheticPractices';
+import { aeCtaBand, aeHero } from '../../data/aestheticPractices';
 import PageHero from '../../components/sections/PageHero/PageHero';
 import WideTiltedHeroMedia from '../../components/sections/WideTiltedHeroMedia/WideTiltedHeroMedia';
-import FaqSection from '../../components/sections/FaqSection/FaqSection';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import PillarsStrip from './sections/PillarsStrip/PillarsStrip';
 import SchedulingSection from './sections/SchedulingSection/SchedulingSection';
@@ -14,6 +13,7 @@ import SafetySection from './sections/SafetySection/SafetySection';
 import StructureSection from './sections/StructureSection/StructureSection';
 import PlatformSection from './sections/PlatformSection/PlatformSection';
 import PortalSection from './sections/PortalSection/PortalSection';
+import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import styles from './AestheticPractices.module.css';
 
 /** Aesthetic Practices — a child page of More Specialties. */
@@ -36,7 +36,7 @@ function AestheticPractices() {
       <StructureSection />
       <PlatformSection />
       <PortalSection />
-      <FaqSection {...aeFaq} />
+      <FaqCardsSection />
       <CtaBanner
         {...aeCtaBand}
         className={styles.ctaBand}

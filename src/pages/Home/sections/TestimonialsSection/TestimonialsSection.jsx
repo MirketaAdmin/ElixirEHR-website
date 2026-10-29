@@ -149,7 +149,6 @@ function TestimonialsSection() {
               >
                 <figure className={styles.figure}>
                   <div className={styles.top}>
-                    <span className={styles.openMark} aria-hidden="true" />
                     <Rating value={item.rating} />
                   </div>
                   <blockquote
@@ -165,7 +164,6 @@ function TestimonialsSection() {
                         <Icon name="arrowRight" size={14} />
                       </button>
                     )}
-                    <span className={styles.closeMark} aria-hidden="true" />
                   </div>
                   <figcaption className={styles.footer}>
                     <Author item={item} />
@@ -217,7 +215,6 @@ function TestimonialsSection() {
               <Icon name="close" size={22} />
             </button>
             <div className={styles.dialogTop}>
-              <span className={styles.openMark} aria-hidden="true" />
               <Rating value={openItem.rating} />
             </div>
             <blockquote className={styles.dialogQuote}>

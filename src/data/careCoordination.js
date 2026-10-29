@@ -1,6 +1,6 @@
 // Care Coordination page (/care-coordination) — an independent page with no parent.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/care-coordination/hero-media.png';
 import teamIcon from '../assets/care-coordination/icon-pillar-team.png';
 import consentIcon from '../assets/care-coordination/icon-pillar-consent.png';
 import part2Icon from '../assets/care-coordination/icon-pillar-part2.png';
@@ -27,7 +27,10 @@ export const ccHero = {
   primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
   // The frame gives no destination; it scrolls to "The Loop That Does Not Close".
   secondaryCta: { label: 'The loop that does not close', href: '#loop' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Clinicians and partners connected around one shared patient record',
+  },
 };
 
 export const ccPillars = [
@@ -373,6 +376,7 @@ export const ccStandards = {
 // Shared FaqSection: the first half of `items` fills the left column, so the order keeps each
 // question in its frame column.
 export const ccFaq = {
+  eyebrow: 'Questions',
   title: 'Care Coordination: Frequently Asked Questions',
   description: 'What clinical leaders, compliance officers and IT teams ask us first.',
   items: [

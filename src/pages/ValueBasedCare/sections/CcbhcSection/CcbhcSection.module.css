@@ -1,0 +1,125 @@
+.section {
+  padding: 80px 0 80px;
+}
+
+.intro {
+  max-width: 800px;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 900px;
+  margin-top: 36px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.note {
+  margin-top: 4px;
+  max-width: 860px;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 22px;
+  color: #6e6a71;
+}
+
+/* Rounded card: caption bar, header row, white body rows, then the footnote. */
+.tableCard {
+  margin-top: 44px;
+  overflow: hidden;
+  border: 1px solid #e5e1e1;
+  border-radius: 32px;
+  background: #f5f3f6;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.table caption {
+  padding: 18px 16px;
+  border-bottom: 1px solid #e5e1e1;
+  background: #f0edec;
+  font-family: var(--font-label);
+  font-weight: 700;
+  text-align: left;
+  color: var(--color-heading);
+}
+
+.table thead th {
+  padding: 18px 16px;
+  background: #f0edec;
+  font-family: var(--font-label);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.table thead th:first-child,
+.table tbody th[scope='row'] {
+  padding-left: 88px;
+}
+
+.table tbody tr {
+  border-top: 1px solid #ece8e8;
+  background: var(--color-white);
+}
+
+.table tbody td {
+  padding: 18px 16px;
+  text-align: left;
+}
+
+.table tbody th[scope='row'] {
+  padding-block: 18px;
+  padding-right: 16px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.table td {
+  color: var(--color-body);
+}
+
+.table .payments {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.footnote {
+  padding: 16px;
+  border-top: 1px solid #e5e1e1;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #6e6a71;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .tableCard {
+    border-radius: var(--radius-xl);
+  }
+
+  .table thead th:first-child,
+  .table tbody th[scope='row'] {
+    padding-left: 16px;
+  }
+}

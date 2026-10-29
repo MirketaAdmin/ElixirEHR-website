@@ -1,9 +1,8 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { ppCtaBand, ppFaq, ppHero, ppStages } from '../../../data/payorPolicy';
+import { ppCtaBand, ppHero, ppStages } from '../../../data/payorPolicy';
 import PageHero from '../../../components/sections/PageHero/PageHero';
 import WideTiltedHeroMedia from '../../../components/sections/WideTiltedHeroMedia/WideTiltedHeroMedia';
-import FaqSection from '../../../components/sections/FaqSection/FaqSection';
 import CtaBanner from '../../../components/sections/CtaBanner/CtaBanner';
 import HighlightsStrip from './sections/HighlightsStrip/HighlightsStrip';
 import ProblemSection from './sections/ProblemSection/ProblemSection';
@@ -13,6 +12,7 @@ import StageRow from './sections/StageRow/StageRow';
 import ScoringSection from './sections/ScoringSection/ScoringSection';
 import AuditSection from './sections/AuditSection/AuditSection';
 import BoundariesSection from './sections/BoundariesSection/BoundariesSection';
+import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import styles from './PayorPolicy.module.css';
 
 /** Payor Policy Intelligence — a child page of KratuAI. */
@@ -35,7 +35,7 @@ function PayorPolicy() {
       <ScoringSection />
       <AuditSection />
       <BoundariesSection />
-      <FaqSection {...ppFaq} />
+      <FaqCardsSection />
       <CtaBanner {...ctaBand} className={styles.ctaBand} ctaClassName={styles.ctaButton}>
         <p className={styles.ctaLinks}>
           {related.label}{' '}

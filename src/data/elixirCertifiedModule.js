@@ -1,7 +1,7 @@
 // Elixir Certified Module page (/onc-certification/elixir-certified-module) — a child page of ONC Certification.
 // Copy is verbatim from the Figma (certificate details, criteria table, disclaimer). Nothing here is
 // added beyond the frame; links only point at routes that exist.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/elixir-certified-module/hero-media.png';
 import certificateImage from '../assets/elixir-certified-module/certificate.png';
 import verifiedIcon from '../assets/elixir-certified-module/icon-verified.png';
 import planIcon from '../assets/elixir-certified-module/icon-rwt-plan.png';
@@ -17,7 +17,10 @@ export const ecmHero = {
   titleAccent: [],
   description:
     "Elixir is the world's first EHR completely built on Salesforce. A completely modular EHR solution integrated with highly efficient CRM and RCM capabilities that can be tailored to your needs. Elixir has end-to-end patient intake management and offers dynamic patient 360 degree for greater outreach and an integrated patient care experience. Elixir comes with Next-Gen Revenue Cycle Management solution with intuitive medical billing and automated claim management and payment processing.",
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Clinician working at an Elixir dashboard beneath a verified security shield and cloud connections',
+  },
 };
 
 export const ecmDetails = {

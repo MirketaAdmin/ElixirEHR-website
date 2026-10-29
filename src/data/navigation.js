@@ -83,7 +83,7 @@ export const mainNav = [
         ],
       },
       { label: 'Home & Community-Based Care' },
-      { label: 'Value-Based Care' },
+      { label: 'Value-Based Care', to: '/value-based-care' },
       { label: 'Care Coordination', to: '/care-coordination' },
       {
         label: 'More Specialties',
@@ -132,7 +132,7 @@ export const mainNav = [
         ],
       },
       { label: 'Guides & E-books', to: '/insights/e-book' },
-      { label: 'Case Studies' },
+      { label: 'Case Studies', to: '/case-studies' },
       { label: 'Webinars & Podcasts', to: '/insights/webinars' },
       // Listed twice in the supplied structure; shown once. The nav brief gave /category/… URLs;
       // the Insights brief built these pages under /insights/….
@@ -156,7 +156,6 @@ export const mainNav = [
     label: 'Company',
     children: [
       { label: 'About Us', to: '/about-us' },
-      { label: 'What is Elixir', to: '/what-is-elixir' },
       { label: 'Why Elixir', to: '/why-elixir' },
       { label: 'Press', to: '/press-releases' },
       { label: 'Referral Program', to: '/referral-program' },
@@ -175,7 +174,7 @@ export const mainNav = [
         children: [
           { label: 'ONC MFA Use Cases', to: '/onc-certification/onc-mfa-use-cases' },
           { label: 'Elixir Certified Module', to: '/onc-certification/elixir-certified-module' },
-          { label: 'Patient EHI Export' },
+          { label: 'Patient EHI Export', to: '/onc-certification/patient-ehi-export' },
         ],
       },
       { label: 'NAATP' },
@@ -338,7 +337,7 @@ export const megaPanels = [
         divider: true,
         heading: 'About Elixir',
         tone: 'lime',
-        items: ['About Us', 'What is Elixir', 'Why Elixir', 'Press', 'Referral Program', 'Careers', 'Contact Us'],
+        items: ['About Us', 'Why Elixir', 'Press', 'Referral Program', 'Careers', 'Contact Us'],
         cta: {
           title: 'Contact & Demos',
           text: 'Schedule a custom walkthrough tailored for your billing or clinical team.',

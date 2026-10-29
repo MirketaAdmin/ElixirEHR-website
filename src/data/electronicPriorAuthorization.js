@@ -22,7 +22,7 @@ export const epaHero = {
     'Manage prior authorizations alongside patient, clinical, insurance, and revenue workflows—all in one Salesforce-native platform.',
   primaryCta: { label: 'Request a Demo', to: '/request-demo' },
   // No destination in the frame; What Is Elixir is the site's platform overview.
-  secondaryCta: { label: 'Explore Elixir', to: '/what-is-elixir' },
+  secondaryCta: { label: 'Explore Elixir', to: '/why-elixir' },
   // The frame shows Figma's grey "missing image" box on the tilted backdrop (the same export as
   // Denial Management): the hero photo has not been supplied.
   media: {

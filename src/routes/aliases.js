@@ -13,7 +13,9 @@ export const routeAliases = {
   '/company/careers': '/career',
 
   // Platform and AI
-  '/platform': '/what-is-elixir',
+  // What Is Elixir was merged into Why Elixir; old links and bookmarks land on the merged page.
+  '/what-is-elixir': '/why-elixir',
+  '/platform': '/why-elixir',
   '/ai-engine': '/kratu-ai',
   '/ai-engine/clinical-assistant': '/kratu-ai/elixir-co-pilot-clinical-assistant',
   '/ai-engine/insurance-eligibility': '/eligibility-verification',

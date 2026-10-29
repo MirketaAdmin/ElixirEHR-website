@@ -1,9 +1,8 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { bhCtaBand, bhFaq, bhHero } from '../../data/behavioralHealth';
+import { bhCtaBand, bhHero } from '../../data/behavioralHealth';
 import PageHero from '../../components/sections/PageHero/PageHero';
 import WideTiltedHeroMedia from '../../components/sections/WideTiltedHeroMedia/WideTiltedHeroMedia';
-import FaqSection from '../../components/sections/FaqSection/FaqSection';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import PillarsStrip from './sections/PillarsStrip/PillarsStrip';
 import CaseSection from './sections/CaseSection/CaseSection';
@@ -12,6 +11,7 @@ import ConnectedSection from './sections/ConnectedSection/ConnectedSection';
 import MeasurableSection from './sections/MeasurableSection/MeasurableSection';
 import ComplianceSection from './sections/ComplianceSection/ComplianceSection';
 import KratuSection from './sections/KratuSection/KratuSection';
+import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import styles from './BehavioralHealth.module.css';
 
 /** Behavioral Health — an independent page (no parent). */
@@ -31,7 +31,7 @@ function BehavioralHealth() {
       <MeasurableSection />
       <ComplianceSection />
       <KratuSection />
-      <FaqSection {...bhFaq} />
+      <FaqCardsSection />
       <CtaBanner
         {...ctaBand}
         className={styles.ctaBand}

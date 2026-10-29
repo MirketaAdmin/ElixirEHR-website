@@ -1,6 +1,6 @@
 // Small Practices page (/more-specialties/small-practices) — a child page of More Specialties.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/small-practices/hero-media.png';
 import pillar1Icon from '../assets/small-practices/icon-pillar-1.png';
 import pillar2Icon from '../assets/small-practices/icon-pillar-2.png';
 import pillar3Icon from '../assets/small-practices/icon-pillar-3.png';
@@ -51,7 +51,10 @@ export const spHero = {
   primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
   // The frame gives no destination; it scrolls to "What a Small Practice Actually Needs From an EHR".
   secondaryCta: { label: 'What small practices actually need', href: '#start-here' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Physician and practice manager reviewing a laptop together in a small clinic office',
+  },
 };
 
 export const spPillars = [
@@ -503,6 +506,7 @@ export const spGrowth = {
 // The frame numbers its questions ("1. How is Elixir priced…"); the shared FAQ accordion has its own
 // two-column layout, so the numbers are left off.
 export const spFaq = {
+  eyebrow: 'Questions',
   title: 'Small Practice EHR: Frequently Asked Questions',
   description:
     'The questions small practice owners and practice managers ask us first — answered directly, including the ones about money.',

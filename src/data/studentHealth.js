@@ -1,6 +1,6 @@
 // Student Health page (/more-specialties/student-health) — a child page of More Specialties.
 // Copy is verbatim from the Figma (the "Student Care Management" frame). Links only point at routes that exist.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/student-health/hero-media.png';
 import pillar1Icon from '../assets/student-health/icon-pillar-1.png';
 import pillar2Icon from '../assets/student-health/icon-pillar-2.png';
 import pillar3Icon from '../assets/student-health/icon-pillar-3.png';
@@ -45,7 +45,10 @@ export const shHero = {
   primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
   // The frame gives no destination; it scrolls to "The Gap Between Enrolled and Actually Billing".
   secondaryCta: { label: 'Enrolled, but not billing', href: '#enrolled-gap' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'School health provider reviewing a tablet with a student in a school health office',
+  },
 };
 
 export const shPillars = [
@@ -425,6 +428,7 @@ export const shPrivacy = {
 // The shared FAQ accordion fills its left column first; the items are ordered so each question
 // sits in the column it is drawn in (the frame reads its two columns row by row).
 export const shFaq = {
+  eyebrow: 'Questions',
   title: 'Student Care Management: Frequently Asked Questions',
   description: 'What program directors, business officials and county office teams ask us first.',
   items: [

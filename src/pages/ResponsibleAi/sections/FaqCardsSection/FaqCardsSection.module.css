@@ -1,0 +1,79 @@
+.section {
+  padding: 81px 0 80px;
+}
+
+.intro {
+  --ra-title-size: 48px;
+  --ra-title-leading: 56px;
+  --ra-title-width: 1152px;
+  --ra-title-gap: 14px;
+  --ra-description-width: 860px;
+  --ra-description-gap: 8px;
+}
+
+/* Two independent columns of white cards with a 4px lime left edge, 24px apart. */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  margin-top: 59px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  padding: 28px 44px 28px 28px;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-secondary);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+}
+
+.question {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.answer {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .intro {
+    --ra-title-size: 30px;
+    --ra-title-leading: 38px;
+  }
+
+  .columns,
+  .list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .columns {
+    margin-top: 32px;
+  }
+
+  .card {
+    padding: 22px 20px;
+  }
+
+  .question {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

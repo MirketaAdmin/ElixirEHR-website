@@ -1,6 +1,6 @@
 // Telehealth page (/more-specialties/telehealth) — a child page of More Specialties.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/telehealth/hero-media.png';
 // The four pillar icons are the same crops as Small Practices'.
 import pillar1Icon from '../assets/small-practices/icon-pillar-1.png';
 import pillar2Icon from '../assets/small-practices/icon-pillar-2.png';
@@ -41,7 +41,10 @@ export const thHero = {
   primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
   // The frame gives no destination; it scrolls to "Medicare Telehealth Rules and the 31 December 2027 Cliff".
   secondaryCta: { label: 'See the 2027 and 2028 rule changes', href: '#medicare-policy' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Clinician on a video visit with a patient, with the chart and claim shown alongside',
+  },
 };
 
 export const thPillars = [
@@ -497,6 +500,7 @@ export const thWhy = {
 // The frame labels its questions "Q // 01"–"Q // 08"; the shared FAQ accordion has its own layout,
 // so the labels are left off. Its first-half-left order matches the frame's columns (1–4, 5–8).
 export const thFaq = {
+  eyebrow: 'Questions',
   title: 'Telehealth Software: Frequently Asked Questions',
   description: 'What practice leaders, billers and compliance staff ask us first.',
   items: [

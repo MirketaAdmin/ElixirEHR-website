@@ -9,11 +9,13 @@
   background: var(--color-surface-dark);
 }
 
+/* Darkens the lower part of the image so the title stays legible over any thumbnail. */
 .featured::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgb(73 50 102 / 0.6));
+  z-index: 1;
+  background: linear-gradient(180deg, transparent 30%, rgb(31 24 35 / 0.7) 55%, rgb(31 24 35 / 0.95));
 }
 
 .featuredImage {
@@ -38,13 +40,15 @@
 }
 
 .featuredPlay {
-  z-index: 1;
+  top: 36%;
+  z-index: 2;
   width: 80px;
   height: 80px;
 }
 
 .featuredBody {
   position: relative;
+  z-index: 2;
   max-width: 580px;
   padding: 0 0 33px 33px;
   color: var(--color-white);
@@ -84,6 +88,7 @@
 
 .featuredDuration {
   position: absolute;
+  z-index: 2;
   right: 25px;
   bottom: 34px;
   display: flex;
@@ -198,7 +203,13 @@
 /* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
 @media (max-width: 767px) {
   .featured {
-    min-height: 420px;
+    min-height: 560px;
+  }
+
+  .featuredPlay {
+    top: 80px;
+    width: 64px;
+    height: 64px;
   }
 
   .featuredBody {

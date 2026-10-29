@@ -1,6 +1,6 @@
 // Outpatient Clinics page (/more-specialties/outpatient-clinics) — a child page of More Specialties.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/outpatient-clinics/hero-media.png';
 import pillar1Icon from '../assets/outpatient-clinics/icon-pillar-1.png';
 import pillar2Icon from '../assets/outpatient-clinics/icon-pillar-2.png';
 import pillar3Icon from '../assets/outpatient-clinics/icon-pillar-3.png';
@@ -59,7 +59,10 @@ export const opHero = {
   primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
   // The frame gives no destination; it scrolls to "One Platform for Every Service Line".
   secondaryCta: { label: 'See how service lines work', href: '#service-lines' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Physician at an Elixir dashboard in a busy multi-specialty clinic',
+  },
 };
 
 export const opPillars = [
@@ -555,6 +558,7 @@ export const opInterop = {
 // Shared FaqSection: the first half of `items` fills the left column, so the order keeps each
 // question in its frame column.
 export const opFaq = {
+  eyebrow: 'Questions',
   title: 'Outpatient Clinic EHR: Frequently Asked Questions',
   description:
     'Everything your clinical leaders, administrative staff, and IT personnel need to understand about configuring and deploying Elixir.',

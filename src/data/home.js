@@ -300,7 +300,7 @@ const resourcePlaceholders = {
       label: 'Blog',
       items: [
         {
-          tag: 'Article',
+          tag: 'Blog',
           image: winterReleaseCover,
           author: 'Author Name',
           date: '04 April 2026',
@@ -457,7 +457,7 @@ const RESOURCE_CARDS_PER_TAB = 6;
 
 // How each post type looks on a card: its tag, link label/icon and the byline when a post has none.
 const resourceCardStyle = {
-  blog: { tag: 'Article', author: 'Elixir Team', link: { label: 'Read More', icon: linkArrowIcon, iconSize: [14, 11] } },
+  blog: { tag: 'Blog', author: 'Elixir Team', link: { label: 'Read More', icon: linkArrowIcon, iconSize: [14, 11] } },
   'release-note': { tag: 'Release', author: 'Product Team', link: { label: 'Read Release Notes', icon: linkArrowIcon, iconSize: [14, 11] } },
   'e-book': { tag: 'E-Book', author: 'Elixir Team', link: { label: 'Read E-Book', icon: linkArrowIcon, iconSize: [14, 11] } },
   'benchmark-survey': { tag: 'Survey', author: 'Elixir Research', link: { label: 'Read Survey', icon: linkArrowIcon, iconSize: [14, 11] } },

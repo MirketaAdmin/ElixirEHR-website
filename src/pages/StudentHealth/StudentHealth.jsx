@@ -1,7 +1,6 @@
-import { shCtaBand, shFaq, shHero } from '../../data/studentHealth';
+import { shCtaBand, shHero } from '../../data/studentHealth';
 import PageHero from '../../components/sections/PageHero/PageHero';
 import WideTiltedHeroMedia from '../../components/sections/WideTiltedHeroMedia/WideTiltedHeroMedia';
-import FaqSection from '../../components/sections/FaqSection/FaqSection';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import PillarsStrip from './sections/PillarsStrip/PillarsStrip';
 import GapSection from './sections/GapSection/GapSection';
@@ -14,6 +13,7 @@ import ProgramsSection from './sections/ProgramsSection/ProgramsSection';
 import ClaimsSection from './sections/ClaimsSection/ClaimsSection';
 import CaliforniaSection from './sections/CaliforniaSection/CaliforniaSection';
 import PrivacySection from './sections/PrivacySection/PrivacySection';
+import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import styles from './StudentHealth.module.css';
 
 /** Student Health — a child page of More Specialties (the "Student Care Management" frame). */
@@ -36,7 +36,7 @@ function StudentHealth() {
       <ClaimsSection />
       <CaliforniaSection />
       <PrivacySection />
-      <FaqSection {...shFaq} />
+      <FaqCardsSection />
       <CtaBanner
         {...shCtaBand}
         className={styles.ctaBand}

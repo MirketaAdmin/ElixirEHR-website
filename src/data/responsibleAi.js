@@ -1,7 +1,7 @@
 // Responsible AI page (Figma "Responsible AI", 1280 frame), an independent page (/responsible-ai)
 // with no parent. Copy is reproduced verbatim from the frame; forced mid-sentence line breaks are
 // dropped. The hero image is the frame's grey placeholder (the same export as the KratuAI hero).
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/responsible-ai/hero-media.png';
 import dataTrainingIcon from '../assets/responsible-ai/icon-data-training.png';
 import dataSystemsIcon from '../assets/responsible-ai/icon-data-systems.png';
 import dataVerificationIcon from '../assets/responsible-ai/icon-data-verification.png';
@@ -20,7 +20,10 @@ export const raHero = {
   // No destinations in the frame; both scroll to sections on this page.
   primaryCta: { label: 'Read the principles', href: '#clinical-principles', arrow: false },
   secondaryCta: { label: 'Questions to ask any vendor', href: '#vendor-questions' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Clinician reviewing a tablet beside AI workflow panels that end in an approval check',
+  },
 };
 
 // The two-sided diagram: what KratuAI prepares (dark), the human gate, what your team decides.
@@ -182,6 +185,7 @@ export const raAudit = {
 // Rendered with the site's shared FAQ accordion. Ordered so the shared two-column split (first half
 // left) matches the frame's columns.
 export const raFaq = {
+  chip: 'Answers',
   title: 'Frequently asked questions about responsible AI at Elixir',
   description: 'The questions clinical, compliance and IT leaders ask most often.',
   items: [

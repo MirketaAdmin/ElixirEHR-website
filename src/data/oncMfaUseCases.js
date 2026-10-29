@@ -1,6 +1,6 @@
 // ONC MFA Use Cases page (/onc-certification/onc-mfa-use-cases) — a child page of ONC Certification.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/onc-mfa-use-cases/hero-media.png';
 import case1Icon from '../assets/onc-mfa/icon-case-1.png';
 import case2Icon from '../assets/onc-mfa/icon-case-2.png';
 import case3Icon from '../assets/onc-mfa/icon-case-3.png';
@@ -25,7 +25,10 @@ export const mfaHero = {
   titleAccent: [],
   description:
     'The Elixir EHR application suite supports the following factors of authentication. Since Elixir is built on the Salesforce platform, it leverages the MFA capability covering the following use cases:',
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Clinician approving a multi-factor sign-in on her phone at a desktop showing a verified shield',
+  },
 };
 
 export const mfaUseCases = [

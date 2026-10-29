@@ -60,8 +60,8 @@
 }
 
 .card5 {
-  border-color: var(--color-tertiary);
-  background: var(--color-tertiary);
+  border-color: var(--color-primary);
+  background: var(--color-primary);
 }
 
 .cardBody {
@@ -128,10 +128,12 @@
   color: rgb(255 255 255 / 0.8);
 }
 
-.card5 .label,
-.card5 .cardTitle,
+.card5 .cardTitle {
+  color: var(--color-white);
+}
+
 .card5 .description {
-  color: var(--color-heading);
+  color: rgb(255 255 255 / 0.8);
 }
 
 /* Reason #1 checklist */
@@ -210,8 +212,9 @@
   flex-direction: column;
   margin-top: auto;
   padding: 23px 24px 26px;
+  border: 1px solid rgb(255 255 255 / 0.15);
   border-radius: var(--radius-xs);
-  background: #a4870b;
+  background: rgb(255 255 255 / 0.1);
 }
 
 .riskLabel {

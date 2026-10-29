@@ -1,0 +1,91 @@
+.section {
+  padding: 82px 0 80px;
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #c9a50a;
+}
+
+.title {
+  max-width: 720px;
+  margin-top: 6px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.02em;
+  color: var(--color-heading);
+}
+
+.description {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+/* Two columns of Rose White cards with a 4px lime top edge; rows start level. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 32px;
+  margin-top: 64px;
+}
+
+.card {
+  padding: 32px 32px 36px;
+  border-top: 4px solid var(--color-secondary);
+  background: var(--color-surface);
+}
+
+.question,
+.answer {
+  max-width: 440px;
+}
+
+.question {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-heading);
+}
+
+.answer {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .question,
+  .answer {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+}

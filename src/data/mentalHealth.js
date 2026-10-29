@@ -1,7 +1,7 @@
 // Mental Health page (/behavioral-health/mental-health) — an independent page with no parent route.
 // Copy is verbatim from the Figma. Links only point at routes that exist; items whose destination
 // is not built yet carry `to: null` and render as text.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/mental-health/hero-media.png';
 import measuresIcon from '../assets/mental-health/icon-strip-measures.png';
 import registryIcon from '../assets/mental-health/icon-strip-registry.png';
 import fieldIcon from '../assets/mental-health/icon-strip-field.png';
@@ -35,7 +35,10 @@ export const mhHero = {
   primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
   // The frame gives no destination; it scrolls to the measurement-based care section.
   secondaryCta: { label: 'See measurement-based care', href: '#measurement' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Clinician reviewing outcome measures on a tablet with a client in a therapy room',
+  },
 };
 
 export const mhHighlights = [
@@ -467,6 +470,7 @@ export const mhKratu = {
 // Shared FaqSection: the first half of `items` fills the left column, so the order keeps each
 // question in its frame column.
 export const mhFaq = {
+  eyebrow: 'Questions',
   title: 'Mental Health EHR: Frequently Asked Questions',
   description: 'What clinical and operations leaders in outpatient and community mental health ask us first.',
   items: [

@@ -1,7 +1,6 @@
-import { ccCtaBand, ccFaq, ccHero } from '../../data/careCoordination';
+import { ccCtaBand, ccHero } from '../../data/careCoordination';
 import PageHero from '../../components/sections/PageHero/PageHero';
 import WideTiltedHeroMedia from '../../components/sections/WideTiltedHeroMedia/WideTiltedHeroMedia';
-import FaqSection from '../../components/sections/FaqSection/FaqSection';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import PillarsStrip from './sections/PillarsStrip/PillarsStrip';
 import LoopSection from './sections/LoopSection/LoopSection';
@@ -12,6 +11,7 @@ import ConsentSection from './sections/ConsentSection/ConsentSection';
 import PartnersSection from './sections/PartnersSection/PartnersSection';
 import BlockingSection from './sections/BlockingSection/BlockingSection';
 import StandardsSection from './sections/StandardsSection/StandardsSection';
+import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import styles from './CareCoordination.module.css';
 
 /** Care Coordination — an independent page (no parent). */
@@ -32,7 +32,7 @@ function CareCoordination() {
       <PartnersSection />
       <BlockingSection />
       <StandardsSection />
-      <FaqSection {...ccFaq} />
+      <FaqCardsSection />
       <CtaBanner
         {...ccCtaBand}
         className={styles.ctaBand}

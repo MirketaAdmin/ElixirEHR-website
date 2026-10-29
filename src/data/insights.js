@@ -88,7 +88,7 @@ export const allResources = {
   pdfLabel: 'PDF Available',
   loadMoreLabel: 'Load More Resources',
   feedTypes: {
-    blog: { tag: 'Article', action: 'Read More', icon: 'arrowRight' },
+    blog: { tag: 'Blog', action: 'Read More', icon: 'arrowRight' },
     webinars: { tag: 'Webinar', action: 'Watch Webinar', icon: 'play' },
     'release-note': { tag: 'Release', action: 'Read Whitepaper', icon: 'download' },
     'e-book': { tag: 'E-Book', action: 'Read More', icon: 'arrowRight' },

@@ -22,7 +22,7 @@ const statusMessages = {
 };
 
 /**
- * The approved Contact Us form, used site-wide (Contact Us, About Us, What Is Elixir, Referral
+ * The approved Contact Us form, used site-wide (Contact Us, About Us, Why Elixir, Referral
  * Program, Contact Center, EVV for Field Service, ONC MFA, Elixir Certified Module). It is a
  * Salesforce Web-to-Lead form: each field posts under its Salesforce name (data/webToLead.js) with
  * the supplied hidden inputs and reCAPTCHA, and the browser goes to Salesforce, which redirects to

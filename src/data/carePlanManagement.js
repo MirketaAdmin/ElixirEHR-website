@@ -1,6 +1,6 @@
 // Care Plan Management page (/care-management/care-plan-management) — a child page of Care Management.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/care-plan-management/hero-media.png';
 
 export const cpHero = {
   currentPage: 'Care Plan Management',
@@ -11,8 +11,11 @@ export const cpHero = {
   // No test-drive route exists; the site's demo destination is used (see DESIGN-SYSTEM.md).
   primaryCta: { label: 'Take a test drive', to: '/request-demo', arrow: false },
   // No platform route exists; What Is Elixir is the existing platform overview.
-  secondaryCta: { label: 'Explore the platform', to: '/what-is-elixir' },
-  media: { src: heroPlaceholder, alt: '' },
+  secondaryCta: { label: 'Explore the platform', to: '/why-elixir' },
+  media: {
+    src: heroMedia,
+    alt: 'Care team reviewing a shared care plan on a large screen in a clinic workroom',
+  },
 };
 
 export const cpPillars = [

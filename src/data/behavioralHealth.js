@@ -1,6 +1,6 @@
 // Behavioral Health page (/behavioral-health) — an independent page with no parent.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/behavioral-health/hero-media.png';
 import connectedIcon from '../assets/behavioral-health/icon-pillar-connected.png';
 import measurableIcon from '../assets/behavioral-health/icon-pillar-measurable.png';
 import compliantIcon from '../assets/behavioral-health/icon-pillar-compliant.png';
@@ -30,7 +30,10 @@ export const bhHero = {
   primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
   // The frame gives no destination; it scrolls to the two service lines.
   secondaryCta: { label: 'Mental health or substance use', href: '#two-paths' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Clinicians reviewing a shared patient record on a tablet with a patient in a care team meeting',
+  },
 };
 
 export const bhPillars = [
@@ -288,6 +291,7 @@ export const bhKratu = {
 // Shared FaqSection: the first half of `items` fills the left column, so the order keeps each
 // question in its frame column. The frame has no FAQ description.
 export const bhFaq = {
+  eyebrow: 'FAQ',
   title: 'Behavioral Health EHR: Frequently Asked Questions',
   items: [
     {

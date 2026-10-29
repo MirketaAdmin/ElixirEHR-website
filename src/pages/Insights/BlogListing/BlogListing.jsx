@@ -33,7 +33,7 @@ function BlogListing() {
       page={page}
       noun="blog post"
       filter={filter}
-      tags={{ featured: 'Article', card: 'Article' }}
+      tags={{ featured: 'Blog', card: 'Blog' }}
       labels={{ featured: 'Read More', card: 'Read More' }}
       meta={meta}
     />

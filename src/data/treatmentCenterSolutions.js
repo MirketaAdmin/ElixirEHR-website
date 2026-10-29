@@ -35,8 +35,7 @@ import automatedPaymentsIcon from '../assets/treatment-center-solutions/icon-aut
 import paymentRemindersIcon from '../assets/treatment-center-solutions/icon-payment-reminders.png';
 
 export const tcHero = {
-  // The frame's breadcrumb reads "Patient Portal"; reproduced as designed (see DESIGN-SYSTEM.md open questions).
-  currentPage: 'Patient Portal',
+  currentPage: 'Treatment Center Solutions',
   titleLines: ['Connected Technology.', 'Better Behavioral Health.'],
   titleAccent: 'Behavioral Health.',
   description:
@@ -44,7 +43,7 @@ export const tcHero = {
   primaryCta: { label: 'Request Demo', to: '/request-demo' },
   media: {
     src: heroMedia,
-    alt: 'Bright treatment-center lounge with a client reading by the window',
+    alt: 'Woman relaxing at home on a video visit with her clinician on a tablet',
   },
 };
 

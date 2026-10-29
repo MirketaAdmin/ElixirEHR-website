@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout/MainLayout';
 import Home from './pages/Home/Home';
 import AboutUs from './pages/AboutUs/AboutUs';
-import WhatIsElixir from './pages/WhatIsElixir/WhatIsElixir';
 import WhyElixir from './pages/WhyElixir/WhyElixir';
 import ElectronicHealthRecord from './pages/ElectronicHealthRecord/ElectronicHealthRecord';
 import RevenueCycleManagement from './pages/RevenueCycleManagement/RevenueCycleManagement';
@@ -17,6 +16,7 @@ import ElectronicVisitVerification from './pages/ElectronicVisitVerification/Ele
 import CaregiverMobileApp from './pages/CaregiverMobileApp/CaregiverMobileApp';
 import EvvFieldService from './pages/EvvFieldService/EvvFieldService';
 import SuccessStories from './pages/SuccessStories/SuccessStories';
+import CaseStudies from './pages/CaseStudies/CaseStudies';
 import ReferralProgram from './pages/ReferralProgram/ReferralProgram';
 import Career from './pages/Career/Career';
 import PatientPortal from './pages/PatientPortal/PatientPortal';
@@ -41,7 +41,9 @@ import AestheticPractices from './pages/AestheticPractices/AestheticPractices';
 import StudentHealth from './pages/StudentHealth/StudentHealth';
 import SocialDeterminants from './pages/SocialDeterminants/SocialDeterminants';
 import CareManagement from './pages/CareManagement/CareManagement';
+import ValueBasedCare from './pages/ValueBasedCare/ValueBasedCare';
 import CarePlanManagement from './pages/CarePlanManagement/CarePlanManagement';
+import PatientEhiExport from './pages/PatientEhiExport/PatientEhiExport';
 import OncMfaUseCases from './pages/OncMfaUseCases/OncMfaUseCases';
 import ElixirCertifiedModule from './pages/ElixirCertifiedModule/ElixirCertifiedModule';
 import OpenPositionDetail from './pages/Career/open-positions/OpenPositionDetail';
@@ -66,7 +68,6 @@ function App() {
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="about-us" element={<AboutUs />} />
-          <Route path="what-is-elixir" element={<WhatIsElixir />} />
           <Route path="why-elixir" element={<WhyElixir />} />
           <Route path="electronic-health-record" element={<ElectronicHealthRecord />} />
           <Route path="revenue-cycle-management" element={<RevenueCycleManagement />} />
@@ -84,6 +85,7 @@ function App() {
           <Route path="caregiver-mobile-app" element={<CaregiverMobileApp />} />
           <Route path="evv-for-salesforce-field-service" element={<EvvFieldService />} />
           <Route path="success-stories" element={<SuccessStories />} />
+          <Route path="case-studies" element={<CaseStudies />} />
           <Route path="referral-program" element={<ReferralProgram />} />
           <Route path="career" element={<Career />} />
           <Route path="patient-portal" element={<PatientPortal />} />
@@ -105,12 +107,14 @@ function App() {
           <Route path="more-specialties/student-health" element={<StudentHealth />} />
           {/* Care Management: an independent top-level page; Care Plan Management lives under its path. */}
           <Route path="care-management" element={<CareManagement />} />
+          <Route path="value-based-care" element={<ValueBasedCare />} />
           <Route path="care-management/care-plan-management" element={<CarePlanManagement />} />
           {/* Listed under Care Management in the header, but on its own top-level route. */}
           <Route path="social-determinants-of-health" element={<SocialDeterminants />} />
           {/* ONC Certification has no page of its own; its children live under its path. */}
           <Route path="onc-certification/onc-mfa-use-cases" element={<OncMfaUseCases />} />
           <Route path="onc-certification/elixir-certified-module" element={<ElixirCertifiedModule />} />
+          <Route path="onc-certification/patient-ehi-export" element={<PatientEhiExport />} />
           <Route path="kratu-ai" element={<KratuAi />} />
           <Route path="kratu-ai/visit-prep" element={<VisitPrep />} />
           <Route path="kratu-ai/elixir-co-pilot-clinical-assistant" element={<CoPilot />} />

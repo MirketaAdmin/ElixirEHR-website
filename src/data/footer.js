@@ -34,8 +34,7 @@ export const footerColumns = [
 ];
 
 export const socialLinks = [
-  // No YouTube URL has been supplied yet: without an href the icon renders unlinked (see Footer).
-  { label: 'YouTube', icon: 'youtube' },
+  { label: 'YouTube', icon: 'youtube', href: 'https://www.youtube.com/@mirketainc173' },
   { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/showcase/elixir-emr-ehr-system/' },
 ];
 

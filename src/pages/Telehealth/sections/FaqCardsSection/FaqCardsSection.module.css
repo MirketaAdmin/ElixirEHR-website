@@ -1,0 +1,89 @@
+.section {
+  padding: 80px 0;
+}
+
+.intro {
+  --th-rule-gap: 30px;
+  --th-title-width: 1000px;
+}
+
+/* Two independent columns of white rounded cards, 24px apart. */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  margin-top: 64px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  padding: 32px 32px 32px;
+  border: 1px solid #d9d3da;
+  border-radius: 40px;
+  background: var(--color-white);
+}
+
+.number {
+  font-family: Consolas, 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: var(--color-surface-dark);
+}
+
+.question,
+.answer {
+  max-width: 460px;
+}
+
+.question {
+  margin-top: 12px;
+  font-family: var(--font-title-alt);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  color: var(--color-heading);
+}
+
+.answer {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 26px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .question,
+  .answer {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .card {
+    padding: 24px 20px;
+    border-radius: var(--radius-xl);
+  }
+
+  .question {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}

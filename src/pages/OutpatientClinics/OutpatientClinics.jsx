@@ -1,7 +1,6 @@
-import { opCtaBand, opFaq, opHero } from '../../data/outpatientClinics';
+import { opCtaBand, opHero } from '../../data/outpatientClinics';
 import PageHero from '../../components/sections/PageHero/PageHero';
 import WideTiltedHeroMedia from '../../components/sections/WideTiltedHeroMedia/WideTiltedHeroMedia';
-import FaqSection from '../../components/sections/FaqSection/FaqSection';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import PillarsStrip from './sections/PillarsStrip/PillarsStrip';
 import CoreSection from './sections/CoreSection/CoreSection';
@@ -15,6 +14,7 @@ import RevenueSection from './sections/RevenueSection/RevenueSection';
 import TelehealthSection from './sections/TelehealthSection/TelehealthSection';
 import ReportingSection from './sections/ReportingSection/ReportingSection';
 import InteropSection from './sections/InteropSection/InteropSection';
+import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import styles from './OutpatientClinics.module.css';
 
 /** Outpatient Clinics — a child page of More Specialties. */
@@ -38,7 +38,7 @@ function OutpatientClinics() {
       <TelehealthSection />
       <ReportingSection />
       <InteropSection />
-      <FaqSection {...opFaq} />
+      <FaqCardsSection />
       <CtaBanner
         {...opCtaBand}
         className={styles.ctaBand}

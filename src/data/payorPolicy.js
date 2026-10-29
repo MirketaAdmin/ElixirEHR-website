@@ -2,7 +2,7 @@
 // of KratuAI (/kratu-ai/payor-policy-intelligence). Copy is reproduced verbatim from the frame;
 // forced mid-sentence line breaks are dropped. The hero image is the frame's grey placeholder (the
 // same export as the KratuAI hero).
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/kratu-ai/pp-hero-media.png';
 import confidenceHighIcon from '../assets/kratu-ai/pp-confidence-high.png';
 import confidenceMediumIcon from '../assets/kratu-ai/pp-confidence-medium.png';
 import confidenceLowIcon from '../assets/kratu-ai/pp-confidence-low.png';
@@ -23,7 +23,10 @@ export const ppHero = {
   primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
   // No destination in the frame; scrolls to "Why claims get denied…" (the three stages).
   secondaryCta: { label: 'See how it works', href: '#how-it-works' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Policy documents flowing through Elixir into structured billing rules and an approved check',
+  },
 };
 
 // Each stage card's link scrolls to that stage's section on this page. tone: the card's edge colour.

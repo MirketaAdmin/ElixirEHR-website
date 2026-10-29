@@ -1,4 +1,4 @@
-// "Contact Us" section content, shared by About Us, What Is Elixir and Referral Program.
+// "Contact Us" section content, shared by About Us, Why Elixir and Referral Program.
 
 import mailIcon from '../assets/icons/contact-mail.png';
 import phoneIcon from '../assets/icons/contact-phone.png';
@@ -60,7 +60,7 @@ export const contact = {
       tile: [48, 59],
     },
   ],
-  trustedLabel: 'TRUSTED BY MORE THAN 1,200 CLINICS WORLDWIDE',
+  trustedLabel: 'Trusted by Healthcare Providers Worldwide',
   logos: contactLogoNames.map((name) => previousClientLogos.find((logo) => logo.name === name)),
   form: {
     fields: [

@@ -1,6 +1,6 @@
 // Substance Use Disorder page (/behavioral-health/substance-use-disorder) — an independent page with
 // no parent route. Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/substance-use-disorder/hero-media.png';
 import recordIcon from '../assets/substance-use-disorder/icon-strip-record.png';
 import editionsIcon from '../assets/substance-use-disorder/icon-strip-editions.png';
 import part2Icon from '../assets/substance-use-disorder/icon-strip-part2.png';
@@ -35,7 +35,10 @@ export const sudHero = {
   primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
   // The frame gives no destination; it scrolls to the level-of-care crosswalk.
   secondaryCta: { label: 'See the level-of-care coverage', href: '#continuum' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Care team and patients around a shared recovery dashboard linking intake, treatment and follow-up',
+  },
 };
 
 export const sudHighlights = [
@@ -489,6 +492,7 @@ export const sudKratu = {
 // Shared FaqSection: the first half of `items` fills the left column, so the order keeps each
 // question in its frame column.
 export const sudFaq = {
+  eyebrow: 'Questions',
   title: 'Substance Use Disorder EHR: Frequently Asked Questions',
   description: 'What clinical, compliance and IT leaders in addiction treatment ask us first.',
   items: [

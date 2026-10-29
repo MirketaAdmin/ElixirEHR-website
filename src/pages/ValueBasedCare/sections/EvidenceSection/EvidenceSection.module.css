@@ -1,0 +1,121 @@
+.section {
+  padding: 80px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  border: 1px solid #ebe6e7;
+  border-radius: 32px;
+  background: var(--color-white);
+}
+
+.stat {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 72px;
+  letter-spacing: -0.03em;
+}
+
+.purple {
+  color: var(--color-surface-dark);
+}
+
+.red {
+  color: var(--color-error);
+}
+
+.title {
+  max-width: 430px;
+  margin-top: 18px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--color-heading);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 430px;
+  margin: 16px 0 26px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+/* Source line pinned to the card's foot, above a hairline. */
+.source {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid #ebe6e7;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: #6e6a71;
+}
+
+.note {
+  display: flex;
+  gap: 10px;
+  margin-top: 32px;
+  padding: 24px;
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgb(31 24 35 / 0.06);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-body);
+}
+
+.noteIcon {
+  flex: none;
+  margin-top: 2px;
+  color: #4d7a00;
+}
+
+.link {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .title,
+  .copy {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .card {
+    padding: 24px 20px;
+    border-radius: var(--radius-xl);
+  }
+
+  .stat {
+    font-size: 44px;
+    line-height: 52px;
+  }
+}

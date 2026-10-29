@@ -1,7 +1,7 @@
 // Social Determinants of Health page (/social-determinants-of-health) — an independent top-level page
 // (listed under Care Management in the header, on its own flat route).
 // Copy is verbatim from the Figma; links only point at routes that exist.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/social-determinants/hero-media.png';
 import pillar1Icon from '../assets/social-determinants/icon-pillar-1.png';
 import pillar2Icon from '../assets/social-determinants/icon-pillar-2.png';
 import pillar3Icon from '../assets/social-determinants/icon-pillar-3.png';
@@ -28,7 +28,10 @@ export const sdHero = {
   primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
   // The frame gives no destination; it scrolls to "The Eight SDOH Domains Elixir Captures".
   secondaryCta: { label: 'The eight domains', href: '#domains' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Care coordinator reviewing social needs on a tablet with a patient, with housing, food and transport icons',
+  },
 };
 
 export const sdPillars = [
@@ -337,6 +340,7 @@ export const sdZCodes = {
 // render as static rows. The shared section fills its left column first, so the frame's left column
 // (questions 1, 3, 5) comes first here, then its right column (2, 4, 6).
 export const sdFaq = {
+  eyebrow: 'Questions',
   title: 'Social Determinants of Health Software: Frequently Asked Questions',
   description: 'What clinical, compliance and operations leaders ask us first.',
   items: [

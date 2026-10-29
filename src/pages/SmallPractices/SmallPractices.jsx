@@ -1,7 +1,6 @@
-import { spCtaBand, spFaq, spHero } from '../../data/smallPractices';
+import { spCtaBand, spHero } from '../../data/smallPractices';
 import PageHero from '../../components/sections/PageHero/PageHero';
 import WideTiltedHeroMedia from '../../components/sections/WideTiltedHeroMedia/WideTiltedHeroMedia';
-import FaqSection from '../../components/sections/FaqSection/FaqSection';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import PillarsStrip from './sections/PillarsStrip/PillarsStrip';
 import NeedsSection from './sections/NeedsSection/NeedsSection';
@@ -15,6 +14,7 @@ import MipsSection from './sections/MipsSection/MipsSection';
 import ObligationsSection from './sections/ObligationsSection/ObligationsSection';
 import SecuritySection from './sections/SecuritySection/SecuritySection';
 import GrowthSection from './sections/GrowthSection/GrowthSection';
+import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import styles from './SmallPractices.module.css';
 
 /** Small Practices — a child page of More Specialties. */
@@ -38,7 +38,7 @@ function SmallPractices() {
       <ObligationsSection />
       <SecuritySection />
       <GrowthSection />
-      <FaqSection {...spFaq} />
+      <FaqCardsSection />
       <CtaBanner
         {...spCtaBand}
         className={styles.ctaBand}

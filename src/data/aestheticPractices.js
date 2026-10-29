@@ -1,6 +1,6 @@
 // Aesthetic Practices page (/more-specialties/aesthetic-practices) — a child page of More Specialties.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/aesthetic-practices/hero-media.png';
 import pillar1Icon from '../assets/aesthetic-practices/icon-pillar-1.png';
 import pillar2Icon from '../assets/aesthetic-practices/icon-pillar-2.png';
 import pillar3Icon from '../assets/aesthetic-practices/icon-pillar-3.png';
@@ -52,7 +52,10 @@ export const aeHero = {
   primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
   // The frame gives no destination; it scrolls to "Before-and-After Photos Are Marketing Assets…".
   secondaryCta: { label: 'The before-and-after problem', href: '#before-and-after' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Aesthetic clinician reviewing a treatment plan on a tablet with a client in a med spa',
+  },
 };
 
 export const aePillars = [
@@ -424,6 +427,7 @@ export const aePortal = {
 // The frame lays the questions out in two columns read row by row; the shared accordion fills the
 // left column first, so the items are ordered to put each question in the column it is drawn in.
 export const aeFaq = {
+  eyebrow: 'Questions',
   title: 'Aesthetic Practice Software: Frequently Asked Questions',
   description: 'What practice owners, medical directors and marketing leads ask us first.',
   items: [
