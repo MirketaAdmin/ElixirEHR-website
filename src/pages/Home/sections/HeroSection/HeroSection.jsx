@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { hero, kratuHeroSlide } from '../../../../data/home';
+import { hero, heroSlides } from '../../../../data/home';
 import { cn } from '../../../../utils/cn';
 import { useAutoRotate } from '../../../../hooks/useAutoRotate';
 import { useSwipe } from '../../../../hooks/useSwipe';
@@ -8,7 +8,6 @@ import Button from '../../../../components/ui/Button/Button';
 import Icon from '../../../../components/ui/Icon/Icon';
 import laptopImage from '../../../../assets/home/hero/elixir-ehr-dashboard-laptop.png';
 import sparkleIcon from '../../../../assets/icons/sparkle-dark.png';
-import sparkleLimeIcon from '../../../../assets/icons/sparkle-lime.png';
 import styles from './HeroSection.module.css';
 
 // Seconds each slide stays before the next one fades in.
@@ -68,54 +67,71 @@ function EhrSlide() {
   );
 }
 
-/** Slide 2: the Figma "Meet Kratu AI" banner. */
-function KratuSlide() {
-  const slide = kratuHeroSlide;
+// The frame's band height and right content edge (1280 frame, 64px gutters): each object's `box`
+// is measured against them.
+const FRAME_CENTER = 359;
+const CONTENT_RIGHT = 1216;
+
+/**
+ * Slides 2-5 (supplied Figma banners): copy on the left — lime primary button first — and the
+ * slide's object on the right at the frame's size and height, running past the container's right
+ * edge as drawn.
+ */
+function ObjectSlide({ slide }) {
+  const { titleLines, description, primaryCta, secondaryCta, media, box } = slide;
+  const mediaStyle = {
+    '--media-width': `${box.width}px`,
+    '--media-overhang': `${box.right - CONTENT_RIGHT}px`,
+    '--media-shift': `${box.top + Math.round((box.width * media.height) / media.width / 2) - FRAME_CENTER}px`,
+  };
+
   return (
-    <div className={cn(styles.inner, styles.kratu)}>
+    <div className={cn(styles.inner, styles.objectSlide)} style={mediaStyle}>
       <div className={styles.content}>
-        <p className={styles.badge}>
-          <img src={sparkleLimeIcon} alt="" width="17" height="17" />
-          {slide.badge}
-        </p>
-        <h2 className={cn('text-display-lg', styles.title, styles.kratuTitle)}>
-          {slide.titleLines.map((line) => (
+        <h2 className={cn('text-display-lg', styles.title)}>
+          {titleLines.map((line) => (
             <span key={line.map((part) => part.text).join('')} className={styles.line}>
-              {line.map((part) => (part.accent ? <span key={part.text} className={styles.accent}>{part.text}</span> : part.text))}
+              {line.map((part) =>
+                part.accent ? (
+                  <span key={part.text} className={styles.accent}>
+                    {part.text}
+                  </span>
+                ) : (
+                  part.text
+                ),
+              )}
             </span>
           ))}
         </h2>
-        <p className={cn(styles.description, styles.kratuDescription)}>{slide.description}</p>
-        <div className={cn(styles.actions, styles.kratuActions)}>
-          <Button to={slide.secondaryCta.to} variant="ghost" size="xl" className={styles.tour}>
-            <Icon name="playCircle" />
-            {slide.secondaryCta.label}
+        <p className={cn(styles.description, styles.objectDescription)}>{description}</p>
+        <div className={cn(styles.actions, styles.objectActions)}>
+          <Button to={primaryCta.to} size="xl">
+            {primaryCta.label}
           </Button>
-          <Button to={slide.primaryCta.to} size="xl">
-            {slide.primaryCta.label}
+          <Button to={secondaryCta.to} variant="ghost" size="xl" className={styles.objectSecondary}>
+            {secondaryCta.label}
           </Button>
         </div>
       </div>
-      <img
-        src={slide.media.src}
-        alt={slide.media.alt}
-        width={slide.media.width}
-        height={slide.media.height}
-        className={styles.kratuMedia}
-      />
+      <img src={media.src} alt={media.alt} width={media.width} height={media.height} className={styles.object} />
     </div>
   );
 }
 
 const SLIDES = [
   { id: 'ehr', label: 'AI-powered EHR', Component: EhrSlide },
-  { id: 'kratu', label: 'Meet Kratu AI', Component: KratuSlide },
+  ...heroSlides.map((slide) => ({
+    id: slide.id,
+    label: slide.label,
+    Component: () => <ObjectSlide slide={slide} />,
+  })),
 ];
 
 /**
- * Home hero as a two-slide carousel: the slides share one band and cross-fade (600ms) every 4
- * seconds. Rotation pauses while the pointer or keyboard focus is inside, when the visitor presses
- * pause, and for reduced motion; manual choices restart the countdown. Touch screens can swipe.
+ * Home hero as a carousel (the original EHR slide, then the four banner slides): the slides share
+ * one band and cross-fade (600ms) every 4 seconds. Rotation pauses while the pointer or keyboard
+ * focus is inside, when the visitor presses pause, and for reduced motion; manual choices restart
+ * the countdown. Touch screens can swipe.
  * The slides are stacked in one grid cell, so the band keeps the tallest slide's height and never
  * jumps between slides.
  */

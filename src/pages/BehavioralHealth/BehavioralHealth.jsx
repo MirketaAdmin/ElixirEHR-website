@@ -12,6 +12,7 @@ import MeasurableSection from './sections/MeasurableSection/MeasurableSection';
 import ComplianceSection from './sections/ComplianceSection/ComplianceSection';
 import KratuSection from './sections/KratuSection/KratuSection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './BehavioralHealth.module.css';
 
 /** Behavioral Health — an independent page (no parent). */
@@ -21,8 +22,7 @@ function BehavioralHealth() {
 
   return (
     <>
-      <title>Behavioral Health EHR Software | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/behavioral-health-ehr" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <PillarsStrip />
       <CaseSection />

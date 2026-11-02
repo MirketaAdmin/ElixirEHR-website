@@ -75,7 +75,7 @@ export default {
       type: 'paragraph',
       text: [
         'Do fill out this ',
-        { text: 'contact form', to: '/contact-us' },
+        { text: 'contact form', to: '/contact-us/' },
         ' if you feel that Elixir will be an asset to streamline your patient billing process.',
       ],
     },

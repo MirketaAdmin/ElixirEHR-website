@@ -15,6 +15,7 @@ import TelehealthSection from './sections/TelehealthSection/TelehealthSection';
 import ReportingSection from './sections/ReportingSection/ReportingSection';
 import InteropSection from './sections/InteropSection/InteropSection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './OutpatientClinics.module.css';
 
 /** Outpatient Clinics — a child page of More Specialties. */
@@ -23,8 +24,7 @@ function OutpatientClinics() {
 
   return (
     <>
-      <title>Outpatient Clinic EHR Software | More Specialties | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/ambulatory-ehr" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <PillarsStrip />
       <CoreSection />

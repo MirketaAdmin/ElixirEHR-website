@@ -1,4 +1,4 @@
-// Care Plan Management page (/care-management/care-plan-management) — a child page of Care Management.
+// Care Plan Management page (/care-plan-software) — a child page of Care Management.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
 import heroMedia from '../assets/care-plan-management/hero-media.png';
 
@@ -9,9 +9,9 @@ export const cpHero = {
   description:
     'Turn every care plan from a static document into a living roadmap that your whole care team works from and your patients can feel.',
   // No test-drive route exists; the site's demo destination is used (see DESIGN-SYSTEM.md).
-  primaryCta: { label: 'Take a test drive', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Take a test drive', to: '/request-demo/', arrow: false },
   // No platform route exists; What Is Elixir is the existing platform overview.
-  secondaryCta: { label: 'Explore the platform', to: '/why-elixir' },
+  secondaryCta: { label: 'Explore the platform', to: '/why-elixir/' },
   media: {
     src: heroMedia,
     alt: 'Care team reviewing a shared care plan on a large screen in a clinic workroom',
@@ -237,5 +237,5 @@ export const cpSettings = {
 export const cpCtaBand = {
   title: 'Give your care team a care plan they will actually use',
   description: 'See Elixir care plans running on Salesforce, tailored to your programs, in a guided test drive.',
-  cta: { label: 'Take a test drive', to: '/request-demo' },
+  cta: { label: 'Take a test drive', to: '/request-demo/' },
 };

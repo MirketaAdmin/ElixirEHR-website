@@ -30,8 +30,8 @@ const sources = {
 // The two EVV topic pages the frame links to are not built; routes/aliases.js redirects these
 // planned URLs to the existing EVV and Caregiver Mobile App pages.
 const topicPages = {
-  homeCare: { label: 'Home care and EVV', to: '/home-care-and-evv' },
-  fieldCaregiver: { label: 'Field caregiver experience', to: '/field-caregiver-experience' },
+  homeCare: { label: 'Home care and EVV', to: '/evv-software/' },
+  fieldCaregiver: { label: 'Field caregiver experience', to: '/caregiver-mobile-app/' },
 };
 
 export const evvHero = {
@@ -43,7 +43,7 @@ export const evvHero = {
     'EVV is federally required, but it is administered state by state — and the model your state chose determines whether you get to pick a vendor at all. This is what the rule actually requires, where a verified visit still fails to bill, and how Elixir keeps verification attached to the authorization and the claim.',
   // No destination in the frame for the demo CTA: /request-demo, as on the other pages. The second
   // CTA scrolls to this page's "Explore EVV in Elixir" section.
-  primaryCta: { label: 'Request a Demo', to: '/request-demo' },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/' },
   secondaryCta: { label: 'Explore EVV in Elixir', href: '#explore-evv' },
   media: {
     src: heroMedia,
@@ -364,7 +364,7 @@ export const evvCtaBand = {
   title: 'Bring your states, programmes and aggregators to the conversation',
   description:
     "We will walk the visit from the caregiver's phone through verification, exception review and billing readiness — against the states and programmes you actually operate in.",
-  cta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Contact Sales', to: '/contact-us' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Contact Sales', to: '/contact-us/' },
   links: [topicPages.homeCare, topicPages.fieldCaregiver],
 };

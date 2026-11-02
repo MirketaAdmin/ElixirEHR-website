@@ -76,7 +76,7 @@ export default {
       type: 'paragraph',
       text: [
         'Do fill out this ',
-        { text: 'Demo Request form', to: '/request-demo' },
+        { text: 'Demo Request form', to: '/request-demo/' },
         ' if you feel that Elixir will be an asset to streamline your care giving process.',
       ],
     },

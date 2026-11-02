@@ -44,7 +44,7 @@ export const patientPortalHero = {
     "Most portals are not short of features. They are short of people logging in. Elixir's patient portal is built around the handful of things patients genuinely come back for, their next appointment, their results, a message to someone who knows them and it is connected to the same record your clinicians work in.",
   // No destination in the frame for the demo CTA: /request-demo, as on the other pages. The second
   // CTA scrolls to this page's "What patients can do" section.
-  primaryCta: { label: 'Request a Demo', to: '/request-demo' },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/' },
   secondaryCta: { label: 'See what patients can do', href: '#what-patients-can-do' },
   media: { src: heroMedia, alt: 'Smiling woman on her sofa using the Elixir patient portal on her phone' },
   // The frame's badge over the hero image; the figure is reproduced as drawn.
@@ -228,7 +228,7 @@ export const patientPortalLimits = {
   ],
   // \n reproduces the frame's hard line break.
   note: 'The portal serves the patients who will use it.\nSomething else serves the ones who will not.',
-  link: { label: 'Explore Visit Prep', to: '/kratu-ai/visit-prep' },
+  link: { label: 'Explore Visit Prep', to: '/ai-pre-visit-preparation/' },
 };
 
 export const patientPortalConnected = {
@@ -240,13 +240,13 @@ export const patientPortalConnected = {
       title: 'Electronic Health Record',
       text: 'What a patient sees is the same record the clinician documents in.',
       icon: connectEhrIcon,
-      to: '/electronic-health-record',
+      to: '/ehr-software/',
     },
     {
       title: 'Revenue Cycle Management',
       text: 'Statements and payments tie to the claim, not\na separate ledger.',
       icon: connectRcmIcon,
-      to: '/revenue-cycle-management',
+      to: '/rcm-software/',
     },
     {
       title: 'Contact Center',
@@ -346,5 +346,5 @@ export const patientPortalCtaBand = {
   description:
     'Walk through registration, a first appointment, a message, a result and a bill — on your own appointment types and consent rules.',
   // No destination in the frame: /request-demo, as on the other pages.
-  cta: { label: 'Request a Demo', to: '/request-demo' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
 };

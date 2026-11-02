@@ -21,7 +21,7 @@ export const aiCapabilities = {
         'Real-time clinical assistance that suggests documentation updates and flags potential drug-to-drug interactions during the encounter.',
       icon: kratuClinicalAssistantIcon,
       iconSize: [24, 25],
-      to: '/ai-engine/clinical-assistant',
+      to: '/ai-clinical-documentation/',
     },
     {
       title: 'Clinical Notes Summarization',
@@ -29,7 +29,7 @@ export const aiCapabilities = {
         'Instantly transform long patient history and encounter recordings into structured, concise clinical notes following SOAP formats.',
       icon: clinicalNotesSummarizationIcon,
       iconSize: [20, 25],
-      to: '/ai-engine/clinical-notes-summarization',
+      to: '/ai-engine/clinical-notes-summarization/',
     },
     {
       title: 'Insurance Eligibility Summarization',
@@ -37,7 +37,7 @@ export const aiCapabilities = {
         'Automatically parse complex insurance documents to provide clinicians with clear eligibility statuses and coverage limits.',
       icon: insuranceEligibilityIcon,
       iconSize: [20, 25],
-      to: '/ai-engine/insurance-eligibility',
+      to: '/insurance-eligibility-verification/',
     },
     {
       title: 'Lab Result Analysis & Q&A',
@@ -45,7 +45,7 @@ export const aiCapabilities = {
         'Interact with lab data using natural language queries to identify trends or specific abnormal findings across patient history.',
       icon: labResultAnalysisIcon,
       iconSize: [28, 27],
-      to: '/ai-engine/lab-result-analysis',
+      to: '/ai-engine/lab-result-analysis/',
     },
     {
       title: 'Claim Rejection Prediction',
@@ -53,7 +53,7 @@ export const aiCapabilities = {
         'Our neural models flag claims at high risk of denial before they are submitted, reducing revenue cycle overhead.',
       icon: claimRejectionPredictionIcon,
       iconSize: [23, 23],
-      to: '/ai-engine/claim-rejection-prediction',
+      to: '/denial-management-software/',
     },
     {
       title: 'AI Agent for Patient Portal',
@@ -61,7 +61,7 @@ export const aiCapabilities = {
         'Empower patients with an intelligent virtual assistant that answers basic queries and simplifies appointment booking.',
       icon: patientPortalAgentIcon,
       iconSize: [28, 24],
-      to: '/ai-engine/patient-portal-agent',
+      to: '/patient-portal-software/',
     },
   ],
 };

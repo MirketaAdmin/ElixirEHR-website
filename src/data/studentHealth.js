@@ -1,4 +1,4 @@
-// Student Health page (/more-specialties/student-health) — a child page of More Specialties.
+// Student Health page (/student-health-records-software) — a child page of More Specialties.
 // Copy is verbatim from the Figma (the "Student Care Management" frame). Links only point at routes that exist.
 import heroMedia from '../assets/student-health/hero-media.png';
 import pillar1Icon from '../assets/student-health/icon-pillar-1.png';
@@ -42,7 +42,7 @@ export const shHero = {
   titleAccent: [],
   description:
     'A counselor finishes a session with a student. Whether that session is worth nothing or worth a reimbursable claim was decided weeks earlier — by facts nobody had in front of them at the time.',
-  primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/', arrow: false },
   // The frame gives no destination; it scrolls to "The Gap Between Enrolled and Actually Billing".
   secondaryCta: { label: 'Enrolled, but not billing', href: '#enrolled-gap' },
   media: {
@@ -480,6 +480,6 @@ export const shCtaBand = {
   title: 'Bring us a service you cannot currently bill',
   description:
     'Pick one real example — a session that happened and produced nothing. We will walk it from the referral that started it through consent, documentation, program routing and the claim, and show you where it actually stopped.',
-  cta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Mental Health', to: '/behavioral-health/mental-health' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Mental Health', to: '/mental-health-ehr/' },
 };

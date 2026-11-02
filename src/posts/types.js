@@ -1,6 +1,6 @@
 /**
  * Post content types. Each key is a folder in `src/posts/` and `path` is its public URL segment:
- * a post in `src/posts/press-release/my-slug.js` is served at `/press-release/my-slug`.
+ * a post in `src/posts/press-release/my-slug.js` is served at `/press-release/my-slug/`.
  * (`posts` is only the source folder; it never appears in a URL.)
  *
  *   label        singular name — breadcrumb and type crumb in the hero
@@ -14,7 +14,7 @@ export const postTypes = {
     path: 'blog',
     label: 'Blog',
     plural: 'Blogs',
-    listingPath: '/blog',
+    listingPath: '/blog/',
     shareLabel: 'Share this blog',
     schemaType: 'BlogPosting',
   },
@@ -22,7 +22,7 @@ export const postTypes = {
     path: 'press-release',
     label: 'Press Release',
     plural: 'Press Releases',
-    listingPath: '/press-releases',
+    listingPath: '/press-releases/',
     shareLabel: 'Share this release',
     schemaType: 'NewsArticle',
   },
@@ -37,7 +37,7 @@ export const postTypes = {
     path: 'release-note',
     label: 'Release Note',
     plural: 'Release Notes',
-    listingPath: '/insights/release-notes',
+    listingPath: '/release-notes/',
     shareLabel: 'Share this release note',
     schemaType: 'TechArticle',
   },
@@ -45,7 +45,7 @@ export const postTypes = {
     path: 'e-book',
     label: 'E-book',
     plural: 'E-books',
-    listingPath: '/insights/e-book',
+    listingPath: '/guides-ebooks/',
     shareLabel: 'Share this e-book',
     schemaType: 'Article',
   },
@@ -53,7 +53,7 @@ export const postTypes = {
     path: 'benchmark-survey',
     label: 'Benchmark Survey',
     plural: 'Benchmark Surveys',
-    listingPath: '/insights/benchmark-surveys',
+    listingPath: '/benchmark-surveys/',
     shareLabel: 'Share this survey',
     schemaType: 'Article',
   },
@@ -61,7 +61,7 @@ export const postTypes = {
     path: 'illustration',
     label: 'Illustration',
     plural: 'Illustrations',
-    listingPath: '/insights/illustrations',
+    listingPath: '/insights/illustrations/',
     shareLabel: 'Share this illustration',
     schemaType: 'Article',
   },
@@ -69,7 +69,7 @@ export const postTypes = {
     path: 'video',
     label: 'Video',
     plural: 'Videos',
-    listingPath: '/insights/videos',
+    listingPath: '/feature-videos/',
     shareLabel: 'Share this video',
     schemaType: 'Article',
   },
@@ -77,7 +77,7 @@ export const postTypes = {
     path: 'webinars',
     label: 'Webinar',
     plural: 'Webinars',
-    listingPath: '/insights/webinars',
+    listingPath: '/webinars-podcasts/',
     shareLabel: 'Share this webinar',
     // Webinars with an `event` block are described as an Event instead (see PostSeo).
     schemaType: 'Article',

@@ -72,6 +72,6 @@ export const contact = {
       { name: 'message', label: 'Tell Us About Your Needs', placeholder: 'How can Elixir AI help your clinical team?', multiline: true, wide: true },
     ],
     submitLabel: 'Submit Request',
-    consent: { before: 'By submitting, you agree to our ', link: 'Privacy Policy', to: '/privacy-policy', after: '.' },
+    consent: { before: 'By submitting, you agree to our ', link: 'Privacy Policy', to: '/privacy-policy/', after: '.' },
   },
 };

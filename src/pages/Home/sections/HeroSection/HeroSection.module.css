@@ -171,40 +171,35 @@
   touch-action: pan-y;
 }
 
-/* Slide 2 — "Meet Kratu AI" (Figma frame): copy beside the 643 × 566 workspace mock-up. */
-.kratu {
-  grid-template-columns: minmax(0, 1fr) 643px;
+/* Slides 2-5 (supplied banners): copy beside the slide's object, 24px apart. The object keeps the
+   frame's width and vertical position (--media-width, --media-shift) and runs past the container's
+   right edge by --media-overhang, as drawn. */
+/* The object's column stops at the container edge; the object itself is wider by the overhang. */
+.objectSlide {
+  grid-template-columns: minmax(0, 1fr) calc(var(--media-width) - var(--media-overhang));
   column-gap: 24px;
 }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  height: 32px;
-  padding: 0 17px 0 16px;
-  border-radius: var(--radius-pill);
-  background: rgb(255 255 255 / 0.15);
-  font-family: var(--font-display);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  color: var(--color-white);
+/* 568px reproduces the frames' line breaks; narrower copy columns wrap it sooner, as drawn. */
+.objectDescription {
+  max-width: 568px;
+  margin-top: 34px;
 }
 
-.kratuTitle {
-  margin-top: 31px;
-  line-height: 70.5px;
+.objectActions {
+  margin-top: 46px;
 }
 
-.kratuDescription {
-  max-width: 486px;
+.objectSecondary {
+  font-weight: 400;
 }
 
-.kratuMedia {
+.object {
   display: block;
-  width: 100%;
+  width: var(--media-width);
+  max-width: none;
   height: auto;
+  transform: translate3d(0, var(--media-shift), 0);
 }
 
 /* Slide controls (not in the frame; added so visitors can choose or pause a slide). */
@@ -318,12 +313,14 @@
 
 /* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
 @media (max-width: 1199px) {
-  .kratu {
+  .objectSlide {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .kratuMedia {
-    max-width: 643px;
+  .object {
+    width: 100%;
+    max-width: var(--media-width);
+    transform: none;
   }
 
   .inner {
@@ -353,8 +350,9 @@
 }
 
 @media (max-width: 767px) {
-  .kratuTitle {
-    line-height: 40px;
+  .objectDescription,
+  .objectActions {
+    margin-top: 32px;
   }
 
   .inner {

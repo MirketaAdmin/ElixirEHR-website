@@ -9,6 +9,7 @@ import CrmPartnershipSection from './sections/CrmPartnershipSection/CrmPartnersh
 import SolutionsSection from './sections/SolutionsSection/SolutionsSection';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import ContactSection from '../../components/sections/ContactSection/ContactSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './WhyElixir.module.css';
 
 /**
@@ -22,8 +23,7 @@ function WhyElixir() {
 
   return (
     <>
-      <title>Why Elixir | Elixir</title>
-      <meta name="description" content={whyElixirHero.description} />
+      <PageSeo path="/why-elixir" />
       <PageHero {...hero} className={styles.hero} media={<WhyHeroMedia image={image} stat={stat} />} />
       <PillarsSection />
       <ModularSolutionsSection />

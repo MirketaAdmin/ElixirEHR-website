@@ -1,4 +1,4 @@
-// Job openings: the cards on /career and the detail pages at /career/open-positions/:slug.
+// Job openings: the cards on /careers and the detail pages at /career/open-positions/:slug.
 // Copy reproduced exactly from the Figma "Career" and "Open Positions / Job Posting" frames.
 //
 // Card fields: department (pill), title, location.
@@ -59,7 +59,7 @@ export const jobOpenings = [
 ];
 
 /** Public URL of a job posting. */
-export const getJobPath = (job) => `/career/open-positions/${job.slug}`;
+export const getJobPath = (job) => `/career/open-positions/${job.slug}/`;
 
 /** The job with this slug, only if it has a posting (`detail`); otherwise null. */
 export const getJobOpening = (slug) => jobOpenings.find((job) => job.slug === slug && job.detail) ?? null;

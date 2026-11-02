@@ -3,6 +3,7 @@ import {
   footerTagline,
   footerColumns,
   socialLinks,
+  footerBadges,
   copyright,
   legalLinks,
   cookieSettingsLabel,
@@ -25,28 +26,39 @@ function Footer() {
           <div className={styles.brand}>
             <Logo />
             <p className={styles.tagline}>{footerTagline}</p>
-            <ul className={styles.socials}>
-              {socialLinks.map((social) => (
-                <li key={social.label}>
-                  {social.href ? (
-                    <a
-                      href={social.href}
-                      className={styles.social}
-                      aria-label={`${social.label} (opens in a new tab)`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <Icon name={social.icon} size={20} />
-                    </a>
-                  ) : (
-                    // No URL yet: shown as drawn, but not presented as a link.
-                    <span className={styles.social} role="img" aria-label={social.label}>
-                      <Icon name={social.icon} size={20} />
-                    </span>
-                  )}
-                </li>
-              ))}
-            </ul>
+            <div className={styles.connect}>
+              <ul className={styles.socials}>
+                {socialLinks.map((social) => (
+                  <li key={social.label}>
+                    {social.href ? (
+                      <a
+                        href={social.href}
+                        className={styles.social}
+                        aria-label={`${social.label} (opens in a new tab)`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <Icon name={social.icon} size={20} />
+                      </a>
+                    ) : (
+                      // No URL yet: shown as drawn, but not presented as a link.
+                      <span className={styles.social} role="img" aria-label={social.label}>
+                        <Icon name={social.icon} size={20} />
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+              <ul className={styles.badges}>
+                {footerBadges.map((badge) => (
+                  <li key={badge.label}>
+                    <Link to={badge.to} className={styles.badge}>
+                      <img src={badge.src} alt={badge.label} width={badge.width} height={badge.height} />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {footerColumns.map((column) => (

@@ -13,6 +13,7 @@ import TargetsSection from './sections/TargetsSection/TargetsSection';
 import BenchmarkSection from './sections/BenchmarkSection/BenchmarkSection';
 import BriefSection from './sections/BriefSection/BriefSection';
 import { ROI_DEFAULTS } from './roiModel';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './NoShowRoiCalculator.module.css';
 
 function NoShowRoiCalculator() {
@@ -23,8 +24,7 @@ function NoShowRoiCalculator() {
 
   return (
     <>
-      <title>No-Show ROI Calculator | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/no-show-cost-calculator" />
       <PageHero {...hero} className={styles.hero} media={<TiltedHeroMedia {...media} />} />
       <HighlightsStrip />
       <CalculatorSection inputs={inputs} onChange={setInputs} onReset={() => setInputs(ROI_DEFAULTS)} />

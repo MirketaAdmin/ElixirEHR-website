@@ -72,7 +72,7 @@ export default {
       title: 'Limited Time Early Access Offer',
       text: 'To celebrate the launch of ‘Patient No-Show’ AI feature, Elixir is offering early access at a discounted price for healthcare organizations that sign up within the next 90 days.',
       // No destination in the frame; the Contact Us page is the site's enquiry route.
-      action: { label: 'Claim Your Discount', to: '/contact-us' },
+      action: { label: 'Claim Your Discount', to: '/contact-us/' },
     },
   ],
 };

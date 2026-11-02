@@ -19,7 +19,7 @@ function action(post) {
     : { label: 'Download E-Book', to: getPostPath(post), button: true };
 }
 
-/** /insights/e-book — "Clinical E-Books & Guides". */
+/** /guides-ebooks — "Clinical E-Books & Guides". */
 function EbookListing() {
   return <WideListing type="e-book" page={insightsPages.ebook} noun="e-book" meta={meta} action={action} />;
 }

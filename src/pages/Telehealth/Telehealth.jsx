@@ -14,6 +14,7 @@ import LicensureSection from './sections/LicensureSection/LicensureSection';
 import PrivacySection from './sections/PrivacySection/PrivacySection';
 import WhySection from './sections/WhySection/WhySection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './Telehealth.module.css';
 
 /** Telehealth — a child page of More Specialties. */
@@ -22,8 +23,7 @@ function Telehealth() {
 
   return (
     <>
-      <title>Telehealth Software | More Specialties | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/telehealth-ehr" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <PillarsStrip />
       <EngagementSection />

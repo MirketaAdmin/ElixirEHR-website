@@ -40,7 +40,7 @@ export const tcHero = {
   titleAccent: 'Behavioral Health.',
   description:
     "At Elixir, we've developed an integrated platform that manages the entire patient journey, from pre-admissions to alumni follow-up. Designed by clinicians for clinicians, it prioritizes Outcome-Based Treatment.",
-  primaryCta: { label: 'Request Demo', to: '/request-demo' },
+  primaryCta: { label: 'Request Demo', to: '/request-demo/' },
   media: {
     src: heroMedia,
     alt: 'Woman relaxing at home on a video visit with her clinician on a tablet',
@@ -137,5 +137,5 @@ export const financialFeatures = {
 export const tcCtaBand = {
   title: 'Take The next Step',
   description: 'Ready To Change How You Handle Your Patients? Click Here To Be Future Ready With Elixir',
-  cta: { label: 'Contact Us Now', to: '/company/contact' },
+  cta: { label: 'Contact Us Now', to: '/contact-us/#contact' },
 };

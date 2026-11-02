@@ -40,7 +40,10 @@ import { getPostPath, getPosts } from '../posts';
 import { formatCardDate } from '../utils/formatDate';
 import exploreSolutionIcon from '../assets/home/cta/explore-solution-icon.png';
 import personalizedDemoIcon from '../assets/home/cta/personalized-demo-icon.png';
-import kratuWorkspaceImage from '../assets/home/hero/kratu-ai-workspace.png';
+import platformObject from '../assets/home/hero/platform-object.webp';
+import kratuObject from '../assets/home/hero/kratu-object.webp';
+import specialtyObject from '../assets/home/hero/specialty-object.webp';
+import revenueObject from '../assets/home/hero/revenue-object.webp';
 
 
 
@@ -50,35 +53,100 @@ export const hero = {
   titleAccent: 'EHR',
   description:
     'Automate clinical documentation, predict claim denials, and streamline patient care with AI-powered clinical workflows that actually learn from your practice.',
-  secondaryCta: { label: 'Watch Product Tour', to: '/product-tour' },
-  primaryCta: { label: 'Request a Demo', to: '/request-demo' },
+  secondaryCta: { label: 'Watch Product Tour', to: '/product-tour/' },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/' },
   insight: {
     label: 'AI INSIGHT',
     text: 'Documentation accuracy improved by 42%.',
   },
 };
 
-// Second hero slide (Figma "Meet Kratu AI" banner). The hero rotates between `hero` and this slide.
-// `media` is the frame's composed product mock-up (Kratu workspace with its four agent cards).
-export const kratuHeroSlide = {
-  badge: 'Kratu AI - Powered by Elixir',
-  // Each line as broken in the frame; `accent` words are lime.
-  titleLines: [
-    [{ text: 'From Insight' }],
-    [{ text: 'to ' }, { text: 'Action.', accent: true }],
-    [{ text: 'Meet Kratu ' }, { text: 'AI', accent: true }],
-  ],
-  description:
-    "Kratu is Elixir's AI intelligence layer - built into every workflow to capture clinical notes, generate billing logic, score claims, and manage denials automatically.",
-  secondaryCta: { label: 'See Kratu in Action', to: '/kratu-ai' },
-  primaryCta: { label: 'Book a 20-min Demo', to: '/request-demo' },
-  media: {
-    src: kratuWorkspaceImage,
-    alt: 'Kratu AI inside Elixir EHR: a patient visit summary with vital trends, surrounded by cards for Patient Visit Prep, Clinical Notes from Audio, the A/R Resolution Agent and an AI insight reporting 18 denials auto-resolved this week',
-    width: 643,
-    height: 566,
+// The hero slides after `hero`, one per supplied Figma banner, in order. Each line of `titleLines`
+// is as broken in the frame; `accent` parts are lime. `media` is the supplied object, trimmed to its
+// content; `box` is where the frame places it ({ width, top } in the 1280 frame; it runs to the
+// frame's right edge, past the container, as drawn). The primary (lime) button comes first.
+export const heroSlides = [
+  {
+    id: 'platform',
+    label: 'Clinical and Revenue Cycle on One Salesforce Platform',
+    titleLines: [
+      [{ text: 'Clinical and' }],
+      [{ text: 'Revenue Cycle', accent: true }, { text: ' on' }],
+      [{ text: 'One Salesforce' }],
+      [{ text: 'Platform' }],
+    ],
+    description:
+      'The chart, the claim, the care plan and the outreach are the same data. A new program is a configuration change rather than a release, and nothing has to be reconciled between systems at month end.',
+    primaryCta: { label: 'See the Platform', to: '/why-elixir/' },
+    secondaryCta: { label: 'Request a Demo', to: '/request-demo/' },
+    media: {
+      src: platformObject,
+      alt: 'Elixir on Salesforce: a patient record linked to clinical data, revenue cycle, patient engagement, program configuration and unified data, with the patient portal on a phone',
+      width: 1154,
+      height: 895,
+    },
+    box: { width: 583, top: 141, right: 1256 },
   },
-};
+  {
+    // Supersedes the earlier "Meet Kratu AI" slide (same headline and buttons, new copy and object).
+    id: 'kratu',
+    label: 'Meet Kratu AI',
+    titleLines: [
+      [{ text: 'From Insight' }],
+      [{ text: 'to Action.' }],
+      [{ text: 'Meet ' }, { text: 'Kratu AI', accent: true }],
+    ],
+    description:
+      "Kratu is Elixir's AI layer across clinical and revenue - preparing the visit, capturing the note from the conversation, generating the billing logic, scoring the claim before it goes out, and working denials after it lands.",
+    primaryCta: { label: 'See Kratu in Action', to: '/healthcare-ai-platform/' },
+    secondaryCta: { label: 'Book a 20-min Demo', to: '/request-demo/' },
+    media: {
+      src: kratuObject,
+      alt: 'Kratu AI inside Elixir EHR: a patient visit summary with vital trends, surrounded by cards for Patient Visit Prep, Clinical Notes from Audio, Payor Policy Intelligence, the A/R Resolution Agent and an AI insight reporting 18 denials auto-resolved this week',
+      width: 663,
+      height: 496,
+    },
+    box: { width: 663, top: 104, right: 1246 },
+  },
+  {
+    id: 'specialty',
+    label: 'The EHR That Configures to Your Specialty',
+    titleLines: [
+      [{ text: 'The ' }, { text: 'EHR', accent: true }, { text: ' That' }],
+      [{ text: 'Configures to' }],
+      [{ text: 'Your Specialty' }],
+    ],
+    description:
+      'ONC-certified and built on Salesforce. Behavioral health, addiction treatment, outpatient clinics, home and community-based care, student health, aesthetics and medical suppliers - each configured to how the program actually works, rather than forced into a generic template.',
+    // Solutions has no overview page; its first entry is Behavioral Health.
+    primaryCta: { label: 'Explore Solutions', to: '/behavioral-health-ehr/' },
+    secondaryCta: { label: 'Request a Demo', to: '/request-demo/' },
+    media: {
+      src: specialtyObject,
+      alt: 'A clinician at a laptop in front of two Elixir patient profiles, one configured for behavioral health and one for an outpatient clinic',
+      width: 1396,
+      height: 802,
+    },
+    box: { width: 700, top: 173, right: 1260 },
+  },
+  {
+    id: 'revenue',
+    label: 'Get Paid for the Work You Already Did',
+    titleLines: [[{ text: 'Get Paid for the' }], [{ text: 'Work You' }], [{ text: 'Already Did' }]],
+    description:
+      'Care management minutes captured while the work happens. Visits verified at the point of care. Documentation that supports the code. Most of the revenue organizations lose is not denied - it is never billed.',
+    // The frame's label reads "Revenue Cycle Managemen" (cut off); shown in full.
+    primaryCta: { label: 'Revenue Cycle Management', to: '/rcm-software/' },
+    secondaryCta: { label: 'Request a Demo', to: '/request-demo/' },
+    media: {
+      src: revenueObject,
+      alt: 'Elixir care management time ledger: captured care activities become billable services and a submitted claim, ending in a paid Chronic Care Management claim',
+      width: 1032,
+      height: 934,
+    },
+    box: { width: 518, top: 127, right: 1223 },
+  },
+];
 
 export const trustedBy = {
   title: 'Trusted by Healthcare Providers Worldwide',
@@ -147,25 +215,25 @@ export const kratuIntelligence = {
       icon: chartSummariesIcon,
     },
   ],
-  cta: { label: 'See all Kratu AI capabilities', to: '/ai-engine' },
+  cta: { label: 'See all Kratu AI capabilities', to: '/healthcare-ai-platform/' },
 };
 
 export const platformIntro = {
-  badge: 'EHR and more with AI',
+  title: 'One platform. Less administrative work.',
   description:
-    'Elixir empowers your healthcare facility by effectively automating various business processes, hence minimizing interaction with the EHR system and allowing your staff to spend more time on patient care. It leverages various Salesforce functionalities to ensure data security and provides seamless integrations.',
-  cta: { label: 'Learn More About Elixir', to: '/company/about' },
+    'Elixir automates the work around care - documentation, eligibility, claim preparation and follow-up, so clinical staff spend less time on data entry and more time with patients. Because Elixir is built natively on Salesforce, the chart, the claim and the patient conversation are the same record rather than three systems kept in step.',
+  cta: { label: 'Learn More About Elixir', to: '/about-us/' },
   cards: [
     {
-      title: 'Secure Data',
-      description: 'HIPAA compliant architecture for ultimate patient privacy.',
+      title: 'Secure by design',
+      description: 'Enterprise platform controls, role-based access, and a Business Associate Agreement.',
       icon: secureDataIcon,
       iconSize: [24, 30],
       tone: 'light',
     },
     {
-      title: 'Seamless Integration',
-      description: 'Connect with existing Salesforce systems effortlessly.',
+      title: 'One platform, not an integration',
+      description: 'Clinical, billing and engagement run on the same data.',
       icon: seamlessIntegrationIcon,
       iconSize: [36, 35],
       tone: 'dark',
@@ -305,7 +373,7 @@ const resourcePlaceholders = {
           author: 'Author Name',
           date: '04 April 2026',
           title: "Elixir Winter'26 Version 1.960 EHR and Patient Care",
-          link: { label: 'Read More', icon: linkArrowIcon, iconSize: [14, 11], to: '/blog' },
+          link: { label: 'Read More', icon: linkArrowIcon, iconSize: [14, 11], to: '/blog/' },
         },
         {
           tag: 'Webinar',
@@ -313,7 +381,7 @@ const resourcePlaceholders = {
           author: 'Author Name',
           date: '04 April 2026',
           title: 'How AI is Transforming Clinical Outcomes in 2026',
-          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/insights/webinars' },
+          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/webinars-podcasts/' },
         },
         {
           tag: 'Release',
@@ -325,7 +393,7 @@ const resourcePlaceholders = {
             label: 'Read Whitepaper',
             icon: linkDownloadIcon,
             iconSize: [12, 13],
-            to: '/insights',
+            to: '/insights/',
           },
         },
       ],
@@ -339,7 +407,7 @@ const resourcePlaceholders = {
           author: 'Elixir Team',
           date: '12 March 2026',
           title: 'A Practical Guide to Connected Revenue Cycle Workflows',
-          link: { label: 'Download E-Book', icon: linkDownloadIcon, iconSize: [12, 13], to: '/insights/e-book' },
+          link: { label: 'Download E-Book', icon: linkDownloadIcon, iconSize: [12, 13], to: '/guides-ebooks/' },
         },
         {
           tag: 'E-Book',
@@ -347,7 +415,7 @@ const resourcePlaceholders = {
           author: 'Elixir Team',
           date: '20 February 2026',
           title: 'Bringing AI into Everyday Clinical Documentation',
-          link: { label: 'Download E-Book', icon: linkDownloadIcon, iconSize: [12, 13], to: '/insights/e-book' },
+          link: { label: 'Download E-Book', icon: linkDownloadIcon, iconSize: [12, 13], to: '/guides-ebooks/' },
         },
         {
           tag: 'E-Book',
@@ -355,7 +423,7 @@ const resourcePlaceholders = {
           author: 'Elixir Team',
           date: '28 January 2026',
           title: 'Choosing an EHR Built on Salesforce: What to Look For',
-          link: { label: 'Download E-Book', icon: linkDownloadIcon, iconSize: [12, 13], to: '/insights/e-book' },
+          link: { label: 'Download E-Book', icon: linkDownloadIcon, iconSize: [12, 13], to: '/guides-ebooks/' },
         },
       ],
     },
@@ -368,7 +436,7 @@ const resourcePlaceholders = {
           author: 'Elixir Research',
           date: '18 March 2026',
           title: 'Benchmark Survey: Documentation Time in Behavioral Health',
-          link: { label: 'Read Survey', icon: linkArrowIcon, iconSize: [14, 11], to: '/insights/benchmark-surveys' },
+          link: { label: 'Read Survey', icon: linkArrowIcon, iconSize: [14, 11], to: '/benchmark-surveys/' },
         },
         {
           tag: 'Survey',
@@ -376,7 +444,7 @@ const resourcePlaceholders = {
           author: 'Elixir Research',
           date: '05 February 2026',
           title: 'Benchmark Survey: Claim Denial Management Practices',
-          link: { label: 'Read Survey', icon: linkArrowIcon, iconSize: [14, 11], to: '/insights/benchmark-surveys' },
+          link: { label: 'Read Survey', icon: linkArrowIcon, iconSize: [14, 11], to: '/benchmark-surveys/' },
         },
         {
           tag: 'Survey',
@@ -384,7 +452,7 @@ const resourcePlaceholders = {
           author: 'Elixir Research',
           date: '15 January 2026',
           title: 'Benchmark Survey: Patient Portal and Telehealth Adoption',
-          link: { label: 'Read Survey', icon: linkArrowIcon, iconSize: [14, 11], to: '/insights/benchmark-surveys' },
+          link: { label: 'Read Survey', icon: linkArrowIcon, iconSize: [14, 11], to: '/benchmark-surveys/' },
         },
       ],
     },
@@ -397,7 +465,7 @@ const resourcePlaceholders = {
           author: 'Product Team',
           date: '04 April 2026',
           title: "Elixir Winter'26 (Version 1.960) Release Notes",
-          link: { label: 'Read Release Notes', icon: linkArrowIcon, iconSize: [14, 11], to: '/insights/release-notes' },
+          link: { label: 'Read Release Notes', icon: linkArrowIcon, iconSize: [14, 11], to: '/release-notes/' },
         },
         {
           tag: 'Release',
@@ -405,7 +473,7 @@ const resourcePlaceholders = {
           author: 'Product Team',
           date: '10 January 2026',
           title: 'Release Notes: Eligibility and Claims Updates',
-          link: { label: 'Read Release Notes', icon: linkArrowIcon, iconSize: [14, 11], to: '/insights/release-notes' },
+          link: { label: 'Read Release Notes', icon: linkArrowIcon, iconSize: [14, 11], to: '/release-notes/' },
         },
         {
           tag: 'Release',
@@ -413,7 +481,7 @@ const resourcePlaceholders = {
           author: 'Product Team',
           date: '02 December 2025',
           title: 'Release Notes: Kratu AI Clinical Assistant Updates',
-          link: { label: 'Read Release Notes', icon: linkArrowIcon, iconSize: [14, 11], to: '/insights/release-notes' },
+          link: { label: 'Read Release Notes', icon: linkArrowIcon, iconSize: [14, 11], to: '/release-notes/' },
         },
       ],
     },
@@ -426,7 +494,7 @@ const resourcePlaceholders = {
           author: 'Speaker Name',
           date: '22 April 2026',
           title: 'How AI is Transforming Clinical Outcomes in 2026',
-          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/insights/webinars' },
+          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/webinars-podcasts/' },
         },
         {
           tag: 'Webinar',
@@ -434,7 +502,7 @@ const resourcePlaceholders = {
           author: 'Speaker Name',
           date: '26 March 2026',
           title: 'Connecting Eligibility, Claims and ERA Posting',
-          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/insights/webinars' },
+          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/webinars-podcasts/' },
         },
         {
           tag: 'Webinar',
@@ -442,7 +510,7 @@ const resourcePlaceholders = {
           author: 'Speaker Name',
           date: '19 February 2026',
           title: "What's New in Elixir Winter'26",
-          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/insights/webinars' },
+          link: { label: 'Watch Webinar', icon: linkPlayIcon, iconSize: [9, 11], to: '/webinars-podcasts/' },
         },
       ],
     },
@@ -510,7 +578,7 @@ export const conversionCtas = [
       'Discover how our clinical-grade AI engines can transform your patient experience and operational efficiency.',
     icon: exploreSolutionIcon,
     iconSize: [50, 53],
-    cta: { label: 'How Elixir work', to: '/platform', variant: 'secondary' },
+    cta: { label: 'How Elixir works', to: '/why-elixir/', variant: 'secondary' },
     tone: 'dark',
   },
   {
@@ -519,7 +587,7 @@ export const conversionCtas = [
       'Ready to see Elixir in action? Book a session with our specialists to see a tailored walkthrough for your specific clinical needs.',
     icon: personalizedDemoIcon,
     iconSize: [50, 51],
-    cta: { label: 'Schedule a demo today', to: '/request-demo', variant: 'tertiary' },
+    cta: { label: 'Schedule a demo today', to: '/request-demo/', variant: 'tertiary' },
     tone: 'light',
   },
 ];

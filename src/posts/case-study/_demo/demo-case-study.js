@@ -22,7 +22,7 @@ export default {
       type: 'cta',
       title: 'Demo call to action',
       text: 'Demo CTA copy.',
-      action: { label: 'Contact Us', to: '/contact-us' },
+      action: { label: 'Contact Us', to: '/contact-us/' },
     },
   ],
 };

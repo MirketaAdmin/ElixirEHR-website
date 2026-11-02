@@ -1,4 +1,4 @@
-// Small Practices page (/more-specialties/small-practices) — a child page of More Specialties.
+// Small Practices page (/small-practice-ehr) — a child page of More Specialties.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
 import heroMedia from '../assets/small-practices/hero-media.png';
 import pillar1Icon from '../assets/small-practices/icon-pillar-1.png';
@@ -48,7 +48,7 @@ export const spHero = {
   titleAccent: [],
   description:
     'All the capabilities that matter to a small healthcare provider, implemented by someone else, and changeable by your own staff afterwards — without the cost or the project that usually comes with an enterprise platform.',
-  primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/', arrow: false },
   // The frame gives no destination; it scrolls to "What a Small Practice Actually Needs From an EHR".
   secondaryCta: { label: 'What small practices actually need', href: '#start-here' },
   media: {
@@ -559,7 +559,7 @@ export const spCtaBand = {
   title: 'Get a written number and a go-live date',
   description:
     'Bring your provider count, your payer mix and your current system. We will come back with a configuration, a price for it, and a realistic date — which is more than most evaluations produce in a month.',
-  cta: { label: 'Request a Demo', to: '/request-demo' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
   // The frame's second button is the sibling More Specialties page.
-  secondaryCta: { label: 'Outpatient clinics', to: '/more-specialties/outpatient-clinics' },
+  secondaryCta: { label: 'Outpatient clinics', to: '/ambulatory-ehr/' },
 };

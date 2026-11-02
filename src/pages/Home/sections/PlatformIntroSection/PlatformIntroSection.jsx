@@ -15,7 +15,7 @@ function PlatformIntroSection() {
           <img src={watermark} alt="" width="333" height="90" className={styles.watermark} />
           <img src={wordmark} alt="Elixir" width="141" height="53" />
         </div>
-        <p className={styles.badge}>{platformIntro.badge}</p>
+        <h2 className={styles.title}>{platformIntro.title}</h2>
         <p className={styles.description}>{platformIntro.description}</p>
         <Button to={platformIntro.cta.to} variant="tertiary" size="lg" className={styles.cta}>
           {platformIntro.cta.label}

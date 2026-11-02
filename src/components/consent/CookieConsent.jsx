@@ -8,7 +8,7 @@ import Button from '../ui/Button/Button';
 import Icon from '../ui/Icon/Icon';
 import styles from './CookieConsent.module.css';
 
-const PRIVACY_POLICY_PATH = '/privacy-policy';
+const PRIVACY_POLICY_PATH = '/privacy-policy/';
 
 const copy = {
   heading: 'Your Privacy Matters',

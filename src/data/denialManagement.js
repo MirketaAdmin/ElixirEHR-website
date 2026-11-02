@@ -40,7 +40,7 @@ export const dmHero = {
   description:
     'Predict denials before claims leave your office, see the root cause of every denial, and work appeals from one queue connected to your clearinghouse. Built for US clinics and providers.',
   // No destination in the frame; the site's demo CTAs use /request-demo.
-  primaryCta: { label: 'Schedule a Demo', to: '/request-demo', icon: { src: calendarIcon, width: 14, height: 16 } },
+  primaryCta: { label: 'Schedule a Demo', to: '/request-demo/', icon: { src: calendarIcon, width: 14, height: 16 } },
   // The frame shows Figma's grey "missing image" box on the tilted backdrop: the hero photo has
   // not been supplied. Exported as shown (511×507, backdrop included) until it is.
   media: {
@@ -58,7 +58,7 @@ export const dmChallenge = {
   quote:
     'Elixir brings that work into one place. Because it runs natively on Salesforce and connects directly to your clearinghouse, it checks every claim before submission and explains every denial the moment the remittance arrives.',
   // No destination in the frame; Revenue Cycle Management is the parent page for claims and denials.
-  cta: { label: 'Learn More', to: '/revenue-cycle-management' },
+  cta: { label: 'Learn More', to: '/rcm-software/' },
   // Figures and footnote as in the frame; the footnote itself asks for cited sources (see
   // DESIGN-SYSTEM.md open questions).
   stats: [
@@ -205,7 +205,7 @@ export const dmClearinghouse = {
     },
   ],
   // No destination in the frame; Revenue Cycle Management covers the clearinghouse workflow.
-  cta: { label: 'Learn More', to: '/revenue-cycle-management' },
+  cta: { label: 'Learn More', to: '/rcm-software/' },
 };
 
 export const dmSalesforceNative = {

@@ -13,7 +13,7 @@ export const vbHero = {
   titleAccent: [],
   description:
     'The measures that decide what you are paid are mostly about timing. Did a contact happen inside a window — seven days, thirty days, fourteen days, thirty-four more. Those are operational numbers, and the sector is losing them.',
-  primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/', arrow: false },
   // The frame gives no destination; it scrolls to the follow-up windows chart below.
   secondaryCta: { label: 'The four windows', href: '#timing' },
   media: {
@@ -112,9 +112,9 @@ export const vbEvidence = {
     {
       text: 'Neither finding requires prediction, scoring or artificial intelligence. They require that the appointment exists before the patient leaves, and that it is soon. Related: ',
     },
-    { text: 'no-show prediction', to: '/patient-no-show-prediction' },
+    { text: 'no-show prediction', to: '/patient-no-show-software/' },
     { text: ' for the attendance half of the problem, and ' },
-    { text: 'Contact Center', to: '/contact-center' },
+    { text: 'Contact Center', to: '/healthcare-contact-center/' },
     { text: ' for the outreach.' },
   ],
 };
@@ -308,8 +308,8 @@ export const vbReporting = {
   },
 };
 
-// The frame shows answers for four of the questions (drawn open); the other four are drawn closed
-// with no answer supplied, so they render as static rows until the copy arrives.
+// The frame shows answers for four of the questions (drawn open); the other four were written for the
+// site from this page's own copy.
 export const vbFaq = {
   eyebrow: 'Questions',
   title: 'Value-Based Care in Behavioral Health: Frequently Asked Questions',
@@ -326,8 +326,16 @@ export const vbFaq = {
         answer:
           'The national medians are sobering. For Medicaid adults, about one in three has a documented follow-up within seven days of a mental health hospitalization, and only about one in six reaches the engagement threshold for substance use disorder treatment. These are not bad clinicians; they are fragmented care transitions without operational workflows to catch people as they move between settings.',
       },
-      { question: 'Is there evidence that software-shaped interventions move these measures?' },
-      { question: 'We are a CCBHC. Does this matter more for us?' },
+      {
+      question: 'Is there evidence that software-shaped interventions move these measures?',
+      answer:
+        "Indirectly, yes. The strongest evidence is for operational steps rather than software as such: leaving hospital with a follow-up appointment already booked roughly doubles seven-day attendance, and missed appointments rise with every day of waiting. Software helps by making those steps routine — a discharge worklist with an owner and a deadline, booking before discharge, and recording the contact in a form the measure recognizes. It does not improve clinical outcomes on its own.",
+    },
+      {
+      question: 'We are a CCBHC. Does this matter more for us?',
+      answer:
+        "Yes. Under the monthly prospective payment methodologies quality bonus payments are required, and the required measure set includes follow-up after hospitalization for mental illness and initiation and engagement of substance use disorder treatment. Payment depends on meeting your state's threshold, not on reporting alone. Elixir tracks performance against that threshold during the measurement year, by site and team, so you can act before the year closes.",
+    },
     ],
     [
       {
@@ -340,8 +348,16 @@ export const vbFaq = {
         answer:
           'The CMS Innovation in Behavioral Health (IBH) model is the major federal initiative specifically designed for this sector. But the more immediate impact is usually in your existing state Medicaid managed care contracts — specifically directed payments and quality withholds — and in CCBHC demonstration expansion.',
       },
-      { question: 'Can you produce the reports our state asks for?' },
-      { question: 'Does value-based care mean taking financial risk?' },
+      {
+      question: 'Can you produce the reports our state asks for?',
+      answer:
+        "Elixir captures the events the measures depend on as structured data when they happen, and shows performance by site, team and measure during the year, including the subgroup breakdowns states now require. Report formats differ by state, so we confirm your state's measure list and submission format during implementation. We implement the current published measure specifications and update them as they change; we encourage you to verify our implementation against the source.",
+    },
+      {
+      question: 'Does value-based care mean taking financial risk?',
+      answer:
+        "Not necessarily. In behavioral health it usually means quality withholds, performance-linked rate enhancements or CCBHC quality bonus payments rather than total-cost-of-care risk. You can lose a withheld amount or miss a bonus, but you are rarely responsible for the total cost of a patient's care. Check the terms of each contract, because downside risk is negotiated contract by contract.",
+    },
     ],
   ],
 };
@@ -351,6 +367,6 @@ export const vbCtaBand = {
   title: 'What is your seven-day follow-up rate right now?',
   description:
     'If producing that number takes a week and a spreadsheet, that is the finding. Bring us one measure and one month, and we will show you where the events are being lost between the discharge and the claim.',
-  cta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Behavioral Health', to: '/behavioral-health' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Behavioral Health', to: '/behavioral-health-ehr/' },
 };

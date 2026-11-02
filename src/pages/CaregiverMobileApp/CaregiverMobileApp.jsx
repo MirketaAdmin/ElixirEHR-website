@@ -6,6 +6,7 @@ import TourSection from './sections/TourSection/TourSection';
 import OfflineSection from './sections/OfflineSection/OfflineSection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import SubmissionSection from './sections/SubmissionSection/SubmissionSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './CaregiverMobileApp.module.css';
 
 function CaregiverMobileApp() {
@@ -13,8 +14,7 @@ function CaregiverMobileApp() {
 
   return (
     <>
-      <title>Field Caregiver Experience with Salesforce EVV | Elixir</title>
-      <meta name="description" content={cmaHero.description[0]} />
+      <PageSeo path="/caregiver-mobile-app" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <TourSection />
       <OfflineSection />

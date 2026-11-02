@@ -12,7 +12,7 @@ export const roiHero = {
     'Enter the numbers you already know — practitioners, appointment volume, your no-show rate and what a completed visit is worth — and see the monthly revenue lost to missed appointments, what a reduction recovers, and the return after software cost. The arithmetic is printed in full, and nothing is emailed anywhere unless you ask.',
   // Scrolls to the calculator on this page.
   primaryCta: { label: 'Open the calculator', href: '#calculator' },
-  secondaryCta: { label: 'How no-show prediction works', to: '/patient-no-show-prediction' },
+  secondaryCta: { label: 'How no-show prediction works', to: '/patient-no-show-software/' },
   media: { src: heroMediaPlaceholder, alt: 'Image placeholder' },
 };
 
@@ -216,13 +216,13 @@ export const roiBrief = {
   note: {
     before: 'We will send your calculation report alongside scheduling extract guidance. Review our ',
     link: 'Privacy Policy',
-    to: '/privacy-policy',
+    to: '/privacy-policy/',
     after: '.',
   },
 };
 
 // Rendered with the site's shared FAQ section (standing rule). The frame supplies an answer for the
-// first question only; the others render as static rows until their answers are written.
+// first question only; the other answers were written for the site from this page's own copy.
 export const roiFaq = {
   title: 'No-Show ROI Calculator: Frequently Asked Questions',
   description: 'Technical details on metric calculation, data privacy, and interpreting clinical ROI.',
@@ -232,13 +232,41 @@ export const roiFaq = {
       answer:
         'One widely cited US study of ten outpatient specialty clinics found an overall rate of 18.8%, ranging from 12.6% to 25.7% across departments. In behavioral health and addiction medicine, baseline rates often reach 25–35% due to social determinants of health and transportation challenges.',
     },
-    { question: 'How is the financial cost of a no-show calculated?' },
-    { question: 'What revenue figure should I enter per appointment?' },
-    { question: 'Is a 27% reduction in no-shows realistic?' },
-    { question: 'Why is the ROI percentage so high?' },
-    { question: 'What does the "Cost of AI Solution" field mean?' },
-    { question: 'Does this calculator transmit practice data to Elixir?' },
-    { question: 'Can we model these numbers against our live schedule?' },
+    {
+      question: 'How is the financial cost of a no-show calculated?',
+      answer:
+        "Total monthly appointments (practitioners × visits per practitioner) are multiplied by your no-show rate to give missed visits, and missed visits are multiplied by your average net revenue per visit. That is the direct revenue lost each month. Every formula is printed in full in the “How This No-Show ROI Calculator Works” section so your finance team can check each step.",
+    },
+    {
+      question: 'What revenue figure should I enter per appointment?',
+      answer:
+        "Your average net collected revenue per completed visit — what you actually receive after contractual allowances and adjustments, not the billed charge. If your visit types are paid very differently, run the calculator for each major service line or use a weighted average.",
+    },
+    {
+      question: 'Is a 27% reduction in no-shows realistic?',
+      answer:
+        "27% is the calculator's default planning target, not a guarantee. What you achieve depends on your starting rate, your patients and which interventions you use: reminders alone tend to plateau, while shorter booking lead times, easy self-rescheduling and addressing transport barriers go further. Test your business case at 10% and 15% as well.",
+    },
+    {
+      question: 'Why is the ROI percentage so high?',
+      answer:
+        "Because the denominator is software cost only. ROI divides net recovered revenue by the monthly licence cost; it leaves out staff outreach time, SMS and telephony fees and change management, which all reduce the real gain. A few recovered visits can be large relative to a per-practitioner licence fee, so read the ROI together with the net financial impact in dollars.",
+    },
+    {
+      question: 'What does the "Cost of AI Solution" field mean?',
+      answer:
+        "It is the monthly software cost per practitioner (the “Software Cost / Provider / Mo” field). The calculator multiplies it by your number of practitioners to give the total monthly solution cost. Enter your quoted Elixir licence fee if you have one; otherwise treat the default as an estimate and ask us for pricing for your organization.",
+    },
+    {
+      question: 'Does this calculator transmit practice data to Elixir?',
+      answer:
+        "No. The calculation runs entirely in your browser, and nothing is sent while you change the numbers. Data is sent only if you request the executive summary: the form then sends your name, organization, email, role and the calculator's inputs and results to our team so the summary can be prepared.",
+    },
+    {
+      question: 'Can we model these numbers against our live schedule?',
+      answer:
+        "Yes. The calculator works from averages. In a working session we can use an export of your scheduling history to measure your actual no-show rate by clinic, visit type and booking lead time, and show where prediction and outreach would apply. Request the executive summary or a demo to set this up.",
+    },
   ],
 };
 
@@ -247,11 +275,11 @@ export const roiCtaBand = {
   title: ['Run These Calculations on', 'Your Live Schedule'],
   description:
     'In an Elixir demonstration, we examine your actual scheduling data rather than general benchmarks — illustrating exactly where uncaptured capacity sits across your departments.',
-  cta: { label: 'Request a Live Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Explore No-Show Prediction', to: '/patient-no-show-prediction' },
+  cta: { label: 'Request a Live Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Explore No-Show Prediction', to: '/patient-no-show-software/' },
   related: [
-    { label: 'Patient No-Show Prediction', to: '/patient-no-show-prediction' },
-    { label: 'Patient Portal', to: '/patient-portal' },
-    { label: 'Contact Center', to: '/contact-center' },
+    { label: 'Patient No-Show Prediction', to: '/patient-no-show-software/' },
+    { label: 'Patient Portal', to: '/patient-portal-software/' },
+    { label: 'Contact Center', to: '/healthcare-contact-center/' },
   ],
 };

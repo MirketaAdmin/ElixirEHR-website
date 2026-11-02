@@ -20,7 +20,7 @@ export const ehrHero = {
   titleAccent: '(EHR)',
   description:
     'Elixir is more than just about recording and reporting data. Elixir EHR offers out-of the box functionalities catered to your needs.',
-  primaryCta: { label: 'Get a Personalized Demo', to: '/request-demo' },
+  primaryCta: { label: 'Get a Personalized Demo', to: '/request-demo/' },
   media: {
     src: heroMedia,
     alt: 'Physician with a tablet beside a monitor showing a patient dashboard',
@@ -140,5 +140,5 @@ export const ehrCtaBand = {
   title: ['Click Here To Be Future Ready', 'With Elixir'],
   description:
     'Contact us for a Demo today and we will help you identify the Right Solution for your Healthcare Practice. Our clinical team is ready to support your transition.',
-  cta: { label: 'Contact Us Now', to: '/company/contact' },
+  cta: { label: 'Contact Us Now', to: '/contact-us/#contact' },
 };

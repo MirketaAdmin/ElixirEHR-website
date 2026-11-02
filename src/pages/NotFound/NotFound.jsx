@@ -26,7 +26,7 @@ function NotFound() {
           <Button to="/" size="lg">
             Back to Home
           </Button>
-          <Button to="/contact-us#contact" variant="ghost" size="lg">
+          <Button to="/contact-us/#contact" variant="ghost" size="lg">
             Contact Us
           </Button>
         </div>

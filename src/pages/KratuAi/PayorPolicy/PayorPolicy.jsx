@@ -13,6 +13,7 @@ import ScoringSection from './sections/ScoringSection/ScoringSection';
 import AuditSection from './sections/AuditSection/AuditSection';
 import BoundariesSection from './sections/BoundariesSection/BoundariesSection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
+import PageSeo from '../../../components/seo/PageSeo/PageSeo';
 import styles from './PayorPolicy.module.css';
 
 /** Payor Policy Intelligence — a child page of KratuAI. */
@@ -22,8 +23,7 @@ function PayorPolicy() {
 
   return (
     <>
-      <title>Payor Policy Intelligence: Payer Policies as Live Billing Rules | KratuAI | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/payer-policy-intelligence" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <HighlightsStrip />
       <ProblemSection />

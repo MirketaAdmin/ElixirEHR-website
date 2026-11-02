@@ -1,4 +1,4 @@
-// Care Coordination page (/care-coordination) — an independent page with no parent.
+// Care Coordination page (/care-coordination-software) — an independent page with no parent.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
 import heroMedia from '../assets/care-coordination/hero-media.png';
 import teamIcon from '../assets/care-coordination/icon-pillar-team.png';
@@ -24,7 +24,7 @@ export const ccHero = {
   titleAccent: [],
   description:
     'Coordination rarely fails because somebody forgot. It fails at a boundary \u2014 a point where what may be shared changes, and the system either overshares or stops dead.',
-  primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/', arrow: false },
   // The frame gives no destination; it scrolls to "The Loop That Does Not Close".
   secondaryCta: { label: 'The loop that does not close', href: '#loop' },
   media: {
@@ -178,8 +178,8 @@ export const ccPrograms = {
     label: 'Explore dedicated clinical capabilities:',
     icon: { src: arrowRightIcon, size: [11, 11] },
     links: [
-      { label: 'Substance Use Disorder EHR', to: '/behavioral-health/substance-use-disorder' },
-      { label: 'Mental Health EHR', to: '/behavioral-health/mental-health' },
+      { label: 'Substance Use Disorder EHR', to: '/addiction-treatment-emr/' },
+      { label: 'Mental Health EHR', to: '/mental-health-ehr/' },
     ],
   },
 };
@@ -428,6 +428,6 @@ export const ccCtaBand = {
   title: 'Show us the handoff that keeps failing',
   description:
     'Between your clinicians, between your programs, or between your agency and the hospital down the road. We will show you how Elixir tracks it, what the consent engine does with it, and what happens when the loop actually closes.',
-  cta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Behavioral Health', to: '/behavioral-health' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Behavioral Health', to: '/behavioral-health-ehr/' },
 };

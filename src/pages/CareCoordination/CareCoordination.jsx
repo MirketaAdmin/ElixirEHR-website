@@ -12,6 +12,7 @@ import PartnersSection from './sections/PartnersSection/PartnersSection';
 import BlockingSection from './sections/BlockingSection/BlockingSection';
 import StandardsSection from './sections/StandardsSection/StandardsSection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './CareCoordination.module.css';
 
 /** Care Coordination — an independent page (no parent). */
@@ -20,8 +21,7 @@ function CareCoordination() {
 
   return (
     <>
-      <title>Care Coordination Software | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/care-coordination-software" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <PillarsStrip />
       <LoopSection />

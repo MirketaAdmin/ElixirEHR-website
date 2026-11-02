@@ -19,15 +19,15 @@ export const insightsHero = {
 // Category navigation, in the frame's order. Newsletter and Illustrations have no Figma yet: they
 // link to their planned routes, which redirect home until those pages are built.
 export const insightsNav = [
-  { label: 'All Resources', to: '/insights' },
-  { label: 'Blog', to: '/blog' },
-  { label: 'E-Book', to: '/insights/e-book' },
-  { label: 'Benchmark Surveys', to: '/insights/benchmark-surveys' },
-  { label: 'Release Notes', to: '/insights/release-notes' },
-  { label: 'Newsletter', to: '/insights/newsletter' },
-  { label: 'Webinars', to: '/insights/webinars' },
-  { label: 'Illustrations', to: '/insights/illustrations' },
-  { label: 'Videos', to: '/insights/videos' },
+  { label: 'All Resources', to: '/insights/' },
+  { label: 'Blog', to: '/blog/' },
+  { label: 'E-Book', to: '/guides-ebooks/' },
+  { label: 'Benchmark Surveys', to: '/benchmark-surveys/' },
+  { label: 'Release Notes', to: '/release-notes/' },
+  { label: 'Newsletter', to: '/blog/#newsletter' },
+  { label: 'Webinars', to: '/webinars-podcasts/' },
+  { label: 'Illustrations', to: '/insights/illustrations/' },
+  { label: 'Videos', to: '/feature-videos/' },
 ];
 
 export const weeklyBriefing = {

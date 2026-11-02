@@ -46,6 +46,8 @@ import CarePlanManagement from './pages/CarePlanManagement/CarePlanManagement';
 import PatientEhiExport from './pages/PatientEhiExport/PatientEhiExport';
 import OncMfaUseCases from './pages/OncMfaUseCases/OncMfaUseCases';
 import ElixirCertifiedModule from './pages/ElixirCertifiedModule/ElixirCertifiedModule';
+import HipaaComplianceCenter from './pages/ComplianceSecurity/HipaaComplianceCenter/HipaaComplianceCenter';
+import Naatp from './pages/ComplianceSecurity/Naatp/Naatp';
 import OpenPositionDetail from './pages/Career/open-positions/OpenPositionDetail';
 import BlogListing from './pages/Insights/BlogListing/BlogListing';
 import EbookListing from './pages/Insights/EbookListing/EbookListing';
@@ -67,75 +69,71 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
+          {/* Page routes use the approved SEO slugs (data/seo.js); earlier URLs redirect via routes/aliases.js. */}
           <Route path="about-us" element={<AboutUs />} />
           <Route path="why-elixir" element={<WhyElixir />} />
-          <Route path="electronic-health-record" element={<ElectronicHealthRecord />} />
-          <Route path="revenue-cycle-management" element={<RevenueCycleManagement />} />
-          <Route
-            path="revenue-cycle-management/electronic-prior-authorization"
-            element={<ElectronicPriorAuthorization />}
-          />
-          <Route path="eligibility-verification" element={<EligibilityVerification />} />
-          <Route path="treatment-center-solutions" element={<TreatmentCenterSolutions />} />
+          <Route path="ehr-software" element={<ElectronicHealthRecord />} />
+          <Route path="rcm-software" element={<RevenueCycleManagement />} />
+          <Route path="electronic-prior-authorization" element={<ElectronicPriorAuthorization />} />
+          <Route path="insurance-eligibility-verification" element={<EligibilityVerification />} />
+          <Route path="treatment-center-software" element={<TreatmentCenterSolutions />} />
           <Route path="contact-us" element={<ContactUs />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="denial-management" element={<DenialManagement />} />
-          <Route path="professional-and-institutional-claim-preparation" element={<ClaimPreparation />} />
-          <Route path="electronic-visit-verification" element={<ElectronicVisitVerification />} />
+          <Route path="denial-management-software" element={<DenialManagement />} />
+          <Route path="claims-processing-software" element={<ClaimPreparation />} />
+          <Route path="evv-software" element={<ElectronicVisitVerification />} />
           <Route path="caregiver-mobile-app" element={<CaregiverMobileApp />} />
-          <Route path="evv-for-salesforce-field-service" element={<EvvFieldService />} />
+          <Route path="salesforce-evv" element={<EvvFieldService />} />
           <Route path="success-stories" element={<SuccessStories />} />
           <Route path="case-studies" element={<CaseStudies />} />
           <Route path="referral-program" element={<ReferralProgram />} />
-          <Route path="career" element={<Career />} />
-          <Route path="patient-portal" element={<PatientPortal />} />
+          <Route path="careers" element={<Career />} />
+          <Route path="patient-portal-software" element={<PatientPortal />} />
           <Route path="billing" element={<Billing />} />
-          <Route path="patient-no-show-prediction" element={<PatientNoShowPrediction />} />
-          <Route path="contact-center" element={<ContactCenter />} />
-          <Route path="no-show-roi-calculator" element={<NoShowRoiCalculator />} />
-          <Route path="responsible-ai" element={<ResponsibleAi />} />
-          <Route path="behavioral-health" element={<BehavioralHealth />} />
-          {/* Flat routes: Mental Health and Substance Use Disorder are independent pages, not nested under Behavioral Health. */}
-          <Route path="behavioral-health/mental-health" element={<MentalHealth />} />
-          <Route path="behavioral-health/substance-use-disorder" element={<SubstanceUseDisorder />} />
-          <Route path="care-coordination" element={<CareCoordination />} />
-          {/* More Specialties has no page of its own; its children live under its path. */}
-          <Route path="more-specialties/outpatient-clinics" element={<OutpatientClinics />} />
-          <Route path="more-specialties/small-practices" element={<SmallPractices />} />
-          <Route path="more-specialties/telehealth" element={<Telehealth />} />
-          <Route path="more-specialties/aesthetic-practices" element={<AestheticPractices />} />
-          <Route path="more-specialties/student-health" element={<StudentHealth />} />
-          {/* Care Management: an independent top-level page; Care Plan Management lives under its path. */}
-          <Route path="care-management" element={<CareManagement />} />
-          <Route path="value-based-care" element={<ValueBasedCare />} />
-          <Route path="care-management/care-plan-management" element={<CarePlanManagement />} />
-          {/* Listed under Care Management in the header, but on its own top-level route. */}
-          <Route path="social-determinants-of-health" element={<SocialDeterminants />} />
-          {/* ONC Certification has no page of its own; its children live under its path. */}
+          <Route path="patient-no-show-software" element={<PatientNoShowPrediction />} />
+          <Route path="healthcare-contact-center" element={<ContactCenter />} />
+          <Route path="no-show-cost-calculator" element={<NoShowRoiCalculator />} />
+          <Route path="responsible-ai-in-healthcare" element={<ResponsibleAi />} />
+          <Route path="behavioral-health-ehr" element={<BehavioralHealth />} />
+          <Route path="mental-health-ehr" element={<MentalHealth />} />
+          <Route path="addiction-treatment-emr" element={<SubstanceUseDisorder />} />
+          <Route path="care-coordination-software" element={<CareCoordination />} />
+          <Route path="ambulatory-ehr" element={<OutpatientClinics />} />
+          <Route path="small-practice-ehr" element={<SmallPractices />} />
+          <Route path="telehealth-ehr" element={<Telehealth />} />
+          <Route path="aesthetic-practice-ehr" element={<AestheticPractices />} />
+          <Route path="student-health-records-software" element={<StudentHealth />} />
+          <Route path="care-management-software" element={<CareManagement />} />
+          <Route path="value-based-care-software" element={<ValueBasedCare />} />
+          <Route path="care-plan-software" element={<CarePlanManagement />} />
+          <Route path="sdoh-software" element={<SocialDeterminants />} />
+          {/* ONC Certification has no page yet; the sheet gives no new slugs for its children, so they keep theirs. */}
           <Route path="onc-certification/onc-mfa-use-cases" element={<OncMfaUseCases />} />
           <Route path="onc-certification/elixir-certified-module" element={<ElixirCertifiedModule />} />
           <Route path="onc-certification/patient-ehi-export" element={<PatientEhiExport />} />
-          <Route path="kratu-ai" element={<KratuAi />} />
-          <Route path="kratu-ai/visit-prep" element={<VisitPrep />} />
-          <Route path="kratu-ai/elixir-co-pilot-clinical-assistant" element={<CoPilot />} />
-          <Route path="kratu-ai/ar-agent" element={<ArAgent />} />
+          <Route path="hipaa-compliant-ehr" element={<HipaaComplianceCenter />} />
+          <Route path="naatp" element={<Naatp />} />
+          <Route path="healthcare-ai-platform" element={<KratuAi />} />
+          <Route path="ai-pre-visit-preparation" element={<VisitPrep />} />
+          <Route path="ai-clinical-documentation" element={<CoPilot />} />
+          <Route path="ai-accounts-receivable-management" element={<ArAgent />} />
           {/* The A/R Agent and Payor Policy briefs spelled the parent "kartu-ai"; those URLs redirect. */}
-          <Route path="kartu-ai/ar-agent" element={<Navigate to="/kratu-ai/ar-agent" replace />} />
-          <Route path="kratu-ai/payor-policy-intelligence" element={<PayorPolicy />} />
+          <Route path="kartu-ai/ar-agent" element={<Navigate to="/ai-accounts-receivable-management/" replace />} />
+          <Route path="payer-policy-intelligence" element={<PayorPolicy />} />
           <Route
             path="kartu-ai/payor-policy-intelligence"
-            element={<Navigate to="/kratu-ai/payor-policy-intelligence" replace />}
+            element={<Navigate to="/payer-policy-intelligence/" replace />}
           />
           <Route path="career/open-positions/:jobSlug" element={<OpenPositionDetail />} />
           {/* Insights: category listings (detail pages are the post routes below). */}
           <Route path="insights" element={<AllResources />} />
           <Route path="blog" element={<BlogListing />} />
-          <Route path="insights/e-book" element={<EbookListing />} />
-          <Route path="insights/benchmark-surveys" element={<SurveyListing />} />
-          <Route path="insights/release-notes" element={<ReleaseNotesListing />} />
-          <Route path="insights/webinars" element={<WebinarListing />} />
+          <Route path="guides-ebooks" element={<EbookListing />} />
+          <Route path="benchmark-surveys" element={<SurveyListing />} />
+          <Route path="release-notes" element={<ReleaseNotesListing />} />
+          <Route path="webinars-podcasts" element={<WebinarListing />} />
           <Route path="insights/illustrations" element={<IllustrationListing />} />
-          <Route path="insights/videos" element={<VideoListing />} />
+          <Route path="feature-videos" element={<VideoListing />} />
           <Route path="press-releases" element={<PressReleases />} />
           <Route path="press-releases/:slug" element={<LegacyPressReleaseRedirect />} />
           {/* Post detail pages: /blog/:slug, /press-release/:slug, /case-study/:slug, … (src/posts/types.js). */}

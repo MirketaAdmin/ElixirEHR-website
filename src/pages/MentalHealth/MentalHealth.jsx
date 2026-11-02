@@ -14,6 +14,7 @@ import DocumentationSection from './sections/DocumentationSection/DocumentationS
 import RevenueSection from './sections/RevenueSection/RevenueSection';
 import KratuSection from './sections/KratuSection/KratuSection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './MentalHealth.module.css';
 
 /** Mental Health — an independent page (no parent route). */
@@ -23,8 +24,7 @@ function MentalHealth() {
 
   return (
     <>
-      <title>Mental Health EHR Software | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/mental-health-ehr" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <HighlightsStrip />
       <MeasurementSection />

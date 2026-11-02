@@ -13,6 +13,17 @@
   --page-hero-description-gap: 24px;
 }
 
+/* The hero export is 40px taller than the standard one (583×570), so it starts 44px above the card box. */
+.heroMedia img {
+  top: -44px;
+}
+
+@media (max-width: 1199px) {
+  .heroMedia img {
+    top: -9.57%;
+  }
+}
+
 .hero h1 {
   margin-top: 20px;
   font-size: 52px;

@@ -1,5 +1,5 @@
 // Payor Policy Intelligence page (Figma "Kratu Payor Policy Intelligence", 1280 frame), a child page
-// of KratuAI (/kratu-ai/payor-policy-intelligence). Copy is reproduced verbatim from the frame;
+// of KratuAI (/payer-policy-intelligence). Copy is reproduced verbatim from the frame;
 // forced mid-sentence line breaks are dropped. The hero image is the frame's grey placeholder (the
 // same export as the KratuAI hero).
 import heroMedia from '../assets/kratu-ai/pp-hero-media.png';
@@ -20,7 +20,7 @@ export const ppHero = {
   titleAccent: [],
   description:
     'The rules that decide whether a claim gets paid already exist — in a 200-page PDF, a billing grid and a guideline document nobody has time to reread. Payor Policy Intelligence makes them machine-readable once, then puts the same rules to work recommending codes and scoring claims before you submit.',
-  primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/', arrow: false },
   // No destination in the frame; scrolls to "Why claims get denied…" (the three stages).
   secondaryCta: { label: 'See how it works', href: '#how-it-works' },
   media: {
@@ -339,13 +339,13 @@ export const ppCtaBand = {
   title: ["Put the payer's own rules to work, from PDF to", 'paid claim'],
   description:
     'Walk through policy ingestion, code recommendation and pre-submission claim scoring against the payers and plans your team bills today.',
-  cta: { label: 'Request a Demo', to: '/request-demo' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
   related: {
     label: 'Working denials after they land?',
     links: [
-      { label: 'Explore Revenue Kratu AI', to: '/kratu-ai/ar-agent' },
-      { label: 'Kratu Co-Pilot', to: '/kratu-ai/elixir-co-pilot-clinical-assistant' },
-      { label: 'Kratu AI overview', to: '/kratu-ai' },
+      { label: 'Explore Revenue Kratu AI', to: '/ai-accounts-receivable-management/' },
+      { label: 'Kratu Co-Pilot', to: '/ai-clinical-documentation/' },
+      { label: 'Kratu AI overview', to: '/healthcare-ai-platform/' },
     ],
   },
 };

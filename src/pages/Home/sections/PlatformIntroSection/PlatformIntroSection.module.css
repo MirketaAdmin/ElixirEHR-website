@@ -31,14 +31,14 @@
   position: relative;
 }
 
-.badge {
+.title {
+  max-width: 500px;
   margin-top: 39px;
-  padding: 8px 17px 9px 16px;
-  border-radius: var(--radius-pill);
-  background: var(--color-secondary-tint);
-  font-size: 16px;
-  line-height: 24px;
-  color: #3c4d00;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
 }
 
 .description {
@@ -149,6 +149,11 @@
 @media (max-width: 767px) {
   .section {
     overflow: hidden;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 36px;
   }
 
   .cards {

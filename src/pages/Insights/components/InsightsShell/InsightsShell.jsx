@@ -1,8 +1,11 @@
 import { useId } from 'react';
+import { useLocation } from 'react-router-dom';
+import { pageSeo } from '../../../../data/seo';
 import { insightsHero } from '../../../../data/insights';
 import PageHero from '../../../../components/sections/PageHero/PageHero';
 import Section from '../../../../components/layout/Section/Section';
 import Icon from '../../../../components/ui/Icon/Icon';
+import PageSeo from '../../../../components/seo/PageSeo/PageSeo';
 import { cn } from '../../../../utils/cn';
 import InsightsNav from '../InsightsNav/InsightsNav';
 import styles from './InsightsShell.module.css';
@@ -11,16 +14,25 @@ import styles from './InsightsShell.module.css';
  * Shared frame of every Insights page: the "Knowledge for the Modern Clinician" hero (its search
  * field filters the page's resources through `query` / `onQueryChange`), the category bar, then
  * the page heading and content on the surface band. `aside` adds the 372px right sidebar.
- * `hero` replaces the default hero (All Resources uses its own).
+ * `hero` replaces the default hero (All Resources uses its own). Pages with approved SEO copy
+ * (data/seo.js) use it; the others keep the generic title.
  */
 function InsightsShell({ documentTitle, title, query, onQueryChange, aside, hero, children }) {
   const searchId = useId();
   const { image, searchPlaceholder, ...heroCopy } = insightsHero;
+  const { pathname } = useLocation();
+  const seoPath = pathname.replace(/\/$/, '');
 
   return (
     <>
-      <title>{`${documentTitle} | Elixir`}</title>
-      <meta name="description" content={heroCopy.description} />
+      {pageSeo[seoPath] ? (
+        <PageSeo path={seoPath} />
+      ) : (
+        <>
+          <title>{`${documentTitle} | Elixir`}</title>
+          <meta name="description" content={heroCopy.description} />
+        </>
+      )}
       {hero ?? (
         <PageHero
           {...heroCopy}

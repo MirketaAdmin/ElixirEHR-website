@@ -1,7 +1,6 @@
-// Visit Prep page (Figma "Visit Prep", 1280 frame), a child page of KratuAI (/kratu-ai/visit-prep).
-// Copy is reproduced verbatim from the frame. The hero image is the frame's grey placeholder (the
-// same export as the Contact Center and KratuAI heroes).
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+// Visit Prep page (Figma "Visit Prep", 1280 frame), a child page of KratuAI (/ai-pre-visit-preparation).
+// Copy is reproduced verbatim from the frame; the hero image is cropped from the frame.
+import heroMedia from '../assets/visit-prep/hero-media.png';
 import shieldIcon from '../assets/kratu-ai/visit-shield.png';
 import globeIcon from '../assets/kratu-ai/visit-globe.png';
 import doesIcon from '../assets/kratu-ai/visit-does.png';
@@ -15,10 +14,15 @@ export const visitPrepHero = {
   titleAccent: ['Zero Portal', 'Login'],
   description:
     'Patients receive a secure, frictionless text message before their appointment to co-create their visit agenda. No passwords, no app downloads, and no barriers. Clinicians open their chart to find clinical priorities already mapped.',
-  primaryCta: { label: 'Request a Visit Prep Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Visit Prep Demo', to: '/request-demo/', arrow: false },
   // Scrolls to "How the Pre-Visit Questionnaire Works".
   secondaryCta: { label: 'Explore Clinical Flow', href: '#clinical-flow' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    // Taller than the standard 583×530 export: the frame's card reaches 29px above and below the box.
+    height: 570,
+    alt: 'A patient filling in the Elixir pre-visit questionnaire on a laptop and phone',
+  },
 };
 
 // tone: the item's left edge colour.
@@ -222,6 +226,7 @@ export const visitPrepClinician = {
 // Rendered with the site's shared FAQ section (standing rule). The frame lays the questions out in
 // two columns, read across; they are ordered here so each stays in its frame column.
 export const visitPrepFaq = {
+  eyebrow: 'Frequently Asked Questions',
   title: 'Common Provider & Clinical Questions',
   description: 'Everything you need to know about implementing Elixir Visit Prep across clinic networks.',
   items: [
@@ -273,8 +278,8 @@ export const visitPrepCtaBand = {
   title: ['Turn Every Appointment Reminder', 'Into Clinical Preparation'],
   description:
     "Test-drive the new and returning patient workflows customized with your clinic's appointment types and languages.",
-  cta: { label: 'Schedule a Clinical Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Contact Solutions Team', to: '/contact-us' },
+  cta: { label: 'Schedule a Clinical Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Contact Solutions Team', to: '/contact-us/' },
   related: {
     label: 'Explore additional AI capabilities:',
     links: [{ label: 'Kratu Co-Pilot (Clinical Scribe)' }, { label: 'Payor Policy Intelligence' }],

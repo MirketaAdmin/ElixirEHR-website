@@ -95,7 +95,7 @@ function OnDemandCard({ post }) {
   );
 }
 
-/** /insights/webinars — the next upcoming webinar, then the on-demand recordings. */
+/** /webinars-podcasts — the next upcoming webinar, then the on-demand recordings. */
 function WebinarListing() {
   const posts = useMemo(() => getPosts('webinars'), []);
   const listing = useResourceListing(posts, { pageSize: 4, filterFn: byCategory });

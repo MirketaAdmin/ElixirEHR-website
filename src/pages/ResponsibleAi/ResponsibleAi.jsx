@@ -12,6 +12,7 @@ import DataSection from './sections/DataSection/DataSection';
 import VendorSection from './sections/VendorSection/VendorSection';
 import NonClaimsSection from './sections/NonClaimsSection/NonClaimsSection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './ResponsibleAi.module.css';
 
 /** Responsible AI — an independent page (no parent). */
@@ -21,8 +22,7 @@ function ResponsibleAi() {
 
   return (
     <>
-      <title>Responsible AI in Healthcare | Elixir</title>
-      <meta name="description" content={hero.description[0]} />
+      <PageSeo path="/responsible-ai-in-healthcare" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <RuleSection />
       <ClinicalSection />

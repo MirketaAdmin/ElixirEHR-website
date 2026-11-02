@@ -1,6 +1,7 @@
 import { pressReleasesHero } from '../../data/pressReleases';
 import PageHero from '../../components/sections/PageHero/PageHero';
 import PressReleaseListing from './sections/PressReleaseListing/PressReleaseListing';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './PressReleases.module.css';
 
 function PressReleases() {
@@ -8,8 +9,7 @@ function PressReleases() {
 
   return (
     <>
-      <title>Press Releases | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/press-releases" />
       <PageHero
         {...hero}
         className={styles.hero}

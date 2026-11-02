@@ -17,6 +17,7 @@ import RcmWorkflowsSection from './sections/RcmWorkflowsSection/RcmWorkflowsSect
 import MultiPayerSection from './sections/MultiPayerSection/MultiPayerSection';
 import RcmAiCapabilitiesSection from './sections/RcmAiCapabilitiesSection/RcmAiCapabilitiesSection';
 import FaqSection from '../../components/sections/FaqSection/FaqSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './RevenueCycleManagement.module.css';
 
 function RevenueCycleManagement() {
@@ -24,8 +25,7 @@ function RevenueCycleManagement() {
 
   return (
     <>
-      <title>Healthcare Revenue Cycle Management and Payer Workflows | Elixir</title>
-      <meta name="description" content={rcmHero.description} />
+      <PageSeo path="/rcm-software" />
       <PageHero {...hero} className={styles.hero} media={<TiltedHeroMedia {...media} />} />
       <UnifiedPlatformSection />
       <PatientJourneySection />

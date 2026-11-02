@@ -1,4 +1,4 @@
-// Responsible AI page (Figma "Responsible AI", 1280 frame), an independent page (/responsible-ai)
+// Responsible AI page (Figma "Responsible AI", 1280 frame), an independent page (/responsible-ai-in-healthcare)
 // with no parent. Copy is reproduced verbatim from the frame; forced mid-sentence line breaks are
 // dropped. The hero image is the frame's grey placeholder (the same export as the KratuAI hero).
 import heroMedia from '../assets/responsible-ai/hero-media.png';
@@ -233,11 +233,11 @@ export const raCtaBand = {
   title: 'Ask us the hard questions on a live record',
   description:
     'Bring your compliance lead. Pick any recommendation in the demo and ask where it came from, what happens on approval, and what is retained afterwards.',
-  cta: { label: 'Request a KratuAI Demo', to: '/request-demo' },
+  cta: { label: 'Request a KratuAI Demo', to: '/request-demo/' },
   links: [
-    { label: 'KratuAI overview', to: '/kratu-ai' },
-    { label: 'Kratu Co-Pilot', to: '/kratu-ai/elixir-co-pilot-clinical-assistant' },
-    { label: 'Payor Policy Intelligence', to: '/kratu-ai/payor-policy-intelligence' },
+    { label: 'KratuAI overview', to: '/healthcare-ai-platform/' },
+    { label: 'Kratu Co-Pilot', to: '/ai-clinical-documentation/' },
+    { label: 'Payor Policy Intelligence', to: '/payer-policy-intelligence/' },
   ],
 };
 

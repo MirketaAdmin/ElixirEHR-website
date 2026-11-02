@@ -1,8 +1,10 @@
 // Header navigation: one tree shared by the desktop mega menu and the mobile accordion.
+// The hierarchy, labels and order follow the approved "ElixirEHR Website Architecture" sheet
+// (struck-through entries are left out); routes are the approved SEO slugs (data/seo.js).
 //
 // Each item: { label, to?, plannedPath?, children? } — up to four levels deep.
 //   to           an existing route in App.jsx; only these are rendered as links.
-//   plannedPath  the URL supplied for a page that is not built yet. It is kept for reference and
+//   plannedPath  the approved slug of a page that is not built yet. It is kept for reference and
 //                is NOT linked (the router would show the "not available yet" page); move it to `to` once the page
 //                exists.
 // The desktop header lays these groups out in megaPanels (below); the mobile drawer and the site
@@ -12,62 +14,48 @@ export const mainNav = [
   {
     label: 'Products',
     children: [
-      // Supplied as /ehr/; the existing EHR page lives at /electronic-health-record.
-      { label: 'Electronic Health Record (EHR)', to: '/electronic-health-record' },
+      { label: 'Electronic Health Record (EHR)', to: '/ehr-software/' },
       {
         label: 'Revenue Cycle Management',
-        to: '/revenue-cycle-management',
+        to: '/rcm-software/',
         children: [
-          { label: 'Eligibility Verification', to: '/eligibility-verification' },
-          { label: 'Electronic Prior Authorization', to: '/revenue-cycle-management/electronic-prior-authorization' },
-          { label: 'Denial Management', to: '/denial-management' },
-          {
-            label: 'Professional and Institutional Claim Preparation',
-            to: '/professional-and-institutional-claim-preparation',
-          },
+          { label: 'Eligibility Verification', to: '/insurance-eligibility-verification/' },
+          { label: 'Electronic Prior Authorization', to: '/electronic-prior-authorization/' },
+          { label: 'Denial Management', to: '/denial-management-software/' },
+          { label: 'Professional and Institutional Claim Preparation', to: '/claims-processing-software/' },
         ],
       },
       {
         label: 'Electronic Visit Verification',
-        to: '/electronic-visit-verification',
+        to: '/evv-software/',
         children: [
-          { label: 'Caregiver Mobile App', to: '/caregiver-mobile-app' },
-          { label: 'EVV for Salesforce Field Service', to: '/evv-for-salesforce-field-service' },
+          { label: 'Caregiver Mobile App', to: '/caregiver-mobile-app/' },
+          { label: 'EVV for Salesforce Field Service', to: '/salesforce-evv/' },
         ],
       },
       {
         label: 'Patient Portal',
-        // Supplied as /patient-portal/; the route is /patient-portal (the trailing-slash form also works).
-        to: '/patient-portal',
-        children: [
-          {
-            label: 'Patient No-Show Prediction',
-            to: '/patient-no-show-prediction',
-            children: [{ label: 'No-Show ROI Calculator', to: '/no-show-roi-calculator' }],
-          },
-        ],
+        to: '/patient-portal-software/',
+        children: [{ label: 'Patient No-Show Prediction', to: '/patient-no-show-software/' }],
       },
-      { label: 'Contact Center', to: '/contact-center' },
+      { label: 'Contact Center', to: '/healthcare-contact-center/' },
     ],
   },
   {
+    // "(AI Offerings)" in the sheet, renamed to AI Ecosystem as it instructs.
     label: 'AI Ecosystem',
     children: [
-      { label: 'Elixir Co-Pilot (Clinical Assistant)', to: '/kratu-ai/elixir-co-pilot-clinical-assistant' },
-      { label: 'AI Medical Scribe' },
-      { label: 'Agentic AI Healthcare' },
-      { label: 'MCP in EHR' },
       {
         label: 'KratuAI',
-        to: '/kratu-ai',
+        to: '/healthcare-ai-platform/',
         children: [
-          { label: 'Visit Prep', to: '/kratu-ai/visit-prep' },
-          { label: 'Elixir Co-Pilot (Clinical Assistant)', to: '/kratu-ai/elixir-co-pilot-clinical-assistant' },
-          { label: 'A/R Agent', to: '/kratu-ai/ar-agent' },
-          { label: 'Payor Policy Intelligence', to: '/kratu-ai/payor-policy-intelligence' },
+          { label: 'Visit Prep', to: '/ai-pre-visit-preparation/' },
+          { label: 'Elixir Co-Pilot (Clinical Assistant)', to: '/ai-clinical-documentation/' },
+          { label: 'A/R Agent', to: '/ai-accounts-receivable-management/' },
+          { label: 'Payor Policy Intelligence', to: '/payer-policy-intelligence/' },
         ],
       },
-      { label: 'Responsible AI', to: '/responsible-ai' },
+      { label: 'Responsible AI', to: '/responsible-ai-in-healthcare/' },
     ],
   },
   {
@@ -75,43 +63,31 @@ export const mainNav = [
     children: [
       {
         label: 'Behavioral Health',
-        // Independent pages on flat routes (no parent route).
-        to: '/behavioral-health',
+        to: '/behavioral-health-ehr/',
         children: [
-          { label: 'Mental Health', to: '/behavioral-health/mental-health' },
-          { label: 'Substance Use Disorder', to: '/behavioral-health/substance-use-disorder' },
+          { label: 'Mental Health', to: '/mental-health-ehr/' },
+          { label: 'Substance Use Disorder', to: '/addiction-treatment-emr/' },
         ],
       },
-      { label: 'Home & Community-Based Care' },
-      { label: 'Value-Based Care', to: '/value-based-care' },
-      { label: 'Care Coordination', to: '/care-coordination' },
+      { label: 'Value-Based Care', to: '/value-based-care-software/' },
+      { label: 'Care Coordination', to: '/care-coordination-software/' },
       {
         label: 'More Specialties',
         children: [
-          { label: 'Outpatient Clinics', to: '/more-specialties/outpatient-clinics' },
-          { label: 'Small Practices', to: '/more-specialties/small-practices' },
-          { label: 'Telehealth', to: '/more-specialties/telehealth' },
-          { label: 'Aesthetic Practices', to: '/more-specialties/aesthetic-practices' },
-          { label: 'Medical Suppliers' },
-          { label: 'Student Health', to: '/more-specialties/student-health' },
-          { label: 'Treatment Center Solutions', to: '/treatment-center-solutions' },
+          { label: 'Outpatient Clinics', to: '/ambulatory-ehr/' },
+          { label: 'Small Practices', to: '/small-practice-ehr/' },
+          { label: 'Telehealth', to: '/telehealth-ehr/' },
+          { label: 'Aesthetic Practices', to: '/aesthetic-practice-ehr/' },
+          { label: 'Student Health', to: '/student-health-records-software/' },
+          { label: 'Treatment Center Solutions', to: '/treatment-center-software/' },
         ],
       },
       {
         label: 'Care Management',
-        to: '/care-management',
+        to: '/care-management-software/',
         children: [
-          { label: 'Care Plan Management', to: '/care-management/care-plan-management' },
-          { label: 'Social Determinants of Health', to: '/social-determinants-of-health' },
-        ],
-      },
-      {
-        label: 'Solutions by Challenges',
-        children: [
-          { label: 'Workflow Efficiencies' },
-          { label: 'Profitability' },
-          { label: 'Reporting' },
-          { label: 'Healthcare Cybersecurity' },
+          { label: 'Care Plan Management', to: '/care-plan-software/' },
+          { label: 'Social Determinants of Health', to: '/sdoh-software/' },
         ],
       },
     ],
@@ -119,71 +95,77 @@ export const mainNav = [
   {
     label: 'Resources',
     children: [
-      // Supplied as /client-success-stories/; the page was built at /success-stories.
-      { label: 'Success Stories', to: '/success-stories' },
-      { label: 'Insights', to: '/insights' },
+      { label: 'Success Stories', to: '/success-stories/' },
+      {
+        // "Insights (blog)" in the sheet. Its first entry is the existing blog list; the topic
+        // entries are not linked yet (the blog has no categories by these topics).
+        label: 'Insights',
+        to: '/insights/',
+        children: [
+          { label: 'All Blogs', to: '/blog/' },
+          { label: 'Behavioral Health' },
+          { label: 'Home Care & EVV' },
+          { label: 'Revenue Cycle' },
+          { label: 'Care Management' },
+          { label: 'Interoperability' },
+          { label: 'Healthcare AI' },
+        ],
+      },
       {
         label: 'Healthcare Regulations',
+        plannedPath: '/healthcare-regulations/',
         children: [
-          { label: 'EVV Requirements by State' },
-          { label: 'CMS Interoperability & Prior Authorization Rule' },
-          { label: 'Information Blocking' },
-          { label: '42 CFR Part 2' },
+          { label: 'EVV Requirements by State', plannedPath: '/evv-requirements-by-state/' },
+          { label: 'CMS Interoperability & Prior Authorization Rule', plannedPath: '/cms-interoperability-rule/' },
+          { label: 'Information Blocking', plannedPath: '/information-blocking-rule/' },
+          { label: '42 CFR Part 2', plannedPath: '/42-cfr-part-2/' },
         ],
       },
-      { label: 'Guides & E-books', to: '/insights/e-book' },
-      { label: 'Case Studies', to: '/case-studies' },
-      { label: 'Webinars & Podcasts', to: '/insights/webinars' },
-      // Listed twice in the supplied structure; shown once. The nav brief gave /category/… URLs;
-      // the Insights brief built these pages under /insights/….
-      { label: 'Release Notes', to: '/insights/release-notes' },
-      { label: 'ROI Calculator', to: '/no-show-roi-calculator' },
-      { label: 'Benchmark Surveys', to: '/insights/benchmark-surveys' },
-      // The newsletter sign-up section on the Blog page.
-      { label: 'Newsletter', to: '/blog#newsletter' },
-      { label: 'Illustrations', to: '/insights/illustrations' },
-      { label: 'Feature Videos', to: '/insights/videos' },
-      {
-        label: 'Support & Learning',
-        children: [
-          { label: 'Help Center' },
-          { label: 'Product Documentation' },
-        ],
-      },
+      { label: 'Guides & E-books', to: '/guides-ebooks/' },
+      { label: 'Case Studies', to: '/case-studies/' },
+      { label: 'Webinars & Podcasts', to: '/webinars-podcasts/' },
+      // Listed twice in the sheet; shown once.
+      { label: 'Release Notes', to: '/release-notes/' },
+      { label: 'Benchmark Surveys', to: '/benchmark-surveys/' },
+      // The newsletter sign-up section on the Blog page (the /newsletter page is not built yet).
+      { label: 'Newsletter', to: '/blog/#newsletter' },
+      { label: 'Feature Videos', to: '/feature-videos/' },
     ],
   },
   {
     label: 'Company',
     children: [
-      { label: 'About Us', to: '/about-us' },
-      { label: 'Why Elixir', to: '/why-elixir' },
-      { label: 'Press', to: '/press-releases' },
-      { label: 'Referral Program', to: '/referral-program' },
-      { label: 'Careers', to: '/career' },
-      { label: 'Contact Us', to: '/contact-us' },
-      // Same destination as the header and footer "Request a Demo" buttons.
-      { label: 'Request a Demo', to: '/request-demo' },
+      { label: 'About Us', to: '/about-us/' },
+      // What Is Elixir was merged into Why Elixir; both entries lead to the merged page.
+      { label: 'What Is Elixir', to: '/why-elixir/' },
+      { label: 'Why Elixir', to: '/why-elixir/' },
+      { label: 'Press', to: '/press-releases/' },
+      { label: 'Referral Program', to: '/referral-program/' },
+      { label: 'Careers', to: '/careers/' },
+      { label: 'Contact Us', to: '/contact-us/' },
     ],
   },
   {
     label: 'Compliance & Security',
     children: [
-      { label: 'HIPAA Compliance Center' },
+      { label: 'HIPAA Compliance Center', to: '/hipaa-compliant-ehr/' },
       {
         label: 'ONC Certification',
+        plannedPath: '/onc-health-it-certification/',
         children: [
-          { label: 'ONC MFA Use Cases', to: '/onc-certification/onc-mfa-use-cases' },
-          { label: 'Elixir Certified Module', to: '/onc-certification/elixir-certified-module' },
-          { label: 'Patient EHI Export', to: '/onc-certification/patient-ehi-export' },
+          { label: 'ONC MFA Use Cases', to: '/onc-certification/onc-mfa-use-cases/' },
+          { label: 'Elixir Certified Module', to: '/onc-certification/elixir-certified-module/' },
+          { label: 'Patient EHI Export', to: '/onc-certification/patient-ehi-export/' },
         ],
       },
-      { label: 'NAATP' },
-      { label: 'Salesforce Security Layer' },
+      { label: 'NAATP', to: '/naatp/' },
+      { label: 'Salesforce Security Layer', plannedPath: '/salesforce-data-security/' },
       {
         label: 'Interoperability (FHIR/HL7)',
-        children: [{ label: 'FHIR API Documentation' }],
+        plannedPath: '/healthcare-interoperability/',
+        children: [{ label: 'FHIR API Documentation', plannedPath: '/fhir-api-documentation/' }],
       },
-      { label: 'SOC 2 Type II' },
+      { label: 'SOC 2 Type II', plannedPath: '/soc-2-type-ii/' },
     ],
   },
 ];
@@ -236,29 +218,19 @@ export const megaPanels = [
         title: 'Healthcare AI Ecosystem',
         text: 'Human-in-the-loop governance seamlessly integrated into clinical charting and revenue workflows to eliminate manual burden.',
         note: 'Powered by Kratu AI Architecture',
-        link: { label: 'Learn More', to: '/responsible-ai' },
-      },
-      {
-        type: 'cards',
-        span: 4,
-        divider: true,
-        section: 'Elixir Co-Pilot (Clinical Assistant)',
-        titleHeading: true,
-        icon: 'medical',
-        tone: 'lavender',
-        intro: 'Real-time ambient assistant for provider encounters.',
-        items: ['AI Medical Scribe', 'Agentic AI Healthcare', 'MCP in EHR'],
+        link: { label: 'Learn More', to: '/responsible-ai-in-healthcare/' },
       },
       {
         type: 'rows',
-        span: 4,
+        span: 5,
+        divider: true,
         section: 'KratuAI',
         titleHeading: true,
         icon: 'sparkle',
         tone: 'lime',
         intro: 'Enterprise decision engines for revenue & prep.',
-        items: ['Visit Prep', 'A/R Agent', 'Payor Policy Intelligence', 'Responsible AI'],
       },
+      { type: 'cards', span: 3, items: ['Responsible AI'] },
     ],
   },
   {
@@ -267,33 +239,19 @@ export const megaPanels = [
     columns: [
       {
         type: 'rows',
-        span: 3,
+        span: 4,
         divider: true,
         heading: 'Care Programs',
         tone: 'lime',
         plain: true,
-        items: ['Behavioral Health', 'Home & Community-Based Care', 'Value-Based Care', 'Care Coordination'],
+        items: ['Behavioral Health', 'Value-Based Care', 'Care Coordination'],
       },
       {
         type: 'tiles',
-        span: 5,
-        divider: true,
+        span: 8,
         section: 'More Specialties',
         tone: 'lavender',
         sub: { section: 'Care Management', tone: 'yellow' },
-      },
-      {
-        type: 'rows',
-        span: 4,
-        section: 'Solutions by Challenges',
-        tone: 'lime',
-        filled: true,
-        icons: {
-          'Workflow Efficiencies': 'bolt',
-          Profitability: 'trendingUp',
-          Reporting: 'pieChart',
-          'Healthcare Cybersecurity': 'shield',
-        },
       },
     ],
   },
@@ -301,7 +259,6 @@ export const megaPanels = [
     label: 'Resources',
     groups: ['Resources'],
     columns: [
-      { type: 'links', span: 4, divider: true, section: 'Healthcare Regulations', icon: 'gavel', tone: 'yellow' },
       {
         type: 'links',
         span: 4,
@@ -310,25 +267,23 @@ export const megaPanels = [
         icon: 'pages',
         tone: 'lavender',
         items: [
-          'Insights',
           'Success Stories',
           'Guides & E-books',
           'Case Studies',
           'Webinars & Podcasts',
           'Release Notes',
-          'ROI Calculator',
           'Benchmark Surveys',
           'Newsletter',
-          'Illustrations',
           'Feature Videos',
         ],
       },
-      { type: 'rows', span: 4, section: 'Support & Learning', icon: 'school', tone: 'yellow', filled: true },
+      { type: 'links', span: 4, divider: true, section: 'Insights', icon: 'lightbulb', tone: 'lime' },
+      { type: 'links', span: 4, section: 'Healthcare Regulations', icon: 'gavel', tone: 'yellow' },
     ],
   },
   {
     label: 'Company',
-    // The reference puts the compliance layer in the Company panel.
+    // The reference puts the compliance layer in the Company panel (five header triggers).
     groups: ['Company', 'Compliance & Security'],
     columns: [
       {
@@ -337,11 +292,11 @@ export const megaPanels = [
         divider: true,
         heading: 'About Elixir',
         tone: 'lime',
-        items: ['About Us', 'Why Elixir', 'Press', 'Referral Program', 'Careers', 'Contact Us'],
+        items: ['About Us', 'What Is Elixir', 'Why Elixir', 'Press', 'Referral Program', 'Careers'],
         cta: {
           title: 'Contact & Demos',
           text: 'Schedule a custom walkthrough tailored for your billing or clinical team.',
-          item: 'Request a Demo',
+          item: 'Contact Us',
         },
       },
       {
@@ -373,22 +328,13 @@ export const megaPanels = [
 export const navDescriptions = {
   'Electronic Health Record (EHR)': 'Clinical workflows & documentation',
   'Contact Center': 'Unified patient communication',
-  'AI Medical Scribe': 'Transcribes visits, formats SOAP notes & recommends diagnoses.',
-  'Agentic AI Healthcare': 'Autonomous task execution with clinical guardrails.',
-  'MCP in EHR': 'Model Context Protocol for synchronized clinical context.',
   'Visit Prep': 'SMS-based no-app agenda & confirmation assistant.',
+  'Elixir Co-Pilot (Clinical Assistant)': 'Real-time ambient assistant for provider encounters.',
   'A/R Agent': 'Financial risk scoring & step-by-step denial guidance.',
   'Payor Policy Intelligence': 'Pre-submission claim evaluation against rules.',
   'Responsible AI': 'Governance, bias auditing, and HIPAA safety.',
-  'Home & Community-Based Care': 'EVV & caregiver field dispatch',
   'Value-Based Care': 'Risk-sharing & quality metric tracking',
   'Care Coordination': 'Cross-specialty communication',
-  'Workflow Efficiencies': 'Eliminate repetitive administrative tasks',
-  Profitability: 'Reduce claim denial cycles & clean claims',
-  Reporting: 'Real-time operational dashboards',
-  'Healthcare Cybersecurity': 'End-to-end HIPAA compliance protection',
-  'Help Center': 'Search knowledge base & FAQs',
-  'Product Documentation': 'Technical API specs & user guides',
   'HIPAA Compliance Center': 'BAA agreements & encrypted data store',
   'ONC Certification': '2015 Edition Cures Update Criteria',
   'ONC MFA Use Cases': 'Multi-Factor Authentication workflows',
@@ -422,7 +368,7 @@ export function findNavItem(groups, label) {
   return search(mainNav.filter((group) => groups.includes(group.label)));
 }
 
-export const demoCta = { label: 'Request a Demo', to: '/request-demo' };
+export const demoCta = { label: 'Request a Demo', to: '/request-demo/' };
 
 /** True when `pathname` is the route of `item` or of any of its descendants. */
 export function navContainsPath(item, pathname) {

@@ -13,7 +13,7 @@ export const kratuHero = {
   titleAccent: ['Revenue', 'Cycle'],
   description:
     'Four specialized agents, one unified engine inside the chart and the claims table your team already works in. KratuAI prepares the patient before the visit, documents the encounter, verifies payer rules, and resolves accounts receivable.',
-  primaryCta: { label: 'Request a KratuAI Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a KratuAI Demo', to: '/request-demo/', arrow: false },
   // Scrolls to "One AI Engine, Four Agents, One Patient Journey".
   secondaryCta: { label: 'Explore the 4 Agents', href: '#four-agents', icon: 'arrowDown', iconAfter: true },
   media: { src: heroPlaceholder, alt: '' },
@@ -85,7 +85,7 @@ export const kratuVisitPrep = {
     { title: 'Chart Integration', text: 'Confirmed agenda items attach directly to the scheduled encounter in Elixir.' },
   ],
   cta: 'Explore Visit Prep Details',
-  ctaTo: '/kratu-ai/visit-prep',
+  ctaTo: '/ai-pre-visit-preparation/',
   mock: {
     title: 'Patient Mobile Check-in (SMS Secured)',
     badge: 'Verified (OTP)',
@@ -116,7 +116,7 @@ export const kratuCoPilot = {
     { title: 'Zero Order Auto-Send', text: 'Clinicians maintain 100% control over meds, referrals, and diagnoses.' },
   ],
   cta: 'Explore Kratu Co-Pilot',
-  ctaTo: '/kratu-ai/elixir-co-pilot-clinical-assistant',
+  ctaTo: '/ai-clinical-documentation/',
   mock: {
     title: 'Kratu Co-Pilot Clinical Workspace',
     badge: 'Template Matched',
@@ -160,7 +160,7 @@ export const kratuPayorPolicy = {
     { title: 'Explicit Action Fixes', text: 'Provides exact corrective field entries before clearinghouse submission.' },
   ],
   cta: 'Explore Policy Intelligence',
-  ctaTo: '/kratu-ai/payor-policy-intelligence',
+  ctaTo: '/payer-policy-intelligence/',
   mock: {
     title: 'Pre-Claim Scoring • BCBS Commercial Episode',
     badge: '94 / 100 Clean Pass',
@@ -196,7 +196,7 @@ export const kratuArAgent = {
     { title: 'Forecasted Pay Window', text: 'Provides statistically backed expected payment days for CFO cash forecasting.' },
   ],
   cta: 'Explore the A/R Agent',
-  ctaTo: '/kratu-ai/ar-agent',
+  ctaTo: '/ai-accounts-receivable-management/',
   mock: {
     title: 'A/R Worklist Intelligence • High Exposure Queue',
     badge: 'Scored by Risk',
@@ -276,7 +276,7 @@ export const kratuGovernance = {
 };
 
 // Rendered with the site's shared FAQ section (standing rule). The frame supplies an answer for the
-// first question only; the others render as static rows until their answers are written.
+// first question only; the other answers were written for the site from this page's own copy.
 export const kratuFaq = {
   title: 'Frequently Asked Questions About KratuAI',
   description:
@@ -287,11 +287,35 @@ export const kratuFaq = {
       answer:
         'KratuAI is the native AI engine embedded across Elixir EHR and RCM. It operates as four specialized agents: Visit Prep before the visit, Kratu Co-Pilot during and after documentation, Payor Policy Intelligence before filing claims, and the A/R Agent for post-submission denial resolution.',
     },
-    { question: 'Is KratuAI a separate application with its own login?' },
-    { question: 'Do we have to adopt all four agents simultaneously?' },
-    { question: 'Does KratuAI take clinical or billing decisions autonomously?' },
-    { question: 'Can AI recommendations be explained during external payer audits?' },
-    { question: 'Is our patient data ever used to train external models?' },
+    {
+      question: 'Is KratuAI a separate application with its own login?',
+      answer:
+        "No. KratuAI is built into Elixir and appears inside the chart, care episode and claims screens your staff already use, under the same login and the same Salesforce permissions. There is no separate application or extra tab to open.",
+    },
+    {
+      question: 'Do we have to adopt all four agents simultaneously?',
+      answer:
+        "No. The four agents share one engine and one patient record, but each can be introduced on its own. You can start with the agent that addresses your most pressing problem, such as Visit Prep for intake or the A/R Agent for denials, and add the others when you are ready.",
+    },
+    {
+      question: 'Does KratuAI take clinical or billing decisions autonomously?',
+      answer:
+        "No. Every agent prepares work and hands the final decision to an authorized person. Clinicians review, edit and sign notes; no code is committed and no claim is filed without user confirmation; low-confidence values are held for manual review; and the A/R Agent never adjusts or writes off a balance without billing manager sign-off.",
+    },
+    {
+      question: 'Can AI recommendations be explained during external payer audits?',
+      answer:
+        "Yes. Payor Policy Intelligence shows the policy clause, page and policy year behind each recommendation, A/R Agent appeal packets cite the clinical excerpts and policy sections they rely on, and every final decision is made and recorded by a named user. Auditors see both the reasoning and the person accountable for it.",
+    },
+    {
+      question: 'Is our patient data ever used to train external models?',
+      answer:
+        [
+        "No. Protected health information is not used to train public or cross-tenant foundation models. Our ",
+        { text: "Responsible AI", to: "/responsible-ai-in-healthcare/" },
+        " page explains how patient data is handled across Elixir's AI features.",
+      ],
+    },
   ],
 };
 
@@ -300,5 +324,5 @@ export const kratuCtaBand = {
   title: 'See All Four Agents Running on Your Own Workflows',
   description:
     "Walk through the visit, the clinical documentation, the claim scoring, and the denial follow-up using your organization's custom templates, payer mix, and appointment types.",
-  cta: { label: 'Request a KratuAI Demo', to: '/request-demo' },
+  cta: { label: 'Request a KratuAI Demo', to: '/request-demo/' },
 };

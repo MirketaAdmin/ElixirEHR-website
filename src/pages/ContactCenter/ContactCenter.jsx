@@ -7,6 +7,7 @@ import VerificationSection from './sections/VerificationSection/VerificationSect
 import AssessmentsSection from './sections/AssessmentsSection/AssessmentsSection';
 import PaymentSection from './sections/PaymentSection/PaymentSection';
 import CensusSection from './sections/CensusSection/CensusSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './ContactCenter.module.css';
 
 function ContactCenter() {
@@ -14,8 +15,7 @@ function ContactCenter() {
 
   return (
     <>
-      <title>Healthcare Contact Center | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/healthcare-contact-center" />
       <PageHero {...hero} className={styles.hero} media={<BadgeHeroMedia media={media} badge={badge} />} />
       <IntakeSection />
       <VerificationSection />

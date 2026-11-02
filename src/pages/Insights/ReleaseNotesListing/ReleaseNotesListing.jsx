@@ -25,7 +25,7 @@ function meta(post) {
   ].filter(Boolean);
 }
 
-/** /insights/release-notes — release note posts (src/posts/release-note/). */
+/** /release-notes — release note posts (src/posts/release-note/). */
 function ReleaseNotesListing() {
   return (
     <FeaturedListing

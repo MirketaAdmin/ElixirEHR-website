@@ -3,6 +3,7 @@ import PageHero from '../../components/sections/PageHero/PageHero';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import StatsStrip from './sections/StatsStrip/StatsStrip';
 import ImpactSection from './sections/ImpactSection/ImpactSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './SuccessStories.module.css';
 
 function SuccessStories() {
@@ -10,8 +11,7 @@ function SuccessStories() {
 
   return (
     <>
-      <title>Client Success Stories | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/success-stories" />
       <PageHero
         {...hero}
         className={styles.hero}

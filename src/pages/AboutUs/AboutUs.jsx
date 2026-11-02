@@ -6,15 +6,12 @@ import MissionSection from './sections/MissionSection/MissionSection';
 import TeamSection from './sections/TeamSection/TeamSection';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import ContactSection from '../../components/sections/ContactSection/ContactSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 
 function AboutUs() {
   return (
     <>
-      <title>About Us | Elixir</title>
-      <meta
-        name="description"
-        content="Empowering Providers with Customizable, Efficient, and Patient-Centered Solutions"
-      />
+      <PageSeo path="/about-us" />
       <PageHero {...aboutHero} />
       <OurStorySection />
       <MissionSection />

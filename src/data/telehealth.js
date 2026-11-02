@@ -1,4 +1,4 @@
-// Telehealth page (/more-specialties/telehealth) — a child page of More Specialties.
+// Telehealth page (/telehealth-ehr) — a child page of More Specialties.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
 import heroMedia from '../assets/telehealth/hero-media.png';
 // The four pillar icons are the same crops as Small Practices'.
@@ -38,7 +38,7 @@ export const thHero = {
   titleAccent: [],
   description:
     'Adopting telehealth should not mean adopting a second system. In Elixir the virtual visit is scheduled on the same calendar, documented in the same chart and billed from the same record as everything else you do.',
-  primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/', arrow: false },
   // The frame gives no destination; it scrolls to "Medicare Telehealth Rules and the 31 December 2027 Cliff".
   secondaryCta: { label: 'See the 2027 and 2028 rule changes', href: '#medicare-policy' },
   media: {
@@ -101,7 +101,7 @@ export const thEngagement = {
       title: 'Fewer missed appointments',
       text: [
         'Removing the journey removes the most common practical reason people miss care. Where outreach capacity is finite, ',
-        { text: 'risk-ranked prediction decides who to call', to: '/patient-no-show-prediction' },
+        { text: 'risk-ranked prediction decides who to call', to: '/patient-no-show-software/' },
         '.',
       ],
     },
@@ -172,7 +172,7 @@ export const thExperience = {
       title: 'On-demand virtual visits',
       text: [
         'Self-scheduled in minutes through the ',
-        { text: 'Patient Portal', to: '/patient-portal' },
+        { text: 'Patient Portal', to: '/patient-portal-software/' },
         ', at times a clinic room could not offer.',
       ],
     },
@@ -329,7 +329,7 @@ export const thMedicare = {
       title: 'Behavioral health keeps the core flexibilities',
       text: [
         'Home as originating site, no geographic restriction and audio-only are permanent for behavioral and mental health services — and only for those. Conflating this with general outpatient telehealth is the single most common error in this category. See ',
-        { text: 'Behavioral Health', to: '/behavioral-health' },
+        { text: 'Behavioral Health', to: '/behavioral-health-ehr/' },
         '.',
       ],
     },
@@ -552,6 +552,6 @@ export const thCtaBand = {
   title: 'See a virtual visit from schedule to claim',
   description:
     'Bring your payer mix, your states and your visit types. We will show you the same patient scheduled, seen, documented and billed — without leaving the record once.',
-  cta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Explore the Patient Portal', to: '/patient-portal' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Explore the Patient Portal', to: '/patient-portal-software/' },
 };

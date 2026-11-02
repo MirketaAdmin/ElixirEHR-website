@@ -1,4 +1,4 @@
-// Substance Use Disorder page (/behavioral-health/substance-use-disorder) — an independent page with
+// Substance Use Disorder page (/addiction-treatment-emr) — an independent page with
 // no parent route. Copy is verbatim from the Figma. Links only point at routes that exist.
 import heroMedia from '../assets/substance-use-disorder/hero-media.png';
 import recordIcon from '../assets/substance-use-disorder/icon-strip-record.png';
@@ -32,7 +32,7 @@ export const sudHero = {
   titleAccent: [],
   description:
     'One Salesforce-native record that follows the patient from withdrawal management through residential, intensive outpatient and long-term remission monitoring \u2014 with 42 CFR Part 2 controls in the record itself, and both ASAM editions supported while your states finish transitioning.',
-  primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/', arrow: false },
   // The frame gives no destination; it scrolls to the level-of-care crosswalk.
   secondaryCta: { label: 'See the level-of-care coverage', href: '#continuum' },
   media: {
@@ -395,7 +395,7 @@ export const sudRevenue = {
     {
       title: 'Payor Policy Intelligence',
       text: 'AI-driven comparison between clinical notes and specific payer policies before the claim leaves the building.',
-      link: { label: 'See how Payor Policy Intelligence works', to: '/kratu-ai/payor-policy-intelligence' },
+      link: { label: 'See how Payor Policy Intelligence works', to: '/payer-policy-intelligence/' },
     },
   ],
 };
@@ -544,11 +544,11 @@ export const sudCtaBand = {
   title: 'See Elixir running your continuum of care',
   description:
     'Bring your levels of care, your states and your payer mix. We will show you the assessment, the placement decision, the Part 2 consent trail and the claim that comes out the other end \u2014 on the ladder your contracts actually use.',
-  cta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Explore the EHR', to: '/electronic-health-record' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Explore the EHR', to: '/ehr-software/' },
   related: [
-    { label: 'Revenue Cycle Management', to: '/revenue-cycle-management' },
-    { label: 'KratuAI', to: '/kratu-ai' },
-    { label: 'Patient Portal', to: '/patient-portal' },
+    { label: 'Revenue Cycle Management', to: '/rcm-software/' },
+    { label: 'KratuAI', to: '/healthcare-ai-platform/' },
+    { label: 'Patient Portal', to: '/patient-portal-software/' },
   ],
 };

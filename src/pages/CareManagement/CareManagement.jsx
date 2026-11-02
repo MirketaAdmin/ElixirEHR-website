@@ -18,6 +18,7 @@ import FaqSection from '../../components/sections/FaqSection/FaqSection';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import RichText from '../../components/ui/RichText/RichText';
 import { cn } from '../../utils/cn';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './CareManagement.module.css';
 
 const Img = ({ icon, className }) => (
@@ -246,8 +247,7 @@ function CareManagement() {
 
   return (
     <>
-      <title>Care Management Software | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/care-management-software" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <PillarsStrip />
       <ProductSection />

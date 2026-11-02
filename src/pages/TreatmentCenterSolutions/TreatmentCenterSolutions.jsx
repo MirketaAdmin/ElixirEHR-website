@@ -8,6 +8,7 @@ import ClinicalExcellenceSection from './sections/ClinicalExcellenceSection/Clin
 import OutcomesFeaturesSection from './sections/OutcomesFeaturesSection/OutcomesFeaturesSection';
 import FinancialPerformanceSection from './sections/FinancialPerformanceSection/FinancialPerformanceSection';
 import FinancialFeaturesSection from './sections/FinancialFeaturesSection/FinancialFeaturesSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './TreatmentCenterSolutions.module.css';
 
 function TreatmentCenterSolutions() {
@@ -15,8 +16,7 @@ function TreatmentCenterSolutions() {
 
   return (
     <>
-      <title>Treatment Center Solutions | Elixir</title>
-      <meta name="description" content={tcHero.description} />
+      <PageSeo path="/treatment-center-software" />
       <PageHero {...hero} className={styles.hero} media={<TiltedHeroMedia {...media} />} />
       <IntakeSection />
       <IntakeFeaturesSection />

@@ -79,9 +79,16 @@
   box-shadow: 0 24px 48px -12px rgb(50 27 79 / 0.35);
 }
 
-/* The cards waiting off-screen for the next slide. */
-.parked {
-  opacity: 0;
+/* The card looping round to the other end of the row slides in from one slot further out. */
+.entering {
+  animation: card-enter 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(calc(-50% + (var(--offset) + var(--from)) * (var(--w) + var(--gap))), -50%, 0);
+  }
 }
 
 .figure {
@@ -369,6 +376,10 @@
   .card,
   .arrow {
     transition: none;
+  }
+
+  .entering {
+    animation: none;
   }
 }
 

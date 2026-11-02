@@ -19,6 +19,7 @@ import PayorPolicyMock from './mocks/PayorPolicyMock/PayorPolicyMock';
 import ArAgentMock from './mocks/ArAgentMock/ArAgentMock';
 import CohesionSection from './sections/CohesionSection/CohesionSection';
 import GovernanceSection from './sections/GovernanceSection/GovernanceSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './KratuAi.module.css';
 
 function KratuAi() {
@@ -26,8 +27,7 @@ function KratuAi() {
 
   return (
     <>
-      <title>KratuAI | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/healthcare-ai-platform" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <StagesSection />
       <AgentSection agent={kratuVisitPrep}>

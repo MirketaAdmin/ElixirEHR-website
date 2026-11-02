@@ -14,6 +14,7 @@ import StructureSection from './sections/StructureSection/StructureSection';
 import PlatformSection from './sections/PlatformSection/PlatformSection';
 import PortalSection from './sections/PortalSection/PortalSection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './AestheticPractices.module.css';
 
 /** Aesthetic Practices — a child page of More Specialties. */
@@ -22,8 +23,7 @@ function AestheticPractices() {
 
   return (
     <>
-      <title>Aesthetic Practice Management Software | More Specialties | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/aesthetic-practice-ehr" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <PillarsStrip />
       <SchedulingSection />

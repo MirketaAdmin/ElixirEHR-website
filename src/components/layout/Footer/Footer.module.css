@@ -16,10 +16,43 @@
   color: var(--color-white-60);
 }
 
+/* Social icons, then the NAATP and HIPAA badges on the same row (supplied footer frame). */
+.connect {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 22px;
+  margin-top: 32px;
+}
+
 .socials {
   display: flex;
   gap: 16px;
-  margin-top: 32px;
+}
+
+.badges {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.badge {
+  display: block;
+  border-radius: var(--radius-xs);
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.badge:hover {
+  opacity: 0.85;
+}
+
+.badge:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 4px;
+}
+
+.badge img {
+  display: block;
 }
 
 .social {
@@ -129,6 +162,12 @@ a.social:hover {
 @media (max-width: 767px) {
   .top {
     grid-template-columns: 1fr;
+  }
+
+  /* Badges on their own row under the social icons. */
+  .badges {
+    flex-basis: 100%;
+    gap: 20px;
   }
 
   .bottom {

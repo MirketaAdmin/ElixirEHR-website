@@ -1,7 +1,7 @@
 // A/R Agent page (Figma "Revenue Kratu AI", 1280 frame), a child page of KratuAI
-// (/kratu-ai/ar-agent). Copy is reproduced verbatim from the frame; forced mid-sentence line breaks
+// (/ai-accounts-receivable-management). Copy is reproduced verbatim from the frame; forced mid-sentence line breaks
 // are dropped. The hero image is the frame's grey placeholder (the same export as the KratuAI hero).
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/ar-agent/hero-media.png';
 import valueRiskIcon from '../assets/kratu-ai/ar-value-risk.png';
 import valueCashIcon from '../assets/kratu-ai/ar-value-cash.png';
 import valueAppealsIcon from '../assets/kratu-ai/ar-value-appeals.png';
@@ -22,10 +22,13 @@ export const arHero = {
   titleAccent: [],
   description:
     'Stop working denials after they land. Elixir scores every account and every claim as it is created, so your team spends its day on the money actually at risk.',
-  primaryCta: { label: 'Explore Live Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Explore Live Demo', to: '/request-demo/', arrow: false },
   // No destination in the frame; scrolls to "Revenue Kratu AI capabilities" on this page.
   secondaryCta: { label: 'View Architecture', href: '#capabilities' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Claims scored by Kratu AI and routed into flagged and approved queues',
+  },
 };
 
 // Each card's link label has no destination in the frame; it scrolls to the matching feature row
@@ -222,8 +225,8 @@ export const arCtaBand = {
   title: ['Run Revenue Kratu AI on your', 'own claims'],
   description:
     'Connect Elixir directly to your current EHR or clearinghouse and evaluate predictive accuracy on historical claims in less than 48 hours.',
-  cta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Contact Specialist', to: '/contact-us' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Contact Specialist', to: '/contact-us/' },
 };
 
 // tag: the stage pill in each card's top-right corner.

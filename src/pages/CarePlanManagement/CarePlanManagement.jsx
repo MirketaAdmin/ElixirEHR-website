@@ -26,6 +26,7 @@ import WorkflowsVisual from './visuals/WorkflowsVisual/WorkflowsVisual';
 import FeaturesSection from './sections/FeaturesSection/FeaturesSection';
 import PlatformSection from './sections/PlatformSection/PlatformSection';
 import SettingsSection from './sections/SettingsSection/SettingsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './CarePlanManagement.module.css';
 
 /**
@@ -37,8 +38,7 @@ function CarePlanManagement() {
 
   return (
     <>
-      <title>Care Plan Management Software | Care Management | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/care-plan-software" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <PillarsStrip />
       <CpSplit id="cp-customizable" {...cpCustomizable} tone="white" offsets={[0, 0, 81]} visual={<LevelsVisual />} />

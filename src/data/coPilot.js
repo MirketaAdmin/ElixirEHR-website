@@ -1,5 +1,5 @@
 // Elixir Co-Pilot (Clinical Assistant) page (Figma "Kratu Co-Pilot", 1280 frame), a child page of
-// KratuAI (/kratu-ai/elixir-co-pilot-clinical-assistant). Copy is reproduced verbatim from the
+// KratuAI (/ai-clinical-documentation). Copy is reproduced verbatim from the
 // frame. The hero image is the frame's grey placeholder (the same export as the KratuAI hero).
 import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
 import pillarTemplatesIcon from '../assets/kratu-ai/copilot-pillar-templates.png';
@@ -39,7 +39,7 @@ export const coPilotHero = {
   titleAccent: [],
   description:
     'Three capabilities in the chart your clinicians already use: an ambient scribe across the whole visit, an insights pane that surfaces what the record already knows, and dictation that fills your own clinical templates. Every entry is confirmed by the clinician',
-  primaryCta: { label: 'Request a Kratu Co-Pilot Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Kratu Co-Pilot Demo', to: '/request-demo/', arrow: false },
   // Scrolls to "Three Kratu Co-Pilot features across one patient encounter".
   secondaryCta: { label: 'See the three features', href: '#features' },
   media: { src: heroPlaceholder, alt: '' },
@@ -413,7 +413,7 @@ export const coPilotCtaBand = {
   title: ['Experience Kratu Co-Pilot in Your', 'Clinical Workflow'],
   description:
     'See how seamless ambient scribe capture, 4-tab clinical insights, and instant template dictation return hours back to your clinicians every day.',
-  cta: { label: 'Request a Kratu Co-Pilot Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Schedule a 15-Minute Workflow Walkthrough', to: '/contact-us' },
+  cta: { label: 'Request a Kratu Co-Pilot Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Schedule a 15-Minute Workflow Walkthrough', to: '/contact-us/' },
   footnote: 'No credit card required · HIPAA BAA signed on day one · Built natively inside Elixir EHR',
 };

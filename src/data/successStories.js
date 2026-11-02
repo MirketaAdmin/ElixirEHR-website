@@ -15,7 +15,7 @@ export const successStoriesHero = {
   titleLines: ['Client Success', 'Stories'],
   description: 'Discover the Latest Innovations, Partnerships, and Milestones in Healthcare Technology',
   // Same CTA and destination as the Press Releases and Why Elixir heroes.
-  primaryCta: { label: 'Explore Our Platform', to: '/platform' },
+  primaryCta: { label: 'Explore Our Platform', to: '/why-elixir/' },
   image: {
     src: heroCard,
     alt: 'Smiling clinicians in scrubs and white coats joining hands in a circle',
@@ -102,5 +102,5 @@ export const successStoriesCtaBand = {
   title: 'Ready to scale your clinical impact?',
   description:
     'Join hundreds of forward-thinking healthcare organizations leveraging Elixir AI to deliver superior care while maintaining peak operational efficiency.',
-  cta: { label: 'Take a Test Drive', to: '/request-demo' },
+  cta: { label: 'Take a Test Drive', to: '/request-demo/' },
 };

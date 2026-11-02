@@ -1,5 +1,5 @@
 // Electronic Prior Authorization page (Figma "Electronic Prior Authorization", 1280 frame), a child
-// page of Revenue Cycle Management (/revenue-cycle-management/electronic-prior-authorization).
+// page of Revenue Cycle Management (/electronic-prior-authorization).
 // Copy is reproduced verbatim from the frame; forced mid-sentence line breaks in the frame's
 // paragraphs are dropped (see DESIGN-SYSTEM.md).
 import heroMediaPlaceholder from '../assets/denial-management/hero-media-placeholder.png';
@@ -20,9 +20,9 @@ export const epaHero = {
   titleAccent: [],
   description:
     'Manage prior authorizations alongside patient, clinical, insurance, and revenue workflows—all in one Salesforce-native platform.',
-  primaryCta: { label: 'Request a Demo', to: '/request-demo' },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/' },
   // No destination in the frame; What Is Elixir is the site's platform overview.
-  secondaryCta: { label: 'Explore Elixir', to: '/why-elixir' },
+  secondaryCta: { label: 'Explore Elixir', to: '/why-elixir/' },
   // The frame shows Figma's grey "missing image" box on the tilted backdrop (the same export as
   // Denial Management): the hero photo has not been supplied.
   media: {
@@ -202,8 +202,8 @@ export const epaWhyElixir = {
 export const epaCtaBand = {
   eyebrow: 'Ready to change how you handle prior authorization?',
   title: ['Connect Prior Authorization to the', 'Rest of Your Healthcare Workflow'],
-  cta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Talk to an Elixir Expert', to: '/contact-us' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Talk to an Elixir Expert', to: '/contact-us/' },
 };
 
 // Seven alternating feature rows. `media` is a window mock-up (title bar drawn in HTML, the

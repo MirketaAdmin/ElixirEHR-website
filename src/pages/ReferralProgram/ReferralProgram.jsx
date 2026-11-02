@@ -7,6 +7,7 @@ import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import ContactSection from '../../components/sections/ContactSection/ContactSection';
 import ReferralSteps from './sections/ReferralSteps/ReferralSteps';
 import ReferralBenefits from './sections/ReferralBenefits/ReferralBenefits';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './ReferralProgram.module.css';
 
 function ReferralProgram() {
@@ -14,8 +15,7 @@ function ReferralProgram() {
 
   return (
     <>
-      <title>Referral Program | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/referral-program" />
       <PageHero
         {...hero}
         className={styles.hero}

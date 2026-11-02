@@ -7,6 +7,7 @@ import FeatureSplitSection from './sections/FeatureSplitSection/FeatureSplitSect
 import IntegrationPortfolioSection from './sections/IntegrationPortfolioSection/IntegrationPortfolioSection';
 import InfoCardsSection from './sections/InfoCardsSection/InfoCardsSection';
 import OrderFromChaosSection from './sections/OrderFromChaosSection/OrderFromChaosSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './ElectronicHealthRecord.module.css';
 
 function ElectronicHealthRecord() {
@@ -14,8 +15,7 @@ function ElectronicHealthRecord() {
 
   return (
     <>
-      <title>Electronic Health Record (EHR) | Elixir</title>
-      <meta name="description" content={ehrHero.description} />
+      <PageSeo path="/ehr-software" />
       <PageHero {...hero} className={styles.hero} media={<EhrHeroMedia {...media} />} />
       <OrderFromChaosSection />
       <AiCapabilitiesSection />

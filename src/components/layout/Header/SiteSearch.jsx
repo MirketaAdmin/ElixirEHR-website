@@ -8,7 +8,7 @@ import styles from './SiteSearch.module.css';
 
 // Footer links whose pages are not built yet (Support Center, Documentation…) are left out: search
 // only offers pages that exist.
-const PLANNED = new Set(['/resources/support-center', '/resources/documentation', '/resources/developer-api', '/company/partners']);
+const PLANNED = new Set(['/resources/support-center/', '/resources/documentation/', '/resources/developer-api/', '/company/partners/']);
 
 /** Every linked page in the navigation tree (plus the footer's links), with its trail, once per URL. */
 function buildIndex() {

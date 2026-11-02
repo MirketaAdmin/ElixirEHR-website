@@ -16,6 +16,7 @@ import RevenueSection from './sections/RevenueSection/RevenueSection';
 import OutcomesSection from './sections/OutcomesSection/OutcomesSection';
 import KratuSection from './sections/KratuSection/KratuSection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './SubstanceUseDisorder.module.css';
 
 /** Substance Use Disorder — an independent page (no parent route). */
@@ -25,8 +26,7 @@ function SubstanceUseDisorder() {
 
   return (
     <>
-      <title>Substance Use Disorder EHR Software | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/addiction-treatment-emr" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <HighlightsStrip />
       <ContinuumSection />

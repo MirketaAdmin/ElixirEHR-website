@@ -1,4 +1,4 @@
-// Care Management page (/care-management) — an independent top-level page.
+// Care Management page (/care-management-software) — an independent top-level page.
 // Copy is verbatim from the Figma. Links only point at routes that exist; Value-Based Care, Integrations
 // and the ADT-feeds guide have no pages yet, so they render as plain text.
 import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
@@ -38,7 +38,7 @@ export const cmHero = {
   titleAccent: [],
   description:
     'Most of care management happens with no patient in the room — the call, the medication check, the chase after a discharge. It is also one of the few places in healthcare where that invisible work is paid for directly. It pays on a plan, an owner and documented time.',
-  primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/', arrow: false },
   // The frame gives no destination; it scrolls to "Chronic Care Management Billing", the codes table.
   secondaryCta: { label: 'What the codes pay for', href: '#billing' },
   media: { src: heroPlaceholder, alt: '' },
@@ -136,9 +136,9 @@ export const cmProduct = {
     icon: icon(noteIcon, 22, 16),
     text: [
       'Built on Salesforce, so the care plan, the outreach, the scheduling and the claim are the same record. Related: ',
-      { text: 'Care Coordination', to: '/care-coordination' },
+      { text: 'Care Coordination', to: '/care-coordination-software/' },
       ' for work that crosses an organizational boundary, Value-Based Care for the measures that score the result, and ',
-      { text: 'Contact Center', to: '/contact-center' },
+      { text: 'Contact Center', to: '/healthcare-contact-center/' },
       ' for the outreach.',
     ],
   },
@@ -417,6 +417,6 @@ export const cmCtaBand = {
   title: 'How many care management minutes did your team deliver last month?',
   description:
     'If answering that takes a spreadsheet and a week, you already know where the revenue is going. Bring us one program and one month, and we will show you the work that happened and was never captured.',
-  cta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Care Plan Software', to: '/care-management/care-plan-management' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Care Plan Software', to: '/care-plan-software/' },
 };

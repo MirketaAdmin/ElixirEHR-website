@@ -13,6 +13,7 @@ import BreakpointsSection from './sections/BreakpointsSection/BreakpointsSection
 import ApproachSection from './sections/ApproachSection/ApproachSection';
 import ExploreSection from './sections/ExploreSection/ExploreSection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './ElectronicVisitVerification.module.css';
 
 function ElectronicVisitVerification() {
@@ -21,8 +22,7 @@ function ElectronicVisitVerification() {
 
   return (
     <>
-      <title>Electronic Visit Verification for Medicaid Home Care | Elixir</title>
-      <meta name="description" content={evvHero.description} />
+      <PageSeo path="/evv-software" />
       <PageHero {...hero} className={styles.hero} media={<TiltedHeroMedia {...media} />} />
       <HighlightsSection />
       <RequirementSection />

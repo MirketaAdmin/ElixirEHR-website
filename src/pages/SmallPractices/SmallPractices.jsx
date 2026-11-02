@@ -15,6 +15,7 @@ import ObligationsSection from './sections/ObligationsSection/ObligationsSection
 import SecuritySection from './sections/SecuritySection/SecuritySection';
 import GrowthSection from './sections/GrowthSection/GrowthSection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './SmallPractices.module.css';
 
 /** Small Practices — a child page of More Specialties. */
@@ -23,8 +24,7 @@ function SmallPractices() {
 
   return (
     <>
-      <title>Small Practice EHR Software | More Specialties | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/small-practice-ehr" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <PillarsStrip />
       <NeedsSection />

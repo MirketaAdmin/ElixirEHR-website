@@ -26,7 +26,7 @@ export const billingHero = {
   description:
     "Elixir's 360° Patient Intake Management Solution combines healthcare automation, intelligent workflows, and Salesforce EHR integration.",
   // Same buttons as the About Us hero; "Explore Features" scrolls to this page's AI capabilities.
-  primaryCta: { label: 'Take A Test Drive', to: '/request-demo' },
+  primaryCta: { label: 'Take A Test Drive', to: '/request-demo/' },
   secondaryCta: { label: 'Explore Features', href: '#billing-ai-capabilities' },
   media: { src: heroMedia, alt: 'Clinician pointing at a patient overview dashboard on a monitor during a team meeting' },
   // The frame's badge over the hero image (same badge as the Patient Portal hero).
@@ -121,22 +121,42 @@ export const billingPartners = {
   names: ['Change Healthcare', 'CLAIM MD', 'VerifyTX', 'surescripts'],
 };
 
-// The frame shows the questions only; no answers were supplied, so they render as static rows.
+// The frame shows the questions only; the answers were written for the site from this page's own copy.
 export const billingFaq = {
   titleLines: ['Got', 'Questions?'],
   description: 'Find answers to the most common questions about our AI-driven revenue cycle management platform.',
   items: [
-    { question: '1. What is AI-driven healthcare billing?' },
-    { question: '2. How does AI improve revenue cycle management (RCM) in healthcare?' },
-    { question: '3. What are the benefits of using Elixir for healthcare billing?' },
-    { question: '4. How does real-time insurance verification work?' },
-    { question: '5. Can Elixir help reduce claim denials?' },
+    {
+      question: '1. What is AI-driven healthcare billing?',
+      answer:
+        "AI-driven healthcare billing uses automation and machine learning for the repetitive, error-prone steps of getting paid: reading insurance documents, checking eligibility, preparing claims and flagging the ones likely to be denied. In Elixir these capabilities come from Kratu AI, inside the same Salesforce-native platform as the clinical record, so billing works from the data clinicians documented and a person still reviews every claim before it is submitted.",
+    },
+    {
+      question: '2. How does AI improve revenue cycle management (RCM) in healthcare?',
+      answer:
+        "It moves error-catching earlier. Instead of finding a problem when a denial arrives weeks later, AI summarizes eligibility and coverage before the visit, reads intake documents so staff are not re-keying data, and flags claims at high risk of denial before they go out. The result is less manual rework, fewer avoidable denials and a clearer view of where revenue is held up.",
+    },
+    {
+      question: '3. What are the benefits of using Elixir for healthcare billing?',
+      answer:
+        "Clinical documentation, eligibility, claims and payments live on one Salesforce-native platform, so there is no hand-off between an EHR and a separate billing system to reconcile. You get automated claim generation with real-time status, electronic submission, patient payment tracking and financial analytics, with connections to partners such as Change Healthcare, CLAIM MD, VerifyTX and Surescripts.",
+    },
+    {
+      question: '4. How does real-time insurance verification work?',
+      answer:
+        "When an appointment is scheduled or a patient checks in, Elixir sends a standard X12 270 eligibility request to the payer through a connected clearinghouse and receives the 271 response in seconds. Coverage status, plan details, copays, deductibles and limits are written to the patient record, so front-desk staff can resolve a problem before the visit instead of after the claim is denied.",
+    },
+    {
+      question: '5. Can Elixir help reduce claim denials?',
+      answer:
+        "Yes. Many denials come from preventable causes such as eligibility errors, missing authorizations and coding or documentation gaps. Elixir verifies coverage before the visit, tracks authorizations, checks claims against payer rules and flags high-risk claims before submission, and categorizes the denials that do occur so your team can appeal them and fix the root cause. Results depend on your payer mix and starting point.",
+    },
   ],
 };
 
 // "Contact Us" goes to the Contact Us page; "Call Us Today" dials the number from the Contact section.
 export const billingCtaBand = {
   title: 'Click Here To Be Future Ready With Elixir',
-  cta: { label: 'Contact Us', to: '/contact-us' },
+  cta: { label: 'Contact Us', to: '/contact-us/' },
   secondaryCta: { label: 'Call Us Today', href: 'tel:+18556475382' },
 };

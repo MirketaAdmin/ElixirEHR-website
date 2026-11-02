@@ -107,7 +107,7 @@ export default {
     {
       type: 'cta',
       title: 'Learn more about Elixir and schedule a personalized demo with Mirketa.',
-      action: { label: 'Request a Demo', to: '/request-demo' },
+      action: { label: 'Request a Demo', to: '/request-demo/' },
     },
   ],
 };

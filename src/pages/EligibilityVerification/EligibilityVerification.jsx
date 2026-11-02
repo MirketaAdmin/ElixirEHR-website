@@ -12,6 +12,7 @@ import BenefitsAuditSection from './sections/BenefitsAuditSection/BenefitsAuditS
 import BulkVerificationSection from './sections/BulkVerificationSection/BulkVerificationSection';
 import BuyerChecklistSection from './sections/BuyerChecklistSection/BuyerChecklistSection';
 import CareSettingsSection from './sections/CareSettingsSection/CareSettingsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './EligibilityVerification.module.css';
 
 function EligibilityVerification() {
@@ -19,8 +20,7 @@ function EligibilityVerification() {
 
   return (
     <>
-      <title>Real-Time Insurance Eligibility Verification | Elixir</title>
-      <meta name="description" content={evHero.description} />
+      <PageSeo path="/insurance-eligibility-verification" />
       <PageHero {...hero} className={styles.hero} media={<TiltedHeroMedia {...media} />} />
       <FrontDeskSection />
       <StatsSection />

@@ -9,9 +9,16 @@ import styles from './TestimonialsSection.module.css';
 
 const pad = (value) => String(value).padStart(2, '0');
 const wrap = (value, count) => ((value % count) + count) % count;
-// Cards rendered on each side of the active one: two are visible (the outer one cut off by the
-// viewport edge), the third waits off-screen so a card never pops in during a slide.
-const SIDE = 3;
+
+/**
+ * The positions rendered: one card per testimonial, so none is ever shown twice. The active card
+ * and its two neighbours, with any remaining cards on the side the row last moved away from
+ * (`direction` 1 = forward), where the outer one is cut off by the viewport edge.
+ */
+function visibleSlots(position, count, direction) {
+  const before = Math.min(Math.max(direction >= 0 ? count - 2 : 1, 0), count - 1);
+  return Array.from({ length: count }, (_, index) => position - before + index);
+}
 
 /** Star rating in a Deep Purple pill (e.g. five yellow stars), read out as "Rated 5 out of 5". */
 function Rating({ value }) {
@@ -47,8 +54,9 @@ function Author({ item, nameId }) {
 /**
  * Testimonial coverflow (reference design): a full-width row of equal cards centred on the
  * active one, which is taller, outlined in Deep Purple and lifted; its neighbours sit either side
- * and the next ones are cut off by the viewport edges. The row loops endlessly in both
- * directions. It moves by the round arrows on the neighbours' outer edges, by clicking a
+ * and the next one is cut off by the viewport edge. Each testimonial is rendered once (counter
+ * 01 / 04 … 04 / 04); the row still loops endlessly in both directions, the card leaving one end
+ * sliding back in at the other. It moves by the round arrows on the neighbours' outer edges, by clicking a
  * neighbour, by swiping, or automatically every `testimonials.autoplaySeconds` (paused while the
  * pointer or focus is inside, while the dialog is open, and for reduced motion).
  *
@@ -59,21 +67,33 @@ function TestimonialsSection() {
   const count = items.length;
   // Unbounded position, so the row can keep sliding the same way past the last testimonial.
   const [position, setPosition] = useState(0);
+  const [direction, setDirection] = useState(1);
+  // The card that joined the row on the last move (the one looping round); it slides in.
+  const [entering, setEntering] = useState(null);
   const [hovered, setHovered] = useState(false);
   const [openItem, setOpenItem] = useState(null);
   const reducedMotion = usePrefersReducedMotion();
   const active = wrap(position, count);
   const running = !hovered && openItem === null && !reducedMotion && count > 1;
 
-  const go = useCallback((next) => setPosition(next), []);
+  const go = useCallback(
+    (next) => {
+      const nextDirection = next >= position ? 1 : -1;
+      const current = visibleSlots(position, count, direction);
+      setEntering(visibleSlots(next, count, nextDirection).find((virtual) => !current.includes(virtual)) ?? null);
+      setDirection(nextDirection);
+      setPosition(next);
+    },
+    [position, direction, count],
+  );
   const swipe = useSwipe({ onPrev: () => go(position - 1), onNext: () => go(position + 1) });
 
   // Autoplay; a manual move restarts the countdown (the effect re-runs on every new position).
   useEffect(() => {
     if (!running) return undefined;
-    const timer = setTimeout(() => setPosition((value) => value + 1), autoplaySeconds * 1000);
+    const timer = setTimeout(() => go(position + 1), autoplaySeconds * 1000);
     return () => clearTimeout(timer);
-  }, [running, position, autoplaySeconds]);
+  }, [running, position, autoplaySeconds, go]);
 
   // Which quotes are cut off at their card's current size (the active card shows more lines).
   const quoteRefs = useRef(new Map());
@@ -99,8 +119,7 @@ function TestimonialsSection() {
     else if (!openItem && dialog.open) dialog.close();
   }, [openItem]);
 
-  const slots = [];
-  for (let virtual = position - SIDE; virtual <= position + SIDE; virtual += 1) slots.push(virtual);
+  const slots = visibleSlots(position, count, direction);
 
   return (
     <section
@@ -135,8 +154,8 @@ function TestimonialsSection() {
             return (
               <li
                 key={virtual}
-                className={cn(styles.card, isActive && styles.active, Math.abs(offset) >= SIDE && styles.parked)}
-                style={{ '--offset': offset }}
+                className={cn(styles.card, isActive && styles.active, virtual === entering && styles.entering)}
+                style={{ '--offset': offset, '--from': direction }}
                 aria-hidden={!reachable}
                 inert={!reachable}
                 aria-roledescription="slide"

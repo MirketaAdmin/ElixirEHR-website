@@ -16,7 +16,7 @@ export const pressReleasesHero = {
   titleLines: ['Elixir News &', 'Press Releases'],
   description: 'Discover the Latest Innovations, Partnerships, and Milestones in Healthcare Technology',
   // Same CTA and destination as the Why Elixir hero.
-  primaryCta: { label: 'Explore Our Platform', to: '/platform' },
+  primaryCta: { label: 'Explore Our Platform', to: '/why-elixir/' },
   image: {
     src: pressHeroCard,
     alt: 'Four clinicians reviewing data together on a laptop and a tablet',

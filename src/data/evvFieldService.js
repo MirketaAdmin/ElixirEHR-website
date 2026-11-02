@@ -28,7 +28,7 @@ export const fsHero = {
     'Extend Salesforce Field Service with healthcare-specific Electronic Visit Verification. Elixir connects GPS check-in/check-out, geofencing, service authorizations, care plans, supervisor exceptions, EVV compliance and billing—within your Salesforce ecosystem.',
   // No destinations in the frame: the demo CTA uses /request-demo, as on the other pages; the
   // second CTA scrolls to this page's EVV features section.
-  primaryCta: { label: 'Request EVV Demo', to: '/request-demo' },
+  primaryCta: { label: 'Request EVV Demo', to: '/request-demo/' },
   secondaryCta: { label: 'Explore EVV Features', href: '#evv-features' },
   media: {
     src: heroMedia,
@@ -208,19 +208,43 @@ export const fsWhyNative = {
   ],
 };
 
-// The frame supplies no answer copy, so the items have no `answer` yet and render as static rows
-// (see DESIGN-SYSTEM.md open questions). Add `answer` to each item to make it expandable.
+// The frame supplies the questions only; the answers were written for the site from this page's own
+// copy. Each question opens its answer in its card.
 // The first three questions fill the left column, the rest the right.
 export const fsFaq = {
   eyebrow: 'Frequently asked questions',
   title: 'Salesforce EVV FAQs',
   items: [
-    { question: 'Does Salesforce Field Service include Electronic Visit Verification?' },
-    { question: 'Is Elixir EVV native to Salesforce?' },
-    { question: 'Can EVV information be connected to EHR and billing?' },
-    { question: 'Can Elixir EVV work with Salesforce Field Service?' },
-    { question: 'Does Elixir support GPS and geofencing for EVV?' },
-    { question: 'Can Elixir integrate with Sandata or other EVV aggregators?' },
+    {
+      question: 'Does Salesforce Field Service include Electronic Visit Verification?',
+      answer:
+        "No. Salesforce Field Service handles scheduling, workforce assignment, dispatch and field operations, but it does not include the electronic visit verification Medicaid requires for personal care and home health services. Elixir adds EVV around Field Service: verified check-in and check-out, GPS and geofencing, supervisor exception management and the visit data your state or payer requires.",
+    },
+    {
+      question: 'Is Elixir EVV native to Salesforce?',
+      answer:
+        "Yes. Elixir EVV runs on the Salesforce platform rather than as a separate application connected by an interface, so visit verification sits in the same environment as scheduling, the care record, authorizations and billing. Supervisors, care teams, compliance and billing staff all work from the same visit record instead of reconciling data between systems.",
+    },
+    {
+      question: 'Can EVV information be connected to EHR and billing?',
+      answer:
+        "Yes, and that is the main reason to keep EVV on the same platform. Each verified visit is linked to the client, the scheduled caregiver, the authorization and the care plan tasks, and its verification status is used to judge claim readiness. Exceptions such as missed check-ins or manual entries are resolved before the visit reaches billing, rather than discovered after a claim is rejected.",
+    },
+    {
+      question: 'Can Elixir EVV work with Salesforce Field Service?',
+      answer:
+        "Yes. Elixir is built to complement Field Service: you keep Field Service for scheduling, dispatch and workforce management, and Elixir adds the healthcare visit around it — EVV with geofencing, the EHR and care plans, authorizations and claim readiness.",
+    },
+    {
+      question: 'Does Elixir support GPS and geofencing for EVV?',
+      answer:
+        "Yes. Check-in and check-out capture the caregiver's time and location, and Elixir compares the actual location with the expected service location using a configurable geofence. Visits outside the geofence are flagged for supervisor review, and visits captured offline keep their original timestamps when they synchronize.",
+    },
+    {
+      question: 'Can Elixir integrate with Sandata or other EVV aggregators?',
+      answer:
+        "Elixir has an EVV aggregator connector framework that routes visit data according to your state and payer requirements, including open-model submission. Depending on the state and program, that can mean platforms such as Sandata or HHAeXchange. Connector availability is confirmed for each state and payer during implementation, and each visit shows its submission status: pending, submitted, accepted or rejected.",
+    },
   ],
 };
 
@@ -250,6 +274,6 @@ export const fsCtaBand = {
   title: 'See Salesforce-Native EVV in Elixir',
   description:
     'If you use Salesforce Field Service, Health Cloud, Service Cloud or a Salesforce-based home- care workflow, see how Elixir can connect EVV to the rest of your care-delivery and billing process.',
-  cta: { label: 'Request EVV Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Schedule a Demo', to: '/request-demo' },
+  cta: { label: 'Request EVV Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Schedule a Demo', to: '/request-demo/' },
 };

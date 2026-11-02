@@ -53,7 +53,7 @@ export default {
         'Demographic Insights: Impact of age, location, and communication preferences',
         [
           'AI Adoption Trends: How top organizations are leveraging AI for predictive ',
-          { text: 'no-show', to: '/patient-no-show-prediction' },
+          { text: 'no-show', to: '/patient-no-show-software/' },
           ' management',
         ],
         'Actionable Strategies: Proven steps to reduce no-shows and boost operational efficiency',
@@ -77,7 +77,7 @@ export default {
       type: 'paragraph',
       text: [
         'This report is brought to you by Elixir, the AI-powered Salesforce ',
-        { text: 'EHR', to: '/electronic-health-record' },
+        { text: 'EHR', to: '/ehr-software/' },
         ' platform transforming how healthcare organizations manage patients, reduce no-shows, and drive engagement.',
       ],
     },

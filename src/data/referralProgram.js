@@ -81,5 +81,5 @@ export const referralCtaBand = {
   title: ['Ready to get Started with your', 'Elixir Implementation?'],
   description:
     'Contact us for a Demo today and we will help you identify the Right Solution for your Healthcare Practice. Our clinical team is ready to support your transition.',
-  cta: { label: 'Contact Us Now', to: '/contact-us' },
+  cta: { label: 'Contact Us Now', to: '/contact-us/' },
 };

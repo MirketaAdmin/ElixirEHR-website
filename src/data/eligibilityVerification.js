@@ -31,7 +31,7 @@ export const evHero = {
     'Confirm patient coverage in one click before every visit. Elixir RCM connects directly to a healthcare clearinghouse, stores every result on the patient record, and helps your team stop eligibility denials before they happen.',
   // Destinations are not in the frame: the demo CTA matches the other pages, and "See how it
   // works" jumps to the "How Real-Time Eligibility Verification Works" section on this page.
-  primaryCta: { label: 'Take A Test Drive', to: '/request-demo' },
+  primaryCta: { label: 'Take A Test Drive', to: '/request-demo/' },
   secondaryCta: { label: 'See how it works', href: '#how-it-works' },
   media: {
     src: heroMedia,
@@ -286,6 +286,6 @@ export const evCtaBand = {
   title: 'Verify Every Patient Before Every Visit',
   description: 'See real-time eligibility verification in Elixir RCM with your own workflow in mind.',
   // Destinations are not in the frame; these match the CTAs on the other pages.
-  cta: { label: 'Take A Test Drive', to: '/request-demo' },
-  secondaryCta: { label: 'Contact Sales', to: '/company/contact' },
+  cta: { label: 'Take A Test Drive', to: '/request-demo/' },
+  secondaryCta: { label: 'Contact Sales', to: '/contact-us/#contact' },
 };

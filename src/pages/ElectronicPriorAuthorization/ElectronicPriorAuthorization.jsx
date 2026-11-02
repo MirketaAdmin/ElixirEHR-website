@@ -10,6 +10,7 @@ import FeaturesSection from './sections/FeaturesSection/FeaturesSection';
 import BenefitsSection from './sections/BenefitsSection/BenefitsSection';
 import AudiencesSection from './sections/AudiencesSection/AudiencesSection';
 import WhyElixirSection from './sections/WhyElixirSection/WhyElixirSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './ElectronicPriorAuthorization.module.css';
 
 /** Electronic Prior Authorization — a child page of Revenue Cycle Management. */
@@ -18,8 +19,7 @@ function ElectronicPriorAuthorization() {
 
   return (
     <>
-      <title>Electronic Prior Authorization Software | Revenue Cycle Management | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/electronic-prior-authorization" />
       <PageHero {...hero} className={styles.hero} media={<TiltedHeroMedia {...media} />} />
       <PathSection />
       <AiSection />

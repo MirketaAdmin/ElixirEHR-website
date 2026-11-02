@@ -36,7 +36,7 @@ export const pcHero = {
   description: 'Prepare, scrub, submit, and manage CMS-1500 and UB-04 claims directly in Salesforce.',
   // No destinations in the frame: the demo CTA uses /request-demo like the other pages; the
   // integrations CTA scrolls to this page's clearinghouse section.
-  primaryCta: { label: 'Book a claim demo', to: '/request-demo' },
+  primaryCta: { label: 'Book a claim demo', to: '/request-demo/' },
   secondaryCta: { label: 'See clearinghouse integrations', href: '#clearinghouse-connectivity' },
   media: {
     src: heroMedia,
@@ -373,25 +373,25 @@ export const pcOrganizations = {
       icon: { src: orgHospitalsIcon, width: 18, height: 18 },
       title: 'Hospitals and health systems',
       text: 'Coordinate UB-04 institutional charges for acute and outpatient stays alongside CMS-1500 claims for affiliated physician networks from a single Salesforce console.',
-      link: { label: 'Split-Billing Optimized', to: '/revenue-cycle-management' },
+      link: { label: 'Split-Billing Optimized', to: '/rcm-software/' },
     },
     {
       icon: { src: orgPhysicianGroupsIcon, width: 24, height: 12 },
       title: 'Physician groups and specialty practices',
       text: 'Manage high-volume CMS-1500 claims with automatic fee schedule lookups, complex surgical modifiers, and instant eligibility verification at front-desk check-in.',
-      link: { label: 'High-Volume Automation', to: '/revenue-cycle-management' },
+      link: { label: 'High-Volume Automation', to: '/rcm-software/' },
     },
     {
       icon: { src: orgAmbulatoryIcon, width: 20, height: 20 },
       title: 'Ambulatory surgery and behavioral health centers',
       text: 'Seamlessly handle ASC facility fees, per-diem behavioral health charges, and professional surgeon invoices generated during multi-specialty encounters.',
-      link: { label: 'ASC & RTC Ready', to: '/revenue-cycle-management' },
+      link: { label: 'ASC & RTC Ready', to: '/rcm-software/' },
     },
     {
       icon: { src: orgBillingCompaniesIcon, width: 20, height: 18 },
       title: 'Billing companies and RCM outsourcers',
       text: 'Multi-client tenancy in a single Salesforce environment. Segregate payer rules, custom scrubs, and reporting dashboards across all contracted provider clients.',
-      link: { label: 'Multi-Client Scaling', to: '/revenue-cycle-management' },
+      link: { label: 'Multi-Client Scaling', to: '/rcm-software/' },
     },
   ],
 };
@@ -401,6 +401,6 @@ export const pcCtaBand = {
   description:
     'Bring a sample professional and institutional claim to a working session and we will walk it through scrubbing, submission and remittance on your payer mix.',
   // Destinations are not in the frame: demo CTAs use /request-demo; Contact Sales uses Contact Us.
-  cta: { label: 'Take A Test Drive', to: '/request-demo' },
-  secondaryCta: { label: 'Contact Sales', to: '/contact-us' },
+  cta: { label: 'Take A Test Drive', to: '/request-demo/' },
+  secondaryCta: { label: 'Contact Sales', to: '/contact-us/' },
 };

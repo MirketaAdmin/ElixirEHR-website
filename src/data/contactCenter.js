@@ -31,7 +31,7 @@ export const ccHero = {
   description:
     "Elixir's 360° Patient Intake Management Solution combines healthcare automation, intelligent workflows, and Salesforce EHR integration.",
   // "Explore Features" scrolls to this page's AI capabilities.
-  primaryCta: { label: 'Take A Test Drive', to: '/request-demo' },
+  primaryCta: { label: 'Take A Test Drive', to: '/request-demo/' },
   secondaryCta: { label: 'Explore Features', href: '#contact-center-ai-capabilities' },
   media: { src: heroMedia, alt: 'Contact center agent with a headset working at two monitors' },
   badge: { label: 'Efficiency', text: 'Intake time reduced by 40%', icon: efficiencyIcon },

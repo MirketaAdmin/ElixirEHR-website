@@ -6,6 +6,7 @@ import Section from '../../components/layout/Section/Section';
 import EyebrowHeading from '../../components/ui/EyebrowHeading/EyebrowHeading';
 import Icon from '../../components/ui/Icon/Icon';
 import VideoModal from '../../components/ui/VideoModal/VideoModal';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './CaseStudies.module.css';
 
 /** A video thumbnail that opens the video in the page's popup (a button, never a link to YouTube). */
@@ -35,8 +36,7 @@ function CaseStudies() {
 
   return (
     <>
-      <title>Case Studies | Elixir</title>
-      <meta name="description" content={caseStudiesHero.description} />
+      <PageSeo path="/case-studies" />
       <PageHero
         {...caseStudiesHero}
         className={styles.hero}

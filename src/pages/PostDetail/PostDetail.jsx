@@ -17,7 +17,7 @@ function PostDetail({ type }) {
 /** Keeps the earlier /press-releases/:slug detail URLs working. */
 export function LegacyPressReleaseRedirect() {
   const { slug } = useParams();
-  return <Navigate to={`/press-release/${slug}`} replace />;
+  return <Navigate to={`/press-release/${slug}/`} replace />;
 }
 
 export default PostDetail;

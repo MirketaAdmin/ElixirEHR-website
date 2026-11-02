@@ -16,6 +16,7 @@ import Container from '../../components/layout/Container/Container';
 import CtaBanner from '../../components/sections/CtaBanner/CtaBanner';
 import { cn } from '../../utils/cn';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './SocialDeterminants.module.css';
 
 const Img = ({ icon, className }) => (
@@ -260,8 +261,7 @@ function SocialDeterminants() {
 
   return (
     <>
-      <title>Social Determinants of Health Software | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/sdoh-software" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <PillarsStrip />
       <ProductSection />

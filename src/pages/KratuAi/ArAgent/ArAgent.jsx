@@ -8,6 +8,7 @@ import ValueSection from './sections/ValueSection/ValueSection';
 import CapabilitiesSection from './sections/CapabilitiesSection/CapabilitiesSection';
 import CycleSection from './sections/CycleSection/CycleSection';
 import FeatureRow from './sections/FeatureRow/FeatureRow';
+import PageSeo from '../../../components/seo/PageSeo/PageSeo';
 import styles from './ArAgent.module.css';
 
 /** A/R Agent ("Revenue Kratu AI") — a child page of KratuAI. */
@@ -16,8 +17,7 @@ function ArAgent() {
 
   return (
     <>
-      <title>A/R Agent: Revenue Kratu AI | KratuAI | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/ai-accounts-receivable-management" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <ValueSection />
       <CapabilitiesSection />

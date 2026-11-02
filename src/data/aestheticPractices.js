@@ -1,4 +1,4 @@
-// Aesthetic Practices page (/more-specialties/aesthetic-practices) — a child page of More Specialties.
+// Aesthetic Practices page (/aesthetic-practice-ehr) — a child page of More Specialties.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
 import heroMedia from '../assets/aesthetic-practices/hero-media.png';
 import pillar1Icon from '../assets/aesthetic-practices/icon-pillar-1.png';
@@ -49,7 +49,7 @@ export const aeHero = {
   // see DESIGN-SYSTEM.md (open questions).
   description:
     'Adopting telehealth should not mean adopting a second system. In Elixir the virtual visit is scheduled on the same calendar, documented in the same chart and billed from the same record as everything else you do.',
-  primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/', arrow: false },
   // The frame gives no destination; it scrolls to "Before-and-After Photos Are Marketing Assets…".
   secondaryCta: { label: 'The before-and-after problem', href: '#before-and-after' },
   media: {
@@ -376,11 +376,11 @@ export const aePlatform = {
   ],
   // As drawn, the "Related" line is laid out as a row of narrow columns.
   related: [
-    { text: 'Contact Center', to: '/contact-center' },
+    { text: 'Contact Center', to: '/healthcare-contact-center/' },
     { text: 'for inquiry handling,' },
-    { text: 'Patient Portal', to: '/patient-portal' },
+    { text: 'Patient Portal', to: '/patient-portal-software/' },
     { text: 'for self-service, and' },
-    { text: 'no-show prediction', to: '/patient-no-show-prediction' },
+    { text: 'no-show prediction', to: '/patient-no-show-software/' },
     { text: 'where missed appointments are material.' },
   ],
 };
@@ -479,7 +479,7 @@ export const aeCtaBand = {
   title: 'See the clinic and the funnel on one record',
   description:
     'Bring your treatment menu, your locations and your marketing stack. We will show you a patient from first inquiry through consult, treatment, photo authorization and rebooking — without leaving the record once.',
-  cta: { label: 'Request a Demo', to: '/request-demo' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
   // The frame's second button is the sibling More Specialties page.
-  secondaryCta: { label: 'Small practice', to: '/more-specialties/small-practices' },
+  secondaryCta: { label: 'Small practice', to: '/small-practice-ehr/' },
 };

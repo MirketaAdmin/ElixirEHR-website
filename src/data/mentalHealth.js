@@ -1,4 +1,4 @@
-// Mental Health page (/behavioral-health/mental-health) — an independent page with no parent route.
+// Mental Health page (/mental-health-ehr) — an independent page with no parent route.
 // Copy is verbatim from the Figma. Links only point at routes that exist; items whose destination
 // is not built yet carry `to: null` and render as text.
 import heroMedia from '../assets/mental-health/hero-media.png';
@@ -32,7 +32,7 @@ export const mhHero = {
   titleAccent: [],
   description:
     'A Salesforce-native record built for how outpatient and community mental health actually runs — repeated outcome measures that get looked at, a real collaborative care registry, and documentation that works in a client’s kitchen as well as in a clinic room.',
-  primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/', arrow: false },
   // The frame gives no destination; it scrolls to the measurement-based care section.
   secondaryCta: { label: 'See measurement-based care', href: '#measurement' },
   media: {
@@ -523,8 +523,8 @@ export const mhCtaBand = {
   title: 'See what your outcome data would actually look like',
   description:
     'Bring your programs, your measures and your payer mix. We will show you the registry, the caseload review, the measure trajectory a clinician sees, and the claim that comes out the other end.',
-  cta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Substance use disorder EHR', to: '/behavioral-health/substance-use-disorder' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Substance use disorder EHR', to: '/addiction-treatment-emr/' },
   related: [
     { label: 'Explore CCBHC Compliance', to: null },
     { label: 'Collaborative Care Registry Walkthrough', to: null },

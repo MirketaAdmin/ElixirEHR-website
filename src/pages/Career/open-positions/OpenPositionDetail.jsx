@@ -108,7 +108,7 @@ function OpenPositionDetail() {
                 <Icon name="chevronRight" size={20} />
               </li>
               <li>
-                <Link to="/career">Career</Link>
+                <Link to="/careers/">Career</Link>
               </li>
               <li aria-hidden="true" className={styles.separator}>
                 <Icon name="chevronRight" size={20} />

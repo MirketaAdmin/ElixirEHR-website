@@ -9,6 +9,7 @@ import AccessSection from './sections/AccessSection/AccessSection';
 import LimitsSection from './sections/LimitsSection/LimitsSection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import AlumniSection from './sections/AlumniSection/AlumniSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './PatientPortal.module.css';
 
 function PatientPortal() {
@@ -16,8 +17,7 @@ function PatientPortal() {
 
   return (
     <>
-      <title>Patient Portal | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/patient-portal-software" />
       <PageHero {...hero} className={styles.hero} media={<BadgeHeroMedia media={media} badge={badge} className={styles.heroMedia} />} />
       <HighlightsStrip />
       <TasksSection />

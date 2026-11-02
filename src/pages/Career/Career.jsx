@@ -2,6 +2,7 @@ import { careerHero } from '../../data/career';
 import PageHero from '../../components/sections/PageHero/PageHero';
 import CultureSection from './sections/CultureSection/CultureSection';
 import JobOpenings from './job-openings/JobOpenings';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './Career.module.css';
 
 function Career() {
@@ -9,8 +10,7 @@ function Career() {
 
   return (
     <>
-      <title>Career | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/careers" />
       <PageHero
         {...hero}
         className={styles.hero}

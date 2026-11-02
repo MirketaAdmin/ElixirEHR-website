@@ -2,12 +2,12 @@ import { contactHero } from '../../data/contactUs';
 import PageHero from '../../components/sections/PageHero/PageHero';
 import DemoRequestSection from './sections/DemoRequestSection/DemoRequestSection';
 import TestimonialSection from './sections/TestimonialSection/TestimonialSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 
 function ContactUs() {
   return (
     <>
-      <title>Contact Us | Elixir</title>
-      <meta name="description" content={contactHero.description} />
+      <PageSeo path="/contact-us" />
       <PageHero {...contactHero} />
       <DemoRequestSection />
       <TestimonialSection />

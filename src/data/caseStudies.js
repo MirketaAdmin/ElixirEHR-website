@@ -19,7 +19,7 @@ export const caseStudiesHero = {
   titleAccent: 'in Their Own Words',
   description:
     'Video case studies from healthcare organizations running Elixir on Salesforce. Select a video to watch it here, without leaving the page.',
-  primaryCta: { label: 'Take A Test Drive', to: '/request-demo' },
+  primaryCta: { label: 'Take A Test Drive', to: '/request-demo/' },
   secondaryCta: { label: 'Browse all case studies', href: '#case-study-videos' },
 };
 

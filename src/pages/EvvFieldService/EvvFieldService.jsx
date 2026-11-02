@@ -13,6 +13,7 @@ import AggregatorSection from './sections/AggregatorSection/AggregatorSection';
 import WhyNativeSection from './sections/WhyNativeSection/WhyNativeSection';
 import FaqSection from './sections/FaqSection/FaqSection';
 import TalkSection from './sections/TalkSection/TalkSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './EvvFieldService.module.css';
 
 function EvvFieldService() {
@@ -20,8 +21,7 @@ function EvvFieldService() {
 
   return (
     <>
-      <title>Salesforce-Native EVV for Field Service, Home Care, EHR &amp; Billing | Elixir</title>
-      <meta name="description" content={fsHero.description} />
+      <PageSeo path="/salesforce-evv" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <StepsStrip />
       <BuiltForSection />

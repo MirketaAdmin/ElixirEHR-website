@@ -1,4 +1,4 @@
-// Outpatient Clinics page (/more-specialties/outpatient-clinics) — a child page of More Specialties.
+// Outpatient Clinics page (/ambulatory-ehr) — a child page of More Specialties.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
 import heroMedia from '../assets/outpatient-clinics/hero-media.png';
 import pillar1Icon from '../assets/outpatient-clinics/icon-pillar-1.png';
@@ -56,7 +56,7 @@ export const opHero = {
   titleAccent: [],
   description:
     'An integrated, cloud-based platform for outpatient clinics — one patient record across every line of service you run, with the scheduling, charting, billing and reporting each one needs configured separately.',
-  primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/', arrow: false },
   // The frame gives no destination; it scrolls to "One Platform for Every Service Line".
   secondaryCta: { label: 'See how service lines work', href: '#service-lines' },
   media: {
@@ -297,7 +297,7 @@ export const opScheduling = {
   promo: {
     title: 'Looking to reduce no-shows?',
     text: 'Explore our AI-driven no-show prediction model and calculate clinic ROI.',
-    link: { label: 'Patient No-Show Prediction and ROI calculator', to: '/patient-no-show-prediction' },
+    link: { label: 'Patient No-Show Prediction and ROI calculator', to: '/patient-no-show-software/' },
   },
 };
 
@@ -612,6 +612,6 @@ export const opCtaBand = {
   title: 'See your clinic running on one platform',
   description:
     "Let us show you how Elixir brings scheduling, documentation, and billing together for every service line your clinic operates. We'll build a live demo tailored to your exact mix of specialties.",
-  cta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Speak with an EHR Specialist', to: '/contact-us' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Speak with an EHR Specialist', to: '/contact-us/' },
 };

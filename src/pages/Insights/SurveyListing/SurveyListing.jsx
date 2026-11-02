@@ -12,7 +12,7 @@ function meta(post) {
 
 const action = (post) => ({ label: 'Read More', to: getPostPath(post) });
 
-/** /insights/benchmark-surveys — benchmark survey posts (src/posts/benchmark-survey/). */
+/** /benchmark-surveys — benchmark survey posts (src/posts/benchmark-survey/). */
 function SurveyListing() {
   return (
     <WideListing

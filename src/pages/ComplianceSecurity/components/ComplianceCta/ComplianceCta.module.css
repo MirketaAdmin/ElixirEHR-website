@@ -1,0 +1,34 @@
+/* The reference's brand gradient band, narrower intro. */
+.band {
+  background: var(--gradient-brand);
+}
+
+.band h2 + p {
+  max-width: 680px;
+  color: #d9d1e4;
+}
+
+.secondary {
+  border-color: rgb(255 255 255 / 0.45);
+  color: var(--color-white);
+}
+
+.related {
+  margin-top: 32px;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: #c9bfd8;
+}
+
+.link {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--color-white);
+}
+
+.pending {
+  font-weight: 700;
+  color: var(--color-white);
+}

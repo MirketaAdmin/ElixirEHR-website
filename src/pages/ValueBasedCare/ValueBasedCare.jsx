@@ -12,6 +12,7 @@ import CcbhcSection from './sections/CcbhcSection/CcbhcSection';
 import ModelsSection from './sections/ModelsSection/ModelsSection';
 import ReportingSection from './sections/ReportingSection/ReportingSection';
 import FaqSection from './sections/FaqSection/FaqSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './ValueBasedCare.module.css';
 
 /** Value-Based Care — behavioral health and addiction treatment quality measures (Figma frame). */
@@ -20,8 +21,7 @@ function ValueBasedCare() {
 
   return (
     <>
-      <title>Value-Based Care Software for Behavioral Health | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/value-based-care-software" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <PillarsStrip />
       <TimingSection />

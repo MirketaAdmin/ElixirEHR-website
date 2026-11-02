@@ -11,6 +11,7 @@ import DictationSection from './sections/DictationSection/DictationSection';
 import SafetySection from './sections/SafetySection/SafetySection';
 import ControlSection from './sections/ControlSection/ControlSection';
 import BehavioralSection from './sections/BehavioralSection/BehavioralSection';
+import PageSeo from '../../../components/seo/PageSeo/PageSeo';
 import styles from './CoPilot.module.css';
 
 /** Elixir Co-Pilot (Clinical Assistant) — a child page of KratuAI. */
@@ -20,8 +21,7 @@ function CoPilot() {
 
   return (
     <>
-      <title>Kratu Co-Pilot: AI Clinical Documentation | KratuAI | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/ai-clinical-documentation" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <PillarsStrip />
       <OverviewSection />

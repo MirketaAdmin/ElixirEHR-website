@@ -24,7 +24,7 @@ function ViewApplyLink({ job }) {
   );
 }
 
-/** "Open Positions" on /career: one card per job (department pill, title, location, button). */
+/** "Open Positions" on /careers: one card per job (department pill, title, location, button). */
 function JobOpenings() {
   return (
     <Section tone="surface" spacing="none" className={styles.section} aria-labelledby="career-positions-title">

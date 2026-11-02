@@ -44,9 +44,9 @@ export function getPost(type, slug) {
   return allPosts.find((post) => post.type === type && post.slug === slug) ?? null;
 }
 
-/** Public URL of a post: /<type path>/<slug>. */
+/** Public URL of a post: /<type path>/<slug>/ (every page URL ends with a slash). */
 export function getPostPath(post) {
-  return `/${postTypes[post.type].path}/${post.slug}`;
+  return `/${postTypes[post.type].path}/${post.slug}/`;
 }
 
 /** The newest posts of the same type, excluding `post` itself. */

@@ -13,8 +13,8 @@ export const contactHero = {
   titleLines: ['Experience the Future of', 'Healthcare Management'],
   description: "Transform Your Workflow with Elixir's Comprehensive EHR Solutions",
   // Same buttons and destinations as the About Us hero.
-  primaryCta: { label: 'Take A Test Drive', to: '/request-demo' },
-  secondaryCta: { label: 'Explore Capabilities', to: '/platform' },
+  primaryCta: { label: 'Take A Test Drive', to: '/request-demo/' },
+  secondaryCta: { label: 'Explore Capabilities', to: '/why-elixir/' },
   image: {
     src: heroCard,
     alt: 'Clinician reviewing a tablet in a bright hospital corridor',

@@ -18,8 +18,8 @@ export const aboutHero = {
   // Line breaks follow the Figma frame. The first line reads "Healthcar" in the Figma export.
   titleLines: ['Transforming Healthcar', 'Through Innovation'],
   description: 'Empowering Providers with Customizable, Efficient, and Patient-Centered Solutions',
-  primaryCta: { label: 'Take A Test Drive', to: '/request-demo' },
-  secondaryCta: { label: 'Explore Capabilities', to: '/platform' },
+  primaryCta: { label: 'Take A Test Drive', to: '/request-demo/' },
+  secondaryCta: { label: 'Explore Capabilities', to: '/why-elixir/' },
   image: {
     src: heroCard,
     alt: 'Clinician using a tablet with holographic patient health data',

@@ -1,0 +1,22 @@
+.section {
+  padding: 80px 0;
+}
+
+.caption {
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 23px;
+  color: #6b6579;
+}
+
+.strong {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 56px 0;
+  }
+}

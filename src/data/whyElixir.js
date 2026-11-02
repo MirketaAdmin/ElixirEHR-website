@@ -122,7 +122,7 @@ export const healthcareSolutions = {
         'Tailored workflows for behavioral health, integrating clinical records with recovery milestone tracking and specialized therapy group management.',
       icon: addictionTreatmentIcon,
       iconSize: [26, 27],
-      to: '/solutions/addiction-treatment-centers',
+      to: '/addiction-treatment-emr/',
     },
     {
       title: 'Clinics & Medical Offices',
@@ -130,7 +130,7 @@ export const healthcareSolutions = {
         'Streamlined scheduling, billing, and clinical tools designed for fast-paced outpatient environments with high patient throughput.',
       icon: clinicsMedicalIcon,
       iconSize: [27, 27],
-      to: '/solutions/clinics-medical-offices',
+      to: '/ambulatory-ehr/',
     },
     {
       title: 'Hospitals & Large Networks',
@@ -138,7 +138,7 @@ export const healthcareSolutions = {
         'Enterprise-grade scalability with centralized data management, robust interoperability, and advanced executive reporting for complex systems.',
       icon: hospitalsNetworksIcon,
       iconSize: [29, 22],
-      to: '/solutions/hospitals-large-networks',
+      to: '/solutions/hospitals-large-networks/',
     },
   ],
 };
@@ -380,6 +380,6 @@ export const ctaBand = {
   title: ['Ready to change how you handle', 'your patients?'],
   description:
     "Join hundreds of medical facilities that have already transitioned to the future of clinical intelligence. Let's build a better provider experience together.",
-  cta: { label: 'Click Here To Be Future Ready', to: '/request-demo' },
-  secondaryCta: { label: 'Contact Our Strategy Team', to: '/company/contact' },
+  cta: { label: 'Click Here To Be Future Ready', to: '/request-demo/' },
+  secondaryCta: { label: 'Contact Our Strategy Team', to: '/contact-us/#contact' },
 };

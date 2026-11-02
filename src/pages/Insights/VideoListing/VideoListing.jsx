@@ -76,7 +76,7 @@ function VideoCard({ post, onPlay }) {
   );
 }
 
-/** /insights/videos — featured video, then two-up video cards. */
+/** /feature-videos — featured video, then two-up video cards. */
 function VideoListing() {
   const posts = useMemo(() => getPosts('video'), []);
   const listing = useResourceListing(posts, { pageSize: 2, featuredCount: 1, filterFn: byCategory });

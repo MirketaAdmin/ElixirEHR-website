@@ -1,4 +1,4 @@
-// Social Determinants of Health page (/social-determinants-of-health) — an independent top-level page
+// Social Determinants of Health page (/sdoh-software) — an independent top-level page
 // (listed under Care Management in the header, on its own flat route).
 // Copy is verbatim from the Figma; links only point at routes that exist.
 import heroMedia from '../assets/social-determinants/hero-media.png';
@@ -25,7 +25,7 @@ export const sdHero = {
   titleAccent: [],
   description:
     'Capturing a social need is the easy part. The hard part is that most screenings end as a completed form — filed, unexpired, and invisible to the person who could have done something about it. Elixir captures the assessment in the record and carries it into the care plan as a barrier with an owner.',
-  primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/', arrow: false },
   // The frame gives no destination; it scrolls to "The Eight SDOH Domains Elixir Captures".
   secondaryCta: { label: 'The eight domains', href: '#domains' },
   media: {
@@ -336,8 +336,8 @@ export const sdZCodes = {
   note: 'Coding guidance: AHA Coding Clinic for ICD-10-CM and ICD-10-PCS, multiple quarters from 2018 forward; CMS MLN Matters MM11422; ICD-10-CM Official Guidelines for Coding and Reporting FY 2025. Coding must reflect clinical judgment and the documentation of the specific encounter.',
 };
 
-// Shared FAQ (RCM accordion). The frame supplies an answer for the first question only, so the others
-// render as static rows. The shared section fills its left column first, so the frame's left column
+// Shared FAQ (RCM accordion). The frame supplies an answer for the first question only; the others were
+// written for the site from this page's own copy. The shared section fills its left column first, so the frame's left column
 // (questions 1, 3, 5) comes first here, then its right column (2, 4, 6).
 export const sdFaq = {
   eyebrow: 'Questions',
@@ -349,11 +349,31 @@ export const sdFaq = {
       answer:
         'SDOH software captures health-related social needs (housing, food, transport, financial strain, utilities, safety, social isolation and education), records them as structured data on the patient record, links them to care plan barriers, and facilitates referrals to community-based organizations. The operational distinction that matters is between software that only files a completed questionnaire and software that carries an identified need into the care plan with an owner, effective dates, and a path to resolution.',
     },
-    { question: 'Can we bill for SDOH screening?' },
-    { question: 'How do you handle screening instruments like PRAPARE®?' },
-    { question: 'Didn’t CMS drop the SDOH screening measures?' },
-    { question: 'Does screening for social needs improve outcomes?' },
-    { question: 'Where does the data go once it is captured?' },
+    {
+      question: 'Can we bill for SDOH screening?',
+      answer:
+        "Not as a standalone service in 2026: CMS removed separate payment for the SDOH risk assessment code G0136 and folded it back into the visit. You can still bill for acting on what you find. Community Health Integration (G0019, G0022) and Principal Illness Navigation (G0023, G0024) remain payable, and the ICD-10-CM Z codes (Z55–Z65) remain valid secondary diagnoses. Billing those services requires an initiating visit, a care plan that names the social barrier and delivery by qualified staff.",
+    },
+    {
+      question: 'How do you handle screening instruments like PRAPARE®?',
+      answer:
+        "Elixir is the record system that runs the instrument you choose; it does not ship proprietary instruments as prebuilt content. Domains, response options and scoring are configured to the tool you are authorized to use, such as PRAPARE® or the AHC HRSN Screening Tool. PRAPARE® is a registered trademark of NACHC, and its use requires compliance with NACHC's terms and any applicable licence.",
+    },
+    {
+      question: 'Didn’t CMS drop the SDOH screening measures?',
+      answer:
+        "Largely, yes. Across 2025 and 2026 CMS removed the inpatient SDOH screening measures, the MIPS screening measure and standalone payment for G0136. What remains is narrower: Z codes, Community Health Integration and Principal Illness Navigation, state Medicaid Section 1115 waivers for housing and nutrition, and managed care contracts with social-risk incentives. Those, rather than a federal mandate, are now the reason to screen.",
+    },
+    {
+      question: 'Does screening for social needs improve outcomes?',
+      answer:
+        "Screening alone does not. Systematic reviews consistently find that screening without funding and navigation capacity produces no measurable improvement in health, utilization or cost. What helps is acting on the result: a navigator, a funded service and follow-up until the need is resolved. That is why Elixir carries a positive screen into the care plan as a barrier and tracks whether help was received, not just whether a referral was sent.",
+    },
+    {
+      question: 'Where does the data go once it is captured?',
+      answer:
+        "It stays on the patient's record in Elixir. Each assessment is saved as structured, effective-dated data in the Social Determinants list on the patient account, visible to the care team, and a need that blocks a goal carries into the care plan as a barrier. The same discrete values support Z code documentation and reporting. Records can only be created against patient accounts, and access follows the role-based permissions your organization sets.",
+    },
   ],
 };
 
@@ -362,6 +382,6 @@ export const sdCtaBand = {
   title: 'What happened to the last hundred positive screens?',
   description:
     'Not how many you captured — what happened next. If that answer lives in a spreadsheet, or nowhere, that is the finding. Bring us one program and one month and we will show you where the screening stopped being work.',
-  cta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Care Management', to: '/care-management' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Care Management', to: '/care-management-software/' },
 };

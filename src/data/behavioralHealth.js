@@ -1,4 +1,4 @@
-// Behavioral Health page (/behavioral-health) — an independent page with no parent.
+// Behavioral Health page (/behavioral-health-ehr) — an independent page with no parent.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
 import heroMedia from '../assets/behavioral-health/hero-media.png';
 import connectedIcon from '../assets/behavioral-health/icon-pillar-connected.png';
@@ -27,7 +27,7 @@ export const bhHero = {
   titleAccent: [],
   description:
     'One Salesforce-native platform for mental health and substance use disorder treatment — because a large share of the people you treat have both, and two systems means the clinician treating one cannot see the other.',
-  primaryCta: { label: 'Request a Demo', to: '/request-demo', arrow: false },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/', arrow: false },
   // The frame gives no destination; it scrolls to the two service lines.
   secondaryCta: { label: 'Mental health or substance use', href: '#two-paths' },
   media: {
@@ -109,7 +109,7 @@ export const bhPaths = {
         'Collaborative Care Model (CoCM) support: psychiatric registry, systematic reviews, monthly billing calculation',
         'Billing for behavioral health: incident-to rules, supervised billing, state Medicaid fee schedules, interactive complexity',
       ],
-      link: { label: 'Explore the mental health EHR', to: '/behavioral-health/mental-health' },
+      link: { label: 'Explore the mental health EHR', to: '/mental-health-ehr/' },
     },
     {
       tone: 'green',
@@ -126,7 +126,7 @@ export const bhPaths = {
         'Residential and bed management: census tracking, room assignments, observation rounds and discharge planning',
         'Toxicology and lab interface: urine drug screen ordering, result ingestion, mismatch alerts against reported use',
       ],
-      link: { label: 'Explore the substance use disorder EHR', to: '/behavioral-health/substance-use-disorder' },
+      link: { label: 'Explore the substance use disorder EHR', to: '/addiction-treatment-emr/' },
     },
   ],
 };
@@ -243,7 +243,7 @@ export const bhCompliance = {
   ],
   footnote: {
     text: 'For full detail on Elixir’s Part 2 consent engine, see the substance use disorder page.',
-    link: { label: 'Go to Substance Use Disorder Page', to: '/behavioral-health/substance-use-disorder' },
+    link: { label: 'Go to Substance Use Disorder Page', to: '/addiction-treatment-emr/' },
   },
 };
 
@@ -257,32 +257,32 @@ export const bhKratu = {
     {
       title: 'Visit Prep',
       text: 'Pulls prior goals, last session’s plan, current meds and overdue measures into a one-page summary before the patient walks in.',
-      to: '/kratu-ai/visit-prep',
+      to: '/ai-pre-visit-preparation/',
     },
     {
       title: 'Kratu Co-Pilot',
       text: 'Ambient draft documentation from the session audio, structured to your note format and ready for clinician review and signature.',
-      to: '/kratu-ai/elixir-co-pilot-clinical-assistant',
+      to: '/ai-clinical-documentation/',
     },
     {
       title: 'Payor Policy Intelligence',
       text: 'Flags missing medical-necessity documentation, overlapping billing codes or uncovered service combinations before claim submission.',
-      to: '/kratu-ai/payor-policy-intelligence',
+      to: '/payer-policy-intelligence/',
     },
     {
       title: 'No-Show Prediction',
       text: 'Identifies appointments with high cancellation probability so front-desk staff can offer transportation support or proactive outreach.',
-      to: '/patient-no-show-prediction',
+      to: '/patient-no-show-software/',
     },
     {
       title: 'Responsible AI',
       text: 'Zero-retention architecture, transparent prompt models, and clinician sign-off on every generated word.',
-      to: '/responsible-ai',
+      to: '/responsible-ai-in-healthcare/',
     },
     {
       title: 'The KratuAI engine',
       text: 'Learn more about the models, security boundaries, and enterprise governance powering Kratu across Elixir.',
-      to: '/kratu-ai',
+      to: '/healthcare-ai-platform/',
     },
   ],
   note: 'Across both service lines the same limits apply: AI does not assess risk, determine a level of care, decide medical necessity, or write anything into the record a person has not reviewed and signed. Your data is not used to train a model for anyone else.',
@@ -327,20 +327,20 @@ export const bhFaq = {
   ],
 };
 
-// "Explore the platform" follows the site's existing `/platform` destination (as on About Us and
+// "Explore the platform" follows the site's existing `/platform/` destination (as on About Us and
 // What Is Elixir).
 export const bhCtaBand = {
   eyebrow: 'Connected and measurable',
   title: 'See both service lines on one record',
   description:
     'Bring your programs, your states and your payer mix. We will show you a co-occurring patient moving through the continuum — the consent trail, the measures, the placement decision and the claim — on one chart.',
-  cta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Explore the platform', to: '/platform' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Explore the platform', to: '/why-elixir/' },
   related: {
     label: 'Related links:',
     links: [
-      { label: 'Mental Health', to: '/behavioral-health/mental-health' },
-      { label: 'Substance Use Disorder', to: '/behavioral-health/substance-use-disorder' },
+      { label: 'Mental Health', to: '/mental-health-ehr/' },
+      { label: 'Substance Use Disorder', to: '/addiction-treatment-emr/' },
     ],
   },
 };

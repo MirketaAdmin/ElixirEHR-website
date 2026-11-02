@@ -1,0 +1,82 @@
+.section {
+  padding: 82px 0 80px;
+}
+
+.intro {
+  --kr-title-width: 640px;
+  --kr-title-gap: 15px;
+  --kr-description-gap: 14px;
+}
+
+.intro > p:first-child {
+  letter-spacing: 0.12em;
+}
+
+.intro h2 {
+  font-size: 40px;
+  line-height: 48px;
+}
+
+/* Two cards per row, 20px apart; each row's cards share a height. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 58px;
+}
+
+/* A 1px lime border with a 3px top edge. */
+.card {
+  min-height: 151px;
+  padding: 21px 28px 23px;
+  border: 1px solid var(--color-secondary);
+  border-top-width: 3px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 6px 18px rgb(31 24 35 / 0.06);
+}
+
+.question {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-primary);
+}
+
+.answer {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 23px;
+  color: var(--color-body);
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .intro h2 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .grid {
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .card {
+    padding: 22px 20px;
+  }
+}

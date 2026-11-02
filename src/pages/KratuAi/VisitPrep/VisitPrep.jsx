@@ -1,8 +1,7 @@
 import { Fragment } from 'react';
-import { visitPrepCtaBand, visitPrepFaq, visitPrepHero } from '../../../data/visitPrep';
+import { visitPrepCtaBand, visitPrepHero } from '../../../data/visitPrep';
 import PageHero from '../../../components/sections/PageHero/PageHero';
 import WideTiltedHeroMedia from '../../../components/sections/WideTiltedHeroMedia/WideTiltedHeroMedia';
-import FaqSection from '../../../components/sections/FaqSection/FaqSection';
 import CtaBanner from '../../../components/sections/CtaBanner/CtaBanner';
 import HighlightsStrip from './sections/HighlightsStrip/HighlightsStrip';
 import FlowSection from './sections/FlowSection/FlowSection';
@@ -10,25 +9,26 @@ import PathwaysSection from './sections/PathwaysSection/PathwaysSection';
 import SafeguardsSection from './sections/SafeguardsSection/SafeguardsSection';
 import BoundarySection from './sections/BoundarySection/BoundarySection';
 import ClinicianSection from './sections/ClinicianSection/ClinicianSection';
+import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
+import PageSeo from '../../../components/seo/PageSeo/PageSeo';
 import styles from './VisitPrep.module.css';
 
-/** Visit Prep — a child page of KratuAI (/kratu-ai/visit-prep). */
+/** Visit Prep — a child page of KratuAI (/ai-pre-visit-preparation). */
 function VisitPrep() {
   const { media, ...hero } = visitPrepHero;
   const { related, ...ctaBand } = visitPrepCtaBand;
 
   return (
     <>
-      <title>Visit Prep: AI Pre-Visit Questionnaire | KratuAI | Elixir</title>
-      <meta name="description" content={hero.description} />
-      <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
+      <PageSeo path="/ai-pre-visit-preparation" />
+      <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} className={styles.heroMedia} />} />
       <HighlightsStrip />
       <FlowSection />
       <PathwaysSection />
       <SafeguardsSection />
       <BoundarySection />
       <ClinicianSection />
-      <FaqSection {...visitPrepFaq} />
+      <FaqCardsSection />
       <CtaBanner
         {...ctaBand}
         className={styles.ctaBand}

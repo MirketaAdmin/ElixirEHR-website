@@ -12,6 +12,7 @@ import EraPostingSection from './sections/EraPostingSection/EraPostingSection';
 import ClearinghouseSection from './sections/ClearinghouseSection/ClearinghouseSection';
 import HipaaSection from './sections/HipaaSection/HipaaSection';
 import OrganizationsSection from './sections/OrganizationsSection/OrganizationsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './ClaimPreparation.module.css';
 
 function ClaimPreparation() {
@@ -19,8 +20,7 @@ function ClaimPreparation() {
 
   return (
     <>
-      <title>Professional & Institutional Claims Software Built on Salesforce | Elixir</title>
-      <meta name="description" content={pcHero.description} />
+      <PageSeo path="/claims-processing-software" />
       <PageHero {...hero} className={styles.hero} media={<TiltedHeroMedia {...media} />} />
       <PlatformSection />
       <ClaimFlowSection />

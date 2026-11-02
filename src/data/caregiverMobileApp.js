@@ -24,7 +24,7 @@ export const cmaHero = {
     'Know what to prepare, what to record and what happens after submission. Follow the caregiver’s visit through six practical steps.',
   ],
   // "Contact us" goes to Contact Us; the second CTA scrolls to this page's caregiver tour.
-  primaryCta: { label: 'Contact us', to: '/contact-us' },
+  primaryCta: { label: 'Contact us', to: '/contact-us/' },
   secondaryCta: { label: 'Explore the caregiver tour', href: '#caregiver-tour' },
   media: {
     src: heroMedia,
@@ -216,6 +216,6 @@ export const cmaCtaBand = {
   title: 'Connect your field caregivers with the rest of your care team',
   description:
     'Talk to Elixir about your Salesforce setup, caregiver workflows and state or payer EVV requirements.',
-  cta: { label: 'Take A Test Drive', to: '/request-demo' },
-  secondaryCta: { label: 'Contact Sales', to: '/contact-us' },
+  cta: { label: 'Take A Test Drive', to: '/request-demo/' },
+  secondaryCta: { label: 'Contact Sales', to: '/contact-us/' },
 };

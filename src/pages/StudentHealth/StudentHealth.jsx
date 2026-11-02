@@ -14,6 +14,7 @@ import ClaimsSection from './sections/ClaimsSection/ClaimsSection';
 import CaliforniaSection from './sections/CaliforniaSection/CaliforniaSection';
 import PrivacySection from './sections/PrivacySection/PrivacySection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './StudentHealth.module.css';
 
 /** Student Health — a child page of More Specialties (the "Student Care Management" frame). */
@@ -22,8 +23,7 @@ function StudentHealth() {
 
   return (
     <>
-      <title>Student Care Management Software | More Specialties | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/student-health-records-software" />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
       <PillarsStrip />
       <GapSection />

@@ -25,8 +25,12 @@ function Entry({ item, className, onNavigate, children }) {
   return <span className={cn(className, styles.pending)}>{children}</span>;
 }
 
-/** Column heading: tone-coloured caps with an icon; links to the section's page when it has one. */
+/**
+ * Column heading: tone-coloured caps with an icon; links to the section's page when it has one.
+ * A column with neither a heading nor a section has none.
+ */
 function Heading({ column, section, onNavigate, label = column.heading ?? section?.label }) {
+  if (!label) return null;
   const headingClass = cn(styles.heading, column.titleHeading && styles.titleHeading);
   const content = (
     <>

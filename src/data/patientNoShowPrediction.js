@@ -15,8 +15,8 @@ export const noShowHero = {
   description:
     'Elixir scores every upcoming appointment for no-show risk inside the same Salesforce-native EHR your schedulers already work in — then turns the highest-risk visits into a reminder, a phone call, or a transport check while there is still time to keep the slot.',
   // No destination in the frame for the demo CTA: /request-demo, as on the other pages.
-  primaryCta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Calculate what no-shows cost you', to: '/no-show-roi-calculator' },
+  primaryCta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Calculate what no-shows cost you', to: '/no-show-cost-calculator/' },
   media: { src: heroMediaPlaceholder, alt: 'Image placeholder' },
 };
 
@@ -146,7 +146,7 @@ export const noShowSignals = {
   },
   note: {
     text: 'These exclusions are a design decision, not a configuration option, and they are documented in the model record your compliance team can review. See ',
-    link: { label: 'Responsible AI at Elixir', to: '/responsible-ai' },
+    link: { label: 'Responsible AI at Elixir', to: '/responsible-ai-in-healthcare/' },
   },
 };
 
@@ -163,7 +163,7 @@ export const noShowOperations = {
       title: 'Standard reminder cadence, no staff time',
       text: [
         'Automated reminders through the ',
-        { text: 'Patient Portal', to: '/patient-portal' },
+        { text: 'Patient Portal', to: '/patient-portal-software/' },
         ' and SMS. No one on your team touches these appointments — which is the point, because it frees the hours for the ones below.',
       ],
     },
@@ -198,7 +198,7 @@ export const noShowOperations = {
   note: {
     icon: outreachIcon,
     before: 'Outreach runs through ',
-    link: { label: 'Elixir Contact Center', to: '/contact-center' },
+    link: { label: 'Elixir Contact Center', to: '/healthcare-contact-center/' },
     after: ', so calls, texts, and portal messages are logged against the appointment and the next scheduler sees what was already tried.',
   },
 };
@@ -309,32 +309,32 @@ export const noShowPlatform = {
     {
       title: 'Scheduling & EHR',
       text: 'Risk bands are native to the appointment record, so schedulers filter, sort, and build worklists with the tools they already use.',
-      to: '/electronic-health-record',
+      to: '/ehr-software/',
     },
     {
       title: 'Contact Center',
       text: 'Calls, SMS, and portal messages triggered by a flag are logged against the appointment, with the outcome visible to the next person who picks it up.',
-      to: '/contact-center',
+      to: '/healthcare-contact-center/',
     },
     {
       title: 'Patient Portal',
       text: 'Confirmation, self-reschedule, and waitlist offers — the routes that let a patient fix the problem without waiting on hold.',
-      to: '/patient-portal',
+      to: '/patient-portal-software/',
     },
     {
       title: 'KratuAI',
       text: 'The same AI engine behind Visit Prep, Kratu Co-Pilot, and Payor Policy Intelligence, under one governance model.',
-      to: '/kratu-ai',
+      to: '/healthcare-ai-platform/',
     },
     {
       title: 'Responsible AI',
       text: 'Documented exclusions, human-in-the-loop by design, and a model record your compliance team can actually read.',
-      to: '/responsible-ai',
+      to: '/responsible-ai-in-healthcare/',
     },
     {
       title: 'No-Show ROI Calculator',
       text: 'Put your own numbers in before you talk to us, and see the arithmetic rather than a claim.',
-      to: '/no-show-roi-calculator',
+      to: '/no-show-cost-calculator/',
     },
   ],
 };
@@ -384,11 +384,11 @@ export const noShowCtaBand = {
   description:
     'Run your own numbers in the calculator, then let us show you the risk score running against a real behavioral health schedule — including how we would measure whether it worked.',
   // No destination in the frame: /request-demo, as on the other pages.
-  cta: { label: 'Request a Demo', to: '/request-demo' },
-  secondaryCta: { label: 'Open the No-Show ROI Calculator', to: '/no-show-roi-calculator' },
+  cta: { label: 'Request a Demo', to: '/request-demo/' },
+  secondaryCta: { label: 'Open the No-Show ROI Calculator', to: '/no-show-cost-calculator/' },
   related: [
-    { label: 'Patient Portal', to: '/patient-portal' },
-    { label: 'Contact Center', to: '/contact-center' },
-    { label: 'Responsible AI', to: '/responsible-ai' },
+    { label: 'Patient Portal', to: '/patient-portal-software/' },
+    { label: 'Contact Center', to: '/healthcare-contact-center/' },
+    { label: 'Responsible AI', to: '/responsible-ai-in-healthcare/' },
   ],
 };

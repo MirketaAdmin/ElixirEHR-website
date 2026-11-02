@@ -50,7 +50,7 @@ export const unifiedPlatform = {
     { text: 'ERA payment posting', href: '#era-payment-posting' },
     ', denials and patient billing into the same healthcare platform your clinical and front-office teams already work in. Built natively on Salesforce, Elixir keeps clinical, payer and financial activity on one record, so the information that determines whether a claim gets paid is captured where the work actually happens.',
   ],
-  primaryCta: { label: 'Request an Elixir Demo', to: '/request-demo' },
+  primaryCta: { label: 'Request an Elixir Demo', to: '/request-demo/' },
   secondaryCta: { label: 'Explore RCM Workflows', href: '#rcm-workflows' },
 };
 
@@ -406,7 +406,7 @@ export const connectedEhr = {
     // The highlighted phrase links to the existing EHR page.
     conclusion: [
       'That is the difference between ',
-      { text: 'integrated EHR and RCM software', to: '/electronic-health-record' },
+      { text: 'integrated EHR and RCM software', to: '/ehr-software/' },
       ' and a billing system with an interface bolted to it.',
     ],
   },
@@ -681,6 +681,6 @@ export const rcmCtaBand = {
   description:
     'Walk through eligibility, claim validation, clearinghouse transactions, ERA posting and denial management on real Elixir screens, with your payer mix and organization type in mind.',
   // Destinations are not in the frame; these match the CTAs on the other pages.
-  cta: { label: 'Take A Test Drive', to: '/request-demo' },
-  secondaryCta: { label: 'Contact Sales', to: '/company/contact' },
+  cta: { label: 'Take A Test Drive', to: '/request-demo/' },
+  secondaryCta: { label: 'Contact Sales', to: '/contact-us/#contact' },
 };

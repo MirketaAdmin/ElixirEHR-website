@@ -13,6 +13,7 @@ import PositionSection from './sections/PositionSection/PositionSection';
 import MeasurementSection from './sections/MeasurementSection/MeasurementSection';
 import SpecialtySection from './sections/SpecialtySection/SpecialtySection';
 import PlatformSection from './sections/PlatformSection/PlatformSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './PatientNoShowPrediction.module.css';
 
 function PatientNoShowPrediction() {
@@ -21,8 +22,7 @@ function PatientNoShowPrediction() {
 
   return (
     <>
-      <title>Patient No-Show Prediction | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/patient-no-show-software" />
       <PageHero {...hero} className={styles.hero} media={<TiltedHeroMedia {...media} />} />
       <ProblemSection />
       <ScopeSection />
