@@ -33,13 +33,13 @@ function CardContent({ item, badge }) {
  * edge effect with a one-time sweep). Only the content may differ per page: pass `content`
  * ({ eyebrow, title, description, badge, items }); it defaults to the shared Kratu content.
  * An item without `to` (no page yet) renders as a plain card. `className` lets a page apply its
- * frame's layout (e.g. Billing's row of four).
+ * frame's layout (e.g. Billing's row of four). `id` makes the section a link target (Home: #ai-solutions).
  */
-function AiCapabilitiesSection({ content = aiCapabilities, className }) {
+function AiCapabilitiesSection({ content = aiCapabilities, className, id }) {
   const { eyebrow, title, description, badge, items } = content;
 
   return (
-    <Section tone="dark" spacing="none" className={cn(styles.section, className)}>
+    <Section id={id} tone="dark" spacing="none" className={cn(styles.section, className)}>
       <SectionHeading
         eyebrow={eyebrow}
         eyebrowCaps

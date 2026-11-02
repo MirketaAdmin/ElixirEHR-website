@@ -22,7 +22,7 @@ function Home() {
       <TrustedBySection />
       <KratuIntelligenceSection />
       <PlatformIntroSection />
-      <AiCapabilitiesSection />
+      <AiCapabilitiesSection id="ai-solutions" />
       <ChallengesSection />
       <FeaturesSection />
       <TestimonialsSection />

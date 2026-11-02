@@ -136,8 +136,6 @@ export const mainNav = [
     label: 'Company',
     children: [
       { label: 'About Us', to: '/about-us/' },
-      // What Is Elixir was merged into Why Elixir; both entries lead to the merged page.
-      { label: 'What Is Elixir', to: '/why-elixir/' },
       { label: 'Why Elixir', to: '/why-elixir/' },
       { label: 'Press', to: '/press-releases/' },
       { label: 'Referral Program', to: '/referral-program/' },
@@ -149,15 +147,10 @@ export const mainNav = [
     label: 'Compliance & Security',
     children: [
       { label: 'HIPAA Compliance Center', to: '/hipaa-compliant-ehr/' },
-      {
-        label: 'ONC Certification',
-        plannedPath: '/onc-health-it-certification/',
-        children: [
-          { label: 'ONC MFA Use Cases', to: '/onc-certification/onc-mfa-use-cases/' },
-          { label: 'Elixir Certified Module', to: '/onc-certification/elixir-certified-module/' },
-          { label: 'Patient EHI Export', to: '/onc-certification/patient-ehi-export/' },
-        ],
-      },
+      // The ONC Certification parent entry was removed from the menu; its pages are listed directly.
+      { label: 'ONC MFA Use Cases', to: '/onc-certification/onc-mfa-use-cases/' },
+      { label: 'Elixir Certified Module', to: '/onc-certification/elixir-certified-module/' },
+      { label: 'Patient EHI Export', to: '/onc-certification/patient-ehi-export/' },
       { label: 'NAATP', to: '/naatp/' },
       { label: 'Salesforce Security Layer', plannedPath: '/salesforce-data-security/' },
       {
@@ -165,7 +158,6 @@ export const mainNav = [
         plannedPath: '/healthcare-interoperability/',
         children: [{ label: 'FHIR API Documentation', plannedPath: '/fhir-api-documentation/' }],
       },
-      { label: 'SOC 2 Type II', plannedPath: '/soc-2-type-ii/' },
     ],
   },
 ];
@@ -292,7 +284,7 @@ export const megaPanels = [
         divider: true,
         heading: 'About Elixir',
         tone: 'lime',
-        items: ['About Us', 'What Is Elixir', 'Why Elixir', 'Press', 'Referral Program', 'Careers'],
+        items: ['About Us', 'Why Elixir', 'Press', 'Referral Program', 'Careers'],
         cta: {
           title: 'Contact & Demos',
           text: 'Schedule a custom walkthrough tailored for your billing or clinical team.',
@@ -307,8 +299,8 @@ export const megaPanels = [
         tone: 'lime',
         note: 'Enterprise Standard Protections',
         items: [
+          // Eight entries: two equal columns of four.
           'HIPAA Compliance Center',
-          'ONC Certification',
           'ONC MFA Use Cases',
           'Elixir Certified Module',
           'Patient EHI Export',
@@ -316,7 +308,6 @@ export const megaPanels = [
           'Salesforce Security Layer',
           'Interoperability (FHIR/HL7)',
           'FHIR API Documentation',
-          'SOC 2 Type II',
         ],
       },
     ],
@@ -336,13 +327,11 @@ export const navDescriptions = {
   'Value-Based Care': 'Risk-sharing & quality metric tracking',
   'Care Coordination': 'Cross-specialty communication',
   'HIPAA Compliance Center': 'BAA agreements & encrypted data store',
-  'ONC Certification': '2015 Edition Cures Update Criteria',
   'ONC MFA Use Cases': 'Multi-Factor Authentication workflows',
   'Elixir Certified Module': 'Certified health IT product details',
   'Patient EHI Export': 'Single & bulk electronic health info export',
   'Salesforce Security Layer': 'Enterprise field service & CRM security',
   'Interoperability (FHIR/HL7)': 'FHIR R4 API Documentation & endpoints',
-  'SOC 2 Type II': 'Annual security & privacy audit reports',
 };
 
 // Icons and accents of the top-level groups in the mobile drawer.

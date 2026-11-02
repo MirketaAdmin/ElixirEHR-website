@@ -38,7 +38,6 @@ function EhrSlide() {
         <p className={styles.description}>{hero.description}</p>
         <div className={styles.actions}>
           <Button to={hero.secondaryCta.to} variant="ghost" size="xl" className={styles.tour}>
-            <Icon name="playCircle" />
             {hero.secondaryCta.label}
           </Button>
           <Button to={hero.primaryCta.to} size="xl">

@@ -53,7 +53,8 @@ export const hero = {
   titleAccent: 'EHR',
   description:
     'Automate clinical documentation, predict claim denials, and streamline patient care with AI-powered clinical workflows that actually learn from your practice.',
-  secondaryCta: { label: 'Watch Product Tour', to: '/product-tour/' },
+  // Leads to the "Our AI Solutions" section further down Home (AiCapabilitiesSection, id ai-solutions).
+  secondaryCta: { label: 'Kratu AI Capabilities', to: '/#ai-solutions' },
   primaryCta: { label: 'Request a Demo', to: '/request-demo/' },
   insight: {
     label: 'AI INSIGHT',
