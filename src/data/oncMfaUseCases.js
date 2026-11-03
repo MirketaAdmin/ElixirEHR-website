@@ -1,4 +1,4 @@
-// ONC MFA Use Cases page (/onc-certification/onc-mfa-use-cases) — a child page of ONC Certification.
+// Multi-Factor Authentication page (formerly "ONC MFA Use Cases") (/onc-certification/onc-mfa-use-cases) — a child page of ONC Certification.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
 import heroMedia from '../assets/onc-mfa-use-cases/hero-media.png';
 import case1Icon from '../assets/onc-mfa/icon-case-1.png';
@@ -20,7 +20,7 @@ import trust4Icon from '../assets/onc-mfa/icon-trust-4.png';
 const icon = (src, w, h) => ({ src, size: [w, h] });
 
 export const mfaHero = {
-  currentPage: 'ONC MFA Use Cases',
+  currentPage: 'Multi-Factor Authentication',
   titleLines: ['Use Cases supported', 'for Multi-Factor', 'Authentication'],
   titleAccent: [],
   description:

@@ -5,14 +5,14 @@ import Section from '../../components/layout/Section/Section';
 import ContactForm from '../../components/sections/ContactSection/ContactForm';
 import styles from './OncMfaUseCases.module.css';
 
-/** ONC MFA Use Cases — a child page of ONC Certification (which has no page of its own). */
+/** Multi-Factor Authentication (formerly "ONC MFA Use Cases") — a child page of ONC Certification (which has no page of its own). */
 function OncMfaUseCases() {
   const { media, ...hero } = mfaHero;
   const { eyebrow, title, description, check, points, trust, form } = mfaAssessment;
 
   return (
     <>
-      <title>ONC MFA Use Cases | ONC Certification | Elixir</title>
+      <title>Multi-Factor Authentication | ONC Certification | Elixir</title>
       <meta name="description" content={hero.description} />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
 

@@ -252,7 +252,8 @@ function MegaColumn({ column, groups, onNavigate }) {
       );
     }
 
-    case 'grid':
+    case 'grid': {
+      const sub = column.sub && find(column.sub.section);
       return (
         <>
           {heading}
@@ -266,7 +267,34 @@ function MegaColumn({ column, groups, onNavigate }) {
               </Entry>
             ))}
           </div>
+          {sub && (
+            // The sub-section's pages as the same cards, under a heading of the same style.
+            <div className={styles.subSection} data-tone={column.sub.tone}>
+              <Heading column={column.sub} section={sub} onNavigate={onNavigate} />
+              <div className={styles.grid}>
+                {sub.children.map((child) => (
+                  <Entry key={child.label} item={child} className={styles.gridCard} onNavigate={onNavigate}>
+                    <span className={styles.cardTitle}>{child.label}</span>
+                    {navDescriptions[child.label] && (
+                      <span className={styles.description}>{navDescriptions[child.label]}</span>
+                    )}
+                  </Entry>
+                ))}
+              </div>
+            </div>
+          )}
         </>
+      );
+    }
+
+    case 'promo':
+      return (
+        <div className={styles.promo}>
+          <p className={styles.promoTitle}>{column.title}</p>
+          <Entry item={find(column.item)} className={styles.promoButton} onNavigate={onNavigate}>
+            {column.button}
+          </Entry>
+        </div>
       );
 
     default:

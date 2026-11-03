@@ -1,0 +1,91 @@
+.section {
+  padding: 80px 0;
+  scroll-margin-top: var(--header-height);
+}
+
+.rows {
+  display: grid;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  align-items: start;
+  gap: 20px;
+  padding: 20px 24px;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--edge);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+}
+
+/* Tone: edge colour plus a tag with readable text on a tinted fill. */
+.alert {
+  --edge: #be1a1a;
+  --tag-bg: #fbecec;
+  --tag-fg: #9b1515;
+}
+
+.note {
+  --edge: var(--color-tertiary);
+  --tag-bg: #fcf3d6;
+  --tag-fg: #6f570a;
+}
+
+.good {
+  --edge: var(--color-secondary);
+  --tag-bg: #e9f3d4;
+  --tag-fg: #4a6110;
+}
+
+.tag {
+  justify-self: start;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--tag-bg);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--tag-fg);
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-heading);
+}
+
+.text {
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 25px;
+  color: var(--color-body);
+}
+
+.caption {
+  max-width: 900px;
+  margin-top: 22px;
+  font-size: 14px;
+  line-height: 23px;
+  color: #6b6579;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 767px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    padding: 18px 20px;
+  }
+}

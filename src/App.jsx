@@ -48,6 +48,9 @@ import OncMfaUseCases from './pages/OncMfaUseCases/OncMfaUseCases';
 import ElixirCertifiedModule from './pages/ElixirCertifiedModule/ElixirCertifiedModule';
 import HipaaComplianceCenter from './pages/ComplianceSecurity/HipaaComplianceCenter/HipaaComplianceCenter';
 import Naatp from './pages/ComplianceSecurity/Naatp/Naatp';
+import SalesforceSecurityLayer from './pages/ComplianceSecurity/SalesforceSecurityLayer/SalesforceSecurityLayer';
+import Interoperability from './pages/ComplianceSecurity/Interoperability/Interoperability';
+import ApiDeveloperPortal from './pages/ComplianceSecurity/ApiDeveloperPortal/ApiDeveloperPortal';
 import OpenPositionDetail from './pages/Career/open-positions/OpenPositionDetail';
 import BlogListing from './pages/Insights/BlogListing/BlogListing';
 import EbookListing from './pages/Insights/EbookListing/EbookListing';
@@ -113,6 +116,9 @@ function App() {
           <Route path="onc-certification/patient-ehi-export" element={<PatientEhiExport />} />
           <Route path="hipaa-compliant-ehr" element={<HipaaComplianceCenter />} />
           <Route path="naatp" element={<Naatp />} />
+          <Route path="salesforce-data-security" element={<SalesforceSecurityLayer />} />
+          <Route path="healthcare-interoperability" element={<Interoperability />} />
+          <Route path="onc-certification/api-developer-portal" element={<ApiDeveloperPortal />} />
           <Route path="healthcare-ai-platform" element={<KratuAi />} />
           <Route path="ai-pre-visit-preparation" element={<VisitPrep />} />
           <Route path="ai-clinical-documentation" element={<CoPilot />} />

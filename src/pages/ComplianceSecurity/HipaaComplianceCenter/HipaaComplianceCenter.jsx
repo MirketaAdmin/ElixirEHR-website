@@ -1,4 +1,5 @@
 import {
+  hipaaAgreements,
   hipaaCertification,
   hipaaCta,
   hipaaHero,
@@ -9,7 +10,7 @@ import ComplianceHero from '../components/ComplianceHero/ComplianceHero';
 import PointsStrip from '../components/PointsStrip/PointsStrip';
 import ExplainerSection from '../components/ExplainerSection/ExplainerSection';
 import ComplianceCta from '../components/ComplianceCta/ComplianceCta';
-import AgreementsSection from './sections/AgreementsSection/AgreementsSection';
+import DarkCardsSection from '../components/DarkCardsSection/DarkCardsSection';
 import RegulatorySection from './sections/RegulatorySection/RegulatorySection';
 import RelatedSection from './sections/RelatedSection/RelatedSection';
 import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
@@ -22,7 +23,7 @@ function HipaaComplianceCenter() {
       <ComplianceHero {...hipaaHero} />
       <PointsStrip items={hipaaStrip} />
       <ExplainerSection {...hipaaCertification} />
-      <AgreementsSection />
+      <DarkCardsSection {...hipaaAgreements} />
       <RegulatorySection />
       <RelatedSection />
       <FaqCardsSection />

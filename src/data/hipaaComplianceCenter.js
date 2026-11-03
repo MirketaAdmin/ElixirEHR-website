@@ -3,8 +3,7 @@
 // representation (see the editorial notes in that file before changing any claim).
 // Links: the source's /compliance-security/… URLs point at pages that are not all built. ONC
 // Certification goes to the Elixir Certified Module page (certification details, certified criteria
-// and real world testing); Salesforce Security Layer and Interoperability are not built, so their
-// names render as plain text until they are.
+// and real world testing).
 
 const oncCertification = '/onc-certification/elixir-certified-module/';
 
@@ -181,6 +180,7 @@ export const hipaaRelated = {
     },
     {
       title: 'Salesforce Security Layer',
+      to: '/salesforce-data-security/',
       text: 'The platform controls beneath Elixir: infrastructure security, the access control model, available encryption and audit capabilities, and the attestations covering the underlying services.',
     },
     {
@@ -190,6 +190,7 @@ export const hipaaRelated = {
     },
     {
       title: 'Interoperability',
+      to: '/healthcare-interoperability/',
       text: 'FHIR and HL7 exchange, the application programming interfaces Elixir supports, and the information blocking requirements applicable to certified health IT developers.',
     },
     {
@@ -244,8 +245,8 @@ export const hipaaCta = {
   cta: { label: 'Talk to Us', to: '/request-demo/' },
   secondaryCta: { label: 'ONC Certification', to: oncCertification },
   related: [
-    { label: 'Salesforce Security Layer' },
-    { label: 'Interoperability' },
+    { label: 'Salesforce Security Layer', to: '/salesforce-data-security/' },
+    { label: 'Interoperability', to: '/healthcare-interoperability/' },
     { label: 'Behavioral Health', to: '/behavioral-health-ehr/' },
   ],
 };

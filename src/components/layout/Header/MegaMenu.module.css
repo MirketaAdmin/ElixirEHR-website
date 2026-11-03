@@ -199,7 +199,6 @@ a.featured:hover .iconTile {
 .list li {
   padding-left: calc(var(--depth, 0) * 14px);
 }
-
 .arrowLink {
   display: flex;
   align-items: center;
@@ -228,6 +227,39 @@ a.arrowLink:hover {
 
 a.plainLink:hover {
   color: var(--tone);
+}
+
+/* Resources promo: a large white line over a lime pill button. */
+.promo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.promoTitle {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+  color: var(--color-white);
+}
+
+.promoButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  background: var(--color-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-heading);
+  transition: filter 150ms ease;
+}
+
+.promoButton:hover {
+  filter: brightness(1.06);
 }
 
 /* AI banner */

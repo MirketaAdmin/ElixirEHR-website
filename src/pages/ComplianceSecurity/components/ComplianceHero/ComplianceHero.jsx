@@ -7,13 +7,15 @@ import RichText from '../../../../components/ui/RichText/RichText';
 import styles from './ComplianceHero.module.css';
 
 /**
- * Compliance & Security page hero: breadcrumb (Home › Compliance & Security › page; the section has
- * no page of its own, so its crumb is text), a section pill, two-line H1 (second line yellow), lede,
- * CTAs, and on the right the page's statement panel — one card per party or point (`highlight`
- * marks the lime one), each with an optional muted `note` — plus an optional caption.
+ * Compliance & Security page hero: breadcrumb (Home › Compliance & Security › [parent ›] page; the
+ * section has no page of its own, so its crumb is text), a section pill, two-line H1 (second line
+ * yellow), lede, CTAs (each by `to` or by in-page `href`), and on the right the page's statement panel
+ * — one card per party or point (`highlight` marks the lime one), each with an optional muted `note` —
+ * plus an optional caption.
  */
 function ComplianceHero({
   currentPage,
+  parentCrumb,
   pill,
   titleLines,
   lede,
@@ -39,6 +41,16 @@ function ComplianceHero({
               <li aria-hidden="true" className={styles.separator}>
                 <Icon name="chevronRight" size={20} />
               </li>
+              {parentCrumb && (
+                <>
+                  <li>
+                    <Link to={parentCrumb.to}>{parentCrumb.label}</Link>
+                  </li>
+                  <li aria-hidden="true" className={styles.separator}>
+                    <Icon name="chevronRight" size={20} />
+                  </li>
+                </>
+              )}
               <li aria-current="page" className={styles.current}>
                 {currentPage}
               </li>
@@ -56,7 +68,7 @@ function ComplianceHero({
             <RichText content={lede} linkClassName={styles.link} />
           </p>
           <div className={styles.actions}>
-            <Button to={primaryCta.to} size="lg" className={styles.primary}>
+            <Button to={primaryCta.to} href={primaryCta.href} size="lg" className={styles.primary}>
               {primaryCta.label}
             </Button>
             <Button href={secondaryCta.href} variant="ghost" size="lg" className={styles.secondary}>
@@ -71,7 +83,7 @@ function ComplianceHero({
               <li key={statement.who} className={cn(styles.statement, statement.highlight && styles.highlight)}>
                 <span className={styles.who}>{statement.who}</span>
                 <p>
-                  {statement.text}
+                  <RichText content={statement.text} />
                   {statement.note && <span className={styles.note}> {statement.note}</span>}
                 </p>
               </li>

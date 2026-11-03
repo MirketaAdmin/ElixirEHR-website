@@ -41,6 +41,21 @@
   color: var(--color-secondary);
 }
 
+.pill {
+  display: inline-flex;
+  margin-top: 24px;
+  padding: 6px 14px;
+  border: 1px solid rgb(255 255 255 / 0.35);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--color-surface-light);
+}
+
 .title {
   margin-top: 22px;
   font-size: 48px;

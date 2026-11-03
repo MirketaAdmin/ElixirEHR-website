@@ -1,0 +1,60 @@
+.section {
+  padding: 80px 0;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: start;
+  gap: 56px;
+}
+
+.kicker {
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #d9d1e4;
+}
+
+.body {
+  display: grid;
+  gap: 16px;
+}
+
+.body p {
+  font-size: 16px;
+  line-height: 27px;
+  color: #d9d1e4;
+}
+
+.strong {
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+/* Lime on the purple band (5.14:1). */
+.link {
+  color: var(--color-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.link:hover {
+  color: #c2e85b;
+}
+
+/* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
+@media (max-width: 1023px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 56px 0;
+  }
+}

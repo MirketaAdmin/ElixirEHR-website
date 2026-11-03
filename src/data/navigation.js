@@ -96,31 +96,9 @@ export const mainNav = [
     label: 'Resources',
     children: [
       { label: 'Success Stories', to: '/success-stories/' },
-      {
-        // "Insights (blog)" in the sheet. Its first entry is the existing blog list; the topic
-        // entries are not linked yet (the blog has no categories by these topics).
-        label: 'Insights',
-        to: '/insights/',
-        children: [
-          { label: 'All Blogs', to: '/blog/' },
-          { label: 'Behavioral Health' },
-          { label: 'Home Care & EVV' },
-          { label: 'Revenue Cycle' },
-          { label: 'Care Management' },
-          { label: 'Interoperability' },
-          { label: 'Healthcare AI' },
-        ],
-      },
-      {
-        label: 'Healthcare Regulations',
-        plannedPath: '/healthcare-regulations/',
-        children: [
-          { label: 'EVV Requirements by State', plannedPath: '/evv-requirements-by-state/' },
-          { label: 'CMS Interoperability & Prior Authorization Rule', plannedPath: '/cms-interoperability-rule/' },
-          { label: 'Information Blocking', plannedPath: '/information-blocking-rule/' },
-          { label: '42 CFR Part 2', plannedPath: '/42-cfr-part-2/' },
-        ],
-      },
+      // "Insights (blog)" in the sheet. Its sub-entries (the blog list and the six topics) and the
+      // Healthcare Regulations section were removed from the menu on request.
+      { label: 'Insights', to: '/insights/' },
       { label: 'Guides & E-books', to: '/guides-ebooks/' },
       { label: 'Case Studies', to: '/case-studies/' },
       { label: 'Webinars & Podcasts', to: '/webinars-podcasts/' },
@@ -147,17 +125,19 @@ export const mainNav = [
     label: 'Compliance & Security',
     children: [
       { label: 'HIPAA Compliance Center', to: '/hipaa-compliant-ehr/' },
-      // The ONC Certification parent entry was removed from the menu; its pages are listed directly.
-      { label: 'ONC MFA Use Cases', to: '/onc-certification/onc-mfa-use-cases/' },
-      { label: 'Elixir Certified Module', to: '/onc-certification/elixir-certified-module/' },
-      { label: 'Patient EHI Export', to: '/onc-certification/patient-ehi-export/' },
-      { label: 'NAATP', to: '/naatp/' },
-      { label: 'Salesforce Security Layer', plannedPath: '/salesforce-data-security/' },
       {
-        label: 'Interoperability (FHIR/HL7)',
-        plannedPath: '/healthcare-interoperability/',
-        children: [{ label: 'FHIR API Documentation', plannedPath: '/fhir-api-documentation/' }],
+        // A section heading only: ONC Certification has no page of its own.
+        label: 'ONC Certification',
+        children: [
+          { label: 'Multi-Factor Authentication', to: '/onc-certification/onc-mfa-use-cases/' },
+          { label: 'Elixir Certified Module', to: '/onc-certification/elixir-certified-module/' },
+          { label: 'Patient EHI Export', to: '/onc-certification/patient-ehi-export/' },
+          { label: 'API Developer Portal', to: '/onc-certification/api-developer-portal/' },
+        ],
       },
+      { label: 'NAATP', to: '/naatp/' },
+      { label: 'Salesforce Security Layer', to: '/salesforce-data-security/' },
+      { label: 'Interoperability (FHIR/HL7)', to: '/healthcare-interoperability/' },
     ],
   },
 ];
@@ -251,26 +231,32 @@ export const megaPanels = [
     label: 'Resources',
     groups: ['Resources'],
     columns: [
+      // Supplied reference layout: two link lists and a podcast promo. Only built pages are listed.
+      {
+        type: 'links',
+        span: 4,
+        divider: true,
+        heading: 'Insights & Resources',
+        icon: 'document',
+        tone: 'yellow',
+        items: ['Insights', 'Success Stories', 'Guides & E-books', 'Case Studies', 'Webinars & Podcasts'],
+      },
       {
         type: 'links',
         span: 4,
         divider: true,
         heading: 'Library & Media',
         icon: 'pages',
-        tone: 'lavender',
-        items: [
-          'Success Stories',
-          'Guides & E-books',
-          'Case Studies',
-          'Webinars & Podcasts',
-          'Release Notes',
-          'Benchmark Surveys',
-          'Newsletter',
-          'Feature Videos',
-        ],
+        tone: 'yellow',
+        items: ['Release Notes', 'Benchmark Surveys', 'Newsletter', 'Feature Videos'],
       },
-      { type: 'links', span: 4, divider: true, section: 'Insights', icon: 'lightbulb', tone: 'lime' },
-      { type: 'links', span: 4, section: 'Healthcare Regulations', icon: 'gavel', tone: 'yellow' },
+      {
+        type: 'promo',
+        span: 4,
+        title: 'Watch our latest episodes of upcoming podcasts.',
+        button: 'Watch Now',
+        item: 'Webinars & Podcasts',
+      },
     ],
   },
   {
@@ -298,17 +284,10 @@ export const megaPanels = [
         icon: 'shieldCheck',
         tone: 'lime',
         note: 'Enterprise Standard Protections',
-        items: [
-          // Eight entries: two equal columns of four.
-          'HIPAA Compliance Center',
-          'ONC MFA Use Cases',
-          'Elixir Certified Module',
-          'Patient EHI Export',
-          'NAATP',
-          'Salesforce Security Layer',
-          'Interoperability (FHIR/HL7)',
-          'FHIR API Documentation',
-        ],
+        // The four section pages as cards (two by two); ONC Certification, which has no page of its
+        // own, is a heading of the same style over its four pages, as the same cards.
+        items: ['HIPAA Compliance Center', 'NAATP', 'Salesforce Security Layer', 'Interoperability (FHIR/HL7)'],
+        sub: { section: 'ONC Certification', icon: 'document', tone: 'lime' },
       },
     ],
   },
@@ -327,9 +306,11 @@ export const navDescriptions = {
   'Value-Based Care': 'Risk-sharing & quality metric tracking',
   'Care Coordination': 'Cross-specialty communication',
   'HIPAA Compliance Center': 'BAA agreements & encrypted data store',
-  'ONC MFA Use Cases': 'Multi-Factor Authentication workflows',
+  'Multi-Factor Authentication': 'Multi-Factor Authentication workflows',
   'Elixir Certified Module': 'Certified health IT product details',
   'Patient EHI Export': 'Single & bulk electronic health info export',
+  // From the supplied "API Developer Portal.html" navbar.
+  'API Developer Portal': 'FHIR and C-CDA API documentation',
   'Salesforce Security Layer': 'Enterprise field service & CRM security',
   'Interoperability (FHIR/HL7)': 'FHIR R4 API Documentation & endpoints',
 };

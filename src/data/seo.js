@@ -2,7 +2,7 @@
 // description per page, keyed by the page's approved slug (routes in App.jsx use the same path
 // without the trailing slash). Copy is verbatim from the sheet; do not rewrite it here.
 // Only pages that exist are listed. Pages the sheet covers that are not built yet (Healthcare
-// Regulations and its children, ONC Certification, Salesforce Security Layer, Interoperability, FHIR API Documentation, SOC 2 Type II, Newsletter) are added
+// Regulations and its children, ONC Certification, SOC 2 Type II, Newsletter) are added
 // when they are built.
 export const pageSeo = {
   '/ehr-software': {
@@ -244,5 +244,27 @@ export const pageSeo = {
     title: 'NAATP: Membership, Ethics and Quality Standards',
     description:
       'Get to know the National Association of Addiction Treatment Providers, including membership, its Code of Ethics and quality resources.',
+  },
+  '/salesforce-data-security': {
+    title: 'Salesforce Data Security in Healthcare | ElixirEHR',
+    description:
+      'Understand how Salesforce permissions, access settings and optional security tools can help organizations manage sensitive health data.',
+  },
+  '/healthcare-interoperability': {
+    title: 'Healthcare Interoperability With FHIR and HL7',
+    description:
+      'Learn how health systems share clinical information through FHIR, HL7 and EHR connections, and why usable data exchange matters to care.',
+  },
+  // Not in the sheet's rows: title and description are the supplied "ONC Certification.html" page's own.
+  '/onc-certification/elixir-certified-module': {
+    title: 'ONC-Certified EHR | Certification Criteria & Real World Testing | Elixir',
+    description:
+      "Elixir's ONC Health IT certification record in full: certificate number, date certified, all 21 certified criteria under 45 CFR 170.315, the costs and limitations disclosure, real world testing documents, and the open FHIR and C-CDA API developer documentation.",
+  },
+  // Not in the sheet's rows: title and description are the supplied "API Developer Portal.html" page's own.
+  '/onc-certification/api-developer-portal': {
+    title: 'Elixir API Developer Portal | FHIR & C-CDA API Documentation | Elixir',
+    description:
+      'Open API documentation for Elixir EHR: OAuth 2.0 authentication, fourteen FHIR-formatted resource endpoints, the C-CDA all-data request, HTTP error handling and terms of use. Published without registration under the API Condition of Certification.',
   },
 };

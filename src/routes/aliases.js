@@ -83,4 +83,9 @@ export const routeAliases = {
   // The URLs the supplied Compliance & Security page files were drafted with.
   '/compliance-security/hipaa-compliance-center': '/hipaa-compliant-ehr/',
   '/compliance-security/naatp': '/naatp/',
+  '/compliance-security/salesforce-security-layer': '/salesforce-data-security/',
+  '/compliance-security/interoperability': '/healthcare-interoperability/',
+  '/compliance-security/onc-certification/api-developer-portal': '/onc-certification/api-developer-portal/',
+  // The API Developer Portal's earlier slug (it was "FHIR API Documentation").
+  '/fhir-api-documentation': '/onc-certification/api-developer-portal/',
 };

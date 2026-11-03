@@ -22,6 +22,7 @@ import styles from './PageHero.module.css';
  * `description` may be an array for several paragraphs (spaced by `--page-hero-paragraph-gap`), or
  * left out (Patient EHI Export).
  * `children` render under the description (e.g. the Insights search field in place of CTAs).
+ * An optional `pill` (outlined caps label) sits between the breadcrumb and the H1 (ONC Certification).
  */
 function renderTitleLine(line, index, titleAccent) {
   if (!titleAccent) return index === 1 ? <span className={styles.accent}>{line}</span> : line;
@@ -40,6 +41,7 @@ function renderTitleLine(line, index, titleAccent) {
 
 function PageHero({
   currentPage,
+  pill,
   titleLines,
   titleAccent,
   description,
@@ -68,6 +70,7 @@ function PageHero({
               </li>
             </ol>
           </nav>
+          {pill && <p className={styles.pill}>{pill}</p>}
           <h1 className={styles.title}>
             {titleLines.map((line, index) => (
               <span key={line} className={styles.titleLine}>

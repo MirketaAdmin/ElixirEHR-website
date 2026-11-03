@@ -25,6 +25,12 @@
   color: var(--color-body);
 }
 
+.code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  color: var(--color-primary);
+}
+
 .dark .eyebrow {
   color: var(--color-secondary);
 }

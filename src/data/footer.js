@@ -36,7 +36,7 @@ export const footerColumns = [
 ];
 
 export const socialLinks = [
-  { label: 'YouTube', icon: 'youtube', href: 'https://www.youtube.com/@mirketainc173' },
+  { label: 'YouTube', icon: 'youtube', href: 'https://www.youtube.com/playlist?list=PLBJTbCYrDSQ0' },
   { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/showcase/elixir-emr-ehr-system/' },
 ];
 
