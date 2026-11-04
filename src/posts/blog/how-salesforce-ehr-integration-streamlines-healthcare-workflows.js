@@ -1,4 +1,4 @@
-// Salesforce EHR integration blog post (by Sattyam choudhary, April 30, 2025, "EHR"). Body copy is
+// Salesforce EHR integration blog post (by elixirAdmin, April 30, 2025, "EHR"). Body copy is
 // exactly as supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg are cropped from the
 // About page team photo until the final featured and banner images are supplied — replace the two
 // files (or these imports) only.
@@ -10,7 +10,7 @@ export default {
   excerpt:
     'In the rapidly changing and dynamic healthcare environment today, optimizing processes and enhancing efficiency is crucial. Healthcare organizations are increasingly turning to technology to achieve this, and one of the most effective ways to enhance operational workflows is through Salesforce EHR integration.',
   publishDate: '2025-04-30',
-  author: 'Sattyam choudhary',
+  author: 'elixirAdmin',
   category: 'EHR',
   cardImage: { src: cardImage, alt: 'Care team reviewing a unified patient view on a large clinic display' },
   heroImage: {
@@ -182,6 +182,21 @@ export default {
     {
       type: 'paragraph',
       text: 'Integration allows patients to book appointments online, view health records, and get reminders. It helps doctors provide timely care and reduces wait times.',
+    },
+    { type: 'heading', level: 3, text: 'Q4. Can Salesforce EHR Integration reduce errors in healthcare?' },
+    {
+      type: 'paragraph',
+      text: 'Yes. When data flows between EHR and Salesforce, there is less need for manual entry. This reduces errors in patient records and billing.',
+    },
+    { type: 'heading', level: 3, text: 'Q5. How do you implement Salesforce EHR Integration?' },
+    {
+      type: 'paragraph',
+      text: 'You need a trusted Salesforce implementation partner who understands healthcare. The process includes planning, API integration, testing, and training your team.',
+    },
+    { type: 'heading', level: 3, text: 'Q6. Is Salesforce EHR Integration secure?' },
+    {
+      type: 'paragraph',
+      text: 'Yes. Salesforce uses strong security standards like HIPAA compliance and data encryption. This ensures patient data stays safe.',
     },
   ],
 };
