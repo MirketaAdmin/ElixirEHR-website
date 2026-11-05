@@ -177,8 +177,16 @@ function pick(saved) {
  * right — all three the same size and one click away.
  */
 function CookieConsent({ children }) {
-  const [consent, setConsent] = useState(readConsent);
+  // The saved choice is read after mount, not during the first render: prerendered HTML has no
+  // access to it, and the first client render must match that HTML for hydration.
+  const [consent, setConsent] = useState(null);
+  const [ready, setReady] = useState(false);
   const [preferencesOpen, setPreferencesOpen] = useState(false);
+
+  useEffect(() => {
+    setConsent(readConsent());
+    setReady(true);
+  }, []);
 
   const save = useCallback((choices) => {
     setConsent(saveConsent(choices));
@@ -200,7 +208,7 @@ function CookieConsent({ children }) {
     <ConsentContext.Provider value={value}>
       {children}
 
-      {!consent && (
+      {ready && !consent && (
         <section className={styles.banner} aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-text">
           <Container className={styles.bannerInner}>
             <div className={styles.bannerCopy}>

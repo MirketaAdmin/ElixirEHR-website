@@ -33,7 +33,7 @@ export const demoRequest = {
     label: 'AI Insight',
     text: 'Documentation accuracy improved by 42% in pilot studies.',
   },
-  whyTitle: 'Why leading clinics choose Elixir AI',
+  whyTitle: 'Why leading clinics choose Kratu AI',
   reasons: [
     {
       title: 'Secure Data',

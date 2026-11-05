@@ -51,7 +51,7 @@ export const whyElixirHero = {
 
 export const pillars = {
   eyebrow: 'PRECISION INTELLIGENCE',
-  title: 'The 7 core pillars why leading institutions choose Elixir AI.',
+  title: 'The 7 core pillars why leading institutions choose Kratu AI.',
   // Order, copy and per-card extras exactly as in the Figma bento grid.
   reasons: [
     {

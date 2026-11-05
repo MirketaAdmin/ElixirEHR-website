@@ -104,17 +104,49 @@ function WebinarListing() {
   const totalPages = Math.max(1, Math.ceil(onDemand.length / 4));
   const current = Math.min(listing.page, totalPages);
 
+  // With no webinar published at all, the page shows the "Upcoming Webinars" state instead of an
+  // empty listing, and no (all-zero) category filter.
+  const none = posts.length === 0;
+
   const aside = (
     <>
-      <CategoryFilter
-        title={page.categoriesTitle}
-        items={categoryItems(posts, webinarCategories)}
-        value={listing.filter}
-        onChange={(value) => listing.setFilter(value === listing.filter ? null : value)}
-      />
+      {!none && (
+        <CategoryFilter
+          title={page.categoriesTitle}
+          items={categoryItems(posts, webinarCategories)}
+          value={listing.filter}
+          onChange={(value) => listing.setFilter(value === listing.filter ? null : value)}
+        />
+      )}
       <WeeklyBriefing />
     </>
   );
+
+  if (none) {
+    return (
+      <InsightsShell
+        documentTitle={page.documentTitle}
+        title={page.title}
+        query={listing.query}
+        onQueryChange={listing.setQuery}
+        aside={aside}
+      >
+        <section className={styles.empty} aria-labelledby="webinars-empty">
+          <span className={styles.emptyIcon} aria-hidden="true">
+            <Icon name="calendar" size={28} />
+          </span>
+          <h3 id="webinars-empty" className={styles.emptyTitle}>
+            {page.empty.title}
+          </h3>
+          <p className={styles.emptyText}>{page.empty.text}</p>
+          <Link to={page.empty.cta.to} className={styles.emptyCta}>
+            {page.empty.cta.label}
+            <Icon name="arrowRight" size={16} />
+          </Link>
+        </section>
+      </InsightsShell>
+    );
+  }
 
   return (
     <InsightsShell

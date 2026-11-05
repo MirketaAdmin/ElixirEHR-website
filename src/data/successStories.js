@@ -29,9 +29,9 @@ export const successStoriesStats = [
   { value: 'ZERO', label: 'Manual Spreadsheets' },
 ];
 
-// No case-study pages exist yet (src/posts/case-study has only the demo), so "Read full
-// transformation" and "Read more" have no destination: `to` is null and they render inert until a
-// story page is published. Set `to` (e.g. '/case-study/<slug>') to link them.
+// No case-study write-ups exist yet (src/posts/case-study has only the demo). Stories with matching
+// published content link to it; the rest have `to: null` and render inert until a story page is
+// published. Set `to` (e.g. '/case-study/<slug>') to link them.
 export const successStoriesImpact = {
   eyebrow: 'Success stories',
   title: 'Our Impact in Action',
@@ -42,7 +42,7 @@ export const successStoriesImpact = {
       tag: 'Featured story',
       title: 'Integrated Digital Care Delivery & Revenue Optimization for Primary Care Providers',
       quote:
-        `"Elixir AI didn't just provide a tool; they transformed our entire operational DNA. We've seen a measurable shift in patient engagement and a dramatic decrease in administrative fatigue."`,
+        `"Kratu AI didn't just provide a tool; they transformed our entire operational DNA. We've seen a measurable shift in patient engagement and a dramatic decrease in administrative fatigue."`,
       attribution: '— Chief Medical Officer, Atlantic Primary Group',
       cta: { label: 'Read full transformation', to: null },
       image: {
@@ -57,20 +57,22 @@ export const successStoriesImpact = {
       title: 'Eliminating Spreadsheets for Bed Management',
       text: "The client leveraged Elixir's capabilities to remove all manual steps involved in bed management, streamlining facility operations and reducing errors.",
       image: { src: bedManagementImage, alt: 'Administrator reviewing a bed management dashboard on a wall display' },
-      to: null,
+      // The Elixir bed management article (no separate case-study write-up exists yet).
+      to: '/blog/intelligent-navigation-through-complex-bed-management-challenges-with-elixir/',
     },
     {
       category: 'Integration',
       title: 'Integrated Contact Center for Patient Experience',
       text: 'Integrating Elixir Contact Center with KIPU to improve overall patient management and create a seamless onboarding journey.',
       image: { src: contactCenterImage, alt: 'Contact center staff working at monitors with patient dashboards' },
-      to: null,
+      // Case Studies features the Granite Recovery video: Elixir Contact Center with KIPU EHR.
+      to: '/case-studies/',
     },
     {
       category: 'CRM',
       title: 'Enhanced Patient Intake via CRM Capabilities',
       text: 'Significant improvements in patient intake metrics through advanced automation of lead management and pre-assessment workflows.',
-      image: { src: patientIntakeImage, alt: 'Patient intake workflow dashboard in an Elixir AI interface' },
+      image: { src: patientIntakeImage, alt: 'Patient intake workflow dashboard in a Kratu AI interface' },
       to: null,
     },
     {
@@ -101,6 +103,6 @@ export const successStoriesImpact = {
 export const successStoriesCtaBand = {
   title: 'Ready to scale your clinical impact?',
   description:
-    'Join hundreds of forward-thinking healthcare organizations leveraging Elixir AI to deliver superior care while maintaining peak operational efficiency.',
+    'Join hundreds of forward-thinking healthcare organizations leveraging Kratu AI to deliver superior care while maintaining peak operational efficiency.',
   cta: { label: 'Take a Test Drive', to: '/request-demo/' },
 };

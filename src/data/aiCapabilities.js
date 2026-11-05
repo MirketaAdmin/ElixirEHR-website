@@ -29,7 +29,7 @@ export const aiCapabilities = {
         'Instantly transform long patient history and encounter recordings into structured, concise clinical notes following SOAP formats.',
       icon: clinicalNotesSummarizationIcon,
       iconSize: [20, 25],
-      to: '/ai-engine/clinical-notes-summarization/',
+      to: '/ai-clinical-documentation/#visit-flow',
     },
     {
       title: 'Insurance Eligibility Summarization',
@@ -45,7 +45,7 @@ export const aiCapabilities = {
         'Interact with lab data using natural language queries to identify trends or specific abnormal findings across patient history.',
       icon: labResultAnalysisIcon,
       iconSize: [28, 27],
-      to: '/ai-engine/lab-result-analysis/',
+      to: '/ai-clinical-documentation/#insights-pane',
     },
     {
       title: 'Claim Rejection Prediction',

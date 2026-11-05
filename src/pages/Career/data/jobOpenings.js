@@ -21,7 +21,7 @@ export const jobOpenings = [
       location: 'San Ramon, CA',
       level: 'Senior Level',
       about:
-        'At Elixir AI, we are redefining precision medicine through high-stakes clinical intelligence. As a Senior Product\nManager specializing in Electronic Health Records (EHR), you will be the visionary bridge between complex\nclinical data and actionable AI-driven insights. You will drive the roadmap for our core integration engine,\nensuring that clinicians have the right information at the exact moment of care.',
+        'At Kratu AI, we are redefining precision medicine through high-stakes clinical intelligence. As a Senior Product\nManager specializing in Electronic Health Records (EHR), you will be the visionary bridge between complex\nclinical data and actionable AI-driven insights. You will drive the roadmap for our core integration engine,\nensuring that clinicians have the right information at the exact moment of care.',
       responsibilities: [
         'Product Strategy: Define and execute the long-term vision for Elixir’s EHR ecosystem, aligning technical capabilities with clinician needs.',
         'Clinical Integration: Orchestrate deep-level integrations with major EHR vendors (Epic, Cerner, Athena) to minimize friction in clinical workflows.',

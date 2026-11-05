@@ -7,7 +7,7 @@ import Icon from '../../../../components/ui/Icon/Icon';
 import RaIntro from '../../components/RaIntro/RaIntro';
 import styles from './RuleSection.module.css';
 
-/** "Every KratuAI agent prepares the work. A person makes the decision." — the two-sided diagram. */
+/** "Every Kratu AI agent prepares the work. A person makes the decision." — the two-sided diagram. */
 function RuleSection() {
   const { chip, title, description, prepares, gate, decides, callout } = raRule;
 

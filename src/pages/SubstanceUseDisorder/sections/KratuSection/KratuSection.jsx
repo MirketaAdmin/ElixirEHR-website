@@ -3,7 +3,7 @@ import Section from '../../../../components/layout/Section/Section';
 import SudIntro from '../../components/SudIntro/SudIntro';
 import styles from './KratuSection.module.css';
 
-/** "KratuAI for Substance Use Disorder Treatment" — six cards and the red-edged limits panel. */
+/** "Kratu AI for Substance Use Disorder Treatment" — six cards and the red-edged limits panel. */
 function KratuSection() {
   const { eyebrow, title, description, items, limits } = sudKratu;
 

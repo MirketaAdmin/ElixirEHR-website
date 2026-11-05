@@ -14,7 +14,7 @@ import BehavioralSection from './sections/BehavioralSection/BehavioralSection';
 import PageSeo from '../../../components/seo/PageSeo/PageSeo';
 import styles from './CoPilot.module.css';
 
-/** Elixir Co-Pilot (Clinical Assistant) — a child page of KratuAI. */
+/** Elixir Co-Pilot (Clinical Assistant) — a child page of Kratu AI. */
 function CoPilot() {
   const { media, ...hero } = coPilotHero;
   const { footnote, ...ctaBand } = coPilotCtaBand;

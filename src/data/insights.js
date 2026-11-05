@@ -69,6 +69,12 @@ export const insightsPages = {
     documentTitle: 'Webinars',
     categoriesTitle: 'Categories',
     onDemandTitle: 'Recent On-Demand Webinars',
+    // Shown while no webinar is published (copy as supplied); the CTA points at the existing videos.
+    empty: {
+      title: 'Upcoming Webinars',
+      text: 'Stay tuned for upcoming webinars, expert insights, and live sessions from our healthcare technology team.',
+      cta: { label: 'Watch Feature Videos', to: '/feature-videos/' },
+    },
   },
   illustrations: { title: 'Illustrations', documentTitle: 'Illustrations', categoriesTitle: 'Categories' },
   videos: { title: 'Videos', documentTitle: 'Videos', categoriesTitle: 'Categories', allLabel: 'All' },

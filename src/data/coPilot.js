@@ -1,6 +1,6 @@
 // Elixir Co-Pilot (Clinical Assistant) page (Figma "Kratu Co-Pilot", 1280 frame), a child page of
-// KratuAI (/ai-clinical-documentation). Copy is reproduced verbatim from the
-// frame. The hero image is the frame's grey placeholder (the same export as the KratuAI hero).
+// Kratu AI (/ai-clinical-documentation). Copy is reproduced verbatim from the
+// frame. The hero image is the frame's grey placeholder (the same export as the Kratu AI hero).
 import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
 import pillarTemplatesIcon from '../assets/kratu-ai/copilot-pillar-templates.png';
 import pillarEhrIcon from '../assets/kratu-ai/copilot-pillar-ehr.png';

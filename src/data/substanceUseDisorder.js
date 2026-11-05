@@ -436,7 +436,7 @@ export const sudOutcomes = {
 // The frame shows these six as labelled cards without links, so none is linked here.
 export const sudKratu = {
   eyebrow: 'AI',
-  title: 'KratuAI for Substance Use Disorder Treatment',
+  title: 'Kratu AI for Substance Use Disorder Treatment',
   description:
     'The AI layer across Elixir is built to reduce documentation time and catch revenue problems early \u2014 never to make a clinical placement decision. Every output is reviewed by a person before it enters the record.',
   items: [
@@ -472,8 +472,8 @@ export const sudKratu = {
     },
     {
       icon: { src: kratuEngineIcon, size: [15, 16] },
-      label: 'The KratuAI engine',
-      title: 'The KratuAI engine',
+      label: 'The Kratu AI engine',
+      title: 'The Kratu AI engine',
       text: 'The underlying intelligence layer powers workflow automation across scheduling, clinical notes and revenue cycle.',
     },
   ],
@@ -548,7 +548,7 @@ export const sudCtaBand = {
   secondaryCta: { label: 'Explore the EHR', to: '/ehr-software/' },
   related: [
     { label: 'Revenue Cycle Management', to: '/rcm-software/' },
-    { label: 'KratuAI', to: '/healthcare-ai-platform/' },
+    { label: 'Kratu AI', to: '/healthcare-ai-platform/' },
     { label: 'Patient Portal', to: '/patient-portal-software/' },
   ],
 };

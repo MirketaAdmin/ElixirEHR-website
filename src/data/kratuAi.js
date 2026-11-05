@@ -1,4 +1,4 @@
-// KratuAI page (Figma "KratuAI", 1280 frame). Copy is reproduced verbatim from the frame.
+// Kratu AI page (Figma "Kratu AI", 1280 frame). Copy is reproduced verbatim from the frame.
 // The hero image is the frame's grey placeholder, the same export as the Contact Center hero.
 import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
 import cohesionRecordIcon from '../assets/kratu-ai/cohesion-record.png';
@@ -8,12 +8,12 @@ import cohesionAccountabilityIcon from '../assets/kratu-ai/cohesion-accountabili
 
 export const kratuHero = {
   // The frame's crumb reads "Contact Center" (copied from that frame); the page name is used here.
-  currentPage: 'KratuAI',
-  titleLines: ['KratuAI: Intelligent', 'Agents Across the', 'Visit and Revenue', 'Cycle'],
+  currentPage: 'Kratu AI',
+  titleLines: ['Kratu AI: Intelligent', 'Agents Across the', 'Visit and Revenue', 'Cycle'],
   titleAccent: ['Revenue', 'Cycle'],
   description:
-    'Four specialized agents, one unified engine inside the chart and the claims table your team already works in. KratuAI prepares the patient before the visit, documents the encounter, verifies payer rules, and resolves accounts receivable.',
-  primaryCta: { label: 'Request a KratuAI Demo', to: '/request-demo/', arrow: false },
+    'Four specialized agents, one unified engine inside the chart and the claims table your team already works in. Kratu AI prepares the patient before the visit, documents the encounter, verifies payer rules, and resolves accounts receivable.',
+  primaryCta: { label: 'Request a Kratu AI Demo', to: '/request-demo/', arrow: false },
   // Scrolls to "One AI Engine, Four Agents, One Patient Journey".
   secondaryCta: { label: 'Explore the 4 Agents', href: '#four-agents', icon: 'arrowDown', iconAfter: true },
   media: { src: heroPlaceholder, alt: '' },
@@ -26,7 +26,7 @@ export const kratuStages = {
   eyebrow: 'Unified Architecture',
   title: 'One AI Engine, Four Agents, One Patient Journey',
   description:
-    'Most healthcare AI arrives as disconnected point tools — a scribe here, a claim scrubber there, each with its own login and isolated data silo. KratuAI operates as one continuous engine across four vital milestones in the exact same record.',
+    'Most healthcare AI arrives as disconnected point tools — a scribe here, a claim scrubber there, each with its own login and isolated data silo. Kratu AI operates as one continuous engine across four vital milestones in the exact same record.',
   // tone: the card's top bar colour. The first card is highlighted (lime border) in the frame.
   stages: [
     {
@@ -232,7 +232,7 @@ export const kratuCohesion = {
     {
       icon: { src: cohesionLearningIcon, size: [22, 21] },
       title: 'Zero Friction Learning Curve',
-      text: 'KratuAI surfaces directly within the native EHR chart, care episode, and claims grid your staff already uses everyday. No new tabs, no extra logins, no workflow disruptions.',
+      text: 'Kratu AI surfaces directly within the native EHR chart, care episode, and claims grid your staff already uses every day. No new tabs, no extra logins, no workflow disruptions.',
     },
     {
       icon: { src: cohesionAccountabilityIcon, size: [18, 23] },
@@ -244,7 +244,7 @@ export const kratuCohesion = {
 
 export const kratuGovernance = {
   eyebrow: 'Responsible Governance',
-  title: 'How KratuAI Keeps Clinicians and Billers in Total Control',
+  title: 'How Kratu AI Keeps Clinicians and Billers in Total Control',
   description:
     'Every agent prepares work and hands the final decision to an authorized person. That is not a temporary limitation — it is our foundational system architecture that guarantees complete auditability when payers or regulators inspect a decision.',
   columns: ['Agent', 'What AI Prepares', 'Where the Human Decides'],
@@ -278,19 +278,19 @@ export const kratuGovernance = {
 // Rendered with the site's shared FAQ section (standing rule). The frame supplies an answer for the
 // first question only; the other answers were written for the site from this page's own copy.
 export const kratuFaq = {
-  title: 'Frequently Asked Questions About KratuAI',
+  title: 'Frequently Asked Questions About Kratu AI',
   description:
-    'What clinical leaders, revenue executives, and healthcare CIOs ask most often when evaluating KratuAI.',
+    'What clinical leaders, revenue executives, and healthcare CIOs ask most often when evaluating Kratu AI.',
   items: [
     {
-      question: 'What is KratuAI?',
+      question: 'What is Kratu AI?',
       answer:
-        'KratuAI is the native AI engine embedded across Elixir EHR and RCM. It operates as four specialized agents: Visit Prep before the visit, Kratu Co-Pilot during and after documentation, Payor Policy Intelligence before filing claims, and the A/R Agent for post-submission denial resolution.',
+        'Kratu AI is the native AI engine embedded across Elixir EHR and RCM. It operates as four specialized agents: Visit Prep before the visit, Kratu Co-Pilot during and after documentation, Payor Policy Intelligence before filing claims, and the A/R Agent for post-submission denial resolution.',
     },
     {
-      question: 'Is KratuAI a separate application with its own login?',
+      question: 'Is Kratu AI a separate application with its own login?',
       answer:
-        "No. KratuAI is built into Elixir and appears inside the chart, care episode and claims screens your staff already use, under the same login and the same Salesforce permissions. There is no separate application or extra tab to open.",
+        "No. Kratu AI is built into Elixir and appears inside the chart, care episode and claims screens your staff already use, under the same login and the same Salesforce permissions. There is no separate application or extra tab to open.",
     },
     {
       question: 'Do we have to adopt all four agents simultaneously?',
@@ -298,7 +298,7 @@ export const kratuFaq = {
         "No. The four agents share one engine and one patient record, but each can be introduced on its own. You can start with the agent that addresses your most pressing problem, such as Visit Prep for intake or the A/R Agent for denials, and add the others when you are ready.",
     },
     {
-      question: 'Does KratuAI take clinical or billing decisions autonomously?',
+      question: 'Does Kratu AI take clinical or billing decisions autonomously?',
       answer:
         "No. Every agent prepares work and hands the final decision to an authorized person. Clinicians review, edit and sign notes; no code is committed and no claim is filed without user confirmation; low-confidence values are held for manual review; and the A/R Agent never adjusts or writes off a balance without billing manager sign-off.",
     },
@@ -324,5 +324,5 @@ export const kratuCtaBand = {
   title: 'See All Four Agents Running on Your Own Workflows',
   description:
     "Walk through the visit, the clinical documentation, the claim scoring, and the denial follow-up using your organization's custom templates, payer mix, and appointment types.",
-  cta: { label: 'Request a KratuAI Demo', to: '/request-demo/' },
+  cta: { label: 'Request a Kratu AI Demo', to: '/request-demo/' },
 };

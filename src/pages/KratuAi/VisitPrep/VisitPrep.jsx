@@ -13,7 +13,7 @@ import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import PageSeo from '../../../components/seo/PageSeo/PageSeo';
 import styles from './VisitPrep.module.css';
 
-/** Visit Prep — a child page of KratuAI (/ai-pre-visit-preparation). */
+/** Visit Prep — a child page of Kratu AI (/ai-pre-visit-preparation). */
 function VisitPrep() {
   const { media, ...hero } = visitPrepHero;
   const { related, ...ctaBand } = visitPrepCtaBand;

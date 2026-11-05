@@ -21,6 +21,14 @@ export const routeAliases = {
   '/ai-engine/insurance-eligibility': '/insurance-eligibility-verification/',
   '/ai-engine/claim-rejection-prediction': '/denial-management-software/',
   '/ai-engine/patient-portal-agent': '/patient-portal-software/',
+  '/ai-engine/clinical-notes-summarization': '/ai-clinical-documentation/#visit-flow',
+  '/ai-engine/lab-result-analysis': '/ai-clinical-documentation/#insights-pane',
+
+  // Footer destinations that were never built.
+  '/resources/support-center': '/contact-us/',
+  '/resources/documentation': '/release-notes/',
+  '/resources/developer-api': '/onc-certification/api-developer-portal/',
+  '/company/partners': '/referral-program/',
 
   // Solutions
   '/solutions/telehealth': '/telehealth-ehr/',

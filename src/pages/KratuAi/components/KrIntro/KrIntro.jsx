@@ -2,7 +2,7 @@ import { cn } from '../../../../utils/cn';
 import styles from './KrIntro.module.css';
 
 /**
- * Section opener used across the KratuAI pages: an eyebrow, the H2 and an optional intro.
+ * Section opener used across the Kratu AI pages: an eyebrow, the H2 and an optional intro.
  * eyebrowStyle: 'caps' (tracked caps text) | 'chip' (lavender pill, the agent sections).
  * tone: 'light' (purple eyebrow, dark title) | 'dark' (lime eyebrow, white title) |
  * 'agent' (purple title) | 'lime' (lime eyebrow, dark title, grey intro: Visit Prep) |

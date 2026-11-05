@@ -16,7 +16,7 @@ import FaqCardsSection from './sections/FaqCardsSection/FaqCardsSection';
 import PageSeo from '../../../components/seo/PageSeo/PageSeo';
 import styles from './PayorPolicy.module.css';
 
-/** Payor Policy Intelligence — a child page of KratuAI. */
+/** Payor Policy Intelligence — a child page of Kratu AI. */
 function PayorPolicy() {
   const { media, ...hero } = ppHero;
   const { related, ...ctaBand } = ppCtaBand;

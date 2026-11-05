@@ -1,8 +1,6 @@
 import { getPostPath } from '../../../posts';
+import { SITE_URL } from '../../../utils/siteUrl';
 
-// Absolute URLs (canonical, og:url, og:image) need the public origin. Set VITE_SITE_URL in
-// production (e.g. https://www.example.com); the current origin is used otherwise.
-const SITE_URL = (import.meta.env.VITE_SITE_URL || window.location.origin).replace(/\/$/, '');
 const SITE_NAME = 'Elixir';
 
 function absolute(path) {

@@ -69,7 +69,7 @@ export const contact = {
       { name: 'email', label: 'Work Email', placeholder: 'john@hospital.com', type: 'email', autoComplete: 'email', required: true },
       { name: 'phone', label: 'Mobile Number', placeholder: '+1 (555) 000-0000', type: 'tel', autoComplete: 'tel' },
       { name: 'company', label: 'Healthcare Facility / Company', placeholder: 'Metropolis Medical Center', autoComplete: 'organization', wide: true },
-      { name: 'message', label: 'Tell Us About Your Needs', placeholder: 'How can Elixir AI help your clinical team?', multiline: true, wide: true },
+      { name: 'message', label: 'Tell Us About Your Needs', placeholder: 'How can Kratu AI help your clinical team?', multiline: true, wide: true },
     ],
     submitLabel: 'Submit Request',
     consent: { before: 'By submitting, you agree to our ', link: 'Privacy Policy', to: '/privacy-policy/', after: '.' },

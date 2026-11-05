@@ -11,7 +11,7 @@ import FeatureRow from './sections/FeatureRow/FeatureRow';
 import PageSeo from '../../../components/seo/PageSeo/PageSeo';
 import styles from './ArAgent.module.css';
 
-/** A/R Agent ("Revenue Kratu AI") — a child page of KratuAI. */
+/** A/R Agent (Figma "Revenue Kratu AI") — a child page of Kratu AI. */
 function ArAgent() {
   const { media, ...hero } = arHero;
 

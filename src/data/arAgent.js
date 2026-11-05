@@ -1,6 +1,6 @@
-// A/R Agent page (Figma "Revenue Kratu AI", 1280 frame), a child page of KratuAI
+// A/R Agent page (Figma "Revenue Kratu AI", 1280 frame; titled "A/R Agent" to match the menu), a child page of Kratu AI
 // (/ai-accounts-receivable-management). Copy is reproduced verbatim from the frame; forced mid-sentence line breaks
-// are dropped. The hero image is the frame's grey placeholder (the same export as the KratuAI hero).
+// are dropped. The hero image is the frame's grey placeholder (the same export as the Kratu AI hero).
 import heroMedia from '../assets/ar-agent/hero-media.png';
 import valueRiskIcon from '../assets/kratu-ai/ar-value-risk.png';
 import valueCashIcon from '../assets/kratu-ai/ar-value-cash.png';
@@ -17,13 +17,13 @@ export const arHero = {
   // The frame's breadcrumb reads "Kratu Co-Pilot" (copied from that page's frame); this page's
   // name is used instead (see DESIGN-SYSTEM.md open questions).
   currentPage: 'A/R Agent',
-  titleLines: ['Revenue Kratu AI'],
+  titleLines: ['A/R Agent'],
   // The whole title is white in this frame (no accent).
   titleAccent: [],
   description:
     'Stop working denials after they land. Elixir scores every account and every claim as it is created, so your team spends its day on the money actually at risk.',
   primaryCta: { label: 'Explore Live Demo', to: '/request-demo/', arrow: false },
-  // No destination in the frame; scrolls to "Revenue Kratu AI capabilities" on this page.
+  // No destination in the frame; scrolls to "A/R Agent capabilities" on this page.
   secondaryCta: { label: 'View Architecture', href: '#capabilities' },
   media: {
     src: heroMedia,
@@ -222,7 +222,7 @@ export const arFeatures = [
 // goes to Contact Us.
 export const arCtaBand = {
   eyebrow: 'Stop paying for denials you could have seen coming',
-  title: ['Run Revenue Kratu AI on your', 'own claims'],
+  title: ['Run A/R Agent on your', 'own claims'],
   description:
     'Connect Elixir directly to your current EHR or clearinghouse and evaluate predictive accuracy on historical claims in less than 48 hours.',
   cta: { label: 'Request a Demo', to: '/request-demo/' },
@@ -233,7 +233,7 @@ export const arCtaBand = {
 export const arCapabilities = {
   id: 'capabilities',
   eyebrow: 'Precision Engine',
-  title: 'Revenue Kratu AI capabilities',
+  title: 'A/R Agent capabilities',
   description: 'Wherever you see the purple sparkle, Elixir has already done the analysis for you.',
   items: [
     {

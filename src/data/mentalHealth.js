@@ -430,7 +430,7 @@ export const mhRevenue = {
 // The frame shows these four as labelled cards without links, so none is linked here.
 export const mhKratu = {
   eyebrow: 'AI',
-  title: 'KratuAI for Mental Health',
+  title: 'Kratu AI for Mental Health',
   description:
     'The AI layer reduces documentation time and surfaces what a clinician would want to notice. It does not assess risk, make clinical judgements, or write anything into the record that a person has not reviewed.',
   items: [

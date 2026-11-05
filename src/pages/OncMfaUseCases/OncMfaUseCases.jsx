@@ -4,6 +4,7 @@ import WideTiltedHeroMedia from '../../components/sections/WideTiltedHeroMedia/W
 import Section from '../../components/layout/Section/Section';
 import ContactForm from '../../components/sections/ContactSection/ContactForm';
 import styles from './OncMfaUseCases.module.css';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 
 /** Multi-Factor Authentication (formerly "ONC MFA Use Cases") — a child page of ONC Certification (which has no page of its own). */
 function OncMfaUseCases() {
@@ -12,8 +13,11 @@ function OncMfaUseCases() {
 
   return (
     <>
-      <title>Multi-Factor Authentication | ONC Certification | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo
+        path="/onc-certification/onc-mfa-use-cases"
+        title="Multi-Factor Authentication | ONC Certification | Elixir"
+        description={hero.description}
+      />
       <PageHero {...hero} className={styles.hero} media={<WideTiltedHeroMedia {...media} />} />
 
       <Section tone="white" spacing="none" className={styles.cases} aria-label="Multi-factor authentication use cases">

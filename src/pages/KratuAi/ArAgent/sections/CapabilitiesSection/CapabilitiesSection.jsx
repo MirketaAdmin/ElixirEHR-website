@@ -3,7 +3,7 @@ import Section from '../../../../../components/layout/Section/Section';
 import modelTag from '../../../../../assets/kratu-ai/ar-model-tag.png';
 import styles from './CapabilitiesSection.module.css';
 
-/** "Revenue Kratu AI capabilities" (dark) — eight model cards, each with its stage pill. */
+/** "A/R Agent capabilities" (dark) — eight model cards, each with its stage pill. */
 function CapabilitiesSection() {
   const { id, eyebrow, title, description, items } = arCapabilities;
 

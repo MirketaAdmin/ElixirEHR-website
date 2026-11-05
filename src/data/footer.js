@@ -18,10 +18,10 @@ export const footerColumns = [
   {
     title: 'Resources',
     links: [
-      { label: 'Case Studies', to: '/success-stories/' },
-      { label: 'Support Center', to: '/resources/support-center/' },
-      { label: 'Documentation', to: '/resources/documentation/' },
-      { label: 'Developer API', to: '/resources/developer-api/' },
+      { label: 'Case Studies', to: '/case-studies/' },
+      { label: 'Support Center', to: '/contact-us/' },
+      { label: 'Documentation', to: '/release-notes/' },
+      { label: 'Developer API', to: '/onc-certification/api-developer-portal/' },
     ],
   },
   {
@@ -30,7 +30,7 @@ export const footerColumns = [
       { label: 'About Us', to: '/about-us/' },
       { label: 'Careers', to: '/careers/' },
       { label: 'Contact', to: '/contact-us/' },
-      { label: 'Partners', to: '/company/partners/' },
+      { label: 'Partners', to: '/referral-program/' },
     ],
   },
 ];
@@ -48,7 +48,7 @@ export const footerBadges = [
 ];
 
 export const copyright =
-  '© Copyright Elixir 2026. All Right Reserved. Designed and Developed by Mirketa';
+  '© Copyright Elixir 2026. All Rights Reserved. Designed and Developed by Mirketa';
 
 export const legalLinks = [{ label: 'Privacy Policy', to: '/privacy-policy/' }];
 

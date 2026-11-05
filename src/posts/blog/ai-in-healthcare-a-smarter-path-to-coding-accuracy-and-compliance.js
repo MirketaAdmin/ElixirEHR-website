@@ -1,6 +1,6 @@
 // AI coding accuracy blog post (by sattyamchoudhary, May 5, 2026, "EHR" and "Healthcare
 // Industry"). Body copy is exactly as supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg
-// are made from the KratuAI page's recommended-procedure-codes mockup until the final featured and
+// are made from the Kratu AI page's recommended-procedure-codes mockup until the final featured and
 // banner images are supplied — replace the two files (or these imports) only.
 import cardImage from '../../assets/posts/blog/ai-in-healthcare-a-smarter-path-to-coding-accuracy-and-compliance/card-temp.jpg';
 import heroImage from '../../assets/posts/blog/ai-in-healthcare-a-smarter-path-to-coding-accuracy-and-compliance/hero-temp.jpg';

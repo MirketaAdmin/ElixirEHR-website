@@ -6,7 +6,7 @@ import badgeIcon from '../../../../assets/behavioral-health/icon-badge-check.png
 import BhIntro from '../../components/BhIntro/BhIntro';
 import styles from './KratuSection.module.css';
 
-/** "KratuAI Across Behavioral Health" (dark) — six linked cards and the shared limits note. */
+/** "Kratu AI Across Behavioral Health" (dark) — six linked cards and the shared limits note. */
 function KratuSection() {
   const { eyebrow, title, description, items, note } = bhKratu;
 

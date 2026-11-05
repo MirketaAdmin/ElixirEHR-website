@@ -209,7 +209,7 @@ export const pcScrubbing = {
 export const pcRejectionPrediction = {
   title: 'AI claim rejection prediction that scores the claim before you send it',
   description:
-    'Move from reactive denial management to preventative intelligence. Elixir AI analyzes millions of adjudicated claims to score rejection likelihood before claims reach the clearinghouse.',
+    'Move from reactive denial management to preventative intelligence. Kratu AI analyzes millions of adjudicated claims to score rejection likelihood before claims reach the clearinghouse.',
   icon: { src: checkCircleSmallIcon, width: 17, height: 17 },
   points: [
     {

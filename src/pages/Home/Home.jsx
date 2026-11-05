@@ -9,14 +9,15 @@ import FeaturesSection from './sections/FeaturesSection/FeaturesSection';
 import TestimonialsSection from './sections/TestimonialsSection/TestimonialsSection';
 import ResourcesSection from '../../components/sections/ResourcesSection/ResourcesSection';
 import ConversionCtaSection from './sections/ConversionCtaSection/ConversionCtaSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 
 function Home() {
   return (
     <>
-      <title>Elixir | The AI-Powered EHR Built for Modern Healthcare Teams</title>
-      <meta
-        name="description"
-        content="Automate clinical documentation, predict claim denials, and streamline patient care with AI-powered clinical workflows that actually learn from your practice."
+      <PageSeo
+        path=""
+        title="Elixir | The AI-Powered EHR Built for Modern Healthcare Teams"
+        description="Automate clinical documentation, predict claim denials, and streamline patient care with AI-powered clinical workflows that actually learn from your practice."
       />
       <HeroSection />
       <TrustedBySection />

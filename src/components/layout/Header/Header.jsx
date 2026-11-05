@@ -10,8 +10,9 @@ import MobileNav from './MobileNav';
 import SiteSearch from './SiteSearch';
 import styles from './Header.module.css';
 
-// The search shortcut as the visitor's keyboard shows it.
-const IS_MAC = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform);
+// The search shortcut as the visitor's keyboard shows it (checked after mount: prerendered HTML is
+// built without a browser, and the first client render has to match it).
+const detectMac = () => /Mac|iPhone|iPad/.test(navigator.platform);
 
 // Matches the header's CSS breakpoint: below it the mega menu gives way to the hamburger.
 const DESKTOP_QUERY = '(min-width: 1200px)';
@@ -27,6 +28,9 @@ function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [isMac, setIsMac] = useState(false);
+
+  useEffect(() => setIsMac(detectMac()), []);
 
   // Ctrl/Cmd + K opens the site search from anywhere.
   useEffect(() => {
@@ -93,7 +97,7 @@ function Header() {
           >
             <Icon name="search" size={18} />
             <span className={styles.searchLabel}>Search menu...</span>
-            <kbd className={styles.kbd}>{IS_MAC ? '⌘K' : 'Ctrl K'}</kbd>
+            <kbd className={styles.kbd}>{isMac ? '⌘K' : 'Ctrl K'}</kbd>
           </button>
           <Button to={demoCta.to} size="md" className={styles.cta}>
             {demoCta.label}

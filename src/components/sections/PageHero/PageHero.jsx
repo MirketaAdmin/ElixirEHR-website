@@ -18,7 +18,7 @@ import styles from './PageHero.module.css';
  * is marked `aria-disabled`.
  * `primaryCta.icon` ({ src, width, height }) puts an icon before the label in place of the arrow.
  * `primaryCta.arrow: false` drops the trailing arrow (Contact Center frame); `secondaryCta.icon`
- * names an `Icon` drawn before the secondary label (after it with `iconAfter: true`, KratuAI).
+ * names an `Icon` drawn before the secondary label (after it with `iconAfter: true`, Kratu AI).
  * `description` may be an array for several paragraphs (spaced by `--page-hero-paragraph-gap`), or
  * left out (Patient EHI Export).
  * `children` render under the description (e.g. the Insights search field in place of CTAs).

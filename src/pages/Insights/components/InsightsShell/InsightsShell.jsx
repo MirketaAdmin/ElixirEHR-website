@@ -1,6 +1,5 @@
 import { useId } from 'react';
 import { useLocation } from 'react-router-dom';
-import { pageSeo } from '../../../../data/seo';
 import { insightsHero } from '../../../../data/insights';
 import PageHero from '../../../../components/sections/PageHero/PageHero';
 import Section from '../../../../components/layout/Section/Section';
@@ -25,14 +24,8 @@ function InsightsShell({ documentTitle, title, query, onQueryChange, aside, hero
 
   return (
     <>
-      {pageSeo[seoPath] ? (
-        <PageSeo path={seoPath} />
-      ) : (
-        <>
-          <title>{`${documentTitle} | Elixir`}</title>
-          <meta name="description" content={heroCopy.description} />
-        </>
-      )}
+      {/* The approved SEO copy (data/seo.js) when the page has it, otherwise the generic title. */}
+      <PageSeo path={seoPath} title={`${documentTitle} | Elixir`} description={heroCopy.description} />
       {hero ?? (
         <PageHero
           {...heroCopy}

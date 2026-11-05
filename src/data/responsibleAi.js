@@ -1,6 +1,6 @@
 // Responsible AI page (Figma "Responsible AI", 1280 frame), an independent page (/responsible-ai-in-healthcare)
 // with no parent. Copy is reproduced verbatim from the frame; forced mid-sentence line breaks are
-// dropped. The hero image is the frame's grey placeholder (the same export as the KratuAI hero).
+// dropped. The hero image is the frame's grey placeholder (the same export as the Kratu AI hero).
 import heroMedia from '../assets/responsible-ai/hero-media.png';
 import dataTrainingIcon from '../assets/responsible-ai/icon-data-training.png';
 import dataSystemsIcon from '../assets/responsible-ai/icon-data-systems.png';
@@ -26,14 +26,14 @@ export const raHero = {
   },
 };
 
-// The two-sided diagram: what KratuAI prepares (dark), the human gate, what your team decides.
+// The two-sided diagram: what Kratu AI prepares (dark), the human gate, what your team decides.
 export const raRule = {
   chip: 'The rule behind everything',
-  title: 'Every KratuAI agent prepares the work. A person makes the decision.',
+  title: 'Every Kratu AI agent prepares the work. A person makes the decision.',
   description:
     'One rule governs all four agents, and everything else on this page is a consequence of it. AI assembles, drafts, scores and suggests. It does not diagnose, prescribe, code, submit or write off. Those remain acts performed by a named person who can be asked why.',
   prepares: {
-    pill: 'KratuAI prepares',
+    pill: 'Kratu AI prepares',
     tag: 'Autonomous Substrate',
     title: 'Assembles, drafts, scores, suggests',
     items: [
@@ -147,7 +147,7 @@ export const raAudit = {
     'The question that matters is not whether the AI was right. It is whether, months later, someone can reconstruct why a code, a diagnosis or a policy value is on the record — and who agreed to it.',
   note: {
     title: 'Audit Ledger Governance Protocol',
-    text: "Every KratuAI inference binds historical parameters, source token anchors, and the signing staff member's credentials directly to the resulting database row.",
+    text: "Every Kratu AI inference binds historical parameters, source token anchors, and the signing staff member's credentials directly to the resulting database row.",
   },
   columns: ['What was produced', 'What is retained with it'],
   rows: [
@@ -190,7 +190,7 @@ export const raFaq = {
   description: 'The questions clinical, compliance and IT leaders ask most often.',
   items: [
     {
-      question: 'Does KratuAI make clinical decisions?',
+      question: 'Does Kratu AI make clinical decisions?',
       answer:
         'No. It does not diagnose, prescribe or determine medical necessity. Agents organize, draft, surface and score. Clinical judgement remains with the clinician.',
     },
@@ -227,15 +227,15 @@ export const raFaq = {
   ],
 };
 
-// The demo CTA matches the other pages; the related links go to the KratuAI pages.
+// The demo CTA matches the other pages; the related links go to the Kratu AI pages.
 export const raCtaBand = {
   eyebrow: 'See it rather than read it',
   title: 'Ask us the hard questions on a live record',
   description:
     'Bring your compliance lead. Pick any recommendation in the demo and ask where it came from, what happens on approval, and what is retained afterwards.',
-  cta: { label: 'Request a KratuAI Demo', to: '/request-demo/' },
+  cta: { label: 'Request a Kratu AI Demo', to: '/request-demo/' },
   links: [
-    { label: 'KratuAI overview', to: '/healthcare-ai-platform/' },
+    { label: 'Kratu AI overview', to: '/healthcare-ai-platform/' },
     { label: 'Kratu Co-Pilot', to: '/ai-clinical-documentation/' },
     { label: 'Payor Policy Intelligence', to: '/payer-policy-intelligence/' },
   ],
@@ -248,7 +248,7 @@ export const raNonClaims = {
     'Responsible AI pages are usually a list of things a vendor is good at. These are the things we are not, stated here so nobody discovers them during an implementation.',
   items: [
     {
-      title: 'KratuAI is not a clinical decision maker',
+      title: 'Kratu AI is not a clinical decision maker',
       text: 'It does not diagnose, prescribe or determine medical necessity. Clinical judgement remains with the clinician, and the software is designed so that it cannot appear otherwise.',
     },
     {

@@ -119,8 +119,8 @@ export const heroSlides = [
     ],
     description:
       'ONC-certified and built on Salesforce. Behavioral health, addiction treatment, outpatient clinics, home and community-based care, student health, aesthetics and medical suppliers - each configured to how the program actually works, rather than forced into a generic template.',
-    // Solutions has no overview page; its first entry is Behavioral Health.
-    primaryCta: { label: 'Explore Solutions', to: '/behavioral-health-ehr/' },
+    // Solutions has no specialty overview page, so the CTA names the page it opens (Behavioral Health).
+    primaryCta: { label: 'Explore Behavioral Health', to: '/behavioral-health-ehr/' },
     secondaryCta: { label: 'Request a Demo', to: '/request-demo/' },
     media: {
       src: specialtyObject,
@@ -296,7 +296,7 @@ export const features = {
     {
       title: 'Care Plan',
       description:
-        'Elixir’s Assessments help the care team in being planned and organized, hence avoiding any possible confusion.',
+        'Help care teams organize assessments, goals, and follow-up tasks.',
       image: {
         src: carePlanScreen,
         alt: 'Elixir care plan for a patient, with problems such as neck and upper back pain, linked goals and care plan dates',
@@ -305,7 +305,7 @@ export const features = {
     {
       title: 'Medications & Prescriptions',
       description:
-        'With Elixir every nurse gets a personal secretary like experience to remind them of events, medication and much more at the right time.',
+        'Give nurses timely reminders for medications, tasks, and follow-ups.',
       image: {
         src: medicationsScreen,
         alt: 'Elixir Medications dialog listing PRN medications with frequency, dosage, reason and route columns',
@@ -359,7 +359,7 @@ export const testimonials = {
 
 const resourcePlaceholders = {
   eyebrow: 'Knowledge Base',
-  title: 'Resources must be read',
+  title: 'Insights for Healthcare Teams',
   // One tab per category; every category renders the same card. Blog holds the three cards from
   // the Figma frame. The other categories hold DEMO cards (placeholder titles reusing the
   // existing cover images) until real e-books, surveys, release notes and webinars are supplied.
@@ -389,7 +389,7 @@ const resourcePlaceholders = {
           image: revenueCycleWhitepaperCover,
           author: 'Author Name',
           date: '04 April 2026',
-          title: 'Optimizing Revenue Cycles with Elixir AI Predictive Models',
+          title: 'Optimizing Revenue Cycles with Kratu AI Predictive Models',
           link: {
             label: 'Read Whitepaper',
             icon: linkDownloadIcon,

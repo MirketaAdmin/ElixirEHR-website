@@ -1,7 +1,7 @@
 // Payor Policy Intelligence page (Figma "Kratu Payor Policy Intelligence", 1280 frame), a child page
-// of KratuAI (/payer-policy-intelligence). Copy is reproduced verbatim from the frame;
+// of Kratu AI (/payer-policy-intelligence). Copy is reproduced verbatim from the frame;
 // forced mid-sentence line breaks are dropped. The hero image is the frame's grey placeholder (the
-// same export as the KratuAI hero).
+// same export as the Kratu AI hero).
 import heroMedia from '../assets/kratu-ai/pp-hero-media.png';
 import confidenceHighIcon from '../assets/kratu-ai/pp-confidence-high.png';
 import confidenceMediumIcon from '../assets/kratu-ai/pp-confidence-medium.png';
@@ -333,7 +333,7 @@ export const ppFaq = {
   ],
 };
 
-// The demo CTA matches the other pages; the related links go to the other KratuAI pages.
+// The demo CTA matches the other pages; the related links go to the other Kratu AI pages.
 export const ppCtaBand = {
   eyebrow: 'See Payor Policy Intelligence in Elixir',
   title: ["Put the payer's own rules to work, from PDF to", 'paid claim'],
@@ -343,7 +343,7 @@ export const ppCtaBand = {
   related: {
     label: 'Working denials after they land?',
     links: [
-      { label: 'Explore Revenue Kratu AI', to: '/ai-accounts-receivable-management/' },
+      { label: 'Explore A/R Agent', to: '/ai-accounts-receivable-management/' },
       { label: 'Kratu Co-Pilot', to: '/ai-clinical-documentation/' },
       { label: 'Kratu AI overview', to: '/healthcare-ai-platform/' },
     ],

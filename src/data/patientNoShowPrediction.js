@@ -322,7 +322,7 @@ export const noShowPlatform = {
       to: '/patient-portal-software/',
     },
     {
-      title: 'KratuAI',
+      title: 'Kratu AI',
       text: 'The same AI engine behind Visit Prep, Kratu Co-Pilot, and Payor Policy Intelligence, under one governance model.',
       to: '/healthcare-ai-platform/',
     },

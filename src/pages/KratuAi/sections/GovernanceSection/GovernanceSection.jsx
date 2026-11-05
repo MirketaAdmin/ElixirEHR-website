@@ -3,7 +3,7 @@ import Section from '../../../../components/layout/Section/Section';
 import KrIntro from '../../components/KrIntro/KrIntro';
 import styles from './GovernanceSection.module.css';
 
-/** "How KratuAI Keeps Clinicians and Billers in Total Control": the agent / AI / human table. */
+/** "How Kratu AI Keeps Clinicians and Billers in Total Control": the agent / AI / human table. */
 function GovernanceSection() {
   const { eyebrow, title, description, columns, rows, note, badge } = kratuGovernance;
 

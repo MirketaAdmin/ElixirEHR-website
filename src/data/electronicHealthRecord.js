@@ -19,7 +19,7 @@ export const ehrHero = {
   titleLines: ['Electronic Health', 'Record (EHR)'],
   titleAccent: '(EHR)',
   description:
-    'Elixir is more than just about recording and reporting data. Elixir EHR offers out-of the box functionalities catered to your needs.',
+    'Elixir is more than just about recording and reporting data. Elixir EHR offers out-of-the-box functionalities catered to your needs.',
   primaryCta: { label: 'Get a Personalized Demo', to: '/request-demo/' },
   media: {
     src: heroMedia,
@@ -31,7 +31,7 @@ export const ehrHero = {
 export const orderFromChaos = {
   title: 'Bringing order to chaos',
   description:
-    'Elixir is more than just about recording and reporting data. Elixir EHR offers out-of-the box functionalities catered to your needs.',
+    'Elixir is more than just about recording and reporting data. Elixir EHR offers out-of-the-box functionalities catered to your needs.',
   items: [
     {
       title: 'Fully Customizable',

@@ -12,10 +12,10 @@ export default {
   location: 'San Ramon, CA',
   category: null,
   tags: ['Patient No-show', 'EHR', 'Healthcare Provider', 'Medical Billing', 'Salesforce Health Cloud', 'Behavioural Health'],
-  cardImage: { src: cardImage, alt: 'Elixir AI press release hub dashboard on a clinic wall display' },
+  cardImage: { src: cardImage, alt: 'Kratu AI press release hub dashboard on a clinic wall display' },
   heroImage: {
     src: heroImage,
-    alt: 'Clinician reviewing the Elixir AI patient no-show risk analysis on a desktop monitor',
+    alt: 'Clinician reviewing the Kratu AI patient no-show risk analysis on a desktop monitor',
     width: 757,
     height: 324,
   },

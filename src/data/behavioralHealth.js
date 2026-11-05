@@ -247,10 +247,10 @@ export const bhCompliance = {
   },
 };
 
-// Each card links to the existing KratuAI page it names.
+// Each card links to the existing Kratu AI page it names.
 export const bhKratu = {
   eyebrow: 'AI',
-  title: 'KratuAI Across Behavioral Health',
+  title: 'Kratu AI Across Behavioral Health',
   description:
     'One AI engine and one governance model across both service lines — built to reduce documentation time and catch revenue problems early, never to make a clinical decision.',
   items: [
@@ -280,7 +280,7 @@ export const bhKratu = {
       to: '/responsible-ai-in-healthcare/',
     },
     {
-      title: 'The KratuAI engine',
+      title: 'The Kratu AI engine',
       text: 'Learn more about the models, security boundaries, and enterprise governance powering Kratu across Elixir.',
       to: '/healthcare-ai-platform/',
     },

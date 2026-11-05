@@ -15,8 +15,8 @@ import randyKPhoto from '../assets/about/team/randy-k.png';
 
 export const aboutHero = {
   currentPage: 'About Us',
-  // Line breaks follow the Figma frame. The first line reads "Healthcar" in the Figma export.
-  titleLines: ['Transforming Healthcar', 'Through Innovation'],
+  // Line breaks follow the Figma frame (its export reads "Healthcar"; corrected to "Healthcare").
+  titleLines: ['Transforming Healthcare', 'Through Innovation'],
   description: 'Empowering Providers with Customizable, Efficient, and Patient-Centered Solutions',
   primaryCta: { label: 'Take A Test Drive', to: '/request-demo/' },
   secondaryCta: { label: 'Explore Capabilities', to: '/why-elixir/' },

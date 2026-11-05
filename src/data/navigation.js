@@ -46,7 +46,7 @@ export const mainNav = [
     label: 'AI Ecosystem',
     children: [
       {
-        label: 'KratuAI',
+        label: 'Kratu AI',
         to: '/healthcare-ai-platform/',
         children: [
           { label: 'Visit Prep', to: '/ai-pre-visit-preparation/' },
@@ -196,7 +196,7 @@ export const megaPanels = [
         type: 'rows',
         span: 5,
         divider: true,
-        section: 'KratuAI',
+        section: 'Kratu AI',
         titleHeading: true,
         icon: 'sparkle',
         tone: 'lime',

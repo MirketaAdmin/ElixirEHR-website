@@ -8,6 +8,7 @@ import EcosystemSection from './sections/EcosystemSection/EcosystemSection';
 import InsightsSection from './sections/InsightsSection/InsightsSection';
 import PartnersSection from './sections/PartnersSection/PartnersSection';
 import QuestionsSection from './sections/QuestionsSection/QuestionsSection';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './Billing.module.css';
 
 function Billing() {
@@ -15,8 +16,7 @@ function Billing() {
 
   return (
     <>
-      <title>Billing | Elixir</title>
-      <meta name="description" content={hero.description} />
+      <PageSeo path="/billing" title="Billing | Elixir" description={hero.description} />
       <PageHero {...hero} className={styles.hero} media={<BadgeHeroMedia media={media} badge={badge} />} />
       <StatsSection />
       {/* "Explore Features" in the hero scrolls here. */}

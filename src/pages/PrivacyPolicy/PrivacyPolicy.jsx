@@ -4,6 +4,7 @@ import Container from '../../components/layout/Container/Container';
 import Icon from '../../components/ui/Icon/Icon';
 import RichText from '../../components/ui/RichText/RichText';
 import styles from './PrivacyPolicy.module.css';
+import PageSeo from '../../components/seo/PageSeo/PageSeo';
 
 function Text({ value }) {
   return <RichText content={value} linkClassName={styles.link} />;
@@ -68,8 +69,7 @@ function PrivacyPolicy() {
 
   return (
     <>
-      <title>{`${title} | Elixir`}</title>
-      <meta name="description" content={description} />
+      <PageSeo path="/privacy-policy" title={`${title} | Elixir`} description={description} />
 
       <section className={styles.hero} data-header-overlap>
         <Container>

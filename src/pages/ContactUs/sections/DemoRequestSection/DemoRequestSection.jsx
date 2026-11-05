@@ -5,7 +5,7 @@ import ContactForm from '../../../../components/sections/ContactSection/ContactF
 import sparkleIcon from '../../../../assets/contact-us/icon-sparkle.png';
 import styles from './DemoRequestSection.module.css';
 
-/** The approved contact form (shared with About Us / What Is Elixir) next to the "Why Elixir AI" panel. */
+/** The approved contact form (shared with About Us / What Is Elixir) next to the "Why Kratu AI" panel. */
 function DemoRequestSection() {
   const { title, description, media, insight, whyTitle, reasons } = demoRequest;
 

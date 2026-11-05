@@ -1,4 +1,4 @@
-// Elixir AI Contact Center product demo (YouTube 6VQCwL7KaLQ, Mirketa Inc, published 26 Oct 2026,
+// Kratu AI Contact Center product demo (YouTube 6VQCwL7KaLQ, Mirketa Inc, published 26 Oct 2026,
 // 10:23). Title and body copy are taken from the video's YouTube title and description (hashtags,
 // social links and the channel sign-off left out). The card image is the video's YouTube thumbnail.
 import cardImage from '../../assets/posts/video/elixir-ai-contact-center-demo/card.jpg';
@@ -6,9 +6,9 @@ import cardImage from '../../assets/posts/video/elixir-ai-contact-center-demo/ca
 const youtubeId = '6VQCwL7KaLQ';
 
 export default {
-  title: 'Elixir AI Contact Center Demo | From First Contact to Admission for Healthcare Providers',
+  title: 'Kratu AI Contact Center Demo | From First Contact to Admission for Healthcare Providers',
   excerpt:
-    'Transform the entire patient intake and admissions journey with Elixir AI Contact Center — from the first inquiry to successful admission.',
+    'Transform the entire patient intake and admissions journey with Kratu AI Contact Center — from the first inquiry to successful admission.',
   publishDate: '2026-10-26',
   label: 'Contact Center',
   category: 'Patient Engagement',
@@ -22,11 +22,11 @@ export default {
     {
       type: 'video',
       src: `https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0`,
-      title: 'Elixir AI Contact Center Demo | From First Contact to Admission for Healthcare Providers',
+      title: 'Kratu AI Contact Center Demo | From First Contact to Admission for Healthcare Providers',
     },
     {
       type: 'lead',
-      text: 'Transform the entire patient intake and admissions journey with Elixir AI Contact Center — from the first inquiry to successful admission.',
+      text: 'Transform the entire patient intake and admissions journey with Kratu AI Contact Center — from the first inquiry to successful admission.',
     },
     {
       type: 'paragraph',
@@ -34,7 +34,7 @@ export default {
     },
     {
       type: 'paragraph',
-      text: 'Elixir AI Contact Center, built on Salesforce, brings marketing, business development, patient engagement, intake, pre-assessment, referral management, and admissions into one intelligent platform.',
+      text: 'Kratu AI Contact Center, built on Salesforce, brings marketing, business development, patient engagement, intake, pre-assessment, referral management, and admissions into one intelligent platform.',
     },
     {
       type: 'paragraph',

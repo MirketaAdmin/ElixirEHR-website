@@ -5,7 +5,7 @@ import banIcon from '../../../../assets/mental-health/icon-ai-ban.png';
 import BhIntro from '../../../BehavioralHealth/components/BhIntro/BhIntro';
 import styles from './KratuSection.module.css';
 
-/** "KratuAI for Mental Health" — four white cards and the red "What AI does not do here" panel. */
+/** "Kratu AI for Mental Health" — four white cards and the red "What AI does not do here" panel. */
 function KratuSection() {
   const { eyebrow, title, description, items, limits } = mhKratu;
 

@@ -6,10 +6,6 @@ import { cn } from '../../../utils/cn';
 import Icon from '../../ui/Icon/Icon';
 import styles from './SiteSearch.module.css';
 
-// Footer links whose pages are not built yet (Support Center, Documentation…) are left out: search
-// only offers pages that exist.
-const PLANNED = new Set(['/resources/support-center/', '/resources/documentation/', '/resources/developer-api/', '/company/partners/']);
-
 /** Every linked page in the navigation tree (plus the footer's links), with its trail, once per URL. */
 function buildIndex() {
   const pages = new Map();
@@ -22,7 +18,7 @@ function buildIndex() {
   walk(mainNav, []);
   footerColumns.forEach((column) =>
     column.links.forEach((link) => {
-      if (!pages.has(link.to) && !PLANNED.has(link.to)) {
+      if (!pages.has(link.to)) {
         pages.set(link.to, { label: link.label, to: link.to, trail: [column.title] });
       }
     }),

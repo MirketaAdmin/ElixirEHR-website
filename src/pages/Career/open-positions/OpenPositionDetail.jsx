@@ -1,9 +1,11 @@
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useLocation, useParams } from 'react-router-dom';
 import Container from '../../../components/layout/Container/Container';
 import Section from '../../../components/layout/Section/Section';
 import Icon from '../../../components/ui/Icon/Icon';
 import { useShareActions } from '../../../components/posts/PostShare/useShareActions';
 import { getJobOpening } from '../data/jobOpenings';
+import { SITE_URL } from '../../../utils/siteUrl';
+import PageSeo from '../../../components/seo/PageSeo/PageSeo';
 import locationIcon from '../../../assets/icons/post-location.png';
 import briefcaseIcon from '../../../assets/career/icon-briefcase.png';
 import levelIcon from '../../../assets/career/icon-level.png';
@@ -48,7 +50,9 @@ function ApplyButton({ job }) {
 /** "Share this role": share sheet (or copy), copy link, and email. */
 function ShareRole({ title }) {
   const { status, share, copyLink } = useShareActions(title);
-  const mailto = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(window.location.href)}`;
+  // The page's canonical URL (not window.location), so the prerendered link matches the live one.
+  const { pathname } = useLocation();
+  const mailto = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(SITE_URL + pathname)}`;
 
   return (
     <div className={styles.share}>
@@ -94,8 +98,11 @@ function OpenPositionDetail() {
 
   return (
     <>
-      <title>{`${job.title} | Careers | Elixir`}</title>
-      <meta name="description" content={detail.about.replace(/\n/g, ' ')} />
+      <PageSeo
+        path={`/career/open-positions/${job.slug}`}
+        title={`${job.title} | Careers | Elixir`}
+        description={detail.about.replace(/\n/g, ' ')}
+      />
 
       <section className={styles.hero} data-header-overlap>
         <Container>

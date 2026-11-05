@@ -14,7 +14,7 @@ export const careerHero = {
   description: 'Empowering health systems through precision intelligence. Join our team of visionaries.',
   image: {
     src: heroCard,
-    alt: 'Colleagues gathered around a desk reviewing a careers page on a monitor in the Elixir AI office',
+    alt: 'Colleagues gathered around a desk reviewing a careers page on a monitor in the Kratu AI office',
   },
 };
 
@@ -22,7 +22,7 @@ export const careerCulture = {
   eyebrow: 'Clinical excellence meets AI innovation.',
   title: 'Come work with us',
   description:
-    'We believe in hiring the top talent, nurturing them and providing them a supporting environment so they can achieve their full potential.',
+    'We believe in hiring the top talent, nurturing them and providing them a supportive environment so they can achieve their full potential.',
   items: [
     {
       title: 'Compensation',
