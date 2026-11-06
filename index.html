@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <!--
       Google Consent Mode v2 defaults: every optional category denied until the visitor chooses,
-      then the saved choice re-applied before any other script runs. No Google tag is installed
-      yet; when one is added (GA4 or Tag Manager), put its snippet AFTER this block. Keep the key,
-      version and signal mapping in step with src/consent/consent.js.
+      then the saved choice re-applied before any other script runs. Google Tag Manager and GA4
+      follow this block, so they start under these defaults. Keep the key, version and signal
+      mapping in step with src/consent/consent.js.
     -->
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -42,6 +42,28 @@
         }
       } catch (e) {}
     </script>
+    <!-- Google Tag Manager (GTM-524CCF2) -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-524CCF2');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js), GA4 G-HE9TB0G122. `gtag` and `dataLayer` are defined in the consent
+         block above. The GTM container has no GA4 tag for this ID, so page views are not doubled;
+         if one is ever added there, remove this snippet. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HE9TB0G122"></script>
+    <script>
+      gtag('js', new Date());
+      gtag('config', 'G-HE9TB0G122');
+    </script>
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -59,6 +81,16 @@
          none are set here: a static copy would duplicate them on every page. -->
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-524CCF2"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
