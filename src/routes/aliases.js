@@ -45,7 +45,9 @@ export const routeAliases = {
   '/resources/benchmark-surveys': '/benchmark-surveys/',
   '/resources/release-notes': '/release-notes/',
   '/resources/case-studies': '/success-stories/',
-  '/insights/newsletter': '/blog/#newsletter',
+  '/insights/newsletter': '/newsletter/',
+  // The old site's newsletter sign-up page (listed in the architecture sheet's "all links").
+  '/subscribe-to-our-newsletter': '/newsletter/',
 
   // Approved SEO slugs (website architecture SEO sheet): the earlier URLs of each page redirect
   // to its approved slug.

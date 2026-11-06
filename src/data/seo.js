@@ -2,7 +2,7 @@
 // description per page, keyed by the page's approved slug (routes in App.jsx use the same path
 // without the trailing slash). Copy is verbatim from the sheet; do not rewrite it here.
 // Only pages that exist are listed. Pages the sheet covers that are not built yet (Healthcare
-// Regulations and its children, ONC Certification, SOC 2 Type II, Newsletter) are added
+// Regulations and its children, ONC Certification, SOC 2 Type II) are added
 // when they are built.
 export const pageSeo = {
   '/ehr-software': {
@@ -184,6 +184,11 @@ export const pageSeo = {
     title: 'Healthcare Case Studies: Real-World Results | ElixirEHR',
     description:
       'Read detailed healthcare case studies covering the challenges, approaches and outcomes behind real customer projects.',
+  },
+  '/newsletter': {
+    title: 'ElixirEHR Newsletter | Healthcare Insights',
+    description:
+      'Get healthcare technology insights, product news and useful resources from ElixirEHR delivered to your inbox.',
   },
   '/webinars-podcasts': {
     title: 'Healthcare Webinars and Podcasts | ElixirEHR',

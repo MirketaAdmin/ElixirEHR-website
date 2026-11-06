@@ -96,6 +96,7 @@ const PRIORITY_EXACT = new Map([
   ['/release-notes/', 0.5],
   ['/press-releases/', 0.5],
   ['/webinars-podcasts/', 0.5],
+  ['/newsletter/', 0.5],
   ['/insights/illustrations/', 0.4],
   // Legal
   ['/privacy-policy/', 0.3],

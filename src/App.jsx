@@ -57,6 +57,7 @@ import EbookListing from './pages/Insights/EbookListing/EbookListing';
 import SurveyListing from './pages/Insights/SurveyListing/SurveyListing';
 import ReleaseNotesListing from './pages/Insights/ReleaseNotesListing/ReleaseNotesListing';
 import WebinarListing from './pages/Insights/WebinarListing/WebinarListing';
+import NewsletterPage from './pages/Insights/NewsletterPage/NewsletterPage';
 import VideoListing from './pages/Insights/VideoListing/VideoListing';
 import IllustrationListing from './pages/Insights/IllustrationListing/IllustrationListing';
 import AllResources from './pages/Insights/AllResources/AllResources';
@@ -143,6 +144,7 @@ export function AppRoutes() {
         <Route path="benchmark-surveys" element={<SurveyListing />} />
         <Route path="release-notes" element={<ReleaseNotesListing />} />
         <Route path="webinars-podcasts" element={<WebinarListing />} />
+        <Route path="newsletter" element={<NewsletterPage />} />
         <Route path="insights/illustrations" element={<IllustrationListing />} />
         <Route path="feature-videos" element={<VideoListing />} />
         <Route path="press-releases" element={<PressReleases />} />

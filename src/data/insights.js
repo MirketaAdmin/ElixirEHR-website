@@ -16,15 +16,15 @@ export const insightsHero = {
   },
 };
 
-// Category navigation, in the frame's order. Newsletter and Illustrations have no Figma yet: they
-// link to their planned routes, which redirect home until those pages are built.
+// Category navigation, in the frame's order. Newsletter and Illustrations have no Figma frame;
+// both have their own page in the shared Insights layout.
 export const insightsNav = [
   { label: 'All Resources', to: '/insights/' },
   { label: 'Blog', to: '/blog/' },
   { label: 'E-Book', to: '/guides-ebooks/' },
   { label: 'Benchmark Surveys', to: '/benchmark-surveys/' },
   { label: 'Release Notes', to: '/release-notes/' },
-  { label: 'Newsletter', to: '/blog/#newsletter' },
+  { label: 'Newsletter', to: '/newsletter/' },
   { label: 'Webinars', to: '/webinars-podcasts/' },
   { label: 'Illustrations', to: '/insights/illustrations/' },
   { label: 'Videos', to: '/feature-videos/' },
@@ -75,6 +75,12 @@ export const insightsPages = {
       text: 'Stay tuned for upcoming webinars, expert insights, and live sessions from our healthcare technology team.',
       cta: { label: 'Watch Feature Videos', to: '/feature-videos/' },
     },
+  },
+  // Heading and intro from the approved Website Architecture sheet (On-Page: Newsletter, /newsletter/).
+  newsletter: {
+    title: 'ElixirEHR Newsletter',
+    documentTitle: 'Newsletter',
+    intro: 'Get healthcare technology insights, product news and useful resources from ElixirEHR delivered to your inbox.',
   },
   illustrations: { title: 'Illustrations', documentTitle: 'Illustrations', categoriesTitle: 'Categories' },
   videos: { title: 'Videos', documentTitle: 'Videos', categoriesTitle: 'Categories', allLabel: 'All' },

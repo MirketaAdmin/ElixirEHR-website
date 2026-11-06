@@ -105,8 +105,7 @@ export const mainNav = [
       // Listed twice in the sheet; shown once.
       { label: 'Release Notes', to: '/release-notes/' },
       { label: 'Benchmark Surveys', to: '/benchmark-surveys/' },
-      // The newsletter sign-up section on the Blog page (the /newsletter page is not built yet).
-      { label: 'Newsletter', to: '/blog/#newsletter' },
+      { label: 'Newsletter', to: '/newsletter/' },
       { label: 'Feature Videos', to: '/feature-videos/' },
     ],
   },

@@ -27,7 +27,7 @@ import patientPortalTelehealthIcon from '../assets/home/challenges/patient-porta
 import doctorTimeIcon from '../assets/home/challenges/doctor-time-ehr-icon.png';
 import dataBreachCostIcon from '../assets/home/challenges/data-breach-cost-icon.png';
 import payerDenialsIcon from '../assets/home/challenges/payer-denials-icon.png';
-import patientViewDashboard from '../assets/home/features/patient-view-dashboard.png';
+import patientViewScreen from '../assets/home/features/patient-view.png';
 import carePlanScreen from '../assets/home/features/care-plan.png';
 import medicationsScreen from '../assets/home/features/medications-prescriptions.png';
 import winterReleaseCover from '../assets/home/resources/elixir-winter-26-release-cover.png';
@@ -286,12 +286,17 @@ export const features = {
   rotationSeconds: 6,
   // Each feature shows its own screenshot (810×530 export of the 665×370 card; drop shadow baked in).
   // Titles, copy and the Care Plan and Medications screenshots follow the Figma "Elixir Capabilities" frames.
+  // The Patient View screenshot was supplied separately; it is set in the same card frame, 40px
+  // shorter because the supplied screenshot is 649×314 (placed 1:1, not stretched).
   items: [
     {
       title: 'Patient View',
       description:
         'Unified patient dashboards that provide clinical context, insurance status, and vital history at a single glance.',
-      image: { src: patientViewDashboard, alt: 'Elixir patient record dashboard' },
+      image: {
+        src: patientViewScreen,
+        alt: 'Elixir patient view for a sample patient, with account details such as admit date, treatment center, house, bed and medical record number',
+      },
     },
     {
       title: 'Care Plan',
