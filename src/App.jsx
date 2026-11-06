@@ -65,6 +65,7 @@ import PostDetail, { LegacyPressReleaseRedirect } from './pages/PostDetail/PostD
 import { postTypes } from './posts/types';
 import { routeAliases } from './routes/aliases';
 import NotFound from './pages/NotFound/NotFound';
+import ThankYou from './pages/ThankYou/ThankYou';
 
 /**
  * The route tree, without a router: App wraps it in a BrowserRouter, and the build-time prerender
@@ -84,6 +85,7 @@ export function AppRoutes() {
         <Route path="insurance-eligibility-verification" element={<EligibilityVerification />} />
         <Route path="treatment-center-software" element={<TreatmentCenterSolutions />} />
         <Route path="contact-us" element={<ContactUs />} />
+        <Route path="thank-you" element={<ThankYou />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="denial-management-software" element={<DenialManagement />} />
         <Route path="claims-processing-software" element={<ClaimPreparation />} />

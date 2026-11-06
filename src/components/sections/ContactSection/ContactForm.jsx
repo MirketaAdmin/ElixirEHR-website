@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { contact } from '../../../data/contact';
 import { webToLead } from '../../../data/webToLead';
+import { PRIVATE_PREVIEW, PREVIEW_FORM_NOTICE } from '../../../config/preview';
 import { cn } from '../../../utils/cn';
 import { Recaptcha, WebToLeadFields } from '../../forms/WebToLead/WebToLead';
 import { hasRecaptchaResponse, useResetOnPageShow } from '../../forms/WebToLead/webToLeadHelpers';
@@ -46,7 +47,7 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
   // Runs only once the browser's own required/email validation has passed. Unless something is
   // missing, the native POST to Salesforce goes ahead.
   function handleSubmit(event) {
-    if (status === 'sending' || status === 'unavailable') {
+    if (PRIVATE_PREVIEW || status === 'sending' || status === 'unavailable') {
       event.preventDefault();
       return;
     }
@@ -59,9 +60,10 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
   }
 
   return (
-    <form className={cn(styles.form, className)} action={webToLead.action} method="POST" onSubmit={handleSubmit}>
-      <WebToLeadFields />
+    <form className={cn(styles.form, className)} action={PRIVATE_PREVIEW ? undefined : webToLead.action} method="POST" onSubmit={handleSubmit}>
+      {!PRIVATE_PREVIEW && <WebToLeadFields />}
       {intro}
+      {PRIVATE_PREVIEW && <p role="note">{PREVIEW_FORM_NOTICE}</p>}
       <div className={styles.fields}>
         {fields.map((field) => {
           const id = `contact-${field.name}`;
@@ -80,17 +82,18 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
                 placeholder={field.placeholder}
                 autoComplete={field.autoComplete}
                 required={field.required}
+                disabled={PRIVATE_PREVIEW}
                 className={cn(styles.control, field.multiline && styles.textarea)}
               />
             </div>
           );
         })}
       </div>
-      <Recaptcha className={styles.recaptcha} onUnavailable={markUnavailable} />
+      {!PRIVATE_PREVIEW && <Recaptcha className={styles.recaptcha} onUnavailable={markUnavailable} />}
       <button
         type="submit"
         className={styles.submit}
-        disabled={status === 'sending' || status === 'unavailable'}
+        disabled={PRIVATE_PREVIEW || status === 'sending' || status === 'unavailable'}
         aria-busy={status === 'sending' || undefined}
       >
         {status === 'sending' ? 'Sending…' : (submitLabel ?? form.submitLabel)}

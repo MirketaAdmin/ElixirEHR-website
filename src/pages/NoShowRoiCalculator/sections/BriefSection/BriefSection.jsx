@@ -2,6 +2,7 @@ import { useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { roiBrief } from '../../../../data/noShowRoiCalculator';
 import { webToLead } from '../../../../data/webToLead';
+import { PRIVATE_PREVIEW, PREVIEW_FORM_NOTICE } from '../../../../config/preview';
 import Section from '../../../../components/layout/Section/Section';
 import { Recaptcha, WebToLeadFields } from '../../../../components/forms/WebToLead/WebToLead';
 import { hasRecaptchaResponse, useResetOnPageShow } from '../../../../components/forms/WebToLead/webToLeadHelpers';
@@ -38,7 +39,7 @@ function BriefSection({ inputs }) {
 
   function handleSubmit(event) {
     const form = event.currentTarget;
-    if (status === 'sending' || status === 'unavailable') {
+    if (PRIVATE_PREVIEW || status === 'sending' || status === 'unavailable') {
       event.preventDefault();
       return;
     }
@@ -69,8 +70,9 @@ function BriefSection({ inputs }) {
   return (
     <Section tone="surface" spacing="none" className={styles.section} aria-labelledby="roi-brief-title">
       <RoiIntro id="roi-brief-title" eyebrow={eyebrow} title={title} description={description} className={styles.intro} />
-      <form className={styles.form} action={webToLead.action} method="POST" onSubmit={handleSubmit}>
-        <WebToLeadFields />
+      <form className={styles.form} action={PRIVATE_PREVIEW ? undefined : webToLead.action} method="POST" onSubmit={handleSubmit}>
+        {!PRIVATE_PREVIEW && <WebToLeadFields />}
+        {PRIVATE_PREVIEW && <p role="note">{PREVIEW_FORM_NOTICE}</p>}
         <input ref={(el) => (hidden.current.first = el)} type="hidden" name="first_name" />
         <input ref={(el) => (hidden.current.last = el)} type="hidden" name="last_name" />
         <input ref={(el) => (hidden.current.description = el)} type="hidden" name="description" />
@@ -88,16 +90,17 @@ function BriefSection({ inputs }) {
                 placeholder={field.placeholder}
                 autoComplete={field.autoComplete}
                 required={field.required}
+                disabled={PRIVATE_PREVIEW}
                 className={styles.control}
               />
             </div>
           ))}
         </div>
-        <Recaptcha className={styles.recaptcha} onUnavailable={markUnavailable} />
+        {!PRIVATE_PREVIEW && <Recaptcha className={styles.recaptcha} onUnavailable={markUnavailable} />}
         <button
           type="submit"
           className={styles.submit}
-          disabled={status === 'sending' || status === 'unavailable'}
+          disabled={PRIVATE_PREVIEW || status === 'sending' || status === 'unavailable'}
           aria-busy={status === 'sending' || undefined}
         >
           {status === 'sending' ? 'Sending…' : submitLabel}

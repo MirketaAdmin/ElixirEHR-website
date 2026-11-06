@@ -41,8 +41,8 @@ function ApplyButton({ job }) {
     );
   }
   return (
-    <span className={styles.apply} aria-hidden="true">
-      Apply Now
+    <span className={styles.apply}>
+      Application link unavailable
     </span>
   );
 }

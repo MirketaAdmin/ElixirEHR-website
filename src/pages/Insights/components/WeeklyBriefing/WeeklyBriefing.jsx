@@ -1,6 +1,6 @@
 import { useId, useState } from 'react';
 import { weeklyBriefing } from '../../../../data/insights';
-import { subscribeToNewsletter } from '../../../../services/newsletterService';
+import { NEWSLETTER_AVAILABLE, subscribeToNewsletter } from '../../../../services/newsletterService';
 import styles from './WeeklyBriefing.module.css';
 
 // The outcome is shown under the form and announced (role="status"), as on the contact form.
@@ -18,7 +18,7 @@ function WeeklyBriefing() {
   async function handleSubmit(event) {
     event.preventDefault();
     const form = event.currentTarget;
-    if (status === 'sending') return;
+    if (!NEWSLETTER_AVAILABLE || status === 'sending') return;
     setStatus('sending');
     try {
       await subscribeToNewsletter(new FormData(form).get('email'));
@@ -35,6 +35,7 @@ function WeeklyBriefing() {
         {weeklyBriefing.title}
       </h2>
       <p className={styles.text}>{weeklyBriefing.text}</p>
+      {!NEWSLETTER_AVAILABLE && <p role="note">Newsletter signup is unavailable in this preview.</p>}
       <form className={styles.form} onSubmit={handleSubmit}>
         <label htmlFor={emailId} className="visually-hidden">
           {weeklyBriefing.placeholder}
@@ -44,6 +45,7 @@ function WeeklyBriefing() {
           name="email"
           type="email"
           required
+          disabled={!NEWSLETTER_AVAILABLE}
           autoComplete="email"
           placeholder={weeklyBriefing.placeholder}
           className={styles.input}
@@ -51,7 +53,7 @@ function WeeklyBriefing() {
         <button
           type="submit"
           className={styles.submit}
-          disabled={status === 'sending'}
+          disabled={!NEWSLETTER_AVAILABLE || status === 'sending'}
           aria-busy={status === 'sending' || undefined}
         >
           {status === 'sending' ? 'Subscribing…' : weeklyBriefing.submitLabel}

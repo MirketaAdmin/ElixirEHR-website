@@ -73,7 +73,6 @@ function TestimonialsSection() {
   const [hovered, setHovered] = useState(false);
   const [openItem, setOpenItem] = useState(null);
   const reducedMotion = usePrefersReducedMotion();
-  const active = wrap(position, count);
   const running = !hovered && openItem === null && !reducedMotion && count > 1;
 
   const go = useCallback(

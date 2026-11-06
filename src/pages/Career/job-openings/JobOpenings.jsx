@@ -13,13 +13,13 @@ function ViewApplyLink({ job }) {
   if (job.detail) {
     return (
       <Link to={getJobPath(job)} className={styles.apply}>
-        View &amp; Apply<span className="visually-hidden">: {job.title}</span>
+        View role<span className="visually-hidden">: {job.title}</span>
       </Link>
     );
   }
   return (
-    <span className={styles.apply} aria-hidden="true">
-      View &amp; Apply
+    <span className={styles.apply}>
+      Role details unavailable
     </span>
   );
 }
