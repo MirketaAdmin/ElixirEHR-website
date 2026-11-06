@@ -112,6 +112,9 @@ const PRIORITY_PATTERNS = [
 ];
 const DEFAULT_PRIORITY = 0.5;
 
+// Prerendered but never listed in the sitemap: pages marked noindex (the Web-to-Lead thank-you page).
+const SITEMAP_EXCLUDED = new Set(['/thank-you/']);
+
 function priorityFor(url) {
   if (PRIORITY_EXACT.has(url)) return PRIORITY_EXACT.get(url);
   const rule = PRIORITY_PATTERNS.find(([pattern]) => pattern.test(url));
@@ -163,6 +166,7 @@ for (const url of urls) {
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
+  .filter((url) => !SITEMAP_EXCLUDED.has(url))
   .map((url) => {
     const lastmod = pages.get(url) ? `\n    <lastmod>${pages.get(url)}</lastmod>` : '';
     return `  <url>\n    <loc>${SITE_ORIGIN}${url}</loc>${lastmod}\n    <priority>${priorityFor(url).toFixed(1)}</priority>\n  </url>`;
@@ -171,6 +175,11 @@ ${urls
 </urlset>
 `;
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'), sitemap);
+
+// robots.txt: the site had none, so crawlers could not discover the sitemap from it. Everything is
+// crawlable; noindex pages (thank-you, "not available") say so in their own <meta name="robots">,
+// which crawlers can only read if the page is not blocked here.
+fs.writeFileSync(path.join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_ORIGIN}/sitemap.xml\n`);
 
 console.log(
   `prerendered ${written}/${urls.length} pages in ${((Date.now() - started) / 1000).toFixed(1)}s (SPA fallback: dist/${SHELL_FILE})`,

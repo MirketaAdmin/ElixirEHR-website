@@ -28,3 +28,13 @@
     height: auto;
   }
 }
+
+/* Phones: the card box spans the full column, so the image's backdrop bled past the page gutter and
+   made the page scroll sideways. Shrink the box so the whole image (111.9% of the box, starting
+   5.95% to its left) fits the column exactly: box = 100% / 1.119, offset = 5.95% / 1.119. */
+@media (max-width: 767px) {
+  .media {
+    width: 89.37%;
+    margin-left: 5.32%;
+  }
+}

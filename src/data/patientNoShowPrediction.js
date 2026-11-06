@@ -49,7 +49,7 @@ export const noShowProblem = {
     'Source: Kheirkhah P, Feng Q, Travis LM, Tavakoli-Tabasi S, Sharafkhaneh A. “Prevalence, predictors and economic consequences of no-shows.” ',
     { text: 'BMC Health Services Research', italic: true },
     ' 2016;16:13. ',
-    { text: 'doi:10.1186/s12913-015-1243-z', href: 'https://doi.org/10.1186/s12913-015-1243-z' },
+    { text: 'doi:10.1186/s12913-015-1243-z', external: 'https://doi.org/10.1186/s12913-015-1243-z' },
   ],
 };
 

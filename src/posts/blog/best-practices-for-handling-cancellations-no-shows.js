@@ -31,9 +31,9 @@ export default {
       type: 'paragraph',
       text: [
         'Missed appointments are a significant challenge in ',
-        { text: 'healthcare', href: 'https://mirketa.com/industries/healthcare/' },
+        { text: 'healthcare', external: 'https://www.mirketa.com/industries/healthcare/' },
         ', affecting both patient care and clinic efficiency. Studies have found that in outpatient settings, no-show rates range from approximately 23% to 33%, leading to lost revenue and disruptions in care delivery. To combat this issue, ',
-        { text: 'healthcare providers', href: 'https://mirketa.com/healthcare-providers-digital-transformation-consulting/' },
+        { text: 'healthcare providers', external: 'https://www.mirketa.com/healthcare-providers-digital-transformation-consulting/' },
         ' are turning to ',
         { text: 'patient appointment scheduling software', to: '/patient-no-show-software/' },
         ' to streamline bookings, reduce cancellations, and optimize operations. In this guide, we’ll explore best practices for handling patient cancellations and no-shows effectively, helping you enhance patient retention and maximize appointment adherence.',

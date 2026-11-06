@@ -14,6 +14,7 @@ import styles from './ContactForm.module.css';
 const statusMessages = {
   sending: 'Sending your request…',
   captcha: 'Please confirm you are not a robot, then submit again.',
+  expired: 'The verification timed out. Please confirm you are not a robot again, then submit.',
   unavailable: (
     <>
       The verification check could not load, so the form cannot be sent right now. Please email{' '}
@@ -42,6 +43,7 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
   ).map((field) => ({ ...field, ...fieldOverrides?.[field.name] }));
   const consentCopy = consent ?? form.consent;
   const markUnavailable = useCallback(() => setStatus('unavailable'), []);
+  const markExpired = useCallback(() => setStatus('expired'), []);
   useResetOnPageShow(useCallback(() => setStatus('idle'), []));
 
   // Runs only once the browser's own required/email validation has passed. Unless something is
@@ -89,7 +91,7 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
           );
         })}
       </div>
-      {!PRIVATE_PREVIEW && <Recaptcha className={styles.recaptcha} onUnavailable={markUnavailable} />}
+      {!PRIVATE_PREVIEW && <Recaptcha className={styles.recaptcha} onUnavailable={markUnavailable} onExpired={markExpired} />}
       <button
         type="submit"
         className={styles.submit}

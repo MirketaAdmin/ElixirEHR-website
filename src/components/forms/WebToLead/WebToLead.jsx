@@ -60,9 +60,16 @@ function loadRecaptcha() {
   return scriptPromise;
 }
 
-/** The reCAPTCHA checkbox. `onUnavailable` is called if Google's script cannot be loaded. */
-export function Recaptcha({ className, onUnavailable }) {
+/**
+ * The reCAPTCHA checkbox. `onUnavailable` is called if Google's script cannot be loaded, and
+ * `onExpired` when an answered check times out (about two minutes) and has to be ticked again.
+ */
+export function Recaptcha({ className, onUnavailable, onExpired }) {
   const ref = useRef(null);
+  const widgetId = useRef(null);
+  // Read through a ref so a new callback from the parent never re-renders the widget.
+  const expiredRef = useRef(onExpired);
+  expiredRef.current = onExpired;
 
   useEffect(() => {
     let cancelled = false;
@@ -70,13 +77,26 @@ export function Recaptcha({ className, onUnavailable }) {
       .then((grecaptcha) => {
         const element = ref.current;
         if (cancelled || !element || element.childElementCount > 0) return;
-        grecaptcha.render(element, { sitekey: webToLead.captcha.siteKey });
+        widgetId.current = grecaptcha.render(element, {
+          sitekey: webToLead.captcha.siteKey,
+          'expired-callback': () => expiredRef.current?.(),
+        });
       })
       .catch(() => !cancelled && onUnavailable?.());
     return () => {
       cancelled = true;
     };
   }, [onUnavailable]);
+
+  // Back from Salesforce's redirect, the browser may restore this page with the already-used answer
+  // still in the widget; Salesforce rejects a reused answer, so the check is cleared to be ticked again.
+  useEffect(() => {
+    const onPageShow = (event) => {
+      if (event.persisted && widgetId.current !== null) window.grecaptcha?.reset(widgetId.current);
+    };
+    window.addEventListener('pageshow', onPageShow);
+    return () => window.removeEventListener('pageshow', onPageShow);
+  }, []);
 
   return <div ref={ref} className={className} />;
 }

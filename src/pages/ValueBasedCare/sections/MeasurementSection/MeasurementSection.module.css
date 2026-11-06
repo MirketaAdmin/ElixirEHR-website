@@ -149,4 +149,10 @@
   .card {
     border-radius: var(--radius-xl);
   }
+
+  /* On the narrowest screens the badge drops under the title instead of pushing past the card. */
+  .cardHead {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
 }

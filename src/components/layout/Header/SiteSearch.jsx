@@ -2,6 +2,7 @@ import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { mainNav } from '../../../data/navigation';
 import { footerColumns } from '../../../data/footer';
+import { pageSeo } from '../../../data/seo';
 import { cn } from '../../../utils/cn';
 import Icon from '../../ui/Icon/Icon';
 import styles from './SiteSearch.module.css';
@@ -23,13 +24,27 @@ function buildIndex() {
       }
     }),
   );
-  return [...pages.values()];
+  // Pages with approved SEO copy that no menu links to (e.g. Blog) are listed under their meta title.
+  Object.entries(pageSeo).forEach(([slug, seo]) => {
+    const to = `${slug}/`;
+    if (slug !== '/' && seo.title && !pages.has(to)) {
+      pages.set(to, { label: seo.title.replace(/\s*\|\s*ElixirEHR$/, ''), to, trail: [] });
+    }
+  });
+  // Each page's approved meta title and description (data/seo.js) are searched too, so topic words
+  // that are not in a menu label (e.g. "billing") still find the pages about them.
+  return [...pages.values()].map((page) => {
+    const seo = pageSeo[page.to.split('#')[0].replace(/\/$/, '')];
+    const keywords = seo ? `${(seo.title ?? '').replace(/\s*\|\s*ElixirEHR$/, '')} ${seo.description ?? ''}`.toLowerCase() : '';
+    return { ...page, keywords };
+  });
 }
 
 /**
  * The header's site search: a modal dialog (native <dialog>, so focus is trapped and Escape
  * closes it) that filters the site's pages as you type. Arrow keys move through the results and
- * Enter opens one. It searches page names and their menu trail; there is no full-text index.
+ * Enter opens one. It searches page names, their menu trail and each page's meta title and
+ * description; there is no full-text index.
  */
 function SiteSearch({ open, onClose }) {
   const dialogRef = useRef(null);
@@ -46,9 +61,14 @@ function SiteSearch({ open, onClose }) {
     return index
       .map((page) => {
         const label = page.label.toLowerCase();
-        const haystack = `${label} ${page.trail.join(' ').toLowerCase()}`;
+        const trail = page.trail.join(' ').toLowerCase();
+        const haystack = `${label} ${trail} ${page.keywords}`;
         if (!terms.every((term) => haystack.includes(term))) return null;
-        const score = terms.reduce((sum, term) => sum + (label.startsWith(term) ? 3 : label.includes(term) ? 2 : 1), 0);
+        const score = terms.reduce(
+          (sum, term) =>
+            sum + (label.startsWith(term) ? 6 : label.includes(term) ? 4 : trail.includes(term) ? 2 : 1),
+          0,
+        );
         return { page, score };
       })
       .filter(Boolean)

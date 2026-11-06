@@ -544,6 +544,13 @@ a.gridCard:hover {
   font-weight: 600;
 }
 
+/* Filled lime buttons keep their dark label on their own page too (the accent colour above would
+   put lime text on the lime fill). */
+.promoButton.current,
+.ctaButton.current {
+  color: var(--color-heading);
+}
+
 /* Pages that are not built yet: shown, not linked. */
 .pending {
   cursor: default;

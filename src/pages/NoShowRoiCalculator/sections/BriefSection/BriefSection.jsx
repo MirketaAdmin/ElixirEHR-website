@@ -14,6 +14,7 @@ import styles from './BriefSection.module.css';
 const statusMessages = {
   sending: 'Sending your request…',
   captcha: 'Please confirm you are not a robot, then submit again.',
+  expired: 'The verification timed out. Please confirm you are not a robot again, then submit.',
   unavailable: 'The verification check could not load. Please email info@elixirehr.com.',
 };
 
@@ -35,6 +36,7 @@ function BriefSection({ inputs }) {
   const [status, setStatus] = useState('idle');
   const hidden = useRef({});
   const markUnavailable = useCallback(() => setStatus('unavailable'), []);
+  const markExpired = useCallback(() => setStatus('expired'), []);
   useResetOnPageShow(useCallback(() => setStatus('idle'), []));
 
   function handleSubmit(event) {
@@ -96,7 +98,7 @@ function BriefSection({ inputs }) {
             </div>
           ))}
         </div>
-        {!PRIVATE_PREVIEW && <Recaptcha className={styles.recaptcha} onUnavailable={markUnavailable} />}
+        {!PRIVATE_PREVIEW && <Recaptcha className={styles.recaptcha} onUnavailable={markUnavailable} onExpired={markExpired} />}
         <button
           type="submit"
           className={styles.submit}

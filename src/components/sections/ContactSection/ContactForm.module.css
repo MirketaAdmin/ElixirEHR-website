@@ -169,6 +169,7 @@
 
 .error,
 .captcha,
+.expired,
 .unavailable {
   background: var(--color-error-container);
   color: var(--color-on-error-container);

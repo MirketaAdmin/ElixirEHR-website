@@ -1,4 +1,4 @@
-import cardImage from '../../assets/posts/press-release/elixir-launches-patient-no-show-ai-feature/card.png';
+import cardImage from '../../assets/posts/press-release/elixir-launches-patient-no-show-ai-feature/card.jpg';
 import heroImage from '../../assets/posts/press-release/elixir-launches-patient-no-show-ai-feature/hero.png';
 
 // Detail copy from the Figma "Press Release" detail frame; listing copy (listingTitle, excerpt)
@@ -12,7 +12,10 @@ export default {
   location: 'San Ramon, CA',
   category: null,
   tags: ['Patient No-show', 'EHR', 'Healthcare Provider', 'Medical Billing', 'Salesforce Health Cloud', 'Behavioural Health'],
-  cardImage: { src: cardImage, alt: 'Kratu AI press release hub dashboard on a clinic wall display' },
+  cardImage: {
+    src: cardImage,
+    alt: 'Clinician reviewing a Patient No-Show Prediction dashboard showing 40% fewer no-shows on a desktop monitor',
+  },
   heroImage: {
     src: heroImage,
     alt: 'Clinician reviewing the Kratu AI patient no-show risk analysis on a desktop monitor',
