@@ -1,5 +1,18 @@
 # Contact Us → Web-to-Lead: V3 findings (key pair suspected)
 
+> **Update (10 Nov 2026, after this report):** the product team switched to a new Salesforce key pair and snippet (commit `c2b7a02`, merged in `2c2af8e`).
+>
+> | Item | Before | Now |
+> |---|---|---|
+> | keyname | `ElixirEHR` | **`elixirEHR_website_2026`** |
+> | site key | `6Lf5QdAZ…` | **`6Lc3fhkuAAAAAEq4gX48wD-DNVEyl6SSw5Fo3TRg`** |
+> | phone field | `mobile` | `phone` |
+>
+> - The supplied snippet had a stray space inside the site key. The 40-character key without the space renders on www.elixirehr.com with no domain error.
+> - Re-verified on the production build: 91/91 checks; a real-click POST on all 7 forms carries keyname `elixirEHR_website_2026`, a 13-digit `ts`, the token and `phone`.
+> - `dist/` contains no secret key.
+> - The Step 1 table below shows the values as checked before the switch.
+
 **Date:** 10 Nov 2026
 **Branch:** `fix/contact-us-web-to-lead` (local; also merged into local `main` as `773262b`; nothing pushed)
 **Status:** **WEBSITE SIDE CLEAR – ADMIN KEY-PAIR CHECK REQUIRED**
