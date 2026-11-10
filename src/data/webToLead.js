@@ -15,15 +15,18 @@ export const webToLead = {
   },
   leadSource: 'Web',
   captcha: {
-    keyName: 'ElixirEHR',
-    siteKey: '6Lf5QdAZAAAAAMpIeeAGEDVzMQ0JSHFpdUYIZQs_',
+    // Key pair "elixirEHR_website_2026" (Salesforce Web-to-Lead snippet of 10 Nov 2026). The keyname
+    // must match the Salesforce key pair name exactly (case-sensitive). The site key is public.
+    keyName: 'elixirEHR_website_2026',
+    siteKey: '6Lc3fhkuAAAAAEq4gX48wD-DNVEyl6SSw5Fo3TRg',
   },
   // The site's form field keys mapped to the Salesforce field names and lengths in the supplied code.
   fields: {
     firstName: { name: 'first_name', maxLength: 40 },
     lastName: { name: 'last_name', maxLength: 80 },
-    // The Salesforce snippet in use (10 Nov 2026) posts the phone number as the Lead's Mobile field.
-    phone: { name: 'mobile', maxLength: 40 },
+    // The Salesforce snippet in use (10 Nov 2026, key pair elixirEHR_website_2026) posts the phone
+    // number as the Lead's Phone field. The visible label stays "Mobile Number".
+    phone: { name: 'phone', maxLength: 40 },
     email: { name: 'email', maxLength: 80 },
     company: { name: 'company', maxLength: 40 },
     message: { name: 'description' },

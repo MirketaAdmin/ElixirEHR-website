@@ -13,7 +13,7 @@ export function useHydrated() {
 }
 
 /** Shown only when JavaScript is off; the form cannot be sent without it (reCAPTCHA needs it). */
-export const NOSCRIPT_MESSAGE = 'This form needs JavaScript to verify you are not a robot. Please email info@elixirehr.com.';
+export const NOSCRIPT_MESSAGE = 'Please enable JavaScript to submit this form, or email info@elixirehr.com.';
 
 /** True when the visitor has completed the reCAPTCHA inside `form`. */
 export function hasRecaptchaResponse(form) {
