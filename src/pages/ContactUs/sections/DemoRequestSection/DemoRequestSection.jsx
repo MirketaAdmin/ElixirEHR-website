@@ -1,5 +1,5 @@
 import { demoRequest } from '../../../../data/contactUs';
-import { contact } from '../../../../data/contact';
+import { contact, updatedContactLogos } from '../../../../data/contact';
 import Section from '../../../../components/layout/Section/Section';
 import ContactForm from '../../../../components/sections/ContactSection/ContactForm';
 import sparkleIcon from '../../../../assets/contact-us/icon-sparkle.png';
@@ -48,14 +48,15 @@ function DemoRequestSection() {
 
         <p className={styles.trustedLabel}>{contact.trustedLabel}</p>
         <ul className={styles.logos}>
-          {contact.logos.map((logo) => (
+          {/* The Contact Us frame shows the newer "Trusted by" row (same five logos and sizes as About Us). */}
+          {updatedContactLogos.map((logo) => (
             <li key={logo.name}>
               <img
                 src={logo.src}
                 alt={logo.name}
                 width={logo.width}
                 height={logo.height}
-                style={{ width: logo.width * 0.72, height: logo.height * 0.72 }}
+                style={{ width: logo.display[0], height: logo.display[1] }}
               />
             </li>
           ))}

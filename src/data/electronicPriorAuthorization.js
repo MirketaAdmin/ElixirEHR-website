@@ -2,7 +2,7 @@
 // page of Revenue Cycle Management (/electronic-prior-authorization).
 // Copy is reproduced verbatim from the frame; forced mid-sentence line breaks in the frame's
 // paragraphs are dropped (see DESIGN-SYSTEM.md).
-import heroMediaPlaceholder from '../assets/denial-management/hero-media-placeholder.png';
+import heroMedia from '../assets/electronic-prior-authorization/hero-media.png';
 import serviceLevelIcon from '../assets/electronic-prior-authorization/icon-service-level.png';
 import bulkEdiIcon from '../assets/electronic-prior-authorization/icon-bulk-edi.png';
 import batchIcon from '../assets/electronic-prior-authorization/icon-batch.png';
@@ -23,11 +23,11 @@ export const epaHero = {
   primaryCta: { label: 'Request a Demo', to: '/request-demo/' },
   // No destination in the frame; What Is Elixir is the site's platform overview.
   secondaryCta: { label: 'Explore Elixir', to: '/why-elixir/' },
-  // The frame shows Figma's grey "missing image" box on the tilted backdrop (the same export as
-  // Denial Management): the hero photo has not been supplied.
+  // The prior-authorization dashboard photo supplied by the product team, composited onto the
+  // shared tilted hero backdrop (511×507).
   media: {
-    src: heroMediaPlaceholder,
-    alt: 'Image placeholder',
+    src: heroMedia,
+    alt: 'Staff member reviewing a prior authorization dashboard with request statuses and supporting documents',
   },
 };
 

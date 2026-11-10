@@ -1,7 +1,7 @@
 // Care Management page (/care-management-software) — an independent top-level page.
 // Copy is verbatim from the Figma. Links only point at routes that exist; Value-Based Care, Integrations
 // and the ADT-feeds guide have no pages yet, so they render as plain text.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+import heroMedia from '../assets/care-management/hero-media.png';
 import pillar1Icon from '../assets/care-management/icon-pillar-1.png';
 import pillar2Icon from '../assets/care-management/icon-pillar-2.png';
 import pillar3Icon from '../assets/care-management/icon-pillar-3.png';
@@ -41,7 +41,11 @@ export const cmHero = {
   primaryCta: { label: 'Request a Demo', to: '/request-demo/', arrow: false },
   // The frame gives no destination; it scrolls to "Chronic Care Management Billing", the codes table.
   secondaryCta: { label: 'What the codes pay for', href: '#billing' },
-  media: { src: heroPlaceholder, alt: '' },
+  // Care-team photo supplied by the product team, composited onto the shared wide tilted backdrop.
+  media: {
+    src: heroMedia,
+    alt: 'Care team reviewing a shared patient care plan with progress toward each goal',
+  },
 };
 
 export const cmPillars = [

@@ -1,7 +1,8 @@
 // Elixir Co-Pilot (Clinical Assistant) page (Figma "Kratu Co-Pilot", 1280 frame), a child page of
 // Kratu AI (/ai-clinical-documentation). Copy is reproduced verbatim from the
-// frame. The hero image is the frame's grey placeholder (the same export as the Kratu AI hero).
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+// frame. The hero image is the clinical documentation screen supplied by the product team, composited
+// onto the shared wide tilted hero backdrop (583×530).
+import heroMedia from '../assets/kratu-ai/copilot-hero-media.png';
 import pillarTemplatesIcon from '../assets/kratu-ai/copilot-pillar-templates.png';
 import pillarEhrIcon from '../assets/kratu-ai/copilot-pillar-ehr.png';
 import pillarAutofiledIcon from '../assets/kratu-ai/copilot-pillar-autofiled.png';
@@ -42,7 +43,10 @@ export const coPilotHero = {
   primaryCta: { label: 'Request a Kratu Co-Pilot Demo', to: '/request-demo/', arrow: false },
   // Scrolls to "Three Kratu Co-Pilot features across one patient encounter".
   secondaryCta: { label: 'See the three features', href: '#features' },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Clinician using Elixir AI clinical documentation: ambient scribe, clinical insights and smart dictation on one screen',
+  },
 };
 
 // tone: the card's edge and tile colour.

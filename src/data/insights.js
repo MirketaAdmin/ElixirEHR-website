@@ -1,7 +1,7 @@
 // Insights (Resources) section: shared hero, category navigation, sidebar and page copy, reproduced
 // from the Figma Insights frames. The resources themselves are posts in src/posts/<type>/.
 
-import heroCard from '../assets/insights/hero-card.png';
+import heroCard from '../assets/insights/hero-card-clinician.png';
 import allResourcesHeroCard from '../assets/insights/all-resources-hero.png';
 
 export const insightsHero = {
@@ -12,7 +12,7 @@ export const insightsHero = {
   searchPlaceholder: 'Search resources, topics, or keywords...',
   image: {
     src: heroCard,
-    alt: 'Smiling clinicians in white coats and scrubs gathered around a tablet',
+    alt: 'Clinician using a tablet beside patient dashboards on two monitors in a busy clinic',
   },
 };
 

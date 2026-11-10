@@ -6,7 +6,7 @@ import { useSwipe } from '../../../../hooks/useSwipe';
 import Container from '../../../../components/layout/Container/Container';
 import Button from '../../../../components/ui/Button/Button';
 import Icon from '../../../../components/ui/Icon/Icon';
-import laptopImage from '../../../../assets/home/hero/elixir-ehr-dashboard-laptop.png';
+import heroImage from '../../../../assets/home/hero/ehr-clinician-dashboard.webp';
 import sparkleIcon from '../../../../assets/icons/sparkle-dark.png';
 import styles from './HeroSection.module.css';
 
@@ -23,7 +23,7 @@ function renderLine(line) {
   );
 }
 
-/** Slide 1: the original Home hero (AI-powered EHR, laptop and AI-insight card). */
+/** Slide 1: the original Home hero (AI-powered EHR, clinician-and-dashboard image and AI-insight card). */
 function EhrSlide() {
   return (
     <div className={styles.inner}>
@@ -48,10 +48,10 @@ function EhrSlide() {
 
       <div className={styles.media}>
         <img
-          src={laptopImage}
-          alt="Elixir EHR dashboard on a laptop"
+          src={heroImage}
+          alt="Clinician working on a laptop surrounded by Elixir EHR dashboard panels: schedule, patient overview, clinical notes, vitals and care plan progress"
           width="518"
-          height="283"
+          height="514"
           className={styles.image}
         />
         <div className={styles.insight}>

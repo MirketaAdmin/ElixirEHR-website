@@ -90,11 +90,11 @@
   font-weight: 400;
 }
 
-/* Media block: laptop image with the AI-insight card overlapping its lower-left corner. */
+/* Media block: the 518x514 clinician/dashboard image with the AI-insight card overlapping its
+   lower-left corner and running below it, as in the updated Figma frame. */
 .media {
   position: relative;
-  height: 324px;
-  margin-top: 43px;
+  height: 530px;
 }
 
 .image {
@@ -102,7 +102,7 @@
   top: 0;
   right: 0;
   width: 518px;
-  height: 283px;
+  height: 514px;
   border-radius: var(--radius-md);
   object-fit: cover;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
@@ -110,7 +110,7 @@
 
 .insight {
   position: absolute;
-  top: 199px;
+  top: 406px;
   left: 0;
   display: flex;
   align-items: center;
@@ -332,7 +332,7 @@
     width: 100%;
     max-width: 560px;
     height: auto;
-    aspect-ratio: 560 / 324;
+    aspect-ratio: 560 / 530;
     margin-top: 0;
   }
 

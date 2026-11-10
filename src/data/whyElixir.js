@@ -2,7 +2,7 @@
 // carries the What Is Elixir frame's unique sections (Modular Solutions, Explore All Possibilities,
 // Leverage the World's #1 CRM), merged in when /what-is-elixir was folded into this page.
 
-import heroCard from '../assets/why-elixir/hero-card.png';
+import heroCard from '../assets/why-elixir/hero-card-team.png';
 import patientTouchpoints from '../assets/why-elixir/patient-touchpoints.png';
 import admissionsDashboard from '../assets/why-elixir/admissions-dashboard.png';
 import addictionTreatmentIcon from '../assets/why-elixir/addiction-treatment-icon.png';
@@ -44,7 +44,7 @@ export const whyElixirHero = {
   primaryCta: { label: 'Explore Our Platform', href: '#modular-solutions' },
   image: {
     src: heroCard,
-    alt: 'Clinicians reviewing patient data on a tablet in a meeting room',
+    alt: 'Clinicians and staff reviewing a patient record on a laptop, with patient details on a wall display',
   },
   stat: { label: 'Efficiency Gain', value: '+42%', caption: 'Workflow speed increase' },
 };

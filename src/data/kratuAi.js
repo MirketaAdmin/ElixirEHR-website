@@ -1,6 +1,7 @@
 // Kratu AI page (Figma "Kratu AI", 1280 frame). Copy is reproduced verbatim from the frame.
-// The hero image is the frame's grey placeholder, the same export as the Contact Center hero.
-import heroPlaceholder from '../assets/contact-center/hero-placeholder.png';
+// The hero image is the Kratu AI agents illustration supplied by the product team, composited onto
+// the shared wide tilted hero backdrop (583×530).
+import heroMedia from '../assets/kratu-ai/hero-media.png';
 import cohesionRecordIcon from '../assets/kratu-ai/cohesion-record.png';
 import cohesionContextIcon from '../assets/kratu-ai/cohesion-context.png';
 import cohesionLearningIcon from '../assets/kratu-ai/cohesion-learning.png';
@@ -16,7 +17,10 @@ export const kratuHero = {
   primaryCta: { label: 'Request a Kratu AI Demo', to: '/request-demo/', arrow: false },
   // Scrolls to "One AI Engine, Four Agents, One Patient Journey".
   secondaryCta: { label: 'Explore the 4 Agents', href: '#four-agents', icon: 'arrowDown', iconAfter: true },
-  media: { src: heroPlaceholder, alt: '' },
+  media: {
+    src: heroMedia,
+    alt: 'Kratu AI agents connecting the patient visit, clinical documentation and claim verification on one platform',
+  },
 };
 
 // The four agents' section ids (the stage cards' "View Agent" links scroll to them).

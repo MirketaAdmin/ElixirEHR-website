@@ -1,7 +1,7 @@
 // Career page content — copy reproduced exactly from the Figma "Career" frame.
 // Images are 1× crops of the frame export (no source files were supplied).
 
-import heroCard from '../assets/career/hero-card.png';
+import heroCard from '../assets/career/hero-card-team.png';
 import compensationIcon from '../assets/career/icon-compensation.png';
 import funAtWorkIcon from '../assets/career/icon-fun-at-work.png';
 import learningIcon from '../assets/career/icon-learning.png';
@@ -14,7 +14,7 @@ export const careerHero = {
   description: 'Empowering health systems through precision intelligence. Join our team of visionaries.',
   image: {
     src: heroCard,
-    alt: 'Colleagues gathered around a desk reviewing a careers page on a monitor in the Kratu AI office',
+    alt: 'Clinicians and colleagues discussing analytics on a monitor around a meeting table in a city-view office',
   },
 };
 
