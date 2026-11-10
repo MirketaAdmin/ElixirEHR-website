@@ -1236,7 +1236,7 @@ Not included: RCM's "Elixir RCM AI Capabilities" (`RcmAiCapabilitiesSection`) is
 5. **Fiduciary precision:** two lavender-edged cards (purple and red titles).
 6. **Target setting:** five rows with a 4px coloured edge and a tag (red baseline, yellow lifts, lime high impact).
 7. **Clinical benchmarks:** the 516px lead column beside the study notes and source (plain text, as drawn).
-8. **Executive brief:** a 760px form. It sends the four fields with the calculator's current inputs and results through `services/contactService.js` (`VITE_CONTACT_ENDPOINT`). Producing and emailing the PDF summary is the endpoint's job (question 122).
+8. **Executive brief:** a 760px form. It is a Salesforce Web-to-Lead form (see "Salesforce Web-to-Lead forms" below): the four fields, the calculator's current inputs and its results are posted natively to Salesforce. The earlier `services/contactService.js` / `VITE_CONTACT_ENDPOINT` route no longer exists. Producing and emailing a PDF summary is not part of the site (question 122).
 9. **FAQ:** the site's shared `FaqSection` (RCM accordion), per the standing rule. It has no eyebrow, its title is centred, and every item starts closed. The frame supplies an answer for the first question only, so the other seven render as static rows (question 123).
 10. **CTA band:** `CtaBanner` with a lime caps eyebrow, two 52px Roboto-medium CTAs and a "Related:" row.
 
@@ -2228,14 +2228,14 @@ The Home hero is now a two-slide carousel (`pages/Home/sections/HeroSection/`):
 
 ## Salesforce Web-to-Lead forms (2026-10-23)
 
-Every lead form posts natively to Salesforce Web-to-Lead with the values from the supplied HTML: org `00Dd0000000hivg`, return URL `https://elixirehr.com/thank-you/`, lead source `Web`, and reCAPTCHA key name `ElixirEHR` with site key `6Lf5…Qs_`. All of these live in `data/webToLead.js`.
+Every lead form posts natively to Salesforce Web-to-Lead with the values from the supplied HTML: org `00Dd0000000hivg`, lead source `Web`, and reCAPTCHA key name `ElixirEHR` with site key `6Lf5…Qs_`. The return URL is the site's own `/thank-you/` page on `SITE_URL` (`VITE_SITE_URL`; production builds set `https://www.elixirehr.com`, so it is `https://www.elixirehr.com/thank-you/`). All of these live in `data/webToLead.js`. Diagnostics and the Salesforce-side checklist: `docs/ELIXIR_SALESFORCE_WEB_TO_LEAD_DIAGNOSTIC_REPORT.md`.
 
 **Components:**
 - `components/forms/WebToLead` renders the hidden inputs and refreshes the `captcha_settings` timestamp every 500ms until the reCAPTCHA is answered, as Salesforce's snippet does.
 - It loads Google's reCAPTCHA once, rendered explicitly, which works on client-side navigation.
 
 **Forms:**
-- The shared `ContactForm` (Contact Us, About Us, What Is Elixir, Referral Program, Contact Center, EVV for Field Service, ONC MFA, Elixir Certified Module) posts its fields under the Salesforce names:
+- The shared `ContactForm` (Contact Us, About Us, Why Elixir, Referral Program, EVV for Salesforce Field Service, ONC MFA Use Cases) posts its fields under the Salesforce names:
   - First Name → `first_name`, Last Name → `last_name`, Email → `email`;
   - Mobile → `mobile`, Company → `company`, Message → `description`;
   - each with the supplied maximum length.

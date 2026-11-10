@@ -146,9 +146,10 @@ src/
 | `ResourcesSection` | Home, Referral Program | Knowledge Base: category tabs (arrow keys, Home/End) switching a three-card grid. Props: `eyebrow`, `title`, `categories` (Home's content is `resources` in `data/home.js`, used by both pages), `tagTone` ('yellow' default, 'purple' on Referral Program), `className` |
 
 ### Data persistence
-Lead forms are Salesforce Web-to-Lead forms. The shared `ContactForm` is on Contact Us, About Us, What Is Elixir, Referral Program, Contact Center, EVV for Salesforce Field Service, ONC MFA Use Cases and Elixir Certified Module; the No-Show ROI Calculator's executive-summary form is a second one.
+Lead forms are Salesforce Web-to-Lead forms. The shared `ContactForm` is on Contact Us, About Us, Why Elixir, Referral Program, EVV for Salesforce Field Service and ONC MFA Use Cases; the No-Show ROI Calculator's executive-summary form is a second one.
 
-- **Submission:** the browser POSTs the form natively to the Salesforce endpoint in `data/webToLead.js` (org ID, return URL, lead source and reCAPTCHA keys exactly as supplied). Salesforce then redirects to `https://elixirehr.com/thank-you/`.
+- **Submission:** the browser POSTs the form natively to the Salesforce endpoint in `data/webToLead.js` (org ID, lead source and reCAPTCHA keys exactly as supplied). Salesforce then redirects to the site's own `/thank-you/` on `SITE_URL`; production builds must set `VITE_SITE_URL=https://www.elixirehr.com`, so it is `https://www.elixirehr.com/thank-you/`.
+- **Diagnostics:** `docs/ELIXIR_SALESFORCE_WEB_TO_LEAD_DIAGNOSTIC_REPORT.md` (what was verified, the Salesforce-side checklist and a live debug test).
 - **Before sending:** the browser checks required fields and email format, and the form will not send until the reCAPTCHA has been completed.
 - **Hidden values:** `components/forms/WebToLead` renders the hidden inputs and keeps the `captcha_settings` timestamp current, as Salesforce's snippet does.
 - **Newsletter:** the Insights and Blog newsletter is separate and still posts to `VITE_NEWSLETTER_ENDPOINT`.
