@@ -5,7 +5,7 @@ import { webToLead } from '../../../../data/webToLead';
 import { PRIVATE_PREVIEW, PREVIEW_FORM_NOTICE } from '../../../../config/preview';
 import Section from '../../../../components/layout/Section/Section';
 import { Recaptcha, WebToLeadFields } from '../../../../components/forms/WebToLead/WebToLead';
-import { hasRecaptchaResponse, useResetOnPageShow } from '../../../../components/forms/WebToLead/webToLeadHelpers';
+import { hasRecaptchaResponse, NOSCRIPT_MESSAGE, useHydrated, useResetOnPageShow } from '../../../../components/forms/WebToLead/webToLeadHelpers';
 import RoiIntro from '../../components/RoiIntro/RoiIntro';
 import { computeRoi } from '../../roiModel';
 import styles from './BriefSection.module.css';
@@ -38,6 +38,8 @@ function BriefSection({ inputs }) {
   const markUnavailable = useCallback(() => setStatus('unavailable'), []);
   const markExpired = useCallback(() => setStatus('expired'), []);
   useResetOnPageShow(useCallback(() => setStatus('idle'), []));
+  // Submit stays disabled in the prerendered HTML until React has hydrated the form (see useHydrated).
+  const hydrated = useHydrated();
 
   function handleSubmit(event) {
     const form = event.currentTarget;
@@ -102,7 +104,7 @@ function BriefSection({ inputs }) {
         <button
           type="submit"
           className={styles.submit}
-          disabled={PRIVATE_PREVIEW || status === 'sending' || status === 'unavailable'}
+          disabled={PRIVATE_PREVIEW || !hydrated || status === 'sending' || status === 'unavailable'}
           aria-busy={status === 'sending' || undefined}
         >
           {status === 'sending' ? 'Sending…' : submitLabel}
@@ -115,6 +117,11 @@ function BriefSection({ inputs }) {
         <p className={status === 'sending' ? 'visually-hidden' : styles.status} role="status">
           {statusMessages[status] ?? ''}
         </p>
+        {!PRIVATE_PREVIEW && (
+          <noscript>
+            <p className={styles.status}>{NOSCRIPT_MESSAGE}</p>
+          </noscript>
+        )}
       </form>
     </Section>
   );

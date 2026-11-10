@@ -15,6 +15,11 @@ const settings = (ts) =>
 /**
  * The hidden inputs from the supplied code. As in Salesforce's own snippet, `captcha_settings`
  * carries a timestamp refreshed every 500ms until the reCAPTCHA has been answered.
+ *
+ * `captcha_settings` is deliberately given no `value`/`defaultValue` prop: it is written only by the
+ * effect below. React re-applies `defaultValue` on every re-render, and on a hidden input that IS the
+ * value, so the re-render triggered by the submit handler (status "sending") used to reset `ts` to ""
+ * just before the browser built the POST body (CONTACT_US_FIX_V2_FINDINGS.md, finding W2-a).
  */
 export function WebToLeadFields() {
   const settingsRef = useRef(null);
@@ -31,7 +36,7 @@ export function WebToLeadFields() {
 
   return (
     <>
-      <input ref={settingsRef} type="hidden" name="captcha_settings" defaultValue={settings('')} />
+      <input ref={settingsRef} type="hidden" name="captcha_settings" />
       <input type="hidden" name="oid" value={webToLead.orgId} />
       <input type="hidden" name="retURL" value={webToLead.returnUrl} />
       <input type="hidden" name="lead_source" value={webToLead.leadSource} />
@@ -41,6 +46,9 @@ export function WebToLeadFields() {
 
 // Google's script is loaded once, on the first form that needs it, and widgets are rendered
 // explicitly (the automatic render only finds widgets present when the script first loads).
+// If Google never calls back (script blocked or hanging), the form reports itself unavailable
+// after this long instead of waiting for ever.
+const RECAPTCHA_LOAD_TIMEOUT_MS = 15000;
 let scriptPromise;
 function loadRecaptcha() {
   if (window.grecaptcha?.render) return Promise.resolve(window.grecaptcha);
@@ -60,6 +68,16 @@ function loadRecaptcha() {
   return scriptPromise;
 }
 
+// The shared promise is kept (the script may still arrive and serve later forms); only this
+// caller stops waiting.
+function loadRecaptchaWithTimeout() {
+  let timer;
+  const timeout = new Promise((_, reject) => {
+    timer = setTimeout(() => reject(new Error('reCAPTCHA load timed out')), RECAPTCHA_LOAD_TIMEOUT_MS);
+  });
+  return Promise.race([loadRecaptcha(), timeout]).finally(() => clearTimeout(timer));
+}
+
 /**
  * The reCAPTCHA checkbox. `onUnavailable` is called if Google's script cannot be loaded, and
  * `onExpired` when an answered check times out (about two minutes) and has to be ticked again.
@@ -67,13 +85,15 @@ function loadRecaptcha() {
 export function Recaptcha({ className, onUnavailable, onExpired }) {
   const ref = useRef(null);
   const widgetId = useRef(null);
-  // Read through a ref so a new callback from the parent never re-renders the widget.
+  // Read through refs so a new callback from the parent never re-runs the render effect.
   const expiredRef = useRef(onExpired);
   expiredRef.current = onExpired;
+  const unavailableRef = useRef(onUnavailable);
+  unavailableRef.current = onUnavailable;
 
   useEffect(() => {
     let cancelled = false;
-    loadRecaptcha()
+    loadRecaptchaWithTimeout()
       .then((grecaptcha) => {
         const element = ref.current;
         if (cancelled || !element || element.childElementCount > 0) return;
@@ -82,11 +102,11 @@ export function Recaptcha({ className, onUnavailable, onExpired }) {
           'expired-callback': () => expiredRef.current?.(),
         });
       })
-      .catch(() => !cancelled && onUnavailable?.());
+      .catch(() => !cancelled && unavailableRef.current?.());
     return () => {
       cancelled = true;
     };
-  }, [onUnavailable]);
+  }, []);
 
   // Back from Salesforce's redirect, the browser may restore this page with the already-used answer
   // still in the widget; Salesforce rejects a reused answer, so the check is cleared to be ticked again.

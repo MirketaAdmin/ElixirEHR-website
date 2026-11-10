@@ -5,7 +5,7 @@ import { webToLead } from '../../../data/webToLead';
 import { PRIVATE_PREVIEW, PREVIEW_FORM_NOTICE } from '../../../config/preview';
 import { cn } from '../../../utils/cn';
 import { Recaptcha, WebToLeadFields } from '../../forms/WebToLead/WebToLead';
-import { hasRecaptchaResponse, useResetOnPageShow } from '../../forms/WebToLead/webToLeadHelpers';
+import { hasRecaptchaResponse, NOSCRIPT_MESSAGE, useHydrated, useResetOnPageShow } from '../../forms/WebToLead/webToLeadHelpers';
 import Icon from '../../ui/Icon/Icon';
 import styles from './ContactForm.module.css';
 
@@ -45,6 +45,8 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
   const markUnavailable = useCallback(() => setStatus('unavailable'), []);
   const markExpired = useCallback(() => setStatus('expired'), []);
   useResetOnPageShow(useCallback(() => setStatus('idle'), []));
+  // Submit stays disabled in the prerendered HTML until React has hydrated the form (see useHydrated).
+  const hydrated = useHydrated();
 
   // Runs only once the browser's own required/email validation has passed. Unless something is
   // missing, the native POST to Salesforce goes ahead.
@@ -95,7 +97,7 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
       <button
         type="submit"
         className={styles.submit}
-        disabled={PRIVATE_PREVIEW || status === 'sending' || status === 'unavailable'}
+        disabled={PRIVATE_PREVIEW || !hydrated || status === 'sending' || status === 'unavailable'}
         aria-busy={status === 'sending' || undefined}
       >
         {status === 'sending' ? 'Sending…' : (submitLabel ?? form.submitLabel)}
@@ -111,6 +113,11 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
       <p className={cn(styles.status, styles[status])} role="status">
         {statusMessages[status] ?? ''}
       </p>
+      {!PRIVATE_PREVIEW && (
+        <noscript>
+          <p className={cn(styles.status, styles.unavailable)}>{NOSCRIPT_MESSAGE}</p>
+        </noscript>
+      )}
     </form>
   );
 }
