@@ -44,3 +44,9 @@ Salesforce generated a new Web-to-Lead snippet for Elixir. It matches the site's
 - A real-click POST on all 7 forms carries `phone`, `keyname` `ElixirEHR`, a 13-digit `ts` and the token.
 - 91/91 form checks pass.
 - 0 JS errors.
+
+## Update 2: snippet in use (10 Nov 2026)
+
+The product team chose the `ElixirEHR` snippet that posts the phone number as **`mobile`**, so `fields.phone.name` is `mobile` again. That snippet is identical to the site's form in every other respect: org ID, keyname `ElixirEHR`, site key `6Lf5Qd…`, `retURL`, `lead_source` and the `ts` script.
+
+A second snippet was also supplied. It used keyname `Mirketa_New` and Mirketa's site key `6LdvljUl…`, and was **not applied**. In a headless browser, rendering that key on www.elixirehr.com produced Google's "ERROR for site owner: Invalid domain for site key". With it, no visitor could complete reCAPTCHA, so no form could be sent.
