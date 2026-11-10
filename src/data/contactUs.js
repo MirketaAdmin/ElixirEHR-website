@@ -2,7 +2,7 @@
 // The form itself (fields, placeholders, submission) is the shared one in data/contact.js.
 
 import heroCard from '../assets/contact-us/hero-card.png';
-import dashboardLaptop from '../assets/contact-us/dashboard-laptop.png';
+import demoPhoto from '../assets/contact-us/demo-laptop-team.png';
 import secureDataIcon from '../assets/contact-us/icon-secure-data.png';
 import seamlessIntegrationIcon from '../assets/contact-us/icon-seamless-integration.png';
 import testimonialPhoto from '../assets/contact-us/testimonial-dr-jen-jhone.png';
@@ -26,8 +26,10 @@ export const demoRequest = {
   title: 'Request A Demo',
   description: 'Register here to see the entire demo of our clinical AI features and next-gen patient management.',
   media: {
-    src: dashboardLaptop,
-    alt: 'Laptop showing the Elixir EHR patient dashboard on a clinic desk',
+    // Photo from the supplied Figma export (528×295, inside the white frame). The corner under the AI
+    // Insight card is covered by the page's own card.
+    src: demoPhoto,
+    alt: 'Laptop showing an Elixir patient dashboard on a clinic desk while two clinicians review a tablet',
   },
   insight: {
     label: 'AI Insight',

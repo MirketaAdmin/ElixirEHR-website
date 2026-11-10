@@ -33,7 +33,7 @@
   gap: 12px;
 }
 
-/* Reference search trigger: a bordered pill with the label and the shortcut. */
+/* Search trigger: a bordered pill with the icon and label (no keyboard-shortcut badge). */
 .search {
   display: flex;
   align-items: center;
@@ -54,26 +54,9 @@
   color: var(--color-white);
 }
 
-.kbd {
-  padding: 2px 6px;
-  border: 1px solid rgb(255 255 255 / 0.15);
-  border-radius: 4px;
-  background: rgb(0 0 0 / 0.2);
-  font-family: var(--font-body);
-  font-size: 10px;
-  line-height: 14px;
-  color: var(--color-white-60);
-}
-
-/* The label needs the room of the widest desktops; the shortcut shows from tablets up. */
+/* The label needs the room of the widest desktops. */
 @media (max-width: 1439px) {
   .searchLabel {
-    display: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .kbd {
     display: none;
   }
 }

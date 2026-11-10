@@ -6,10 +6,10 @@
   --intro-title-gap: 13px;
 }
 
-/* Bordered card; the frame leaves a 40px band above the table and sets the rows flush left. */
+/* Bordered card. The frame's empty 40px band above the table and its flush-left rows are not
+   reproduced: cells get 24px side padding so text never touches or overflows the border. */
 .tableCard {
   margin-top: 16px;
-  padding-top: 41px;
   overflow: hidden;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -25,7 +25,7 @@
 
 .table thead th {
   height: 48px;
-  padding: 0;
+  padding: 0 24px;
   border-bottom: 1px solid #e4dfe5;
   background: linear-gradient(90deg, #f0e5f2, #faf6fb 55%, #f5eef6);
   font-family: var(--font-display);
@@ -38,13 +38,13 @@
 }
 
 .table thead th:first-child {
-  width: 399px;
+  width: 36%;
 }
 
 .table tbody th,
 .table tbody td {
   height: 86px;
-  padding: 0;
+  padding: 18px 24px;
   border-bottom: 1px solid #e4dfe5;
   vertical-align: middle;
 }
@@ -114,7 +114,8 @@
 
 .excluded {
   display: grid;
-  grid-template-columns: 545px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 545px) minmax(0, 1fr);
+  column-gap: 16px;
   row-gap: 12px;
   margin-top: 18px;
 }
@@ -148,12 +149,8 @@
 
 /* Responsive fallback (no tablet/mobile Figma frames) — see DESIGN-SYSTEM.md §18. */
 @media (max-width: 1023px) {
-  .tableCard {
-    overflow-x: auto;
-  }
-
   .table thead th:first-child {
-    width: 260px;
+    width: 34%;
   }
 
   .excluded {
@@ -199,6 +196,7 @@
   .table tbody tr:last-child td {
     display: block;
     height: auto;
+    padding: 0;
     border-bottom: 0;
   }
 

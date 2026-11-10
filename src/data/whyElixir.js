@@ -138,7 +138,8 @@ export const healthcareSolutions = {
         'Enterprise-grade scalability with centralized data management, robust interoperability, and advanced executive reporting for complex systems.',
       icon: hospitalsNetworksIcon,
       iconSize: [29, 22],
-      to: '/solutions/hospitals-large-networks/',
+      // No dedicated page: the product team points this card at Treatment Center Solutions.
+      to: '/treatment-center-software/',
     },
   ],
 };

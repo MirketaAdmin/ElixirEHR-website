@@ -1,7 +1,7 @@
 // No-Show ROI Calculator page (Figma "No-Show ROI Calculator", 1280 frame). Copy is reproduced
 // verbatim from the frame. The hero image is the frame's grey placeholder (the same exported
 // placeholder as the EVV, Denial Management, Patient Portal and No-Show Prediction heroes).
-import heroMediaPlaceholder from '../assets/denial-management/hero-media-placeholder.png';
+import heroMedia from '../assets/no-show-roi-calculator/hero-media.png';
 
 export const roiHero = {
   currentPage: 'No-Show ROI Calculator',
@@ -13,7 +13,11 @@ export const roiHero = {
   // Scrolls to the calculator on this page.
   primaryCta: { label: 'Open the calculator', href: '#calculator' },
   secondaryCta: { label: 'How no-show prediction works', to: '/patient-no-show-software/' },
-  media: { src: heroMediaPlaceholder, alt: 'Image placeholder' },
+  // Scheduling photo supplied by the product team, composited onto the shared tilted backdrop (511×507).
+  media: {
+    src: heroMedia,
+    alt: 'Practice manager reviewing appointment schedules and no-show trends on a laptop',
+  },
 };
 
 export const roiStrip = [
