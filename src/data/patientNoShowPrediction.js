@@ -1,8 +1,8 @@
 // Patient No-Show Prediction page content — copy reproduced exactly from the Figma
-// "Patient No-Show Prediction" frame. The hero image is the frame's grey placeholder (the same
-// exported placeholder as the EVV, Denial Management and Patient Portal heroes).
+// "Patient No-Show Prediction" frame. The hero image is the No-Show Risk dashboard photo supplied
+// by the product team, composited onto the shared tilted hero backdrop (511×507).
 
-import heroMediaPlaceholder from '../assets/denial-management/hero-media-placeholder.png';
+import heroMedia from '../assets/patient-no-show-prediction/hero-media.png';
 import excludedIcon from '../assets/patient-no-show-prediction/icon-excluded.png';
 import excludedMark from '../assets/patient-no-show-prediction/mark-excluded.png';
 import outreachIcon from '../assets/patient-no-show-prediction/icon-outreach.png';
@@ -17,7 +17,10 @@ export const noShowHero = {
   // No destination in the frame for the demo CTA: /request-demo, as on the other pages.
   primaryCta: { label: 'Request a Demo', to: '/request-demo/' },
   secondaryCta: { label: 'Calculate what no-shows cost you', to: '/no-show-cost-calculator/' },
-  media: { src: heroMediaPlaceholder, alt: 'Image placeholder' },
+  media: {
+    src: heroMedia,
+    alt: 'Scheduler reviewing a No-Show Risk dashboard of upcoming appointments with risk levels and outreach actions',
+  },
 };
 
 export const noShowProblem = {
