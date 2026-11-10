@@ -1,5 +1,7 @@
 import Section from '../../components/layout/Section/Section';
 import Button from '../../components/ui/Button/Button';
+import ResourcesSection from '../../components/sections/ResourcesSection/ResourcesSection';
+import { resources } from '../../data/home';
 import { PRIVATE_PREVIEW } from '../../config/preview';
 import styles from '../NotFound/NotFound.module.css';
 
@@ -15,8 +17,13 @@ export default function ThankYou() {
             ? 'This is the confirmation page. Submissions are disabled in this preview; no request has been sent.'
             : 'If you have just submitted the contact form, thank you for your interest. For urgent questions, contact info@elixirehr.com.'}
         </p>
-        <div className={styles.actions}><Button to="/" size="lg">Back to Home</Button></div>
+        {/* Scrolls down to the latest insights below. */}
+        <div className={styles.actions}><Button href="#latest-insights" size="lg">Know More</Button></div>
       </Section>
+      {/* The latest insights (newest published posts per category), as on Home. */}
+      <div id="latest-insights">
+        <ResourcesSection {...resources} />
+      </div>
     </>
   );
 }
