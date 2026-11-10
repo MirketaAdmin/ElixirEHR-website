@@ -22,7 +22,9 @@ export const webToLead = {
   fields: {
     firstName: { name: 'first_name', maxLength: 40 },
     lastName: { name: 'last_name', maxLength: 80 },
-    phone: { name: 'mobile', maxLength: 40 },
+    // The current Salesforce snippet (Nov 2026) posts the phone number as the Lead's Phone field
+    // (`phone`); the earlier snippet used `mobile`. The visible label stays "Mobile Number".
+    phone: { name: 'phone', maxLength: 40 },
     email: { name: 'email', maxLength: 80 },
     company: { name: 'company', maxLength: 40 },
     message: { name: 'description' },

@@ -27,3 +27,20 @@ Line numbers refer to the files after the change. The findings are described in 
 - existing documents
 
 **Forms affected (shared code):** Contact Us, About Us, Why Elixir, Referral Program, EVV for Field Service, ONC MFA Use Cases and the No-Show Calculator.
+
+## Update: new Salesforce snippet (10 Nov 2026)
+
+Salesforce generated a new Web-to-Lead snippet for Elixir. It matches the site's implementation, with one exception: the phone field is now `phone` instead of `mobile`. The org ID, keyname `ElixirEHR`, site key, `retURL`, `lead_source` and the `captcha_settings` / `ts` script are the same as before.
+
+| File | Change |
+|---|---|
+| `src/data/webToLead.js` | `fields.phone.name`: `mobile` → `phone`, plus a comment |
+| `DESIGN-SYSTEM.md` | The field list says `phone` |
+
+**Not changed:** the visible label stays "Mobile Number". The form is not replaced with the raw snippet, because the site's form already does the same thing.
+
+**Verified** (local production build):
+
+- A real-click POST on all 7 forms carries `phone`, `keyname` `ElixirEHR`, a 13-digit `ts` and the token.
+- 91/91 form checks pass.
+- 0 JS errors.

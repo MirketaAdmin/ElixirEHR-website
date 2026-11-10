@@ -2237,7 +2237,7 @@ Every lead form posts natively to Salesforce Web-to-Lead with the values from th
 **Forms:**
 - The shared `ContactForm` (Contact Us, About Us, Why Elixir, Referral Program, EVV for Salesforce Field Service, ONC MFA Use Cases) posts its fields under the Salesforce names:
   - First Name → `first_name`, Last Name → `last_name`, Email → `email`;
-  - Mobile → `mobile`, Company → `company`, Message → `description`;
+  - Mobile Number → `phone` (the Lead's Phone field, as in the Nov 2026 Salesforce snippet), Company → `company`, Message → `description`;
   - each with the supplied maximum length.
 
   Pages keep their own labels and required flags.
