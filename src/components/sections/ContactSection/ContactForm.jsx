@@ -1,11 +1,17 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { contact } from '../../../data/contact';
 import { webToLead } from '../../../data/webToLead';
 import { PRIVATE_PREVIEW, PREVIEW_FORM_NOTICE } from '../../../config/preview';
 import { cn } from '../../../utils/cn';
 import { Recaptcha, WebToLeadFields } from '../../forms/WebToLead/WebToLead';
-import { hasRecaptchaResponse, NOSCRIPT_MESSAGE, useHydrated, useResetOnPageShow } from '../../forms/WebToLead/webToLeadHelpers';
+import {
+  hasRecaptchaResponse,
+  NOSCRIPT_MESSAGE,
+  useHydrated,
+  useResetOnPageShow,
+  withSubmissionSource,
+} from '../../forms/WebToLead/webToLeadHelpers';
 import Icon from '../../ui/Icon/Icon';
 import styles from './ContactForm.module.css';
 
@@ -47,6 +53,10 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
   useResetOnPageShow(useCallback(() => setStatus('idle'), []));
   // Submit stays disabled in the prerendered HTML until React has hydrated the form (see useHydrated).
   const hydrated = useHydrated();
+  // Salesforce's `description` is posted from this hidden input: the visitor's message plus the page
+  // the form was sent from (filled in handleSubmit, before the browser builds the POST body). It has
+  // no value prop, so React never resets it on re-render.
+  const descriptionRef = useRef(null);
 
   // Runs only once the browser's own required/email validation has passed. Unless something is
   // missing, the native POST to Salesforce goes ahead.
@@ -60,12 +70,15 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
       setStatus('captcha');
       return;
     }
+    const message = event.currentTarget.querySelector('#contact-message')?.value;
+    descriptionRef.current.value = withSubmissionSource(message);
     setStatus('sending');
   }
 
   return (
     <form className={cn(styles.form, className)} action={PRIVATE_PREVIEW ? undefined : webToLead.action} method="POST" onSubmit={handleSubmit}>
       {!PRIVATE_PREVIEW && <WebToLeadFields />}
+      {!PRIVATE_PREVIEW && <input ref={descriptionRef} type="hidden" name={webToLead.fields.message.name} />}
       {intro}
       {PRIVATE_PREVIEW && <p role="note">{PREVIEW_FORM_NOTICE}</p>}
       <div className={styles.fields}>
@@ -80,7 +93,8 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
               </label>
               <Control
                 id={id}
-                name={salesforce.name}
+                // The message is posted through the hidden description input (with the source page).
+                name={field.name === 'message' ? undefined : salesforce.name}
                 maxLength={salesforce.maxLength}
                 type={field.multiline ? undefined : field.type ?? 'text'}
                 placeholder={field.placeholder}

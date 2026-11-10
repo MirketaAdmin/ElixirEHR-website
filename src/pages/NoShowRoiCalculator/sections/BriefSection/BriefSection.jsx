@@ -5,7 +5,13 @@ import { webToLead } from '../../../../data/webToLead';
 import { PRIVATE_PREVIEW, PREVIEW_FORM_NOTICE } from '../../../../config/preview';
 import Section from '../../../../components/layout/Section/Section';
 import { Recaptcha, WebToLeadFields } from '../../../../components/forms/WebToLead/WebToLead';
-import { hasRecaptchaResponse, NOSCRIPT_MESSAGE, useHydrated, useResetOnPageShow } from '../../../../components/forms/WebToLead/webToLeadHelpers';
+import {
+  hasRecaptchaResponse,
+  NOSCRIPT_MESSAGE,
+  submissionSource,
+  useHydrated,
+  useResetOnPageShow,
+} from '../../../../components/forms/WebToLead/webToLeadHelpers';
 import RoiIntro from '../../components/RoiIntro/RoiIntro';
 import { computeRoi } from '../../roiModel';
 import styles from './BriefSection.module.css';
@@ -65,6 +71,7 @@ function BriefSection({ inputs }) {
       values.role ? `Title / role: ${values.role}` : null,
       `Calculator inputs: ${JSON.stringify(inputs)}`,
       `Calculator results: ${JSON.stringify(computeRoi(inputs))}`,
+      submissionSource(),
     ]
       .filter(Boolean)
       .join('\n');
