@@ -18,7 +18,7 @@ function AssessmentsSection() {
       <ul className={styles.grid}>
         {cards.map((card) => (
           <li key={card.title} className={cn(styles.card, card.dark && styles.dark)}>
-            <img src={card.icon} alt="" width="64" height="64" className={styles.icon} />
+            <img loading="lazy" decoding="async" src={card.icon} alt="" width="64" height="64" className={styles.icon} />
             <h3 className={styles.cardTitle}>{card.title}</h3>
             <p className={styles.cardText}>{card.text}</p>
           </li>

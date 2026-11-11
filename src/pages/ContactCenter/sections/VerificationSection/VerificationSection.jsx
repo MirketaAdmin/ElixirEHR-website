@@ -31,7 +31,7 @@ function VerificationSection() {
           ))}
         </ul>
       </div>
-      <img src={image.src} alt={image.alt} width="576" height="752" className={styles.image} />
+      <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="576" height="752" className={styles.image} />
     </Section>
   );
 }

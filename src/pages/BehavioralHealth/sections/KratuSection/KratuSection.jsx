@@ -26,7 +26,7 @@ function KratuSection() {
             <Link to={item.to} className={styles.card}>
               <div className={styles.head}>
                 <h3 className={styles.title}>{item.title}</h3>
-                <img src={arrowIcon} alt="" width="10" height="10" />
+                <img loading="lazy" decoding="async" src={arrowIcon} alt="" width="10" height="10" />
               </div>
               <p className={styles.text}>{item.text}</p>
             </Link>
@@ -34,7 +34,7 @@ function KratuSection() {
         ))}
       </ul>
       <p className={styles.note}>
-        <img src={badgeIcon} alt="" width="22" height="21" />
+        <img loading="lazy" decoding="async" src={badgeIcon} alt="" width="22" height="21" />
         <span>{note}</span>
       </p>
     </Section>

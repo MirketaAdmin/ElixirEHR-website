@@ -26,7 +26,7 @@ function DenialManagementSection() {
           <p className={styles.body}>{body}</p>
           <CheckList items={points} className={styles.points} />
         </div>
-        <img src={denialManagement.image.src} alt={denialManagement.image.alt} width="552" height="468" className={styles.media} />
+        <img loading="lazy" decoding="async" src={denialManagement.image.src} alt={denialManagement.image.alt} width="552" height="468" className={styles.media} />
       </div>
 
       <hr className={styles.divider} />

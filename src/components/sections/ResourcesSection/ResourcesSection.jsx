@@ -19,24 +19,24 @@ function ResourceCard({ item, hidden }) {
   return (
     <li className={styles.card} aria-hidden={hidden || undefined} inert={hidden || undefined}>
       <div className={styles.media}>
-        <img src={item.image} alt="" width="361" height="224" className={styles.image} />
+        <img loading="lazy" decoding="async" src={item.image} alt="" width="361" height="224" className={styles.image} />
         <span className={styles.tag}>{item.tag}</span>
       </div>
       <div className={styles.body}>
         <p className={styles.meta}>
           <span className={styles.metaItem}>
-            <img src={userIcon} alt="" width="12" height="13" />
+            <img loading="lazy" decoding="async" src={userIcon} alt="" width="12" height="13" />
             {item.author}
           </span>
           <span className={styles.metaItem}>
-            <img src={calendarIcon} alt="" width="13" height="14" />
+            <img loading="lazy" decoding="async" src={calendarIcon} alt="" width="13" height="14" />
             {item.date}
           </span>
         </p>
         <h3 className={styles.title}>{item.title}</h3>
         <Link to={item.link.to} className={styles.link}>
           {item.link.label}
-          <img src={item.link.icon} alt="" width={item.link.iconSize[0]} height={item.link.iconSize[1]} />
+          <img loading="lazy" decoding="async" src={item.link.icon} alt="" width={item.link.iconSize[0]} height={item.link.iconSize[1]} />
         </Link>
       </div>
     </li>

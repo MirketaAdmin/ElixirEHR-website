@@ -11,7 +11,7 @@ function RaEnforced({ text, appliesTo, chip, tone = 'purple', className }) {
     <div className={cn(styles.box, styles[tone], className)}>
       <p className={styles.head}>
         <span className={styles.label}>
-          <img src={shieldOutlineIcon} alt="" width="13" height="15" />
+          <img loading="lazy" decoding="async" src={shieldOutlineIcon} alt="" width="13" height="15" />
           How it is enforced
         </span>
         {chip && <span className={styles.chip}>{chip}</span>}

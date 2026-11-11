@@ -2,7 +2,7 @@
 // 3 Nov 2026, 0:44). Title and body copy are taken from the video's YouTube title and description
 // (emoji, hashtags, contact lines, social links and the channel sign-off left out). The card image is
 // the video's YouTube thumbnail.
-import cardImage from '../../assets/posts/video/elixir-ehr-care-episode-claim-generation/card.jpg';
+import cardImage from '../../assets/posts/video/elixir-ehr-care-episode-claim-generation/card.webp';
 
 const youtubeId = 'g1dtu5lYMic';
 

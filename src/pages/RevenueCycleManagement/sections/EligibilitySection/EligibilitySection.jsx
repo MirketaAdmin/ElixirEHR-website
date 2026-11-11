@@ -27,7 +27,7 @@ function InsuranceCard({ title, status, fields, action }) {
       </dl>
       {/* Static product preview: the button is part of the illustrated screen, not a page action. */}
       <div className={styles.cardAction} aria-hidden="true">
-        <img src={refreshIcon} alt="" width="12" height="12" />
+        <img loading="lazy" decoding="async" src={refreshIcon} alt="" width="12" height="12" />
         {action}
       </div>
     </div>

@@ -26,7 +26,7 @@ function GrowthSection() {
               </h3>
               <p className={styles.text}>{item.text}</p>
             </div>
-            <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+            <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
           </li>
         ))}
       </ul>

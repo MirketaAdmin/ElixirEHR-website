@@ -20,7 +20,7 @@ function SalesforceEhrSection() {
         <EvCheckList items={points} variant="body" className={styles.points} />
       </div>
       <div className={styles.media}>
-        <img src={image.src} alt={image.alt} width="298" height="464" className={styles.image} />
+        <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="298" height="464" className={styles.image} />
       </div>
     </Section>
   );

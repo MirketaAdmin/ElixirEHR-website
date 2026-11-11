@@ -23,7 +23,7 @@ function TalkSection() {
           <ul className={styles.points}>
             {points.map((point) => (
               <li key={point}>
-                <img src={checkIcon} alt="" width="20" height="20" />
+                <img loading="lazy" decoding="async" src={checkIcon} alt="" width="20" height="20" />
                 {point}
               </li>
             ))}

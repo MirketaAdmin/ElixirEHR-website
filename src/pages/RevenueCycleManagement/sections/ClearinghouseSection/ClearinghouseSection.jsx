@@ -32,7 +32,7 @@ function ClearinghouseSection() {
             ))}
           </ul>
         </div>
-        <img src={image.src} alt={image.alt} width="504" height="273" className={styles.image} />
+        <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="504" height="273" className={styles.image} />
       </div>
 
       <div className={styles.tableWrap}>

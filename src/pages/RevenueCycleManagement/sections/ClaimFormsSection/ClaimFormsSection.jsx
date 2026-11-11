@@ -24,7 +24,7 @@ function ClaimFormsSection() {
           </article>
         ))}
         {forms.map((form) => (
-          <img
+          <img loading="lazy" decoding="async"
             key={form.image.alt}
             src={form.image.src}
             alt={form.image.alt}

@@ -1,7 +1,7 @@
 // Treatment Center Solutions page content — copy reproduced exactly from the Figma "Treatment Center Solutions" frame.
 
-import heroMedia from '../assets/treatment-center-solutions/hero-media.png';
-import intakePhoto from '../assets/treatment-center-solutions/intake-photo.png';
+import heroMedia from '../assets/treatment-center-solutions/hero-media.webp';
+import intakePhoto from '../assets/treatment-center-solutions/intake-photo.webp';
 import bedIcon from '../assets/treatment-center-solutions/icon-bed.png';
 import crmIcon from '../assets/treatment-center-solutions/icon-crm.png';
 import referralIcon from '../assets/treatment-center-solutions/icon-referral.png';
@@ -13,7 +13,7 @@ import clinicalDataIcon from '../assets/treatment-center-solutions/icon-clinical
 import formBuilderIcon from '../assets/treatment-center-solutions/icon-form-builder.png';
 import noteTakingIcon from '../assets/treatment-center-solutions/icon-note-taking.png';
 import utilizationReviewIcon from '../assets/treatment-center-solutions/icon-utilization-review.png';
-import ehrClinician from '../assets/treatment-center-solutions/ehr-clinician.png';
+import ehrClinician from '../assets/treatment-center-solutions/ehr-clinician.webp';
 import sessionNotesIcon from '../assets/treatment-center-solutions/icon-session-notes.png';
 import templatesIcon from '../assets/treatment-center-solutions/icon-templates.png';
 import utilizationIcon from '../assets/treatment-center-solutions/icon-utilization.png';

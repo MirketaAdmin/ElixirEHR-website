@@ -25,7 +25,7 @@ function RcmWorkflowsSection() {
         {organizations.map((organization) => (
           <li key={organization.title} className={styles.card}>
             <span className={styles.icon}>
-              <img
+              <img loading="lazy" decoding="async"
                 src={organization.icon}
                 alt=""
                 width={organization.iconSize[0]}

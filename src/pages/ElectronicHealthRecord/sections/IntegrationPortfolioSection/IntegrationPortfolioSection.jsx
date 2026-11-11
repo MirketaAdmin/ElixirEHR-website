@@ -9,7 +9,7 @@ function IntegrationPortfolioSection() {
       <ul className={styles.list}>
         {integrationPortfolio.items.map((item) => (
           <li key={item.label} className={styles.item}>
-            <img src={item.icon} alt="" width={item.iconWidth} height="36" />
+            <img loading="lazy" decoding="async" src={item.icon} alt="" width={item.iconWidth} height="36" />
             {item.label}
           </li>
         ))}

@@ -2,7 +2,7 @@
 // verbatim, including its British spellings ("programme", "organisation").
 
 // Same Figma "missing image" hero box as the Denial Management frame (pixel-identical export).
-import heroMedia from '../assets/electronic-visit-verification/hero-media.png';
+import heroMedia from '../assets/electronic-visit-verification/hero-media.webp';
 import iconServiceType from '../assets/electronic-visit-verification/icon-element-service-type.png';
 import iconRecipient from '../assets/electronic-visit-verification/icon-element-recipient.png';
 import iconDate from '../assets/electronic-visit-verification/icon-element-date.png';

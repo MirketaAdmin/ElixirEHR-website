@@ -1,6 +1,6 @@
 // DEMO CONTENT (dev only) — reproduces a placeholder card from the Figma Insights frames so the
 // listing can be checked against the design. Replace with real posts in src/posts/webinars/<slug>.js.
-import cardImage from '../../../assets/posts/webinars/_demo/demo-webinar-upcoming/card.png';
+import cardImage from '../../../assets/posts/webinars/_demo/demo-webinar-upcoming/card.webp';
 import speakerImage from '../../../assets/posts/webinars/_demo/demo-webinar-upcoming/speaker.png';
 
 export default {

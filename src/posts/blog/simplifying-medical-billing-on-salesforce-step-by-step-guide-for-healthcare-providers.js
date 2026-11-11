@@ -1,16 +1,11 @@
 // Medical billing on Salesforce blog post (by Suman Sekhar, May 8, 2025, "Healthcare Industry" and
-// "Medical Billing"). Body copy is exactly as supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg
-// are cropped from the Billing page photo until the final featured and banner images are supplied —
-// replace the two files (or these imports) only.
-import cardImage from '../../assets/posts/blog/simplifying-medical-billing-on-salesforce-step-by-step-guide-for-healthcare-providers/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/simplifying-medical-billing-on-salesforce-step-by-step-guide-for-healthcare-providers/hero-temp.jpg';
+// "Medical Billing"). Body copy is exactly as supplied.
+import featuredImage from '../../assets/posts/blog/simplifying-medical-billing-on-salesforce-step-by-step-guide-for-healthcare-providers.webp';
 
 const strong = (text) => ({ text, strong: true });
 // "Label: description" and "Label – description" entries, as supplied.
 const colon = (label, text) => [strong(`${label}:`), ` ${text}`];
 const dash = (label, text) => [strong(label), ` – ${text}`];
-
-const imageAlt = 'Physician pointing out a patient overview on a large Elixir dashboard screen to a colleague';
 
 export default {
   title: 'Simplifying Medical Billing on Salesforce: Step-by-Step Guide for Healthcare Providers',
@@ -19,8 +14,8 @@ export default {
   publishDate: '2025-05-08',
   author: 'Suman Sekhar',
   category: ['Healthcare Industry', 'Medical Billing'],
-  cardImage: { src: cardImage, alt: imageAlt },
-  heroImage: { src: heroImage, alt: imageAlt, width: 757, height: 324 },
+  cardImage: { src: featuredImage, alt: 'Simplifying Medical Billing on Salesforce: Step-by-Step Guide for Healthcare Providers' },
+  heroImage: { src: featuredImage, alt: 'Simplifying Medical Billing on Salesforce: Step-by-Step Guide for Healthcare Providers', width: 757, height: 324 },
   content: [
     { type: 'heading', level: 2, text: 'Introduction' },
     {

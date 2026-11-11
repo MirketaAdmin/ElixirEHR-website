@@ -1,9 +1,9 @@
 // Eligibility Verification page content — copy reproduced exactly from the Figma "Eligibility Verification" frame.
 
-import heroMedia from '../assets/eligibility-verification/hero-media.png';
-import frontDeskImage from '../assets/eligibility-verification/front-desk.png';
-import clearinghouseChecksImage from '../assets/eligibility-verification/clearinghouse-checks.png';
-import benefitsAuditImage from '../assets/eligibility-verification/benefits-audit.png';
+import heroMedia from '../assets/eligibility-verification/hero-media.webp';
+import frontDeskImage from '../assets/eligibility-verification/front-desk.webp';
+import clearinghouseChecksImage from '../assets/eligibility-verification/clearinghouse-checks.webp';
+import benefitsAuditImage from '../assets/eligibility-verification/benefits-audit.webp';
 import oneClickIcon from '../assets/eligibility-verification/icon-one-click.png';
 import transactionsIcon from '../assets/eligibility-verification/icon-transactions.png';
 import everyCheckIcon from '../assets/eligibility-verification/icon-every-check.png';

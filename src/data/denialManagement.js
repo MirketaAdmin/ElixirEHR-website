@@ -1,10 +1,10 @@
 // Denial Management page content (Figma "Denial Management" frame). Copy is reproduced verbatim.
 
-import heroMedia from '../assets/denial-management/hero-media.png';
+import heroMedia from '../assets/denial-management/hero-media.webp';
 import predictionScreen from '../assets/denial-management/feature-prediction.png';
 import scrubbingScreen from '../assets/denial-management/feature-scrubbing.png';
 import rootCauseScreen from '../assets/denial-management/feature-root-cause.png';
-import patientInsightsScreen from '../assets/denial-management/feature-patient-insights.png';
+import patientInsightsScreen from '../assets/denial-management/feature-patient-insights.webp';
 import calendarIcon from '../assets/denial-management/icon-calendar.png';
 import warningIcon from '../assets/denial-management/icon-warning.png';
 import reworkCostIcon from '../assets/denial-management/icon-rework-cost.png';

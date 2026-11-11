@@ -28,7 +28,7 @@ function ClearinghouseSection() {
             <h3 className={styles.title}>{item.title}</h3>
             <p className={styles.description}>{item.description}</p>
             <p className={styles.footer}>
-              <img src={item.tag.icon} alt="" width={item.tag.size[0]} height={item.tag.size[1]} />
+              <img loading="lazy" decoding="async" src={item.tag.icon} alt="" width={item.tag.size[0]} height={item.tag.size[1]} />
               {item.tag.label}
             </p>
           </li>
@@ -36,7 +36,7 @@ function ClearinghouseSection() {
       </ul>
       <Button to={cta.to} variant="tertiary" className={styles.cta}>
         {cta.label}
-        <img src={arrowIcon} alt="" width="11" height="12" />
+        <img loading="lazy" decoding="async" src={arrowIcon} alt="" width="11" height="12" />
       </Button>
     </Section>
   );

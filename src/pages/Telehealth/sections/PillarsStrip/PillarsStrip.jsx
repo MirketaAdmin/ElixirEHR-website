@@ -12,7 +12,7 @@ function PillarsStrip() {
             <li key={pillar.title} className={styles.card}>
               <div className={styles.head}>
                 <span className={styles.disc}>
-                  <img src={pillar.icon.src} alt="" width={pillar.icon.size[0]} height={pillar.icon.size[1]} />
+                  <img loading="lazy" decoding="async" src={pillar.icon.src} alt="" width={pillar.icon.size[0]} height={pillar.icon.size[1]} />
                 </span>
                 <span className={styles.label}>Pillar {String(index + 1).padStart(2, '0')}</span>
               </div>

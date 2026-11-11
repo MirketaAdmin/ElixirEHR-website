@@ -23,7 +23,7 @@ function PrescribingSection() {
           />
           <div className={styles.badge}>
             <p className={styles.badgeLabel}>
-              <img src={shieldIcon} alt="" width="14" height="17" />
+              <img loading="lazy" decoding="async" src={shieldIcon} alt="" width="14" height="17" />
               {badge.label}
             </p>
             <p className={styles.badgeTitle}>{badge.title}</p>

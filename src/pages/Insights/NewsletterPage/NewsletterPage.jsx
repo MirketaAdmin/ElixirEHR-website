@@ -28,9 +28,9 @@ function NewsletterPage() {
         <span className={styles.emptyIcon} aria-hidden="true">
           <Icon name="document" size={28} />
         </span>
-        <h3 id="newsletter-intro" className={styles.emptyTitle}>
+        <h2 id="newsletter-intro" className={styles.emptyTitle}>
           {weeklyBriefing.title}
-        </h3>
+        </h2>
         <p className={styles.emptyText}>{page.intro}</p>
         <a href="#newsletter" className={styles.emptyCta}>
           {weeklyBriefing.submitLabel}

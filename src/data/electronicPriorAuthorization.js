@@ -2,7 +2,7 @@
 // page of Revenue Cycle Management (/electronic-prior-authorization).
 // Copy is reproduced verbatim from the frame; forced mid-sentence line breaks in the frame's
 // paragraphs are dropped (see DESIGN-SYSTEM.md).
-import heroMedia from '../assets/electronic-prior-authorization/hero-media.png';
+import heroMedia from '../assets/electronic-prior-authorization/hero-media.webp';
 import serviceLevelIcon from '../assets/electronic-prior-authorization/icon-service-level.png';
 import bulkEdiIcon from '../assets/electronic-prior-authorization/icon-bulk-edi.png';
 import batchIcon from '../assets/electronic-prior-authorization/icon-batch.png';

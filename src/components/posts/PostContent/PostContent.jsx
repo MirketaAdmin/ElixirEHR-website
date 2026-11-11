@@ -75,13 +75,13 @@ const renderers = {
   highlights: ({ title, items }) => (
     <section className={styles.highlights}>
       <h2 className={styles.highlightsTitle}>
-        <img src={keyBenefitsIcon} alt="" width="18" height="18" />
+        <img loading="lazy" decoding="async" src={keyBenefitsIcon} alt="" width="18" height="18" />
         {title}
       </h2>
       <ul className={styles.highlightsList}>
         {items.map((item, index) => (
           <li key={index}>
-            <img src={checkIcon} alt="" width="17" height="23" className={styles.check} />
+            <img loading="lazy" decoding="async" src={checkIcon} alt="" width="17" height="23" className={styles.check} />
             <p>
               <span className={styles.highlightLabel}>{item.label}</span> <Text value={item.text} />
             </p>

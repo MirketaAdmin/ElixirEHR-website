@@ -26,7 +26,7 @@ function UnifiedPlatformSection() {
           </Button>
         </div>
       </div>
-      <img src={unifiedPlatform.image.src} alt={unifiedPlatform.image.alt} width="544" height="436" className={styles.media} />
+      <img loading="lazy" decoding="async" src={unifiedPlatform.image.src} alt={unifiedPlatform.image.alt} width="544" height="436" className={styles.media} />
     </Section>
   );
 }

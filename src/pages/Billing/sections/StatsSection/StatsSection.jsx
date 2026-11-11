@@ -14,7 +14,7 @@ function StatsSection() {
       <ul className={styles.grid}>
         {items.map((item) => (
           <li key={item.text} className={cn(styles.card, item.accent === 'purple' && styles.purple)}>
-            <img src={item.icon} alt="" width="48" height="48" className={styles.icon} />
+            <img loading="lazy" decoding="async" src={item.icon} alt="" width="48" height="48" className={styles.icon} />
             <p className={styles.prefix}>{item.prefix}</p>
             <p className={styles.value}>{item.value}</p>
             <p className={styles.text}>{item.text}</p>

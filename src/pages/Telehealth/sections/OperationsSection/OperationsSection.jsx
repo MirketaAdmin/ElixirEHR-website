@@ -21,7 +21,7 @@ function OperationsSection() {
           <article key={item.title} className={styles.card}>
             <p className={styles.label}>{item.label}</p>
             <h3 className={styles.title}>
-              <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
               {item.title}
             </h3>
             <p className={styles.text}>{item.text}</p>

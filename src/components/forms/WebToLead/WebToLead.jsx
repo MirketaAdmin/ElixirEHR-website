@@ -23,6 +23,13 @@ const settings = (ts) =>
  */
 export function WebToLeadFields() {
   const settingsRef = useRef(null);
+  const sourceUrlRef = useRef(null);
+
+  // "Lead Source Section": stamped with the current page URL (including any #hash), the same way the
+  // Mirketa site's form does. Like captcha_settings it has no value prop, so React never resets it.
+  useEffect(() => {
+    if (sourceUrlRef.current) sourceUrlRef.current.value = window.location.href;
+  }, []);
 
   useEffect(() => {
     const tick = () => {
@@ -40,6 +47,7 @@ export function WebToLeadFields() {
       <input type="hidden" name="oid" value={webToLead.orgId} />
       <input type="hidden" name="retURL" value={webToLead.returnUrl} />
       <input type="hidden" name="lead_source" value={webToLead.leadSource} />
+      <input ref={sourceUrlRef} type="hidden" id={webToLead.sourceUrlField} name={webToLead.sourceUrlField} />
     </>
   );
 }

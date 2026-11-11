@@ -47,7 +47,7 @@ function MentalHealth() {
             const content = (
               <>
                 {link.label}
-                <img src={arrowIcon} alt="" width="11" height="11" />
+                <img loading="lazy" decoding="async" src={arrowIcon} alt="" width="11" height="11" />
               </>
             );
             return (

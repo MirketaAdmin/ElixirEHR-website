@@ -9,7 +9,7 @@ function ClearinghouseChecksSection() {
 
   return (
     <Section tone="white" spacing="none" className={styles.section} containerClassName={styles.inner}>
-      <img src={clearinghouseChecks.image.src} alt={clearinghouseChecks.image.alt} width="552" height="406" className={styles.media} />
+      <img loading="lazy" decoding="async" src={clearinghouseChecks.image.src} alt={clearinghouseChecks.image.alt} width="552" height="406" className={styles.media} />
       <div className={styles.content}>
         <h2 className={styles.title}>
           {titleLines.map((line) => (

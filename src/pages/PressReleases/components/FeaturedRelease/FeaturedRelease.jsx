@@ -12,7 +12,7 @@ function FeaturedRelease({ release }) {
   return (
     <article className={styles.featured}>
       <div className={styles.card}>
-        <img src={image.src} alt={image.alt} width="627" height="460" className={styles.image} />
+        <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="627" height="460" className={styles.image} />
         <div className={styles.body}>
           <p className={styles.meta}>
             <span className={styles.badge}>Top News</span>

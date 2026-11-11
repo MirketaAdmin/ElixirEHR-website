@@ -19,7 +19,7 @@ function FinancialPerformanceSection() {
         {cards.map((card) => (
           <li key={card.label} className={styles.card}>
             <span className={styles.icon}>
-              <img src={card.icon} alt="" width={card.iconSize[0]} height={card.iconSize[1]} />
+              <img loading="lazy" decoding="async" src={card.icon} alt="" width={card.iconSize[0]} height={card.iconSize[1]} />
             </span>
             <span className={styles.label}>{card.label}</span>
           </li>

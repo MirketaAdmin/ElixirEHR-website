@@ -53,7 +53,7 @@ function Footer() {
                 {footerBadges.map((badge) => (
                   <li key={badge.label}>
                     <Link to={badge.to} className={styles.badge}>
-                      <img src={badge.src} alt={badge.label} width={badge.width} height={badge.height} />
+                      <img loading="lazy" decoding="async" src={badge.src} alt={badge.label} width={badge.width} height={badge.height} />
                     </Link>
                   </li>
                 ))}

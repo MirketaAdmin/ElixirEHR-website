@@ -21,7 +21,7 @@ function AdoptionSection() {
               <RichText content={item.text} emphasisClassName={styles.emphasis} />
             </p>
             <p className={styles.outcome}>
-              <img src={outcomeIcon} alt="" width="14" height="14" />
+              <img loading="lazy" decoding="async" src={outcomeIcon} alt="" width="14" height="14" />
               {item.outcome}
             </p>
           </li>

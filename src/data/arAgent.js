@@ -1,16 +1,16 @@
 // A/R Agent page (Figma "Revenue Kratu AI", 1280 frame; titled "A/R Agent" to match the menu), a child page of Kratu AI
 // (/ai-accounts-receivable-management). Copy is reproduced verbatim from the frame; forced mid-sentence line breaks
 // are dropped. The hero image is the frame's grey placeholder (the same export as the Kratu AI hero).
-import heroMedia from '../assets/ar-agent/hero-media.png';
+import heroMedia from '../assets/ar-agent/hero-media.webp';
 import valueRiskIcon from '../assets/kratu-ai/ar-value-risk.png';
 import valueCashIcon from '../assets/kratu-ai/ar-value-cash.png';
 import valueAppealsIcon from '../assets/kratu-ai/ar-value-appeals.png';
 import valueLearnIcon from '../assets/kratu-ai/ar-value-learn.png';
 import mockPatientRecord from '../assets/kratu-ai/ar-mock-patient-record.png';
-import mockPatientInsights from '../assets/kratu-ai/ar-mock-patient-insights.png';
-import mockClaimRecommendation from '../assets/kratu-ai/ar-mock-claim-recommendation.png';
+import mockPatientInsights from '../assets/kratu-ai/ar-mock-patient-insights.webp';
+import mockClaimRecommendation from '../assets/kratu-ai/ar-mock-claim-recommendation.webp';
 import mockAdjudicationQueue from '../assets/kratu-ai/ar-mock-adjudication-queue.png';
-import mockDenialIntelligence from '../assets/kratu-ai/ar-mock-denial-intelligence.png';
+import mockDenialIntelligence from '../assets/kratu-ai/ar-mock-denial-intelligence.webp';
 import mockSettlementRange from '../assets/kratu-ai/ar-mock-settlement-range.png';
 
 export const arHero = {

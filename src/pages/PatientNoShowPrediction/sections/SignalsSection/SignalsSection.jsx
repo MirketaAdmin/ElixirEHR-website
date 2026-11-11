@@ -53,14 +53,14 @@ function SignalsSection() {
       <div className={styles.panel}>
         <h3 className={styles.panelTitle}>
           <span className={styles.panelIcon}>
-            <img src={excluded.icon} alt="" width="24" height="24" />
+            <img loading="lazy" decoding="async" src={excluded.icon} alt="" width="24" height="24" />
           </span>
           {excluded.title}
         </h3>
         <ul className={styles.excluded}>
           {rowOrder(excluded.columns).map((item, index) => (
             <li key={index}>
-              <img src={excluded.mark} alt="" width="9" height="9" />
+              <img loading="lazy" decoding="async" src={excluded.mark} alt="" width="9" height="9" />
               <span>
                 <RichText content={item} />
               </span>

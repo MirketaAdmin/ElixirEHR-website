@@ -74,7 +74,9 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  margin-top: 33px;
+  /* 24px minimum tap target (WCAG 2.2 target size); the extra height is centred around the text. */
+  min-height: 24px;
+  margin-top: 31px;
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;

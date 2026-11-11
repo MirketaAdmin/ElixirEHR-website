@@ -34,7 +34,7 @@ function CrisisSection() {
             </div>
             <p className={cn(styles.badge, styles[`badge-${item.badge.tone}`], item.badge.icon && styles.badgeIcon)}>
               {item.badge.icon && (
-                <img src={item.badge.icon.src} alt="" width={item.badge.icon.size[0]} height={item.badge.icon.size[1]} />
+                <img loading="lazy" decoding="async" src={item.badge.icon.src} alt="" width={item.badge.icon.size[0]} height={item.badge.icon.size[1]} />
               )}
               {item.badge.label}
             </p>

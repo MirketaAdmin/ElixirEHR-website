@@ -68,7 +68,7 @@ function FeaturedListing({ type, page, noun, filter, tags, labels, meta }) {
       )}
       {listing.totalPages > 1 && (
         <div className={styles.pagination}>
-          <Pagination
+          <Pagination linked
             page={listing.page}
             totalPages={listing.totalPages}
             onChange={listing.setPage}

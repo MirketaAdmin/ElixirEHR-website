@@ -11,7 +11,7 @@ function MockCard({ icon, title, badge, tone = 'purple', badgeTone = 'lime', bod
     <figure className={styles.card}>
       <figcaption className={cn(styles.header, styles[tone])}>
         <span className={styles.title}>
-          <img src={icon.src} alt="" width={icon.size[0]} height={icon.size[1]} />
+          <img loading="lazy" decoding="async" src={icon.src} alt="" width={icon.size[0]} height={icon.size[1]} />
           {title}
         </span>
         <span className={cn(styles.badge, styles[`badge-${badgeTone}`])}>{badge}</span>

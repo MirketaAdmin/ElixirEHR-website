@@ -1,6 +1,6 @@
 // Behavioral Health page (/behavioral-health-ehr) — an independent page with no parent.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroMedia from '../assets/behavioral-health/hero-media.png';
+import heroMedia from '../assets/behavioral-health/hero-media.webp';
 import connectedIcon from '../assets/behavioral-health/icon-pillar-connected.png';
 import measurableIcon from '../assets/behavioral-health/icon-pillar-measurable.png';
 import compliantIcon from '../assets/behavioral-health/icon-pillar-compliant.png';

@@ -1,6 +1,6 @@
 // DEMO CONTENT (dev only) — reproduces a placeholder card from the Figma Insights frames so the
 // listing can be checked against the design. Replace with real posts in src/posts/video/<slug>.js.
-import cardImage from '../../../assets/posts/video/_demo/demo-video-featured/card.png';
+import cardImage from '../../../assets/posts/video/_demo/demo-video-featured/card.webp';
 
 export default {
   title: "Full Platform Overview: Next-Gen EHR",

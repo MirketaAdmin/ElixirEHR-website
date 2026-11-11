@@ -1,13 +1,8 @@
-// Revenue cycle efficiency blog post (by Suman Sekhar, June 17, 2025, "RCM"). Body copy is exactly as
-// supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg are cropped from the Claim Preparation page
-// photo until the final featured and banner images are supplied — replace the two files (or these
-// imports) only.
-import cardImage from '../../assets/posts/blog/boosting-revenue-cycle-efficiency-with-salesforce-ehr/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/boosting-revenue-cycle-efficiency-with-salesforce-ehr/hero-temp.jpg';
+// Revenue cycle efficiency blog post (by Suman Sekhar, June 17, 2025, "RCM"). Body copy is exactly
+// as supplied.
+import featuredImage from '../../assets/posts/blog/boosting-revenue-cycle-efficiency-with-salesforce-ehr.webp';
 
 const strong = (text) => ({ text, strong: true });
-
-const imageAlt = 'Elixir Claims Management dashboard on a desktop monitor showing claim totals and statuses';
 
 export default {
   title: 'Boosting Revenue Cycle Efficiency with Salesforce EHR',
@@ -16,8 +11,8 @@ export default {
   publishDate: '2025-06-17',
   author: 'Suman Sekhar',
   category: 'RCM',
-  cardImage: { src: cardImage, alt: imageAlt },
-  heroImage: { src: heroImage, alt: imageAlt, width: 757, height: 324 },
+  cardImage: { src: featuredImage, alt: 'Boosting Revenue Cycle Efficiency with Salesforce EHR' },
+  heroImage: { src: featuredImage, alt: 'Boosting Revenue Cycle Efficiency with Salesforce EHR', width: 757, height: 324 },
   content: [
     { type: 'heading', level: 2, text: 'Introduction' },
     {

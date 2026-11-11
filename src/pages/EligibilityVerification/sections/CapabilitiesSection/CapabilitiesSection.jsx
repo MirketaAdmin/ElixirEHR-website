@@ -19,7 +19,7 @@ function CapabilitiesSection() {
         {capabilities.map((capability) => (
           <li key={capability.title} className={styles.card}>
             <span className={styles.icon}>
-              <img
+              <img loading="lazy" decoding="async"
                 src={capability.icon}
                 alt=""
                 width={capability.iconSize[0]}

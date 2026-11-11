@@ -14,7 +14,7 @@ function PcCheckList({ items, icon, className }) {
         return (
           <li key={lead ?? text} className={styles.item}>
             <span className={styles.icon}>
-              <img src={image.src} alt="" width={image.width} height={image.height} />
+              <img loading="lazy" decoding="async" src={image.src} alt="" width={image.width} height={image.height} />
             </span>
             <span>
               {lead && <strong className={styles.lead}>{lead}</strong>}

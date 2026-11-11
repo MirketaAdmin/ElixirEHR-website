@@ -22,7 +22,7 @@ function StatsSection() {
           <li key={stat.value} className={styles.card}>
             <div className={styles.cardTop}>
               <p className={styles.value}>{stat.value}</p>
-              <img src={stat.icon} alt="" width={stat.iconSize[0]} height={stat.iconSize[1]} />
+              <img loading="lazy" decoding="async" src={stat.icon} alt="" width={stat.iconSize[0]} height={stat.iconSize[1]} />
             </div>
             <p className={styles.label}>{stat.label}</p>
           </li>

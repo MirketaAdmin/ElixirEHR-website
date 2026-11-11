@@ -2,7 +2,7 @@
 // Copy is reproduced verbatim.
 
 // Same Figma "missing image" hero box as the Denial Management frame (pixel-identical export).
-import heroMedia from '../assets/caregiver-mobile-app/hero-media.png';
+import heroMedia from '../assets/caregiver-mobile-app/hero-media.webp';
 import iconVisitInformation from '../assets/caregiver-mobile-app/icon-tour-visit-information.png';
 import iconOfflinePreparation from '../assets/caregiver-mobile-app/icon-tour-offline-preparation.png';
 import iconFreshness from '../assets/caregiver-mobile-app/icon-tour-freshness.png';

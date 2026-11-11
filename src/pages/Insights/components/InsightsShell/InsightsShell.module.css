@@ -4,7 +4,7 @@
   --page-hero-description-gap: 26px;
 }
 
-.hero h1 {
+.hero [data-page-hero-title] {
   margin-top: 25px;
   line-height: 71px;
 }

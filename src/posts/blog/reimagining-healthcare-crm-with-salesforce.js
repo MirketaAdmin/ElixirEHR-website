@@ -1,9 +1,6 @@
 // Healthcare CRM blog post (by Bhavesh Singla, May 13, 2026, "Healthcare Industry"). Body copy is
-// exactly as supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg are cropped from the
-// Success Stories page photo until the final featured and banner images are supplied — replace
-// the two files (or these imports) only.
-import cardImage from '../../assets/posts/blog/reimagining-healthcare-crm-with-salesforce/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/reimagining-healthcare-crm-with-salesforce/hero-temp.jpg';
+// exactly as supplied.
+import featuredImage from '../../assets/posts/blog/reimagining-healthcare-crm-with-salesforce.webp';
 
 export default {
   title: 'Reimagining Healthcare CRM with Salesforce',
@@ -12,10 +9,10 @@ export default {
   publishDate: '2026-05-13',
   author: 'Bhavesh Singla',
   category: 'Healthcare Industry',
-  cardImage: { src: cardImage, alt: 'Care team reviewing patient information on tablets at a clinic front desk' },
+  cardImage: { src: featuredImage, alt: 'Reimagining Healthcare CRM with Salesforce' },
   heroImage: {
-    src: heroImage,
-    alt: 'Care team reviewing patient information on tablets at a clinic front desk',
+    src: featuredImage,
+    alt: 'Reimagining Healthcare CRM with Salesforce',
     width: 757,
     height: 324,
   },

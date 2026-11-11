@@ -15,14 +15,14 @@ function CoreSection() {
       <div className={styles.layout}>
         <div className={styles.split}>
           <h3 className={styles.splitTitle}>
-            <img src={warningIcon} alt="" width="26" height="23" />
+            <img loading="lazy" decoding="async" src={warningIcon} alt="" width="26" height="23" />
             {split.title}
           </h3>
           <p className={styles.lead}>{split.lead}</p>
           <ul className={styles.symptoms}>
             {split.items.map((item) => (
               <li key={item}>
-                <img src={warningSmallIcon} alt="" width="19" height="16" />
+                <img loading="lazy" decoding="async" src={warningSmallIcon} alt="" width="19" height="16" />
                 {item}
               </li>
             ))}

@@ -15,7 +15,7 @@ function SecuritySection() {
         {cards.map((card) => (
           <li key={card.title} className={styles.card}>
             <p className={cn(styles.label, card.labelTone && styles[card.labelTone])}>
-              <img src={card.icon.src} alt="" width={card.icon.size[0]} height={card.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={card.icon.src} alt="" width={card.icon.size[0]} height={card.icon.size[1]} />
               {card.label}
             </p>
             <h3 className={styles.title}>{card.title}</h3>

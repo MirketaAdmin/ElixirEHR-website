@@ -44,7 +44,7 @@ function GapSection() {
             </p>
           ))}
           <div className={styles.caveat}>
-            <img src={caveat.icon.src} alt="" width={caveat.icon.size[0]} height={caveat.icon.size[1]} />
+            <img loading="lazy" decoding="async" src={caveat.icon.src} alt="" width={caveat.icon.size[0]} height={caveat.icon.size[1]} />
             <div>
               <h3 className={styles.caveatTitle}>{caveat.title}</h3>
               <p className={styles.caveatText}>{caveat.text}</p>

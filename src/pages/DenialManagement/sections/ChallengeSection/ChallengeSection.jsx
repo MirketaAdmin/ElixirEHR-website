@@ -13,7 +13,7 @@ function ChallengeSection() {
     <Section spacing="none" className={styles.section} containerClassName={styles.inner}>
       <div className={styles.content}>
         <p className={styles.badge}>
-          <img src={badge.icon} alt="" width="13" height="12" />
+          <img loading="lazy" decoding="async" src={badge.icon} alt="" width="13" height="12" />
           {badge.label}
         </p>
         <h2 className={styles.title}>{title}</h2>
@@ -23,7 +23,7 @@ function ChallengeSection() {
         </blockquote>
         <Button to={cta.to} variant="tertiary" className={styles.cta}>
           {cta.label}
-          <img src={arrowIcon} alt="" width="11" height="12" />
+          <img loading="lazy" decoding="async" src={arrowIcon} alt="" width="11" height="12" />
         </Button>
       </div>
 
@@ -44,7 +44,7 @@ function ChallengeSection() {
         </ul>
         <div className={styles.cost}>
           <span className={styles.costIcon}>
-            <img src={cost.icon} alt="" width="28" height="27" />
+            <img loading="lazy" decoding="async" src={cost.icon} alt="" width="28" height="27" />
           </span>
           <div>
             <p className={styles.costLabel}>{cost.label}</p>

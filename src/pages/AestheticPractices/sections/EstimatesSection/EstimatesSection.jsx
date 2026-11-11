@@ -13,7 +13,7 @@ function EstimatesSection() {
       <AeIntro id="ae-estimates-title" eyebrow={eyebrow} title={title} description={lead} className={styles.intro} />
       <p className={styles.text}>{before}</p>
       <p className={styles.callout}>
-        <img src={callout.icon.src} alt="" width={callout.icon.size[0]} height={callout.icon.size[1]} />
+        <img loading="lazy" decoding="async" src={callout.icon.src} alt="" width={callout.icon.size[0]} height={callout.icon.size[1]} />
         <span>{callout.text}</span>
       </p>
       <p className={styles.text}>{after}</p>

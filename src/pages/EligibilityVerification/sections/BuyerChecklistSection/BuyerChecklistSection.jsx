@@ -19,7 +19,7 @@ function BuyerChecklistSection() {
       <ul className={styles.grid}>
         {criteria.map((criterion) => (
           <li key={criterion.title} className={styles.card}>
-            <img src={checkIcon} alt="" width="32" height="33" className={styles.icon} />
+            <img loading="lazy" decoding="async" src={checkIcon} alt="" width="32" height="33" className={styles.icon} />
             <div>
               <h3 className={styles.cardTitle}>{criterion.title}</h3>
               <p className={styles.cardText}>{criterion.description}</p>

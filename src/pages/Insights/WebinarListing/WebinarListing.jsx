@@ -39,7 +39,7 @@ function UpcomingWebinar({ post }) {
   return (
     <article className={styles.featured}>
       <div className={styles.featuredMedia}>
-        <img src={post.cardImage.src} alt={post.cardImage.alt} className={styles.featuredImage} />
+        <img loading="lazy" decoding="async" src={post.cardImage.src} alt={post.cardImage.alt} className={styles.featuredImage} />
         <span className={styles.liveTag}>Live Upcoming</span>
         <Link to={getPostPath(post)} className={styles.featuredPlay} aria-label={`Open webinar: ${post.title}`}>
           <Icon name="play" size={24} />
@@ -53,11 +53,11 @@ function UpcomingWebinar({ post }) {
             {post.event.timeLabel && ` • ${post.event.timeLabel}`}
           </time>
         </p>
-        <h3 className={styles.featuredTitle}>{post.title}</h3>
+        <h2 className={styles.featuredTitle}>{post.title}</h2>
         <p className={styles.featuredText}>{post.excerpt}</p>
         {post.speaker && (
           <div className={styles.speaker}>
-            {post.speaker.avatar && <img src={post.speaker.avatar} alt="" width="40" height="40" />}
+            {post.speaker.avatar && <img loading="lazy" decoding="async" src={post.speaker.avatar} alt="" width="40" height="40" />}
             <p>
               <span className={styles.speakerName}>{post.speaker.name}</span>
               {post.speaker.role && <span className={styles.speakerRole}>{post.speaker.role}</span>}
@@ -74,7 +74,7 @@ function OnDemandCard({ post }) {
   return (
     <article className={styles.card}>
       <div className={styles.media}>
-        <img src={post.cardImage.src} alt={post.cardImage.alt} className={styles.image} />
+        <img loading="lazy" decoding="async" src={post.cardImage.src} alt={post.cardImage.alt} className={styles.image} />
         {post.label && <span className={styles.tag}>{post.label}</span>}
         {post.duration && <span className={styles.duration}>{post.duration}</span>}
         <Link to={getPostPath(post)} className={styles.play} aria-label={`Watch webinar: ${post.title}`}>
@@ -82,7 +82,7 @@ function OnDemandCard({ post }) {
         </Link>
       </div>
       <div className={styles.body}>
-        <h4 className={styles.title}>{post.title}</h4>
+        <h3 className={styles.title}>{post.title}</h3>
         <p className={styles.text}>{post.excerpt}</p>
         {post.views && (
           <p className={styles.views}>
@@ -135,9 +135,9 @@ function WebinarListing() {
           <span className={styles.emptyIcon} aria-hidden="true">
             <Icon name="calendar" size={28} />
           </span>
-          <h3 id="webinars-empty" className={styles.emptyTitle}>
+          <h2 id="webinars-empty" className={styles.emptyTitle}>
             {page.empty.title}
-          </h3>
+          </h2>
           <p className={styles.emptyText}>{page.empty.text}</p>
           <Link to={page.empty.cta.to} className={styles.emptyCta}>
             {page.empty.cta.label}
@@ -160,9 +160,9 @@ function WebinarListing() {
       {upcoming && current === 1 && <UpcomingWebinar post={upcoming} />}
       {onDemand.length > 0 && (
         <section className={styles.onDemand} aria-labelledby="webinars-on-demand">
-          <h3 id="webinars-on-demand" className={styles.onDemandTitle}>
+          <h2 id="webinars-on-demand" className={styles.onDemandTitle}>
             {page.onDemandTitle}
-          </h3>
+          </h2>
           <ul className={styles.grid}>
             {onDemand.slice((current - 1) * 4, current * 4).map((post) => (
               <li key={post.id}>
@@ -174,7 +174,7 @@ function WebinarListing() {
       )}
       {totalPages > 1 && (
         <div className={styles.pagination}>
-          <Pagination page={current} totalPages={totalPages} onChange={listing.setPage} label="Webinar pages" />
+          <Pagination linked page={current} totalPages={totalPages} onChange={listing.setPage} label="Webinar pages" />
         </div>
       )}
     </InsightsShell>

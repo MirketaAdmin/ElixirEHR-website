@@ -34,7 +34,7 @@ function OperationsSection() {
         ))}
       </ol>
       <p className={styles.note}>
-        <img src={note.icon} alt="" width="15" height="15" />
+        <img loading="lazy" decoding="async" src={note.icon} alt="" width="15" height="15" />
         <span>
           {note.before}
           {note.link.to ? (

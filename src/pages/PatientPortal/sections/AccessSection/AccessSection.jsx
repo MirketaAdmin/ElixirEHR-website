@@ -24,7 +24,7 @@ function AccessSection() {
           <p className={styles.callout}>{callout}</p>
           <div className={styles.engine}>
             <h3 className={styles.engineTitle}>
-              <img src={engine.icon} alt="" width="14" height="16" />
+              <img loading="lazy" decoding="async" src={engine.icon} alt="" width="14" height="16" />
               {engine.title}
             </h3>
             <ul className={styles.engineRows}>
@@ -67,7 +67,7 @@ function AccessSection() {
             <ul className={styles.checks}>
               {behavioralHealth.items.map((item) => (
                 <li key={item}>
-                  <img src={behavioralHealth.icon} alt="" width="12" height="10" />
+                  <img loading="lazy" decoding="async" src={behavioralHealth.icon} alt="" width="12" height="10" />
                   {item}
                 </li>
               ))}

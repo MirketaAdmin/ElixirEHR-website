@@ -22,7 +22,7 @@ function KratuSection() {
         {items.map((item) => (
           <li key={item.title} className={styles.card}>
             <h3 className={styles.title}>
-              <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
               {item.title}
             </h3>
             <p className={styles.text}>{item.text}</p>
@@ -31,13 +31,13 @@ function KratuSection() {
       </ul>
       <div className={styles.limits}>
         <h3 className={styles.limitsTitle}>
-          <img src={gavelIcon} alt="" width="18" height="20" />
+          <img loading="lazy" decoding="async" src={gavelIcon} alt="" width="18" height="20" />
           {limits.title}
         </h3>
         <ul className={styles.limitsList}>
           {limits.items.map((item) => (
             <li key={item}>
-              <img src={banIcon} alt="" width="15" height="15" />
+              <img loading="lazy" decoding="async" src={banIcon} alt="" width="15" height="15" />
               {item}
             </li>
           ))}

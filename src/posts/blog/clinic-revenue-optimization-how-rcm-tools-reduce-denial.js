@@ -1,9 +1,6 @@
 // Clinic Revenue Optimization blog post. Body copy is exactly as supplied (July 14, 2026,
-// "Healthcare Industry"). TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg are cropped from the
-// Revenue Cycle Management page photo until the final featured and banner images are supplied —
-// replace the two files (or these imports) only.
-import cardImage from '../../assets/posts/blog/clinic-revenue-optimization-how-rcm-tools-reduce-denial/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/clinic-revenue-optimization-how-rcm-tools-reduce-denial/hero-temp.jpg';
+// "Healthcare Industry").
+import featuredImage from '../../assets/posts/blog/clinic-revenue-optimization-how-rcm-tools-reduce-denial.webp';
 
 export default {
   title: 'Clinic Revenue Optimization: How RCM Tools Reduce Denial',
@@ -11,10 +8,10 @@ export default {
     'Clinics are busier than ever. More patients, more services, more staff, more technology investment. And yet, for a lot of practices, the bank account doesn’t reflect all of it. Revenue isn’t disappearing because of bad contracts or rising costs – it’s slipping through the cracks of the billing process before it ever gets collected.',
   publishDate: '2026-07-14',
   category: 'Healthcare Industry',
-  cardImage: { src: cardImage, alt: 'Clinicians reviewing revenue cycle data on a large clinic display' },
+  cardImage: { src: featuredImage, alt: 'Clinic Revenue Optimization: How RCM Tools Reduce Denial' },
   heroImage: {
-    src: heroImage,
-    alt: 'Clinicians reviewing revenue cycle data on a large clinic display',
+    src: featuredImage,
+    alt: 'Clinic Revenue Optimization: How RCM Tools Reduce Denial',
     width: 757,
     height: 324,
   },

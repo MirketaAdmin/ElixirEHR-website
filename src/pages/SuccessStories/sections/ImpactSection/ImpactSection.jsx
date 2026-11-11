@@ -99,12 +99,12 @@ function ImpactSection() {
           aria-live={paused ? 'polite' : 'off'}
         >
           {story.quote ? (
-            <img src={story.image.src} alt={story.image.alt} width="576" height="666" className={styles.featuredImage} />
+            <img loading="lazy" decoding="async" src={story.image.src} alt={story.image.alt} width="576" height="666" className={styles.featuredImage} />
           ) : (
             // Story-card photos are small 360 × 224 crops: framed near their own size rather than
             // stretched to fill the portrait slot.
             <div className={styles.summaryMedia}>
-              <img src={story.image.src} alt={story.image.alt} width="360" height="224" />
+              <img loading="lazy" decoding="async" src={story.image.src} alt={story.image.alt} width="360" height="224" />
             </div>
           )}
           <div className={styles.featuredBody}>
@@ -131,7 +131,7 @@ function ImpactSection() {
         {stories.map((item) => (
           <li key={item.title} className={styles.card}>
             <div className={styles.media}>
-              <img src={item.image.src} alt={item.image.alt} width="360" height="224" />
+              <img loading="lazy" decoding="async" src={item.image.src} alt={item.image.alt} width="360" height="224" />
               <span className={styles.badge}>{item.category}</span>
             </div>
             <div className={styles.body}>

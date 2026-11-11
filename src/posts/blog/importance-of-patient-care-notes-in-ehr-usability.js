@@ -1,9 +1,6 @@
 // Patient care notes blog post (by Bhavesh Singla, May 20, 2026, "Practice Management"). Body copy
-// is exactly as supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg are cropped from the
-// EHR page's clinical notes photo until the final featured and banner images are supplied —
-// replace the two files (or these imports) only.
-import cardImage from '../../assets/posts/blog/importance-of-patient-care-notes-in-ehr-usability/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/importance-of-patient-care-notes-in-ehr-usability/hero-temp.jpg';
+// is exactly as supplied.
+import featuredImage from '../../assets/posts/blog/importance-of-patient-care-notes-in-ehr-usability.webp';
 
 export default {
   title: 'Importance of Patient Care Notes in EHR usability',
@@ -12,10 +9,10 @@ export default {
   publishDate: '2026-05-20',
   author: 'Bhavesh Singla',
   category: 'Practice Management',
-  cardImage: { src: cardImage, alt: 'Clinician holding a tablet showing patient analytics and clinical alerts' },
+  cardImage: { src: featuredImage, alt: 'Importance of Patient Care Notes in EHR usability' },
   heroImage: {
-    src: heroImage,
-    alt: 'Clinician holding a tablet showing patient analytics and clinical alerts',
+    src: featuredImage,
+    alt: 'Importance of Patient Care Notes in EHR usability',
     width: 757,
     height: 324,
   },

@@ -10,7 +10,7 @@ function ConversionCtaSection() {
       <ul className={styles.grid}>
         {conversionCtas.map((item) => (
           <li key={item.title} className={cn(styles.card, styles[item.tone])}>
-            <img src={item.icon} alt="" width={item.iconSize[0]} height={item.iconSize[1]} />
+            <img loading="lazy" decoding="async" src={item.icon} alt="" width={item.iconSize[0]} height={item.iconSize[1]} />
             <h2 className={cn('text-headline-lg', styles.title)}>{item.title}</h2>
             <p className={styles.description}>{item.description}</p>
             <Button to={item.cta.to} variant={item.cta.variant} className={styles.cta}>

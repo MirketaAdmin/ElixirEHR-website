@@ -22,7 +22,7 @@ function ContactSection({ logos = contact.logos, logoGap }) {
             return (
               <li key={channel.label} className={styles.channel}>
                 <span className={styles.tile} style={{ width: channel.tile[0], height: channel.tile[1] }}>
-                  <img src={channel.icon} alt="" width={channel.iconSize[0]} height={channel.iconSize[1]} />
+                  <img loading="lazy" decoding="async" src={channel.icon} alt="" width={channel.iconSize[0]} height={channel.iconSize[1]} />
                 </span>
                 <p>
                   <span className={styles.channelLabel}>{channel.label}</span>
@@ -37,7 +37,7 @@ function ContactSection({ logos = contact.logos, logoGap }) {
         <ul className={styles.logos} style={logoGap === undefined ? undefined : { gap: logoGap }}>
           {logos.map((logo) => (
             <li key={logo.name}>
-              <img
+              <img loading="lazy" decoding="async"
                 src={logo.src}
                 alt={logo.name}
                 width={logo.width}

@@ -23,7 +23,7 @@ function ConfidenceSection() {
         {levels.map((level) => (
           <li key={level.label} className={cn(styles.card, styles[level.tone])}>
             <p className={styles.label}>
-              <img src={level.icon.src} alt="" width={level.icon.size[0]} height={level.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={level.icon.src} alt="" width={level.icon.size[0]} height={level.icon.size[1]} />
               {level.label}
             </p>
             <div className={styles.body}>

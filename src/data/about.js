@@ -1,9 +1,9 @@
 // About Us page content — copy reproduced exactly from the Figma About Us frame.
 
-import heroCard from '../assets/about/hero-card.png';
+import heroCard from '../assets/about/hero-card.webp';
 import cloudNativeIcon from '../assets/about/cloud-native-icon.png';
 import aiDrivenIcon from '../assets/about/ai-driven-icon.png';
-import missionImage from '../assets/about/mission-facility.png';
+import missionImage from '../assets/about/mission-facility.webp';
 import rajeevKumarPhoto from '../assets/about/team/rajeev-kumar.png';
 import maureenKumarPhoto from '../assets/about/team/maureen-m-kumar.png';
 import ajayJalaliPhoto from '../assets/about/team/ajay-jalali.png';

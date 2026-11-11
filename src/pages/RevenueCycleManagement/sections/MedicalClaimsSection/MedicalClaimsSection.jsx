@@ -28,7 +28,7 @@ function MedicalClaimsSection() {
         <p className={styles.callout}>{callout}</p>
         <CheckList items={points} className={styles.points} />
       </div>
-      <img src={image.src} alt={image.alt} width="552" height="470" className={styles.image} />
+      <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="552" height="470" className={styles.image} />
     </Section>
   );
 }

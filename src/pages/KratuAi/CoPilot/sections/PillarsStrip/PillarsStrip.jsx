@@ -12,7 +12,7 @@ function PillarsStrip() {
           {coPilotPillars.map((pillar) => (
             <li key={pillar.title} className={cn(styles.card, styles[pillar.tone])}>
               <span className={styles.tile}>
-                <img src={pillar.icon.src} alt="" width={pillar.icon.size[0]} height={pillar.icon.size[1]} />
+                <img loading="lazy" decoding="async" src={pillar.icon.src} alt="" width={pillar.icon.size[0]} height={pillar.icon.size[1]} />
               </span>
               <h2 className={styles.title}>{pillar.title}</h2>
               <p className={styles.text}>{pillar.text}</p>

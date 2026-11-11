@@ -1,6 +1,6 @@
 // Student Health page (/student-health-records-software) — a child page of More Specialties.
 // Copy is verbatim from the Figma (the "Student Care Management" frame). Links only point at routes that exist.
-import heroMedia from '../assets/student-health/hero-media.png';
+import heroMedia from '../assets/student-health/hero-media.webp';
 import pillar1Icon from '../assets/student-health/icon-pillar-1.png';
 import pillar2Icon from '../assets/student-health/icon-pillar-2.png';
 import pillar3Icon from '../assets/student-health/icon-pillar-3.png';

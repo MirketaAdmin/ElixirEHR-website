@@ -15,7 +15,7 @@ function ExceptionsSection() {
         {items.map((item) => (
           <li key={item.title} className={styles.card}>
             <span className={styles.iconTile}>
-              <img src={item.icon} alt="" width="24" height="24" />
+              <img loading="lazy" decoding="async" src={item.icon} alt="" width="24" height="24" />
             </span>
             <h3 className={styles.title}>{item.title}</h3>
             <p className={styles.text}>{item.text}</p>

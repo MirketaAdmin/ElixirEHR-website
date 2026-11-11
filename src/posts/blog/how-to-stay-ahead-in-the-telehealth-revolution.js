@@ -1,10 +1,6 @@
 // Telehealth blog post (by Bhavesh Singla, May 11, 2026, "Practice Management"). Body copy is
-// exactly as supplied; "Demo Request form" links to the Request a Demo page. TEMPORARY IMAGES:
-// card-temp.jpg and hero-temp.jpg are cropped from the Treatment Center Solutions clinician photo
-// until the final featured and banner images are supplied — replace the two files (or these
-// imports) only.
-import cardImage from '../../assets/posts/blog/how-to-stay-ahead-in-the-telehealth-revolution/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/how-to-stay-ahead-in-the-telehealth-revolution/hero-temp.jpg';
+// exactly as supplied; "Demo Request form" links to the Request a Demo page.
+import featuredImage from '../../assets/posts/blog/how-to-stay-ahead-in-the-telehealth-revolution.webp';
 
 export default {
   title: 'How to stay ahead in the telehealth revolution?',
@@ -13,10 +9,10 @@ export default {
   publishDate: '2026-05-11',
   author: 'Bhavesh Singla',
   category: 'Practice Management',
-  cardImage: { src: cardImage, alt: 'Clinician reviewing patient information on a tablet' },
+  cardImage: { src: featuredImage, alt: 'How to stay ahead in the telehealth revolution?' },
   heroImage: {
-    src: heroImage,
-    alt: 'Clinician reviewing patient information on a tablet',
+    src: featuredImage,
+    alt: 'How to stay ahead in the telehealth revolution?',
     width: 757,
     height: 324,
   },

@@ -22,7 +22,7 @@ function CapabilitiesSection() {
         {items.map((item) => (
           <li key={item.title} className={styles.card}>
             <p className={styles.top}>
-              <img src={modelTag} alt="" width="7" height="22" />
+              <img loading="lazy" decoding="async" src={modelTag} alt="" width="7" height="22" />
               <span className={styles.tag}>{item.tag}</span>
             </p>
             <h3 className={styles.title}>{item.title}</h3>

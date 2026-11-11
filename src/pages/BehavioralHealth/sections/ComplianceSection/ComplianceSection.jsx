@@ -11,7 +11,7 @@ function ComplianceSection() {
   const linkContent = (
     <>
       {footnote.link.label}
-      <img src={chevronIcon} alt="" width="5" height="8" />
+      <img loading="lazy" decoding="async" src={chevronIcon} alt="" width="5" height="8" />
     </>
   );
 

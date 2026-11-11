@@ -25,7 +25,7 @@ function ModelsSection() {
       </ul>
 
       <div className={styles.callout}>
-        <img src={callout.icon} alt="" width="24" height="24" className={styles.calloutIcon} />
+        <img loading="lazy" decoding="async" src={callout.icon} alt="" width="24" height="24" className={styles.calloutIcon} />
         <p className={styles.calloutText}>{callout.text}</p>
       </div>
 

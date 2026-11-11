@@ -24,7 +24,7 @@ function CommunitySection() {
         {items.map((item) => (
           <li key={item.title} className={styles.card}>
             <p className={styles.label}>
-              <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
               {item.label}
             </p>
             <h3 className={styles.title} style={item.titleWidth ? { '--title-width': `${item.titleWidth}px` } : undefined}>

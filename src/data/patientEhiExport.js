@@ -1,6 +1,6 @@
 // Patient EHI Export page (/onc-certification/patient-ehi-export) — a child page of ONC
 // Certification. The frame is the hero only; its button opens the supplied export guide (PDF).
-import heroMedia from '../assets/patient-ehi-export/hero-media.png';
+import heroMedia from '../assets/patient-ehi-export/hero-media.webp';
 import exportGuide from '../assets/patient-ehi-export/Patient-EHI-Export.pdf';
 
 export const ehiHero = {

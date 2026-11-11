@@ -28,7 +28,7 @@ function StagesSection() {
       </ol>
       <p className={styles.handoff}>
         <span className={styles.check}>
-          <img src={handoffCheck} alt="" width="8" height="9" />
+          <img loading="lazy" decoding="async" src={handoffCheck} alt="" width="8" height="9" />
         </span>
         {handoff}
       </p>

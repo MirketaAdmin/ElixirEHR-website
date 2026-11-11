@@ -10,7 +10,7 @@ function TrustedBySection() {
         <h2 className={styles.title}>{trustedBy.title}</h2>
         <Marquee duration={trustedBy.marqueeDuration} label="Clinics using Elixir" className={styles.logos}>
           {trustedBy.logos.map((logo) => (
-            <img key={logo.name} src={logo.src} alt={logo.name} width={logo.width} height={logo.height} />
+            <img loading="lazy" decoding="async" key={logo.name} src={logo.src} alt={logo.name} width={logo.width} height={logo.height} />
           ))}
         </Marquee>
       </Container>

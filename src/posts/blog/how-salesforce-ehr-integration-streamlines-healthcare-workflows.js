@@ -1,9 +1,6 @@
 // Salesforce EHR integration blog post (by elixirAdmin, April 30, 2025, "EHR"). Body copy is
-// exactly as supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg are cropped from the
-// About page team photo until the final featured and banner images are supplied — replace the two
-// files (or these imports) only.
-import cardImage from '../../assets/posts/blog/how-salesforce-ehr-integration-streamlines-healthcare-workflows/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/how-salesforce-ehr-integration-streamlines-healthcare-workflows/hero-temp.jpg';
+// exactly as supplied.
+import featuredImage from '../../assets/posts/blog/how-salesforce-ehr-integration-streamlines-healthcare-workflows.webp';
 
 export default {
   title: 'How Salesforce EHR Integration Streamlines Healthcare Workflows',
@@ -12,10 +9,10 @@ export default {
   publishDate: '2025-04-30',
   author: 'elixirAdmin',
   category: 'EHR',
-  cardImage: { src: cardImage, alt: 'Care team reviewing a unified patient view on a large clinic display' },
+  cardImage: { src: featuredImage, alt: 'How Salesforce EHR Integration Streamlines Healthcare Workflows' },
   heroImage: {
-    src: heroImage,
-    alt: 'Care team reviewing a unified patient view on a large clinic display',
+    src: featuredImage,
+    alt: 'How Salesforce EHR Integration Streamlines Healthcare Workflows',
     width: 757,
     height: 324,
   },

@@ -32,7 +32,7 @@ function TelehealthSection() {
         <ul className={styles.items}>
           {means.items.map((item) => (
             <li key={item}>
-              <img src={checkIcon} alt="" width="17" height="13" />
+              <img loading="lazy" decoding="async" src={checkIcon} alt="" width="17" height="13" />
               <span>{item}</span>
             </li>
           ))}

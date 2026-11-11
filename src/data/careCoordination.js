@@ -1,6 +1,6 @@
 // Care Coordination page (/care-coordination-software) — an independent page with no parent.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroMedia from '../assets/care-coordination/hero-media.png';
+import heroMedia from '../assets/care-coordination/hero-media.webp';
 import teamIcon from '../assets/care-coordination/icon-pillar-team.png';
 import consentIcon from '../assets/care-coordination/icon-pillar-consent.png';
 import part2Icon from '../assets/care-coordination/icon-pillar-part2.png';

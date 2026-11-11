@@ -25,7 +25,7 @@ function ResourceCard({ post, tag, meta = [], excerpt, action, layout = 'stacked
   return (
     <article className={cn(styles.card, styles[layout], styles[size])}>
       <div className={styles.media}>
-        <img src={post.cardImage.src} alt={post.cardImage.alt} className={styles.image} />
+        <img loading="lazy" decoding="async" src={post.cardImage.src} alt={post.cardImage.alt} className={styles.image} />
         {tag && <span className={styles.tag}>{tag}</span>}
       </div>
       <div className={styles.body}>
@@ -39,7 +39,7 @@ function ResourceCard({ post, tag, meta = [], excerpt, action, layout = 'stacked
             ))}
           </ul>
         )}
-        <h3 className={styles.title}>{title}</h3>
+        <h2 className={styles.title}>{title}</h2>
         {excerpt && <p className={styles.excerpt}>{post.excerpt}</p>}
         {action.to ? (
           <Link to={action.to} className={actionClass}>

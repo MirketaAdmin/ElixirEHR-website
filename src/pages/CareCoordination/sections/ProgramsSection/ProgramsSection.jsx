@@ -25,7 +25,7 @@ function ProgramsSection() {
             )}
             <Link to={link.to} className={styles.link}>
               {link.label}
-              <img src={explore.icon.src} alt="" width={explore.icon.size[0]} height={explore.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={explore.icon.src} alt="" width={explore.icon.size[0]} height={explore.icon.size[1]} />
             </Link>
           </Fragment>
         ))}

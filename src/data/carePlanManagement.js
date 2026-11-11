@@ -1,6 +1,6 @@
 // Care Plan Management page (/care-plan-software) — a child page of Care Management.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroMedia from '../assets/care-plan-management/hero-media.png';
+import heroMedia from '../assets/care-plan-management/hero-media.webp';
 
 export const cpHero = {
   currentPage: 'Care Plan Management',

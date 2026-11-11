@@ -1,13 +1,8 @@
-// AI for patient experience blog post (by Suman Sekhar, June 18, 2025, "Healthcare Industry"). Body copy is
-// exactly as supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg are cropped from the Patient
-// Portal page photo until the final featured and banner images are supplied — replace the two files (or
-// these imports) only.
-import cardImage from '../../assets/posts/blog/using-ai-for-patient-experience-intelligent-healthcare-tools/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/using-ai-for-patient-experience-intelligent-healthcare-tools/hero-temp.jpg';
+// AI for patient experience blog post (by Suman Sekhar, June 18, 2025, "Healthcare Industry"). Body
+// copy is exactly as supplied.
+import featuredImage from '../../assets/posts/blog/using-ai-for-patient-experience-intelligent-healthcare-tools.webp';
 
 const strong = (text) => ({ text, strong: true });
-
-const imageAlt = 'Smiling woman using a patient app on her phone, surrounded by appointment, message, lab and medication cards';
 
 export default {
   title: 'Using AI for Patient Experience | Intelligent Healthcare Tools',
@@ -16,8 +11,8 @@ export default {
   publishDate: '2025-06-18',
   author: 'Suman Sekhar',
   category: 'Healthcare Industry',
-  cardImage: { src: cardImage, alt: imageAlt },
-  heroImage: { src: heroImage, alt: imageAlt, width: 757, height: 324 },
+  cardImage: { src: featuredImage, alt: 'Using AI for Patient Experience | Intelligent Healthcare Tools' },
+  heroImage: { src: featuredImage, alt: 'Using AI for Patient Experience | Intelligent Healthcare Tools', width: 757, height: 324 },
   content: [
     { type: 'heading', level: 2, text: 'Introduction' },
     {

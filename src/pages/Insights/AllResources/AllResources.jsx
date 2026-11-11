@@ -51,14 +51,14 @@ function FeaturedEbook({ post }) {
   return (
     <article className={styles.featured}>
       <div className={styles.featuredMedia}>
-        <img src={post.cardImage.src} alt={post.cardImage.alt} className={styles.featuredImage} />
+        <img loading="lazy" decoding="async" src={post.cardImage.src} alt={post.cardImage.alt} className={styles.featuredImage} />
         <span className={styles.featuredTag}>
           <Icon name="document" size={16} />
           {allResources.feedTypes['e-book'].tag}
         </span>
       </div>
       <div className={styles.featuredBody}>
-        <h3 className={styles.featuredTitle}>{post.title}</h3>
+        <h2 className={styles.featuredTitle}>{post.title}</h2>
         <p className={styles.featuredText}>{post.excerpt}</p>
         <Link to={getPostPath(post)} className={styles.link}>
           Read More<span className="visually-hidden">: {post.title}</span>
@@ -91,7 +91,7 @@ function LiveWebinar({ post }) {
   return (
     <article className={styles.live}>
       <span className={styles.liveTag}>{allResources.liveLabel}</span>
-      <h3 className={styles.liveTitle}>{post.title}</h3>
+      <h2 className={styles.liveTitle}>{post.title}</h2>
       <p className={styles.liveText}>{post.excerpt}</p>
       <div className={styles.liveFoot}>
         <p className={styles.liveWhen}>
@@ -112,13 +112,13 @@ function LiveWebinar({ post }) {
 function FeaturedVideo({ post }) {
   return (
     <article className={styles.video}>
-      <img src={post.cardImage.src} alt={post.cardImage.alt} className={styles.videoImage} />
+      <img loading="lazy" decoding="async" src={post.cardImage.src} alt={post.cardImage.alt} className={styles.videoImage} />
       <Link to={getPostPath(post)} className={styles.videoPlay} aria-label={`Play video: ${post.title}`}>
         <Icon name="play" size={28} />
       </Link>
       <div className={styles.videoBody}>
         <span className={styles.videoTag}>{allResources.featuredVideoLabel}</span>
-        <h3 className={styles.videoTitle}>{post.title}</h3>
+        <h2 className={styles.videoTitle}>{post.title}</h2>
       </div>
     </article>
   );
@@ -129,7 +129,7 @@ function FeedCard({ post }) {
   return (
     <article className={styles.card}>
       <div className={styles.cardMedia}>
-        <img src={post.cardImage.src} alt={post.cardImage.alt} className={styles.cardImage} />
+        <img loading="lazy" decoding="async" src={post.cardImage.src} alt={post.cardImage.alt} className={styles.cardImage} />
         <span className={styles.cardTag}>{labels.tag}</span>
       </div>
       <div className={styles.cardBody}>
@@ -145,7 +145,7 @@ function FeedCard({ post }) {
             <time dateTime={post.publishDate}>{formatCardDate(post.publishDate)}</time>
           </li>
         </ul>
-        <h3 className={styles.cardTitle}>{post.listingTitle ?? post.title}</h3>
+        <h2 className={styles.cardTitle}>{post.listingTitle ?? post.title}</h2>
         <PostAction post={post} className={styles.link}>
           {labels.action}
           <span className="visually-hidden">: {post.title}</span>
@@ -177,7 +177,7 @@ function AllResources() {
     <InsightsShell
       documentTitle={page.documentTitle}
       title={page.title}
-      hero={<PageHero {...contactHero} currentPage="Resources" image={allResources.heroImage} />}
+      hero={<PageHero {...contactHero} currentPage="Resources" image={allResources.heroImage} titleAs="p" />}
     >
       {(ebook || webinar || video) && (
         <div className={styles.lead}>

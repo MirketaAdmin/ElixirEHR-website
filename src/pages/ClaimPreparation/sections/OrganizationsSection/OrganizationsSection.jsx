@@ -15,13 +15,13 @@ function OrganizationsSection() {
         {cards.map((card) => (
           <li key={card.title} className={styles.card}>
             <span className={styles.icon}>
-              <img src={card.icon.src} alt="" width={card.icon.width} height={card.icon.height} />
+              <img loading="lazy" decoding="async" src={card.icon.src} alt="" width={card.icon.width} height={card.icon.height} />
             </span>
             <h3 className={styles.cardTitle}>{card.title}</h3>
             <p className={styles.cardText}>{card.text}</p>
             <Link to={card.link.to} className={styles.link}>
               {card.link.label}
-              <img src={arrowIcon} alt="" width="10" height="10" />
+              <img loading="lazy" decoding="async" src={arrowIcon} alt="" width="10" height="10" />
             </Link>
           </li>
         ))}

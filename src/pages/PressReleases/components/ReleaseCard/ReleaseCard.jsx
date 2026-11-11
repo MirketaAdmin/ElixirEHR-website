@@ -13,7 +13,7 @@ function ReleaseCard({ release }) {
   return (
     <article className={styles.card}>
       <div className={styles.media}>
-        <img src={image.src} alt={image.alt} width="361" height="224" className={styles.image} />
+        <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="361" height="224" className={styles.image} />
         {category && (
           <span className={cn(styles.badge, styles[categoryTones[category] ?? 'lime'])}>{category}</span>
         )}

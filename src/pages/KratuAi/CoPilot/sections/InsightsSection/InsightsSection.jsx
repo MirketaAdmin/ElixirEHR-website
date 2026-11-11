@@ -18,7 +18,7 @@ function InsightsSection() {
         <ul className={styles.tabs}>
           {pane.tabs.map((tab, index) => (
             <li key={tab.label} className={index === 0 ? styles.activeTab : undefined}>
-              <img src={tab.icon.src} alt="" width={tab.icon.size[0]} height={tab.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={tab.icon.src} alt="" width={tab.icon.size[0]} height={tab.icon.size[1]} />
               {tab.label}
             </li>
           ))}
@@ -40,7 +40,7 @@ function InsightsSection() {
           <ul className={styles.alerts}>
             {pane.alerts.map((alert) => (
               <li key={alert.title} className={cn(styles.alert, styles[alert.tone])}>
-                <img src={alert.icon.src} alt="" width={alert.icon.size[0]} height={alert.icon.size[1]} />
+                <img loading="lazy" decoding="async" src={alert.icon.src} alt="" width={alert.icon.size[0]} height={alert.icon.size[1]} />
                 <span className={styles.alertCopy}>
                   <span className={styles.alertTitle}>{alert.title}</span>
                   <span className={styles.alertText}>{alert.text}</span>
@@ -63,7 +63,7 @@ function InsightsSection() {
         {capabilities.map((item) => (
           <li key={item.title} className={styles.card}>
             <span className={cn(styles.tile, styles[item.icon.tone])}>
-              <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
             </span>
             <h3 className={styles.title}>{item.title}</h3>
             <p className={styles.text}>{item.text}</p>

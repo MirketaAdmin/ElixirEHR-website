@@ -76,7 +76,7 @@ function TourSection() {
         <ul className={styles.items}>
           {panel.items.map((item) => (
             <li key={item.title} className={styles.item}>
-              <img src={item.icon} alt="" width="24" height="24" />
+              <img loading="lazy" decoding="async" src={item.icon} alt="" width="24" height="24" />
               <div>
                 <p className={styles.itemTitle}>{item.title}</p>
                 <p className={styles.itemText}>{item.text}</p>

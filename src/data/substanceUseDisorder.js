@@ -1,6 +1,6 @@
 // Substance Use Disorder page (/addiction-treatment-emr) — an independent page with
 // no parent route. Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroMedia from '../assets/substance-use-disorder/hero-media.png';
+import heroMedia from '../assets/substance-use-disorder/hero-media.webp';
 import recordIcon from '../assets/substance-use-disorder/icon-strip-record.png';
 import editionsIcon from '../assets/substance-use-disorder/icon-strip-editions.png';
 import part2Icon from '../assets/substance-use-disorder/icon-strip-part2.png';

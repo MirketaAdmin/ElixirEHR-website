@@ -25,7 +25,7 @@ function OncMfaUseCases() {
           {mfaUseCases.map((item) => (
             <li key={item.title} className={styles.card}>
               <span className={styles.tile}>
-                <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+                <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
               </span>
               <h2 className={styles.cardTitle}>{item.title}</h2>
             </li>
@@ -50,7 +50,7 @@ function OncMfaUseCases() {
             {points.map((point) => (
               <li key={point}>
                 <span className={styles.check}>
-                  <img src={check.src} alt="" width={check.size[0]} height={check.size[1]} />
+                  <img loading="lazy" decoding="async" src={check.src} alt="" width={check.size[0]} height={check.size[1]} />
                 </span>
                 {point}
               </li>
@@ -59,7 +59,7 @@ function OncMfaUseCases() {
           <ul className={styles.trust}>
             {trust.map((item) => (
               <li key={item.label}>
-                <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+                <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
                 {item.label}
               </li>
             ))}

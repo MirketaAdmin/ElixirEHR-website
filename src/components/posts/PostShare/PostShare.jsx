@@ -14,10 +14,10 @@ function PostShare({ label, title }) {
     <div className={styles.share}>
       <p className={styles.label}>{label}</p>
       <button type="button" onClick={share} className={styles.button} aria-label="Share">
-        <img src={shareIcon} alt="" width="14" height="16" />
+        <img loading="lazy" decoding="async" src={shareIcon} alt="" width="14" height="16" />
       </button>
       <button type="button" onClick={copyLink} className={styles.button} aria-label="Copy link">
-        <img src={linkIcon} alt="" width="16" height="8" />
+        <img loading="lazy" decoding="async" src={linkIcon} alt="" width="16" height="8" />
       </button>
       <p role="status" className="visually-hidden">
         {status}

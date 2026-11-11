@@ -1,6 +1,6 @@
 // Telehealth page (/telehealth-ehr) — a child page of More Specialties.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroMedia from '../assets/telehealth/hero-media.png';
+import heroMedia from '../assets/telehealth/hero-media.webp';
 // The four pillar icons are the same crops as Small Practices'.
 import pillar1Icon from '../assets/small-practices/icon-pillar-1.png';
 import pillar2Icon from '../assets/small-practices/icon-pillar-2.png';

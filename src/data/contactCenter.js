@@ -2,21 +2,21 @@
 // Photos and icons are 1× crops of the frame export (no source files were supplied); two AI card
 // icons reuse the Home / Billing icons, which match the frame.
 
-import heroMedia from '../assets/contact-center/redesign/hero-media.png';
+import heroMedia from '../assets/contact-center/redesign/hero-media.webp';
 import efficiencyIcon from '../assets/patient-portal/badge-efficiency.png';
-import intakeMedia from '../assets/contact-center/redesign/intake-media.png';
+import intakeMedia from '../assets/contact-center/redesign/intake-media.webp';
 import automationIcon from '../assets/contact-center/redesign/pill-automation.png';
 import workflowsIcon from '../assets/contact-center/redesign/intake-workflows.png';
 import dataIcon from '../assets/contact-center/redesign/intake-data.png';
 import outreachIcon from '../assets/contact-center/redesign/intake-outreach.png';
-import verificationMedia from '../assets/contact-center/redesign/verification-media.png';
+import verificationMedia from '../assets/contact-center/redesign/verification-media.webp';
 import docsIcon from '../assets/contact-center/redesign/assess-docs.png';
 import integrationIcon from '../assets/contact-center/redesign/assess-integration.png';
 import carePlansIcon from '../assets/contact-center/redesign/assess-care-plans.png';
-import paymentMedia from '../assets/contact-center/redesign/payment-media.png';
+import paymentMedia from '../assets/contact-center/redesign/payment-media.webp';
 import schedulesIcon from '../assets/contact-center/redesign/payment-schedules.png';
 import rcmIcon from '../assets/contact-center/redesign/payment-rcm.png';
-import censusMedia from '../assets/contact-center/redesign/census-media.png';
+import censusMedia from '../assets/contact-center/redesign/census-media.webp';
 import occupancyIcon from '../assets/contact-center/redesign/census-occupancy.png';
 import maintenanceIcon from '../assets/contact-center/redesign/census-maintenance.png';
 import patientPortalAgentIcon from '../assets/home/ai-capabilities/patient-portal-agent-icon.png';

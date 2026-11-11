@@ -10,7 +10,7 @@ function Part2Cards({ className }) {
         <li key={card.title} className={styles.card}>
           <div className={styles.head}>
             <span className={styles.chip}>{card.label}</span>
-            <img src={card.icon.src} alt="" width={card.icon.size[0]} height={card.icon.size[1]} />
+            <img loading="lazy" decoding="async" src={card.icon.src} alt="" width={card.icon.size[0]} height={card.icon.size[1]} />
           </div>
           <h3 className={styles.title}>{card.title}</h3>
           <p className={styles.text}>{card.text}</p>

@@ -9,7 +9,7 @@ function FrontDeskSection() {
 
   return (
     <Section tone="surface" spacing="none" className={styles.section} containerClassName={styles.inner}>
-      <img src={frontDesk.image.src} alt={frontDesk.image.alt} width="461" height="461" className={styles.media} />
+      <img loading="lazy" decoding="async" src={frontDesk.image.src} alt={frontDesk.image.alt} width="461" height="461" className={styles.media} />
       <div className={styles.content}>
         <h2 className={styles.title}>{title}</h2>
         {paragraphs.map((paragraph, index) => (

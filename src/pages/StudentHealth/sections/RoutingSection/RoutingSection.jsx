@@ -15,7 +15,7 @@ function RoutingSection() {
           <li key={level.title} className={styles.level}>
             <div className={styles.levelHead}>
               <span className={styles.levelLabel}>Level {index + 1}</span>
-              <img src={level.icon.src} alt="" width={level.icon.size[0]} height={level.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={level.icon.src} alt="" width={level.icon.size[0]} height={level.icon.size[1]} />
             </div>
             <h3 className={styles.levelTitle}>{level.title}</h3>
             <p className={styles.levelText}>{level.text}</p>
@@ -36,7 +36,7 @@ function RoutingSection() {
           <ul className={styles.list}>
             {outcomes.items.map((item) => (
               <li key={item}>
-                <img src={outcomes.icon.src} alt="" width={outcomes.icon.size[0]} height={outcomes.icon.size[1]} />
+                <img loading="lazy" decoding="async" src={outcomes.icon.src} alt="" width={outcomes.icon.size[0]} height={outcomes.icon.size[1]} />
                 <span>{item}</span>
               </li>
             ))}

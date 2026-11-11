@@ -8,7 +8,7 @@ function EcosystemSection() {
 
   return (
     <Section spacing="none" className={styles.section} containerClassName={styles.inner}>
-      <img src={image.src} alt={image.alt} width="534" height="392" className={styles.image} />
+      <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="534" height="392" className={styles.image} />
       <div>
         <h2 className={styles.title}>
           {titleLines.map((line) => (
@@ -23,7 +23,7 @@ function EcosystemSection() {
         <ul className={styles.items}>
           {items.map((item) => (
             <li key={item.title} className={styles.item}>
-              <img src={item.icon} alt="" width="48" height="48" className={styles.icon} />
+              <img loading="lazy" decoding="async" src={item.icon} alt="" width="48" height="48" className={styles.icon} />
               <div>
                 <h3 className={styles.itemTitle}>{item.title}</h3>
                 <p className={styles.itemText}>{item.text}</p>

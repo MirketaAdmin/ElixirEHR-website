@@ -47,7 +47,7 @@ function FeatureRow({ row, tone = 'light' }) {
           )}
           {note && (
             <p className={styles.note}>
-              <img src={sparkleBadge} alt="" width="38" height="38" />
+              <img loading="lazy" decoding="async" src={sparkleBadge} alt="" width="38" height="38" />
               {note}
             </p>
           )}

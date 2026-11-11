@@ -1,9 +1,6 @@
 // No Surprises Act blog post (by Bhavesh Singla, May 14, 2026, "Healthcare Provider"). Body copy is
-// exactly as supplied; "contact form" links to the Contact Us page. TEMPORARY IMAGES: card-temp.jpg
-// and hero-temp.jpg are cropped from the Why Elixir page photo until the final featured and banner
-// images are supplied — replace the two files (or these imports) only.
-import cardImage from '../../assets/posts/blog/what-the-no-surprises-act-means-for-healthcare-providers/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/what-the-no-surprises-act-means-for-healthcare-providers/hero-temp.jpg';
+// exactly as supplied; "contact form" links to the Contact Us page.
+import featuredImage from '../../assets/posts/blog/what-the-no-surprises-act-means-for-healthcare-providers.webp';
 
 const strong = (text) => ({ text, strong: true });
 
@@ -14,10 +11,10 @@ export default {
   publishDate: '2026-05-14',
   author: 'Bhavesh Singla',
   category: 'Healthcare Provider',
-  cardImage: { src: cardImage, alt: 'Clinicians and administrators reviewing billing information on a tablet' },
+  cardImage: { src: featuredImage, alt: 'What the ‘No surprises Act’ means for Healthcare Providers?' },
   heroImage: {
-    src: heroImage,
-    alt: 'Clinicians and administrators reviewing billing information on a tablet',
+    src: featuredImage,
+    alt: 'What the ‘No surprises Act’ means for Healthcare Providers?',
     width: 757,
     height: 324,
   },

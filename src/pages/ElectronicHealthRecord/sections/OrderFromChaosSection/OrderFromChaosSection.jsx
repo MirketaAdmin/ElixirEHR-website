@@ -11,7 +11,7 @@ function OrderFromChaosSection() {
         {orderFromChaos.items.map((item) => (
           <li key={item.title} className={styles.item}>
             <span className={styles.tile}>
-              <img src={item.icon} alt="" width="36" height="36" />
+              <img loading="lazy" decoding="async" src={item.icon} alt="" width="36" height="36" />
             </span>
             <h3 className={styles.itemTitle}>{item.title}</h3>
             <p className={styles.itemDescription}>{item.description}</p>

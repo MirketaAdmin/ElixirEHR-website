@@ -15,7 +15,7 @@ function ControlSection() {
           <ul className={styles.items}>
             {items.map((item) => (
               <li key={item.title} className={styles.item}>
-                <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+                <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
                 <div>
                   <h3 className={styles.itemTitle}>{item.title}</h3>
                   <p className={styles.itemText}>{item.text}</p>

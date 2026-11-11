@@ -6,7 +6,7 @@ import styles from './SafeguardsSection.module.css';
 function Tile({ icon }) {
   return (
     <span className={cn(styles.tile, styles[icon.tone])}>
-      <img src={icon.src} alt="" width={icon.size[0]} height={icon.size[1]} />
+      <img loading="lazy" decoding="async" src={icon.src} alt="" width={icon.size[0]} height={icon.size[1]} />
     </span>
   );
 }

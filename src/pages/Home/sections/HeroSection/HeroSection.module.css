@@ -8,7 +8,7 @@
   isolation: isolate;
   overflow: hidden;
   background:
-    url('../../../../assets/home/hero/hero-background.png') center / cover no-repeat,
+    url('../../../../assets/home/hero/hero-background.webp') center / cover no-repeat,
     #878787;
 }
 

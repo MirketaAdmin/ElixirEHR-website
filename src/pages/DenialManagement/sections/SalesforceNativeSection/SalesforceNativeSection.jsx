@@ -16,7 +16,7 @@ function SalesforceNativeSection() {
         {dmSalesforceNative.items.map((item) => (
           <li key={item.title} className={styles.card}>
             <span className={styles.icon}>
-              <img src={item.icon.src} alt="" width={item.icon.width} height={item.icon.height} />
+              <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.width} height={item.icon.height} />
             </span>
             <h3 className={styles.title}>{item.title}</h3>
             <p className={styles.text}>{item.text}</p>

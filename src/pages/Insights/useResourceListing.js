@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 /** True when the free-text query matches the resource's title, excerpt, category (or categories) or author. */
 export function matchesQuery(post, query) {
@@ -17,7 +17,21 @@ export function matchesQuery(post, query) {
 export function useResourceListing(posts, { pageSize, featuredCount = 0, filterFn } = {}) {
   const [query, setQueryState] = useState('');
   const [filter, setFilterState] = useState(null);
-  const [page, setPage] = useState(1);
+  const [page, setPageState] = useState(1);
+
+  // `?page=N` (the crawlable pagination links) is read after the first render, so the prerendered
+  // page 1 hydrates unchanged; page changes are mirrored into the address without a navigation.
+  useEffect(() => {
+    const requested = Number(new URLSearchParams(window.location.search).get('page'));
+    if (Number.isInteger(requested) && requested > 1) setPageState(requested);
+  }, []);
+  const setPage = (value) => {
+    setPageState(value);
+    const url = new URL(window.location.href);
+    if (value > 1) url.searchParams.set('page', String(value));
+    else url.searchParams.delete('page');
+    window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash);
+  };
 
   const results = useMemo(
     () => posts.filter((post) => matchesQuery(post, query) && (filter === null || filterFn(post, filter))),

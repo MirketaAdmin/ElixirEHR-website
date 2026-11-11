@@ -51,7 +51,7 @@ function PhotosSection() {
         </div>
       </div>
       <p className={styles.note}>
-        <img src={note.icon.src} alt="" width={note.icon.size[0]} height={note.icon.size[1]} />
+        <img loading="lazy" decoding="async" src={note.icon.src} alt="" width={note.icon.size[0]} height={note.icon.size[1]} />
         <span>{note.text}</span>
       </p>
     </Section>

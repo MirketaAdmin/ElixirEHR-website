@@ -19,7 +19,7 @@ function MultiPayerSection() {
           <p className={styles.body}>{multiPayer.body}</p>
           <CheckList items={multiPayer.points} className={styles.points} />
         </div>
-        <img src={multiPayer.image.src} alt={multiPayer.image.alt} width="500" height="420" className={styles.media} />
+        <img loading="lazy" decoding="async" src={multiPayer.image.src} alt={multiPayer.image.alt} width="500" height="420" className={styles.media} />
       </div>
 
       <h2 className={styles.teamsTitle}>{revenueCycleTeams.title}</h2>

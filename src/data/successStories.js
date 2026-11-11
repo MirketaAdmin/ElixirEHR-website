@@ -1,8 +1,8 @@
 // Success Stories page content — copy reproduced exactly from the Figma "Success Stories" frame.
 // Photos are 1× crops of the frame export (no source files were supplied).
 
-import heroCard from '../assets/success-stories/hero-card.png';
-import featuredImage from '../assets/success-stories/featured-primary-care.png';
+import heroCard from '../assets/success-stories/hero-card.webp';
+import featuredImage from '../assets/success-stories/featured-primary-care.webp';
 import bedManagementImage from '../assets/success-stories/story-bed-management.png';
 import contactCenterImage from '../assets/success-stories/story-contact-center.png';
 import patientIntakeImage from '../assets/success-stories/story-patient-intake.png';

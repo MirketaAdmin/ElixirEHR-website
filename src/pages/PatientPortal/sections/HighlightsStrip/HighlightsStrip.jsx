@@ -10,7 +10,7 @@ function HighlightsStrip() {
         {patientPortalHighlights.map((item) => (
           <li key={item.title} className={styles.card}>
             <span className={styles.tile}>
-              <img src={item.icon} alt="" width="24" height="24" />
+              <img loading="lazy" decoding="async" src={item.icon} alt="" width="24" height="24" />
             </span>
             <h2 className={cn(styles.title, item.accent && styles.accent)}>{item.title}</h2>
             <p className={styles.text}>{item.text}</p>

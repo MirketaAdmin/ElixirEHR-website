@@ -75,7 +75,7 @@ function FeaturesSection() {
         {features.items.map((item, index) => (
           <div key={item.title} className={cn(styles.slide, index === active && styles.visible)} aria-hidden={index !== active}>
             {item.image ? (
-              <img src={item.image.src} alt={item.image.alt} width="810" height="530" className={styles.image} />
+              <img loading="lazy" decoding="async" src={item.image.src} alt={item.image.alt} width="810" height="530" className={styles.image} />
             ) : (
               <ImagePlaceholder className={styles.placeholder} description={`Product screenshot: ${item.title}`} />
             )}

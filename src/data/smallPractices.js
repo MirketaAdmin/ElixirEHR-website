@@ -1,6 +1,6 @@
 // Small Practices page (/small-practice-ehr) — a child page of More Specialties.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroMedia from '../assets/small-practices/hero-media.png';
+import heroMedia from '../assets/small-practices/hero-media.webp';
 import pillar1Icon from '../assets/small-practices/icon-pillar-1.png';
 import pillar2Icon from '../assets/small-practices/icon-pillar-2.png';
 import pillar3Icon from '../assets/small-practices/icon-pillar-3.png';

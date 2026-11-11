@@ -19,7 +19,7 @@ function PaymentSection() {
           <ul className={styles.items}>
             {items.map((item) => (
               <li key={item.title} className={styles.item}>
-                <img src={item.icon} alt="" width="56" height="56" className={styles.icon} />
+                <img loading="lazy" decoding="async" src={item.icon} alt="" width="56" height="56" className={styles.icon} />
                 <div>
                   <h3 className={styles.itemTitle}>{item.title}</h3>
                   <p className={styles.itemText}>{item.text}</p>
@@ -28,7 +28,7 @@ function PaymentSection() {
             ))}
           </ul>
         </div>
-        <img src={image.src} alt={image.alt} width="504" height="576" className={styles.image} />
+        <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="504" height="576" className={styles.image} />
       </div>
     </Section>
   );

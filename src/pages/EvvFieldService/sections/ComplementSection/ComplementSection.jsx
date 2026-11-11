@@ -22,13 +22,13 @@ function ComplementSection() {
           {columns.map((column, index) => (
             <div key={column.title} className={styles.column}>
               <h3 className={styles.columnTitle}>
-                <img src={column.icon} alt="" width="24" height="24" />
+                <img loading="lazy" decoding="async" src={column.icon} alt="" width="24" height="24" />
                 {column.title}
               </h3>
               <ul className={cn(styles.list, index === 0 ? styles.checks : styles.badges)}>
                 {column.items.map((item) => (
                   <li key={item}>
-                    <img src={column.itemIcon} alt="" width={index === 0 ? 16 : 20} height={index === 0 ? 16 : 20} />
+                    <img loading="lazy" decoding="async" src={column.itemIcon} alt="" width={index === 0 ? 16 : 20} height={index === 0 ? 16 : 20} />
                     {item}
                   </li>
                 ))}

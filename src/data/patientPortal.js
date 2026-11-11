@@ -1,7 +1,7 @@
 // Patient Portal page content — copy reproduced exactly from the Figma "Patient Portal" frame.
 // Icons and the hero image are 1× crops of the frame export (no source files were supplied).
 
-import heroMedia from '../assets/patient-portal/hero-media.png';
+import heroMedia from '../assets/patient-portal/hero-media.webp';
 import efficiencyIcon from '../assets/patient-portal/badge-efficiency.png';
 import adoptionIcon from '../assets/patient-portal/strip-adoption.png';
 import oneRecordIcon from '../assets/patient-portal/strip-one-record.png';

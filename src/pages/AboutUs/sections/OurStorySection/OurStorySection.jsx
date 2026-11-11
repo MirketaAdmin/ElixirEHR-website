@@ -1,7 +1,7 @@
 import { ourStory } from '../../../../data/about';
 import { cn } from '../../../../utils/cn';
 import Section from '../../../../components/layout/Section/Section';
-import storyImage from '../../../../assets/about/our-story-team.png';
+import storyImage from '../../../../assets/about/our-story-team.webp';
 import styles from './OurStorySection.module.css';
 
 function highlightFounder(text) {
@@ -20,7 +20,7 @@ function OurStorySection() {
   return (
     <Section spacing="none" className={styles.section} containerClassName={styles.inner}>
       <figure className={styles.media}>
-        <img
+        <img loading="lazy" decoding="async"
           src={storyImage}
           alt="Elixir clinicians reviewing the platform on a large display"
           width="542"

@@ -2,15 +2,15 @@
 // Copy is reproduced verbatim.
 
 // Same Figma "missing image" hero box as the Denial Management frame (pixel-identical export).
-import heroMedia from '../assets/claim-preparation/hero-media.png';
-import platformImage from '../assets/claim-preparation/platform.png';
+import heroMedia from '../assets/claim-preparation/hero-media.webp';
+import platformImage from '../assets/claim-preparation/platform.webp';
 import cms1500Image from '../assets/claim-preparation/cms-1500.png';
 import ub04Image from '../assets/claim-preparation/ub-04.png';
 import scrubbingImage from '../assets/claim-preparation/scrubbing.png';
 import rejectionPredictionImage from '../assets/claim-preparation/rejection-prediction.png';
 import ediResolutionImage from '../assets/claim-preparation/edi-resolution.png';
 import eraPostingImage from '../assets/claim-preparation/era-posting.png';
-import hipaaImage from '../assets/claim-preparation/hipaa.png';
+import hipaaImage from '../assets/claim-preparation/hipaa.webp';
 import checkCircleIcon from '../assets/claim-preparation/icon-check-circle.png';
 import badgeCheckIcon from '../assets/claim-preparation/icon-badge-check.png';
 import checkCircleSmallIcon from '../assets/claim-preparation/icon-check-circle-small.png';

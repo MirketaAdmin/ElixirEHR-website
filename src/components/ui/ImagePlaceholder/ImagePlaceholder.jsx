@@ -3,7 +3,7 @@ import styles from './ImagePlaceholder.module.css';
 
 /**
  * The Figma frame shows a "Generic image placeholder" card where a lifestyle photograph is still
- * to be supplied. It is reproduced as designed; replace it with an <img> once the photo exists.
+ * to be supplied. It is reproduced as designed; replace it with an <img loading="lazy" decoding="async"> once the photo exists.
  * `description` names the missing image (defaults to the RCM frame's lifestyle-photo note).
  */
 function ImagePlaceholder({ className, description }) {

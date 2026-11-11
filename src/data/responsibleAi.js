@@ -1,7 +1,7 @@
 // Responsible AI page (Figma "Responsible AI", 1280 frame), an independent page (/responsible-ai-in-healthcare)
 // with no parent. Copy is reproduced verbatim from the frame; forced mid-sentence line breaks are
 // dropped. The hero image is the frame's grey placeholder (the same export as the Kratu AI hero).
-import heroMedia from '../assets/responsible-ai/hero-media.png';
+import heroMedia from '../assets/responsible-ai/hero-media.webp';
 import dataTrainingIcon from '../assets/responsible-ai/icon-data-training.png';
 import dataSystemsIcon from '../assets/responsible-ai/icon-data-systems.png';
 import dataVerificationIcon from '../assets/responsible-ai/icon-data-verification.png';

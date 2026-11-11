@@ -15,7 +15,7 @@ function CareSettingsSection() {
       <ul className={styles.pills}>
         {dmCareSettings.settings.map((setting) => (
           <li key={setting.label} className={cn(styles.pill, setting.highlighted && styles.highlighted)}>
-            <img src={setting.icon.src} alt="" width={setting.icon.width} height={setting.icon.height} />
+            <img loading="lazy" decoding="async" src={setting.icon.src} alt="" width={setting.icon.width} height={setting.icon.height} />
             {setting.label}
           </li>
         ))}

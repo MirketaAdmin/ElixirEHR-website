@@ -16,7 +16,7 @@ function SchedulingSection() {
         {items.map((item) => (
           <li key={item.title} className={styles.card}>
             <h3 className={styles.title}>
-              <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
               {item.title}
             </h3>
             <p className={styles.text}>{item.text}</p>
@@ -24,7 +24,7 @@ function SchedulingSection() {
         ))}
       </ul>
       <div className={styles.promo}>
-        <img src={trendIcon} alt="" width="27" height="17" />
+        <img loading="lazy" decoding="async" src={trendIcon} alt="" width="27" height="17" />
         <div className={styles.promoCopy}>
           <p className={styles.promoTitle}>{promo.title}</p>
           <p className={styles.promoText}>{promo.text}</p>

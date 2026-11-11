@@ -1,7 +1,7 @@
 // Career page content — copy reproduced exactly from the Figma "Career" frame.
 // Images are 1× crops of the frame export (no source files were supplied).
 
-import heroCard from '../assets/career/hero-card-team.png';
+import heroCard from '../assets/career/hero-card-team.webp';
 import compensationIcon from '../assets/career/icon-compensation.png';
 import funAtWorkIcon from '../assets/career/icon-fun-at-work.png';
 import learningIcon from '../assets/career/icon-learning.png';

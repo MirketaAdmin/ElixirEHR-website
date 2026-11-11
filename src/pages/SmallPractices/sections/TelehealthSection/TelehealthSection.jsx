@@ -16,7 +16,7 @@ function TelehealthSection() {
           <li key={card.title} className={cn(styles.card, styles[card.tone])}>
             <div className={styles.head}>
               <span className={styles.chip}>{card.chip}</span>
-              <img src={card.icon.src} alt="" width={card.icon.size[0]} height={card.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={card.icon.src} alt="" width={card.icon.size[0]} height={card.icon.size[1]} />
             </div>
             <h3 className={styles.title}>{card.title}</h3>
             <p className={styles.text}>{card.text}</p>

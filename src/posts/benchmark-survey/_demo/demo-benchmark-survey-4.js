@@ -1,6 +1,6 @@
 // DEMO CONTENT (dev only) — reproduces a placeholder card from the Figma Insights frames so the
 // listing can be checked against the design. Replace with real posts in src/posts/benchmark-survey/<slug>.js.
-import cardImage from '../../../assets/posts/benchmark-survey/_demo/demo-benchmark-survey-4/card.png';
+import cardImage from '../../../assets/posts/benchmark-survey/_demo/demo-benchmark-survey-4/card.webp';
 
 export default {
   title: "AI in Healthcare: Overcoming Patient No-Shows",

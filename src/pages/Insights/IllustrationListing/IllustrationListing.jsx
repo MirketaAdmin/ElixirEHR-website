@@ -44,11 +44,11 @@ function IllustrationCard({ post }) {
   return (
     <article className={styles.card}>
       <div className={styles.media}>
-        <img src={post.cardImage.src} alt={post.cardImage.alt} className={styles.image} />
+        <img loading="lazy" decoding="async" src={post.cardImage.src} alt={post.cardImage.alt} className={styles.image} />
       </div>
       <div className={styles.body}>
         {post.label && <p className={styles.label}>{post.label}</p>}
-        <h3 className={styles.title}>{post.title}</h3>
+        <h2 className={styles.title}>{post.title}</h2>
         <p className={styles.text}>{post.excerpt}</p>
         <div className={styles.actions}>
           {formats.map((format) => (
@@ -97,7 +97,7 @@ function IllustrationListing() {
       )}
       {listing.totalPages > 1 && (
         <div className={styles.pagination}>
-          <Pagination page={listing.page} totalPages={listing.totalPages} onChange={listing.setPage} label="Illustration pages" />
+          <Pagination linked page={listing.page} totalPages={listing.totalPages} onChange={listing.setPage} label="Illustration pages" />
         </div>
       )}
     </InsightsShell>

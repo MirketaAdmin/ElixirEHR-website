@@ -16,7 +16,7 @@ function GfeSection() {
       <div className={styles.panel}>
         <div className={styles.bar}>
           <p id="op-gfe-caption" className={styles.caption}>
-            <img src={calendarIcon} alt="" width="15" height="18" />
+            <img loading="lazy" decoding="async" src={calendarIcon} alt="" width="15" height="18" />
             {table.caption}
           </p>
           <span className={styles.chip}>{table.chip}</span>
@@ -48,14 +48,14 @@ function GfeSection() {
         <ul className={styles.handlesList}>
           {handles.items.map((item) => (
             <li key={item}>
-              <img src={checkCircleIcon} alt="" width="19" height="20" />
+              <img loading="lazy" decoding="async" src={checkCircleIcon} alt="" width="19" height="20" />
               {item}
             </li>
           ))}
         </ul>
       </div>
       <div className={styles.note}>
-        <img src={infoIcon} alt="" width="20" height="21" />
+        <img loading="lazy" decoding="async" src={infoIcon} alt="" width="20" height="21" />
         <div>
           <h3 className={styles.noteTitle}>{note.title}</h3>
           <p className={styles.noteText}>{note.text}</p>

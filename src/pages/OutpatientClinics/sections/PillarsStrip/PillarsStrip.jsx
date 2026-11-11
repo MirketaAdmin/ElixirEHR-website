@@ -11,7 +11,7 @@ function PillarsStrip() {
           {opPillars.map((pillar, index) => (
             <li key={pillar.title} className={styles.card}>
               <p className={styles.label}>
-                <img src={pillar.icon.src} alt="" width={pillar.icon.size[0]} height={pillar.icon.size[1]} />
+                <img loading="lazy" decoding="async" src={pillar.icon.src} alt="" width={pillar.icon.size[0]} height={pillar.icon.size[1]} />
                 Pillar {String(index + 1).padStart(2, '0')}
               </p>
               <h2 className={styles.title}>{pillar.title}</h2>

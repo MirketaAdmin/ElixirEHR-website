@@ -1,13 +1,7 @@
 // RCM guide blog post (by Suman Sekhar, June 5, 2025, "RCM"). Body copy is exactly as supplied.
-// TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg are cropped from the Eligibility Verification page
-// photo until the final featured and banner images are supplied — replace the two files (or these
-// imports) only.
-import cardImage from '../../assets/posts/blog/understanding-rcm-in-healthcare-guide-revenue-cycle-management/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/understanding-rcm-in-healthcare-guide-revenue-cycle-management/hero-temp.jpg';
+import featuredImage from '../../assets/posts/blog/understanding-rcm-in-healthcare-guide-revenue-cycle-management.webp';
 
 const strong = (text) => ({ text, strong: true });
-
-const imageAlt = 'Front-desk staff member going over billing details on a tablet with a patient at a clinic desk';
 
 export default {
   title: 'Understanding RCM in Healthcare: Guide Revenue Cycle Management',
@@ -16,8 +10,8 @@ export default {
   publishDate: '2025-06-05',
   author: 'Suman Sekhar',
   category: 'RCM',
-  cardImage: { src: cardImage, alt: imageAlt },
-  heroImage: { src: heroImage, alt: imageAlt, width: 757, height: 324 },
+  cardImage: { src: featuredImage, alt: 'Understanding RCM in Healthcare: Guide Revenue Cycle Management' },
+  heroImage: { src: featuredImage, alt: 'Understanding RCM in Healthcare: Guide Revenue Cycle Management', width: 757, height: 324 },
   content: [
     { type: 'heading', level: 2, text: 'Introduction' },
     {

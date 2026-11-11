@@ -21,7 +21,7 @@ function BulkVerificationSection() {
           <article key={option.title} className={cn(styles.card, styles[option.tone])}>
             <div className={styles.cardTop}>
               <span className={styles.icon}>
-                <img src={option.icon} alt="" width={option.iconSize[0]} height={option.iconSize[1]} />
+                <img loading="lazy" decoding="async" src={option.icon} alt="" width={option.iconSize[0]} height={option.iconSize[1]} />
               </span>
               <span className={styles.tag}>{option.tag}</span>
             </div>

@@ -1,10 +1,10 @@
 // Revenue Cycle Management page content — copy reproduced exactly from the Figma "RCM" frame.
 
-import heroMedia from '../assets/revenue-cycle-management/hero-media.png';
-import unifiedPlatformImage from '../assets/revenue-cycle-management/unified-platform.png';
-import payerWorkflowImage from '../assets/revenue-cycle-management/payer-workflow.png';
-import denialManagementImage from '../assets/revenue-cycle-management/denial-management.png';
-import multiPayerImage from '../assets/revenue-cycle-management/multi-payer.png';
+import heroMedia from '../assets/revenue-cycle-management/hero-media.webp';
+import unifiedPlatformImage from '../assets/revenue-cycle-management/unified-platform.webp';
+import payerWorkflowImage from '../assets/revenue-cycle-management/payer-workflow.webp';
+import denialManagementImage from '../assets/revenue-cycle-management/denial-management.webp';
+import multiPayerImage from '../assets/revenue-cycle-management/multi-payer.webp';
 import cms1500Form from '../assets/revenue-cycle-management/cms-1500-form.png';
 import ub04Form from '../assets/revenue-cycle-management/ub-04-form.png';
 import claimValidationErrors from '../assets/revenue-cycle-management/claim-validation-errors.png';

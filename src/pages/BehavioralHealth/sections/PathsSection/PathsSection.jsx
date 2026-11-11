@@ -26,7 +26,7 @@ function PathsSection() {
           const linkContent = (
             <>
               {line.link.label}
-              <img src={arrowIcon} alt="" width="13" height="12" />
+              <img loading="lazy" decoding="async" src={arrowIcon} alt="" width="13" height="12" />
             </>
           );
 
@@ -34,14 +34,14 @@ function PathsSection() {
             <article key={line.title} className={cn(styles.card, styles[line.tone])}>
               <div className={styles.head}>
                 <p className={styles.label}>{line.label}</p>
-                <img src={line.icon.src} alt="" width={line.icon.size[0]} height={line.icon.size[1]} />
+                <img loading="lazy" decoding="async" src={line.icon.src} alt="" width={line.icon.size[0]} height={line.icon.size[1]} />
               </div>
               <h3 className={styles.title}>{line.title}</h3>
               <p className={styles.description}>{line.description}</p>
               <ul className={styles.list}>
                 {line.items.map((item) => (
                   <li key={item}>
-                    <img src={checkIcon} alt="" width="17" height="17" />
+                    <img loading="lazy" decoding="async" src={checkIcon} alt="" width="17" height="17" />
                     {item}
                   </li>
                 ))}

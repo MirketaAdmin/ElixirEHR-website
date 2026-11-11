@@ -38,7 +38,7 @@ function RuleSection() {
 
         <div className={styles.gate}>
           <span className={styles.gateTile}>
-            <img src={shieldCheckIcon} alt="" width="19" height="23" />
+            <img loading="lazy" decoding="async" src={shieldCheckIcon} alt="" width="19" height="23" />
           </span>
           <p className={styles.gateLabel}>{gate.label}</p>
           <p className={styles.gateNote}>{gate.note}</p>
@@ -57,7 +57,7 @@ function RuleSection() {
             {decides.items.map((item) => (
               <li key={item}>
                 <span className={styles.check}>
-                  <img src={checkIcon} alt="" width="11" height="8" />
+                  <img loading="lazy" decoding="async" src={checkIcon} alt="" width="11" height="8" />
                 </span>
                 {item}
               </li>
@@ -72,7 +72,7 @@ function RuleSection() {
 
       <p className={styles.callout}>
         <span className={styles.calloutTile}>
-          <img src={shieldIcon} alt="" width="20" height="24" />
+          <img loading="lazy" decoding="async" src={shieldIcon} alt="" width="20" height="24" />
         </span>
         {callout}
       </p>

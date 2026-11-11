@@ -12,7 +12,7 @@ function CensusSection() {
   return (
     <Section spacing="none" className={styles.section} containerClassName={styles.inner}>
       <figure className={styles.media}>
-        <img src={image.src} alt={image.alt} width="584" height="510" className={styles.image} />
+        <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="584" height="510" className={styles.image} />
         <figcaption className={styles.overlay}>
           <span className={styles.overlayTitle}>{overlay.title}</span>
           <span className={styles.overlayText}>{overlay.text}</span>
@@ -28,7 +28,7 @@ function CensusSection() {
         <ul className={styles.items}>
           {items.map((item) => (
             <li key={item.title} className={styles.item}>
-              <img src={item.icon} alt="" width="48" height="48" className={styles.icon} />
+              <img loading="lazy" decoding="async" src={item.icon} alt="" width="48" height="48" className={styles.icon} />
               <h3 className={styles.itemTitle}>{item.title}</h3>
               <p className={styles.itemText}>{item.text}</p>
             </li>

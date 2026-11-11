@@ -21,7 +21,7 @@ function BenefitsAuditSection() {
           </p>
         ))}
       </div>
-      <img src={benefitsAudit.image.src} alt={benefitsAudit.image.alt} width="552" height="398" className={styles.media} />
+      <img loading="lazy" decoding="async" src={benefitsAudit.image.src} alt={benefitsAudit.image.alt} width="552" height="398" className={styles.media} />
     </Section>
   );
 }

@@ -24,10 +24,10 @@ function DemoRequestSection() {
       <div className={styles.panel}>
         <div className={styles.media}>
           <div className={styles.frame}>
-            <img src={media.src} alt={media.alt} width="528" height="296" className={styles.image} />
+            <img loading="lazy" decoding="async" src={media.src} alt={media.alt} width="528" height="296" className={styles.image} />
           </div>
           <div className={styles.insight}>
-            <img src={sparkleIcon} alt="" width="23" height="23" className={styles.sparkle} />
+            <img loading="lazy" decoding="async" src={sparkleIcon} alt="" width="23" height="23" className={styles.sparkle} />
             <p>
               <span className={styles.insightLabel}>{insight.label}</span>
               <span className={styles.insightText}>{insight.text}</span>
@@ -39,7 +39,7 @@ function DemoRequestSection() {
         <ul className={styles.reasons}>
           {reasons.map((reason) => (
             <li key={reason.title} className={styles.reason}>
-              <img src={reason.icon} alt="" width={reason.iconSize[0]} height={reason.iconSize[1]} />
+              <img loading="lazy" decoding="async" src={reason.icon} alt="" width={reason.iconSize[0]} height={reason.iconSize[1]} />
               <h4 className={styles.reasonTitle}>{reason.title}</h4>
               <p className={styles.reasonText}>{reason.description}</p>
             </li>
@@ -51,7 +51,7 @@ function DemoRequestSection() {
           {/* The Contact Us frame shows the newer "Trusted by" row (same five logos and sizes as About Us). */}
           {updatedContactLogos.map((logo) => (
             <li key={logo.name}>
-              <img
+              <img loading="lazy" decoding="async"
                 src={logo.src}
                 alt={logo.name}
                 width={logo.width}

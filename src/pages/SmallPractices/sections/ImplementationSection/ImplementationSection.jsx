@@ -25,7 +25,7 @@ function ImplementationSection() {
       </ol>
       <div className={styles.panel}>
         <span className={styles.disc}>
-          <img src={questions.icon.src} alt="" width={questions.icon.size[0]} height={questions.icon.size[1]} />
+          <img loading="lazy" decoding="async" src={questions.icon.src} alt="" width={questions.icon.size[0]} height={questions.icon.size[1]} />
         </span>
         <div>
           <h3 className={styles.panelTitle}>{questions.title}</h3>

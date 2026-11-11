@@ -2,7 +2,7 @@
 // of Kratu AI (/payer-policy-intelligence). Copy is reproduced verbatim from the frame;
 // forced mid-sentence line breaks are dropped. The hero image is the frame's grey placeholder (the
 // same export as the Kratu AI hero).
-import heroMedia from '../assets/kratu-ai/pp-hero-media.png';
+import heroMedia from '../assets/kratu-ai/pp-hero-media.webp';
 import confidenceHighIcon from '../assets/kratu-ai/pp-confidence-high.png';
 import confidenceMediumIcon from '../assets/kratu-ai/pp-confidence-medium.png';
 import confidenceLowIcon from '../assets/kratu-ai/pp-confidence-low.png';

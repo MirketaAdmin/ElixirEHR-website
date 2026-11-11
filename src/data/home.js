@@ -27,7 +27,7 @@ import patientPortalTelehealthIcon from '../assets/home/challenges/patient-porta
 import doctorTimeIcon from '../assets/home/challenges/doctor-time-ehr-icon.png';
 import dataBreachCostIcon from '../assets/home/challenges/data-breach-cost-icon.png';
 import payerDenialsIcon from '../assets/home/challenges/payer-denials-icon.png';
-import patientViewScreen from '../assets/home/features/patient-view.png';
+import patientViewScreen from '../assets/home/features/patient-view.webp';
 import carePlanScreen from '../assets/home/features/care-plan.png';
 import medicationsScreen from '../assets/home/features/medications-prescriptions.png';
 import winterReleaseCover from '../assets/home/resources/elixir-winter-26-release-cover.png';

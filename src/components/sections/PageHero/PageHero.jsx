@@ -23,6 +23,8 @@ import styles from './PageHero.module.css';
  * left out (Patient EHI Export).
  * `children` render under the description (e.g. the Insights search field in place of CTAs).
  * An optional `pill` (outlined caps label) sits between the breadcrumb and the H1 (ONC Certification).
+ * `titleAs` renders the title as another element when the page has its own H1 elsewhere (the
+ * Insights listings share one hero title, so their section heading is the page's H1); it looks the same.
  */
 function renderTitleLine(line, index, titleAccent) {
   if (!titleAccent) return index === 1 ? <span className={styles.accent}>{line}</span> : line;
@@ -52,6 +54,7 @@ function PageHero({
   media,
   className,
   children,
+  titleAs: TitleTag = 'h1',
 }) {
   return (
     <section className={cn(styles.hero, className)} data-header-overlap data-hero>
@@ -71,13 +74,13 @@ function PageHero({
             </ol>
           </nav>
           {pill && <p className={styles.pill}>{pill}</p>}
-          <h1 className={styles.title}>
+          <TitleTag className={styles.title} data-page-hero-title>
             {titleLines.map((line, index) => (
               <span key={line} className={styles.titleLine}>
                 {renderTitleLine(line, index, titleAccent)}
               </span>
             ))}
-          </h1>
+          </TitleTag>
           {[].concat(description ?? []).map((paragraph) => (
             <p key={paragraph} className={styles.description}>
               {paragraph}

@@ -17,7 +17,7 @@ function PayerWorkflowSection() {
       className={styles.section}
       containerClassName={styles.inner}
     >
-      <img src={payerWorkflow.image.src} alt={payerWorkflow.image.alt} width="552" height="421" className={styles.media} />
+      <img loading="lazy" decoding="async" src={payerWorkflow.image.src} alt={payerWorkflow.image.alt} width="552" height="421" className={styles.media} />
       <div className={styles.content}>
         <RcmBadge tone="lavender" icon={rulesIcon} iconSize={[14, 13]}>
           {badge}

@@ -55,7 +55,7 @@ function ModularSolutionsSection() {
         <ul key={active} className={styles.grid}>
           {categories[active].modules.map((module) => (
             <li key={module.title} className={styles.card}>
-              <img src={module.icon} alt="" width={module.iconSize[0]} height={module.iconSize[1]} className={styles.icon} />
+              <img loading="lazy" decoding="async" src={module.icon} alt="" width={module.iconSize[0]} height={module.iconSize[1]} className={styles.icon} />
               <h3 className={styles.cardTitle}>{module.title}</h3>
               <p className={styles.cardDescription}>{module.description}</p>
             </li>

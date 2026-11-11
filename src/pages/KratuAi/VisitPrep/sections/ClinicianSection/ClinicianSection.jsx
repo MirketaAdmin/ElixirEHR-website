@@ -15,7 +15,7 @@ function ClinicianSection() {
           <figcaption className={styles.mockHeader}>
             <span className={styles.location}>{mock.location}</span>
             <span className={styles.action}>
-              <img src={mock.action.icon.src} alt="" width={mock.action.icon.size[0]} height={mock.action.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={mock.action.icon.src} alt="" width={mock.action.icon.size[0]} height={mock.action.icon.size[1]} />
               {mock.action.label}
             </span>
           </figcaption>
@@ -48,7 +48,7 @@ function ClinicianSection() {
             {points.map((point) => (
               <li key={point.title}>
                 <span className={styles.check}>
-                  <img src={checkIcon.src} alt="" width={checkIcon.size[0]} height={checkIcon.size[1]} />
+                  <img loading="lazy" decoding="async" src={checkIcon.src} alt="" width={checkIcon.size[0]} height={checkIcon.size[1]} />
                 </span>
                 <div>
                   <h3 className={styles.pointTitle}>{point.title}</h3>

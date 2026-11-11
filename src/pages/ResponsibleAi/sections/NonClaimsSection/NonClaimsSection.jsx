@@ -23,7 +23,7 @@ function NonClaimsSection() {
         {items.map((item, index) => (
           <li key={item.title} className={styles.card}>
             <span className={styles.tile}>
-              <img src={xIcon} alt="" width="12" height="12" />
+              <img loading="lazy" decoding="async" src={xIcon} alt="" width="12" height="12" />
             </span>
             <h3 className={styles.title}>{item.title}</h3>
             <p className={styles.text}>{item.text}</p>

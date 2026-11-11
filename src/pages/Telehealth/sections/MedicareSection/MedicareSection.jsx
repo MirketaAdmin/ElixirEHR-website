@@ -43,7 +43,7 @@ function MedicareSection() {
       </ol>
       <p className={styles.sources}>
         <span>
-          <img src={sources.icon.src} alt="" width={sources.icon.size[0]} height={sources.icon.size[1]} />
+          <img loading="lazy" decoding="async" src={sources.icon.src} alt="" width={sources.icon.size[0]} height={sources.icon.size[1]} />
           {sources.text}
         </span>
         <span className={styles.ref}>{sources.ref}</span>

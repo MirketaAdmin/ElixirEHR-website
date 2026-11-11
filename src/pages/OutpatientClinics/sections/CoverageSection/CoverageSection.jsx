@@ -21,7 +21,7 @@ function CoverageSection() {
             className={styles.intro}
           />
           <div className={styles.badge}>
-            <img src={shieldIcon} alt="" width="22" height="28" />
+            <img loading="lazy" decoding="async" src={shieldIcon} alt="" width="22" height="28" />
             <div>
               <p className={styles.badgeTitle}>{badge.title}</p>
               <p className={styles.badgeText}>{badge.text}</p>

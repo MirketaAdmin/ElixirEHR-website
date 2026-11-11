@@ -1,14 +1,14 @@
 // Electronic Health Record page content — copy reproduced exactly from the Figma "EHR" frame.
 
-import heroMedia from '../assets/electronic-health-record/hero-media.png';
+import heroMedia from '../assets/electronic-health-record/hero-media.webp';
 import iconCustomizable from '../assets/electronic-health-record/icon-customizable.png';
 import iconEasyToUse from '../assets/electronic-health-record/icon-easy-to-use.png';
 import iconSecure from '../assets/electronic-health-record/icon-secure.png';
 import iconConnect from '../assets/electronic-health-record/icon-connect.png';
-import patientManagementMedia from '../assets/electronic-health-record/patient-management.png';
-import healthcareNotesMedia from '../assets/electronic-health-record/healthcare-notes.png';
-import ePrescriptionMedia from '../assets/electronic-health-record/e-prescription.png';
-import labOrderingMedia from '../assets/electronic-health-record/lab-ordering.png';
+import patientManagementMedia from '../assets/electronic-health-record/patient-management.webp';
+import healthcareNotesMedia from '../assets/electronic-health-record/healthcare-notes.webp';
+import ePrescriptionMedia from '../assets/electronic-health-record/e-prescription.webp';
+import labOrderingMedia from '../assets/electronic-health-record/lab-ordering.webp';
 import salesforceIcon from '../assets/electronic-health-record/integration-salesforce.png';
 import surescriptsIcon from '../assets/electronic-health-record/integration-surescripts.png';
 import hl7FhirIcon from '../assets/electronic-health-record/integration-hl7-fhir.png';

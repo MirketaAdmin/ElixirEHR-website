@@ -2,7 +2,7 @@
 // carries the What Is Elixir frame's unique sections (Modular Solutions, Explore All Possibilities,
 // Leverage the World's #1 CRM), merged in when /what-is-elixir was folded into this page.
 
-import heroCard from '../assets/why-elixir/hero-card-team.png';
+import heroCard from '../assets/why-elixir/hero-card-team.webp';
 import patientTouchpoints from '../assets/why-elixir/patient-touchpoints.png';
 import admissionsDashboard from '../assets/why-elixir/admissions-dashboard.png';
 import addictionTreatmentIcon from '../assets/why-elixir/addiction-treatment-icon.png';

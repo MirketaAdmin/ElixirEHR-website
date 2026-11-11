@@ -2,7 +2,7 @@
 // Kratu AI (/ai-clinical-documentation). Copy is reproduced verbatim from the
 // frame. The hero image is the clinical documentation screen supplied by the product team, composited
 // onto the shared wide tilted hero backdrop (583×530).
-import heroMedia from '../assets/kratu-ai/copilot-hero-media.png';
+import heroMedia from '../assets/kratu-ai/copilot-hero-media.webp';
 import pillarTemplatesIcon from '../assets/kratu-ai/copilot-pillar-templates.png';
 import pillarEhrIcon from '../assets/kratu-ai/copilot-pillar-ehr.png';
 import pillarAutofiledIcon from '../assets/kratu-ai/copilot-pillar-autofiled.png';

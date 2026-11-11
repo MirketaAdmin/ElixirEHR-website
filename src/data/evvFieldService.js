@@ -2,7 +2,7 @@
 // reproduced verbatim.
 
 // Same Figma "missing image" hero box as the Denial Management frame (pixel-identical export).
-import heroMedia from '../assets/evv-field-service/hero-media.png';
+import heroMedia from '../assets/evv-field-service/hero-media.webp';
 import iconCheckInOut from '../assets/evv-field-service/icon-feature-check-in-out.png';
 import iconGpsGeofencing from '../assets/evv-field-service/icon-feature-gps-geofencing.png';
 import iconOffline from '../assets/evv-field-service/icon-feature-offline.png';

@@ -1,9 +1,6 @@
-// AI coding accuracy blog post (by sattyamchoudhary, May 5, 2026, "EHR" and "Healthcare
-// Industry"). Body copy is exactly as supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg
-// are made from the Kratu AI page's recommended-procedure-codes mockup until the final featured and
-// banner images are supplied — replace the two files (or these imports) only.
-import cardImage from '../../assets/posts/blog/ai-in-healthcare-a-smarter-path-to-coding-accuracy-and-compliance/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/ai-in-healthcare-a-smarter-path-to-coding-accuracy-and-compliance/hero-temp.jpg';
+// AI coding accuracy blog post (by sattyamchoudhary, May 5, 2026, "EHR" and "Healthcare Industry").
+// Body copy is exactly as supplied.
+import featuredImage from '../../assets/posts/blog/ai-in-healthcare-a-smarter-path-to-coding-accuracy-and-compliance.webp';
 
 export default {
   title: 'AI in Healthcare: A Smarter Path to Coding Accuracy and Compliance',
@@ -12,10 +9,10 @@ export default {
   publishDate: '2026-05-05',
   author: 'sattyamchoudhary',
   category: ['EHR', 'Healthcare Industry'],
-  cardImage: { src: cardImage, alt: 'AI-recommended procedure codes with confidence scores and payer rule references' },
+  cardImage: { src: featuredImage, alt: 'AI in Healthcare: A Smarter Path to Coding Accuracy and Compliance' },
   heroImage: {
-    src: heroImage,
-    alt: 'AI-recommended procedure codes with confidence scores and payer rule references',
+    src: featuredImage,
+    alt: 'AI in Healthcare: A Smarter Path to Coding Accuracy and Compliance',
     width: 757,
     height: 324,
   },

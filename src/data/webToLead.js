@@ -14,6 +14,9 @@ export const webToLead = {
     return confirmationUrl(SITE_URL);
   },
   leadSource: 'Web',
+  // Lead custom field "Lead Source Section" (same org, same field the Mirketa site uses): the URL of
+  // the page the form was sent from, so the lead email and record show where the lead came from.
+  sourceUrlField: '00N0W000008z5D6',
   captcha: {
     // Key pair "elixirEHR_website_2026" (Salesforce Web-to-Lead snippet of 10 Nov 2026). The keyname
     // must match the Salesforce key pair name exactly (case-sensitive). The site key is public.

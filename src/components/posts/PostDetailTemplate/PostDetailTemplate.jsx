@@ -31,6 +31,9 @@ function PostDetailTemplate({ post }) {
                 height={post.heroImage.height}
                 fetchPriority="high"
                 className={styles.heroImage}
+                // The banner keeps the post's declared proportions (e.g. 757×324) whatever the image
+                // file's own ratio; CSS crops it with object-fit: cover.
+                style={post.heroImage.width && post.heroImage.height ? { aspectRatio: `${post.heroImage.width} / ${post.heroImage.height}` } : undefined}
               />
             )}
             <PostContent blocks={blocks} />

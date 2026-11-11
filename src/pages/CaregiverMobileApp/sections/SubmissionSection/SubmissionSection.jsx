@@ -28,7 +28,7 @@ function SubmissionSection() {
       </div>
 
       <p className={styles.note}>
-        <img src={note.icon} alt="" width="24" height="24" />
+        <img loading="lazy" decoding="async" src={note.icon} alt="" width="24" height="24" />
         {note.text}
       </p>
     </Section>

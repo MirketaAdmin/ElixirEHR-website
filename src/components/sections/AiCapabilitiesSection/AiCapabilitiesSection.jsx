@@ -13,13 +13,13 @@ function CardContent({ item, badge }) {
     <>
       <div className={styles.top}>
         <span className={styles.tile}>
-          <img src={item.icon} alt="" width={item.iconSize[0]} height={item.iconSize[1]} />
+          <img loading="lazy" decoding="async" src={item.icon} alt="" width={item.iconSize[0]} height={item.iconSize[1]} />
         </span>
         <Icon name="arrowRight" className={styles.arrow} />
       </div>
       <h3 className={styles.title}>{item.title}</h3>
       <p className={styles.badge}>
-        <img src={sparkleIcon} alt="" width="17" height="17" />
+        <img loading="lazy" decoding="async" src={sparkleIcon} alt="" width="17" height="17" />
         {badge}
       </p>
       <p className={styles.description}>{item.description}</p>

@@ -2,7 +2,7 @@
 // "Patient No-Show Prediction" frame. The hero image is the No-Show Risk dashboard photo supplied
 // by the product team, composited onto the shared tilted hero backdrop (511×507).
 
-import heroMedia from '../assets/patient-no-show-prediction/hero-media.png';
+import heroMedia from '../assets/patient-no-show-prediction/hero-media.webp';
 import excludedIcon from '../assets/patient-no-show-prediction/icon-excluded.png';
 import excludedMark from '../assets/patient-no-show-prediction/mark-excluded.png';
 import outreachIcon from '../assets/patient-no-show-prediction/icon-outreach.png';

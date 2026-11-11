@@ -23,7 +23,7 @@ function Part2Section() {
       <div className={styles.compare}>
         <div className={styles.myths}>
           <h3 className={styles.panelTitle}>
-            <img src={myths.icon.src} alt="" width={myths.icon.size[0]} height={myths.icon.size[1]} />
+            <img loading="lazy" decoding="async" src={myths.icon.src} alt="" width={myths.icon.size[0]} height={myths.icon.size[1]} />
             {myths.title}
           </h3>
           <ul className={styles.mythList}>
@@ -34,13 +34,13 @@ function Part2Section() {
         </div>
         <div className={styles.facts}>
           <h3 className={styles.panelTitle}>
-            <img src={facts.icon.src} alt="" width={facts.icon.size[0]} height={facts.icon.size[1]} />
+            <img loading="lazy" decoding="async" src={facts.icon.src} alt="" width={facts.icon.size[0]} height={facts.icon.size[1]} />
             {facts.title}
           </h3>
           <ul className={styles.factList}>
             {facts.items.map((item) => (
               <li key={item}>
-                <img src={facts.itemIcon.src} alt="" width={facts.itemIcon.size[0]} height={facts.itemIcon.size[1]} />
+                <img loading="lazy" decoding="async" src={facts.itemIcon.src} alt="" width={facts.itemIcon.size[0]} height={facts.itemIcon.size[1]} />
                 {item}
               </li>
             ))}

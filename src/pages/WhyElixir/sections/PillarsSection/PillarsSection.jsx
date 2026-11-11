@@ -17,21 +17,21 @@ function ReasonExtras({ reason }) {
           <span>{reason.status.label}</span>
           <span>{reason.status.value}</span>
         </p>
-        <img src={waveformIcon} alt="" width="37" height="42" className={styles.waveform} />
+        <img loading="lazy" decoding="async" src={waveformIcon} alt="" width="37" height="42" className={styles.waveform} />
       </div>
     );
   }
   if (reason.avatars) {
-    return <img src={nurseAvatars} alt="" width="68" height="36" className={styles.avatars} />;
+    return <img loading="lazy" decoding="async" src={nurseAvatars} alt="" width="68" height="36" className={styles.avatars} />;
   }
   if (reason.tools) {
     return (
       <div className={styles.tools}>
         <span className={cn(styles.tool, styles.toolLime)}>
-          <img src={analyticsIcon} alt="" width="21" height="22" />
+          <img loading="lazy" decoding="async" src={analyticsIcon} alt="" width="21" height="22" />
         </span>
         <span className={cn(styles.tool, styles.toolPurple)}>
-          <img src={mapIcon} alt="" width="20" height="19" />
+          <img loading="lazy" decoding="async" src={mapIcon} alt="" width="20" height="19" />
         </span>
       </div>
     );
@@ -95,7 +95,7 @@ function PillarsSection() {
                 <ul className={styles.points}>
                   {reason.points.map((point) => (
                     <li key={point} className={styles.point}>
-                      <img src={checkIcon} alt="" width="22" height="22" className={styles.check} />
+                      <img loading="lazy" decoding="async" src={checkIcon} alt="" width="22" height="22" className={styles.check} />
                       {point}
                     </li>
                   ))}
@@ -106,7 +106,7 @@ function PillarsSection() {
               <ReasonExtras reason={reason} />
             </div>
             {reason.image && (
-              <img
+              <img loading="lazy" decoding="async"
                 src={reason.image.src}
                 alt={reason.image.alt}
                 width={reason.image.size[0]}

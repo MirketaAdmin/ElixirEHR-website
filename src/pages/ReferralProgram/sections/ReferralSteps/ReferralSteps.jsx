@@ -19,7 +19,7 @@ function ReferralSteps() {
         {referralSteps.items.map((step) => (
           <li key={step.title} className={styles.card}>
             <span className={styles.tile}>
-              <img src={step.icon} alt="" width="32" height="32" />
+              <img loading="lazy" decoding="async" src={step.icon} alt="" width="32" height="32" />
             </span>
             <h3 className={styles.title}>{step.title}</h3>
             <p className={styles.text}>{step.description}</p>

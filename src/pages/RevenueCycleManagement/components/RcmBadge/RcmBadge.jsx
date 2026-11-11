@@ -10,7 +10,7 @@ function RcmBadge({ tone = 'neutral', icon, iconSize = [12, 12], className, chil
   return (
     <p className={cn(styles.badge, styles[tone], className)}>
       {icon ? (
-        <img src={icon} alt="" width={iconSize[0]} height={iconSize[1]} className={styles.icon} />
+        <img loading="lazy" decoding="async" src={icon} alt="" width={iconSize[0]} height={iconSize[1]} className={styles.icon} />
       ) : (
         <span className={styles.dot} aria-hidden="true" />
       )}

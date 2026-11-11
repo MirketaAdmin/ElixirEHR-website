@@ -17,7 +17,7 @@ function MissionSection() {
         <ul className={styles.pillars}>
           {mission.pillars.map((pillar) => (
             <li key={pillar.title} className={styles.pillar}>
-              <img src={pillar.icon} alt="" width={pillar.iconSize[0]} height={pillar.iconSize[1]} />
+              <img loading="lazy" decoding="async" src={pillar.icon} alt="" width={pillar.iconSize[0]} height={pillar.iconSize[1]} />
               <h3 className={styles.pillarTitle}>{pillar.title}</h3>
               <p className={styles.pillarDescription}>{pillar.description}</p>
             </li>
@@ -26,7 +26,7 @@ function MissionSection() {
       </div>
 
       <figure className={styles.media}>
-        <img src={mission.image.src} alt={mission.image.alt} width="536" height="536" className={styles.image} />
+        <img loading="lazy" decoding="async" src={mission.image.src} alt={mission.image.alt} width="536" height="536" className={styles.image} />
       </figure>
     </Section>
   );

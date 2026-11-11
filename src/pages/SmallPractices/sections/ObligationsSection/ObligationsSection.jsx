@@ -14,7 +14,7 @@ function ObligationsSection() {
         {cards.map((card) => (
           <div key={card.title} className={styles.card}>
             <h3 className={styles.title}>
-              <img src={card.icon.src} alt="" width={card.icon.size[0]} height={card.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={card.icon.src} alt="" width={card.icon.size[0]} height={card.icon.size[1]} />
               {card.title}
             </h3>
             <p className={styles.lead}>{card.lead}</p>

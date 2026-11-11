@@ -44,7 +44,7 @@ function MeasurementSection() {
           {platform.items.map((item) => (
             <li key={item.title}>
               <h4 className={cn(styles.itemTitle, item.tone && styles[item.tone])}>
-                <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+                <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
                 {item.title}
               </h4>
               <p className={styles.itemText}>{item.text}</p>

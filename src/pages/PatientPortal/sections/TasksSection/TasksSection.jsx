@@ -21,13 +21,13 @@ function TasksSection() {
         {items.map((item) => (
           <li key={item.title} className={styles.card}>
             <span className={styles.tile}>
-              <img src={item.icon} alt="" width="32" height="32" />
+              <img loading="lazy" decoding="async" src={item.icon} alt="" width="32" height="32" />
             </span>
             <h3 className={styles.title}>{item.title}</h3>
             <p className={styles.text}>{item.text}</p>
             <p className={styles.tag}>
               {item.tag}
-              <img src={item.tagIcon} alt="" width="16" height="16" />
+              <img loading="lazy" decoding="async" src={item.tagIcon} alt="" width="16" height="16" />
             </p>
           </li>
         ))}

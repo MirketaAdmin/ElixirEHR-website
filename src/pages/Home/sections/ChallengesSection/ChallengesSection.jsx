@@ -17,7 +17,7 @@ function ChallengesSection() {
         {challenges.stats.map((stat) => (
           <li key={stat.value} className={cn(styles.card, styles[stat.accent])}>
             <span className={styles.icon}>
-              <img src={stat.icon} alt="" width={stat.iconSize[0]} height={stat.iconSize[1]} />
+              <img loading="lazy" decoding="async" src={stat.icon} alt="" width={stat.iconSize[0]} height={stat.iconSize[1]} />
             </span>
             <p className={styles.value}>{stat.value}</p>
             <p className={styles.description}>{stat.description}</p>

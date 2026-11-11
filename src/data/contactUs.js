@@ -1,8 +1,8 @@
 // Contact Us page content — copy reproduced exactly from the Figma "Contact Us" frame.
 // The form itself (fields, placeholders, submission) is the shared one in data/contact.js.
 
-import heroCard from '../assets/contact-us/hero-card.png';
-import demoPhoto from '../assets/contact-us/demo-laptop-team.png';
+import heroCard from '../assets/contact-us/hero-card.webp';
+import demoPhoto from '../assets/contact-us/demo-laptop-team.webp';
 import secureDataIcon from '../assets/contact-us/icon-secure-data.png';
 import seamlessIntegrationIcon from '../assets/contact-us/icon-seamless-integration.png';
 import testimonialPhoto from '../assets/contact-us/testimonial-dr-jen-jhone.png';

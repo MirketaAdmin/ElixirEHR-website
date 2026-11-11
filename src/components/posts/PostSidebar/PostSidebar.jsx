@@ -16,7 +16,7 @@ function MediaContact({ contact }) {
       <ul className={styles.contactList}>
         {email && (
           <li>
-            <img src={mailIcon} alt="" width="16" height="12" />
+            <img loading="lazy" decoding="async" src={mailIcon} alt="" width="16" height="12" />
             <a href={`mailto:${email}`}>
               <span className="visually-hidden">Email: </span>
               {email}
@@ -25,7 +25,7 @@ function MediaContact({ contact }) {
         )}
         {phone && (
           <li>
-            <img src={phoneIcon} alt="" width="14" height="14" />
+            <img loading="lazy" decoding="async" src={phoneIcon} alt="" width="14" height="14" />
             <a href={`tel:${phone.replace(/[^\d+]/g, '')}`}>
               <span className="visually-hidden">Phone: </span>
               {phone}
@@ -59,7 +59,7 @@ function LatestPosts({ post, type }) {
       {type.listingPath && (
         <Link to={type.listingPath} className={styles.viewAll}>
           View All {type.plural}
-          <img src={arrowIcon} alt="" width="10" height="10" />
+          <img loading="lazy" decoding="async" src={arrowIcon} alt="" width="10" height="10" />
         </Link>
       )}
     </section>

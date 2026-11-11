@@ -1,6 +1,6 @@
 // Multi-Factor Authentication page (formerly "ONC MFA Use Cases") (/onc-certification/onc-mfa-use-cases) — a child page of ONC Certification.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroMedia from '../assets/onc-mfa-use-cases/hero-media.png';
+import heroMedia from '../assets/onc-mfa-use-cases/hero-media.webp';
 import case1Icon from '../assets/onc-mfa/icon-case-1.png';
 import case2Icon from '../assets/onc-mfa/icon-case-2.png';
 import case3Icon from '../assets/onc-mfa/icon-case-3.png';

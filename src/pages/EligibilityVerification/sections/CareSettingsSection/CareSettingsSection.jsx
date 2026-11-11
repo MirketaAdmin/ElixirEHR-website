@@ -13,7 +13,7 @@ function CareSettingsSection() {
         {settings.map((setting) => (
           <li key={setting.label} className={styles.setting}>
             <span className={styles.icon}>
-              <img src={setting.icon} alt="" width={setting.iconSize[0]} height={setting.iconSize[1]} />
+              <img loading="lazy" decoding="async" src={setting.icon} alt="" width={setting.iconSize[0]} height={setting.iconSize[1]} />
             </span>
             {setting.label}
           </li>

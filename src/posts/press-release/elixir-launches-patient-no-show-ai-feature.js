@@ -1,5 +1,5 @@
 import cardImage from '../../assets/posts/press-release/elixir-launches-patient-no-show-ai-feature/card.jpg';
-import heroImage from '../../assets/posts/press-release/elixir-launches-patient-no-show-ai-feature/hero.png';
+import heroImage from '../../assets/posts/press-release/elixir-launches-patient-no-show-ai-feature/hero.webp';
 
 // Detail copy from the Figma "Press Release" detail frame; listing copy (listingTitle, excerpt)
 // from the "Press Release" listing frame. Both reproduced verbatim — see DESIGN-SYSTEM.md.

@@ -1,9 +1,6 @@
 // Salesforce EHR benefits blog post (by Suman Sekhar, April 24, 2025, "EHR"). Body copy is exactly
-// as supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg are cropped from the EHR page hero
-// photo until the final featured and banner images are supplied — replace the two files (or these
-// imports) only.
-import cardImage from '../../assets/posts/blog/top-10-benefits-of-implementing-a-salesforce-ehr-system/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/top-10-benefits-of-implementing-a-salesforce-ehr-system/hero-temp.jpg';
+// as supplied.
+import featuredImage from '../../assets/posts/blog/top-10-benefits-of-implementing-a-salesforce-ehr-system.webp';
 
 export default {
   title: 'Top 10 Benefits of Implementing a Salesforce EHR System',
@@ -12,10 +9,10 @@ export default {
   publishDate: '2025-04-24',
   author: 'Suman Sekhar',
   category: 'EHR',
-  cardImage: { src: cardImage, alt: 'Physician reviewing an electronic health record on a tablet' },
+  cardImage: { src: featuredImage, alt: 'Top 10 Benefits of Implementing a Salesforce EHR System' },
   heroImage: {
-    src: heroImage,
-    alt: 'Physician reviewing an electronic health record on a tablet',
+    src: featuredImage,
+    alt: 'Top 10 Benefits of Implementing a Salesforce EHR System',
     width: 757,
     height: 324,
   },

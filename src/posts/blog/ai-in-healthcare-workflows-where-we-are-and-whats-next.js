@@ -1,9 +1,6 @@
 // AI in healthcare workflows blog post (by Neeta, May 13, 2026, "EHR" and "Healthcare Industry").
-// Body copy is exactly as supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg are made
-// from the home page Kratu AI workspace graphic until the final featured and banner images are
-// supplied — replace the two files (or these imports) only.
-import cardImage from '../../assets/posts/blog/ai-in-healthcare-workflows-where-we-are-and-whats-next/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/ai-in-healthcare-workflows-where-we-are-and-whats-next/hero-temp.jpg';
+// Body copy is exactly as supplied.
+import featuredImage from '../../assets/posts/blog/ai-in-healthcare-workflows-where-we-are-and-whats-next.webp';
 
 export default {
   title: 'AI in Healthcare Workflows: Where We Are and What’s Next',
@@ -12,10 +9,10 @@ export default {
   publishDate: '2026-05-13',
   author: 'Neeta',
   category: ['EHR', 'Healthcare Industry'],
-  cardImage: { src: cardImage, alt: 'Kratu AI assistant inside the Elixir EHR showing a patient visit summary' },
+  cardImage: { src: featuredImage, alt: 'AI in Healthcare Workflows: Where We Are and What’s Next' },
   heroImage: {
-    src: heroImage,
-    alt: 'Kratu AI assistant inside the Elixir EHR showing a patient visit summary',
+    src: featuredImage,
+    alt: 'AI in Healthcare Workflows: Where We Are and What’s Next',
     width: 757,
     height: 324,
   },

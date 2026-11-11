@@ -1,7 +1,7 @@
 // Press Releases listing page copy and card badge colours. The releases themselves are posts:
 // src/posts/press-release/<slug>.js (see src/posts/index.js).
 
-import pressHeroCard from '../assets/press-releases/hero-card.png';
+import pressHeroCard from '../assets/press-releases/hero-card.webp';
 
 // Badge colour per category, as drawn in the frame. Unlisted categories use the lime badge.
 export const categoryTones = {

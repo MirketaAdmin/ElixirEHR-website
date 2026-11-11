@@ -22,12 +22,12 @@ function AlumniSection() {
           {items.map((item) => (
             <li key={item.title} className={styles.card}>
               <span className={styles.tile}>
-                <img src={item.icon} alt="" width="28" height="28" />
+                <img loading="lazy" decoding="async" src={item.icon} alt="" width="28" height="28" />
               </span>
               <h3 className={styles.title}>{item.title}</h3>
               <p className={styles.text}>{item.text}</p>
               <p className={styles.tag}>
-                <img src={item.tagIcon} alt="" width="14" height="14" />
+                <img loading="lazy" decoding="async" src={item.tagIcon} alt="" width="14" height="14" />
                 {item.tag}
               </p>
             </li>

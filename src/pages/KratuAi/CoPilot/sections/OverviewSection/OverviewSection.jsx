@@ -16,7 +16,7 @@ function OverviewSection() {
         {features.map((feature) => (
           <li key={feature.title} className={styles.card}>
             <span className={cn(styles.tile, styles[feature.icon.tone])}>
-              <img src={feature.icon.src} alt="" width={feature.icon.size[0]} height={feature.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={feature.icon.src} alt="" width={feature.icon.size[0]} height={feature.icon.size[1]} />
             </span>
             <p className={styles.tag}>{feature.tag}</p>
             <h3 className={styles.title}>{feature.title}</h3>

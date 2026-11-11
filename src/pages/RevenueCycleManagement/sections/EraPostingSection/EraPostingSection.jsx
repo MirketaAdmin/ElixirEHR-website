@@ -23,7 +23,7 @@ function EraPostingSection() {
       <p className={styles.description}>{description}</p>
 
       <figure className={styles.figure}>
-        <img src={image.src} alt={image.alt} width="682" height="401" className={styles.image} />
+        <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="682" height="401" className={styles.image} />
         <figcaption className={styles.caption}>{caption}</figcaption>
       </figure>
 
@@ -31,7 +31,7 @@ function EraPostingSection() {
         {steps.map((step) => (
           <li key={step.title} className={styles.step}>
             <span className={styles.icon}>
-              <img src={step.icon} alt="" width={step.iconSize[0]} height={step.iconSize[1]} />
+              <img loading="lazy" decoding="async" src={step.icon} alt="" width={step.iconSize[0]} height={step.iconSize[1]} />
             </span>
             <h3 className={styles.stepTitle}>{step.title}</h3>
             <p className={styles.stepText}>{step.description}</p>

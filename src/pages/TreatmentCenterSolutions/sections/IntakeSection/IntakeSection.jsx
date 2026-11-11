@@ -8,11 +8,11 @@ function IntakeSection() {
   return (
     <Section tone="white" spacing="none" className={styles.section} containerClassName={styles.inner}>
       <div className={styles.media}>
-        <img src={image.src} alt={image.alt} width="560" height="438" className={styles.image} />
+        <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="560" height="438" className={styles.image} />
         <div className={styles.highlight}>
           <p className={styles.highlightTitle}>
             <span className={styles.highlightIcon}>
-              <img src={highlight.icon} alt="" width="20" height="14" />
+              <img loading="lazy" decoding="async" src={highlight.icon} alt="" width="20" height="14" />
             </span>
             {highlight.title}
           </p>

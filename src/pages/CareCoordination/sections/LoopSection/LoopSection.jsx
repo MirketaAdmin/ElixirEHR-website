@@ -40,7 +40,7 @@ function LoopSection() {
           ))}
         </ol>
         <p className={styles.note}>
-          <img src={chart.note.icon.src} alt="" width={chart.note.icon.size[0]} height={chart.note.icon.size[1]} />
+          <img loading="lazy" decoding="async" src={chart.note.icon.src} alt="" width={chart.note.icon.size[0]} height={chart.note.icon.size[1]} />
           <span>{chart.note.text}</span>
         </p>
       </figure>
@@ -52,7 +52,7 @@ function LoopSection() {
         </div>
         <aside className={styles.disclaimer} aria-labelledby="cc-disclaimer-title">
           <h3 id="cc-disclaimer-title" className={styles.disclaimerTitle}>
-            <img src={disclaimer.icon.src} alt="" width={disclaimer.icon.size[0]} height={disclaimer.icon.size[1]} />
+            <img loading="lazy" decoding="async" src={disclaimer.icon.src} alt="" width={disclaimer.icon.size[0]} height={disclaimer.icon.size[1]} />
             {disclaimer.title}
           </h3>
           <p className={styles.disclaimerText}>{disclaimer.text}</p>

@@ -1,7 +1,7 @@
 // Social Determinants of Health page (/sdoh-software) — an independent top-level page
 // (listed under Care Management in the header, on its own flat route).
 // Copy is verbatim from the Figma; links only point at routes that exist.
-import heroMedia from '../assets/social-determinants/hero-media.png';
+import heroMedia from '../assets/social-determinants/hero-media.webp';
 import pillar1Icon from '../assets/social-determinants/icon-pillar-1.png';
 import pillar2Icon from '../assets/social-determinants/icon-pillar-2.png';
 import pillar3Icon from '../assets/social-determinants/icon-pillar-3.png';

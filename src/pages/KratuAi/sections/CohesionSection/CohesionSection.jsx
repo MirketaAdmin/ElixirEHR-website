@@ -22,7 +22,7 @@ function CohesionSection() {
         {cards.map((card) => (
           <li key={card.title} className={styles.card}>
             <span className={styles.tile}>
-              <img src={card.icon.src} alt="" width={card.icon.size[0]} height={card.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={card.icon.src} alt="" width={card.icon.size[0]} height={card.icon.size[1]} />
             </span>
             <h3 className={styles.title}>{card.title}</h3>
             <p className={styles.text}>{card.text}</p>

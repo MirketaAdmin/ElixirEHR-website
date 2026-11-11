@@ -15,7 +15,7 @@ function IntakeSection() {
           <li key={item.title} className={styles.card}>
             <div className={styles.head}>
               <span className={styles.chip}>{item.chip}</span>
-              <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
             </div>
             <h3 className={styles.title}>{item.title}</h3>
             <p className={styles.text}>{item.text}</p>

@@ -1,13 +1,8 @@
-// Healthcare CRM blog post (by Suman Sekhar, June 2, 2025, "Patient No-show"). Body copy is exactly as
-// supplied, including the "3.Chronic Care Management" heading. TEMPORARY IMAGES: card-temp.jpg and
-// hero-temp.jpg are cropped from the Care Coordination page photo until the final featured and banner
-// images are supplied — replace the two files (or these imports) only.
-import cardImage from '../../assets/posts/blog/from-lead-to-loyalty-leveraging-crm-in-healthcare/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/from-lead-to-loyalty-leveraging-crm-in-healthcare/hero-temp.jpg';
+// Healthcare CRM blog post (by Suman Sekhar, June 2, 2025, "Patient No-show"). Body copy is exactly
+// as supplied, including the "3.Chronic Care Management" heading.
+import featuredImage from '../../assets/posts/blog/from-lead-to-loyalty-leveraging-crm-in-healthcare.webp';
 
 const strong = (text) => ({ text, strong: true });
-
-const imageAlt = 'A patient’s unified profile card connecting a physician, a care coordinator and an administrator';
 
 export default {
   title: 'From Lead to Loyalty: Leveraging CRM in Healthcare',
@@ -16,8 +11,8 @@ export default {
   publishDate: '2025-06-02',
   author: 'Suman Sekhar',
   category: 'Patient No-show',
-  cardImage: { src: cardImage, alt: imageAlt },
-  heroImage: { src: heroImage, alt: imageAlt, width: 757, height: 324 },
+  cardImage: { src: featuredImage, alt: 'From Lead to Loyalty: Leveraging CRM in Healthcare' },
+  heroImage: { src: featuredImage, alt: 'From Lead to Loyalty: Leveraging CRM in Healthcare', width: 757, height: 324 },
   content: [
     { type: 'heading', level: 2, text: 'Introduction' },
     {

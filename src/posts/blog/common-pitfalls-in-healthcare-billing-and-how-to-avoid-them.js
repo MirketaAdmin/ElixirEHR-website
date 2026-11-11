@@ -1,9 +1,6 @@
 // Healthcare billing pitfalls blog post (by Bhavesh Singla, May 21, 2026, "Healthcare Industry").
-// Body copy is exactly as supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg are cropped
-// from the Eligibility Verification page photo until the final featured and banner images are
-// supplied — replace the two files (or these imports) only.
-import cardImage from '../../assets/posts/blog/common-pitfalls-in-healthcare-billing-and-how-to-avoid-them/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/common-pitfalls-in-healthcare-billing-and-how-to-avoid-them/hero-temp.jpg';
+// Body copy is exactly as supplied.
+import featuredImage from '../../assets/posts/blog/common-pitfalls-in-healthcare-billing-and-how-to-avoid-them.webp';
 
 export default {
   title: 'Common Pitfalls in Healthcare Billing and How to avoid them',
@@ -12,10 +9,10 @@ export default {
   publishDate: '2026-05-21',
   author: 'Bhavesh Singla',
   category: 'Healthcare Industry',
-  cardImage: { src: cardImage, alt: 'Clinician reviewing billing details on a tablet with a patient' },
+  cardImage: { src: featuredImage, alt: 'Common Pitfalls in Healthcare Billing and How to avoid them' },
   heroImage: {
-    src: heroImage,
-    alt: 'Clinician reviewing billing details on a tablet with a patient',
+    src: featuredImage,
+    alt: 'Common Pitfalls in Healthcare Billing and How to avoid them',
     width: 757,
     height: 324,
   },

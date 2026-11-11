@@ -1,6 +1,6 @@
 // Outpatient Clinics page (/ambulatory-ehr) — a child page of More Specialties.
 // Copy is verbatim from the Figma. Links only point at routes that exist.
-import heroMedia from '../assets/outpatient-clinics/hero-media.png';
+import heroMedia from '../assets/outpatient-clinics/hero-media.webp';
 import pillar1Icon from '../assets/outpatient-clinics/icon-pillar-1.png';
 import pillar2Icon from '../assets/outpatient-clinics/icon-pillar-2.png';
 import pillar3Icon from '../assets/outpatient-clinics/icon-pillar-3.png';

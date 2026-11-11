@@ -15,21 +15,6 @@ export function useHydrated() {
 /** Shown only when JavaScript is off; the form cannot be sent without it (reCAPTCHA needs it). */
 export const NOSCRIPT_MESSAGE = 'Please enable JavaScript to submit this form, or email info@elixirehr.com.';
 
-/**
- * The page the form was sent from, appended to the Lead's Description so the sales team can see
- * which page (and campaign link) a Lead came from. Read at submit time in the browser.
- */
-export function submissionSource() {
-  const title = document.title.replace(/\s*\|\s*(ElixirEHR|Elixir)\s*$/, '');
-  const { origin, pathname, search } = window.location;
-  return `Submitted from: ${title} (${origin}${pathname}${search})`;
-}
-
-/** The visitor's message followed by the source line (blank parts dropped). */
-export function withSubmissionSource(message) {
-  return [message?.trim(), submissionSource()].filter(Boolean).join('\n\n');
-}
-
 /** True when the visitor has completed the reCAPTCHA inside `form`. */
 export function hasRecaptchaResponse(form) {
   return Boolean(form.querySelector('[name="g-recaptcha-response"]')?.value.trim());

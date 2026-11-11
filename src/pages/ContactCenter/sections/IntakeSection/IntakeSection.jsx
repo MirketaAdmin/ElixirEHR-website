@@ -9,10 +9,10 @@ function IntakeSection() {
   return (
     <Section spacing="none" className={styles.section}>
       <div className={styles.top}>
-        <img src={image.src} alt={image.alt} width="552" height="424" className={styles.image} />
+        <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="552" height="424" className={styles.image} />
         <div>
           <p className={styles.badge}>
-            <img src={badge.icon} alt="" width="20" height="20" />
+            <img loading="lazy" decoding="async" src={badge.icon} alt="" width="20" height="20" />
             {badge.label}
           </p>
           <h2 className={styles.title}>
@@ -26,7 +26,7 @@ function IntakeSection() {
       <ul className={styles.features}>
         {features.map((feature) => (
           <li key={feature.title} className={styles.feature}>
-            <img src={feature.icon} alt="" width="56" height="56" className={styles.icon} />
+            <img loading="lazy" decoding="async" src={feature.icon} alt="" width="56" height="56" className={styles.icon} />
             <div>
               <h3 className={styles.featureTitle}>{feature.title}</h3>
               <p className={styles.featureText}>{feature.text}</p>

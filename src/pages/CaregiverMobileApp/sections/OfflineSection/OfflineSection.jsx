@@ -16,7 +16,7 @@ function OfflineSection() {
         {cards.map((card) => (
           <article key={card.title} className={styles.card}>
             <span className={styles.iconTile}>
-              <img src={card.icon} alt="" width="32" height="32" />
+              <img loading="lazy" decoding="async" src={card.icon} alt="" width="32" height="32" />
             </span>
             <h3 className={styles.cardTitle}>{card.title}</h3>
             <p className={styles.cardText}>{card.text}</p>
@@ -30,7 +30,7 @@ function OfflineSection() {
           {pipeline.items.map((item) => (
             <li key={item.title} className={cn(styles.status, styles[item.tone])}>
               <span className={styles.circle}>
-                <img src={item.icon} alt="" width="24" height="24" />
+                <img loading="lazy" decoding="async" src={item.icon} alt="" width="24" height="24" />
               </span>
               <div>
                 <p className={styles.statusTitle}>{item.title}</p>

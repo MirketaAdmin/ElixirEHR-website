@@ -15,7 +15,7 @@ function CheckList({ items, className }) {
         const { content, bold } = item?.content ? item : { content: item };
         return (
           <li key={index} className={cn(styles.item, bold && styles.bold)}>
-            <img src={checkIcon} alt="" width="17" height="18" className={styles.icon} />
+            <img loading="lazy" decoding="async" src={checkIcon} alt="" width="17" height="18" className={styles.icon} />
             <span>
               <RichText content={content} strongClassName={styles.strong} />
             </span>

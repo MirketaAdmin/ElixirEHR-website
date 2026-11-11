@@ -2,7 +2,7 @@
 // The frame states no reward amounts, eligibility rules or terms; none are added here.
 // Images are 1× crops of the frame export (no source files were supplied).
 
-import heroCard from '../assets/referral-program/hero-card.png';
+import heroCard from '../assets/referral-program/hero-card.webp';
 import referLeadIcon from '../assets/referral-program/icon-refer-lead.png';
 import closeDealIcon from '../assets/referral-program/icon-close-deal.png';
 import earnIncentivesIcon from '../assets/referral-program/icon-earn-incentives.png';

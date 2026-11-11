@@ -10,7 +10,7 @@ function IconFeatureGrid({ items, tone = 'dark', className }) {
     <ul className={cn(styles.grid, styles[tone], className)}>
       {items.map((item) => (
         <li key={item.label} className={styles.item}>
-          <img src={item.icon} alt="" width={item.iconSize[0]} height={item.iconSize[1]} />
+          <img loading="lazy" decoding="async" src={item.icon} alt="" width={item.iconSize[0]} height={item.iconSize[1]} />
           <span className={styles.label}>{item.label}</span>
         </li>
       ))}

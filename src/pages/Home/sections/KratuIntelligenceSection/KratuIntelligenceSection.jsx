@@ -10,7 +10,7 @@ function FeatureCard({ feature, side }) {
   return (
     <li className={cn(styles.row, styles[side])}>
       <div className={styles.card}>
-        <img src={feature.icon} alt="" width="24" height="24" className={styles.icon} />
+        <img loading="lazy" decoding="async" src={feature.icon} alt="" width="24" height="24" className={styles.icon} />
         <div className={styles.text}>
           <h3 className={styles.cardTitle}>
             {feature.titleLines.map((line) => (
@@ -31,7 +31,7 @@ function KratuIntelligenceSection() {
   return (
     <Section tone="surface" spacing="none" className={styles.section} containerClassName={styles.inner}>
       <p className={styles.badge}>
-        <img src={sparkleIcon} alt="" width="17" height="17" />
+        <img loading="lazy" decoding="async" src={sparkleIcon} alt="" width="17" height="17" />
         {kratuIntelligence.badge}
       </p>
       <h2 className={cn('text-headline-lg', styles.title)}>
@@ -48,7 +48,7 @@ function KratuIntelligenceSection() {
           ))}
         </ul>
         <div className={styles.hub}>
-          <img src={kratuLogo} alt="Kratu AI — AI Intelligence" width="222" height="59" />
+          <img loading="lazy" decoding="async" src={kratuLogo} alt="Kratu AI — AI Intelligence" width="222" height="59" />
         </div>
         <ul className={styles.column}>
           {features.slice(3).map((feature) => (

@@ -1,7 +1,7 @@
 // Value-Based Care page content — copy reproduced exactly from the Figma "Value-Based Care" frame.
 // The hero image and the four pillar icons are 1× crops of the frame export.
 
-import heroMedia from '../assets/value-based-care/hero-media.png';
+import heroMedia from '../assets/value-based-care/hero-media.webp';
 import pillar1Icon from '../assets/value-based-care/icon-pillar-1.png';
 import pillar2Icon from '../assets/value-based-care/icon-pillar-2.png';
 import pillar3Icon from '../assets/value-based-care/icon-pillar-3.png';

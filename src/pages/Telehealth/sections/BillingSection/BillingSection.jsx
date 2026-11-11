@@ -49,7 +49,7 @@ function BillingSection() {
       <div className={styles.panel}>
         <div className={styles.bar}>
           <p id="th-modifiers-caption" className={styles.caption}>
-            <img src={table.icon.src} alt="" width={table.icon.size[0]} height={table.icon.size[1]} />
+            <img loading="lazy" decoding="async" src={table.icon.src} alt="" width={table.icon.size[0]} height={table.icon.size[1]} />
             {table.caption}
           </p>
           <span className={styles.effective}>{table.chip}</span>
@@ -79,7 +79,7 @@ function BillingSection() {
         </table>
       </div>
       <p className={styles.note}>
-        <img src={note.icon.src} alt="" width={note.icon.size[0]} height={note.icon.size[1]} />
+        <img loading="lazy" decoding="async" src={note.icon.src} alt="" width={note.icon.size[0]} height={note.icon.size[1]} />
         <span>{note.text}</span>
       </p>
     </Section>

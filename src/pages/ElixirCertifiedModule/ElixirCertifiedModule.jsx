@@ -24,7 +24,7 @@ import { cn } from '../../utils/cn';
 import styles from './ElixirCertifiedModule.module.css';
 
 const Img = ({ icon, alt = '', className }) => (
-  <img src={icon.src} alt={alt} width={icon.size[0]} height={icon.size[1]} className={className} />
+  <img loading="lazy" decoding="async" src={icon.src} alt={alt} width={icon.size[0]} height={icon.size[1]} className={className} />
 );
 
 /** A download card's button: a real link once the PDF's URL is supplied, otherwise visibly inert. */

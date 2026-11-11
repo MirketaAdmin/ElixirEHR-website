@@ -1,7 +1,7 @@
 // Mental Health page (/mental-health-ehr) — an independent page with no parent route.
 // Copy is verbatim from the Figma. Links only point at routes that exist; items whose destination
 // is not built yet carry `to: null` and render as text.
-import heroMedia from '../assets/mental-health/hero-media.png';
+import heroMedia from '../assets/mental-health/hero-media.webp';
 import measuresIcon from '../assets/mental-health/icon-strip-measures.png';
 import registryIcon from '../assets/mental-health/icon-strip-registry.png';
 import fieldIcon from '../assets/mental-health/icon-strip-field.png';

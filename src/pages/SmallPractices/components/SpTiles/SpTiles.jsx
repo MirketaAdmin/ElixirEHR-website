@@ -14,7 +14,7 @@ function SpTiles({ items, lead = 'circle', className }) {
         <li key={item.title} className={styles.card}>
           {lead === 'circle' && (
             <span className={styles.disc}>
-              <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
             </span>
           )}
           {lead === 'number' && (
@@ -24,7 +24,7 @@ function SpTiles({ items, lead = 'circle', className }) {
           )}
           <h3 className={styles.title}>
             {lead === 'inline' && (
-              <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
             )}
             <span>{item.title}</span>
           </h3>

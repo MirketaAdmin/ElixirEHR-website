@@ -5,7 +5,7 @@ import styles from './ShNote.module.css';
 function ShNote({ note, tone = 'light', className }) {
   return (
     <div className={cn(styles.note, styles[tone], className)}>
-      <img src={note.icon.src} alt="" width={note.icon.size[0]} height={note.icon.size[1]} />
+      <img loading="lazy" decoding="async" src={note.icon.src} alt="" width={note.icon.size[0]} height={note.icon.size[1]} />
       <div>
         {note.title && <p className={styles.title}>{note.title}</p>}
         <p className={styles.text}>{note.text}</p>

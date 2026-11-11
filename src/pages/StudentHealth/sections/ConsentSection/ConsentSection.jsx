@@ -40,7 +40,7 @@ function ConsentSection() {
         </div>
         <aside className={styles.note}>
           <h3 className={styles.noteTitle}>
-            <img src={note.icon.src} alt="" width={note.icon.size[0]} height={note.icon.size[1]} />
+            <img loading="lazy" decoding="async" src={note.icon.src} alt="" width={note.icon.size[0]} height={note.icon.size[1]} />
             {note.title}
           </h3>
           <p className={styles.noteText}>{note.text}</p>

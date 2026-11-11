@@ -24,7 +24,7 @@ function BoundarySection() {
           <article key={column.title} className={cn(styles.card, styles[column.tone])}>
             <h3 className={styles.title}>
               <span className={styles.circle}>
-                <img src={column.icon.src} alt="" width={column.icon.size[0]} height={column.icon.size[1]} />
+                <img loading="lazy" decoding="async" src={column.icon.src} alt="" width={column.icon.size[0]} height={column.icon.size[1]} />
               </span>
               {column.title}
             </h3>

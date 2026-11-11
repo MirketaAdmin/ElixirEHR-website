@@ -118,9 +118,12 @@
 /* Early-access style call-to-action panel */
 .cta {
   display: flex;
+  /* The button drops below the copy when the column is too narrow for both (it used to overflow
+     the box at ~1024px). */
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 48px;
+  gap: 24px 48px;
   padding: 40px;
   border-radius: var(--radius-lg);
   background: var(--color-primary);

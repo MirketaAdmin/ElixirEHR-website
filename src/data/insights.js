@@ -1,8 +1,8 @@
 // Insights (Resources) section: shared hero, category navigation, sidebar and page copy, reproduced
 // from the Figma Insights frames. The resources themselves are posts in src/posts/<type>/.
 
-import heroCard from '../assets/insights/hero-card-clinician.png';
-import allResourcesHeroCard from '../assets/insights/all-resources-hero.png';
+import heroCard from '../assets/insights/hero-card-clinician.webp';
+import allResourcesHeroCard from '../assets/insights/all-resources-hero.webp';
 
 export const insightsHero = {
   currentPage: 'Resources',

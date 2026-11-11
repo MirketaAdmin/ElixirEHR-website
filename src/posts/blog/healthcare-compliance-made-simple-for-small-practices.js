@@ -1,9 +1,6 @@
 // Small-practice compliance blog post (by Mukul Awasthi, May 7, 2026, "EHR" and "Healthcare
-// Industry"). Body copy is exactly as supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg
-// are cropped from the Referral Program page photo until the final featured and banner images are
-// supplied — replace the two files (or these imports) only.
-import cardImage from '../../assets/posts/blog/healthcare-compliance-made-simple-for-small-practices/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/healthcare-compliance-made-simple-for-small-practices/hero-temp.jpg';
+// Industry"). Body copy is exactly as supplied.
+import featuredImage from '../../assets/posts/blog/healthcare-compliance-made-simple-for-small-practices.webp';
 
 export default {
   title: 'Healthcare Compliance Made Simple for Small Practices',
@@ -12,10 +9,10 @@ export default {
   publishDate: '2026-05-07',
   author: 'Mukul Awasthi',
   category: ['EHR', 'Healthcare Industry'],
-  cardImage: { src: cardImage, alt: 'Practice team meeting around a dashboard on a conference room display' },
+  cardImage: { src: featuredImage, alt: 'Healthcare Compliance Made Simple for Small Practices' },
   heroImage: {
-    src: heroImage,
-    alt: 'Practice team meeting around a dashboard on a conference room display',
+    src: featuredImage,
+    alt: 'Healthcare Compliance Made Simple for Small Practices',
     width: 757,
     height: 324,
   },

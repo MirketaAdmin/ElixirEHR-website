@@ -2,7 +2,7 @@
 // Photos and icons are 1× crops of the frame export (no source files were supplied); the AI card
 // icons reuse the Home "Kratu AI - Full Capabilities" icons, which match the frame.
 
-import heroMedia from '../assets/billing/hero-media.png';
+import heroMedia from '../assets/billing/hero-media.webp';
 import efficiencyIcon from '../assets/patient-portal/badge-efficiency.png';
 import statErrorsIcon from '../assets/billing/stat-errors.png';
 import statDenialsIcon from '../assets/billing/stat-denials.png';
@@ -11,10 +11,10 @@ import patientPortalAgentIcon from '../assets/home/ai-capabilities/patient-porta
 import insuranceEligibilityIcon from '../assets/home/ai-capabilities/insurance-eligibility-icon.png';
 import claimRejectionPredictionIcon from '../assets/home/ai-capabilities/claim-rejection-prediction-icon.png';
 import ocrReaderIcon from '../assets/billing/ai-ocr-reader-icon.png';
-import ecosystemMedia from '../assets/billing/ecosystem-media.png';
+import ecosystemMedia from '../assets/billing/ecosystem-media.webp';
 import ehrCrmIcon from '../assets/billing/ecosystem-ehr-crm.png';
 import engagementIcon from '../assets/billing/ecosystem-engagement.png';
-import insightsMedia from '../assets/billing/insights-media.png';
+import insightsMedia from '../assets/billing/insights-media.webp';
 import claimsIcon from '../assets/billing/insight-claims.png';
 import submissionIcon from '../assets/billing/insight-submission.png';
 import paymentsIcon from '../assets/billing/insight-payments.png';

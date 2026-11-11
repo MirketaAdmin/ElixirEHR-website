@@ -16,7 +16,7 @@ function ConnectedEhrSection() {
       <div className={styles.grid}>
         <div className={styles.separation}>
           <h3 className={styles.cardTitle}>
-            <img src={xCircleIcon} alt="" width="20" height="20" />
+            <img loading="lazy" decoding="async" src={xCircleIcon} alt="" width="20" height="20" />
             {separation.title}
           </h3>
           <ul className={styles.costs}>
@@ -30,7 +30,7 @@ function ConnectedEhrSection() {
 
         <div className={styles.connected}>
           <h3 className={styles.cardTitle}>
-            <img src={checkCircleIcon} alt="" width="20" height="20" />
+            <img loading="lazy" decoding="async" src={checkCircleIcon} alt="" width="20" height="20" />
             {connected.title}
           </h3>
           <p className={styles.connectedText}>{connected.body}</p>

@@ -1,9 +1,6 @@
 // Salesforce EHR future blog post (by Suman Sekhar, April 17, 2025, "EHR"). Body copy is exactly as
-// supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg are cropped from the EHR page's
-// patient management photo until the final featured and banner images are supplied — replace the
-// two files (or these imports) only.
-import cardImage from '../../assets/posts/blog/why-salesforce-ehr-is-the-future-of-healthcare-technology/card-temp.jpg';
-import heroImage from '../../assets/posts/blog/why-salesforce-ehr-is-the-future-of-healthcare-technology/hero-temp.jpg';
+// supplied.
+import featuredImage from '../../assets/posts/blog/why-salesforce-ehr-is-the-future-of-healthcare-technology.webp';
 
 export default {
   title: 'Why Salesforce EHR Is the Future of Healthcare Technology',
@@ -12,10 +9,10 @@ export default {
   publishDate: '2025-04-17',
   author: 'Suman Sekhar',
   category: 'EHR',
-  cardImage: { src: cardImage, alt: 'Physician and patient talking beside a laptop showing an EHR record' },
+  cardImage: { src: featuredImage, alt: 'Why Salesforce EHR Is the Future of Healthcare Technology' },
   heroImage: {
-    src: heroImage,
-    alt: 'Physician and patient talking beside a laptop showing an EHR record',
+    src: featuredImage,
+    alt: 'Why Salesforce EHR Is the Future of Healthcare Technology',
     width: 757,
     height: 324,
   },

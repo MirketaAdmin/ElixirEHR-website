@@ -11,15 +11,15 @@ function OpCardGrid({ items, tone = 'light', className }) {
     <ul className={cn(styles.grid, styles[tone], className)}>
       {items.map((item) => (
         <li key={item.title} className={styles.card}>
-          {item.tile && <img src={item.tile} alt="" width="40" height="40" className={styles.tile} />}
+          {item.tile && <img loading="lazy" decoding="async" src={item.tile} alt="" width="40" height="40" className={styles.tile} />}
           {item.label && (
             <p className={cn(styles.label, item.labelTone && styles[item.labelTone])}>
               {item.icon && (
-                <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+                <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
               )}
               <span>{item.label}</span>
               {item.cornerIcon && (
-                <img
+                <img loading="lazy" decoding="async"
                   src={item.cornerIcon.src}
                   alt=""
                   width={item.cornerIcon.size[0]}

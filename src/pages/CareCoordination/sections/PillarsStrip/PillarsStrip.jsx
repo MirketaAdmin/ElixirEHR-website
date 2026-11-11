@@ -11,7 +11,7 @@ function PillarsStrip() {
           {ccPillars.map((pillar) => (
             <li key={pillar.title} className={styles.card}>
               <span className={styles.tile}>
-                <img src={pillar.icon.src} alt="" width={pillar.icon.size[0]} height={pillar.icon.size[1]} />
+                <img loading="lazy" decoding="async" src={pillar.icon.src} alt="" width={pillar.icon.size[0]} height={pillar.icon.size[1]} />
               </span>
               <p className={styles.label}>{pillar.label}</p>
               <h2 className={styles.title}>{pillar.title}</h2>

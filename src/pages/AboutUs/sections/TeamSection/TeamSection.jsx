@@ -10,7 +10,7 @@ function TeamSection() {
       <ul className={styles.grid}>
         {team.members.map((member, index) => (
           <li key={`${member.name}-${index}`}>
-            <img src={member.photo} alt={member.name} width="264" height="330" className={styles.photo} />
+            <img loading="lazy" decoding="async" src={member.photo} alt={member.name} width="264" height="330" className={styles.photo} />
             <p className={styles.name}>{member.name}</p>
             <p className={styles.role}>{member.role}</p>
           </li>

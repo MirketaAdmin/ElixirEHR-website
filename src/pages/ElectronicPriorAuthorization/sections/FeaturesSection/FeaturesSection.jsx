@@ -26,7 +26,7 @@ function FeaturesSection() {
             <ul className={styles.points}>
               {row.points.map((point) => (
                 <li key={point}>
-                  <img src={checkIcon} alt="" width="9" height="10" />
+                  <img loading="lazy" decoding="async" src={checkIcon} alt="" width="9" height="10" />
                   {point}
                 </li>
               ))}

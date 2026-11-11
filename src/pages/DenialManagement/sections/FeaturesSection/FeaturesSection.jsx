@@ -9,7 +9,7 @@ function FeatureText({ feature, className }) {
   return (
     <div className={cn(styles.text, className)}>
       <span className={styles.icon}>
-        <img src={feature.icon.src} alt="" width={feature.icon.width} height={feature.icon.height} />
+        <img loading="lazy" decoding="async" src={feature.icon.src} alt="" width={feature.icon.width} height={feature.icon.height} />
       </span>
       <h3 className={styles.title}>{feature.title}</h3>
       <p className={styles.description}>{feature.description}</p>
@@ -17,7 +17,7 @@ function FeatureText({ feature, className }) {
         <ul className={styles.points}>
           {feature.points.map((point) => (
             <li key={point}>
-              <img src={checkIcon} alt="" width="15" height="16" />
+              <img loading="lazy" decoding="async" src={checkIcon} alt="" width="15" height="16" />
               {point}
             </li>
           ))}
@@ -30,7 +30,7 @@ function FeatureText({ feature, className }) {
 /** A feature's product screenshot (a white card with its own padding, as exported from the frame). */
 function FeatureImage({ image, className }) {
   return (
-    <img
+    <img loading="lazy" decoding="async"
       src={image.src}
       alt={image.alt}
       width={image.width}

@@ -17,7 +17,7 @@ function DictationSection() {
         <div className={styles.stream}>
           <div className={styles.streamHead}>
             <span className={styles.mic}>
-              <img src={stream.icon.src} alt="" width={stream.icon.size[0]} height={stream.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={stream.icon.src} alt="" width={stream.icon.size[0]} height={stream.icon.size[1]} />
             </span>
             <span className={styles.streamCopy}>
               <span className={styles.streamTitle}>{stream.title}</span>
@@ -33,7 +33,7 @@ function DictationSection() {
             <li key={field.label} className={styles.field}>
               <span className={styles.fieldLabel}>
                 {field.label}
-                <img src={checkIcon.src} alt="" width={checkIcon.size[0]} height={checkIcon.size[1]} />
+                <img loading="lazy" decoding="async" src={checkIcon.src} alt="" width={checkIcon.size[0]} height={checkIcon.size[1]} />
               </span>
               <span className={styles.fieldValue}>{field.value}</span>
             </li>
@@ -42,7 +42,7 @@ function DictationSection() {
 
         <figcaption className={styles.footer}>
           <span className={styles.note}>
-            <img src={note.icon.src} alt="" width={note.icon.size[0]} height={note.icon.size[1]} />
+            <img loading="lazy" decoding="async" src={note.icon.src} alt="" width={note.icon.size[0]} height={note.icon.size[1]} />
             {note.text}
           </span>
           <span className={styles.action}>{mock.action}</span>

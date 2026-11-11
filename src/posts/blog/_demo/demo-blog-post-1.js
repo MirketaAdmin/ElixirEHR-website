@@ -1,6 +1,6 @@
 // DEMO CONTENT (dev only) — reproduces a placeholder card from the Figma Insights frames so the
 // listing can be checked against the design. Replace with real posts in src/posts/blog/<slug>.js.
-import cardImage from '../../../assets/posts/blog/_demo/demo-blog-post-1/card.png';
+import cardImage from '../../../assets/posts/blog/_demo/demo-blog-post-1/card.webp';
 
 export default {
   title: "Elixir Winter'26 Version 1.960 EHR and Patient Care",

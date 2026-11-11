@@ -23,13 +23,13 @@ function InsightsSection() {
         <ul className={styles.items}>
           {items.map((item) => (
             <li key={item.text} className={styles.item}>
-              <img src={item.icon} alt="" width="26" height="26" />
+              <img loading="lazy" decoding="async" src={item.icon} alt="" width="26" height="26" />
               {item.text}
             </li>
           ))}
         </ul>
       </div>
-      <img src={image.src} alt={image.alt} width="594" height="520" className={styles.image} />
+      <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="594" height="520" className={styles.image} />
     </Section>
   );
 }

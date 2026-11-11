@@ -7,7 +7,7 @@ import styles from './PcMediaFrame.module.css';
  */
 function PcMediaFrame({ width, height, image, className }) {
   return (
-    <img
+    <img loading="lazy" decoding="async"
       src={image.src}
       alt={image.alt}
       width={width}

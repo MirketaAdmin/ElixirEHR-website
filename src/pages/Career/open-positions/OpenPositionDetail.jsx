@@ -24,7 +24,7 @@ function BlockHeading({ id, icon, children }) {
   return (
     <h2 id={id} className={styles.blockTitle}>
       <span className={styles.blockIcon}>
-        <img src={icon} alt="" width="24" height="24" />
+        <img loading="lazy" decoding="async" src={icon} alt="" width="24" height="24" />
       </span>
       {children}
     </h2>
@@ -59,13 +59,13 @@ function ShareRole({ title }) {
       <p className={styles.shareLabel}>Share this role</p>
       <div className={styles.shareButtons}>
         <button type="button" onClick={share} className={styles.shareButton} aria-label="Share this role">
-          <img src={shareIcon} alt="" width="22" height="22" />
+          <img loading="lazy" decoding="async" src={shareIcon} alt="" width="22" height="22" />
         </button>
         <button type="button" onClick={copyLink} className={styles.shareButton} aria-label="Copy link">
-          <img src={linkIcon} alt="" width="22" height="12" />
+          <img loading="lazy" decoding="async" src={linkIcon} alt="" width="22" height="12" />
         </button>
         <a href={mailto} className={styles.shareButton} aria-label="Share by email">
-          <img src={mailIcon} alt="" width="22" height="18" />
+          <img loading="lazy" decoding="async" src={mailIcon} alt="" width="22" height="18" />
         </a>
       </div>
       <p role="status" className="visually-hidden">
@@ -129,7 +129,7 @@ function OpenPositionDetail() {
           <ul className={styles.pills}>
             {pills.map((pill) => (
               <li key={pill.key} className={styles.pill}>
-                <img src={pill.icon} alt="" width={pill.size[0]} height={pill.size[1]} />
+                <img loading="lazy" decoding="async" src={pill.icon} alt="" width={pill.size[0]} height={pill.size[1]} />
                 {pill.text}
               </li>
             ))}
@@ -153,7 +153,7 @@ function OpenPositionDetail() {
             <ul className={styles.checklist}>
               {detail.responsibilities.map((item) => (
                 <li key={item}>
-                  <img src={checkIcon} alt="" width="22" height="22" />
+                  <img loading="lazy" decoding="async" src={checkIcon} alt="" width="22" height="22" />
                   {item}
                 </li>
               ))}

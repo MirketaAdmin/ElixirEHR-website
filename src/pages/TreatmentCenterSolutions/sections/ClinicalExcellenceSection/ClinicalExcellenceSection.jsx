@@ -19,14 +19,14 @@ function ClinicalExcellenceSection() {
         <ul className={styles.features}>
           {features.map((feature) => (
             <li key={feature.label} className={styles.feature}>
-              <img src={feature.icon} alt="" width={feature.iconSize[0]} height={feature.iconSize[1]} />
+              <img loading="lazy" decoding="async" src={feature.icon} alt="" width={feature.iconSize[0]} height={feature.iconSize[1]} />
               <span className={styles.featureLabel}>{feature.label}</span>
             </li>
           ))}
         </ul>
       </div>
       <div className={styles.frame}>
-        <img src={image.src} alt={image.alt} width="496" height="455" className={styles.image} />
+        <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="496" height="455" className={styles.image} />
       </div>
     </Section>
   );

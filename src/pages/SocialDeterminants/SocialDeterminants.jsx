@@ -20,7 +20,7 @@ import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './SocialDeterminants.module.css';
 
 const Img = ({ icon, className }) => (
-  <img src={icon.src} alt="" width={icon.size[0]} height={icon.size[1]} className={className} />
+  <img loading="lazy" decoding="async" src={icon.src} alt="" width={icon.size[0]} height={icon.size[1]} className={className} />
 );
 
 /** The frame's section opener: lime caps eyebrow, 48px title, 18px description. */

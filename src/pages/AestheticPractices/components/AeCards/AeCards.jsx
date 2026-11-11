@@ -14,11 +14,11 @@ function AeCards({ items, variant = 'plain', className }) {
           {variant === 'numbered' ? (
             <div className={styles.head}>
               <span className={styles.number}>{String(index + 1).padStart(2, '0')}</span>
-              <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
             </div>
           ) : (
             <span className={styles.icon}>
-              <img src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={item.icon.src} alt="" width={item.icon.size[0]} height={item.icon.size[1]} />
             </span>
           )}
           <h3 className={styles.title}>{item.title}</h3>

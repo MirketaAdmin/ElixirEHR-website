@@ -11,7 +11,7 @@ function PossibilitiesSection() {
       <ul className={styles.grid}>
         {possibilities.features.map((feature) => (
           <li key={feature.title}>
-            <img
+            <img loading="lazy" decoding="async"
               src={feature.icon}
               alt=""
               width={feature.iconSize[0]}

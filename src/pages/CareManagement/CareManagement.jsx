@@ -22,7 +22,7 @@ import PageSeo from '../../components/seo/PageSeo/PageSeo';
 import styles from './CareManagement.module.css';
 
 const Img = ({ icon, className }) => (
-  <img src={icon.src} alt="" width={icon.size[0]} height={icon.size[1]} className={className} />
+  <img loading="lazy" decoding="async" src={icon.src} alt="" width={icon.size[0]} height={icon.size[1]} className={className} />
 );
 
 /** The frame's section opener: caps eyebrow, 52px title, 18px description. */

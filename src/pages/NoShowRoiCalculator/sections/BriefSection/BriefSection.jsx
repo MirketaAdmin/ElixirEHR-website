@@ -8,7 +8,6 @@ import { Recaptcha, WebToLeadFields } from '../../../../components/forms/WebToLe
 import {
   hasRecaptchaResponse,
   NOSCRIPT_MESSAGE,
-  submissionSource,
   useHydrated,
   useResetOnPageShow,
 } from '../../../../components/forms/WebToLead/webToLeadHelpers';
@@ -71,7 +70,6 @@ function BriefSection({ inputs }) {
       values.role ? `Title / role: ${values.role}` : null,
       `Calculator inputs: ${JSON.stringify(inputs)}`,
       `Calculator results: ${JSON.stringify(computeRoi(inputs))}`,
-      submissionSource(),
     ]
       .filter(Boolean)
       .join('\n');

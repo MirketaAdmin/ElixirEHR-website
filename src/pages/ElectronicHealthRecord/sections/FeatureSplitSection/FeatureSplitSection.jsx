@@ -13,7 +13,7 @@ function FeatureSplitSection({ id, title, paragraphs, image, mediaSide, tone }) 
       aria-labelledby={`${id}-title`}
     >
       <div className={styles.media}>
-        <img src={image.src} alt={image.alt} width="504" height="455" />
+        <img loading="lazy" decoding="async" src={image.src} alt={image.alt} width="504" height="455" />
       </div>
       <div className={styles.content}>
         <h2 id={`${id}-title`} className={styles.title}>

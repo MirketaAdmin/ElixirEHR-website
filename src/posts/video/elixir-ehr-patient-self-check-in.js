@@ -3,7 +3,7 @@
 // (emoji, hashtags, contact lines, social links and the channel sign-off left out; "Self Check-In.With"
 // is run together in the source and is split into two paragraphs here). The card image is the video's
 // YouTube thumbnail.
-import cardImage from '../../assets/posts/video/elixir-ehr-patient-self-check-in/card.jpg';
+import cardImage from '../../assets/posts/video/elixir-ehr-patient-self-check-in/card.webp';
 
 const youtubeId = 'FvK7f8BzxIo';
 

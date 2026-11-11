@@ -58,6 +58,8 @@
 
 .title {
   margin-top: 22px;
+  /* Set here (not only via the h1 base style) so a non-heading title (titleAs) looks the same. */
+  font-family: var(--font-display);
   font-size: 48px;
   font-weight: 700;
   line-height: 72px;

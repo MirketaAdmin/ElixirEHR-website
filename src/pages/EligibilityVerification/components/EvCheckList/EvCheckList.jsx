@@ -14,7 +14,7 @@ function EvCheckList({ items, variant = 'display', className }) {
     <ul className={cn(styles.list, styles[variant], className)}>
       {items.map((item) => (
         <li key={item} className={styles.item}>
-          <img src={icon} alt="" width="24" height="24" className={styles.icon} />
+          <img loading="lazy" decoding="async" src={icon} alt="" width="24" height="24" className={styles.icon} />
           {item}
         </li>
       ))}

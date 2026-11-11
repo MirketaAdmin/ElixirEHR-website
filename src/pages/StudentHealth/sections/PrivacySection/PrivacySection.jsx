@@ -20,7 +20,7 @@ function PrivacySection() {
         </div>
         <aside className={styles.aside}>
           <h3 className={styles.asideTitle}>
-            <img src={aside.icon.src} alt="" width={aside.icon.size[0]} height={aside.icon.size[1]} />
+            <img loading="lazy" decoding="async" src={aside.icon.src} alt="" width={aside.icon.size[0]} height={aside.icon.size[1]} />
             {aside.title}
           </h3>
           <p className={styles.asideText}>{aside.text}</p>

@@ -29,6 +29,7 @@ function InsightsShell({ documentTitle, title, query, onQueryChange, aside, hero
       {hero ?? (
         <PageHero
           {...heroCopy}
+          titleAs="p"
           className={styles.hero}
           media={
             <div className={styles.heroMedia}>
@@ -56,9 +57,10 @@ function InsightsShell({ documentTitle, title, query, onQueryChange, aside, hero
       <InsightsNav />
 
       <Section tone="surface" spacing="none" className={styles.section} aria-labelledby={`${searchId}-title`}>
-        <h2 id={`${searchId}-title`} className={styles.title}>
+        {/* The page's own H1 (the hero title above is shared by every Insights listing). */}
+        <h1 id={`${searchId}-title`} className={styles.title}>
           {title}
-        </h2>
+        </h1>
         <div className={cn(styles.layout, aside && styles.withAside)}>
           <div className={styles.main}>{children}</div>
           {aside && <aside className={styles.aside}>{aside}</aside>}

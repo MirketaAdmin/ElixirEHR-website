@@ -10,7 +10,7 @@ function PillarsStrip() {
         <ul className={styles.list}>
           {vbPillars.map((pillar) => (
             <li key={pillar.title} className={styles.card}>
-              <img src={pillar.icon} alt="" width="40" height="40" />
+              <img loading="lazy" decoding="async" src={pillar.icon} alt="" width="40" height="40" />
               <h2 className={styles.title}>{pillar.title}</h2>
               <p className={styles.text}>{pillar.text}</p>
             </li>

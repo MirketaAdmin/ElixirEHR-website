@@ -37,7 +37,7 @@ function JobOpenings() {
             <p className={styles.department}>{job.department}</p>
             <h3 className={styles.title}>{job.detail ? <Link to={getJobPath(job)}>{job.title}</Link> : job.title}</h3>
             <p className={styles.location}>
-              <img src={locationIcon} alt="" width="14" height="17" />
+              <img loading="lazy" decoding="async" src={locationIcon} alt="" width="14" height="17" />
               {job.location}
             </p>
             <ViewApplyLink job={job} />

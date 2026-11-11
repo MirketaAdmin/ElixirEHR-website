@@ -15,7 +15,7 @@ function CultureSection() {
         {items.map((item) => (
           <li key={item.title} className={styles.card}>
             <span className={styles.tile}>
-              <img src={item.icon} alt="" width="32" height="32" />
+              <img loading="lazy" decoding="async" src={item.icon} alt="" width="32" height="32" />
             </span>
             <h3 className={styles.title}>{item.title}</h3>
             <p className={styles.text}>{item.description}</p>
@@ -23,7 +23,7 @@ function CultureSection() {
         ))}
         <li className={styles.highlight}>
           <span className={styles.circle}>
-            <img src={highlight.icon} alt="" width="40" height="40" />
+            <img loading="lazy" decoding="async" src={highlight.icon} alt="" width="40" height="40" />
           </span>
           <div>
             <h3 className={styles.highlightTitle}>{highlight.title}</h3>

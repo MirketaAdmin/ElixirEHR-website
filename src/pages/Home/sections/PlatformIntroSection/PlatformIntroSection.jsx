@@ -12,8 +12,8 @@ function PlatformIntroSection() {
     <Section spacing="none" className={styles.section} containerClassName={styles.inner}>
       <div className={styles.content}>
         <div className={styles.brand}>
-          <img src={watermark} alt="" width="333" height="90" className={styles.watermark} />
-          <img src={wordmark} alt="Elixir" width="141" height="53" />
+          <img loading="lazy" decoding="async" src={watermark} alt="" width="333" height="90" className={styles.watermark} />
+          <img loading="lazy" decoding="async" src={wordmark} alt="Elixir" width="141" height="53" />
         </div>
         <h2 className={styles.title}>{platformIntro.title}</h2>
         <p className={styles.description}>{platformIntro.description}</p>
@@ -26,7 +26,7 @@ function PlatformIntroSection() {
       <ul className={styles.cards}>
         {platformIntro.cards.map((card) => (
           <li key={card.title} className={cn(styles.card, styles[card.tone])}>
-            <img src={card.icon} alt="" width={card.iconSize[0]} height={card.iconSize[1]} />
+            <img loading="lazy" decoding="async" src={card.icon} alt="" width={card.iconSize[0]} height={card.iconSize[1]} />
             <h3 className={styles.cardTitle}>{card.title}</h3>
             <p className={styles.cardDescription}>{card.description}</p>
           </li>

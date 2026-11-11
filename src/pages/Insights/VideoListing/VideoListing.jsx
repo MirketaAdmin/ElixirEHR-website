@@ -38,11 +38,14 @@ function PlayButton({ post, onPlay, className, size }) {
 function FeaturedVideo({ post, onPlay }) {
   return (
     <article className={styles.featured}>
-      <img src={post.cardImage.src} alt={post.cardImage.alt} className={styles.featuredImage} />
+      <img loading="lazy" decoding="async" src={post.cardImage.src} alt={post.cardImage.alt} className={styles.featuredImage} />
       <PlayButton post={post} onPlay={onPlay} className={styles.featuredPlay} size={40} />
       <div className={styles.featuredBody}>
         {post.label && <span className={styles.featuredTag}>{post.label}</span>}
-        <h3 className={styles.featuredTitle}>{post.title}</h3>
+        {/* The title links to the video's own page (the other cards have a "Watch Video" link). */}
+        <h2 className={styles.featuredTitle}>
+          <Link to={getPostPath(post)}>{post.title}</Link>
+        </h2>
         <p className={styles.featuredText}>{post.excerpt}</p>
       </div>
       {post.duration && (
@@ -59,13 +62,13 @@ function VideoCard({ post, onPlay }) {
   return (
     <article className={styles.card}>
       <div className={styles.media}>
-        <img src={post.cardImage.src} alt={post.cardImage.alt} className={styles.image} />
+        <img loading="lazy" decoding="async" src={post.cardImage.src} alt={post.cardImage.alt} className={styles.image} />
         <PlayButton post={post} onPlay={onPlay} className={styles.play} size={28} />
         {post.duration && <span className={styles.duration}>{post.duration}</span>}
       </div>
       <div className={styles.body}>
         {post.label && <span className={styles.tag}>{post.label}</span>}
-        <h3 className={styles.title}>{post.title}</h3>
+        <h2 className={styles.title}>{post.title}</h2>
         <p className={styles.text}>{post.excerpt}</p>
         <Link to={getPostPath(post)} className={styles.watch}>
           Watch Video<span className="visually-hidden">: {post.title}</span>
@@ -76,10 +79,12 @@ function VideoCard({ post, onPlay }) {
   );
 }
 
-/** /feature-videos — featured video, then two-up video cards. */
+/** /feature-videos — featured video, then every other video as two-up cards. */
 function VideoListing() {
   const posts = useMemo(() => getPosts('video'), []);
-  const listing = useResourceListing(posts, { pageSize: 2, featuredCount: 1, filterFn: byCategory });
+  // Every video is listed on one page (the featured video, then the two-up grid); pagination only
+  // appears if the library grows past the featured video + 24 cards.
+  const listing = useResourceListing(posts, { pageSize: 24, featuredCount: 1, filterFn: byCategory });
   const [playing, setPlaying] = useState(null);
 
   const aside = (
@@ -117,7 +122,7 @@ function VideoListing() {
       )}
       {listing.totalPages > 1 && (
         <div className={styles.pagination}>
-          <Pagination page={listing.page} totalPages={listing.totalPages} onChange={listing.setPage} label="Video pages" />
+          <Pagination linked page={listing.page} totalPages={listing.totalPages} onChange={listing.setPage} label="Video pages" />
         </div>
       )}
       {playing && (

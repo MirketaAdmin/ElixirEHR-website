@@ -32,7 +32,7 @@ function CaliforniaSection() {
           </div>
           <div className={styles.change}>
             <h3 className={styles.changeTitle}>
-              <img src={change.icon.src} alt="" width={change.icon.size[0]} height={change.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={change.icon.src} alt="" width={change.icon.size[0]} height={change.icon.size[1]} />
               {change.title}
             </h3>
             <p className={styles.changeText}>{change.text}</p>

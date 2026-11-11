@@ -10,7 +10,7 @@ function ConnectedCard({ item }) {
   const body = (
     <>
       <span className={styles.tile}>
-        <img src={item.icon} alt="" width="21" height="21" />
+        <img loading="lazy" decoding="async" src={item.icon} alt="" width="21" height="21" />
       </span>
       <h3 className={styles.cardTitle}>{item.title}</h3>
       <p className={styles.cardText}>{item.text}</p>

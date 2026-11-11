@@ -25,14 +25,14 @@ function ConnectedSection() {
             <h3 className={styles.title}>{step.title}</h3>
             <p className={styles.text}>{step.text}</p>
             <p className={styles.label}>
-              <img src={step.icon.src} alt="" width={step.icon.size[0]} height={step.icon.size[1]} />
+              <img loading="lazy" decoding="async" src={step.icon.src} alt="" width={step.icon.size[0]} height={step.icon.size[1]} />
               {step.label}
             </p>
           </li>
         ))}
       </ol>
       <p className={styles.note}>
-        <img src={cloudIcon} alt="" width="22" height="16" />
+        <img loading="lazy" decoding="async" src={cloudIcon} alt="" width="22" height="16" />
         <span>{note}</span>
       </p>
     </Section>

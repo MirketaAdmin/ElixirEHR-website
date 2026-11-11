@@ -1,6 +1,6 @@
 // Visit Prep page (Figma "Visit Prep", 1280 frame), a child page of Kratu AI (/ai-pre-visit-preparation).
 // Copy is reproduced verbatim from the frame; the hero image is cropped from the frame.
-import heroMedia from '../assets/visit-prep/hero-media.png';
+import heroMedia from '../assets/visit-prep/hero-media.webp';
 import shieldIcon from '../assets/kratu-ai/visit-shield.png';
 import globeIcon from '../assets/kratu-ai/visit-globe.png';
 import doesIcon from '../assets/kratu-ai/visit-does.png';
