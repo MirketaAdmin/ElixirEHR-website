@@ -68,12 +68,12 @@ export const mfaAssessment = {
     // The shared contact form's fields, relabelled and reordered as drawn (the frame shows no placeholders).
     fieldNames: ['firstName', 'lastName', 'phone', 'company', 'email', 'message'],
     fieldOverrides: {
-      firstName: { label: 'First Name *', placeholder: '' },
-      lastName: { label: 'Last Name', placeholder: '', required: false },
-      phone: { label: 'Mobile *', placeholder: '', required: true },
-      company: { label: 'Company *', placeholder: '', required: true, wide: false },
-      email: { label: 'Email *', placeholder: '', wide: true },
-      message: { label: 'Description *', placeholder: '', required: true },
+      firstName: { label: 'First Name', placeholder: '' },
+      lastName: { label: 'Last Name', placeholder: '' },
+      phone: { label: 'Mobile', placeholder: '' },
+      company: { label: 'Company', placeholder: '', wide: false },
+      email: { label: 'Email', placeholder: '', wide: true },
+      message: { label: 'Description', placeholder: '' },
     },
     submitLabel: 'Submit',
   },

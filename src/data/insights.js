@@ -30,10 +30,18 @@ export const insightsNav = [
   { label: 'Videos', to: '/feature-videos/' },
 ];
 
+// "The Weekly Briefing" sign-up (Insights sidebars): a Salesforce Web-to-Lead form with the Elixir
+// snippet's two fields. `key` is the field's key in data/webToLead.js (Salesforce name and length).
 export const weeklyBriefing = {
   title: 'The Weekly Briefing',
-  text: 'Clinical AI insights delivered every Tuesday.',
-  placeholder: 'Email Address',
+  text: [
+    'Smarter Clinical Insights. Better Patient Care',
+    'Get the Latest in Healthcare AI and Technology.',
+  ],
+  fields: [
+    { key: 'firstName', label: 'First Name', placeholder: 'First Name', autoComplete: 'given-name' },
+    { key: 'email', label: 'Email Address', placeholder: 'Email Address', type: 'email', autoComplete: 'email' },
+  ],
   submitLabel: 'Subscribe',
 };
 

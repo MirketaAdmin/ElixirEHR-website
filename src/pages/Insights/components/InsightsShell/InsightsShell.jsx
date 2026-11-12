@@ -20,6 +20,13 @@ function InsightsShell({ documentTitle, title, query, onQueryChange, aside, hero
   const searchId = useId();
   const { image, searchPlaceholder, ...heroCopy } = insightsHero;
   const { pathname } = useLocation();
+
+  function showResults(event) {
+    event.preventDefault();
+    event.currentTarget.querySelector('input')?.blur();
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.getElementById(`${searchId}-title`)?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  }
   const seoPath = pathname.replace(/\/$/, '');
 
   return (
@@ -37,11 +44,15 @@ function InsightsShell({ documentTitle, title, query, onQueryChange, aside, hero
             </div>
           }
         >
-          <form role="search" className={styles.search} onSubmit={(event) => event.preventDefault()}>
+          {/* Results filter as you type; they sit below the hero, so Enter (or the search button)
+              scrolls down to them and closes the on-screen keyboard. */}
+          <form role="search" className={styles.search} onSubmit={showResults}>
             <label htmlFor={searchId} className="visually-hidden">
               Search resources
             </label>
-            <Icon name="search" className={styles.searchIcon} />
+            <button type="submit" className={styles.searchButton} aria-label="Search">
+              <Icon name="search" />
+            </button>
             <input
               id={searchId}
               type="search"

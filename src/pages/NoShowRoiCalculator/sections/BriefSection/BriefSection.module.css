@@ -46,6 +46,22 @@
   color: var(--color-heading);
 }
 
+.control:user-invalid {
+  border-color: var(--color-error);
+}
+
+.requiredNote {
+  margin-bottom: 16px;
+  font-family: var(--font-label);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-body);
+}
+
+.asterisk {
+  color: var(--color-error);
+}
+
 .control::placeholder {
   color: #757575;
   opacity: 1;

@@ -18,6 +18,32 @@
   line-height: 20px;
 }
 
+.text + .text {
+  margin-top: 4px;
+}
+
+.requiredNote {
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.input:user-invalid {
+  outline: 2px solid var(--color-error-container);
+}
+
+/* Google's checkbox widget is a fixed 304px wide; it scales down a little in narrow cards. */
+.recaptcha {
+  min-height: 78px;
+}
+
+@media (max-width: 359px) {
+  .recaptcha {
+    transform: scale(0.9);
+    transform-origin: left top;
+  }
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -26,6 +52,7 @@
 }
 
 .input {
+  width: 100%;
   height: 40px;
   padding: 0 16px;
   border: 0;

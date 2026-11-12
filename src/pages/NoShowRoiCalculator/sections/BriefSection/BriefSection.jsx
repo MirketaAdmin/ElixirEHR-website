@@ -8,6 +8,9 @@ import { Recaptcha, WebToLeadFields } from '../../../../components/forms/WebToLe
 import {
   hasRecaptchaResponse,
   NOSCRIPT_MESSAGE,
+  REQUIRED_NOTE,
+  refreshRequiredFields,
+  requiredFieldProps,
   useHydrated,
   useResetOnPageShow,
 } from '../../../../components/forms/WebToLead/webToLeadHelpers';
@@ -85,11 +88,15 @@ function BriefSection({ inputs }) {
         <input ref={(el) => (hidden.current.first = el)} type="hidden" name="first_name" />
         <input ref={(el) => (hidden.current.last = el)} type="hidden" name="last_name" />
         <input ref={(el) => (hidden.current.description = el)} type="hidden" name="description" />
+        {!PRIVATE_PREVIEW && <p className={styles.requiredNote}>{REQUIRED_NOTE}</p>}
         <div className={styles.fields}>
           {fields.map((field) => (
             <div key={field.name}>
               <label htmlFor={`roi-brief-${field.name}`} className={styles.label}>
                 {field.label}
+                <span className={styles.asterisk} aria-hidden="true">
+                  {' *'}
+                </span>
               </label>
               <input
                 id={`roi-brief-${field.name}`}
@@ -98,7 +105,8 @@ function BriefSection({ inputs }) {
                 type={field.type ?? 'text'}
                 placeholder={field.placeholder}
                 autoComplete={field.autoComplete}
-                required={field.required}
+                // Every lead-form field is required (with clear messages; email format checked).
+                {...requiredFieldProps(field.label)}
                 disabled={PRIVATE_PREVIEW}
                 className={styles.control}
               />
@@ -108,6 +116,7 @@ function BriefSection({ inputs }) {
         {!PRIVATE_PREVIEW && <Recaptcha className={styles.recaptcha} onUnavailable={markUnavailable} onExpired={markExpired} />}
         <button
           type="submit"
+          onClick={(event) => refreshRequiredFields(event.currentTarget.form)}
           className={styles.submit}
           disabled={PRIVATE_PREVIEW || !hydrated || status === 'sending' || status === 'unavailable'}
           aria-busy={status === 'sending' || undefined}

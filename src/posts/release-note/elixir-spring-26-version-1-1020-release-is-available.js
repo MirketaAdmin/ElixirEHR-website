@@ -1,9 +1,6 @@
 // Elixir Spring’26 release note (by Neeta, May 21, 2026, "Release Notes"). Body copy is exactly as
-// supplied. TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg are cropped from the home page EHR
-// dashboard photo until the final featured and banner images are supplied — replace the two files
-// (or these imports) only.
-import cardImage from '../../assets/posts/release-note/elixir-spring-26-version-1-1020-release-is-available/card-temp.jpg';
-import heroImage from '../../assets/posts/release-note/elixir-spring-26-version-1-1020-release-is-available/hero-temp.jpg';
+// supplied.
+import featuredImage from '../../assets/posts/release-note/featured/elixir-spring-26-version-1-1020-release-is-available.webp';
 
 const strong = (text) => ({ text, strong: true });
 // "Label – description" entries, as supplied.
@@ -16,12 +13,12 @@ export default {
   publishDate: '2026-05-21',
   author: 'Neeta',
   version: '1.1020',
-  cardImage: { src: cardImage, alt: 'Elixir EHR dashboard open on a laptop in a clinic office' },
+  cardImage: { src: featuredImage, alt: 'Physician and nurse reviewing Elixir EHR together on a laptop in a clinic' },
   heroImage: {
-    src: heroImage,
-    alt: 'Elixir EHR dashboard open on a laptop in a clinic office',
-    width: 757,
-    height: 324,
+    src: featuredImage,
+    alt: 'Physician and nurse reviewing Elixir EHR together on a laptop in a clinic',
+    width: 1672,
+    height: 941,
   },
   content: [
     { type: 'paragraph', text: [strong('Release Date:'), ' May 01, 2026'] },

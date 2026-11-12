@@ -1,10 +1,6 @@
-// Elixir Summer’24 release note (by elixirAdmin, September 2, 2024, "Release Notes"). Body copy is exactly
-// as supplied (the title, repeated at the top of the supplied copy, is the page heading).
-// TEMPORARY IMAGES: card-temp.jpg and hero-temp.jpg are the Spring’26 release note's temporary images
-// (cropped from the home page EHR dashboard photo) until the final featured and banner images are
-// supplied — replace the two files (or these imports) only.
-import cardImage from '../../assets/posts/release-note/elixir-summer-24-version-1-637-release/card-temp.jpg';
-import heroImage from '../../assets/posts/release-note/elixir-summer-24-version-1-637-release/hero-temp.jpg';
+// Elixir Summer’24 release note (by elixirAdmin, September 2, 2024, "Release Notes"). Body copy is
+// exactly as supplied (the title, repeated at the top of the supplied copy, is the page heading).
+import featuredImage from '../../assets/posts/release-note/featured/elixir-summer-24-version-1-637-release.webp';
 
 const strong = (text) => ({ text, strong: true });
 
@@ -14,12 +10,12 @@ export default {
   publishDate: '2024-09-02',
   author: 'elixirAdmin',
   version: '1.637',
-  cardImage: { src: cardImage, alt: 'Elixir EHR dashboard open on a laptop in a clinic office' },
+  cardImage: { src: featuredImage, alt: 'Clinician working in Elixir EHR, with the Summer’24 release highlights: Forms & Notes, Lab Orders, Claims & ERA Management, Payment Collection and Patient Portal' },
   heroImage: {
-    src: heroImage,
-    alt: 'Elixir EHR dashboard open on a laptop in a clinic office',
-    width: 757,
-    height: 324,
+    src: featuredImage,
+    alt: 'Clinician working in Elixir EHR, with the Summer’24 release highlights: Forms & Notes, Lab Orders, Claims & ERA Management, Payment Collection and Patient Portal',
+    width: 1672,
+    height: 941,
   },
   content: [
     { type: 'paragraph', text: [strong('Release Date:'), ' September 02, 2024'] },

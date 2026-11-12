@@ -29,12 +29,17 @@
   margin-top: 44px;
 }
 
-.searchIcon {
+.searchButton {
   position: absolute;
   top: 17px;
   left: 14px;
+  display: flex;
   color: #7b757f;
-  pointer-events: none;
+}
+
+.searchButton:hover,
+.searchButton:focus-visible {
+  color: var(--color-heading);
 }
 
 .searchInput {

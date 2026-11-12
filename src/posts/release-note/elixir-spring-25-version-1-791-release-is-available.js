@@ -1,10 +1,6 @@
-// Elixir Spring’25 release note (by elixirAdmin, May 1, 2025, "Release Notes"). Body copy is exactly as
-// supplied (the title, repeated at the top of the supplied copy, is the page heading). TEMPORARY IMAGES:
-// card-temp.jpg and hero-temp.jpg are the Spring’26 release note's temporary images (cropped from the home
-// page EHR dashboard photo) until the final featured and banner images are supplied — replace the two
-// files (or these imports) only.
-import cardImage from '../../assets/posts/release-note/elixir-spring-25-version-1-791-release-is-available/card-temp.jpg';
-import heroImage from '../../assets/posts/release-note/elixir-spring-25-version-1-791-release-is-available/hero-temp.jpg';
+// Elixir Spring’25 release note (by elixirAdmin, May 1, 2025, "Release Notes"). Body copy is
+// exactly as supplied (the title, repeated at the top of the supplied copy, is the page heading).
+import featuredImage from '../../assets/posts/release-note/featured/elixir-spring-25-version-1-791-release-is-available.webp';
 
 const strong = (text) => ({ text, strong: true });
 // A numbered group label ("1. Dynamic Sections & UI Improvements:") over its list, as supplied.
@@ -20,12 +16,12 @@ export default {
   publishDate: '2025-05-01',
   author: 'elixirAdmin',
   version: '1.791',
-  cardImage: { src: cardImage, alt: 'Elixir EHR dashboard open on a laptop in a clinic office' },
+  cardImage: { src: featuredImage, alt: 'Clinician reviewing a patient chart in Elixir EHR, with the Spring’25 release areas: EHR & Patient Portal, Appointments & Telehealth, Medications & Prescriptions, RCM and System & Usability Enhancements' },
   heroImage: {
-    src: heroImage,
-    alt: 'Elixir EHR dashboard open on a laptop in a clinic office',
-    width: 757,
-    height: 324,
+    src: featuredImage,
+    alt: 'Clinician reviewing a patient chart in Elixir EHR, with the Spring’25 release areas: EHR & Patient Portal, Appointments & Telehealth, Medications & Prescriptions, RCM and System & Usability Enhancements',
+    width: 1672,
+    height: 941,
   },
   content: [
     { type: 'paragraph', text: [strong('Release Date:'), ' May 01, 2025'] },

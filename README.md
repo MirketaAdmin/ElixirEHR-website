@@ -105,7 +105,6 @@ src/
 │   ├── press-releases/      Press Releases listing hero image
 │   └── posts/<type>/<slug>/ Post images (card.png, hero.png, …)
 ├── hooks/                   useMediaQuery / usePrefersReducedMotion, useAutoRotate (timed index for tabs and carousels)
-├── services/                API clients (newsletterService)
 └── utils/                   Small helpers (cn, formatDate)
 ```
 
@@ -152,9 +151,9 @@ Lead forms are Salesforce Web-to-Lead forms. The shared `ContactForm` is on Cont
 - **Diagnostics:** `docs/ELIXIR_SALESFORCE_WEB_TO_LEAD_DIAGNOSTIC_REPORT.md` (what was verified, the Salesforce-side checklist and a live debug test).
 - **Before sending:** the browser checks required fields and email format, and the form will not send until the reCAPTCHA has been completed.
 - **Hidden values:** `components/forms/WebToLead` renders the hidden inputs and keeps the `captcha_settings` timestamp current, as Salesforce's snippet does.
-- **Newsletter:** the Insights and Blog newsletter is separate and still posts to `VITE_NEWSLETTER_ENDPOINT`.
+- **Newsletter:** the Insights "The Weekly Briefing" sign-up is also a Web-to-Lead form (First Name + Email, same hidden fields and reCAPTCHA).
 
-The Insights pages' "Weekly Briefing" sign-up works the same way: `services/newsletterService.js` POSTs `{ email }` to `VITE_NEWSLETTER_ENDPOINT`. Until that variable is set, subscribing shows an error.
+The Insights pages' "Weekly Briefing" sign-up (`pages/Insights/components/WeeklyBriefing`) posts the same way; `VITE_NEWSLETTER_ENDPOINT` and `services/newsletterService.js` are no longer used.
 
 ### Posts (blog, press releases, case studies, release notes, e-books, benchmark surveys, webinars, illustrations, videos)
 Every post type shares one inner-page template, `components/posts/PostDetailTemplate` (built from the Figma "Press Release" detail frame), and is served at a root-level URL:

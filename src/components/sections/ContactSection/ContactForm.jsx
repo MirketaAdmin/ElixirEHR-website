@@ -8,6 +8,10 @@ import { Recaptcha, WebToLeadFields } from '../../forms/WebToLead/WebToLead';
 import {
   hasRecaptchaResponse,
   NOSCRIPT_MESSAGE,
+  PHONE_PATTERN,
+  REQUIRED_NOTE,
+  refreshRequiredFields,
+  requiredFieldProps,
   useHydrated,
   useResetOnPageShow,
 } from '../../forms/WebToLead/webToLeadHelpers';
@@ -73,6 +77,7 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
       {!PRIVATE_PREVIEW && <WebToLeadFields />}
       {intro}
       {PRIVATE_PREVIEW && <p role="note">{PREVIEW_FORM_NOTICE}</p>}
+      {!PRIVATE_PREVIEW && <p className={styles.requiredNote}>{REQUIRED_NOTE}</p>}
       <div className={styles.fields}>
         {fields.map((field) => {
           const id = `contact-${field.name}`;
@@ -81,7 +86,10 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
           return (
             <div key={field.name} className={cn(styles.field, field.wide && styles.wide)}>
               <label htmlFor={id} className={styles.label}>
-                {field.label}
+                {field.label.replace(/\s*\*\s*$/, '')}
+                <span className={styles.asterisk} aria-hidden="true">
+                  {' *'}
+                </span>
               </label>
               <Control
                 id={id}
@@ -90,7 +98,10 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
                 type={field.multiline ? undefined : field.type ?? 'text'}
                 placeholder={field.placeholder}
                 autoComplete={field.autoComplete}
-                required={field.required}
+                // Every lead-form field is required (with clear messages; email and phone formats checked).
+                {...requiredFieldProps(field.label)}
+                pattern={field.type === 'tel' ? PHONE_PATTERN : undefined}
+                inputMode={field.type === 'tel' ? 'tel' : undefined}
                 disabled={PRIVATE_PREVIEW}
                 className={cn(styles.control, field.multiline && styles.textarea)}
               />
@@ -101,6 +112,7 @@ function ContactForm({ intro, fieldNames, fieldOverrides, submitLabel, consent, 
       {!PRIVATE_PREVIEW && <Recaptcha className={styles.recaptcha} onUnavailable={markUnavailable} onExpired={markExpired} />}
       <button
         type="submit"
+        onClick={(event) => refreshRequiredFields(event.currentTarget.form)}
         className={styles.submit}
         disabled={PRIVATE_PREVIEW || !hydrated || status === 'sending' || status === 'unavailable'}
         aria-busy={status === 'sending' || undefined}

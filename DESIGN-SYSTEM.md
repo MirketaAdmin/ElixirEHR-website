@@ -1017,7 +1017,7 @@ Every other item has no page yet and is listed as plain text.
 - **Webinars:** the upcoming webinar is the soonest `event.startDate` still ahead; All Resources uses the same rule.
 - **All Resources:** the lead row is the newest e-book, the next webinar and the newest video. The feed takes the newest remaining post of each type in turn, 3 at a time, with "Load More Resources".
 - **Illustrations:** "SVG" and "PNG" download `post.files.svg` / `post.files.png`. Until a post has those files, they open the illustration's page, which shows the image.
-- **Weekly Briefing:** posts to `VITE_NEWSLETTER_ENDPOINT`.
+- **Weekly Briefing:** a Salesforce Web-to-Lead form (First Name + Email; Elixir snippet of 12 Nov 2026).
 
 **Visual check:** each page was rendered at 1280 and compared band by band with its export. Where the data matches (heroes, nav, headings, sidebars, card geometry, text rows), positions agree within 0–2px. Remaining differences come from data: the frames' placeholder counts and pagination, and on All Resources, sample copy that differs from the other frames (question 83).
 
@@ -2254,7 +2254,7 @@ Every lead form posts natively to Salesforce Web-to-Lead with the values from th
 
 **Testing:** the site key is limited to Elixir's domains, so locally the widget shows "Localhost is not in the list of supported domains". Each form was tested with the Salesforce request intercepted and aborted, so no lead was created.
 
-`services/contactService.js` and `VITE_CONTACT_ENDPOINT` were removed. The newsletter is not a lead form and still uses `VITE_NEWSLETTER_ENDPOINT`.
+`services/contactService.js` and `VITE_CONTACT_ENDPOINT` were removed. Since 12 Nov 2026 the Weekly Briefing newsletter is a Web-to-Lead form too; `VITE_NEWSLETTER_ENDPOINT` is no longer used.
 
 ## Open questions for the designer (blocking "pixel-perfect")
 1. Confirm Plus Jakarta Sans for card titles and stat numbers in Figma Inspect (identified from the export).

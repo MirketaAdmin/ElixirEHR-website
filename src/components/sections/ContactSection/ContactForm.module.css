@@ -72,6 +72,18 @@
   color: var(--color-heading);
 }
 
+.requiredNote {
+  margin-bottom: 16px;
+  font-family: var(--font-label);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-body);
+}
+
+.asterisk {
+  color: var(--color-error);
+}
+
 .consent {
   margin-top: 16px;
   font-family: var(--font-label);
