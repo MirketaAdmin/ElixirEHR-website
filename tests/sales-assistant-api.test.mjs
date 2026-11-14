@@ -91,7 +91,28 @@ test('Groq uses fixed server-only endpoint and Bearer auth with a supported JSON
   assert.equal(outgoing.headers.Authorization, 'Bearer test-placeholder-key');
   assert.equal(outgoing.headers['api-key'], undefined);
   assert.equal(outgoing.payload.model, 'openai/gpt-oss-20b');
-  assert.equal(outgoing.payload.response_format.type, 'json_object');
+  assert.equal(outgoing.payload.response_format.type, 'json_schema');
+  const format = outgoing.payload.response_format.json_schema;
+  assert.equal(format.strict, true);
+  assert.equal(format.schema.additionalProperties, false);
+  assert.deepEqual(format.schema.required, Object.keys(format.schema.properties));
+  assert.equal(format.schema.properties.qualification.type, 'object');
+  assert.equal(format.schema.properties.qualification.additionalProperties, false);
+  assert.deepEqual(format.schema.properties.qualification.required, ['organizationType', 'currentSystem', 'salesforceUsage', 'size', 'primaryNeed', 'timeline']);
+  assert.deepEqual(format.schema.properties.qualification.properties.size.type, ['string', 'null']);
+  assert.equal(outgoing.payload.tools, undefined);
+});
+
+test('licensing questions use strict replies, retain literal headcount and forbid invented license rules', async () => {
+  let instructions;
+  const handler = createChatHandler({ env: { ...env, ASSISTANT_PROVIDER: 'groq', GROQ_MODEL: 'openai/gpt-oss-20b', GROQ_API_KEY: 'test-placeholder-key' }, knowledge: knowledge.map((entry) => ({ ...entry, content: 'Clinic EHR product and licensing information must be confirmed.' })), fetchImpl: async (_url, options) => {
+    instructions = JSON.parse(options.body).messages[0].content;
+    return new Response(JSON.stringify({ choices: [{ finish_reason: 'stop', message: { content: JSON.stringify({ answer: 'The team needs to confirm licensing. Which roles need access?', citationIds: ['ehr'], qualification: { organizationType: 'healthcare clinic', currentSystem: null, salesforceUsage: null, size: '40 people', primaryNeed: null, timeline: null }, nextField: 'currentSystem', intent: 'explore' }) } }] }));
+  } });
+  const result = await handler({ ...body, messages: [{ role: 'user', content: 'We are a 40 people xyz healthcare clinic, we wanted to understand how Elixir can help and how many licenses we need' }] });
+  assert.equal(result.status, 200);
+  assert.deepEqual(result.body.qualification, { organizationType: 'healthcare clinic', size: '40 people' });
+  assert.match(instructions, /Do not infer a license count from headcount/);
 });
 
 test('Groq quota errors return a sanitized retryable response instead of losing the conversation', async () => {

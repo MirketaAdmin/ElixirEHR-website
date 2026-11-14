@@ -15,7 +15,9 @@ Production builds default to the assistant being off, including on private-previ
 
 ## Hosted model adapter
 
-The browser calls same-origin `POST /api/chat`; credentials never enter the browser bundle. The API supports Groq and Azure v1 chat-completions with validated JSON replies. The selected model must support JSON-object responses and `max_completion_tokens`.
+The browser calls same-origin `POST /api/chat`; credentials never enter the browser bundle. The API supports Groq and Azure v1 chat-completions with validated JSON replies. Groq GPT-OSS 20B/120B use strict JSON-schema responses with required, closed objects and nullable unknown qualification fields. This replaces JSON-object mode, which was observed returning Groq HTTP400 `tool_use_failed` for a clinic licensing question with no tools configured. Azure and other Groq models retain JSON-object mode. The selected model must support its configured response format and `max_completion_tokens`. Timeouts, output-length bounds and failure handling still apply.
+
+Clinic headcount does not establish a license count. When approved licensing rules are unavailable, the assistant must ask which staff roles need access and explain that the Elixir team confirms licensing; it must not assume one license per employee or provider.
 
 Required server-side application settings:
 
@@ -83,4 +85,4 @@ npm run build
 
 These automated checks validate the adapter contract using controlled transports. Real Groq smoke checks use synthetic questions without patient or visitor data. CRM delivery and calendar availability are not enabled or verified by this integration.
 
-Provider references: [Groq OpenAI compatibility](https://console.groq.com/docs/openai), [Groq GPT-OSS 20B](https://console.groq.com/docs/model/openai/gpt-oss-20b), [Groq shared rate limits](https://console.groq.com/docs/rate-limits), [encrypted SWA settings](https://learn.microsoft.com/en-us/azure/static-web-apps/application-settings), [managed Functions limitations](https://learn.microsoft.com/en-us/azure/static-web-apps/apis-functions), [Key Vault pricing](https://azure.microsoft.com/en-gb/pricing/details/key-vault/), [Azure chat REST contract](https://learn.microsoft.com/en-us/azure/foundry/openai/latest).
+Provider references: [Groq OpenAI compatibility](https://console.groq.com/docs/openai), [Groq strict structured responses](https://console.groq.com/docs/structured-outputs), [Groq GPT-OSS 20B](https://console.groq.com/docs/model/openai/gpt-oss-20b), [Groq shared rate limits](https://console.groq.com/docs/rate-limits), [encrypted SWA settings](https://learn.microsoft.com/en-us/azure/static-web-apps/application-settings), [managed Functions limitations](https://learn.microsoft.com/en-us/azure/static-web-apps/apis-functions), [Key Vault pricing](https://azure.microsoft.com/en-gb/pricing/details/key-vault/), [Azure chat REST contract](https://learn.microsoft.com/en-us/azure/foundry/openai/latest).
