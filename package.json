@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
     "lint": "oxlint",
+    "test:assistant": "node --test tests/sales-assistant-*.test.mjs",
+    "assistant:api": "node scripts/assistant-api.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

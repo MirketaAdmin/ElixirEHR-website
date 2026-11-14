@@ -1,6 +1,6 @@
 # Elixir Sales Assistant Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Build the local sales-assistant preview and a configurable, server-side Azure-hosted model API adapter.
 
@@ -34,11 +34,11 @@
 
 **Interfaces:** `validateChatRequest(body)` returns bounded `{messages, qualification, skipped, sourcePath}` or throws a public validation error. `normalizeChatReply(value, sources)` returns `{answer, citations, qualification, nextField, intent}` using only recognized fields and trusted source URLs. `initialConversation(sourcePath)`, `conversationReducer(state,event)`, `buildLeadDescription(state)`, `nextQualificationField(qualification,skipped)`, `sampleReply(request)` are pure functions. Qualification keys: `organizationType`, `currentSystem`, `salesforceUsage`, `size`, `primaryNeed`, `timeline`; intent values: `explore`, `demo`, `support`, `decline`.
 
-- [ ] Write tests for request bounds, untrusted role/field rejection, citation filtering, explicit corrections and skipped fields, source-path sanitization, lead description, and deterministic sample follow-up behavior.
-- [ ] Run `node --test tests/sales-assistant-state.test.mjs`; confirm missing-feature failures.
-- [ ] Implement pure contracts, reducer and sample adapter. Reducer events explicitly distinguish pending request, success, failure, restart and visitor contact/qualification edits. A request generation ID prevents stale completion after restart.
-- [ ] Run the state tests and verify PASS.
-- [ ] Commit only Task 1 files.
+- [x] Write tests for request bounds, untrusted role/field rejection, citation filtering, explicit corrections and skipped fields, source-path sanitization, lead description, and deterministic sample follow-up behavior.
+- [x] Run `node --test tests/sales-assistant-state.test.mjs`; confirm missing-feature failures.
+- [x] Implement pure contracts, reducer and sample adapter. Reducer events explicitly distinguish pending request, success, failure, restart and visitor contact/qualification edits. A request generation ID prevents stale completion after restart.
+- [x] Run the state tests and verify PASS.
+- [x] Commit only Task 1 files.
 
 ### Task 2: Hosted model endpoint and local API runner
 
@@ -46,11 +46,11 @@
 
 **Interfaces:** `retrieveKnowledge(messages, entries)` returns approved relevant entries only. `createHostedModel({env,fetchImpl})` exposes `complete(request,sources)` using Azure's `/openai/v1/chat/completions` endpoint and a bounded timeout. `createChatHandler({env,fetchImpl,knowledge})` returns async handler `(body) => {status,body,headers}`; no secret/upstream-body logging or secret-bearing error responses. Function wrapper maps this to Azure HTTP context. Standalone runner listens on loopback for local integration checks.
 
-- [ ] Write tests for disabled/missing configuration, draft-only knowledge, input limits, invalid endpoint configuration, timeout/upstream failure sanitization, bounded context, grounded citation normalization and the real outgoing REST contract using an injected fetch transport.
-- [ ] Run `node --test tests/sales-assistant-api.test.mjs`; confirm missing-feature failures.
-- [ ] Implement retrieval, hosted transport and HTTP bindings. Gate paid calls with explicit server-side enablement; default knowledge collection is empty pending approval. Include conservative per-instance admission control but document that production requires deployment-level abuse controls.
-- [ ] Run both Node test files; verify PASS. Exercise the loopback HTTP runner with no configured model and confirm a useful unavailable response with no external call.
-- [ ] Commit only Task 2 files.
+- [x] Write tests for disabled/missing configuration, draft-only knowledge, input limits, invalid endpoint configuration, timeout/upstream failure sanitization, bounded context, grounded citation normalization and the real outgoing REST contract using an injected fetch transport.
+- [x] Run `node --test tests/sales-assistant-api.test.mjs`; confirm missing-feature failures.
+- [x] Implement retrieval, hosted transport and HTTP bindings. Gate paid calls with explicit server-side enablement; default knowledge collection is empty pending approval. Include conservative per-instance admission control but document that production requires deployment-level abuse controls.
+- [x] Run both Node test files; verify PASS. Exercise the loopback HTTP runner with no configured model and confirm a useful unavailable response with no external call.
+- [x] Commit only Task 2 files.
 
 ### Task 3: Accessible website widget and reviewable handoff
 
@@ -58,8 +58,8 @@
 
 **Interfaces:** Frontend `requestReply(request,{mode,signal})` validates the reply and chooses sample mode only in explicit local/preview configuration; hosted mode calls same-origin `/api/chat`. Launcher is off by default in production unless explicitly enabled with `VITE_ELIXIR_ASSISTANT_MODE=hosted`. `WebToLeadFields({sourceUrl})` adds an optional sanitized source override while preserving all defaults. Lead review uses existing CRM field names, editable qualification/contact summary, optional phone, explicit confirmation and current CAPTCHA. Submission additionally requires explicit release configuration and is blocked in sample/private preview.
 
-- [ ] Write transport/state tests for malformed response, network failure, mode safety and cancellation; run and confirm failure. Write a local browser flow check for missing launcher, keyboard use, sample multi-turn conversation, editable recap, route persistence and disabled external submissions; run before the widget exists and confirm the expected missing-widget failure.
-- [ ] Implement the lazy launcher, accessible dialog, transcript with plain text/trusted links, progressive qualification controls, error/retry flow and editable review. Keep long histories bounded for API requests while retaining visitor-visible conversation in temporary state.
-- [ ] Configure local Vite proxy for the optional loopback API, test/dev scripts, sample/hosted settings and operational instructions. Document actual provider config, content approval, deployment requirements and remaining real-service verification steps.
-- [ ] Run all Node tests, `npm run lint`, `npm run build`, and local browser checks at desktop/mobile widths. Inspect screenshots and browser console; verify sample mode makes no external model/CRM/calendar requests.
-- [ ] Commit Task 3 files; mark plan complete with evidence. Dispatch one independent whole-branch reviewer, fix material findings with focused regression tests, then provide local preview instructions and the remaining live configuration inputs. Do not merge, push or deploy.
+- [x] Write transport/state tests for malformed response, network failure, mode safety and cancellation; run and confirm failure. Write a local browser flow check for missing launcher, keyboard use, sample multi-turn conversation, editable recap, route persistence and disabled external submissions; run before the widget exists and confirm the expected missing-widget failure.
+- [x] Implement the lazy launcher, accessible dialog, transcript with plain text/trusted links, progressive qualification controls, error/retry flow and editable review. Keep long histories bounded for API requests while retaining visitor-visible conversation in temporary state.
+- [x] Configure local Vite proxy for the optional loopback API, test/dev scripts, sample/hosted settings and operational instructions. Document actual provider config, content approval, deployment requirements and remaining real-service verification steps.
+- [x] Run all Node tests, `npm run lint`, `npm run build`, and local browser checks at desktop/mobile widths. Inspect screenshots and browser console; verify sample mode makes no external model/CRM/calendar requests.
+- [x] Commit Task 3 files; mark plan complete with evidence. Dispatch one independent whole-branch reviewer, fix material findings with focused regression tests, then provide local preview instructions and the remaining live configuration inputs. Do not merge, push or deploy.
