@@ -1,0 +1,7 @@
+{
+  "name": "elixir-assistant-api",
+  "private": true,
+  "version": "0.1.0",
+  "engines": { "node": ">=20" },
+  "description": "Azure Functions HTTP bindings; model requests use native fetch."
+}
