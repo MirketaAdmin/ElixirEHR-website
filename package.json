@@ -9,6 +9,7 @@
     "lint": "oxlint",
     "test:assistant": "node --test tests/sales-assistant-*.test.mjs",
     "assistant:api": "node scripts/assistant-api.mjs",
+    "build:team-preview": "node scripts/build-team-preview.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

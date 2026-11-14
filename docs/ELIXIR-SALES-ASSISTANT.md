@@ -46,6 +46,14 @@ There is no live calendar integration in this increment. A preferred demo time i
 
 ## Deploying later
 
+### Existing public team preview
+
+The Azure app named `elixir-website-preview` also serves the live custom domain. Its **default/production environment must not be used for testing**. The existing named environment `latest` is the separate public team link: `https://thankful-mud-07aadb71e-latest.westus2.3.azurestaticapps.net`.
+
+To sync a team preview, first verify the live deployed commit/artifact and fetch its current `staticwebapp.config.json` from the owning deployment checkout into a local scratch file. Then run `npm run build:team-preview -- <routing-config.json>`. This builds both client and SSR in preview mode, enables sample assistant replies, disables lead submission, preserves the live routing rules, removes production tracking from every HTML page, adds noindex metadata/headers and disallow robots policy, and adds a CSP blocking submissions and external script/connect targets. The artifact's `preview-info.json` records the live source baseline and feature revision.
+
+Deploy this **static artifact only** with the existing authenticated SWA CLI and explicit `--env latest`. Do not deploy an API or change application settings for this sample review. Read any deployment credential directly into the deploy process environment; never write it to an artifact or command argument. After deployment verify anonymous page/deep-link/asset access, assistant interaction and disabled forms, then recheck that live artifact hashes are unchanged.
+
 Azure HTTP bindings live in `api/chat/function.json`, `api/chat/index.cjs` and `api/host.json`; the dependency-free handler is contained in `api/`. Use a supported Azure Functions Node runtime with native fetch (Node 20 or later; verify current Azure support before deployment). This uses the supported function.json programming model, not the `@azure/functions` registration model.
 
 Deployment must package **both** `dist/` and `api/`; the existing static-only deployment process is not automatically sufficient. Verify the actual Azure host/API deployment path, route behavior and environment settings before release. Do not copy a bare upstream build over an approved protected preview configuration.
