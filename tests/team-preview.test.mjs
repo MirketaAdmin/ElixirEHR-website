@@ -27,6 +27,9 @@ test('team preview retains live routes, strips tracking from all HTML and blocks
     assert.equal(config.globalHeaders['X-Robots-Tag'], 'noindex, nofollow, noarchive');
     assert.match(readFileSync(join(dir, 'robots.txt'), 'utf8'), /Disallow: \//);
     assert.equal(JSON.parse(readFileSync(join(dir, 'preview-info.json'))).baseRevision, 'live-sha');
+    const manyRoutes = { ...routingConfig, routes: Array.from({ length: 157 }, (_, n) => ({ route: `/legacy-${n}-elixir-article-path*`, redirect: `/blog/new-healthcare-article-${n}-updated/`, statusCode: 301 })) };
+    prepareTeamPreview({ distDir: dir, routingConfig: manyRoutes, environment: 'latest' });
+    assert.ok(Buffer.byteLength(readFileSync(join(dir, 'staticwebapp.config.json'))) <= 20 * 1024, 'Preview config must fit Azure’s 20 KB limit with the full redirect collection.');
     assert.throws(() => prepareTeamPreview({ distDir: dir, routingConfig, environment: 'production' }), /latest/);
   } finally { rmSync(dir, { recursive: true }); }
 });

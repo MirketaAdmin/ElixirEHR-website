@@ -27,7 +27,9 @@ export function prepareTeamPreview({ distDir, routingConfig, revision, baseRevis
   }
   const csp = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self' https:; connect-src 'self'; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; form-action 'none'; object-src 'none'; base-uri 'self'";
   const config = { ...routingConfig, globalHeaders: { ...routingConfig.globalHeaders, 'X-Robots-Tag': 'noindex, nofollow, noarchive', 'Content-Security-Policy': csp } };
-  fs.writeFileSync(path.join(distDir, 'staticwebapp.config.json'), `${JSON.stringify(config, null, 2)}\n`);
+  const configJson = `${JSON.stringify(config)}\n`;
+  if (Buffer.byteLength(configJson) > 20 * 1024) throw new Error('Preview routing configuration exceeds Azure’s 20 KB limit.');
+  fs.writeFileSync(path.join(distDir, 'staticwebapp.config.json'), configJson);
   fs.writeFileSync(path.join(distDir, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
   const manifest = { environment, featureRevision: revision, baseRevision, assistantMode: 'sample', externalSubmissions: false, apiIncluded: false };
   fs.writeFileSync(path.join(distDir, 'preview-info.json'), `${JSON.stringify(manifest, null, 2)}\n`);
