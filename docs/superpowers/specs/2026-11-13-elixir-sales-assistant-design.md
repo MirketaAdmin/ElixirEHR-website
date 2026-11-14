@@ -1,6 +1,6 @@
 # Elixir visitor sales assistant — proposed design
 
-Status: proposed; awaiting the user's design approval. No product implementation or deployment is authorized by this document alone.
+Status: approved for implementation by the user's November 13, 2026 direction to proceed with the hosted model API. Production release and external-service activation remain separate integration gates.
 
 ## Intent and confirmed scope
 
