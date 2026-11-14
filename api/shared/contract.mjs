@@ -10,6 +10,10 @@ export const QUALIFICATION_FIELDS = {
 const fields = Object.keys(QUALIFICATION_FIELDS);
 export const MAX_MESSAGES = 24;
 export const MAX_USER_LENGTH = 2000;
+export function isExplicitDemoRequest(text) {
+  if (/\b(?:no|not)\s+(?:a\s+)?(?:demo|meeting|call)\b|\b(?:don't|do not|don’t|never)\s+(?:want|need|request|book|schedule|arrange|contact)\b/i.test(text)) return false;
+  return /\b(?:request|arrange|book|schedule|want|like|need)\b.{0,40}\b(?:demo|meeting|call)\b|\bcontact me\b/i.test(text);
+}
 
 export function safeSourcePath(value) {
   if (typeof value !== 'string' || !value.startsWith('/') || value.startsWith('//') || value.includes('\\')) return '/';
@@ -44,7 +48,8 @@ export function validateChatRequest(body) {
   });
   if (messages.at(-1).role !== 'user' || messages.reduce((n, message) => n + message.content.length, 0) > 18000) throw new Error('Please start a new conversation.');
   if (body.skipped !== undefined && (!Array.isArray(body.skipped) || body.skipped.length > fields.length || body.skipped.some((field) => !fields.includes(field)))) throw new Error('Invalid skipped question.');
-  return { messages, qualification: cleanFacts(body.qualification, true), skipped: [...new Set(body.skipped ?? [])], sourcePath: safeSourcePath(body.sourcePath) };
+  if (body.contactPreference !== undefined && !['unknown', 'declined', 'requested'].includes(body.contactPreference)) throw new Error('Invalid contact preference.');
+  return { messages, qualification: cleanFacts(body.qualification, true), skipped: [...new Set(body.skipped ?? [])], sourcePath: safeSourcePath(body.sourcePath), contactPreference: body.contactPreference ?? 'unknown' };
 }
 
 export function normalizeChatReply(value, sources = []) {

@@ -13,6 +13,7 @@ export function createHostedModel({ env, fetchImpl = fetch }) {
         'Return a JSON object with answer (plain text, max 4000 chars), citationIds (only IDs of sources actually used), qualification (only visitor-stated exact phrases, max 160 chars per field), nextField (an unanswered and unskipped field or null), and intent (explore, demo, support or decline). No HTML or Markdown links.',
         `Qualification questions: ${JSON.stringify(QUALIFICATION_FIELDS)}`,
         `Known visitor facts: ${JSON.stringify(request.qualification)}. Skipped questions: ${JSON.stringify(request.skipped)}.`,
+        `Contact preference: ${request.contactPreference}. When declined, do not invite contact, ask for contact information or suggest a demo. The application changes this preference only after a visitor-initiated request.`,
         `Approved knowledge data: ${JSON.stringify(sources.map(({ id, title, content }) => ({ id, title, content })))}`,
       ].join('\n');
       const response = await fetchImpl(`${endpoint.origin}/openai/v1/chat/completions`, {

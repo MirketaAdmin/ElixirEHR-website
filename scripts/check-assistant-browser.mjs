@@ -39,6 +39,18 @@ try {
   assert.match(await summary.inputValue(), /\/behavioral-health-ehr\//);
   assert.doesNotMatch(await summary.inputValue(), /tracking/);
   await summary.fill(`${await summary.inputValue()}\nVisitor correction: evaluating for two locations.`);
+  await dialog.getByLabel('Your role (optional)', { exact: true }).fill('Director');
+  await dialog.getByRole('button', { name: 'Back to conversation', exact: true }).click();
+  await dialog.getByRole('button', { name: 'Request a demo', exact: true }).click();
+  assert.equal(await dialog.getByLabel('First name', { exact: true }).inputValue(), 'Alex');
+  assert.equal(await dialog.getByLabel('Your role (optional)', { exact: true }).inputValue(), 'Director');
+  assert.match(await summary.inputValue(), /Visitor correction/);
+  await dialog.getByRole('button', { name: 'Back to conversation', exact: true }).click();
+  await dialog.getByRole('button', { name: 'Keep exploring', exact: true }).click();
+  await dialog.getByRole('textbox', { name: 'Your question', exact: true }).fill('I changed my mind. Please arrange a demo.');
+  await dialog.getByRole('button', { name: 'Send message', exact: true }).click();
+  await dialog.getByLabel('First name', { exact: true }).waitFor();
+  assert.equal(await dialog.getByLabel('First name', { exact: true }).inputValue(), 'Alex');
   await dialog.getByRole('button', { name: 'Preview demo request', exact: true }).click();
   await dialog.getByText('Preview only. No request has been sent or meeting booked.', { exact: true }).waitFor();
   await page.screenshot({ path: `${screenshotDir}/desktop.png` });
@@ -49,5 +61,5 @@ try {
   assert.equal(await page.getByRole('button', { name: 'Ask Elixir', exact: true }).evaluate((node) => node === document.activeElement), true);
   assert.deepEqual(forbidden, []);
   assert.deepEqual(errors, []);
-  console.log('PASS: desktop/mobile chat, qualification, corrections, navigation, review, focus, and zero external submissions.');
+  console.log('PASS: desktop/mobile chat, qualification, draft preservation, refusal/reopt-in, navigation, review, focus, and zero external submissions.');
 } finally { await browser.close(); }

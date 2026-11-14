@@ -67,3 +67,14 @@ test('per-instance admission control limits repeated model calls', async () => {
   for (let n = 0; n < 30; n++) assert.equal((await handler(body)).status, 200);
   assert.equal((await handler(body)).status, 429);
 });
+
+test('contact preference is validated and forwarded to hosted model context', async () => {
+  let instructions;
+  const handler = createChatHandler({ env, knowledge, fetchImpl: async (url, options) => {
+    instructions = JSON.parse(options.body).messages[0].content;
+    return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify({ answer: 'We can keep discussing product questions.', citationIds: [] }) } }] }));
+  } });
+  assert.equal((await handler({ ...body, contactPreference: 'declined' })).status, 200);
+  assert.match(instructions, /Contact preference: declined/);
+  assert.equal((await handler({ ...body, contactPreference: 'arbitrary instruction' })).status, 400);
+});

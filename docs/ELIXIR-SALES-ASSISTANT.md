@@ -9,7 +9,7 @@ npm ci --ignore-scripts --no-audit --no-fund
 npm run dev -- --host 127.0.0.1
 ```
 
-Open the local site and choose **Ask Elixir**. Development defaults to explicitly labeled sample replies. Product questions, optional qualification, skipping, contact refusal, editable contact/request recap, navigation and restart can be exercised. The preview never sends a model call, CRM submission or booking. It holds conversation/contact state in memory and clears it on refresh.
+Open the local site and choose **Ask Elixir**. Development defaults to explicitly labeled sample replies. Product questions, optional qualification, skipping, contact refusal, editable contact/request recap, navigation and restart can be exercised. The preview never sends a model call, CRM submission or booking. It holds conversation/contact state in memory and clears it on refresh. Back/reopen and pending replies preserve contact drafts. A visitor may request a demo after previously declining contact. That preference is included in bounded model context, so history trimming does not erase it.
 
 Production builds default to the assistant being off, including on private-preview hosts. `VITE_ELIXIR_ASSISTANT_MODE=sample` does not enable sample replies on the public production host. When explicitly enabled on a private-preview mode/host, the widget uses sample replies. `VITE_ELIXIR_ASSISTANT_MODE=off` disables the widget everywhere. A hosted production build must explicitly use `VITE_ELIXIR_ASSISTANT_MODE=hosted`.
 
@@ -63,6 +63,8 @@ npm run build
 ```
 
 `scripts/check-assistant-browser.mjs` checks the local sample flow at desktop/mobile widths, optional qualification, editable recap, original page attribution after navigation, Escape/focus restoration, no browser exceptions and zero model/CRM/calendar requests. It uses an independently installed Playwright package and browser: set `PLAYWRIGHT_MODULE_PATH` and `CHROME_EXECUTABLE` when those are not on the default resolution paths. `ASSISTANT_TEST_URL` and `ASSISTANT_SCREENSHOT_DIR` are optional overrides.
+
+`scripts/check-assistant-hosted-browser.mjs` exercises the hosted UI against a controlled same-origin response fixture: a pending response while a draft is edited, adaptive/null qualification questions, contact refusal and subsequent explicit opt-in. Start a second local Vite instance with `VITE_ELIXIR_ASSISTANT_MODE=hosted` on port 5174 (or set `ASSISTANT_HOSTED_TEST_URL`). This test intercepts `/api/chat` and never calls an actual model.
 
 These checks validate the adapter contract using a controlled transport, not real Azure inference, CRM delivery or calendar availability. Those require the separately configured services and their explicit integration checks.
 

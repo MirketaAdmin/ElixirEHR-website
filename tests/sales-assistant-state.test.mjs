@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validateChatRequest, normalizeChatReply, safeSourcePath } from '../api/shared/contract.mjs';
-import { initialConversation, conversationReducer, buildLeadDescription, nextQualificationField } from '../src/features/sales-assistant/conversation.mjs';
+import { validateChatRequest, normalizeChatReply, safeSourcePath, isExplicitDemoRequest } from '../api/shared/contract.mjs';
+import { initialConversation, conversationReducer, buildLeadDescription, nextQualificationField, chatRequest } from '../src/features/sales-assistant/conversation.mjs';
 import { sampleReply } from '../src/features/sales-assistant/sample.mjs';
 
 const request = () => ({ messages: [{ role: 'user', content: 'We use Epic' }], qualification: {}, skipped: [], sourcePath: '/behavioral-health/?tracking=secret#contact' });
@@ -59,4 +59,55 @@ test('sample adapter labels replies and follows known facts rather than asking t
   assert.match(reply.answer, /sample/i);
   assert.equal(sampleReply({ ...request(), messages: [{ role: 'user', content: 'Please arrange a demo' }] }).intent, 'demo');
   assert.equal(sampleReply({ ...request(), messages: [{ role: 'user', content: 'I need support for my existing account' }] }).intent, 'support');
+});
+
+test('lead drafts survive back/reopen and pending replies do not dismiss an explicitly opened review', () => {
+  let state = conversationReducer(initialConversation('/'), { type: 'request', id: 1, text: 'Tell me about EHR' });
+  state = conversationReducer(state, { type: 'review', open: true });
+  for (const [field, value] of Object.entries({ firstName: 'Alex', email: 'sample@example.com', role: 'Director', preferredTime: 'Tuesday, Pacific', summary: 'Please discuss two locations.' })) {
+    state = conversationReducer(state, { type: 'draft', field, value });
+  }
+  state = conversationReducer(state, { type: 'success', id: 1, reply: { answer: 'A reply', intent: 'explore', qualification: {}, nextField: null } });
+  assert.equal(state.showReview, true);
+  state = conversationReducer(state, { type: 'review', open: false });
+  state = conversationReducer(state, { type: 'review', open: true });
+  assert.equal(state.leadDraft.firstName, 'Alex');
+  assert.equal(state.leadDraft.role, 'Director');
+  assert.equal(state.leadDraft.summary, 'Please discuss two locations.');
+  assert.equal(state.leadDraft.preferredTime, 'Tuesday, Pacific');
+  assert.equal(conversationReducer(state, { type: 'restart' }).leadDraft.email, '');
+});
+
+test('refusal survives history trimming and a later explicit demo request reopts in', () => {
+  let state = conversationReducer(initialConversation('/'), { type: 'decline' });
+  for (let n = 0; n < 30; n++) state = { ...state, messages: [...state.messages, { role: 'user', content: `Question ${n}` }, { role: 'assistant', content: 'A reply' }] };
+  const request = chatRequest(state, 'Tell me more');
+  assert.equal(request.contactPreference, 'declined');
+  assert.ok(request.messages.length <= 24);
+  state = conversationReducer(state, { type: 'request', id: 100, text: 'I changed my mind. Please arrange a demo.' });
+  state = conversationReducer(state, { type: 'success', id: 100, reply: { answer: 'Please review your request', intent: 'demo', qualification: {}, nextField: null } });
+  assert.equal(state.contactDeclined, false);
+  assert.equal(state.contactPreference, 'requested');
+  assert.equal(state.showReview, true);
+});
+
+test('negative demo statements are not treated as an explicit contact opt-in', () => {
+  assert.equal(isExplicitDemoRequest('I do not want a demo'), false);
+  assert.equal(isExplicitDemoRequest('Please do not contact me'), false);
+  assert.equal(isExplicitDemoRequest('Please arrange a demo'), true);
+  assert.equal(sampleReply({ ...request(), messages: [{ role: 'user', content: 'I do not want a demo' }] }).intent, 'decline');
+});
+
+test('the selected qualification question follows the response, validates known/skipped facts and respects support/null', () => {
+  let state = conversationReducer(initialConversation('/'), { type: 'request', id: 1, text: 'Timing question' });
+  state = conversationReducer(state, { type: 'success', id: 1, reply: { answer: 'When?', intent: 'explore', qualification: {}, nextField: 'timeline' } });
+  assert.equal(state.nextField, 'timeline');
+  state = conversationReducer(state, { type: 'skip', field: 'timeline' });
+  assert.equal(state.nextField, null);
+  state = conversationReducer(state, { type: 'request', id: 2, text: 'Support please' });
+  state = conversationReducer(state, { type: 'success', id: 2, reply: { answer: 'Contact support', intent: 'support', qualification: {}, nextField: 'organizationType' } });
+  assert.equal(state.nextField, null);
+  state = conversationReducer(state, { type: 'request', id: 3, text: 'Another question' });
+  state = conversationReducer(state, { type: 'success', id: 3, reply: { answer: 'An answer', intent: 'explore', qualification: {}, nextField: null } });
+  assert.equal(state.nextField, null);
 });
