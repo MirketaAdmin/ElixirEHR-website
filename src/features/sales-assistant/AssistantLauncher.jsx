@@ -4,7 +4,13 @@ import { resolveAssistantMode } from './transport.mjs';
 import styles from './SalesAssistant.module.css';
 
 const SalesAssistant = lazy(() => import('./SalesAssistant'));
-const mode = resolveAssistantMode({ requested: import.meta.env.VITE_ELIXIR_ASSISTANT_MODE, dev: import.meta.env.DEV, preview: PRIVATE_PREVIEW });
+const mode = resolveAssistantMode({
+  requested: import.meta.env.VITE_ELIXIR_ASSISTANT_MODE,
+  dev: import.meta.env.DEV,
+  preview: PRIVATE_PREVIEW,
+  hostedPreview: import.meta.env.VITE_ELIXIR_HOSTED_PREVIEW_ENABLED === 'true',
+  hostname: typeof window === 'undefined' ? '' : window.location.hostname,
+});
 
 export default function AssistantLauncher() {
   const [mounted, setMounted] = useState(false);

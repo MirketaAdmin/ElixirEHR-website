@@ -78,3 +78,53 @@ test('contact preference is validated and forwarded to hosted model context', as
   assert.match(instructions, /Contact preference: declined/);
   assert.equal((await handler({ ...body, contactPreference: 'arbitrary instruction' })).status, 400);
 });
+
+test('Groq uses fixed server-only endpoint and Bearer auth with a supported JSON completion contract', async () => {
+  const groqEnv = { ASSISTANT_ENABLED: 'true', ASSISTANT_PROVIDER: 'groq', GROQ_API_KEY: 'test-placeholder-key', GROQ_MODEL: 'openai/gpt-oss-20b' };
+  let outgoing;
+  const handler = createChatHandler({ env: groqEnv, knowledge, fetchImpl: async (url, options) => {
+    outgoing = { url, headers: options.headers, payload: JSON.parse(options.body) };
+    return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify({ answer: 'Reviewed answer.', citationIds: ['ehr'], qualification: {}, nextField: 'currentSystem', intent: 'explore' }) } }] }));
+  } });
+  assert.equal((await handler(body)).status, 200);
+  assert.equal(outgoing.url, 'https://api.groq.com/openai/v1/chat/completions');
+  assert.equal(outgoing.headers.Authorization, 'Bearer test-placeholder-key');
+  assert.equal(outgoing.headers['api-key'], undefined);
+  assert.equal(outgoing.payload.model, 'openai/gpt-oss-20b');
+  assert.equal(outgoing.payload.response_format.type, 'json_object');
+});
+
+test('Groq quota errors return a sanitized retryable response instead of losing the conversation', async () => {
+  const result = await createChatHandler({ env: { ASSISTANT_ENABLED: 'true', ASSISTANT_PROVIDER: 'groq', GROQ_API_KEY: 'test-placeholder-key', GROQ_MODEL: 'openai/gpt-oss-20b' }, knowledge, fetchImpl: async () => new Response('private provider details', { status: 429, headers: { 'retry-after': '12' } }) })(body);
+  assert.equal(result.status, 429);
+  assert.equal(result.headers['Retry-After'], '12');
+  assert.doesNotMatch(JSON.stringify(result.body), /private provider|test-placeholder/);
+});
+
+test('draft website knowledge is available only with the explicit latest review environment', async () => {
+  let calls = 0;
+  const fetchImpl = async () => { calls++; return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify({ answer: 'A draft source answer.', citationIds: ['ehr'] }) } }] })); };
+  const draft = knowledge.map((entry) => ({ ...entry, status: 'draft' }));
+  assert.equal((await createChatHandler({ env: { ...env, ASSISTANT_KNOWLEDGE_MODE: 'review' }, knowledge: draft, fetchImpl })(body)).status, 503);
+  const enabled = await createChatHandler({ env: { ...env, ASSISTANT_KNOWLEDGE_MODE: 'review', ASSISTANT_REVIEW_ENVIRONMENT: 'latest' }, knowledge: draft, fetchImpl })(body);
+  assert.equal(enabled.status, 200);
+  assert.equal(calls, 1);
+});
+
+test('Groq shared-quota protection rejects concurrent work and caps calls per worker', async () => {
+  let complete;
+  let calls = 0;
+  const handler = createChatHandler({ env: { ASSISTANT_ENABLED: 'true', ASSISTANT_PROVIDER: 'groq', GROQ_API_KEY: 'test-placeholder-key', GROQ_MODEL: 'openai/gpt-oss-20b' }, knowledge, fetchImpl: async () => {
+    calls++;
+    if (calls === 1) await new Promise((resolve) => { complete = resolve; });
+    return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify({ answer: 'Hello', citationIds: [] }) } }] }));
+  } });
+  const pending = handler(body);
+  assert.equal((await handler(body)).status, 429);
+  assert.equal(calls, 1);
+  complete();
+  assert.equal((await pending).status, 200);
+  for (let n = 0; n < 3; n++) assert.equal((await handler(body)).status, 200);
+  assert.equal((await handler(body)).status, 429);
+  assert.equal(calls, 4);
+});

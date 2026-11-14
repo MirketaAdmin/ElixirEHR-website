@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 /** Apply only to a separately built team-preview artifact, never a live source/config directory. */
-export function prepareTeamPreview({ distDir, routingConfig, revision, baseRevision, environment }) {
+export function prepareTeamPreview({ distDir, routingConfig, revision, baseRevision, environment, hosted = false }) {
   if (environment !== 'latest') throw new Error('This team artifact is restricted to the latest staging environment.');
   if (!Array.isArray(routingConfig?.routes) || !routingConfig.navigationFallback) throw new Error('Current live routing configuration is required.');
   const htmlFiles = [];
@@ -27,11 +27,15 @@ export function prepareTeamPreview({ distDir, routingConfig, revision, baseRevis
   }
   const csp = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self' https:; connect-src 'self'; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; form-action 'none'; object-src 'none'; base-uri 'self'";
   const config = { ...routingConfig, globalHeaders: { ...routingConfig.globalHeaders, 'X-Robots-Tag': 'noindex, nofollow, noarchive', 'Content-Security-Policy': csp } };
+  if (hosted) {
+    config.platform = { ...routingConfig.platform, apiRuntime: 'node:22' };
+    config.navigationFallback = { ...routingConfig.navigationFallback, exclude: [...new Set([...(routingConfig.navigationFallback.exclude ?? []), '/api/*'])] };
+  }
   const configJson = `${JSON.stringify(config)}\n`;
   if (Buffer.byteLength(configJson) > 20 * 1024) throw new Error('Preview routing configuration exceeds Azure’s 20 KB limit.');
   fs.writeFileSync(path.join(distDir, 'staticwebapp.config.json'), configJson);
   fs.writeFileSync(path.join(distDir, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
-  const manifest = { environment, featureRevision: revision, baseRevision, assistantMode: 'sample', externalSubmissions: false, apiIncluded: false };
+  const manifest = { environment, featureRevision: revision, baseRevision, assistantMode: hosted ? 'hosted' : 'sample', externalSubmissions: false, apiIncluded: hosted };
   fs.writeFileSync(path.join(distDir, 'preview-info.json'), `${JSON.stringify(manifest, null, 2)}\n`);
   return { ...manifest, htmlFiles: htmlFiles.length, routes: config.routes.length };
 }

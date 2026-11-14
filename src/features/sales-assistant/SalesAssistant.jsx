@@ -1,6 +1,7 @@
 import { useEffect, useReducer, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { QUALIFICATION_FIELDS, MAX_USER_LENGTH } from '../../../api/shared/contract.mjs';
+import { PRIVATE_PREVIEW } from '../../config/preview';
 import { chatRequest, conversationReducer, initialConversation } from './conversation.mjs';
 import { requestReply } from './transport.mjs';
 import LeadReview from './LeadReview';
@@ -53,6 +54,7 @@ export default function SalesAssistant({ open, onClose, mode }) {
         <button type="button" className={styles.close} aria-label="Close assistant" onClick={onClose}>×</button>
       </header>
       {mode === 'sample' && <p className={styles.preview}>Preview · sample replies · no requests sent</p>}
+      {mode === 'hosted' && PRIVATE_PREVIEW && <p className={styles.preview}>Preview · live replies using draft knowledge · demo requests disabled</p>}
       <div className={styles.body}>
         {state.showReview ? <LeadReview state={state} mode={mode} onDraftChange={(field, value) => dispatch({ type: 'draft', field, value })} onBack={() => dispatch({ type: 'review', open: false })} /> : <>
           <div ref={transcript} className={styles.transcript} role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions">

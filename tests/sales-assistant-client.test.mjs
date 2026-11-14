@@ -10,6 +10,8 @@ test('sample mode is explicit and never becomes a production fallback', () => {
   assert.equal(resolveAssistantMode({ requested: 'sample' }), 'off');
   assert.equal(resolveAssistantMode({ requested: 'hosted' }), 'hosted');
   assert.equal(resolveAssistantMode({ requested: 'hosted', preview: true }), 'sample');
+  assert.equal(resolveAssistantMode({ requested: 'hosted', preview: true, hostedPreview: true, hostname: 'thankful-mud-07aadb71e-latest.westus2.3.azurestaticapps.net' }), 'hosted');
+  assert.equal(resolveAssistantMode({ requested: 'hosted', preview: true, hostedPreview: true, hostname: 'thankful-mud-07aadb71e.3.azurestaticapps.net' }), 'sample');
 });
 test('sample replies perform no network calls; hosted replies use same-origin endpoint', async () => {
   let calls = 0;
