@@ -98,4 +98,8 @@ export const routeAliases = {
   '/compliance-security/onc-certification/api-developer-portal': '/onc-certification/api-developer-portal/',
   // The API Developer Portal's earlier slug (it was "FHIR API Documentation").
   '/fhir-api-documentation': '/onc-certification/api-developer-portal/',
+
+  // A duplicate upload of the Secure Patient Messaging video (YouTube ZHCtCSkB8lk, deleted from the
+  // channel); the same video, uploaded first, stays at this page.
+  '/video/elixir-ehr-secure-patient-messaging-hipaa-communication': '/video/elixir-ehr-secure-patient-messaging/',
 };

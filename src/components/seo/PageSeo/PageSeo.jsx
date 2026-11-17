@@ -3,16 +3,7 @@ import { SITE_URL } from '../../../utils/siteUrl';
 import { socialLinks } from '../../../data/footer';
 import logoImage from '../../../assets/brand/elixir-logo-white.png';
 import SocialMeta from '../SocialMeta/SocialMeta';
-import { DEFAULT_SHARE_IMAGE, generatedShareImage, OG_SIZE, shareHeadline } from '../SocialMeta/socialImages';
-
-/**
- * A page's share image: its generated card (title + hero image, src/assets/og/<path>.jpg), or the
- * default image (the Home image with the Elixir logo), which Home itself uses.
- */
-function shareImage(path, title) {
-  const src = generatedShareImage(path);
-  return src ? { src, ...OG_SIZE, alt: `Elixir: ${shareHeadline(title)}` } : DEFAULT_SHARE_IMAGE;
-}
+import { SHARE_IMAGE } from '../SocialMeta/socialImages';
 
 const absolute = (src) => new URL(src, `${SITE_URL}/`).href;
 // The breadcrumb name of a page: its approved title without the " | ElixirEHR" brand suffix.
@@ -68,7 +59,7 @@ function buildGraph({ path, url, title, description, schema, image }) {
 /**
  * A page's approved <head> tags (React 19 hoists them): title, meta description, canonical URL
  * (the approved slug, with its trailing slash), Open Graph and X card tags (SocialMeta, with the
- * page's own share image), and JSON-LD.
+ * Elixir logo share image), and JSON-LD.
  * `path` is the page's route, a key of `pageSeo`; a page without an entry there passes its own
  * `title` and `description`. An optional `schema` object joins the page's JSON-LD graph with the
  * canonical URL as its `url`. `robots` (e.g. "noindex, follow") adds a robots meta tag.
@@ -76,7 +67,7 @@ function buildGraph({ path, url, title, description, schema, image }) {
 function PageSeo({ path, schema, robots, ...own }) {
   const { title, description } = pageSeo[path] ?? own;
   const url = `${SITE_URL}${path}/`;
-  const image = shareImage(path, title);
+  const image = SHARE_IMAGE;
   const jsonLd = JSON.stringify(buildGraph({ path, url, title, description, schema, image })).replace(/</g, '\\u003c');
 
   return (

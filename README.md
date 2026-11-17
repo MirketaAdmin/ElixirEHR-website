@@ -194,7 +194,7 @@ Every post type shares one inner-page template, `components/posts/PostDetailTemp
 
 **SEO:** `PostSeo` renders the title, description, canonical URL, Open Graph, X card and `article:*` tags, plus JSON-LD (BlogPosting, NewsArticle, TechArticle, Article, or Event for webinars with an `event`). `VITE_SITE_URL` sets the public origin for canonical and `og:image` URLs (default `https://www.elixirehr.com`).
 
-**Social share images:** `components/seo/SocialMeta` renders the Open Graph and X card tags for `PageSeo` and `PostSeo`. Each page's 1200×630 JPG lives at `src/assets/og/<page path>.jpg` (posts: their featured image cropped to 1.91:1; other pages: a branded card with the page title and hero image). Home uses `src/assets/seo/og-default.jpg`. A new post without its own file falls back to its featured image. To make the files for new pages or posts, build, run `python scripts/og-images/generate.py` (see the script's header), then build again.
+**Social share images:** `components/seo/SocialMeta` renders the Open Graph and X card tags for `PageSeo` and `PostSeo`. Every page shares the same image, `src/assets/seo/og-elixir-logo.png`: the full Elixir logo, uncropped, on white at 1200×630.
 
 ### Hosting
 The app uses client-side routing, so the host must serve `index.html` for unknown paths (for example `/about-us`). `vite preview` does this automatically.
