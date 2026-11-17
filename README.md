@@ -192,7 +192,9 @@ Every post type shares one inner-page template, `components/posts/PostDetailTemp
 
 **Demo content:** `src/posts/<type>/_demo/` holds test posts. Press releases, case studies and others have one minimal post each. The Insights types have posts that reproduce the Figma cards, with 1× image crops from the frames, so the listings can be checked against the design. These load only in development or when `VITE_SHOW_DEMO_POSTS=true`, are marked `noindex`, and are left out of production builds.
 
-**SEO:** `PostSeo` renders the title, description, canonical URL, Open Graph, Twitter card and `article:*` tags, plus JSON-LD (BlogPosting, NewsArticle, TechArticle, Article, or Event for webinars with an `event`). Set `VITE_SITE_URL` (e.g. `https://www.example.com`) so canonical and `og:image` URLs use the public domain; the current origin is used otherwise.
+**SEO:** `PostSeo` renders the title, description, canonical URL, Open Graph, X card and `article:*` tags, plus JSON-LD (BlogPosting, NewsArticle, TechArticle, Article, or Event for webinars with an `event`). `VITE_SITE_URL` sets the public origin for canonical and `og:image` URLs (default `https://www.elixirehr.com`).
+
+**Social share images:** `components/seo/SocialMeta` renders the Open Graph and X card tags for `PageSeo` and `PostSeo`. Each page's 1200×630 JPG lives at `src/assets/og/<page path>.jpg` (posts: their featured image cropped to 1.91:1; other pages: a branded card with the page title and hero image). Home uses `src/assets/seo/og-default.jpg`. A new post without its own file falls back to its featured image. To make the files for new pages or posts, build, run `python scripts/og-images/generate.py` (see the script's header), then build again.
 
 ### Hosting
 The app uses client-side routing, so the host must serve `index.html` for unknown paths (for example `/about-us`). `vite preview` does this automatically.

@@ -1,10 +1,21 @@
 import { getPostPath } from '../../../posts';
-import { SITE_URL } from '../../../utils/siteUrl';
+import SocialMeta, { SITE_NAME } from '../../seo/SocialMeta/SocialMeta';
+import { absoluteUrl as absolute, DEFAULT_SHARE_IMAGE, generatedShareImage, OG_SIZE } from '../../seo/SocialMeta/socialImages';
 
-const SITE_NAME = 'Elixir';
-
-function absolute(path) {
-  return new URL(path, `${SITE_URL}/`).href;
+/**
+ * The post's share image: its featured image cropped to 1200×630 (src/assets/og/<type>/<slug>.jpg,
+ * from scripts/og-images/generate.py); until that exists, the featured image itself (with its size
+ * when the post states it); the default image only when the post has no image at all.
+ */
+function shareImage(post, path) {
+  const featured = post.seo?.image
+    ? { src: post.seo.image }
+    : (post.heroImage ?? post.cardImage);
+  const alt = featured?.alt || post.title;
+  const generated = generatedShareImage(path);
+  if (generated) return { src: generated, ...OG_SIZE, alt };
+  if (featured?.src) return { src: featured.src, width: featured.width, height: featured.height, alt };
+  return DEFAULT_SHARE_IMAGE;
 }
 
 function buildSchema(post, type, url, image, description) {
@@ -47,13 +58,16 @@ function buildSchema(post, type, url, image, description) {
   };
 }
 
-/** Per-post <head> tags (React 19 hoists them) plus JSON-LD structured data. */
+/** Per-post <head> tags (React 19 hoists them): title, description, canonical, Open Graph + X card tags (SocialMeta), article:* tags, and JSON-LD. */
 function PostSeo({ post, type }) {
   const title = post.seo?.title ?? `${post.title} | ${SITE_NAME} ${type.plural}`;
   const description = post.seo?.description ?? post.excerpt;
-  const url = absolute(getPostPath(post));
-  const imageSrc = post.seo?.image ?? post.heroImage?.src ?? post.cardImage?.src;
-  const image = imageSrc ? absolute(imageSrc) : null;
+  const path = getPostPath(post);
+  const url = absolute(path);
+  const share = shareImage(post, path);
+  // Structured data keeps the post's own featured image (the full picture, not the 1.91:1 crop).
+  const featuredSrc = post.seo?.image ?? post.heroImage?.src ?? post.cardImage?.src;
+  const image = featuredSrc ? absolute(featuredSrc) : null;
   const schema = JSON.stringify(buildSchema(post, type, url, image, description)).replace(/</g, '\\u003c');
 
   return (
@@ -63,20 +77,11 @@ function PostSeo({ post, type }) {
       {post.seo?.keywords && <meta name="keywords" content={post.seo.keywords.join(', ')} />}
       {post.demo && <meta name="robots" content="noindex" />}
       <link rel="canonical" href={url} />
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={url} />
-      {image && <meta property="og:image" content={image} />}
+      <SocialMeta type="article" title={title} description={description} url={url} image={share} />
       <meta property="article:published_time" content={post.publishDate} />
       {post.updatedDate && <meta property="article:modified_time" content={post.updatedDate} />}
       {post.author && <meta property="article:author" content={post.author} />}
       <meta property="article:section" content={type.label} />
-      <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      {image && <meta name="twitter:image" content={image} />}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
     </>
   );
