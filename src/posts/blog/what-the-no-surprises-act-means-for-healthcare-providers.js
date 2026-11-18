@@ -44,7 +44,7 @@ export default {
       items: [
         [
           strong('Setup processes to end balance billing:'),
-          ' The physicians should familiarize themselves with states balance billing protections and establish processes that ensure that your patients are not balance billed.',
+          ' The physicians should familiarize themselves with states balance billing protections and establish processes that ensure that your patients are balance billed.',
         ],
         [
           strong('Ready for estimates:'),
