@@ -113,6 +113,7 @@ export const routeAliases = {
   '/elixir-spring24-version-1-541-release-is-available': '/release-note/elixir-spring-24-version-1-541-release-is-available/',
   '/elixir-summer25-release-v1-880': '/release-note/elixir-summer25-release-v1-880/',
   '/elixir-summer-23-version-1-396-11-release-is-available': '/release-note/elixir-summer-23-version-1-396-11-release-is-available/',
+  '/elixir-spring-23-version-1-344-1-release-is-available': '/release-note/elixir-spring-23-version-1-344-1-release-is-available/',
   // Release notes already on the new site under their own slugs; the previous website's root URLs land on them.
   '/elixir-summer24-version-1-637-release-is-available': '/release-note/elixir-summer-24-version-1-637-release/',
   '/elixir-spring25-release-notes': '/release-note/elixir-spring-25-version-1-791-release-is-available/',
