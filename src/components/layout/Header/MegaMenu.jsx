@@ -291,6 +291,7 @@ function MegaColumn({ column, groups, onNavigate }) {
       return (
         <div className={styles.promo}>
           <p className={styles.promoTitle}>{column.title}</p>
+          {column.text && <p className={styles.promoText}>{column.text}</p>}
           <Entry item={find(column.item)} className={styles.promoButton} onNavigate={onNavigate}>
             {column.button}
           </Entry>

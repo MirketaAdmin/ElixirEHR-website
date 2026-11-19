@@ -108,6 +108,15 @@ export const routeAliases = {
   '/release-note/elixir-spring-26-version-1-1020-release-is-available': '/release-note/elixir-spring-26-release-ehr-rcm-patient-portal-updates/',
   '/elixir-spring-26-release-ehr-rcm-patient-portal-updates': '/release-note/elixir-spring-26-release-ehr-rcm-patient-portal-updates/',
 
+  // Release notes published again under /release-note/: their old root URLs (previous website) land on them.
+  '/ehr-and-patient-care-elixir-ai-features-winter26-release-note': '/release-note/ehr-and-patient-care-elixir-ai-features-winter26-release-note/',
+  '/elixir-spring24-version-1-541-release-is-available': '/release-note/elixir-spring-24-version-1-541-release-is-available/',
+  '/elixir-summer25-release-v1-880': '/release-note/elixir-summer25-release-v1-880/',
+  '/elixir-summer-23-version-1-396-11-release-is-available': '/release-note/elixir-summer-23-version-1-396-11-release-is-available/',
+  // Release notes already on the new site under their own slugs; the previous website's root URLs land on them.
+  '/elixir-summer24-version-1-637-release-is-available': '/release-note/elixir-summer-24-version-1-637-release/',
+  '/elixir-spring25-release-notes': '/release-note/elixir-spring-25-version-1-791-release-is-available/',
+
   // The AI in Healthcare Workflows post moved to its requested slug; its previous URL and the old
   // root URL (from the previous website) both land on it.
   '/blog/ai-in-healthcare-workflows-where-we-are-and-whats-next': '/blog/ai-healthcare-workflows-whats-next/',

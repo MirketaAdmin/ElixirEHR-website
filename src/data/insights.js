@@ -98,7 +98,12 @@ export const insightsPages = {
 // lead the page; every other resource follows in a mixed feed. Tags and link labels for Article,
 // Webinar and Release are the frame's; the other types reuse the labels of their own pages.
 export const allResources = {
-  // The All Resources hero reuses the Contact Us hero copy with its own photo (Insights frame).
+  // The All Resources hero reuses the Contact Us hero title with its own photo (Insights frame);
+  // its description and buttons were supplied for this page.
+  heroDescription:
+    'Explore expert insights, industry perspectives, and our latest podcasts, webinars, and conversations.',
+  heroPrimaryCta: { label: 'Know Elixir', to: '/why-elixir/' },
+  heroSecondaryCta: { label: 'Case studies', to: '/case-studies/' },
   heroImage: {
     src: allResourcesHeroCard,
     alt: 'Clinician reviewing a tablet beside dashboards on two monitors',

@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { cn } from '../../../utils/cn';
 import { mainNav, megaPanels, navContainsPath } from '../../../data/navigation';
 import Icon from '../../ui/Icon/Icon';
@@ -19,6 +19,7 @@ const CLOSE_DELAY = 150;
 function DesktopNav() {
   const baseId = useId();
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const [openIndex, setOpenIndex] = useState(null);
   const closeTimer = useRef(null);
   const navRef = useRef(null);
@@ -99,7 +100,12 @@ function DesktopNav() {
                   // A mouse is already hovering the trigger, so its panel is open: as in the
                   // reference, clicking keeps it open. Keyboard and touch toggle it.
                   const mouse = event.detail > 0 && lastPointer.current === 'mouse';
-                  if (isOpen && !mouse) close();
+                  // A trigger with a landing page (Resources → Insights) goes there on a mouse
+                  // click, or on a second tap/keypress once its panel is open.
+                  if (panel.to && (mouse || isOpen)) {
+                    close();
+                    navigate(panel.to);
+                  } else if (isOpen && !mouse) close();
                   else open(index);
                 }}
                 onFocus={(event) => {

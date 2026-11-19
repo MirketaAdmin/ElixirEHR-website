@@ -95,10 +95,11 @@ export const mainNav = [
   {
     label: 'Resources',
     children: [
-      { label: 'Success Stories', to: '/success-stories/' },
       // "Insights (blog)" in the sheet. Its sub-entries (the blog list and the six topics) and the
-      // Healthcare Regulations section were removed from the menu on request.
+      // Healthcare Regulations section were removed from the menu on request. Listed first: Insights
+      // is the Resources landing page.
       { label: 'Insights', to: '/insights/' },
+      { label: 'Success Stories', to: '/success-stories/' },
       { label: 'Guides & E-books', to: '/guides-ebooks/' },
       { label: 'Case Studies', to: '/case-studies/' },
       { label: 'Webinars & Podcasts', to: '/webinars-podcasts/' },
@@ -229,8 +230,11 @@ export const megaPanels = [
   {
     label: 'Resources',
     groups: ['Resources'],
+    // Clicking the Resources trigger lands on Insights (DesktopNav).
+    to: '/insights/',
     columns: [
-      // Supplied reference layout: two link lists and a podcast promo. Only built pages are listed.
+      // Supplied reference layout: two link lists and an Insights promo. Only built pages are listed.
+      // Insights was taken out of the first list on request (the promo's button links to it).
       {
         type: 'links',
         span: 4,
@@ -238,7 +242,7 @@ export const megaPanels = [
         heading: 'Insights & Resources',
         icon: 'document',
         tone: 'yellow',
-        items: ['Insights', 'Success Stories', 'Guides & E-books', 'Case Studies', 'Webinars & Podcasts'],
+        items: ['Success Stories', 'Guides & E-books', 'Case Studies', 'Webinars & Podcasts'],
       },
       {
         type: 'links',
@@ -252,9 +256,10 @@ export const megaPanels = [
       {
         type: 'promo',
         span: 4,
-        title: 'Watch our latest episodes of upcoming podcasts.',
-        button: 'Watch Now',
-        item: 'Webinars & Podcasts',
+        title: 'Insights',
+        text: 'Discover insights, ideas, and conversations shaping what’s next.',
+        button: 'Insights',
+        item: 'Insights',
       },
     ],
   },
