@@ -16,17 +16,17 @@ export const insightsHero = {
   },
 };
 
-// Category navigation, in the frame's order. Newsletter and Illustrations have no Figma frame;
-// both have their own page in the shared Insights layout.
+// Category navigation, in the frame's order. Newsletter and Illustrations were replaced here by the
+// existing Case Studies and Success Stories pages (both pages still exist at their own URLs).
 export const insightsNav = [
   { label: 'All Resources', to: '/insights/' },
   { label: 'Blog', to: '/blog/' },
   { label: 'E-Book', to: '/guides-ebooks/' },
   { label: 'Benchmark Surveys', to: '/benchmark-surveys/' },
   { label: 'Release Notes', to: '/release-notes/' },
-  { label: 'Newsletter', to: '/newsletter/' },
+  { label: 'Case Studies', to: '/case-studies/' },
   { label: 'Webinars', to: '/webinars-podcasts/' },
-  { label: 'Illustrations', to: '/insights/illustrations/' },
+  { label: 'Success Stories', to: '/success-stories/' },
   { label: 'Videos', to: '/feature-videos/' },
 ];
 
