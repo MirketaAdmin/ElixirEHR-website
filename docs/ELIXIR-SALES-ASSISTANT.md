@@ -54,10 +54,23 @@ To re-check after a platform change: set `ASSISTANT_ADDRESS_DIAGNOSTIC=true` on 
 
 - **Per visitor session:** the widget allows 12 visitor messages per browser session (sessionStorage, with an in-memory fallback; **Start over** does not reset it). After that the composer is disabled and the discovery card explains the next step; no further model calls are made.
 - **Per client address (server):** 20 model-backed messages per 10 minutes and 60 per 24 hours for each address, in a bounded in-memory map (5,000 most recently seen addresses) per API worker. By default (`ASSISTANT_CLIENT_ADDRESS_SOURCE` absent or `auto`) the address comes from `x-azure-clientip`, else the last `x-forwarded-for` hop (earlier, client-supplied hops are ignored); the setting can pick `azure-clientip`, `client-ip`, `forwarded-first`, `forwarded-last` or `off` once the hosted headers are verified (see **Verify the client address headers**). The per-worker caps are checked first, so a call the worker turns away as busy does not use up the visitor's allowance, and calls the limiter itself rejects are not counted. Over the limit the API returns a sanitized 429 with `Retry-After`; requests without an identifiable address are left to the per-worker caps.
-- **Per worker:** the existing caps below still apply (Groq four calls/minute, one concurrent, 100/day; Azure 30/minute, four concurrent).
+- **Per worker:** every provider has a daily cap. Groq: four calls/minute, one concurrent, 100/day. Azure: 30/minute, four concurrent, and `ASSISTANT_AZURE_DAILY_CAP` calls per day (a positive whole number; default 300; an invalid value falls back to 300). A full daily cap returns the sanitized 429 with `Retry-After: 3600`.
 - Greetings with no matching knowledge are answered from a small grounded fallback (platform overview, discovery call and, with page context, the matching product pages) rather than a full retrieval set. Visitor text is never logged.
 
-All three are per instance and reset on restart; they bound accidental and casual cost, not a determined attacker. A monitored provider budget remains the account-level backstop.
+The Home page funnel's inline answers (below) go through the same `/api/chat` and the same browser session budget, so they are bounded by all of these. All three are per instance and reset on restart; they bound accidental and casual cost, not a determined attacker. A monitored provider budget remains the account-level backstop.
+
+## Inline answers in the Home page funnel
+
+The "What kind of provider are you?" section right below the Home banner (`src/pages/Home/sections/ProviderFunnelSection/`, `src/features/provider-funnel/`) walks a visitor through four static steps: their world, what they need, why Elixir fits, and the next step. The steps themselves cost nothing. Two optional, visitor-started model calls sit on top, both handled by `src/features/provider-funnel/inlineAssistant.mjs`:
+
+- **Tailored answer (Why Elixir step).** **Tailor this to my practice with Elixir AI** sends the funnel's composed prompt (`composeAssistantPrompt` in `funnelLogic.mjs`: the provider type's intro plus the picked needs) once to `/api/chat`, with the provider type as page context and `/` as the source page. The answer, with its sources, appears under the static points, which stay visible. Going back and forward does not resend; changing the picked needs offers the button again for the new prompt.
+- **Question box (Next step).** A small **Ask Elixir AI a question about your practice** box answers free-form questions inline. Each question carries the earlier inline turns (including the tailored exchange) as context, built by the assistant's own `chatRequest`, so the persona prompt is not duplicated anywhere. The modal assistant (**Ask Elixir a question**, the floating launcher) works as before.
+- **Caps.** Each inline call uses one message of the same 12-per-session browser budget as the modal (`discovery.mjs`, sessionStorage key `elixir-assistant-visitor-messages`), and then passes the per-client and per-worker caps above.
+- **Fallbacks.** When the assistant is built `off`, the AI controls are not shown; the static points stay and a **Book a discovery call** link takes their place. When a request fails, the points stay and the error is paired with the discovery link and a retry (a failed question stays in the box). When the session budget is spent, nothing is sent; the discovery link replaces the button and the question box.
+- **Discovery call on every step.** Steps 1 to 3 show a subtle **Book a discovery call** link; the last step keeps the primary button. All go to https://www.elixirehr.com/contact-us/.
+- **What is stored.** Nothing server-side except the in-memory per-address and per-worker counters above, which reset on restart. Visitor text is not logged or saved. In the browser, sessionStorage holds only the message count; the inline conversation lives in page memory and is gone on reload, **Start over** or a new provider type.
+
+The mode comes from the same build setting as the floating assistant (`src/features/sales-assistant/assistantMode.js`), so both switch on and off together.
 
 ## Opening the assistant from any page
 
@@ -134,17 +147,21 @@ Azure HTTP bindings live in `api/chat/function.json`, `api/chat/index.cjs` and `
 
 Deployment must package **both** `dist/` and `api/`; the existing static-only deployment process is not automatically sufficient. Verify the actual Azure host/API deployment path, route behavior and environment settings before release. Do not copy a bare upstream build over an approved protected preview configuration.
 
-Groq admission control caps each API worker at four calls/minute, one concurrent call and 100 calls per rolling 24 hours. Worker restarts reset the counters; they are not a distributed or account-wide budget. Azure mode retains 30 calls/minute and four concurrent calls. Provider 429 responses become a sanitized retryable response with a bounded Retry-After header. The Groq account's quota is shared with the Case Rezolver demo. Before production enablement, configure deployment-level abuse controls and a monitored model budget, verify data processing settings, and review site privacy copy against the actual processing. Operational logs should not contain visitor messages, contacts or credentials.
+Groq admission control caps each API worker at four calls/minute, one concurrent call and 100 calls per rolling 24 hours. Azure mode allows 30 calls/minute, four concurrent calls and `ASSISTANT_AZURE_DAILY_CAP` (default 300) calls per rolling 24 hours. Worker restarts reset the counters; they are not a distributed or account-wide budget. Provider 429 responses become a sanitized retryable response with a bounded Retry-After header. The Groq account's quota is shared with the Case Rezolver demo. Before production enablement, configure deployment-level abuse controls and a monitored model budget, verify data processing settings, and review site privacy copy against the actual processing. Operational logs should not contain visitor messages, contacts or credentials.
 
 The feature is on a separate local branch because the existing GOD process may deploy GitHub `main`. The authorized deployment targets the existing named team-test environment only. No workflow, scheduled task or production configuration is changed.
 
 ## Verification
 
 ```sh
-npm run test:assistant
+npm test            # every tests/*.test.mjs
 npm run lint
 npm run build
 ```
+
+`npm run test:funnel-browser` (`scripts/check-funnel-browser.mjs`) checks the Home page funnel in a headless browser: it starts its own local Vite servers in hosted mode and off mode (or uses `FUNNEL_TEST_URL` and `FUNNEL_OFF_TEST_URL`), picks each of the five provider types, steps through all four steps, checks the discovery-call link on every step, the one-time tailored answer and the inline question box against a mocked `/api/chat`, the error and session-limit fallbacks, and the off-mode fallback. It never calls a model. It uses the same independently installed Playwright as below (`PLAYWRIGHT_MODULE_PATH`, `CHROME_EXECUTABLE`); screenshots go to `work/funnel-check` (`FUNNEL_SCREENSHOT_DIR`).
+
+`tests/golden/provider-questions.json` holds 10 agent-written provider-type questions with expected traits (recommends a discovery call, exactly one follow-up question, cites reviewed knowledge, no invented prices or URLs); they await owner review (`tests/golden/README.md`). `npm run eval:provider-questions` scores them against a live `/api/chat` only when `ELIXIR_EVAL_URL` is set, and skips at no cost otherwise.
 
 `scripts/check-assistant-browser.mjs` checks the local sample flow at desktop/mobile widths, optional qualification, editable recap, original page attribution after navigation, Escape/focus restoration, no browser exceptions and zero model/CRM/calendar requests. It uses an independently installed Playwright package and browser: set `PLAYWRIGHT_MODULE_PATH` and `CHROME_EXECUTABLE` when those are not on the default resolution paths. `ASSISTANT_TEST_URL` and `ASSISTANT_SCREENSHOT_DIR` are optional overrides.
 

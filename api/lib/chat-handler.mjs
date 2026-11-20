@@ -7,12 +7,26 @@ import { addressHeaderDiagnostic, clientAddress, clientAddressSource, createClie
 const headers = { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' };
 const failure = (status, code, error) => ({ status, headers, body: { code, error } });
 
+export const GROQ_DAILY_CAP = 100;
+export const DEFAULT_DAILY_CAP = 300;
+
+/** The most model calls one worker admits per day for the configured provider. */
+export function workerDailyCap(env = {}) {
+  if (env.ASSISTANT_PROVIDER === 'groq') return GROQ_DAILY_CAP;
+  const configured = String(env.ASSISTANT_AZURE_DAILY_CAP ?? '').trim();
+  const value = /^\d+$/.test(configured) ? Number.parseInt(configured, 10) : NaN;
+  return Number.isSafeInteger(value) && value > 0 ? value : DEFAULT_DAILY_CAP;
+}
+
 export function createChatHandler({ env = process.env, fetchImpl = fetch, knowledge, clientLimiter = createClientLimiter() } = {}) {
   const review = env.ASSISTANT_KNOWLEDGE_MODE === 'review' && env.ASSISTANT_REVIEW_ENVIRONMENT === 'latest';
   const entries = knowledge ?? (review ? reviewKnowledge : approvedKnowledge);
   const addressSource = clientAddressSource(env.ASSISTANT_CLIENT_ADDRESS_SOURCE);
   // Only on the `latest` preview: reports which address headers arrive (presence and counts, no values).
   const diagnose = env.ASSISTANT_ADDRESS_DIAGNOSTIC === 'true' && env.ASSISTANT_REVIEW_ENVIRONMENT === 'latest';
+  // Every provider has a per-worker daily cap: Groq's free tier is fixed at 100; other providers
+  // (Azure) use ASSISTANT_AZURE_DAILY_CAP, a positive whole number, default 300.
+  const dailyCap = workerDailyCap(env);
   let windowStart = Date.now();
   let dayStart = Date.now();
   let admissions = 0;
@@ -39,7 +53,8 @@ export function createChatHandler({ env = process.env, fetchImpl = fetch, knowle
     if (Date.now() - windowStart >= 60000) { windowStart = Date.now(); admissions = 0; }
     if (Date.now() - dayStart >= 86400000) { dayStart = Date.now(); dailyAdmissions = 0; }
     const groq = env.ASSISTANT_PROVIDER === 'groq';
-    if (admissions >= (groq ? 4 : 30) || inFlight >= (groq ? 1 : 4) || (groq && dailyAdmissions >= 100)) return { ...failure(429, 'PLEASE_WAIT', 'The assistant is busy. Please wait a moment and try again.'), headers: { ...headers, 'Retry-After': dailyAdmissions >= 100 ? '3600' : '60' } };
+    const dailyFull = dailyAdmissions >= dailyCap;
+    if (admissions >= (groq ? 4 : 30) || inFlight >= (groq ? 1 : 4) || dailyFull) return { ...failure(429, 'PLEASE_WAIT', 'The assistant is busy. Please wait a moment and try again.'), headers: { ...headers, 'Retry-After': dailyFull ? '3600' : '60' } };
     const perClient = clientLimiter.take(clientAddress(context.headers, { source: addressSource }));
     if (!perClient.allowed) return { ...failure(429, 'PLEASE_WAIT', 'You have reached the assistant’s message limit for now. You can book a discovery call on our Contact Us page.'), headers: { ...headers, 'Retry-After': perClient.retryAfter } };
     admissions++; dailyAdmissions++; inFlight++;

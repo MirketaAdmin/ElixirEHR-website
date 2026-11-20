@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
     "lint": "oxlint",
+    "test": "node --test tests/*.test.mjs",
     "test:assistant": "node --test tests/sales-assistant-*.test.mjs",
+    "test:funnel-browser": "node scripts/check-funnel-browser.mjs",
+    "eval:provider-questions": "node scripts/eval-provider-questions.mjs",
     "assistant:api": "node scripts/assistant-api.mjs",
     "build:team-preview": "node scripts/build-team-preview.mjs",
     "preview": "vite preview"

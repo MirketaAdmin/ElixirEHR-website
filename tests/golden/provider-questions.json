@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "status": "AGENT-GENERATED - ORACLE REVIEW NEEDED",
+  "traits": {
+    "mentionsDiscoveryCall": "The answer recommends a discovery call (each question shows buying intent: pricing, implementation, migration, timeline or vendor comparison).",
+    "oneFollowUpQuestion": "The answer ends with exactly one qualifying question.",
+    "groundedInKnowledge": "The reply cites at least one reviewed knowledge source and invents no pricing figures or URLs."
+  },
+  "questions": [
+    {
+      "id": "obh-switch",
+      "providerType": "online-behavioral-health",
+      "question": "We run a virtual therapy practice on a separate video tool and EHR. What would switching to Elixir involve, and how long does implementation usually take?",
+      "expect": { "mentionsDiscoveryCall": true, "followUpQuestions": 1, "minCitations": 1 }
+    },
+    {
+      "id": "obh-outcomes-pricing",
+      "providerType": "online-behavioral-health",
+      "question": "Can Elixir collect PHQ-9 and GAD-7 on a schedule for telehealth clients, and what would it cost for a group of 12 therapists?",
+      "expect": { "mentionsDiscoveryCall": true, "followUpQuestions": 1, "minCitations": 1 }
+    },
+    {
+      "id": "tc-intake-migration",
+      "providerType": "treatment-center",
+      "question": "Our residential treatment center loses admissions between the first call and intake. How does Elixir help, and can you migrate our data from our current EHR?",
+      "expect": { "mentionsDiscoveryCall": true, "followUpQuestions": 1, "minCitations": 1 }
+    },
+    {
+      "id": "tc-compliance-compare",
+      "providerType": "treatment-center",
+      "question": "We are comparing EHR vendors for our IOP and PHP programs. How does Elixir handle 42 CFR Part 2 consent and utilization review?",
+      "expect": { "mentionsDiscoveryCall": true, "followUpQuestions": 1, "minCitations": 1 }
+    },
+    {
+      "id": "cybhi-claiming",
+      "providerType": "cybhi",
+      "question": "Our school district is enrolled for CYBHI but has not submitted claims yet. How would Elixir get us billing this school year?",
+      "expect": { "mentionsDiscoveryCall": true, "followUpQuestions": 1, "minCitations": 1 }
+    },
+    {
+      "id": "cybhi-pricing",
+      "providerType": "cybhi",
+      "question": "What does Elixir cost for a county office of education billing the CYBHI fee schedule across 30 school sites?",
+      "expect": { "mentionsDiscoveryCall": true, "followUpQuestions": 1, "minCitations": 1 }
+    },
+    {
+      "id": "homecare-evv",
+      "providerType": "homecare",
+      "question": "We are a Medicaid home care agency with field caregivers. How does Elixir handle EVV and authorizations, and how fast could we go live?",
+      "expect": { "mentionsDiscoveryCall": true, "followUpQuestions": 1, "minCitations": 1 }
+    },
+    {
+      "id": "homecare-billing-switch",
+      "providerType": "homecare",
+      "question": "Our home health billing keeps getting denied. We want to replace our current system this quarter. Can Elixir help?",
+      "expect": { "mentionsDiscoveryCall": true, "followUpQuestions": 1, "minCitations": 1 }
+    },
+    {
+      "id": "clinic-multispecialty",
+      "providerType": "specialty-clinic",
+      "question": "We are a multi-specialty outpatient clinic with four locations. How would Elixir fit, and what does pricing look like?",
+      "expect": { "mentionsDiscoveryCall": true, "followUpQuestions": 1, "minCitations": 1 }
+    },
+    {
+      "id": "clinic-cash-pay",
+      "providerType": "specialty-clinic",
+      "question": "We run a small cash-pay aesthetic practice. Is Elixir a fit for scheduling and patient engagement, and can we see a demo?",
+      "expect": { "mentionsDiscoveryCall": true, "followUpQuestions": 1, "minCitations": 1 }
+    }
+  ]
+}

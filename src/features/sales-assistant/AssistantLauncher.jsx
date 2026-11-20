@@ -1,18 +1,10 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
-import { PRIVATE_PREVIEW } from '../../config/preview';
-import { resolveAssistantMode } from './transport.mjs';
+import { ASSISTANT_MODE as mode } from './assistantMode';
 import { DISCOVERY_URL, browserSessionStorage } from './discovery.mjs';
 import { listenForOpenAssistant } from './openAssistant.mjs';
 import styles from './SalesAssistant.module.css';
 
 const SalesAssistant = lazy(() => import('./SalesAssistant'));
-const mode = resolveAssistantMode({
-  requested: import.meta.env.VITE_ELIXIR_ASSISTANT_MODE,
-  dev: import.meta.env.DEV,
-  preview: PRIVATE_PREVIEW,
-  hostedPreview: import.meta.env.VITE_ELIXIR_HOSTED_PREVIEW_ENABLED === 'true',
-  hostname: typeof window === 'undefined' ? '' : window.location.hostname,
-});
 const PULSE_KEY = 'elixir-assistant-pulsed';
 
 // The attention pulse plays once per browser session, never under reduced motion (CSS).
