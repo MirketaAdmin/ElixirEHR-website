@@ -12,11 +12,11 @@ export const FUNNEL_STEPS = [
   { id: 'next', label: 'Next step' },
 ];
 
-/** Where "Book a discovery call" goes. */
-export const DISCOVERY_CALL_URL = 'https://www.elixirehr.com/contact-us/';
+/** Where "Book a discovery call" goes (one definition, in the shared assistant contract). */
+export { DISCOVERY_URL as DISCOVERY_CALL_URL } from '../../../api/shared/contract.mjs';
 
-/** The event any code dispatches to open the site assistant (shared with the sales assistant). */
-export const OPEN_ASSISTANT_EVENT = 'elixir:open-assistant';
+/** The event any code dispatches to open the site assistant (defined by the sales assistant). */
+export { OPEN_ASSISTANT_EVENT } from '../sales-assistant/openAssistant.mjs';
 
 /** The fewest and most capability points the "Why Elixir" step shows. */
 export const MIN_POINTS = 3;

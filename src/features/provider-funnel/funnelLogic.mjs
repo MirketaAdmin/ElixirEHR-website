@@ -5,9 +5,14 @@ import {
   FUNNEL_STEPS,
   MAX_POINTS,
   MIN_POINTS,
-  OPEN_ASSISTANT_EVENT,
   providerTypes,
 } from './funnelData.mjs';
+
+/**
+ * Opens the site assistant through the shared event (one definition, in the sales assistant).
+ * Returns false where there is no target (the prerender) instead of throwing.
+ */
+export { openAssistant } from '../sales-assistant/openAssistant.mjs';
 
 /** The provider type with this id, or null. */
 export function getProviderType(typeId) {
@@ -79,19 +84,6 @@ export function buildAssistantEventDetail(typeId, needIds) {
     providerType: type ? type.id : null,
     prompt: type ? composeAssistantPrompt(type.id, needIds) : null,
   };
-}
-
-/**
- * Opens the site assistant through the shared event. `target` defaults to the browser window and
- * is a parameter so tests can pass their own EventTarget. Returns false where there is no target
- * (the prerender) instead of throwing.
- */
-export function openAssistant(detail, target = typeof window === 'undefined' ? null : window) {
-  if (!target || typeof target.dispatchEvent !== 'function' || typeof CustomEvent !== 'function') {
-    return false;
-  }
-  target.dispatchEvent(new CustomEvent(OPEN_ASSISTANT_EVENT, { detail }));
-  return true;
 }
 
 /** The step index after a move, clamped to the flow. */

@@ -2,7 +2,7 @@ import { validateChatRequest } from '../shared/contract.mjs';
 import { approvedKnowledge, fallbackKnowledge, retrieveKnowledge } from './knowledge.mjs';
 import { reviewKnowledge } from './review-knowledge.mjs';
 import { createHostedModel, ModelRateLimitError } from './hosted-model.mjs';
-import { addressHeaderDiagnostic, clientAddress, clientAddressSource, createClientLimiter } from './client-limit.mjs';
+import { clientAddress, clientAddressSource, createClientLimiter } from './client-limit.mjs';
 
 const headers = { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' };
 const failure = (status, code, error) => ({ status, headers, body: { code, error } });
@@ -22,8 +22,6 @@ export function createChatHandler({ env = process.env, fetchImpl = fetch, knowle
   const review = env.ASSISTANT_KNOWLEDGE_MODE === 'review' && env.ASSISTANT_REVIEW_ENVIRONMENT === 'latest';
   const entries = knowledge ?? (review ? reviewKnowledge : approvedKnowledge);
   const addressSource = clientAddressSource(env.ASSISTANT_CLIENT_ADDRESS_SOURCE);
-  // Only on the `latest` preview: reports which address headers arrive (presence and counts, no values).
-  const diagnose = env.ASSISTANT_ADDRESS_DIAGNOSTIC === 'true' && env.ASSISTANT_REVIEW_ENVIRONMENT === 'latest';
   // Every provider has a per-worker daily cap: Groq's free tier is fixed at 100; other providers
   // (Azure) use ASSISTANT_AZURE_DAILY_CAP, a positive whole number, default 300.
   const dailyCap = workerDailyCap(env);
@@ -33,7 +31,7 @@ export function createChatHandler({ env = process.env, fetchImpl = fetch, knowle
   let dailyAdmissions = 0;
   let inFlight = 0;
   // `context.headers` carries the incoming request headers; visitor text is never logged.
-  const handle = async (body, context) => {
+  return async (body, context = {}) => {
     if (env.ASSISTANT_ENABLED !== 'true') return failure(503, 'ASSISTANT_UNAVAILABLE', 'The assistant is not available yet. You can still use Contact Us.');
     let request;
     try {
@@ -64,10 +62,5 @@ export function createChatHandler({ env = process.env, fetchImpl = fetch, knowle
       return failure(503, 'ASSISTANT_UNAVAILABLE', 'I couldn’t get a reply just now. Please try again or use Contact Us.');
     }
     finally { inFlight--; }
-  };
-  return async (body, context = {}) => {
-    const result = await handle(body, context);
-    if (!diagnose) return result;
-    return { ...result, headers: { ...result.headers, 'X-Elixir-Address-Headers': addressHeaderDiagnostic(context.headers) } };
   };
 }

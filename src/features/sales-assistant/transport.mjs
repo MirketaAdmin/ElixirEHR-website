@@ -21,7 +21,12 @@ export async function requestReply(body, { mode, signal, fetchImpl = fetch } = {
     if (error.name === 'AbortError') throw error;
     throw new Error('I couldn’t get a reply. Please try again or use Contact Us.');
   }
-  if (!response.ok) throw new Error(response.status === 429 ? 'The assistant is busy. Please wait a moment and try again.' : 'The assistant is temporarily unavailable. Please try again or use Contact Us.');
+  if (response.status === 429) {
+    // The API's own sanitized message: the per-visitor limit points to the discovery call.
+    const limit = await response.json().catch(() => null);
+    throw new Error(limit?.code === 'PLEASE_WAIT' && typeof limit.error === 'string' && limit.error.trim() && limit.error.length <= 300 ? limit.error : 'The assistant is busy. Please wait a moment and try again.');
+  }
+  if (!response.ok) throw new Error('The assistant is temporarily unavailable. Please try again or use Contact Us.');
   const value = await response.json();
   const citations = Array.isArray(value.citations) ? value.citations.filter((source) => source && typeof source.id === 'string' && typeof source.url === 'string') : [];
   return normalizeChatReply({ ...value, citationIds: citations.map((source) => source.id) }, citations);

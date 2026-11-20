@@ -28,3 +28,10 @@ test('missing, failed and invalid replies never silently produce sample answers'
   const controller = new AbortController(); controller.abort();
   await assert.rejects(requestReply(body, { mode: 'sample', signal: controller.signal }), { name: 'AbortError' });
 });
+test('a 429 shows the server limit message, and the busy wording when the worker is busy', async () => {
+  const limit = 'You have reached the assistant’s message limit for now. You can book a discovery call on our Contact Us page.';
+  const reply = (value) => async () => new Response(typeof value === 'string' ? value : JSON.stringify(value), { status: 429 });
+  await assert.rejects(requestReply(body, { mode: 'hosted', fetchImpl: reply({ code: 'PLEASE_WAIT', error: limit }) }), { message: limit });
+  await assert.rejects(requestReply(body, { mode: 'hosted', fetchImpl: reply({ code: 'PLEASE_WAIT', error: 'The assistant is busy. Please wait a moment and try again.' }) }), { message: 'The assistant is busy. Please wait a moment and try again.' });
+  await assert.rejects(requestReply(body, { mode: 'hosted', fetchImpl: reply('Too Many Requests') }), { message: 'The assistant is busy. Please wait a moment and try again.' });
+});

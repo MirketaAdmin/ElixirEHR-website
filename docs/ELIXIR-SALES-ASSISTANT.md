@@ -24,7 +24,6 @@ Set these Static Web Apps application settings on the **production** environment
 | `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`, `AZURE_OPENAI_API_KEY` | when `azure` |
 | `ASSISTANT_KNOWLEDGE_MODE`, `ASSISTANT_REVIEW_ENVIRONMENT` | **absent** in production, so only the approved collection in `api/lib/knowledge.mjs` is used |
 | `ASSISTANT_CLIENT_ADDRESS_SOURCE` | **absent** (`auto`, verified below: the second-to-last `x-forwarded-for` hop) |
-| `ASSISTANT_ADDRESS_DIAGNOSTIC` | **absent** in production (it only has an effect on the `latest` review environment) |
 
 Deploy `dist/` together with the clean API artifact from `node scripts/prepare-assistant-api.mjs` (Node 22, `/api/*` excluded from the SPA fallback), exactly as for the hosted preview below but against the production environment. A build made with `VITE_ELIXIR_ASSISTANT_MODE=hosted` runs hosted on any host that is not a preview host (`*.azurestaticapps.net`): `www.elixirehr.com`, the bare `elixirehr.com`, another custom domain, or `localhost` serving `dist/`. The resolver does not check the production hostname, so build with `hosted` only for the production deployment. Preview hosts keep their existing sample/`latest` behaviour; in-chat lead submission separately requires the exact origin `https://www.elixirehr.com` (see below). To switch the assistant off quickly, set `ASSISTANT_ENABLED=false` (immediate, widget shows the Contact Us fallback) or rebuild with `VITE_ELIXIR_ASSISTANT_MODE=off` (removes the launcher).
 
@@ -32,7 +31,7 @@ Deploy `dist/` together with the clean API artifact from `node scripts/prepare-a
 
 The per-client limit is only as good as the address it reads. If it read an edge or proxy hop, every visitor would share one bucket and the whole site would be held to 20 messages per 10 minutes and 60 per day.
 
-**Result, measured on the hosted `latest` preview on 2026-11-19** with `ASSISTANT_ADDRESS_DIAGNOSTIC=true` (since removed):
+**Result, measured once on the hosted `latest` preview on 2026-11-19:**
 
 ```
 x-azure-clientip=absent; x-client-ip=absent; x-forwarded-for-entries=2; x-forwarded-for-hops=public-v4+port,public-v4+port; probe-match=-2
@@ -40,9 +39,9 @@ with a spoofed X-Forwarded-For: 203.0.113.9 ->
 x-azure-clientip=absent; x-client-ip=absent; x-forwarded-for-entries=3; x-forwarded-for-hops=public-v4,public-v4+port,public-v4+port; probe-match=-2
 ```
 
-The edge keeps whatever `x-forwarded-for` the client sent, then appends the visitor address and its own hop, so the visitor is always the **second-to-last** hop (`probe-match=-2`: the tester's own public address, sent in `x-elixir-address-probe`, matched that hop; no address is ever echoed). `auto` now reads `x-azure-clientip` if present, else that second-to-last hop, so production needs no `ASSISTANT_CLIENT_ADDRESS_SOURCE` setting. The first hop is client-controlled and the last hop is the edge, so `forwarded-first` and `forwarded-last` must not be used here.
+The edge keeps whatever `x-forwarded-for` the client sent, then appends the visitor address and its own hop, so the visitor is always the **second-to-last** hop (`probe-match=-2`: the tester's own public address, sent in `x-elixir-address-probe`, matched that hop; no address is ever echoed). `auto` reads only that second-to-last hop and never `x-azure-clientip` (the edge does not send it, so a client could set its own), so production needs no `ASSISTANT_CLIENT_ADDRESS_SOURCE` setting. The first hop is client-controlled and the last hop is the edge, so `forwarded-first` and `forwarded-last` must not be used here.
 
-To re-check after a platform change: set `ASSISTANT_ADDRESS_DIAGNOSTIC=true` on `latest` only, send one message with the header `x-elixir-address-probe: <your public address>`, read `X-Elixir-Address-Headers` in the network panel, then remove the setting. Other values for `ASSISTANT_CLIENT_ADDRESS_SOURCE`: `azure-clientip`, `client-ip`, `forwarded-first`, `forwarded-last`, `forwarded-second-last`, `off` (per-client limit disabled; the per-worker caps and the browser session cap remain).
+Other values for `ASSISTANT_CLIENT_ADDRESS_SOURCE`: `azure-clientip`, `client-ip`, `forwarded-first`, `forwarded-last`, `forwarded-second-last`, `off` (per-client limit disabled; the per-worker caps and the browser session cap remain).
 
 ## Discovery-call handoff and fallbacks
 
@@ -53,7 +52,7 @@ To re-check after a platform change: set `ASSISTANT_ADDRESS_DIAGNOSTIC=true` on 
 ## Cost controls
 
 - **Per visitor session:** the widget allows 12 visitor messages per browser session (sessionStorage, with an in-memory fallback; **Start over** does not reset it). After that the composer is disabled and the discovery card explains the next step; no further model calls are made.
-- **Per client address (server):** 20 model-backed messages per 10 minutes and 60 per 24 hours for each address, in a bounded in-memory map (5,000 most recently seen addresses) per API worker. By default (`ASSISTANT_CLIENT_ADDRESS_SOURCE` absent or `auto`) the address comes from `x-azure-clientip`, else the last `x-forwarded-for` hop (earlier, client-supplied hops are ignored); the setting can pick `azure-clientip`, `client-ip`, `forwarded-first`, `forwarded-last` or `off` once the hosted headers are verified (see **Verify the client address headers**). The per-worker caps are checked first, so a call the worker turns away as busy does not use up the visitor's allowance, and calls the limiter itself rejects are not counted. Over the limit the API returns a sanitized 429 with `Retry-After`; requests without an identifiable address are left to the per-worker caps.
+- **Per client address (server):** 20 model-backed messages per 10 minutes and 60 per 24 hours for each address, in a bounded in-memory map (5,000 most recently seen addresses) per API worker. By default (`ASSISTANT_CLIENT_ADDRESS_SOURCE` absent or `auto`) the address is the second-to-last `x-forwarded-for` hop (the only hop when there is one), the visitor address the edge appends; client-supplied hops and a client-sent `x-azure-clientip` are ignored. An operator can pick `azure-clientip`, `client-ip`, `forwarded-first`, `forwarded-last`, `forwarded-second-last` or `off` instead (see **Verify the client address headers**). The per-worker caps are checked first, so a call the worker turns away as busy does not use up the visitor's allowance, and calls the limiter itself rejects are not counted. Over the limit the API returns a sanitized 429 with `Retry-After`; requests without an identifiable address are left to the per-worker caps.
 - **Per worker:** every provider has a daily cap. Groq: four calls/minute, one concurrent, 100/day. Azure: 30/minute, four concurrent, and `ASSISTANT_AZURE_DAILY_CAP` calls per day (a positive whole number; default 300; an invalid value falls back to 300). A full daily cap returns the sanitized 429 with `Retry-After: 3600`.
 - Greetings with no matching knowledge are answered from a small grounded fallback (platform overview, discovery call and, with page context, the matching product pages) rather than a full retrieval set. Visitor text is never logged.
 
@@ -68,7 +67,7 @@ The "What kind of provider are you?" section right below the Home banner (`src/p
 - **Caps.** Each inline call uses one message of the same 12-per-session browser budget as the modal (`discovery.mjs`, sessionStorage key `elixir-assistant-visitor-messages`), and then passes the per-client and per-worker caps above.
 - **Fallbacks.** When the assistant is built `off`, the AI controls are not shown; the static points stay and a **Book a discovery call** link takes their place. When a request fails, the points stay and the error is paired with the discovery link and a retry (a failed question stays in the box). When the session budget is spent, nothing is sent; the discovery link replaces the button and the question box.
 - **Discovery call on every step.** Steps 1 to 3 show a subtle **Book a discovery call** link; the last step keeps the primary button. All go to https://www.elixirehr.com/contact-us/.
-- **What is stored.** Nothing server-side except the in-memory per-address and per-worker counters above, which reset on restart. Visitor text is not logged or saved. In the browser, sessionStorage holds only the message count; the inline conversation lives in page memory and is gone on reload, **Start over** or a new provider type.
+- **What is stored.** Nothing server-side except the in-memory per-address and per-worker counters above, which reset on restart. Visitor text is not logged or saved. In the browser, sessionStorage holds only the visitor message count (`elixir-assistant-visitor-messages`) and the launcher's play-once pulse flag (`elixir-assistant-pulsed`); the inline conversation lives in page memory and is gone on reload, **Start over** or a new provider type. Visitor messages are sent to the configured model provider to produce the answer and are not stored by the site.
 
 The mode comes from the same build setting as the floating assistant (`src/features/sales-assistant/assistantMode.js`), so both switch on and off together.
 
