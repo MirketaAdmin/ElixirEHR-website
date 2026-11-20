@@ -1,0 +1,9 @@
+.heading {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+/* The design system's lime eyebrow is too light to read on the surface tone; use the brand purple. */
+.heading > p:first-child {
+  color: var(--color-primary);
+}
