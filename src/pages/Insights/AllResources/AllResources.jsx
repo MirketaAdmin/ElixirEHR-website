@@ -177,7 +177,17 @@ function AllResources() {
     <InsightsShell
       documentTitle={page.documentTitle}
       title={page.title}
-      hero={<PageHero {...contactHero} currentPage="Resources" image={allResources.heroImage} titleAs="p" />}
+      hero={
+        <PageHero
+          {...contactHero}
+          currentPage="Resources"
+          description={allResources.heroDescription}
+          primaryCta={allResources.heroPrimaryCta}
+          secondaryCta={allResources.heroSecondaryCta}
+          image={allResources.heroImage}
+          titleAs="p"
+        />
+      }
     >
       {(ebook || webinar || video) && (
         <div className={styles.lead}>

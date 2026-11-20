@@ -1,11 +1,6 @@
 import { getPostPath } from '../../../posts';
-import { SITE_URL } from '../../../utils/siteUrl';
-
-const SITE_NAME = 'Elixir';
-
-function absolute(path) {
-  return new URL(path, `${SITE_URL}/`).href;
-}
+import SocialMeta, { SITE_NAME } from '../../seo/SocialMeta/SocialMeta';
+import { absoluteUrl as absolute, SHARE_IMAGE } from '../../seo/SocialMeta/socialImages';
 
 function buildSchema(post, type, url, image, description) {
   const author = post.author
@@ -47,13 +42,14 @@ function buildSchema(post, type, url, image, description) {
   };
 }
 
-/** Per-post <head> tags (React 19 hoists them) plus JSON-LD structured data. */
+/** Per-post <head> tags (React 19 hoists them): title, description, canonical, Open Graph + X card tags (SocialMeta), article:* tags, and JSON-LD. */
 function PostSeo({ post, type }) {
   const title = post.seo?.title ?? `${post.title} | ${SITE_NAME} ${type.plural}`;
   const description = post.seo?.description ?? post.excerpt;
   const url = absolute(getPostPath(post));
-  const imageSrc = post.seo?.image ?? post.heroImage?.src ?? post.cardImage?.src;
-  const image = imageSrc ? absolute(imageSrc) : null;
+  // Structured data keeps the post's own featured image; share previews use the Elixir logo.
+  const featuredSrc = post.seo?.image ?? post.heroImage?.src ?? post.cardImage?.src;
+  const image = featuredSrc ? absolute(featuredSrc) : null;
   const schema = JSON.stringify(buildSchema(post, type, url, image, description)).replace(/</g, '\\u003c');
 
   return (
@@ -63,20 +59,11 @@ function PostSeo({ post, type }) {
       {post.seo?.keywords && <meta name="keywords" content={post.seo.keywords.join(', ')} />}
       {post.demo && <meta name="robots" content="noindex" />}
       <link rel="canonical" href={url} />
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={url} />
-      {image && <meta property="og:image" content={image} />}
+      <SocialMeta type="article" title={title} description={description} url={url} image={SHARE_IMAGE} />
       <meta property="article:published_time" content={post.publishDate} />
       {post.updatedDate && <meta property="article:modified_time" content={post.updatedDate} />}
       {post.author && <meta property="article:author" content={post.author} />}
       <meta property="article:section" content={type.label} />
-      <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      {image && <meta name="twitter:image" content={image} />}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
     </>
   );

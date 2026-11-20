@@ -30,6 +30,8 @@ export const postTypes = {
     path: 'case-study',
     label: 'Case Study',
     plural: 'Case Studies',
+    // Written success stories are listed on Success Stories (Case Studies holds the video stories).
+    listingPath: '/success-stories/',
     shareLabel: 'Share this case study',
     schemaType: 'Article',
   },
