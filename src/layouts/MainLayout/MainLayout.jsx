@@ -4,6 +4,7 @@ import Header from '../../components/layout/Header/Header';
 import Footer from '../../components/layout/Footer/Footer';
 import MotionController from '../../components/motion/MotionController';
 import CookieConsent from '../../components/consent/CookieConsent';
+import AssistantLauncher from '../../features/sales-assistant/AssistantLauncher';
 
 function MainLayout() {
   const { pathname, search, hash } = useLocation();
@@ -35,6 +36,7 @@ function MainLayout() {
       </main>
       <Footer />
       <MotionController />
+      <AssistantLauncher />
     </CookieConsent>
   );
 }

@@ -21,15 +21,24 @@ const settings = (ts) =>
  * value, so the re-render triggered by the submit handler (status "sending") used to reset `ts` to ""
  * just before the browser built the POST body (CONTACT_US_FIX_V2_FINDINGS.md, finding W2-a).
  */
-export function WebToLeadFields() {
+export function WebToLeadFields({ sourceUrl } = {}) {
   const settingsRef = useRef(null);
   const sourceUrlRef = useRef(null);
 
   // "Lead Source Section": stamped with the current page URL (including any #hash), the same way the
   // Mirketa site's form does. Like captcha_settings it has no value prop, so React never resets it.
   useEffect(() => {
-    if (sourceUrlRef.current) sourceUrlRef.current.value = window.location.href;
-  }, []);
+    if (sourceUrlRef.current) {
+      let value = window.location.href;
+      if (sourceUrl) {
+        try {
+          const url = new URL(sourceUrl);
+          if (url.origin === 'https://www.elixirehr.com') value = `${url.origin}${url.pathname}`;
+        } catch { /* Keep existing form behavior if an override is invalid. */ }
+      }
+      sourceUrlRef.current.value = value;
+    }
+  }, [sourceUrl]);
 
   useEffect(() => {
     const tick = () => {
