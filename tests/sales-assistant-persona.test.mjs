@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { createChatHandler } from '../api/lib/chat-handler.mjs';
 import { approvedKnowledge, retrieveKnowledge, fallbackKnowledge, isUsableEntry } from '../api/lib/knowledge.mjs';
 import { reviewKnowledge } from '../api/lib/review-knowledge.mjs';
-import { clientAddress, createClientLimiter } from '../api/lib/client-limit.mjs';
+import { addressHeaderDiagnostic, clientAddress, clientAddressSource, createClientLimiter } from '../api/lib/client-limit.mjs';
 import { DISCOVERY_URL, PROVIDER_TYPES, validateChatRequest } from '../api/shared/contract.mjs';
 import { chatRequest, conversationReducer, initialConversation, buildLeadDescription, welcomeFor, WELCOME } from '../src/features/sales-assistant/conversation.mjs';
 import { createSessionBudget, discoveryCta, MAX_VISITOR_MESSAGES } from '../src/features/sales-assistant/discovery.mjs';
@@ -209,4 +209,52 @@ test('production on www.elixirehr.com runs hosted only when built hosted; off st
   assert.equal(resolveAssistantMode({ hostname: 'www.elixirehr.com' }), 'off');
   assert.equal(resolveAssistantMode({ requested: 'sample', hostname: 'www.elixirehr.com' }), 'off');
   assert.equal(resolveAssistantMode({ requested: 'hosted', preview: true, hostedPreview: true, hostname: 'thankful-mud-07aadb71e-latest.westus2.3.azurestaticapps.net' }), 'hosted');
+});
+
+test('a call the per-worker cap turns away does not use up the visitor allowance', async () => {
+  let takes = 0;
+  const spy = { take: () => { takes++; return { allowed: true }; } };
+  let release;
+  const pending = new Promise((resolve) => { release = resolve; });
+  const groqEnv = { ASSISTANT_ENABLED: 'true', ASSISTANT_PROVIDER: 'groq', GROQ_API_KEY: 'test-only-not-a-real-key', GROQ_MODEL: 'test-model' };
+  const handler = createChatHandler({ env: groqEnv, clientLimiter: spy, fetchImpl: async () => { await pending; return modelReply(); } });
+  const from = { headers: { 'x-azure-clientip': '203.0.113.5' } };
+  const first = handler(ask('Tell me about your EHR templates'), from);
+  const busy = await handler(ask('Tell me about your EHR templates'), from);
+  assert.equal(busy.status, 429);
+  assert.match(busy.body.error, /busy/);
+  assert.equal(takes, 1, 'the worker-cap rejection must not be counted against the client');
+  release();
+  assert.equal((await first).status, 200);
+});
+
+test('the client address source is configurable and the header diagnostic reports presence only', async () => {
+  const headers = { 'x-azure-clientip': '203.0.113.7', 'x-client-ip': '198.51.100.4', 'x-forwarded-for': '198.51.100.9, 10.0.0.1' };
+  assert.equal(clientAddress(headers), '203.0.113.7');
+  assert.equal(clientAddress(headers, { source: 'auto' }), '203.0.113.7');
+  assert.equal(clientAddress(headers, { source: 'azure-clientip' }), '203.0.113.7');
+  assert.equal(clientAddress(headers, { source: 'client-ip' }), '198.51.100.4');
+  assert.equal(clientAddress(headers, { source: 'forwarded-first' }), '198.51.100.9');
+  assert.equal(clientAddress(headers, { source: 'forwarded-last' }), '10.0.0.1');
+  assert.equal(clientAddress(headers, { source: 'off' }), null);
+  assert.equal(clientAddress({ 'x-forwarded-for': '198.51.100.9' }, { source: 'client-ip' }), null);
+  assert.equal(clientAddressSource(' Client-IP '), 'client-ip');
+  assert.equal(clientAddressSource('anything-else'), 'auto');
+  assert.equal(clientAddressSource(undefined), 'auto');
+  assert.equal(addressHeaderDiagnostic(headers), 'x-azure-clientip=present; x-client-ip=present; x-forwarded-for-entries=2');
+  assert.equal(addressHeaderDiagnostic({}), 'x-azure-clientip=absent; x-client-ip=absent; x-forwarded-for-entries=0');
+  assert.doesNotMatch(addressHeaderDiagnostic(headers), /203\.0|198\.51|10\.0/);
+
+  // The source setting reaches the handler: with `off` one address is never limited per client.
+  const offHandler = createChatHandler({ env: { ...env, ASSISTANT_CLIENT_ADDRESS_SOURCE: 'off' }, clientLimiter: createClientLimiter({ limit: 1 }), fetchImpl: async () => modelReply() });
+  for (let i = 0; i < 3; i++) assert.equal((await offHandler(ask('Tell me about your EHR templates'), { headers })).status, 200);
+
+  // The diagnostic header appears only on the `latest` review environment with the flag set.
+  const body = ask('Tell me about your EHR templates');
+  const latest = createChatHandler({ env: { ...env, ASSISTANT_ADDRESS_DIAGNOSTIC: 'true', ASSISTANT_KNOWLEDGE_MODE: 'review', ASSISTANT_REVIEW_ENVIRONMENT: 'latest' }, fetchImpl: async () => modelReply() });
+  const diagnosed = await latest(body, { headers });
+  assert.equal(diagnosed.headers['X-Elixir-Address-Headers'], 'x-azure-clientip=present; x-client-ip=present; x-forwarded-for-entries=2');
+  assert.doesNotMatch(JSON.stringify(diagnosed), /203\.0\.113|198\.51\.100/);
+  const production = createChatHandler({ env: { ...env, ASSISTANT_ADDRESS_DIAGNOSTIC: 'true' }, fetchImpl: async () => modelReply() });
+  assert.equal((await production(body, { headers })).headers['X-Elixir-Address-Headers'], undefined);
 });

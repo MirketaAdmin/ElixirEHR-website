@@ -23,8 +23,26 @@ Set these Static Web Apps application settings on the **production** environment
 | `GROQ_API_KEY`, `GROQ_MODEL` | when `groq`; `GROQ_MODEL=openai/gpt-oss-20b` is the tested model |
 | `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`, `AZURE_OPENAI_API_KEY` | when `azure` |
 | `ASSISTANT_KNOWLEDGE_MODE`, `ASSISTANT_REVIEW_ENVIRONMENT` | **absent** in production, so only the approved collection in `api/lib/knowledge.mjs` is used |
+| `ASSISTANT_CLIENT_ADDRESS_SOURCE` | the value chosen in **Verify the client address headers** below (absent means `auto`) |
+| `ASSISTANT_ADDRESS_DIAGNOSTIC` | **absent** in production (it only has an effect on the `latest` review environment) |
 
-Deploy `dist/` together with the clean API artifact from `node scripts/prepare-assistant-api.mjs` (Node 22, `/api/*` excluded from the SPA fallback), exactly as for the hosted preview below but against the production environment. The mode resolver runs hosted on the exact origin `https://www.elixirehr.com` only when the build says `hosted`; preview hosts keep their existing sample/`latest` behaviour. To switch the assistant off quickly, set `ASSISTANT_ENABLED=false` (immediate, widget shows the Contact Us fallback) or rebuild with `VITE_ELIXIR_ASSISTANT_MODE=off` (removes the launcher).
+Deploy `dist/` together with the clean API artifact from `node scripts/prepare-assistant-api.mjs` (Node 22, `/api/*` excluded from the SPA fallback), exactly as for the hosted preview below but against the production environment. A build made with `VITE_ELIXIR_ASSISTANT_MODE=hosted` runs hosted on any host that is not a preview host (`*.azurestaticapps.net`): `www.elixirehr.com`, the bare `elixirehr.com`, another custom domain, or `localhost` serving `dist/`. The resolver does not check the production hostname, so build with `hosted` only for the production deployment. Preview hosts keep their existing sample/`latest` behaviour; in-chat lead submission separately requires the exact origin `https://www.elixirehr.com` (see below). To switch the assistant off quickly, set `ASSISTANT_ENABLED=false` (immediate, widget shows the Contact Us fallback) or rebuild with `VITE_ELIXIR_ASSISTANT_MODE=off` (removes the launcher).
+
+### Verify the client address headers (required before going live)
+
+The per-client limit is only as good as the address it reads. Nothing in this repository shows which address headers Static Web Apps forwards to a managed function. If `x-azure-clientip` is missing there and the last `x-forwarded-for` hop is an Azure edge or proxy address, every visitor would share one bucket, and the whole site would be held to 20 messages per 10 minutes and 60 per day (a 429 for everyone soon after launch). **Status: not yet verified on the hosted `latest` preview.** Do this once before the production deploy:
+
+1. On the `latest` environment (which already has `ASSISTANT_KNOWLEDGE_MODE=review` and `ASSISTANT_REVIEW_ENVIRONMENT=latest`), set the app setting `ASSISTANT_ADDRESS_DIAGNOSTIC=true`.
+2. Send one assistant message from two different networks (for example office Wi-Fi and a phone hotspot) and read the `X-Elixir-Address-Headers` response header in the browser's network panel. It reports only presence and a count, for example `x-azure-clientip=present; x-client-ip=absent; x-forwarded-for-entries=2`; it never contains an address or visitor text. The diagnostic is ignored outside `latest`.
+3. Choose `ASSISTANT_CLIENT_ADDRESS_SOURCE` for production:
+   - `x-azure-clientip` present: leave it absent (`auto`), or set `azure-clientip`.
+   - `x-azure-clientip` absent and `x-client-ip` present: `client-ip`.
+   - Only `x-forwarded-for`, one entry: `auto` (that entry is the visitor).
+   - Only `x-forwarded-for`, several entries with the edge appending its own hop last: `forwarded-first`. Note that the first hop can be supplied by the client, so this weakens the limit against a determined caller; the per-worker caps still bound cost.
+   - Nothing usable: `off`. The per-client limit is then disabled and the per-worker caps and the browser session cap remain.
+4. Remove `ASSISTANT_ADDRESS_DIAGNOSTIC` from `latest`, record the observed header line and the chosen value here, and set the same `ASSISTANT_CLIENT_ADDRESS_SOURCE` on production.
+
+Recorded result: pending (fill in the observed header line, date and chosen source after step 2).
 
 ## Discovery-call handoff and fallbacks
 
@@ -35,7 +53,7 @@ Deploy `dist/` together with the clean API artifact from `node scripts/prepare-a
 ## Cost controls
 
 - **Per visitor session:** the widget allows 12 visitor messages per browser session (sessionStorage, with an in-memory fallback; **Start over** does not reset it). After that the composer is disabled and the discovery card explains the next step; no further model calls are made.
-- **Per client address (server):** 20 model-backed messages per 10 minutes and 60 per 24 hours for each address, in a bounded in-memory map (5,000 most recently seen addresses) per API worker. The address comes from `x-azure-clientip`, else the last `x-forwarded-for` hop (earlier, client-supplied hops are ignored). Over the limit the API returns a sanitized 429 with `Retry-After`; requests without an identifiable address are left to the per-worker caps.
+- **Per client address (server):** 20 model-backed messages per 10 minutes and 60 per 24 hours for each address, in a bounded in-memory map (5,000 most recently seen addresses) per API worker. By default (`ASSISTANT_CLIENT_ADDRESS_SOURCE` absent or `auto`) the address comes from `x-azure-clientip`, else the last `x-forwarded-for` hop (earlier, client-supplied hops are ignored); the setting can pick `azure-clientip`, `client-ip`, `forwarded-first`, `forwarded-last` or `off` once the hosted headers are verified (see **Verify the client address headers**). The per-worker caps are checked first, so a call the worker turns away as busy does not use up the visitor's allowance, and calls the limiter itself rejects are not counted. Over the limit the API returns a sanitized 429 with `Retry-After`; requests without an identifiable address are left to the per-worker caps.
 - **Per worker:** the existing caps below still apply (Groq four calls/minute, one concurrent, 100/day; Azure 30/minute, four concurrent).
 - Greetings with no matching knowledge are answered from a small grounded fallback (platform overview, discovery call and, with page context, the matching product pages) rather than a full retrieval set. Visitor text is never logged.
 

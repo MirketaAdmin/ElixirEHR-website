@@ -4,24 +4,59 @@
 
 const ADDRESS = /^[0-9a-f:.]{2,45}$/;
 
-// Azure sets x-azure-clientip itself. For x-forwarded-for, the last hop is the one the Azure edge
-// appended; earlier entries can be supplied by the client and are ignored.
-export function clientAddress(headers = {}) {
-  const read = (name) => {
-    if (!headers) return '';
-    const value = typeof headers.get === 'function' ? headers.get(name) : headers[name] ?? headers[name.toLowerCase()];
-    return typeof value === 'string' ? value : '';
-  };
-  const candidates = [read('x-azure-clientip'), read('x-forwarded-for').split(',').at(-1)];
+const SOURCES = new Set(['auto', 'azure-clientip', 'client-ip', 'forwarded-first', 'forwarded-last', 'off']);
+
+function readHeader(headers, name) {
+  if (!headers) return '';
+  const value = typeof headers.get === 'function' ? headers.get(name) : headers[name] ?? headers[name.toLowerCase()];
+  return typeof value === 'string' ? value : '';
+}
+
+function normalizeAddress(raw) {
+  let value = String(raw ?? '').trim().toLowerCase();
+  if (!value) return null;
+  const bracketed = /^\[([^\]]+)\](?::\d+)?$/.exec(value);
+  if (bracketed) value = bracketed[1];
+  else if (/^\d{1,3}(?:\.\d{1,3}){3}:\d+$/.test(value)) value = value.replace(/:\d+$/, '');
+  return ADDRESS.test(value) ? value : null;
+}
+
+// Which header carries the visitor address on the hosted Static Web Apps API is not yet verified
+// (see "Verify the client address headers" in docs/ELIXIR-SALES-ASSISTANT.md). `source` comes from
+// the ASSISTANT_CLIENT_ADDRESS_SOURCE app setting so it can be corrected without a code change:
+// - auto (default): x-azure-clientip, else the last x-forwarded-for hop.
+// - azure-clientip | client-ip: only that header.
+// - forwarded-first | forwarded-last: that end of x-forwarded-for.
+// - off: no per-client limit (the per-worker caps still apply).
+// An unknown value falls back to auto.
+export function clientAddressSource(value) {
+  const source = String(value ?? '').trim().toLowerCase();
+  return SOURCES.has(source) ? source : 'auto';
+}
+
+export function clientAddress(headers = {}, { source = 'auto' } = {}) {
+  const forwarded = readHeader(headers, 'x-forwarded-for').split(',');
+  const candidates = {
+    auto: () => [readHeader(headers, 'x-azure-clientip'), forwarded.at(-1)],
+    'azure-clientip': () => [readHeader(headers, 'x-azure-clientip')],
+    'client-ip': () => [readHeader(headers, 'x-client-ip')],
+    'forwarded-first': () => [forwarded[0]],
+    'forwarded-last': () => [forwarded.at(-1)],
+    off: () => [],
+  }[clientAddressSource(source)]();
   for (const raw of candidates) {
-    let value = String(raw ?? '').trim().toLowerCase();
-    if (!value) continue;
-    const bracketed = /^\[([^\]]+)\](?::\d+)?$/.exec(value);
-    if (bracketed) value = bracketed[1];
-    else if (/^\d{1,3}(?:\.\d{1,3}){3}:\d+$/.test(value)) value = value.replace(/:\d+$/, '');
-    if (ADDRESS.test(value)) return value;
+    const value = normalizeAddress(raw);
+    if (value) return value;
   }
   return null;
+}
+
+// Presence and counts only, never header values or visitor text: used once on the `latest`
+// preview to learn which address headers reach the managed function.
+export function addressHeaderDiagnostic(headers = {}) {
+  const forwarded = readHeader(headers, 'x-forwarded-for').split(',').filter((part) => part.trim());
+  const present = (name) => (readHeader(headers, name).trim() ? 'present' : 'absent');
+  return `x-azure-clientip=${present('x-azure-clientip')}; x-client-ip=${present('x-client-ip')}; x-forwarded-for-entries=${forwarded.length}`;
 }
 
 export function createClientLimiter({ limit = 20, windowMs = 10 * 60 * 1000, dailyLimit = 60, maxClients = 5000, now = Date.now } = {}) {
