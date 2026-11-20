@@ -61,6 +61,26 @@ test('upstream failure, timeout and malformed model output never leak provider d
   }
 });
 
+test('one transient model failure is retried once; auth, rate-limit and timeout failures are not', async () => {
+  const good = () => new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify({ answer: 'Hello', citationIds: [] }) } }] }));
+  const timeout = () => { const error = new Error('timed out'); error.name = 'TimeoutError'; throw error; };
+  const cases = [
+    { name: 'server error then success', steps: [() => new Response('down', { status: 500 }), good], status: 200, calls: 2 },
+    { name: 'malformed output then success', steps: [() => new Response(JSON.stringify({ choices: [{ message: { content: 'not JSON' } }] })), good], status: 200, calls: 2 },
+    { name: 'network error then success', steps: [() => { throw new Error('socket hang up'); }, good], status: 200, calls: 2 },
+    { name: 'two failures', steps: [() => new Response('down', { status: 500 }), () => new Response('down', { status: 500 }), good], status: 503, calls: 2 },
+    { name: 'auth failure', steps: [() => new Response('denied', { status: 401 }), good], status: 503, calls: 1 },
+    { name: 'rate limit', steps: [() => new Response('slow down', { status: 429 }), good], status: 429, calls: 1 },
+    { name: 'timeout', steps: [timeout, good], status: 503, calls: 1 },
+  ];
+  for (const { name, steps, status, calls } of cases) {
+    let made = 0;
+    const result = await createChatHandler({ env, knowledge, fetchImpl: async () => steps[made++]() })(body);
+    assert.equal(result.status, status, name);
+    assert.equal(made, calls, name);
+  }
+});
+
 test('per-instance admission control limits repeated model calls', async () => {
   const fetchImpl = async () => new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify({ answer: 'Hello', citationIds: [] }) } }] }));
   const handler = createChatHandler({ env, knowledge, fetchImpl });

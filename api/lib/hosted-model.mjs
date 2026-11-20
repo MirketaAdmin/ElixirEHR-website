@@ -24,6 +24,14 @@ export class ModelRateLimitError extends Error {
   }
 }
 
+/** The model provider rejected the configured key: retrying cannot help. */
+class ModelConfigError extends Error {
+  constructor() { super('Model configuration rejected.'); }
+}
+
+const MODEL_TIMEOUT_MS = 20000;
+const MODEL_RETRY_DELAY_MS = 300;
+
 export function createHostedModel({ env, fetchImpl = fetch }) {
   const provider = env.ASSISTANT_PROVIDER ?? 'azure';
   let url, auth, model;
@@ -64,16 +72,30 @@ export function createHostedModel({ env, fetchImpl = fetch }) {
         `Contact preference: ${request.contactPreference}. When declined, do not invite contact, ask for contact information or suggest a demo or discovery call. The application changes this preference only after a visitor-initiated request.`,
         `Knowledge data: ${JSON.stringify(sources.map(({ id, title, content }) => ({ id, title, content })))}`,
       ].join('\n');
-      const response = await fetchImpl(url, {
-        method: 'POST', redirect: 'error',
-        headers: { 'Content-Type': 'application/json', ...auth },
-        body: JSON.stringify({ model, messages: [{ role: 'system', content: instructions }, ...request.messages], response_format: responseFormat, max_completion_tokens: 1200, ...(provider === 'groq' && model.startsWith('openai/gpt-oss-') ? { reasoning_effort: 'low' } : {}) }),
-        signal: AbortSignal.timeout(20000),
-      });
-      if (response.status === 429) throw new ModelRateLimitError(response.headers.get('retry-after'));
-      if (!response.ok) throw new Error('Model temporarily unavailable.');
-      const payload = await response.json();
-      const reply = normalizeChatReply(JSON.parse(payload.choices?.[0]?.message?.content ?? ''), sources);
+      const requestBody = JSON.stringify({ model, messages: [{ role: 'system', content: instructions }, ...request.messages], response_format: responseFormat, max_completion_tokens: 1200, ...(provider === 'groq' && model.startsWith('openai/gpt-oss-') ? { reasoning_effort: 'low' } : {}) });
+      const attempt = async () => {
+        const response = await fetchImpl(url, {
+          method: 'POST', redirect: 'error',
+          headers: { 'Content-Type': 'application/json', ...auth },
+          body: requestBody,
+          signal: AbortSignal.timeout(MODEL_TIMEOUT_MS),
+        });
+        if (response.status === 429) throw new ModelRateLimitError(response.headers.get('retry-after'));
+        if (response.status === 401 || response.status === 403) throw new ModelConfigError();
+        if (!response.ok) throw new Error('Model temporarily unavailable.');
+        const payload = await response.json();
+        return normalizeChatReply(JSON.parse(payload.choices?.[0]?.message?.content ?? ''), sources);
+      };
+      let reply;
+      try { reply = await attempt(); }
+      catch (error) {
+        // One retry for a transient failure (server error, dropped connection, malformed output).
+        // Never for a rate limit or a rejected key, and never after a timeout: a second full wait
+        // would outlast the function's own time limit.
+        if (error instanceof ModelRateLimitError || error instanceof ModelConfigError || ['TimeoutError', 'AbortError'].includes(error?.name)) throw error;
+        await new Promise((resolve) => setTimeout(resolve, MODEL_RETRY_DELAY_MS));
+        reply = await attempt();
+      }
       // The model may only extract literal visitor text, not infer or invent qualification facts.
       const latest = request.messages.at(-1).content.toLowerCase();
       reply.qualification = Object.fromEntries(Object.entries(reply.qualification).filter(([, value]) => latest.includes(value.toLowerCase())));
