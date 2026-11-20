@@ -23,26 +23,26 @@ Set these Static Web Apps application settings on the **production** environment
 | `GROQ_API_KEY`, `GROQ_MODEL` | when `groq`; `GROQ_MODEL=openai/gpt-oss-20b` is the tested model |
 | `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`, `AZURE_OPENAI_API_KEY` | when `azure` |
 | `ASSISTANT_KNOWLEDGE_MODE`, `ASSISTANT_REVIEW_ENVIRONMENT` | **absent** in production, so only the approved collection in `api/lib/knowledge.mjs` is used |
-| `ASSISTANT_CLIENT_ADDRESS_SOURCE` | the value chosen in **Verify the client address headers** below (absent means `auto`) |
+| `ASSISTANT_CLIENT_ADDRESS_SOURCE` | **absent** (`auto`, verified below: the second-to-last `x-forwarded-for` hop) |
 | `ASSISTANT_ADDRESS_DIAGNOSTIC` | **absent** in production (it only has an effect on the `latest` review environment) |
 
 Deploy `dist/` together with the clean API artifact from `node scripts/prepare-assistant-api.mjs` (Node 22, `/api/*` excluded from the SPA fallback), exactly as for the hosted preview below but against the production environment. A build made with `VITE_ELIXIR_ASSISTANT_MODE=hosted` runs hosted on any host that is not a preview host (`*.azurestaticapps.net`): `www.elixirehr.com`, the bare `elixirehr.com`, another custom domain, or `localhost` serving `dist/`. The resolver does not check the production hostname, so build with `hosted` only for the production deployment. Preview hosts keep their existing sample/`latest` behaviour; in-chat lead submission separately requires the exact origin `https://www.elixirehr.com` (see below). To switch the assistant off quickly, set `ASSISTANT_ENABLED=false` (immediate, widget shows the Contact Us fallback) or rebuild with `VITE_ELIXIR_ASSISTANT_MODE=off` (removes the launcher).
 
-### Verify the client address headers (required before going live)
+### Verify the client address headers (done 2026-11-19)
 
-The per-client limit is only as good as the address it reads. Nothing in this repository shows which address headers Static Web Apps forwards to a managed function. If `x-azure-clientip` is missing there and the last `x-forwarded-for` hop is an Azure edge or proxy address, every visitor would share one bucket, and the whole site would be held to 20 messages per 10 minutes and 60 per day (a 429 for everyone soon after launch). **Status: not yet verified on the hosted `latest` preview.** Do this once before the production deploy:
+The per-client limit is only as good as the address it reads. If it read an edge or proxy hop, every visitor would share one bucket and the whole site would be held to 20 messages per 10 minutes and 60 per day.
 
-1. On the `latest` environment (which already has `ASSISTANT_KNOWLEDGE_MODE=review` and `ASSISTANT_REVIEW_ENVIRONMENT=latest`), set the app setting `ASSISTANT_ADDRESS_DIAGNOSTIC=true`.
-2. Send one assistant message from two different networks (for example office Wi-Fi and a phone hotspot) and read the `X-Elixir-Address-Headers` response header in the browser's network panel. It reports only presence and a count, for example `x-azure-clientip=present; x-client-ip=absent; x-forwarded-for-entries=2`; it never contains an address or visitor text. The diagnostic is ignored outside `latest`.
-3. Choose `ASSISTANT_CLIENT_ADDRESS_SOURCE` for production:
-   - `x-azure-clientip` present: leave it absent (`auto`), or set `azure-clientip`.
-   - `x-azure-clientip` absent and `x-client-ip` present: `client-ip`.
-   - Only `x-forwarded-for`, one entry: `auto` (that entry is the visitor).
-   - Only `x-forwarded-for`, several entries with the edge appending its own hop last: `forwarded-first`. Note that the first hop can be supplied by the client, so this weakens the limit against a determined caller; the per-worker caps still bound cost.
-   - Nothing usable: `off`. The per-client limit is then disabled and the per-worker caps and the browser session cap remain.
-4. Remove `ASSISTANT_ADDRESS_DIAGNOSTIC` from `latest`, record the observed header line and the chosen value here, and set the same `ASSISTANT_CLIENT_ADDRESS_SOURCE` on production.
+**Result, measured on the hosted `latest` preview on 2026-11-19** with `ASSISTANT_ADDRESS_DIAGNOSTIC=true` (since removed):
 
-Recorded result: pending (fill in the observed header line, date and chosen source after step 2).
+```
+x-azure-clientip=absent; x-client-ip=absent; x-forwarded-for-entries=2; x-forwarded-for-hops=public-v4+port,public-v4+port; probe-match=-2
+with a spoofed X-Forwarded-For: 203.0.113.9 ->
+x-azure-clientip=absent; x-client-ip=absent; x-forwarded-for-entries=3; x-forwarded-for-hops=public-v4,public-v4+port,public-v4+port; probe-match=-2
+```
+
+The edge keeps whatever `x-forwarded-for` the client sent, then appends the visitor address and its own hop, so the visitor is always the **second-to-last** hop (`probe-match=-2`: the tester's own public address, sent in `x-elixir-address-probe`, matched that hop; no address is ever echoed). `auto` now reads `x-azure-clientip` if present, else that second-to-last hop, so production needs no `ASSISTANT_CLIENT_ADDRESS_SOURCE` setting. The first hop is client-controlled and the last hop is the edge, so `forwarded-first` and `forwarded-last` must not be used here.
+
+To re-check after a platform change: set `ASSISTANT_ADDRESS_DIAGNOSTIC=true` on `latest` only, send one message with the header `x-elixir-address-probe: <your public address>`, read `X-Elixir-Address-Headers` in the network panel, then remove the setting. Other values for `ASSISTANT_CLIENT_ADDRESS_SOURCE`: `azure-clientip`, `client-ip`, `forwarded-first`, `forwarded-last`, `forwarded-second-last`, `off` (per-client limit disabled; the per-worker caps and the browser session cap remain).
 
 ## Discovery-call handoff and fallbacks
 

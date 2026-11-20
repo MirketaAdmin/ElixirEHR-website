@@ -81,7 +81,9 @@ test('the persona asks one question at a time, steers to a discovery call and ca
 
 test('client addresses come from Azure headers and ignore client-supplied forwarding entries', () => {
   assert.equal(clientAddress({ 'x-azure-clientip': '203.0.113.7', 'x-forwarded-for': '198.51.100.1' }), '203.0.113.7');
-  assert.equal(clientAddress({ 'x-forwarded-for': '1.1.1.1, 203.0.113.9:51234' }), '203.0.113.9');
+  assert.equal(clientAddress({ 'x-forwarded-for': '1.1.1.1, 203.0.113.9:51234' }), '1.1.1.1');
+  // A spoofed client entry does not move the visitor: the edge appends the visitor, then its own hop.
+  assert.equal(clientAddress({ 'x-forwarded-for': '6.6.6.6, 203.0.113.9:51234, 198.51.100.200:443' }), '203.0.113.9');
   assert.equal(clientAddress({ 'x-forwarded-for': '[2001:db8::1]:443' }), '2001:db8::1');
   assert.equal(clientAddress(new Headers({ 'x-forwarded-for': '2001:DB8::2' })), '2001:db8::2');
   assert.equal(clientAddress({ 'x-forwarded-for': '<script>' }), null);
@@ -236,13 +238,19 @@ test('the client address source is configurable and the header diagnostic report
   assert.equal(clientAddress(headers, { source: 'client-ip' }), '198.51.100.4');
   assert.equal(clientAddress(headers, { source: 'forwarded-first' }), '198.51.100.9');
   assert.equal(clientAddress(headers, { source: 'forwarded-last' }), '10.0.0.1');
+  assert.equal(clientAddress({ 'x-forwarded-for': '1.2.3.4, 198.51.100.9:5000, 10.0.0.1' }, { source: 'forwarded-second-last' }), '198.51.100.9');
+  assert.equal(clientAddress({ 'x-forwarded-for': '198.51.100.9' }, { source: 'forwarded-second-last' }), '198.51.100.9');
   assert.equal(clientAddress(headers, { source: 'off' }), null);
   assert.equal(clientAddress({ 'x-forwarded-for': '198.51.100.9' }, { source: 'client-ip' }), null);
   assert.equal(clientAddressSource(' Client-IP '), 'client-ip');
   assert.equal(clientAddressSource('anything-else'), 'auto');
   assert.equal(clientAddressSource(undefined), 'auto');
-  assert.equal(addressHeaderDiagnostic(headers), 'x-azure-clientip=present; x-client-ip=present; x-forwarded-for-entries=2');
+  assert.equal(addressHeaderDiagnostic(headers), 'x-azure-clientip=present; x-client-ip=present; x-forwarded-for-entries=2; x-forwarded-for-hops=public-v4,private-v4');
+  assert.equal(addressHeaderDiagnostic({ 'x-forwarded-for': '203.0.113.9, 198.51.100.2:5123, [2001:db8::1]:443' }), 'x-azure-clientip=absent; x-client-ip=absent; x-forwarded-for-entries=3; x-forwarded-for-hops=public-v4,public-v4+port,public-v6+port');
   assert.equal(addressHeaderDiagnostic({}), 'x-azure-clientip=absent; x-client-ip=absent; x-forwarded-for-entries=0');
+  assert.match(addressHeaderDiagnostic({ 'x-forwarded-for': '1.2.3.4, 198.51.100.9:5000, 203.0.113.1:443', 'x-elixir-address-probe': '198.51.100.9' }), /; probe-match=-2$/);
+  assert.match(addressHeaderDiagnostic({ 'x-forwarded-for': '203.0.113.1:443', 'x-elixir-address-probe': '198.51.100.9' }), /; probe-match=none$/);
+  assert.doesNotMatch(addressHeaderDiagnostic({ 'x-forwarded-for': '198.51.100.9', 'x-elixir-address-probe': '198.51.100.9' }), /198\.51/);
   assert.doesNotMatch(addressHeaderDiagnostic(headers), /203\.0|198\.51|10\.0/);
 
   // The source setting reaches the handler: with `off` one address is never limited per client.
@@ -253,7 +261,7 @@ test('the client address source is configurable and the header diagnostic report
   const body = ask('Tell me about your EHR templates');
   const latest = createChatHandler({ env: { ...env, ASSISTANT_ADDRESS_DIAGNOSTIC: 'true', ASSISTANT_KNOWLEDGE_MODE: 'review', ASSISTANT_REVIEW_ENVIRONMENT: 'latest' }, fetchImpl: async () => modelReply() });
   const diagnosed = await latest(body, { headers });
-  assert.equal(diagnosed.headers['X-Elixir-Address-Headers'], 'x-azure-clientip=present; x-client-ip=present; x-forwarded-for-entries=2');
+  assert.equal(diagnosed.headers['X-Elixir-Address-Headers'], 'x-azure-clientip=present; x-client-ip=present; x-forwarded-for-entries=2; x-forwarded-for-hops=public-v4,private-v4');
   assert.doesNotMatch(JSON.stringify(diagnosed), /203\.0\.113|198\.51\.100/);
   const production = createChatHandler({ env: { ...env, ASSISTANT_ADDRESS_DIAGNOSTIC: 'true' }, fetchImpl: async () => modelReply() });
   assert.equal((await production(body, { headers })).headers['X-Elixir-Address-Headers'], undefined);

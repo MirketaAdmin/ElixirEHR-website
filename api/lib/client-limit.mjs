@@ -4,7 +4,7 @@
 
 const ADDRESS = /^[0-9a-f:.]{2,45}$/;
 
-const SOURCES = new Set(['auto', 'azure-clientip', 'client-ip', 'forwarded-first', 'forwarded-last', 'off']);
+const SOURCES = new Set(['auto', 'azure-clientip', 'client-ip', 'forwarded-first', 'forwarded-last', 'forwarded-second-last', 'off']);
 
 function readHeader(headers, name) {
   if (!headers) return '';
@@ -21,12 +21,17 @@ function normalizeAddress(raw) {
   return ADDRESS.test(value) ? value : null;
 }
 
-// Which header carries the visitor address on the hosted Static Web Apps API is not yet verified
-// (see "Verify the client address headers" in docs/ELIXIR-SALES-ASSISTANT.md). `source` comes from
-// the ASSISTANT_CLIENT_ADDRESS_SOURCE app setting so it can be corrected without a code change:
-// - auto (default): x-azure-clientip, else the last x-forwarded-for hop.
+// Verified on the hosted `latest` preview (2026-11-19, see "Verify the client address headers" in
+// docs/ELIXIR-SALES-ASSISTANT.md): the managed function gets no x-azure-clientip or x-client-ip, and
+// the edge keeps any client-supplied x-forwarded-for entries, then appends the visitor address and
+// its own hop. So the visitor is the second-to-last hop. `source` comes from the
+// ASSISTANT_CLIENT_ADDRESS_SOURCE app setting so it can be corrected without a code change:
+// - auto (default): x-azure-clientip, else the second-to-last x-forwarded-for hop (the only hop
+//   when there is one).
 // - azure-clientip | client-ip: only that header.
 // - forwarded-first | forwarded-last: that end of x-forwarded-for.
+// - forwarded-second-last: the hop before the last one, for an edge that keeps any client-supplied
+//   entries and then appends the visitor address and its own hop (falls back to the only entry).
 // - off: no per-client limit (the per-worker caps still apply).
 // An unknown value falls back to auto.
 export function clientAddressSource(value) {
@@ -37,11 +42,12 @@ export function clientAddressSource(value) {
 export function clientAddress(headers = {}, { source = 'auto' } = {}) {
   const forwarded = readHeader(headers, 'x-forwarded-for').split(',');
   const candidates = {
-    auto: () => [readHeader(headers, 'x-azure-clientip'), forwarded.at(-1)],
+    auto: () => [readHeader(headers, 'x-azure-clientip'), forwarded.length > 1 ? forwarded.at(-2) : forwarded[0]],
     'azure-clientip': () => [readHeader(headers, 'x-azure-clientip')],
     'client-ip': () => [readHeader(headers, 'x-client-ip')],
     'forwarded-first': () => [forwarded[0]],
     'forwarded-last': () => [forwarded.at(-1)],
+    'forwarded-second-last': () => [forwarded.length > 1 ? forwarded.at(-2) : forwarded[0]],
     off: () => [],
   }[clientAddressSource(source)]();
   for (const raw of candidates) {
@@ -51,12 +57,36 @@ export function clientAddress(headers = {}, { source = 'auto' } = {}) {
   return null;
 }
 
-// Presence and counts only, never header values or visitor text: used once on the `latest`
-// preview to learn which address headers reach the managed function.
+function hopShape(raw) {
+  const text = String(raw ?? '').trim();
+  const value = normalizeAddress(text);
+  if (!value) return 'invalid';
+  const port = /^\[.*\]:\d+$|^\d{1,3}(?:\.\d{1,3}){3}:\d+$/.test(text) ? '+port' : '';
+  const v4 = /^(\d{1,3})\.(\d{1,3})\./.exec(value);
+  let scope = 'public';
+  if (v4) {
+    const [a, b] = [Number(v4[1]), Number(v4[2])];
+    if (a === 10 || a === 127 || (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) || (a === 100 && b >= 64 && b <= 127) || (a === 169 && b === 254)) scope = 'private';
+  } else if (value === '::1' || /^f[cd]/.test(value) || /^fe[89ab]/.test(value)) scope = 'private';
+  return `${scope}-${v4 ? 'v4' : 'v6'}${port}`;
+}
+
+// Presence, counts and coarse hop shapes only (public/private, v4/v6, port), never header values
+// or visitor text: used once on the `latest` preview to learn which address headers reach the
+// managed function and which x-forwarded-for hop is the visitor.
 export function addressHeaderDiagnostic(headers = {}) {
   const forwarded = readHeader(headers, 'x-forwarded-for').split(',').filter((part) => part.trim());
   const present = (name) => (readHeader(headers, name).trim() ? 'present' : 'absent');
-  return `x-azure-clientip=${present('x-azure-clientip')}; x-client-ip=${present('x-client-ip')}; x-forwarded-for-entries=${forwarded.length}`;
+  const hops = forwarded.length ? `; x-forwarded-for-hops=${forwarded.map(hopShape).join(',')}` : '';
+  // A tester may send its own public address in x-elixir-address-probe; only the matching hop
+  // index (counted from the end, -1 is the last hop) is reported, never an address.
+  const probe = normalizeAddress(readHeader(headers, 'x-elixir-address-probe'));
+  let match = '';
+  if (probe) {
+    const index = forwarded.map(normalizeAddress).lastIndexOf(probe);
+    match = `; probe-match=${index < 0 ? 'none' : index - forwarded.length}`;
+  }
+  return `x-azure-clientip=${present('x-azure-clientip')}; x-client-ip=${present('x-client-ip')}; x-forwarded-for-entries=${forwarded.length}${hops}${match}`;
 }
 
 export function createClientLimiter({ limit = 20, windowMs = 10 * 60 * 1000, dailyLimit = 60, maxClients = 5000, now = Date.now } = {}) {
