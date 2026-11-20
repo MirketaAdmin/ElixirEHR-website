@@ -1,6 +1,55 @@
 # Elixir sales assistant
 
-This branch adds a custom visitor assistant, temporary qualification state, editable demo-request recap and server-side Groq/Azure model adapters. Installing or building the branch does not activate external services.
+This branch adds a custom visitor assistant ("Ask Elixir"), temporary qualification state, editable demo-request recap and server-side Groq/Azure model adapters. Installing or building the branch does not activate external services.
+
+On the public site the assistant behaves as a consultative Elixir specialist: it answers from approved site knowledge, asks one sharp qualifying question at a time (provider type and setting, size, current system, top pain, timeline), and after it has helped, or on clear buying intent, recommends booking a discovery call. The handoff is a **Book a discovery call** link to `https://www.elixirehr.com/contact-us/` (same tab); in-chat lead submission stays off in production.
+
+## Going live on www.elixirehr.com
+
+Build the production site with these Vite variables (build time, public, never secrets):
+
+| Variable | Value | Effect |
+| --- | --- | --- |
+| `VITE_ELIXIR_ASSISTANT_MODE` | `hosted` | Shows the launcher and calls same-origin `/api/chat`. Use `off` as the kill switch (no launcher anywhere; the open event then sends visitors to Contact Us). Absent means off in production. |
+| `VITE_ELIXIR_LEAD_SUBMISSION_ENABLED` | absent or `false` | Keeps the in-chat request form off. The discovery-call link is the production handoff. |
+| `VITE_ELIXIR_HOSTED_PREVIEW_ENABLED` | absent | Only for the `latest` team preview. |
+
+Set these Static Web Apps application settings on the **production** environment (encrypted backend settings; never in a `VITE_` variable, file or command argument):
+
+| Setting | Value |
+| --- | --- |
+| `ASSISTANT_ENABLED` | `true` (absent or anything else returns a sanitized 503, and the widget shows the discovery-call fallback) |
+| `ASSISTANT_PROVIDER` | `groq` or `azure` (default `azure`) |
+| `GROQ_API_KEY`, `GROQ_MODEL` | when `groq`; `GROQ_MODEL=openai/gpt-oss-20b` is the tested model |
+| `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`, `AZURE_OPENAI_API_KEY` | when `azure` |
+| `ASSISTANT_KNOWLEDGE_MODE`, `ASSISTANT_REVIEW_ENVIRONMENT` | **absent** in production, so only the approved collection in `api/lib/knowledge.mjs` is used |
+
+Deploy `dist/` together with the clean API artifact from `node scripts/prepare-assistant-api.mjs` (Node 22, `/api/*` excluded from the SPA fallback), exactly as for the hosted preview below but against the production environment. The mode resolver runs hosted on the exact origin `https://www.elixirehr.com` only when the build says `hosted`; preview hosts keep their existing sample/`latest` behaviour. To switch the assistant off quickly, set `ASSISTANT_ENABLED=false` (immediate, widget shows the Contact Us fallback) or rebuild with `VITE_ELIXIR_ASSISTANT_MODE=off` (removes the launcher).
+
+## Discovery-call handoff and fallbacks
+
+- A slim **Book a discovery call** bar is always visible at the top of the open assistant.
+- A highlighted discovery card appears after a demo/pricing intent, once the assistant has answered three visitor messages, when the visitor reaches the session message cap, and whenever the model is unavailable, disabled, rate limited or errors. Every error message is paired with the same link, so there is no dead end. After a visitor declines contact the link stays available but is not pushed.
+- Previews and local development keep the editable demo-request recap (`Request a demo`, `Keep exploring`) so the existing review flow can still be tested; it never submits there.
+
+## Cost controls
+
+- **Per visitor session:** the widget allows 12 visitor messages per browser session (sessionStorage, with an in-memory fallback; **Start over** does not reset it). After that the composer is disabled and the discovery card explains the next step; no further model calls are made.
+- **Per client address (server):** 20 model-backed messages per 10 minutes and 60 per 24 hours for each address, in a bounded in-memory map (5,000 most recently seen addresses) per API worker. The address comes from `x-azure-clientip`, else the last `x-forwarded-for` hop (earlier, client-supplied hops are ignored). Over the limit the API returns a sanitized 429 with `Retry-After`; requests without an identifiable address are left to the per-worker caps.
+- **Per worker:** the existing caps below still apply (Groq four calls/minute, one concurrent, 100/day; Azure 30/minute, four concurrent).
+- Greetings with no matching knowledge are answered from a small grounded fallback (platform overview, discovery call and, with page context, the matching product pages) rather than a full retrieval set. Visitor text is never logged.
+
+All three are per instance and reset on restart; they bound accidental and casual cost, not a determined attacker. A monitored provider budget remains the account-level backstop.
+
+## Opening the assistant from any page
+
+Any code on the site can open the assistant:
+
+```js
+window.dispatchEvent(new CustomEvent('elixir:open-assistant', { detail: { providerType: 'treatment-center', prompt: null } }));
+```
+
+`providerType` is one of `online-behavioral-health`, `treatment-center`, `cybhi`, `homecare`, `specialty-clinic`, or `null`; unknown values are ignored. `prompt` is an optional first visitor message: it prefills the input and is never sent automatically. The assistant opens, focuses its input, tailors an untouched greeting, and sends the provider type to the API as page context (a hint, never a visitor-stated qualification fact) and into the demo recap. `openAssistant()` and `listenForOpenAssistant()` in `src/features/sales-assistant/openAssistant.mjs` wrap the same event. The listener is registered after hydration; when the assistant is built `off`, the event sends the visitor to the Contact Us page.
 
 ## Try the local preview
 
@@ -37,7 +86,7 @@ Without complete configuration the handler returns an unavailable response, not 
 
 ## Approved knowledge
 
-The production collection is `api/lib/knowledge.mjs`. It is deliberately empty until the product owner supplies and approves content. Each entry needs `id`, `status: 'approved'`, `owner`, `reviewedAt` (`YYYY-MM-DD`), `title`, HTTPS `url` and `content` (up to 3,000 characters). Drafts are excluded by default. The explicit two-setting `latest` review mode loads `api/lib/review-knowledge.mjs`, small draft summaries with source-file provenance from the current live baseline. The date there records capture, not approval. The UI and model instructions identify this mode as a team test. The retriever sends up to four matching passages, with an overview fallback for greetings and qualification-only turns in that test mode.
+The production collection is `api/lib/knowledge.mjs`: 21 entries condensed only from copy already on the site (platform overview, EHR, RCM, AI-assisted billing, behavioral health, addiction treatment, treatment centers, mental health, telehealth, EVV, the caregiver app, Salesforce Field Service EVV, patient portal, Kratu AI, HIPAA/BAA, security and ONC certification, outpatient clinics, small practices, aesthetic practices, student health/CYBHI and the discovery call). Each records its `sourceFile`, owner `Elixir marketing (approved on merge to main)` and `reviewedAt` `2026-11-19`; approval is given by merging to main. Tests check every URL is a real route in `src/App.jsx`, every source file exists, content stays within 3,000 characters and no prices are quoted. When a page changes, update its entry in the same change. Each entry needs `id`, `status: 'approved'`, `owner`, `reviewedAt` (`YYYY-MM-DD`), `title`, HTTPS `url` and `content` (up to 3,000 characters). Drafts are excluded by default. The explicit two-setting `latest` review mode loads `api/lib/review-knowledge.mjs`, small draft summaries with source-file provenance from the current live baseline. The date there records capture, not approval. The UI and model instructions identify this mode as a team test. The retriever scores recent visitor messages against titles, content and per-entry keywords (ignoring stop words), boosts pages that match the page context, and sends up to four passages, with a small grounded fallback for greetings and qualification-only turns.
 
 Existing FAQs can seed draft entries but are not automatically approved. No custom model training is involved. Only source IDs from retrieved entries can become visible links. Qualification extraction is restricted to literal text from the latest visitor message; the review form remains authoritative before any submission.
 

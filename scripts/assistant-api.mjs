@@ -12,7 +12,8 @@ const server = createServer(async (req, res) => {
       if (bytes > 32000) { send(413, { error: 'Please shorten your message.' }); return; }
       chunks.push(chunk);
     }
-    const result = await handler(JSON.parse(Buffer.concat(chunks).toString()));
+    const forwarded = typeof req.headers['x-forwarded-for'] === 'string' ? req.headers['x-forwarded-for'] : req.socket.remoteAddress ?? '';
+    const result = await handler(JSON.parse(Buffer.concat(chunks).toString()), { headers: { 'x-forwarded-for': forwarded } });
     send(result.status, result.body, result.headers);
   } catch { send(400, { error: 'Invalid request.' }); }
 });

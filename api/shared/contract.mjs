@@ -8,6 +8,19 @@ export const QUALIFICATION_FIELDS = {
   timeline: 'When are you hoping to make a change?',
 };
 const fields = Object.keys(QUALIFICATION_FIELDS);
+// Page context another part of the site can pass when it opens the assistant (elixir:open-assistant).
+// A hint about where the visitor came from, never a visitor-stated fact.
+export const PROVIDER_TYPES = {
+  'online-behavioral-health': 'Online or virtual behavioral health provider',
+  'treatment-center': 'Addiction or behavioral health treatment center',
+  cybhi: 'School-based behavioral health billing under California’s CYBHI fee schedule',
+  homecare: 'Home care or home and community-based services',
+  'specialty-clinic': 'Specialty or outpatient clinic',
+};
+export function safeProviderType(value) {
+  return typeof value === 'string' && Object.hasOwn(PROVIDER_TYPES, value) ? value : null;
+}
+export const DISCOVERY_URL = 'https://www.elixirehr.com/contact-us/';
 export const MAX_MESSAGES = 24;
 export const MAX_USER_LENGTH = 2000;
 export function isExplicitDemoRequest(text) {
@@ -49,7 +62,8 @@ export function validateChatRequest(body) {
   if (messages.at(-1).role !== 'user' || messages.reduce((n, message) => n + message.content.length, 0) > 18000) throw new Error('Please start a new conversation.');
   if (body.skipped !== undefined && (!Array.isArray(body.skipped) || body.skipped.length > fields.length || body.skipped.some((field) => !fields.includes(field)))) throw new Error('Invalid skipped question.');
   if (body.contactPreference !== undefined && !['unknown', 'declined', 'requested'].includes(body.contactPreference)) throw new Error('Invalid contact preference.');
-  return { messages, qualification: cleanFacts(body.qualification, true), skipped: [...new Set(body.skipped ?? [])], sourcePath: safeSourcePath(body.sourcePath), contactPreference: body.contactPreference ?? 'unknown' };
+  if (body.providerType !== undefined && body.providerType !== null && !safeProviderType(body.providerType)) throw new Error('Invalid provider type.');
+  return { messages, qualification: cleanFacts(body.qualification, true), skipped: [...new Set(body.skipped ?? [])], sourcePath: safeSourcePath(body.sourcePath), contactPreference: body.contactPreference ?? 'unknown', providerType: safeProviderType(body.providerType) };
 }
 
 export function normalizeChatReply(value, sources = []) {
